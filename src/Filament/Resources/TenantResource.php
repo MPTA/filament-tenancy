@@ -195,9 +195,9 @@ class TenantResource extends Resource
                             \DB::purge('pgsql');
                             
                             // Force terminate all connections to the database with retry
-                            for ($i = 0; $i < 3; $i++) {
-                                \DB::connection('pgsql')->statement("SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = '{$dbName}' AND pid <> pg_backend_pid()");
-                                sleep(1); // Wait 1 second between attempts
+                            for ($i = 0; $i < 5; $i++) {
+                                \DB::connection('pgsql')->statement("SELECT pg_terminate_backend(pid, true) FROM pg_stat_activity WHERE datname = '{$dbName}' AND pid <> pg_backend_pid()");
+                                sleep(2); // Wait 2 seconds between attempts
                             }
                             
                             // Additional wait to ensure connections are closed
@@ -229,9 +229,9 @@ class TenantResource extends Resource
                                     \DB::purge('pgsql');
                                     
                                     // Force terminate all connections to the database with retry
-                                    for ($i = 0; $i < 3; $i++) {
-                                        \DB::connection('pgsql')->statement("SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = '{$dbName}' AND pid <> pg_backend_pid()");
-                                        sleep(1); // Wait 1 second between attempts
+                                    for ($i = 0; $i < 5; $i++) {
+                                        \DB::connection('pgsql')->statement("SELECT pg_terminate_backend(pid, true) FROM pg_stat_activity WHERE datname = '{$dbName}' AND pid <> pg_backend_pid()");
+                                        sleep(2); // Wait 2 seconds between attempts
                                     }
                                     
                                     // Additional wait to ensure connections are closed
