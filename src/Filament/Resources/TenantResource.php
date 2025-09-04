@@ -125,14 +125,14 @@ class TenantResource extends Resource
             ])
             ->defaultSort('created_at', 'desc')
             ->actions([
-                Tables\Actions\Action::make('view')
+                Action::make('view')
                     ->label(trans('filament-tenancy::messages.actions.view'))
                     ->tooltip(trans('filament-tenancy::messages.actions.view'))
                     ->iconButton()
                     ->icon('heroicon-s-link')
                     ->url(fn ($record) => request()->getScheme() . '://' . ($record->domains()->first()?->domain ?? '') . '.' . config('filament-tenancy.central_domain') . '/' . filament()->getDefaultPanel()->getPath())
                     ->openUrlInNewTab(),
-                Tables\Actions\Action::make('login')
+                Action::make('login')
                     ->label(trans('filament-tenancy::messages.actions.login'))
                     ->tooltip(trans('filament-tenancy::messages.actions.login'))
                     ->visible(config('filament-tenancy.allow_impersonate', false))
@@ -144,7 +144,7 @@ class TenantResource extends Resource
                         $token = tenancy()->impersonate($record, 1, '/app', 'web');
                         return redirect()->to(request()->getScheme() . '://' . $record->domains[0]->domain . '.' . config('filament-tenancy.central_domain') . '/login/url?token=' . $token->token . '&email=' . urlencode($record->email));
                     }),
-                Tables\Actions\Action::make('password')
+                Action::make('password')
                     ->label(trans('filament-tenancy::messages.actions.password'))
                     ->tooltip(trans('filament-tenancy::messages.actions.password'))
                     ->requiresConfirmation()
@@ -176,18 +176,18 @@ class TenantResource extends Resource
                             ->success()
                             ->send();
                     }),
-                Tables\Actions\EditAction::make()
+                EditAction::make()
                     ->label(trans('filament-tenancy::messages.actions.edit'))
                     ->tooltip(trans('filament-tenancy::messages.actions.edit'))
                     ->iconButton(),
-                Tables\Actions\DeleteAction::make()
+                DeleteAction::make()
                     ->label(trans('filament-tenancy::messages.actions.delete'))
                     ->tooltip(trans('filament-tenancy::messages.actions.delete'))
                     ->iconButton(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
                 ]),
             ]);
     }
