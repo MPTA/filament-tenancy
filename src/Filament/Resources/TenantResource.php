@@ -9,6 +9,7 @@ use Filament\Forms\Set;
 use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
+use Filament\Schemas\Components\Section;
 use Filament\Tables;
 use Filament\Actions\Action;
 use Filament\Actions\BulkActionGroup;
@@ -50,7 +51,7 @@ class TenantResource extends Resource
     {
         return $schema
             ->schema([
-                Forms\Components\Section::make([
+                Section::make([
                     Forms\Components\TextInput::make('name')
                         ->label(trans('filament-tenancy::messages.columns.name'))
                         ->required()
