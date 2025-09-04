@@ -6,6 +6,7 @@ use TomatoPHP\FilamentTenancy\Filament\Resources\TenantResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class EditTenant extends EditRecord
 {
@@ -28,12 +29,12 @@ class EditTenant extends EditRecord
                     
                     try {
                         // Close all connections
-                        \DB::purge('dynamic');
-                        \DB::purge('pgsql');
+                        DB::purge('dynamic');
+                        DB::purge('pgsql');
                         
                         // Force terminate all connections to the database with retry
                         for ($i = 0; $i < 5; $i++) {
-                            \DB::connection('pgsql')->statement("SELECT pg_terminate_backend(pid, true) FROM pg_stat_activity WHERE datname = '{$dbName}' AND pid <> pg_backend_pid()");
+                            DB::connection('pgsql')->statement("SELECT pg_terminate_backend(pid, true) FROM pg_stat_activity WHERE datname = '{$dbName}' AND pid <> pg_backend_pid()");
                             sleep(2); // Wait 2 seconds between attempts
                         }
                         
@@ -42,13 +43,13 @@ class EditTenant extends EditRecord
                         
                         // Check if database exists before triggering deletion
                         config(['database.connections.dynamic.database' => $dbName]);
-                        \DB::connection('dynamic')->getPdo();
+                        DB::connection('dynamic')->getPdo();
                         
                         // Database exists, trigger deletion event
                         event(new \Stancl\Tenancy\Events\TenantDeleted($record));
                     } catch (\Exception $e) {
                         // Database doesn't exist or connection failed, skip deletion event
-                        \Log::info("Database {$dbName} does not exist or connection failed, skipping deletion event: " . $e->getMessage());
+                        Log::info("Database {$dbName} does not exist or connection failed, skipping deletion event: " . $e->getMessage());
                     }
                 }),
         ];
