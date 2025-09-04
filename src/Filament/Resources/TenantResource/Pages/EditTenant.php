@@ -31,8 +31,14 @@ class EditTenant extends EditRecord
                         \DB::purge('dynamic');
                         \DB::purge('pgsql');
                         
-                        // Force terminate all connections to the database
-                        \DB::connection('pgsql')->statement("SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = '{$dbName}' AND pid <> pg_backend_pid()");
+                        // Force terminate all connections to the database with retry
+                        for ($i = 0; $i < 3; $i++) {
+                            \DB::connection('pgsql')->statement("SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = '{$dbName}' AND pid <> pg_backend_pid()");
+                            sleep(1); // Wait 1 second between attempts
+                        }
+                        
+                        // Additional wait to ensure connections are closed
+                        sleep(2);
                         
                         // Check if database exists before triggering deletion
                         config(['database.connections.dynamic.database' => $dbName]);
