@@ -63,6 +63,9 @@ class CreateTenant extends CreateRecord
 
         $record = $this->record;
 
+        // Wait for tenant creation pipeline to complete
+        sleep(2);
+        
         try {
             if (!config('filament-tenancy.single_database')) {
                 $dbName = config('tenancy.database.prefix') . $record->id . config('tenancy.database.suffix');
@@ -72,7 +75,16 @@ class CreateTenant extends CreateRecord
 
             DB::connection('dynamic')->getPdo();
         } catch (\Exception $e) {
-            throw new \Exception("Failed to connect to tenant database: {$dbName}");
+            // If database connection fails, try to run migrations and seeders manually
+            try {
+                \Artisan::call('tenants:migrate', ['--tenants' => $record->id]);
+                \Artisan::call('tenants:seed', ['--tenants' => $record->id]);
+                
+                // Try connection again
+                DB::connection('dynamic')->getPdo();
+            } catch (\Exception $e2) {
+                throw new \Exception("Failed to connect to tenant database: {$dbName}. Error: " . $e2->getMessage());
+            }
         }
 
         $data = [
