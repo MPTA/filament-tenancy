@@ -186,17 +186,39 @@ class TenantResource extends Resource
                     ->tooltip(trans('filament-tenancy::messages.actions.delete'))
                     ->iconButton()
                     ->before(function ($record) {
-                        // Trigger tenant deletion event to delete database
-                        event(new \Stancl\Tenancy\Events\TenantDeleted($record));
+                        // Close any existing connections to the tenant database
+                        \DB::purge('dynamic');
+                        // Check if database exists before triggering deletion
+                        try {
+                            $dbName = config('tenancy.database.prefix') . $record->id . config('tenancy.database.suffix');
+                            config(['database.connections.dynamic.database' => $dbName]);
+                            \DB::connection('dynamic')->getPdo();
+                            // Database exists, trigger deletion event
+                            event(new \Stancl\Tenancy\Events\TenantDeleted($record));
+                        } catch (\Exception $e) {
+                            // Database doesn't exist, skip deletion event
+                            \Log::info("Database {$dbName} does not exist, skipping deletion event");
+                        }
                     }),
             ])
             ->bulkActions([
                 BulkActionGroup::make([
                     DeleteBulkAction::make()
                         ->before(function ($records) {
+                            // Close any existing connections to tenant databases
+                            \DB::purge('dynamic');
                             // Trigger tenant deletion event for each record
                             foreach ($records as $record) {
-                                event(new \Stancl\Tenancy\Events\TenantDeleted($record));
+                                try {
+                                    $dbName = config('tenancy.database.prefix') . $record->id . config('tenancy.database.suffix');
+                                    config(['database.connections.dynamic.database' => $dbName]);
+                                    \DB::connection('dynamic')->getPdo();
+                                    // Database exists, trigger deletion event
+                                    event(new \Stancl\Tenancy\Events\TenantDeleted($record));
+                                } catch (\Exception $e) {
+                                    // Database doesn't exist, skip deletion event
+                                    \Log::info("Database {$dbName} does not exist, skipping deletion event");
+                                }
                             }
                         }),
                 ]),
