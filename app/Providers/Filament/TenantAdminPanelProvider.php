@@ -18,6 +18,7 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use TomatoPHP\FilamentTenancy\FilamentTenancyAppPlugin;
 
 class TenantAdminPanelProvider extends PanelProvider
 {
@@ -51,7 +52,8 @@ class TenantAdminPanelProvider extends PanelProvider
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
             ])
-            ->authGuard('web')
+            // ->authGuard('web')
+            ->plugin(FilamentTenancyAppPlugin::make())
             ->authMiddleware([
                 Authenticate::class,
             ]);
