@@ -17,7 +17,7 @@ use TomatoPHP\FilamentTenancy\Models\Tenant;
 class TenantResource extends Resource
 {
     protected static ?string $model = Tenant::class;
-    protected static BackedEnum|string|null $navigationIcon = 'heroicon-o-globe-alt';
+    //protected static BackedEnum|string|null $navigationIcon = 'heroicon-o-globe-alt';
 
     public static function getNavigationGroup(): ?string
     {
