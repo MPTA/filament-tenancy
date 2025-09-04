@@ -8301,12 +8301,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/MPTA/filament-tenancy.git",
-                "reference": "f40eb9744b7be585242d7745df452606a429ca07"
+                "reference": "12be6c2d32da9a69d919416edd710b367d12cba3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MPTA/filament-tenancy/zipball/f40eb9744b7be585242d7745df452606a429ca07",
-                "reference": "f40eb9744b7be585242d7745df452606a429ca07",
+                "url": "https://api.github.com/repos/MPTA/filament-tenancy/zipball/12be6c2d32da9a69d919416edd710b367d12cba3",
+                "reference": "12be6c2d32da9a69d919416edd710b367d12cba3",
                 "shasum": ""
             },
             "require": {
@@ -8363,7 +8363,7 @@
                     "url": "https://github.com/3x1io"
                 }
             ],
-            "time": "2025-09-04T07:19:07+00:00"
+            "time": "2025-09-04T07:28:30+00:00"
         },
         {
             "name": "ueberdosis/tiptap-php",
