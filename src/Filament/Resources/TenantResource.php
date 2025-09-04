@@ -189,7 +189,7 @@ class TenantResource extends Resource
                     ->iconButton()
                     ->before(function ($record) {
                         // Force close all connections to the tenant database
-                        $dbName = config('tenancy.database.prefix') . $record->id . config('tenancy.database.suffix');
+                        $dbName = config('tenancy.database.prefix') . Str::slug($record->name, '_') . config('tenancy.database.suffix');
                         
                         try {
                             // Close all connections
@@ -223,7 +223,7 @@ class TenantResource extends Resource
                         ->before(function ($records) {
                             // Trigger tenant deletion event for each record
                             foreach ($records as $record) {
-                                $dbName = config('tenancy.database.prefix') . $record->id . config('tenancy.database.suffix');
+                                $dbName = config('tenancy.database.prefix') . Str::slug($record->name, '_') . config('tenancy.database.suffix');
                                 
                                 try {
                                     // Close all connections

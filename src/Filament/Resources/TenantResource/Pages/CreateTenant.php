@@ -7,6 +7,7 @@ use Filament\Resources\Pages\CreateRecord;
 use Filament\Support\Facades\FilamentView;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use TomatoPHP\FilamentTenancy\Models\Tenant;
 use Throwable;
 use function Filament\Support\is_app_url;
@@ -68,7 +69,7 @@ class CreateTenant extends CreateRecord
         
         try {
             if (!config('filament-tenancy.single_database')) {
-                $dbName = config('tenancy.database.prefix') . $record->id . config('tenancy.database.suffix');
+                $dbName = config('tenancy.database.prefix') . Str::slug($record->name, '_') . config('tenancy.database.suffix');
                 config(['database.connections.dynamic.database' => $dbName]);
             }
             DB::purge('dynamic');

@@ -13,6 +13,8 @@ use Stancl\Tenancy\Events;
 use Stancl\Tenancy\Jobs;
 use Stancl\Tenancy\Listeners;
 use Stancl\Tenancy\Middleware;
+use Stancl\Tenancy\DatabaseConfig;
+use Illuminate\Support\Str;
 use TomatoPHP\FilamentTenancy\Macros\FrameworkColumns;
 use TomatoPHP\FilamentTenancy\View\Components\ApplicationLogo;
 
@@ -125,6 +127,7 @@ class FilamentTenancyServiceProvider extends ServiceProvider
         $this->makeTenancyMiddlewareHighestPriority();
         $this->modifyStaticConfigs();
         $this->prepareLivewireForTenancy();
+        $this->configureDatabaseNaming();
 
         FrameworkColumns::registerMacros();
 
@@ -200,5 +203,13 @@ class FilamentTenancyServiceProvider extends ServiceProvider
         Middleware\InitializeTenancyBySubdomain::$onFail = function ($e) {
             return redirect(config('app.url'));
         };
+    }
+
+    private function configureDatabaseNaming(): void
+    {
+        // Configure database naming to use tenant name instead of UUID
+        DatabaseConfig::generateDatabaseNamesUsing(function ($tenant) {
+            return config('tenancy.database.prefix') . Str::slug($tenant->name, '_') . config('tenancy.database.suffix');
+        });
     }
 }

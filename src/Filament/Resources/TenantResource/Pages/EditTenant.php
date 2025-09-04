@@ -7,6 +7,7 @@ use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 
 class EditTenant extends EditRecord
 {
@@ -25,7 +26,7 @@ class EditTenant extends EditRecord
                 ->label(trans('filament-tenancy::messages.actions.delete'))
                 ->before(function ($record) {
                     // Force close all connections to the tenant database
-                    $dbName = config('tenancy.database.prefix') . $record->id . config('tenancy.database.suffix');
+                    $dbName = config('tenancy.database.prefix') . Str::slug($record->name, '_') . config('tenancy.database.suffix');
                     
                     try {
                         // Close all connections
@@ -70,7 +71,7 @@ class EditTenant extends EditRecord
 
         try {
             if (!config('filament-tenancy.single_database')) {
-                $dbName = config('tenancy.database.prefix') . $record->id . config('tenancy.database.suffix');
+                $dbName = config('tenancy.database.prefix') . Str::slug($record->name, '_') . config('tenancy.database.suffix');
                 config(['database.connections.dynamic.database' => $dbName]);
             }
             DB::purge('dynamic');

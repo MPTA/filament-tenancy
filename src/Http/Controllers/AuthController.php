@@ -79,7 +79,7 @@ class AuthController extends Controller
                     $record->save();
 
 
-                    config(['database.connections.dynamic.database' => config('tenancy.database.prefix').$record->id. config('tenancy.database.suffix')]);
+                    config(['database.connections.dynamic.database' => config('tenancy.database.prefix').Str::slug($record->name, '_'). config('tenancy.database.suffix')]);
                     DB::connection('dynamic')
                         ->table('users')
                         ->where('email', $record->email)
