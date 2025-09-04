@@ -21,7 +21,11 @@ class EditTenant extends EditRecord
                 ->openUrlInNewTab(),
             Actions\DeleteAction::make()
                 ->icon('heroicon-s-trash')
-                ->label(trans('filament-tenancy::messages.actions.delete')),
+                ->label(trans('filament-tenancy::messages.actions.delete'))
+                ->before(function ($record) {
+                    // Trigger tenant deletion event to delete database
+                    event(new \Stancl\Tenancy\Events\TenantDeleted($record));
+                }),
         ];
     }
 

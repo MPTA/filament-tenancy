@@ -184,11 +184,21 @@ class TenantResource extends Resource
                 DeleteAction::make()
                     ->label(trans('filament-tenancy::messages.actions.delete'))
                     ->tooltip(trans('filament-tenancy::messages.actions.delete'))
-                    ->iconButton(),
+                    ->iconButton()
+                    ->before(function ($record) {
+                        // Trigger tenant deletion event to delete database
+                        event(new \Stancl\Tenancy\Events\TenantDeleted($record));
+                    }),
             ])
             ->bulkActions([
                 BulkActionGroup::make([
-                    DeleteBulkAction::make(),
+                    DeleteBulkAction::make()
+                        ->before(function ($records) {
+                            // Trigger tenant deletion event for each record
+                            foreach ($records as $record) {
+                                event(new \Stancl\Tenancy\Events\TenantDeleted($record));
+                            }
+                        }),
                 ]),
             ]);
     }
