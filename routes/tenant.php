@@ -17,7 +17,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware([
     'web',
-    'universal',
     \TomatoPHP\FilamentTenancy\FilamentTenancyServiceProvider::TENANCY_IDENTIFICATION,
 ])->group(function () {
     if(config('filament-tenancy.features.impersonation')) {
@@ -25,5 +24,6 @@ Route::middleware([
     }
 
     // Your Tenant routes here
+    // Filament App Panel will be automatically registered by FilamentTenancyAppPlugin
 
 });

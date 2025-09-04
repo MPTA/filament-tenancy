@@ -15,9 +15,25 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        // Create admin user for tenant
+        if (tenancy()->initialized) {
+            $tenant = tenant();
+            // Check if user already exists
+            if (!User::where('email', $tenant->email)->exists()) {
+                User::factory()->create([
+                    'name' => 'Admin',
+                    'email' => $tenant->email,
+                    'password' => bcrypt('password'),
+                ]);
+            }
+        } else {
+            // For central database
+            if (!User::where('email', 'test@example.com')->exists()) {
+                User::factory()->create([
+                    'name' => 'Test User',
+                    'email' => 'test@example.com',
+                ]);
+            }
+        }
     }
 }
