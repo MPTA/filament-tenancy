@@ -5,6 +5,7 @@ namespace TomatoPHP\FilamentTenancy\Concerns\Policy;
 use App\Models\User;
 use BezhanSalleh\FilamentShield\Facades\FilamentShield;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 use TomatoPHP\FilamentTenancy\Helpers\Framework;
 
 trait InheritsStandardPolicy
@@ -24,7 +25,7 @@ trait InheritsStandardPolicy
             $class = $model->getMorphClass();
         }
 
-        return \Str::of(\Str::of($class)->explode('\\')->last() ?? '')
+        return Str::of(Str::of($class)->explode('\\')->last() ?? '')
             ->snake('::')->toString();
     }
 
