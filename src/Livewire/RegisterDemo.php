@@ -11,8 +11,9 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Forms;
-use Filament\Forms\Get;
+use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Components\Utilities\Set;
+use Filament\Schemas\Components\Grid;
 use Illuminate\Support\Str;
 use Filament\Notifications\Notification;
 use Filament\Pages\Concerns\InteractsWithFormActions;
@@ -39,7 +40,7 @@ class RegisterDemo extends Component implements HasActions, HasForms
             ->modalDescription('you will start a SaaS for you with sub-domain to test our plugins')
             ->modalSubmitActionLabel('Register')
             ->form([
-                Forms\Components\Grid::make([
+                Grid::make([
                     'sm' => 1,
                     'lg' => 2
                 ])->schema([
@@ -212,7 +213,7 @@ class RegisterDemo extends Component implements HasActions, HasForms
             ->modalDescription('please use username or password to login or use social login')
             ->modalSubmitActionLabel('Login')
             ->form([
-                Forms\Components\Grid::make([
+                Grid::make([
                     'sm' => 1,
                     'lg' => 2
                 ])->schema([
