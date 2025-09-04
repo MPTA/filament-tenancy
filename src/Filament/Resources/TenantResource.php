@@ -154,7 +154,7 @@ class TenantResource extends Resource
                             ->dehydrated(fn ($state): bool => filled($state))
                             ->live(debounce: 500)
                             ->same('passwordConfirmation'),
-                        Forms\Components\TextInput::make('password_confirmation')
+                        Forms\Components\TextInput::make('passwordConfirmation')
                             ->label(trans('filament-tenancy::messages.columns.passwordConfirmation'))
                             ->password()
                             ->revealable()
