@@ -23,18 +23,26 @@ class EditTenant extends EditRecord
                 ->icon('heroicon-s-trash')
                 ->label(trans('filament-tenancy::messages.actions.delete'))
                 ->before(function ($record) {
-                    // Close any existing connections to the tenant database
-                    \DB::purge('dynamic');
-                    // Check if database exists before triggering deletion
+                    // Force close all connections to the tenant database
+                    $dbName = config('tenancy.database.prefix') . $record->id . config('tenancy.database.suffix');
+                    
                     try {
-                        $dbName = config('tenancy.database.prefix') . $record->id . config('tenancy.database.suffix');
+                        // Close all connections
+                        \DB::purge('dynamic');
+                        \DB::purge('pgsql');
+                        
+                        // Force terminate all connections to the database
+                        \DB::connection('pgsql')->statement("SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = '{$dbName}' AND pid <> pg_backend_pid()");
+                        
+                        // Check if database exists before triggering deletion
                         config(['database.connections.dynamic.database' => $dbName]);
                         \DB::connection('dynamic')->getPdo();
+                        
                         // Database exists, trigger deletion event
                         event(new \Stancl\Tenancy\Events\TenantDeleted($record));
                     } catch (\Exception $e) {
-                        // Database doesn't exist, skip deletion event
-                        \Log::info("Database {$dbName} does not exist, skipping deletion event");
+                        // Database doesn't exist or connection failed, skip deletion event
+                        \Log::info("Database {$dbName} does not exist or connection failed, skipping deletion event: " . $e->getMessage());
                     }
                 }),
         ];
