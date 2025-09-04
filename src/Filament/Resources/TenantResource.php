@@ -5,12 +5,19 @@ namespace TomatoPHP\FilamentTenancy\Filament\Resources;
 use TomatoPHP\FilamentTenancy\Filament\Resources\TenantResource\Pages;
 use TomatoPHP\FilamentTenancy\Filament\Resources\TenantResource\RelationManagers;
 use Filament\Forms;
-use Filament\Forms\Form;
+use Filament\Forms\Set;
 use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
+use Filament\Schemas\Schema;
 use Filament\Tables;
+use Filament\Tables\Actions\Action;
+use Filament\Tables\Actions\BulkActionGroup;
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Password;
 use TomatoPHP\FilamentTenancy\Models\Tenant;
 
@@ -39,9 +46,9 @@ class TenantResource extends Resource
         return trans('filament-tenancy::messages.title');
     }
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
+        return $schema
             ->schema([
                 Forms\Components\Section::make([
                     Forms\Components\TextInput::make('name')
@@ -49,9 +56,9 @@ class TenantResource extends Resource
                         ->required()
                         ->unique(table: 'tenants', ignoreRecord: true)
                         ->live(onBlur: true)
-                        ->afterStateUpdated(function (Forms\Set $set, $state) {
-                            $set('id', \Str::slug($state, '_'));
-                            $set('domain', \Str::slug($state));
+                        ->afterStateUpdated(function (Set $set, $state) {
+                            $set('id', Str::slug($state, '_'));
+                            $set('domain', Str::slug($state));
                         }),
                     Forms\Components\TextInput::make('id')
                         ->label(trans('filament-tenancy::messages.columns.unique_id'))
