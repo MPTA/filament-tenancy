@@ -5,8 +5,7 @@ namespace TomatoPHP\FilamentTenancy\Filament\Resources;
 use TomatoPHP\FilamentTenancy\Filament\Resources\TenantResource\Pages;
 use TomatoPHP\FilamentTenancy\Filament\Resources\TenantResource\RelationManagers;
 use Filament\Forms;
-use Filament\Forms\Components;
-use Filament\Forms\Schema;
+use Filament\Forms\Form;
 use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -40,26 +39,26 @@ class TenantResource extends Resource
         return trans('filament-tenancy::messages.title');
     }
 
-    public static function form(Schema $form): Schema
+    public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Components\Section::make([
-                    Components\TextInput::make('name')
+                Forms\Components\Section::make([
+                    Forms\Components\TextInput::make('name')
                         ->label(trans('filament-tenancy::messages.columns.name'))
                         ->required()
                         ->unique(table: 'tenants', ignoreRecord: true)
                         ->live(onBlur: true)
-                        ->afterStateUpdated(function (Components\Set $set, $state) {
+                        ->afterStateUpdated(function (Forms\Set $set, $state) {
                             $set('id', \Str::slug($state, '_'));
                             $set('domain', \Str::slug($state));
                         }),
-                    Components\TextInput::make('id')
+                    Forms\Components\TextInput::make('id')
                         ->label(trans('filament-tenancy::messages.columns.unique_id'))
                         ->required()
                         ->disabled(fn ($context) => $context !== 'create')
                         ->unique(table: 'tenants', ignoreRecord: true),
-                    Components\TextInput::make('domain')
+                    Forms\Components\TextInput::make('domain')
                         ->columnSpanFull()
                         ->label(trans('filament-tenancy::messages.columns.domain'))
                         ->required()
@@ -67,14 +66,14 @@ class TenantResource extends Resource
                         ->unique(table: 'domains', ignoreRecord: true)
                         ->prefix(request()->getScheme() . '://')
                         ->suffix('.' . request()->getHost()),
-                    Components\TextInput::make('email')
+                    Forms\Components\TextInput::make('email')
                         ->label(trans('filament-tenancy::messages.columns.email'))
                         ->required()
                         ->email(),
-                    Components\TextInput::make('phone')
+                    Forms\Components\TextInput::make('phone')
                         ->label(trans('filament-tenancy::messages.columns.phone'))
                         ->tel(),
-                    Components\TextInput::make('password')
+                    Forms\Components\TextInput::make('password')
                         ->label(trans('filament-tenancy::messages.columns.password'))
                         ->password()
                         ->revealable()
@@ -84,12 +83,12 @@ class TenantResource extends Resource
                         ->dehydrateStateUsing(fn ($state): string => Hash::make($state))
                         ->live(debounce: 500)
                         ->same('passwordConfirmation'),
-                    Components\TextInput::make('passwordConfirmation')
+                    Forms\Components\TextInput::make('passwordConfirmation')
                         ->label(trans('filament-tenancy::messages.columns.passwordConfirmation'))
                         ->password()
                         ->revealable()
                         ->dehydrated(false),
-                    Components\Toggle::make('is_active')
+                    Forms\Components\Toggle::make('is_active')
                         ->label(trans('filament-tenancy::messages.columns.is_active'))
                         ->default(true),
                 ])->columns(),
@@ -146,7 +145,7 @@ class TenantResource extends Resource
                     ->iconButton()
                     ->color('danger')
                     ->form([
-                        Components\TextInput::make('password')
+                        Forms\Components\TextInput::make('password')
                             ->label(trans('filament-tenancy::messages.columns.password'))
                             ->password()
                             ->revealable()
@@ -155,7 +154,7 @@ class TenantResource extends Resource
                             ->dehydrated(fn ($state): bool => filled($state))
                             ->live(debounce: 500)
                             ->same('passwordConfirmation'),
-                        Components\TextInput::make('password_confirmation')
+                        Forms\Components\TextInput::make('password_confirmation')
                             ->label(trans('filament-tenancy::messages.columns.passwordConfirmation'))
                             ->password()
                             ->revealable()
