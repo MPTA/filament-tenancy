@@ -14,6 +14,7 @@
     "require": {
         "php": "^8.2",
         "bezhansalleh/filament-language-switch": "^4.0",
+        "bezhansalleh/filament-panel-switch": "^2.0",
         "filament/filament": "^4.0",
         "lara-zeus/spatie-translatable": "^1.0",
         "laravel/framework": "^12.0",

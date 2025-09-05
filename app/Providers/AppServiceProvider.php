@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use BezhanSalleh\LanguageSwitch\LanguageSwitch;
 use Illuminate\Support\ServiceProvider;
-
+use BezhanSalleh\PanelSwitch\PanelSwitch;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -29,8 +29,14 @@ class AppServiceProvider extends ServiceProvider
                 ->labels([
                     'en' => 'English',
                     'zh' => '中文',
-                    // Other custom labels as needed
                 ]);
+        });
+
+        PanelSwitch::configureUsing(function (PanelSwitch $panelSwitch) {
+            $panelSwitch->panels([
+                'app',
+                'tenant-admin',
+            ]);
         });
     }
 }
