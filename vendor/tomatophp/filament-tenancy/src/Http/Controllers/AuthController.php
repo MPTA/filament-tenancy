@@ -35,7 +35,7 @@ class AuthController extends Controller
         try {
             $providerHasToken = config('services.'.$provider.'.client_token');
             if($providerHasToken){
-                $socialUser = Socialite::driver($provider)->stateless()->user();
+                $socialUser = Socialite::driver($provider)->user();
             }
             else {
                 $socialUser = Socialite::driver($provider)->user();
