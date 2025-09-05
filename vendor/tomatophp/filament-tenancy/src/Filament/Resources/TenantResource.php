@@ -189,7 +189,7 @@ class TenantResource extends Resource
                     ->tooltip(trans('filament-tenancy::messages.actions.delete'))
                     ->iconButton()
                     ->before(function ($record) {
-                        // For multi-schema, check if schema exists before deletion
+                        // For multi-schema, manually delete schema before tenant deletion
                         try {
                             $schemaName = $record->database()->getName();
                             
@@ -197,13 +197,14 @@ class TenantResource extends Resource
                             $schemaExists = DB::connection('pgsql')->select("SELECT schema_name FROM information_schema.schemata WHERE schema_name = '{$schemaName}'");
                             
                             if (count($schemaExists) > 0) {
-                                // Schema exists, trigger deletion event
-                                event(new \Stancl\Tenancy\Events\TenantDeleted($record));
+                                // Schema exists, delete it manually
+                                DB::connection('pgsql')->statement("DROP SCHEMA \"{$schemaName}\" CASCADE");
+                                Log::info("Schema {$schemaName} deleted manually");
                             } else {
-                                Log::info("Schema {$schemaName} does not exist, skipping deletion event");
+                                Log::info("Schema {$schemaName} does not exist, skipping deletion");
                             }
                         } catch (\Exception $e) {
-                            Log::info("Failed to check schema or trigger tenant deletion event: " . $e->getMessage());
+                            Log::info("Failed to delete schema manually: " . $e->getMessage());
                         }
                     }),
             ])
@@ -211,7 +212,7 @@ class TenantResource extends Resource
                 BulkActionGroup::make([
                     DeleteBulkAction::make()
                         ->before(function ($records) {
-                            // For multi-schema, check if schema exists before deletion
+                            // For multi-schema, manually delete schemas before tenant deletion
                             foreach ($records as $record) {
                                 try {
                                     $schemaName = $record->database()->getName();
@@ -220,13 +221,14 @@ class TenantResource extends Resource
                                     $schemaExists = DB::connection('pgsql')->select("SELECT schema_name FROM information_schema.schemata WHERE schema_name = '{$schemaName}'");
                                     
                                     if (count($schemaExists) > 0) {
-                                        // Schema exists, trigger deletion event
-                                        event(new \Stancl\Tenancy\Events\TenantDeleted($record));
+                                        // Schema exists, delete it manually
+                                        DB::connection('pgsql')->statement("DROP SCHEMA \"{$schemaName}\" CASCADE");
+                                        Log::info("Schema {$schemaName} deleted manually for tenant {$record->name}");
                                     } else {
-                                        Log::info("Schema {$schemaName} does not exist for tenant {$record->name}, skipping deletion event");
+                                        Log::info("Schema {$schemaName} does not exist for tenant {$record->name}, skipping deletion");
                                     }
                                 } catch (\Exception $e) {
-                                    Log::info("Failed to check schema or trigger tenant deletion event for {$record->name}: " . $e->getMessage());
+                                    Log::info("Failed to delete schema manually for tenant {$record->name}: " . $e->getMessage());
                                 }
                             }
                         }),
