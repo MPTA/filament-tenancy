@@ -45,10 +45,12 @@ class EditTenant extends EditRecord
                     }
                 })
                 ->after(function ($record) {
-                    // Additional cleanup if needed
+                    // Prevent TenantDeleted event from being triggered
+                    // by manually handling the deletion process
                     try {
                         // Clear any cached data related to this tenant
                         Cache::forget("tenant_{$record->id}");
+                        Log::info("Tenant {$record->name} deleted successfully without triggering TenantDeleted event");
                     } catch (\Exception $e) {
                         Log::info("Failed to clear cache for tenant {$record->id}: " . $e->getMessage());
                     }

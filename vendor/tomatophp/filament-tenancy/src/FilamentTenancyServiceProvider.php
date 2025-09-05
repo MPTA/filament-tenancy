@@ -142,6 +142,8 @@ class FilamentTenancyServiceProvider extends ServiceProvider
             ? array_merge($this->databaseEvents(), $this->defaultEvents())
             : $this->defaultEvents();
 
+        // Remove TenantDeleted event to prevent duplicate schema deletion
+        unset($events[Events\TenantDeleted::class]);
 
         foreach ($events as $event => $listeners) {
             foreach ($listeners as $listener) {

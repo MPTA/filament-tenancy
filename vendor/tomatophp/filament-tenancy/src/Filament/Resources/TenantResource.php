@@ -206,6 +206,17 @@ class TenantResource extends Resource
                         } catch (\Exception $e) {
                             Log::info("Failed to delete schema manually: " . $e->getMessage());
                         }
+                    })
+                    ->after(function ($record) {
+                        // Prevent TenantDeleted event from being triggered
+                        // by manually handling the deletion process
+                        try {
+                            // Clear any cached data related to this tenant
+                            Cache::forget("tenant_{$record->id}");
+                            Log::info("Tenant {$record->name} deleted successfully without triggering TenantDeleted event");
+                        } catch (\Exception $e) {
+                            Log::info("Failed to clear cache for tenant {$record->id}: " . $e->getMessage());
+                        }
                     }),
             ])
             ->bulkActions([
@@ -229,6 +240,19 @@ class TenantResource extends Resource
                                     }
                                 } catch (\Exception $e) {
                                     Log::info("Failed to delete schema manually for tenant {$record->name}: " . $e->getMessage());
+                                }
+                            }
+                        })
+                        ->after(function ($records) {
+                            // Prevent TenantDeleted event from being triggered
+                            // by manually handling the deletion process
+                            foreach ($records as $record) {
+                                try {
+                                    // Clear any cached data related to this tenant
+                                    Cache::forget("tenant_{$record->id}");
+                                    Log::info("Tenant {$record->name} deleted successfully without triggering TenantDeleted event");
+                                } catch (\Exception $e) {
+                                    Log::info("Failed to clear cache for tenant {$record->id}: " . $e->getMessage());
                                 }
                             }
                         }),
