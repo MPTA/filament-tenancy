@@ -22,7 +22,12 @@ class AppServiceProvider extends ServiceProvider
     {
         LanguageSwitch::configureUsing(function (LanguageSwitch $switch) {
             $switch
-                ->locales(['en','zh']); // also accepts a closure
+                ->locales(['en','zh']) // also accepts a closure
+                ->labels([
+                    'en' => 'English',
+                    'zh' => '中文',
+                    // Other custom labels as needed
+                ]);
         });
     }
 }

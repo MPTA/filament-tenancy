@@ -53,6 +53,7 @@ class AppPanelProvider extends PanelProvider
                 DispatchServingFilamentEvent::class,
             ])
             ->plugin(FilamentTenancyAppPlugin::make())
+            ->viteTheme('resources/css/filament/tenant-admin/theme.css')
             ->authMiddleware([
                 Authenticate::class,
             ]);
