@@ -1,0 +1,15 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Spatie\LaravelPackageTools\Concerns\Package\HasTranslations;
+use Stancl\Tenancy\Database\Concerns\CentralConnection;
+
+class Province extends Model
+{
+    use HasTranslations, CentralConnection;
+
+    protected $table = 'provinces';
+    public $translatable = ['name'];
+}
