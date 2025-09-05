@@ -3,10 +3,10 @@
 namespace App\Models\Tenants;
 
 use Illuminate\Database\Eloquent\Model;
-use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
+use Stancl\Tenancy\Database\Concerns\HasDatabase;
 
 class TenantUser extends Model
 {
-    use BelongsToTenant;
+    use HasDatabase;
     protected $table = 'users';
 }
