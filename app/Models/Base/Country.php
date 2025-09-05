@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Base;
 
 use Illuminate\Database\Eloquent\Model;
 use Spatie\LaravelPackageTools\Concerns\Package\HasTranslations;
 use Stancl\Tenancy\Database\Concerns\CentralConnection;
 
-class City extends Model
+class Country extends Model
 {
     use HasTranslations, CentralConnection;
 
