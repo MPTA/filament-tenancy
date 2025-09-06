@@ -7,6 +7,7 @@ use Stancl\Tenancy\Database\Concerns\HasDatabase;
 
 class TenantUser extends Model
 {
-    use HasDatabase;
     protected $table = 'users';
+
+    protected $fillable = ['name', 'email', 'password', 'tenant_id'];
 }

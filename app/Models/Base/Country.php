@@ -12,4 +12,7 @@ class Country extends Model
 
     protected $table = 'cities';
     public $translatable = ['name'];
+
+    protected $fillable = ['name', 'code'];
+
 }

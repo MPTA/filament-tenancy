@@ -13,4 +13,5 @@ class Province extends Model
 
     protected $table = 'provinces';
     public $translatable = ['name'];
+    protected $fillable = ['name', 'code', 'country_id'];
 }

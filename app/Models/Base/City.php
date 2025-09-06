@@ -12,4 +12,7 @@ class City extends Model
 
     protected $table = 'cities';
     public $translatable = ['name'];
+
+    protected $fillable = ['name', 'code', 'province_id'];
+
 }
