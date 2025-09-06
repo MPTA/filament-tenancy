@@ -3,7 +3,7 @@
 namespace App\Models\Base;
 
 use Illuminate\Database\Eloquent\Model;
-use Spatie\LaravelPackageTools\Concerns\Package\HasTranslations;
+use Spatie\Translatable\HasTranslations;
 use Stancl\Tenancy\Database\Concerns\CentralConnection;
 
 class City extends Model
