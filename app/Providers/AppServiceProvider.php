@@ -36,6 +36,7 @@ class AppServiceProvider extends ServiceProvider
             $panelSwitch->panels([
                 'app',
                 'tenant-admin',
+                'shared'
             ]);
         });
     }

@@ -99,6 +99,11 @@ class User extends Authenticatable implements FilamentUser
             return true;
         }
 
+        // Shared panel - both admin and tenant users can access
+        if ($panel->getId() === 'shared') {
+            return $this->is_admin === true || $this->tenant_id !== null;
+        }
+
         // App panel - all users can access
         if ($panel->getId() === 'app') {
             return true;
