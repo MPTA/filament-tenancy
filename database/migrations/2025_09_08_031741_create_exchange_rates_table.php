@@ -23,6 +23,10 @@ return new class extends Migration
             // Add unique constraint to prevent duplicate exchange rates per tenant
             $table->unique(['tenant_id', 'from_currency_id', 'to_currency_id'], 'unique_currency_pair_per_tenant');
             $table->timestamps();
+            
+            // Add indexes for performance
+            $table->index('from_currency_id');
+            $table->index('to_currency_id');
         });
     }
 

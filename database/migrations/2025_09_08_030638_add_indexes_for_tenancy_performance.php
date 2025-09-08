@@ -77,6 +77,9 @@ return new class extends Migration
                 $table->index('last_activity', 'sessions_last_activity_index');
             }
         });
+
+        // Note: countries, provinces, cities, currencies, and exchange_rates tables
+        // already have their indexes created in their respective migration files
     }
 
     /**
@@ -115,5 +118,8 @@ return new class extends Migration
             $table->dropIndex('sessions_user_id_index');
             $table->dropIndex('sessions_last_activity_index');
         });
+
+        // Note: countries, provinces, cities, currencies, and exchange_rates tables
+        // indexes will be dropped when their respective tables are dropped
     }
 };

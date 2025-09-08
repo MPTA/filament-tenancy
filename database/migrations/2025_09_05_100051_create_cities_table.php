@@ -18,6 +18,10 @@ return new class extends Migration
             $table->jsonb('name'); // مثل {"en": "Shanghai", "zh": "上海"}
             $table->string('code')->nullable();
             $table->timestamps();
+            
+            // Add indexes for performance
+            $table->index('province_id');
+            $table->index('code');
         });
     }
 
