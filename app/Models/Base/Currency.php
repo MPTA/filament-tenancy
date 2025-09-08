@@ -2,7 +2,7 @@
 
 namespace App\Models\Base;
 
-
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\Translatable\HasTranslations;
@@ -10,7 +10,7 @@ use Stancl\Tenancy\Database\Concerns\CentralConnection;
 
 class Currency extends Model
 {
-    use HasTranslations, CentralConnection;
+    use HasTranslations, CentralConnection, HasUuids;
 
     protected $table = 'currencies';
     

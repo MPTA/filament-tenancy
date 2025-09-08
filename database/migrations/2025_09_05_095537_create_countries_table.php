@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('countries', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->jsonb('name'); // برای ترجمه مثل {"en": "China", "zh": "中国"}
             $table->string('code', 2)->unique();
             $table->timestamps();

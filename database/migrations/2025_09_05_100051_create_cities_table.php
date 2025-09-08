@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('cities', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('province_id')->nullable()->constrained('provinces')->cascadeOnDelete();
+            $table->uuid('id')->primary();
+            $table->uuid('province_id')->nullable();
+            $table->foreign('province_id')->references('id')->on('provinces')->cascadeOnDelete();
             $table->jsonb('name'); // مثل {"en": "Shanghai", "zh": "上海"}
             $table->string('code')->nullable();
             $table->timestamps();

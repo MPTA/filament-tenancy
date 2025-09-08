@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('currencies', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->string('code')->unique(); // 'USD', 'CNY'
             $table->jsonb('name')->nullable(); // مثل {"en": "US Dollar", "zh": "美元"}
             $table->string('symbol')->nullable(); // '$', '¥'
