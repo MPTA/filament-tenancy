@@ -3,13 +3,15 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 
-class User extends Authenticatable
+class User extends Authenticatable implements FilamentUser
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable, HasUuids;
@@ -23,6 +25,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'is_admin',
     ];
 
     /**
@@ -45,6 +48,7 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'is_admin' => 'boolean',
         ];
     }
 
@@ -58,5 +62,39 @@ class User extends Authenticatable
             ->take(2)
             ->map(fn ($word) => Str::substr($word, 0, 1))
             ->implode('');
+    }
+
+    /**
+     * Determine if the user can access the given panel.
+     */
+    public function canAccessPanel(Panel $panel): bool
+    {
+        // Admin panel - only users with is_admin = true can access
+        if ($panel->getId() === 'admin') {
+            return $this->is_admin === true;
+        }
+
+        // Tenant panel - only users with tenant_id != null can access
+        if ($panel->getId() === 'tenant-admin') {
+            // Check if user belongs to current tenant
+            if ($this->tenant_id === null) {
+                return false;
+            }
+            
+            // Check if user belongs to the current tenant context
+            $currentTenant = tenant();
+            if ($currentTenant && $this->tenant_id !== $currentTenant->id) {
+                return false;
+            }
+            
+            return true;
+        }
+
+        // App panel - all users can access
+        if ($panel->getId() === 'app') {
+            return true;
+        }
+
+        return false;
     }
 }
