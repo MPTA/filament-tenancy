@@ -13,15 +13,16 @@ return new class extends Migration
     {
         Schema::create('exchange_rates', function (Blueprint $table) {
             $table->id();
+            $table->string('tenant_id')->nullable()->index();
             $table->unsignedBigInteger('from_currency_id');
             $table->unsignedBigInteger('to_currency_id');
-            $table->foreign('from_currency_id')->references('id')->on('public.currencies')->cascadeOnDelete();
-            $table->foreign('to_currency_id')->references('id')->on('public.currencies')->cascadeOnDelete();
+            $table->foreign('from_currency_id')->references('id')->on('currencies')->cascadeOnDelete();
+            $table->foreign('to_currency_id')->references('id')->on('currencies')->cascadeOnDelete();
+            $table->foreign('tenant_id')->references('id')->on('tenants')->onUpdate('cascade')->onDelete('cascade');
             $table->decimal('rate', 10, 4);
-            // Add unique constraint to prevent duplicate exchange rates
-            $table->unique(['from_currency_id', 'to_currency_id'], 'unique_currency_pair');
+            // Add unique constraint to prevent duplicate exchange rates per tenant
+            $table->unique(['tenant_id', 'from_currency_id', 'to_currency_id'], 'unique_currency_pair_per_tenant');
             $table->timestamps();
-
         });
     }
 
