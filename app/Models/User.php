@@ -84,7 +84,7 @@ class User extends Authenticatable implements FilamentUser
         }
 
         // Tenant panel - only users with tenant_id != null can access
-        if ($panel->getId() === 'tenant-admin') {
+        if ($panel->getId() === 'tenant-admin' || $panel->getId() === 'app') {
             // Check if user belongs to current tenant
             if ($this->tenant_id === null) {
                 return false;
@@ -99,8 +99,8 @@ class User extends Authenticatable implements FilamentUser
             return true;
         }
 
-        // Shared panel - both admin and tenant users can access
-        if ($panel->getId() === 'shared') {
+        // Base panel - both admin and tenant users can access
+        if ($panel->getId() === 'base') {
             return $this->is_admin === true || $this->tenant_id !== null;
         }
 

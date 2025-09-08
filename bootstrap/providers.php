@@ -4,7 +4,7 @@ return [
     App\Providers\AppServiceProvider::class,
     App\Providers\Filament\AdminPanelProvider::class,
     App\Providers\Filament\AppPanelProvider::class,
-    App\Providers\Filament\SharedPanelPanelProvider::class,
+    App\Providers\Filament\BasePanelProvider::class,
     App\Providers\Filament\TenantAdminPanelProvider::class,
     App\Providers\VoltServiceProvider::class,
 ];

@@ -19,24 +19,23 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 
-class SharedPanelPanelProvider extends PanelProvider
+class BasePanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
         return $panel
-            ->id('shared')
-            ->path('shared')
+            ->id('base')
+            ->path('base')
             ->login()
-            ->domain(config('app.url')) // Central domain
             ->colors([
                 'primary' => Color::Green,
             ])
-            ->discoverResources(in: app_path('Filament/Shared/Resources'), for: 'App\Filament\Shared\Resources')
-            ->discoverPages(in: app_path('Filament/Shared/Pages'), for: 'App\Filament\Shared\Pages')
+            ->discoverResources(in: app_path('Filament/Base/Resources'), for: 'App\Filament\Base\Resources')
+            ->discoverPages(in: app_path('Filament/Base/Pages'), for: 'App\Filament\Base\Pages')
             ->pages([
                 Dashboard::class,
             ])
-            ->discoverWidgets(in: app_path('Filament/Shared/Widgets'), for: 'App\Filament\Shared\Widgets')
+            ->discoverWidgets(in: app_path('Filament/Base/Widgets'), for: 'App\Filament\Base\Widgets')
             ->widgets([
                 AccountWidget::class,
                 FilamentInfoWidget::class,
