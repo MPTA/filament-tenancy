@@ -17,7 +17,7 @@ return new class extends Migration
                 $table->string('first_name')->after('id');
             }
             if (!Schema::hasColumn('contacts', 'last_name')) {
-                $table->string('last_name')->after('first_name');
+                $table->string('last_name')->after('first_name')->nullable();
             }
             if (!Schema::hasColumn('contacts', 'gender')) {
                 $table->enum('gender', ['male', 'female', 'other'])->nullable()->after('last_name');
