@@ -94,23 +94,35 @@ class CreateTenant extends CreateRecord
             'updated_at' => date('Y-m-d H:i:s')
         ];
 
-        $user = DB::connection('dynamic')
-            ->table('users')
-            ->where('email', $record->email);
-
-
         if (config('filament-tenancy.single_database')) {
-            $user = $user->where('tenant_id', $record->id);
-
             $data['tenant_id'] = $record->id;
-        }
+            
+            // Use Eloquent model for UUID support
+            $userModelClass = config('filament-tenancy.tenant_user_model', \App\Models\User::class);
+            
+            // Initialize tenant context for proper tenant_id assignment
+            tenancy()->initialize($record);
+            
+            $userModelClass::updateOrCreate(
+                [
+                    'email' => $data['email'],
+                    'tenant_id' => $record->id,
+                ],
+                $data
+            );
+        } else {
+            // Use DB query builder for multi-database mode
+            $user = DB::connection('dynamic')
+                ->table('users')
+                ->where('email', $record->email);
 
-        $user->updateOrInsert(
-            [
-                'email' => $data['email'],
-            ],
-            $data,
-        );
+            $user->updateOrInsert(
+                [
+                    'email' => $data['email'],
+                ],
+                $data,
+            );
+        }
 
         $this->redirect($redirectUrl, navigate: FilamentView::hasSpaMode() && is_app_url($redirectUrl));
     }
