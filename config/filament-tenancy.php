@@ -2,7 +2,7 @@
 
 return [
     "central_domain" => env('CENTRAL_DOMAIN', 'localhost'),
-    "single_database" => env('SINGLE_DATABASE', false),
+    "single_database" => env('SINGLE_DATABASE', true),
 
     "features" => [
         "homepage" => true,

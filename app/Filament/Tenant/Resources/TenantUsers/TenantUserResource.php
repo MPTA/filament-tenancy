@@ -7,7 +7,7 @@ use App\Filament\Tenant\Resources\TenantUsers\Pages\EditTenantUser;
 use App\Filament\Tenant\Resources\TenantUsers\Pages\ListTenantUsers;
 use App\Filament\Tenant\Resources\TenantUsers\Schemas\TenantUserForm;
 use App\Filament\Tenant\Resources\TenantUsers\Tables\TenantUsersTable;
-use App\Models\Tenants\TenantUser;
+use App\Models\User;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
@@ -16,7 +16,7 @@ use Filament\Tables\Table;
 
 class TenantUserResource extends Resource
 {
-    protected static ?string $model = TenantUser::class;
+    protected static ?string $model = User::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
