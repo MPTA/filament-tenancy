@@ -148,14 +148,16 @@ php artisan cache:clear
 5. ✅ ایجاد migration برای اضافه کردن tenant_id
 6. ✅ تغییر unique constraint برای email + tenant_id
 7. ✅ اضافه کردن foreign key constraint برای tenant_id
-8. ✅ اجرای migration ها
+8. ✅ فیلتر کردن کاربران tenant در Filament Resource
+9. ✅ اجرای migration ها
 
 ## فایل‌های تغییر یافته:
 - config/filament-tenancy.php
 - config/tenancy.php  
-- app/Models/User.php (اضافه شدن BelongsToTenant)
+- app/Models/User.php
 - app/Models/Tenants/ExchangeRate.php
-- app/Filament/Tenant/Resources/TenantUsers/TenantUserResource.php
+- app/Filament/Tenant/Resources/TenantUsers/TenantUserResource.php (اضافه شدن فیلتر tenant)
+- app/Filament/Tenant/Resources/TenantUsers/Pages/CreateTenantUser.php (اضافه شدن tenant_id)
 - database/migrations/2025_09_08_014554_add_tenant_id_to_users_table.php
 - database/migrations/2025_09_08_015328_modify_users_email_unique_constraint_for_tenancy.php
 - database/migrations/2025_09_08_015724_add_foreign_key_to_tenant_id_in_users_table.php
