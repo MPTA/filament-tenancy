@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 
 class Contact extends Model
 {
-    use HasUuids;
+    use HasUuids, BelongsToTenant;
 
     /**
      * The attributes that are mass assignable.
@@ -23,6 +24,7 @@ class Contact extends Model
         'phone',
         'mobile',
         'user_id',
+        'tenant_id',
         'is_customer',
     ];
 
