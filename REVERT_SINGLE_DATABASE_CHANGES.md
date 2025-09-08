@@ -150,15 +150,17 @@ php artisan cache:clear
 7. ✅ اضافه کردن foreign key constraint برای tenant_id
 8. ✅ اضافه کردن ایندکس‌های performance برای tenancy
 9. ✅ حذف migration های tenant (Single Database Mode)
-10. ✅ اجرای migration ها
+10. ✅ تغییر users table به UUID برای امنیت بیشتر
+11. ✅ اجرای migration ها
 
 ## فایل‌های تغییر یافته:
-- config/filament-tenancy.php
+- config/filament-tenancy.php (اضافه شدن tenant_user_model config)
 - config/tenancy.php  
-- app/Models/User.php
-- app/Models/Tenants/TenantUser.php (ایجاد مجدد)
+- app/Models/User.php (اضافه شدن HasUuids trait)
 - app/Models/Tenants/ExchangeRate.php
-- app/Filament/Tenant/Resources/TenantUsers/TenantUserResource.php
+- app/Filament/Tenant/Resources/TenantUsers/TenantUserResource.php (فیلتر tenant_id)
+- database/migrations/0001_01_01_000000_create_users_table.php (تغییر به UUID)
+- vendor/tomatophp/filament-tenancy/src/Filament/Resources/TenantResource/Pages/CreateTenant.php (اصلاح UUID support)
 - database/migrations/2025_09_08_014554_add_tenant_id_to_users_table.php
 - database/migrations/2025_09_08_015328_modify_users_email_unique_constraint_for_tenancy.php
 - database/migrations/2025_09_08_015724_add_foreign_key_to_tenant_id_in_users_table.php
