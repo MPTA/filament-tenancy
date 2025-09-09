@@ -16,11 +16,14 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use LaraZeus\SpatieTranslatable\Resources\Concerns\Translatable;
+use UnitEnum;
 
 class CompanionCategoryResource extends Resource
 {
     use Translatable;
     protected static ?string $model = CompanionCategory::class;
+    protected static string | UnitEnum | null $navigationGroup = 'Categories';
+
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedUsers;
 

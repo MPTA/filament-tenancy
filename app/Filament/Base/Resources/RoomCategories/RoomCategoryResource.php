@@ -16,12 +16,13 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use LaraZeus\SpatieTranslatable\Resources\Concerns\Translatable;
+use UnitEnum;
 
 class RoomCategoryResource extends Resource
 {
     use Translatable;
     protected static ?string $model = RoomCategory::class;
-
+    protected static string | UnitEnum | null $navigationGroup = 'Categories';
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedCube;
 
     protected static ?string $recordTitleAttribute = 'name';
