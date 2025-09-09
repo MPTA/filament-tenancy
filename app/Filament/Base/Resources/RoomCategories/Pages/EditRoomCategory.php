@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Filament\Base\Resources\RoomTypes\Pages;
+namespace App\Filament\Base\Resources\RoomCategories\Pages;
 
-use App\Filament\Base\Resources\RoomTypes\RoomTypeResource;
+use App\Filament\Base\Resources\RoomCategories\RoomCategoryResource;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\ViewAction;
 use Filament\Resources\Pages\EditRecord;
 use LaraZeus\SpatieTranslatable\Resources\Pages\EditRecord\Concerns\Translatable;
 
-class EditRoomType extends EditRecord
+class EditRoomCategory extends EditRecord
 {
     use Translatable;
-    protected static string $resource = RoomTypeResource::class;
+    protected static string $resource = RoomCategoryResource::class;
 
     protected function getHeaderActions(): array
     {

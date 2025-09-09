@@ -8,11 +8,11 @@ use Illuminate\Support\Str;
 use Spatie\Translatable\HasTranslations;
 use Stancl\Tenancy\Database\Concerns\CentralConnection;
 
-class RoomType extends Model
+class RoomCategory extends Model
 {
     use HasTranslations, CentralConnection, HasUuids;
 
-    protected $table = 'room_types';
+    protected $table = 'room_categories';
     public $translatable = ['name', 'description'];
 
     protected $fillable = [

@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Base\RoomType;
+use App\Models\Base\RoomCategory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class RoomTypeSeeder extends Seeder
+class RoomCategorySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -66,7 +66,7 @@ class RoomTypeSeeder extends Seeder
         ];
 
         foreach ($roomTypes as $roomTypeData) {
-            RoomType::updateOrCreate(
+            RoomCategory::updateOrCreate(
                 ['slug' => $roomTypeData['slug']],
                 $roomTypeData
             );
