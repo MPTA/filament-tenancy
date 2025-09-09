@@ -11,7 +11,7 @@ use Stancl\Tenancy\Database\Concerns\CentralConnection;
 class Contact extends Model
 {
     use HasUuids, CentralConnection;
-
+    protected $table = 'contacts';
     /**
      * The attributes that are mass assignable.
      *

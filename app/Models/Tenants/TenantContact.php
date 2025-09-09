@@ -13,10 +13,7 @@ class TenantContact extends Contact
     protected $table = 'contacts';
 
     /**
-     * Get the user that owns the contact.
+     * Override the connection to use tenant connection instead of central.
      */
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(\App\Models\User::class, 'user_id');
-    }
+    protected $connection = null; // Use default connection (tenant)
 }
