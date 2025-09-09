@@ -6,11 +6,11 @@ use App\ContactType;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
+use Stancl\Tenancy\Database\Concerns\CentralConnection;
 
 class Contact extends Model
 {
-    use HasUuids, BelongsToTenant;
+    use HasUuids, CentralConnection;
 
     /**
      * The attributes that are mass assignable.
