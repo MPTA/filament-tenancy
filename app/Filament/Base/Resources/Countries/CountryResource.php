@@ -29,6 +29,12 @@ class CountryResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'name';
 
+    protected static ?string $navigationLabel = 'Countries';
+
+    protected static ?string $modelLabel = 'Country';
+
+    protected static ?string $pluralModelLabel = 'Countries';
+
     public static function form(Schema $schema): Schema
     {
         return CountryForm::configure($schema);
