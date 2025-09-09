@@ -20,7 +20,7 @@ class MealCategoryResource extends Resource
 {
     protected static ?string $model = MealCategory::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedCake;
 
     protected static ?string $recordTitleAttribute = 'name';
 

@@ -22,7 +22,7 @@ class CompanionCategoryResource extends Resource
     use Translatable;
     protected static ?string $model = CompanionCategory::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedUsers;
 
     protected static ?string $recordTitleAttribute = 'name';
 
