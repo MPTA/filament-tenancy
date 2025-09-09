@@ -13,10 +13,13 @@ use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Forms\Components\TextInput;
 use Filament\Infolists\Components\TextEntry;
+use Filament\Schemas\Components\Section;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 use LaraZeus\SpatieTranslatable\Resources\RelationManagers\Concerns\Translatable;
 
 class ProvincesRelationManager extends RelationManager
@@ -28,9 +31,20 @@ class ProvincesRelationManager extends RelationManager
     {
         return $schema
             ->components([
-                TextInput::make('name')
-                    ->required(),
-                TextInput::make('code'),
+                Section::make('Province Information')
+                    ->schema([
+                        TextInput::make('name')
+                            ->label('Province Name')
+                            ->required()
+                            ->maxLength(255)
+                            ->hint('Enter province name in different languages'),
+                        TextInput::make('code')
+                            ->label('Province Code')
+                            ->maxLength(10)
+                            ->hint('Optional province code or abbreviation')
+                            ->placeholder('e.g., CA, NY, TX'),
+                    ])
+                    ->columns(1),
             ]);
     }
 
@@ -38,16 +52,54 @@ class ProvincesRelationManager extends RelationManager
     {
         return $schema
             ->components([
-                TextEntry::make('id')
-                    ->label('ID'),
-                TextEntry::make('code')
-                    ->placeholder('-'),
-                TextEntry::make('created_at')
-                    ->dateTime()
-                    ->placeholder('-'),
-                TextEntry::make('updated_at')
-                    ->dateTime()
-                    ->placeholder('-'),
+                Section::make('Province Information')
+                    ->schema([
+                        TextEntry::make('name')
+                            ->label('Province Name'),
+                        TextEntry::make('code')
+                            ->label('Province Code')
+                            ->badge()
+                            ->color('info')
+                            ->placeholder('-'),
+                    ])
+                    ->columns(2),
+
+                Section::make('Statistics')
+                    ->schema([
+                        TextEntry::make('cities_count')
+                            ->label('Cities')
+                            ->badge()
+                            ->color('success')
+                            ->state(fn ($record) => $record->cities()->count()),
+                        TextEntry::make('districts_count')
+                            ->label('Districts')
+                            ->badge()
+                            ->color('info')
+                            ->state(fn ($record) => $record->districts()->count()),
+                        TextEntry::make('attractions_count')
+                            ->label('Attractions')
+                            ->badge()
+                            ->color('warning')
+                            ->state(fn ($record) => $record->attractions()->count()),
+                        TextEntry::make('accommodations_count')
+                            ->label('Accommodations')
+                            ->badge()
+                            ->color('primary')
+                            ->state(fn ($record) => $record->accommodations()->count()),
+                    ])
+                    ->columns(2),
+
+                Section::make('System Information')
+                    ->schema([
+                        TextEntry::make('created_at')
+                            ->label('Created At')
+                            ->dateTime(),
+                        TextEntry::make('updated_at')
+                            ->label('Updated At')
+                            ->dateTime(),
+                    ])
+                    ->columns(2)
+                    ->collapsible(),
             ]);
     }
 
@@ -56,25 +108,68 @@ class ProvincesRelationManager extends RelationManager
         return $table
             ->recordTitleAttribute('name')
             ->columns([
-                TextColumn::make('id')
-                    ->label('ID'),
+                TextColumn::make('name')
+                    ->label('Province Name')
+                    ->searchable()
+                    ->sortable()
+                    ->weight('bold'),
                 TextColumn::make('code')
-                    ->searchable(),
+                    ->label('Code')
+                    ->searchable()
+                    ->sortable()
+                    ->badge()
+                    ->color('info')
+                    ->copyable(),
+                TextColumn::make('cities_count')
+                    ->label('Cities')
+                    ->counts('cities')
+                    ->sortable()
+                    ->toggleable(),
+                TextColumn::make('districts_count')
+                    ->label('Districts')
+                    ->counts('districts')
+                    ->sortable()
+                    ->toggleable(),
+                TextColumn::make('attractions_count')
+                    ->label('Attractions')
+                    ->counts('attractions')
+                    ->sortable()
+                    ->toggleable(),
+                TextColumn::make('accommodations_count')
+                    ->label('Accommodations')
+                    ->counts('accommodations')
+                    ->sortable()
+                    ->toggleable(),
                 TextColumn::make('created_at')
+                    ->label('Created')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')
+                    ->label('Updated')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                //
+                Filter::make('has_cities')
+                    ->label('Has Cities')
+                    ->query(fn (Builder $query): Builder => $query->has('cities')),
+                Filter::make('has_districts')
+                    ->label('Has Districts')
+                    ->query(fn (Builder $query): Builder => $query->has('districts')),
+                Filter::make('has_attractions')
+                    ->label('Has Attractions')
+                    ->query(fn (Builder $query): Builder => $query->has('attractions')),
+                Filter::make('has_accommodations')
+                    ->label('Has Accommodations')
+                    ->query(fn (Builder $query): Builder => $query->has('accommodations')),
             ])
             ->headerActions([
-                CreateAction::make(),
-                AssociateAction::make(),
+                CreateAction::make()
+                    ->label('Add Province'),
+                AssociateAction::make()
+                    ->label('Associate Province'),
             ])
             ->recordActions([
                 ViewAction::make(),
@@ -87,6 +182,7 @@ class ProvincesRelationManager extends RelationManager
                     DissociateBulkAction::make(),
                     DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ->defaultSort('name');
     }
 }
