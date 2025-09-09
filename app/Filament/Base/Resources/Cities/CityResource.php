@@ -6,6 +6,7 @@ use App\Filament\Base\Resources\Cities\Pages\CreateCity;
 use App\Filament\Base\Resources\Cities\Pages\EditCity;
 use App\Filament\Base\Resources\Cities\Pages\ListCities;
 use App\Filament\Base\Resources\Cities\Pages\ViewCity;
+use App\Filament\Base\Resources\Cities\RelationManagers\DistrictsRelationManager;
 use App\Filament\Base\Resources\Cities\Schemas\CityForm;
 use App\Filament\Base\Resources\Cities\Schemas\CityInfolist;
 use App\Filament\Base\Resources\Cities\Tables\CitiesTable;
@@ -42,7 +43,7 @@ class CityResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            DistrictsRelationManager::class,
         ];
     }
 

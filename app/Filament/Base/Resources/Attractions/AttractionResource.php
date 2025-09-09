@@ -6,6 +6,7 @@ use App\Filament\Base\Resources\Attractions\Pages\CreateAttraction;
 use App\Filament\Base\Resources\Attractions\Pages\EditAttraction;
 use App\Filament\Base\Resources\Attractions\Pages\ListAttractions;
 use App\Filament\Base\Resources\Attractions\Pages\ViewAttraction;
+use App\Filament\Base\Resources\Attractions\RelationManagers\SubAttractionsRelationManager;
 use App\Filament\Base\Resources\Attractions\Schemas\AttractionForm;
 use App\Filament\Base\Resources\Attractions\Schemas\AttractionInfolist;
 use App\Filament\Base\Resources\Attractions\Tables\AttractionsTable;
@@ -44,7 +45,7 @@ class AttractionResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            SubAttractionsRelationManager::class,
         ];
     }
 
