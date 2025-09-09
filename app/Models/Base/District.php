@@ -9,37 +9,36 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\Translatable\HasTranslations;
 use Stancl\Tenancy\Database\Concerns\CentralConnection;
 
-class City extends Model
+class District extends Model
 {
     use HasTranslations, CentralConnection, HasUuids;
 
-    protected $table = 'cities';
+    protected $table = 'districts';
     public $translatable = ['name'];
 
-    protected $fillable = ['name', 'code', 'province_id'];
+    protected $fillable = [
+        'name',
+        'city_id',
+        'latitude',
+        'longitude',
+    ];
 
     protected $casts = [
         'name' => 'array',
+        'latitude' => 'decimal:8',
+        'longitude' => 'decimal:8',
     ];
 
     /**
-     * Get the province that owns the city.
+     * Get the city that owns the district.
      */
-    public function province(): BelongsTo
+    public function city(): BelongsTo
     {
-        return $this->belongsTo(Province::class);
+        return $this->belongsTo(City::class);
     }
 
     /**
-     * Get the districts for the city.
-     */
-    public function districts(): HasMany
-    {
-        return $this->hasMany(District::class);
-    }
-
-    /**
-     * Get the attractions for the city.
+     * Get the attractions for the district.
      */
     public function attractions(): HasMany
     {
