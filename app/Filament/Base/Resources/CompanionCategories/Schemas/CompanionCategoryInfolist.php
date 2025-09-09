@@ -12,17 +12,29 @@ class CompanionCategoryInfolist
     {
         return $schema
             ->components([
-                TextEntry::make('id')
-                    ->label('ID'),
-                TextEntry::make('slug'),
+                TextEntry::make('name')
+                    ->translateLabel()
+                    ->label('Companion Category Name'),
+                TextEntry::make('slug')
+                    ->label('URL Slug')
+                    ->copyable(),
+                TextEntry::make('description')
+                    ->translateLabel()
+                    ->label('Description')
+                    ->columnSpanFull(),
                 IconEntry::make('is_active')
-                    ->boolean(),
+                    ->label('Status')
+                    ->boolean()
+                    ->trueIcon('heroicon-o-check-circle')
+                    ->falseIcon('heroicon-o-x-circle')
+                    ->trueColor('success')
+                    ->falseColor('danger'),
                 TextEntry::make('created_at')
-                    ->dateTime()
-                    ->placeholder('-'),
+                    ->label('Created At')
+                    ->dateTime(),
                 TextEntry::make('updated_at')
-                    ->dateTime()
-                    ->placeholder('-'),
+                    ->label('Updated At')
+                    ->dateTime(),
             ]);
     }
 }
