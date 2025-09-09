@@ -22,7 +22,7 @@ class AccommodationResource extends Resource
     use Translatable;
     protected static ?string $model = Accommodation::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedBuildingOffice;
 
     protected static ?string $recordTitleAttribute = 'name';
 

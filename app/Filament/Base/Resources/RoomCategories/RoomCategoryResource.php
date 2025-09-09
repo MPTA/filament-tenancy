@@ -22,7 +22,7 @@ class RoomCategoryResource extends Resource
     use Translatable;
     protected static ?string $model = RoomCategory::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedCube;
 
     protected static ?string $recordTitleAttribute = 'name';
 

@@ -23,7 +23,7 @@ class AttractionResource extends Resource
     use Translatable;
     protected static ?string $model = Attraction::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedCamera;
 
     protected static ?string $recordTitleAttribute = 'name';
 
