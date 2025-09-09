@@ -44,4 +44,12 @@ class District extends Model
     {
         return $this->hasMany(Attraction::class);
     }
+
+    /**
+     * Get the accommodations for the district.
+     */
+    public function accommodations(): HasMany
+    {
+        return $this->hasMany(Accommodation::class);
+    }
 }

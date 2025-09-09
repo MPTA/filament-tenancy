@@ -53,4 +53,12 @@ class Province extends Model
     {
         return $this->hasMany(Attraction::class);
     }
+
+    /**
+     * Get the accommodations for the province.
+     */
+    public function accommodations(): HasMany
+    {
+        return $this->hasMany(Accommodation::class);
+    }
 }

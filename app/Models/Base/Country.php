@@ -45,4 +45,12 @@ class Country extends Model
     {
         return $this->hasMany(Attraction::class);
     }
+
+    /**
+     * Get the accommodations for the country.
+     */
+    public function accommodations(): HasMany
+    {
+        return $this->hasMany(Accommodation::class);
+    }
 }

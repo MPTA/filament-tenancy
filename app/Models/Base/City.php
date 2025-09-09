@@ -45,4 +45,12 @@ class City extends Model
     {
         return $this->hasMany(Attraction::class);
     }
+
+    /**
+     * Get the accommodations for the city.
+     */
+    public function accommodations(): HasMany
+    {
+        return $this->hasMany(Accommodation::class);
+    }
 }
