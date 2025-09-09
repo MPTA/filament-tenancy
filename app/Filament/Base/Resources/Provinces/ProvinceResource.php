@@ -6,6 +6,7 @@ use App\Filament\Base\Resources\Provinces\Pages\CreateProvince;
 use App\Filament\Base\Resources\Provinces\Pages\EditProvince;
 use App\Filament\Base\Resources\Provinces\Pages\ListProvinces;
 use App\Filament\Base\Resources\Provinces\Pages\ViewProvince;
+use App\Filament\Base\Resources\Provinces\RelationManagers\CitiesRelationManager;
 use App\Filament\Base\Resources\Provinces\Schemas\ProvinceForm;
 use App\Filament\Base\Resources\Provinces\Schemas\ProvinceInfolist;
 use App\Filament\Base\Resources\Provinces\Tables\ProvincesTable;
@@ -42,7 +43,7 @@ class ProvinceResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            CitiesRelationManager::class,
         ];
     }
 
