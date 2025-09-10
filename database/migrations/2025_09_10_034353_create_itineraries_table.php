@@ -15,13 +15,17 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->uuid('itineraryable_id');
             $table->string('itineraryable_type');
-            $table->uuid('tenant_id');
+            $table->string('tenant_id');
             $table->string('travel_mode');
             $table->boolean('is_advanced')->default(false);
             $table->boolean('is_complete')->default(false);
             $table->boolean('is_vip')->default(false);
             $table->uuid('creator_user_id');
             $table->timestamps();
+
+            // Foreign key constraints
+            $table->foreign('tenant_id')->references('id')->on('tenants')->onDelete('cascade');
+            $table->foreign('creator_user_id')->references('id')->on('users')->onDelete('cascade');
 
             // Indexes for performance
             $table->index(['itineraryable_id', 'itineraryable_type'], 'itineraries_polymorphic_index');
