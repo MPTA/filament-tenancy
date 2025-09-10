@@ -2,7 +2,7 @@
 
 namespace App\Filament\Tenant\Resources\TenantContacts\Schemas;
 
-use App\ContactType;
+use App\Enums\ContactTypeEnum;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
@@ -34,8 +34,8 @@ class TenantContactForm
                     ->label('Email address')
                     ->email(),
                 TextInput::make('company'),
-                Select::make('type')
-                    ->options(ContactType::class)
+                        Select::make('type')
+                            ->options(ContactTypeEnum::class)
                     ->default('lead')
                     ->required(),
             ]);

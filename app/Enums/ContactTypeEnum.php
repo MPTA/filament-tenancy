@@ -1,8 +1,8 @@
 <?php
 
-namespace App;
+namespace App\Enums;
 
-enum ContactType: string
+enum ContactTypeEnum: string
 {
     case USER = 'user';
     case LEAD = 'lead';

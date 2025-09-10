@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\ContactType;
+use App\Enums\ContactTypeEnum;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -39,7 +39,7 @@ class Contact extends Model
      */
     protected $casts = [
         'is_customer' => 'boolean',
-        'type' => ContactType::class,
+        'type' => ContactTypeEnum::class,
     ];
 
     /**
