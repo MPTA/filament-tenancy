@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('airports', function (Blueprint $table) {
+        Schema::create('border_points', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->jsonb('name'); // Airport name (translatable)
-            $table->string('code', 3)->unique(); // IATA 3-letter code (e.g., LAX, JFK)
+            $table->jsonb('name'); // Border point name (translatable)
+            $table->string('code', 3)->nullable(); // IATA code (optional)
             $table->uuid('city_id'); // Foreign key to cities table
             $table->timestamps();
 
@@ -22,8 +22,8 @@ return new class extends Migration
             $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
 
             // Indexes for performance
-            $table->index('code', 'airports_iata_code_index');
-            $table->index('city_id', 'airports_city_id_index');
+            $table->index('code', 'border_points_iata_code_index');
+            $table->index('city_id', 'border_points_city_id_index');
         });
     }
 
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('airports');
+        Schema::dropIfExists('border_points');
     }
 };

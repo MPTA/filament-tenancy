@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\Translatable\HasTranslations;
 use Stancl\Tenancy\Database\Concerns\CentralConnection;
 
-class Airport extends Model
+class BorderPoint extends Model
 {
     use HasUuids, CentralConnection, HasTranslations;
 
@@ -25,7 +25,7 @@ class Airport extends Model
     ];
 
     /**
-     * Get the city that owns the airport.
+     * Get the city that owns the border point.
      */
     public function city(): BelongsTo
     {
@@ -33,7 +33,7 @@ class Airport extends Model
     }
 
     /**
-     * Scope a query to search airports by name or IATA code.
+     * Scope a query to search border points by name or IATA code.
      */
     public function scopeSearch($query, $search)
     {
@@ -44,11 +44,13 @@ class Airport extends Model
     }
 
     /**
-     * Get the full airport name with IATA code.
+     * Get the full border point name with IATA code.
      */
     public function getFullNameAttribute(): string
     {
         $name = is_array($this->name) ? ($this->name['en'] ?? reset($this->name)) : $this->name;
-        return "{$name} ({$this->iata_code})";
+        return $this->iata_code 
+            ? "{$name} ({$this->iata_code})"
+            : $name;
     }
 }
