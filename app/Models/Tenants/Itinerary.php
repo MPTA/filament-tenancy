@@ -2,6 +2,7 @@
 
 namespace App\Models\Tenants;
 
+use App\Enums\TravelModeEnum;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
@@ -25,6 +26,7 @@ class Itinerary extends Model
     ];
 
     protected $casts = [
+        'travel_mode' => TravelModeEnum::class,
         'is_advanced' => 'boolean',
         'is_complete' => 'boolean',
         'is_vip' => 'boolean',
