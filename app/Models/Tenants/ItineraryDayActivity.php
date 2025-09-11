@@ -85,6 +85,14 @@ class ItineraryDayActivity extends Model
     }
 
     /**
+     * Get the experience for this activity (one-to-one relationship).
+     */
+    public function experience(): HasOne
+    {
+        return $this->hasOne(ItineraryDayActivityExperience::class);
+    }
+
+    /**
      * Scope a query to filter by activity category.
      */
     public function scopeByCategory($query, $categoryId)
