@@ -6,6 +6,7 @@ use App\Models\Base\Attraction;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 
 class ItineraryDayActivityAttraction extends Model
@@ -37,6 +38,14 @@ class ItineraryDayActivityAttraction extends Model
     public function attraction(): BelongsTo
     {
         return $this->belongsTo(Attraction::class);
+    }
+
+    /**
+     * Get the sub attractions for this activity attraction (one-to-many relationship).
+     */
+    public function subAttractions(): HasMany
+    {
+        return $this->hasMany(ItineraryActivitySubAttraction::class);
     }
 
     /**
