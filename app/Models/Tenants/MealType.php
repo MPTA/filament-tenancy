@@ -84,6 +84,6 @@ class MealType extends Model
             return 'Not specified';
         }
 
-        return number_format($this->budget, 2) . ' USD';
+        return number_format((float) $this->budget, 2) . ' USD';
     }
 }
