@@ -2,6 +2,7 @@
 
 namespace App\Models\Base;
 
+use App\Enums\AttractionTypeEnum;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -19,6 +20,7 @@ class Attraction extends Model
     protected $fillable = [
         'name',
         'description',
+        'type',
         'address',
         'latitude',
         'longitude',
@@ -34,6 +36,7 @@ class Attraction extends Model
     protected $casts = [
         'name' => 'array',
         'description' => 'array',
+        'type' => AttractionTypeEnum::class,
         'latitude' => 'decimal:8',
         'longitude' => 'decimal:8',
         'rating' => 'decimal:2',
