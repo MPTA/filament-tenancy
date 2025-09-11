@@ -38,7 +38,7 @@
     @endif
 
     <title>
-        {{ filled($title = strip_tags(($livewire ?? null)?->getTitle() ?? '')) ? "{$title} - " : null }}
+        {{ filled($title = strip_tags($livewire?->getTitle() ?? '')) ? "{$title} - " : null }}
         {{ strip_tags(filament()->getBrandName()) }}
     </title>
 
@@ -84,7 +84,7 @@
 
 <body
     {{ $attributes
-            ->merge(($livewire ?? null)?->getExtraBodyAttributes() ?? [], escape: false)
+            ->merge($livewire?->getExtraBodyAttributes() ?? [], escape: false)
             ->class([
                 'fi-body',
                 'fi-panel-' . filament()->getId(),
