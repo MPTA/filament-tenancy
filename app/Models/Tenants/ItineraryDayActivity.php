@@ -77,6 +77,14 @@ class ItineraryDayActivity extends Model
     }
 
     /**
+     * Get the attraction for this activity (one-to-one relationship).
+     */
+    public function attraction(): HasOne
+    {
+        return $this->hasOne(ItineraryDayActivityAttraction::class);
+    }
+
+    /**
      * Scope a query to filter by activity category.
      */
     public function scopeByCategory($query, $categoryId)
