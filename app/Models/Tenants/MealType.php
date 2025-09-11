@@ -6,6 +6,7 @@ use App\Models\Base\MealCategory;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\Translatable\HasTranslations;
 use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 
@@ -37,6 +38,14 @@ class MealType extends Model
     public function mealCategory(): BelongsTo
     {
         return $this->belongsTo(MealCategory::class);
+    }
+
+    /**
+     * Get the activity meals for this meal type.
+     */
+    public function activityMeals(): HasMany
+    {
+        return $this->hasMany(ItineraryDayActivityMeal::class);
     }
 
     /**

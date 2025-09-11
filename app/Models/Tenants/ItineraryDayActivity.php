@@ -7,6 +7,8 @@ use App\Models\Base\City;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Spatie\Translatable\HasTranslations;
 use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 
@@ -56,6 +58,14 @@ class ItineraryDayActivity extends Model
     public function city(): BelongsTo
     {
         return $this->belongsTo(City::class);
+    }
+
+    /**
+     * Get the meal for this activity (one-to-one relationship).
+     */
+    public function meal(): HasOne
+    {
+        return $this->hasOne(ItineraryDayActivityMeal::class);
     }
 
     /**
