@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\Translatable\HasTranslations;
 use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 
@@ -78,5 +79,13 @@ class ItineraryDay extends Model
     public function creator(): BelongsTo
     {
         return $this->belongsTo(User::class, 'creator_user_id');
+    }
+
+    /**
+     * Get the activities for this day.
+     */
+    public function activities(): HasMany
+    {
+        return $this->hasMany(ItineraryDayActivity::class);
     }
 }
