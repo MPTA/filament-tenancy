@@ -15,7 +15,6 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->uuid('itinerary_day_activity_id');
             $table->uuid('experience_id');
-            $table->jsonb('description')->nullable();
             $table->string('tenant_id');
             $table->timestamps();
 

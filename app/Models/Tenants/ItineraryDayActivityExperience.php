@@ -5,26 +5,16 @@ namespace App\Models\Tenants;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Spatie\Translatable\HasTranslations;
 use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 
 class ItineraryDayActivityExperience extends Model
 {
-    use HasUuids, BelongsToTenant, HasTranslations;
+    use HasUuids, BelongsToTenant;
 
     protected $fillable = [
         'itinerary_day_activity_id',
         'experience_id',
-        'description',
         'tenant_id',
-    ];
-
-    protected $casts = [
-        'description' => 'array',
-    ];
-
-    protected $translatable = [
-        'description',
     ];
 
     /**
