@@ -21,6 +21,7 @@ class ItineraryDayActivity extends Model
         'end_time',
         'city_id',
         'description',
+        'tenant_id',
     ];
 
     protected $casts = [
