@@ -1,0 +1,119 @@
+<?php
+
+namespace App\Models\Tenants;
+
+use App\Models\Base\City;
+use App\Models\Base\Currency;
+use App\Models\Base\District;
+use App\Models\User;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Spatie\Translatable\HasTranslations;
+use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
+
+class Experience extends Model
+{
+    use HasUuids, BelongsToTenant, HasTranslations;
+
+    protected $fillable = [
+        'name',
+        'description',
+        'content',
+        'slug',
+        'price',
+        'currency_id',
+        'address',
+        'city_id',
+        'district_id',
+        'is_active',
+        'creator_user_id',
+    ];
+
+    protected $casts = [
+        'name' => 'array',
+        'description' => 'array',
+        'content' => 'array',
+        'price' => 'decimal:2',
+        'is_active' => 'boolean',
+    ];
+
+    protected $translatable = [
+        'name',
+        'description',
+        'content',
+    ];
+
+    /**
+     * Get the route key for the model.
+     */
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
+
+    /**
+     * Get the city that owns the experience.
+     */
+    public function city(): BelongsTo
+    {
+        return $this->belongsTo(City::class);
+    }
+
+    /**
+     * Get the district that owns the experience.
+     */
+    public function district(): BelongsTo
+    {
+        return $this->belongsTo(District::class);
+    }
+
+    /**
+     * Get the currency that owns the experience.
+     */
+    public function currency(): BelongsTo
+    {
+        return $this->belongsTo(Currency::class);
+    }
+
+    /**
+     * Get the user who created this experience.
+     */
+    public function creator(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'creator_user_id');
+    }
+
+    /**
+     * Scope a query to only include active experiences.
+     */
+    public function scopeActive($query)
+    {
+        return $query->where('is_active', true);
+    }
+
+    /**
+     * Scope a query to search experiences.
+     */
+    public function scopeSearch($query, $search)
+    {
+        return $query->where(function ($q) use ($search) {
+            $q->where('name', 'like', "%{$search}%")
+              ->orWhere('description', 'like', "%{$search}%")
+              ->orWhere('address', 'like', "%{$search}%");
+        });
+    }
+
+    /**
+     * Get the formatted price with currency.
+     */
+    public function getFormattedPriceAttribute(): string
+    {
+        if (!$this->price) {
+            return 'Free';
+        }
+
+        $currency = $this->currency ? $this->currency->code : 'USD';
+        return number_format((float) $this->price, 2) . ' ' . $currency;
+    }
+}
