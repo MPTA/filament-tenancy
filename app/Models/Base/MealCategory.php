@@ -55,4 +55,12 @@ class MealCategory extends Model
     {
         return 'slug';
     }
+
+    /**
+     * Get the meal types for this category.
+     */
+    public function mealTypes()
+    {
+        return $this->hasMany(\App\Models\Tenants\MealType::class);
+    }
 }
