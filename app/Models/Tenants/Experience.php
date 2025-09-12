@@ -2,6 +2,7 @@
 
 namespace App\Models\Tenants;
 
+use App\Enums\ChargeModeEnum;
 use App\Models\Base\City;
 use App\Models\Base\Currency;
 use App\Models\Base\District;
@@ -22,6 +23,7 @@ class Experience extends Model
         'content',
         'slug',
         'price',
+        'charge_mode',
         'currency_id',
         'address',
         'city_id',
@@ -35,6 +37,7 @@ class Experience extends Model
         'description' => 'array',
         'content' => 'array',
         'price' => 'decimal:2',
+        'charge_mode' => ChargeModeEnum::class,
         'is_active' => 'boolean',
     ];
 
@@ -90,6 +93,14 @@ class Experience extends Model
     public function scopeActive($query)
     {
         return $query->where('is_active', true);
+    }
+
+    /**
+     * Scope a query to filter by charge mode.
+     */
+    public function scopeByChargeMode($query, $chargeMode)
+    {
+        return $query->where('charge_mode', $chargeMode);
     }
 
     /**
