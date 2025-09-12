@@ -18,13 +18,13 @@ class MealType extends Model
         'meal_category_id',
         'name',
         'description',
-        'budget',
+        'price',
     ];
 
     protected $casts = [
         'name' => 'array',
         'description' => 'array',
-        'budget' => 'decimal:2',
+        'price' => 'decimal:2',
     ];
 
     protected $translatable = [
@@ -57,11 +57,11 @@ class MealType extends Model
     }
 
     /**
-     * Scope a query to filter by budget range.
+     * Scope a query to filter by price range.
      */
-    public function scopeByBudgetRange($query, $minBudget, $maxBudget)
+    public function scopeByPriceRange($query, $minPrice, $maxPrice)
     {
-        return $query->whereBetween('budget', [$minBudget, $maxBudget]);
+        return $query->whereBetween('price', [$minPrice, $maxPrice]);
     }
 
     /**
@@ -76,14 +76,14 @@ class MealType extends Model
     }
 
     /**
-     * Get the formatted budget with currency.
+     * Get the formatted price with currency.
      */
-    public function getFormattedBudgetAttribute(): string
+    public function getFormattedPriceAttribute(): string
     {
-        if (!$this->budget) {
+        if (!$this->price) {
             return 'Not specified';
         }
 
-        return number_format((float) $this->budget, 2) . ' USD';
+        return number_format((float) $this->price, 2) . ' USD';
     }
 }
