@@ -37,6 +37,9 @@ return new class extends Migration
             $table->index('vehicle_category_id');
             $table->index('slug');
             $table->index('tenant_id');
+            
+            // Unique constraints
+            $table->unique(['tenant_id', 'vehicle_category_id']);
         });
     }
 

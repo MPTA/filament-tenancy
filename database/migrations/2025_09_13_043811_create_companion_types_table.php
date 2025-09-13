@@ -39,6 +39,9 @@ return new class extends Migration
             $table->index('tenant_id');
             $table->index('slug');
             $table->index('companion_category_id');
+            
+            // Unique constraints
+            $table->unique(['tenant_id', 'speaking_language_id', 'native_language_id']);
         });
     }
 
