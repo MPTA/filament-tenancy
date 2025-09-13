@@ -88,6 +88,14 @@ class Attraction extends Model
     }
 
     /**
+     * Get the tenant attractions for this attraction.
+     */
+    public function tenantAttractions(): HasMany
+    {
+        return $this->hasMany(\App\Models\Tenants\TenantAttraction::class);
+    }
+
+    /**
      * Scope a query to filter by local price range.
      */
     public function scopeByLocalPriceRange($query, $minPrice, $maxPrice)
