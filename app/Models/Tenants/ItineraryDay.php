@@ -88,4 +88,12 @@ class ItineraryDay extends Model
     {
         return $this->hasMany(ItineraryDayActivity::class);
     }
+
+    /**
+     * Get the companions for this day.
+     */
+    public function companions(): HasMany
+    {
+        return $this->hasMany(ItineraryDayCompanion::class);
+    }
 }
