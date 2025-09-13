@@ -5,6 +5,7 @@ namespace App\Models\Base;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\Translatable\HasTranslations;
 use Stancl\Tenancy\Database\Concerns\CentralConnection;
 
@@ -36,5 +37,13 @@ class SubAttraction extends Model
     public function attraction(): BelongsTo
     {
         return $this->belongsTo(Attraction::class);
+    }
+
+    /**
+     * Get the tenant sub attractions for this sub attraction.
+     */
+    public function tenantSubAttractions(): HasMany
+    {
+        return $this->hasMany(\App\Models\Tenants\TenantSubAttraction::class);
     }
 }

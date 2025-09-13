@@ -2,22 +2,22 @@
 
 namespace App\Models\Tenants;
 
-use App\Models\Base\Attraction;
+use App\Models\Base\SubAttraction;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 
-class TenantAttraction extends Model
+class TenantSubAttraction extends Model
 {
     use HasUuids, BelongsToTenant;
 
     protected $fillable = [
-        'tenant_id',
-        'attraction_id',
+        'tenant_attraction_id',
+        'sub_attraction_id',
         'local_price',
         'foreigner_price',
+        'tenant_id',
     ];
 
     protected $casts = [
@@ -26,19 +26,19 @@ class TenantAttraction extends Model
     ];
 
     /**
-     * Get the attraction for this tenant attraction.
+     * Get the tenant attraction that owns this sub attraction.
      */
-    public function attraction(): BelongsTo
+    public function tenantAttraction(): BelongsTo
     {
-        return $this->belongsTo(Attraction::class);
+        return $this->belongsTo(TenantAttraction::class);
     }
 
     /**
-     * Get the tenant sub attractions for this tenant attraction.
+     * Get the sub attraction for this tenant sub attraction.
      */
-    public function tenantSubAttractions(): HasMany
+    public function subAttraction(): BelongsTo
     {
-        return $this->hasMany(TenantSubAttraction::class);
+        return $this->belongsTo(SubAttraction::class);
     }
 
     /**
@@ -74,23 +74,31 @@ class TenantAttraction extends Model
     }
 
     /**
-     * Scope a query to filter by attraction.
+     * Scope a query to filter by tenant attraction.
      */
-    public function scopeByAttraction($query, $attractionId)
+    public function scopeByTenantAttraction($query, $tenantAttractionId)
     {
-        return $query->where('attraction_id', $attractionId);
+        return $query->where('tenant_attraction_id', $tenantAttractionId);
     }
 
     /**
-     * Scope a query to search tenant attractions.
+     * Scope a query to filter by sub attraction.
+     */
+    public function scopeBySubAttraction($query, $subAttractionId)
+    {
+        return $query->where('sub_attraction_id', $subAttractionId);
+    }
+
+    /**
+     * Scope a query to search tenant sub attractions.
      */
     public function scopeSearch($query, $search)
     {
-        return $query->whereHas('attraction', function ($q) use ($search) {
+        return $query->whereHas('subAttraction', function ($q) use ($search) {
             $q->where('name->en', 'like', "%{$search}%")
               ->orWhere('name->fa', 'like', "%{$search}%")
-              ->orWhere('address->en', 'like', "%{$search}%")
-              ->orWhere('address->fa', 'like', "%{$search}%");
+              ->orWhere('description->en', 'like', "%{$search}%")
+              ->orWhere('description->fa', 'like', "%{$search}%");
         });
     }
 
@@ -158,10 +166,21 @@ class TenantAttraction extends Model
     }
 
     /**
-     * Get the attraction name.
+     * Get the sub attraction name.
      */
-    public function getAttractionNameAttribute(): string
+    public function getSubAttractionNameAttribute(): string
     {
-        return $this->attraction ? $this->attraction->name : 'Unknown Attraction';
+        return $this->subAttraction ? $this->subAttraction->name : 'Unknown Sub Attraction';
+    }
+
+    /**
+     * Get the parent attraction name through tenant attraction.
+     */
+    public function getParentAttractionNameAttribute(): string
+    {
+        if ($this->tenantAttraction && $this->tenantAttraction->attraction) {
+            return $this->tenantAttraction->attraction->name;
+        }
+        return 'Unknown Parent Attraction';
     }
 }
