@@ -3,12 +3,14 @@
 namespace App\Data;
 
 use App\Models\Base\SubAttraction;
+use Spatie\LaravelData\Attributes\Validation\Min;
 use Spatie\LaravelData\Data;
 
 class BreakdownSubAttractionData extends Data
 {
     public function __construct(
         public SubAttraction $sub_attraction,
+        #[Min(0)]
         public float $entry_price,
     ) {}
 

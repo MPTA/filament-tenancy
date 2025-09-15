@@ -4,12 +4,14 @@ namespace App\Data;
 
 use App\Enums\ChargeModeEnum;
 use App\Models\Tenants\Experience;
+use Spatie\LaravelData\Attributes\Validation\Min;
 use Spatie\LaravelData\Data;
 
 class BreakdownExperienceData extends Data
 {
     public function __construct(
         public Experience $experience,
+        #[Min(0)]
         public float $price,
         public ChargeModeEnum $charge_mode,
     ) {}

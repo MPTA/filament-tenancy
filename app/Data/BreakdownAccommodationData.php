@@ -5,6 +5,7 @@ namespace App\Data;
 use App\Models\Base\Accommodation;
 use App\Models\Base\City;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
+use Spatie\LaravelData\Attributes\Validation\Min;
 use Spatie\LaravelData\Data;
 
 class BreakdownAccommodationData extends Data
@@ -12,6 +13,7 @@ class BreakdownAccommodationData extends Data
     public function __construct(
         public Accommodation $accommodation,
         public City $city,
+        #[Min(1)]
         public int $stay_nights,
         #[DataCollectionOf(BreakdownAccommodationRoomData::class)]
         public array $rooms = [],

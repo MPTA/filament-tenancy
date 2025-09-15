@@ -4,6 +4,7 @@ namespace App\Data;
 
 use App\Models\Base\CompanionCategory;
 use App\Models\Tenants\CompanionType;
+use Spatie\LaravelData\Attributes\Validation\Min;
 use Spatie\LaravelData\Data;
 
 class BreakdownCompanionData extends Data
@@ -11,11 +12,17 @@ class BreakdownCompanionData extends Data
     public function __construct(
         public CompanionType $companion_type,
         public CompanionCategory $companion_category,
+        #[Min(0)]
         public float $per_day_price,
+        #[Min(0)]
         public float $half_day_price,
+        #[Min(0)]
         public float $pickup_price,
+        #[Min(0)]
         public int $days,
+        #[Min(0)]
         public int $half_days,
+        #[Min(0)]
         public int $pickups,
     ) {}
 

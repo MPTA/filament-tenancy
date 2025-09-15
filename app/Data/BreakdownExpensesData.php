@@ -3,12 +3,16 @@
 namespace App\Data;
 
 use App\Enums\ChargeModeEnum;
+use Spatie\LaravelData\Attributes\Validation\Min;
+use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Data;
 
 class BreakdownExpensesData extends Data
 {
     public function __construct(
+        #[Required]
         public string $description,
+        #[Min(0)]
         public float $price,
         public ChargeModeEnum $charge_mode,
     ) {}

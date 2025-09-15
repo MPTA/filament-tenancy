@@ -4,14 +4,18 @@ namespace App\Data;
 
 use App\Models\Base\Currency;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
+use Spatie\LaravelData\Attributes\Validation\Min;
 use Spatie\LaravelData\Data;
 
 class ItineraryBreakdownData extends Data
 {
     public function __construct(
         public Currency $currency,
+        #[Min(0)]
         public int $vehicle_days,
+        #[Min(0)]
         public int $vehicle_half_days,
+        #[Min(0)]
         public int $vehicle_extra_hours,
         #[DataCollectionOf(BreakdownMealData::class)]
         public array $meals = [],

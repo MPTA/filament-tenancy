@@ -5,6 +5,7 @@ namespace App\Data;
 use App\Models\Base\Attraction;
 use App\Models\Base\City;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
+use Spatie\LaravelData\Attributes\Validation\Min;
 use Spatie\LaravelData\Data;
 
 class BreakdownAttractionData extends Data
@@ -13,6 +14,7 @@ class BreakdownAttractionData extends Data
         public Attraction $attraction,
         public bool $is_outview,
         public City $city,
+        #[Min(0)]
         public float $entry_price,
         #[DataCollectionOf(BreakdownSubAttractionData::class)]
         public array $sub_attractions = [],

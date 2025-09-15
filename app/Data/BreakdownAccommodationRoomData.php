@@ -3,12 +3,14 @@
 namespace App\Data;
 
 use App\Models\Base\RoomCategory;
+use Spatie\LaravelData\Attributes\Validation\Min;
 use Spatie\LaravelData\Data;
 
 class BreakdownAccommodationRoomData extends Data
 {
     public function __construct(
         public RoomCategory $room_category,
+        #[Min(0)]
         public float $price,
     ) {}
 

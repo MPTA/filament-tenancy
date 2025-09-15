@@ -5,6 +5,7 @@ namespace App\Data;
 use App\Enums\TicketClassEnum;
 use App\Enums\TransportModeEnum;
 use App\Models\Base\City;
+use Spatie\LaravelData\Attributes\Validation\Min;
 use Spatie\LaravelData\Data;
 
 class BreakdownTicketData extends Data
@@ -14,6 +15,7 @@ class BreakdownTicketData extends Data
         public City $from_city,
         public City $to_city,
         public TicketClassEnum $class,
+        #[Min(0)]
         public float $price,
     ) {}
 
