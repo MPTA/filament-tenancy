@@ -2,6 +2,7 @@
 
 namespace App\Models\Base;
 
+use App\Enums\CompanionCategoryEnum;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
@@ -20,12 +21,14 @@ class CompanionCategory extends Model
         'slug',
         'description',
         'is_active',
+        'category_type',
     ];
 
     protected $casts = [
         'name' => 'array',
         'description' => 'array',
         'is_active' => 'boolean',
+        'category_type' => CompanionCategoryEnum::class,
     ];
 
     /**
