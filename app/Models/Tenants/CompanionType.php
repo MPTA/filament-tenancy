@@ -28,6 +28,8 @@ class CompanionType extends Model
         'max_hour_half_day',
         'extra_hour_price',
         'currency_id',
+        'default_meal_budget',
+        'default_accommodation_budget',
         'slug',
     ];
 
@@ -39,6 +41,8 @@ class CompanionType extends Model
         'max_hour_per_day' => 'integer',
         'max_hour_half_day' => 'integer',
         'extra_hour_price' => 'decimal:2',
+        'default_meal_budget' => 'decimal:2',
+        'default_accommodation_budget' => 'decimal:2',
     ];
 
     protected $translatable = [
@@ -175,5 +179,29 @@ class CompanionType extends Model
         }
         $currency = $this->currency ? $this->currency->code : 'USD';
         return number_format((float) $this->extra_hour_price, 2) . ' ' . $currency;
+    }
+
+    /**
+     * Get the formatted default meal budget.
+     */
+    public function getFormattedDefaultMealBudgetAttribute(): string
+    {
+        if (!$this->default_meal_budget) {
+            return 'Not specified';
+        }
+        $currency = $this->currency ? $this->currency->code : 'USD';
+        return number_format((float) $this->default_meal_budget, 2) . ' ' . $currency;
+    }
+
+    /**
+     * Get the formatted default accommodation budget.
+     */
+    public function getFormattedDefaultAccommodationBudgetAttribute(): string
+    {
+        if (!$this->default_accommodation_budget) {
+            return 'Not specified';
+        }
+        $currency = $this->currency ? $this->currency->code : 'USD';
+        return number_format((float) $this->default_accommodation_budget, 2) . ' ' . $currency;
     }
 }
