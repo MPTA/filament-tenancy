@@ -82,4 +82,12 @@ class RoomCategory extends Model
     {
         return $this->hasMany(\App\Models\Tenants\QuotationOffer::class, 'leader_room_category_id');
     }
+
+    /**
+     * Get the quotation offer prices using this room category.
+     */
+    public function quotationOfferPrices(): HasMany
+    {
+        return $this->hasMany(\App\Models\Tenants\QuotationOfferPrice::class);
+    }
 }
