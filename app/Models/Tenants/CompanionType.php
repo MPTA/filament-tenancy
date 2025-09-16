@@ -8,6 +8,7 @@ use App\Models\Base\Language;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\Translatable\HasTranslations;
 use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 
@@ -203,5 +204,13 @@ class CompanionType extends Model
         }
         $currency = $this->currency ? $this->currency->code : 'USD';
         return number_format((float) $this->base_accommodation_budget, 2) . ' ' . $currency;
+    }
+
+    /**
+     * Get the quotation offer companions using this companion type.
+     */
+    public function quotationOfferCompanions(): HasMany
+    {
+        return $this->hasMany(QuotationOfferCompanion::class);
     }
 }

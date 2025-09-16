@@ -6,6 +6,7 @@ use App\Models\Base\RoomCategory;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 
 class QuotationOfferGroup extends Model
@@ -50,6 +51,14 @@ class QuotationOfferGroup extends Model
     public function driverRoomCategory(): BelongsTo
     {
         return $this->belongsTo(RoomCategory::class, 'driver_room_category_id');
+    }
+
+    /**
+     * Get the quotation offer companions for this offer group (one-to-many relationship).
+     */
+    public function quotationOfferCompanions(): HasMany
+    {
+        return $this->hasMany(QuotationOfferCompanion::class);
     }
 
     /**
