@@ -28,8 +28,8 @@ class CompanionType extends Model
         'max_hour_half_day',
         'extra_hour_price',
         'currency_id',
-        'default_meal_budget',
-        'default_accommodation_budget',
+        'base_meal_budget',
+        'base_accommodation_budget',
         'slug',
     ];
 
@@ -41,8 +41,8 @@ class CompanionType extends Model
         'max_hour_per_day' => 'integer',
         'max_hour_half_day' => 'integer',
         'extra_hour_price' => 'decimal:2',
-        'default_meal_budget' => 'decimal:2',
-        'default_accommodation_budget' => 'decimal:2',
+        'base_meal_budget' => 'decimal:2',
+        'base_accommodation_budget' => 'decimal:2',
     ];
 
     protected $translatable = [
@@ -182,26 +182,26 @@ class CompanionType extends Model
     }
 
     /**
-     * Get the formatted default meal budget.
+     * Get the formatted base meal budget.
      */
-    public function getFormattedDefaultMealBudgetAttribute(): string
+    public function getFormattedBaseMealBudgetAttribute(): string
     {
-        if (!$this->default_meal_budget) {
+        if (!$this->base_meal_budget) {
             return 'Not specified';
         }
         $currency = $this->currency ? $this->currency->code : 'USD';
-        return number_format((float) $this->default_meal_budget, 2) . ' ' . $currency;
+        return number_format((float) $this->base_meal_budget, 2) . ' ' . $currency;
     }
 
     /**
-     * Get the formatted default accommodation budget.
+     * Get the formatted base accommodation budget.
      */
-    public function getFormattedDefaultAccommodationBudgetAttribute(): string
+    public function getFormattedBaseAccommodationBudgetAttribute(): string
     {
-        if (!$this->default_accommodation_budget) {
+        if (!$this->base_accommodation_budget) {
             return 'Not specified';
         }
         $currency = $this->currency ? $this->currency->code : 'USD';
-        return number_format((float) $this->default_accommodation_budget, 2) . ' ' . $currency;
+        return number_format((float) $this->base_accommodation_budget, 2) . ' ' . $currency;
     }
 }
