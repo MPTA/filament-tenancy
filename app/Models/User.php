@@ -6,6 +6,7 @@ namespace App\Models;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -71,6 +72,14 @@ class User extends Authenticatable implements FilamentUser
     public function contact(): HasOne
     {
         return $this->hasOne(Contact::class);
+    }
+
+    /**
+     * Get the quotations created by this user.
+     */
+    public function quotations(): HasMany
+    {
+        return $this->hasMany(\App\Models\Tenants\Quotation::class, 'creator_user_id');
     }
 
     /**

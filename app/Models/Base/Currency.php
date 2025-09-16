@@ -22,4 +22,12 @@ class Currency extends Model
         'symbol',
     ];
 
+    /**
+     * Get the quotations using this currency.
+     */
+    public function quotations(): HasMany
+    {
+        return $this->hasMany(\App\Models\Tenants\Quotation::class);
+    }
+
 }

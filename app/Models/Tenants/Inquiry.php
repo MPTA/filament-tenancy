@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Spatie\Translatable\HasTranslations;
 use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
@@ -168,6 +169,14 @@ class Inquiry extends Model
     public function inquiryItinerary(): HasOne
     {
         return $this->hasOne(InquiryItinerary::class);
+    }
+
+    /**
+     * Get the quotations for this inquiry (one-to-many relationship).
+     */
+    public function quotations(): HasMany
+    {
+        return $this->hasMany(Quotation::class);
     }
 
 }
