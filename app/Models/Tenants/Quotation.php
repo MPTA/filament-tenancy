@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Spatie\Translatable\HasTranslations;
 use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 
@@ -69,6 +70,14 @@ class Quotation extends Model
     public function creator(): BelongsTo
     {
         return $this->belongsTo(User::class, 'creator_user_id');
+    }
+
+    /**
+     * Get the quotation itinerary for this quotation (one-to-one relationship).
+     */
+    public function quotationItinerary(): HasOne
+    {
+        return $this->hasOne(QuotationItinerary::class);
     }
 
     /**
@@ -146,7 +155,7 @@ class Quotation extends Model
      */
     public function getIsExpiredAttribute(): bool
     {
-        return $this->expire_date && $this->expire_date->lt(now()->toDateString());
+        return $this->expire_date && $this->expire_date->isPast();
     }
 
     /**

@@ -20,15 +20,16 @@ return new class extends Migration
             $table->decimal('exchange_rate', 20, 4)->default(1.0000);
             $table->json('description')->nullable();
             $table->json('internal_note')->nullable();
-            $table->uuid('tenant_id');
+            $table->string('tenant_id');
             $table->uuid('creator_user_id');
             $table->date('expire_date')->nullable();
             $table->timestamps();
 
             // Foreign key constraints
-            $table->foreign('inquiry_id')->references('id')->on('inquiries')->onDelete('set null');
-            $table->foreign('currency_id')->references('id')->on('currencies')->onDelete('cascade');
+            $table->foreign('inquiry_id')->references('id')->on('inquiries')->onDelete('cascade');
+            $table->foreign('currency_id')->references('id')->on('currencies')->onDelete('restrict');
             $table->foreign('creator_user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('tenant_id')->references('id')->on('tenants')->onDelete('cascade');
             
             // Indexes
             $table->index(['tenant_id', 'number']);
