@@ -4,6 +4,7 @@ namespace App\Models\Base;
 
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Str;
 use Spatie\Translatable\HasTranslations;
 use Stancl\Tenancy\Database\Concerns\CentralConnection;
@@ -56,5 +57,21 @@ class RoomCategory extends Model
     public function getRouteKeyName()
     {
         return 'slug';
+    }
+
+    /**
+     * Get the quotation offer groups using this room category as companion room.
+     */
+    public function quotationOfferGroupsAsCompanionRoom(): HasMany
+    {
+        return $this->hasMany(\App\Models\Tenants\QuotationOfferGroup::class, 'companion_room_category_id');
+    }
+
+    /**
+     * Get the quotation offer groups using this room category as driver room.
+     */
+    public function quotationOfferGroupsAsDriverRoom(): HasMany
+    {
+        return $this->hasMany(\App\Models\Tenants\QuotationOfferGroup::class, 'driver_room_category_id');
     }
 }
