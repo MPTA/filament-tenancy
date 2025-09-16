@@ -74,4 +74,12 @@ class RoomCategory extends Model
     {
         return $this->hasMany(\App\Models\Tenants\QuotationOfferGroup::class, 'driver_room_category_id');
     }
+
+    /**
+     * Get the quotation offers using this room category as leader room.
+     */
+    public function quotationOffersAsLeaderRoom(): HasMany
+    {
+        return $this->hasMany(\App\Models\Tenants\QuotationOffer::class, 'leader_room_category_id');
+    }
 }

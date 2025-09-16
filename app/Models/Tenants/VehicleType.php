@@ -6,6 +6,7 @@ use App\Models\Base\VehicleCategory;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\Translatable\HasTranslations;
 use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 
@@ -169,5 +170,13 @@ class VehicleType extends Model
             return (string) $this->capacity_from;
         }
         return "{$this->capacity_from}-{$this->capacity_to}";
+    }
+
+    /**
+     * Get the quotation offers using this vehicle type.
+     */
+    public function quotationOffers(): HasMany
+    {
+        return $this->hasMany(QuotationOffer::class);
     }
 }
