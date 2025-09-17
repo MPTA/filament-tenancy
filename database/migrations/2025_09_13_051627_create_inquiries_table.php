@@ -15,7 +15,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('type');
             $table->jsonb('title');
-            $table->jsonb('description');
+            $table->jsonb('description')->nullable();
             $table->string('reference')->nullable();
             $table->string('number')->unique();
             $table->string('tenant_id');
