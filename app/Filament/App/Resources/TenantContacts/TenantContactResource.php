@@ -55,7 +55,7 @@ class TenantContactResource extends Resource
         return [
             'Email' => $record->email ?? 'No email',
             'Phone' => $record->phone ?? 'No phone',
-            'Type' => $record->type ?? 'No type',
+            'Company' => $record->company ?? 'No company',
         ];
     }
 

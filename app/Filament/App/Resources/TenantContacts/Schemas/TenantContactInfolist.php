@@ -59,10 +59,6 @@ class TenantContactInfolist
                             ->placeholder('Not assigned')
                             ->icon('heroicon-o-user'),
                         
-                        TextEntry::make('type')
-                            ->label('Contact Type')
-                            ->badge()
-                            ->color('primary'),
                         
                         TextEntry::make('gender')
                             ->label('Gender')

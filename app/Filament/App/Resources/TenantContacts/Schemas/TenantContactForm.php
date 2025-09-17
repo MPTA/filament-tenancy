@@ -2,7 +2,6 @@
 
 namespace App\Filament\App\Resources\TenantContacts\Schemas;
 
-use App\Enums\ContactTypeEnum;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
@@ -62,11 +61,6 @@ class TenantContactForm
                             ->searchable()
                             ->preload(),
                         
-                        Select::make('type')
-                            ->label('Contact Type')
-                            ->options(ContactTypeEnum::class)
-                            ->default('lead')
-                            ->required(),
                         
                         TextInput::make('gender')
                             ->label('Gender')

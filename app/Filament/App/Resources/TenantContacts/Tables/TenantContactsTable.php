@@ -57,12 +57,6 @@ class TenantContactsTable
                     ->placeholder('No company')
                     ->icon('heroicon-o-building-office'),
                 
-                TextColumn::make('type')
-                    ->label('Type')
-                    ->badge()
-                    ->color('primary')
-                    ->searchable()
-                    ->sortable(),
                 
                 IconColumn::make('is_customer')
                     ->label('Customer')
@@ -95,15 +89,6 @@ class TenantContactsTable
                     ->alignCenter(),
             ])
             ->filters([
-                SelectFilter::make('type')
-                    ->label('Contact Type')
-                    ->options([
-                        'lead' => 'Lead',
-                        'customer' => 'Customer',
-                        'prospect' => 'Prospect',
-                        'vendor' => 'Vendor',
-                    ]),
-                
                 TernaryFilter::make('is_customer')
                     ->label('Customer Status')
                     ->placeholder('All contacts')
