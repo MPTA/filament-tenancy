@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Filament\Tenant\Resources\TenantContacts\Pages;
+namespace App\Filament\App\Resources\TenantContacts\Pages;
 
-use App\Filament\Tenant\Resources\TenantContacts\TenantContactResource;
+use App\Filament\App\Resources\TenantContacts\TenantContactResource;
 use Filament\Actions\EditAction;
 use Filament\Resources\Pages\ViewRecord;
 
