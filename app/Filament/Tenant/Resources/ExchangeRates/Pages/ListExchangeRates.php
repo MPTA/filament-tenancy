@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Filament\App\Resources\ExchangeRates\Pages;
+namespace App\Filament\Tenant\Resources\ExchangeRates\Pages;
 
-use App\Filament\App\Resources\ExchangeRates\ExchangeRateResource;
+use App\Filament\Tenant\Resources\ExchangeRates\ExchangeRateResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
