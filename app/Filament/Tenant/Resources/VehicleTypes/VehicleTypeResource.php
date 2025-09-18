@@ -31,7 +31,7 @@ class VehicleTypeResource extends Resource
 
     protected static ?string $pluralModelLabel = 'Vehicle Types';
 
-    protected static string | UnitEnum | null $navigationGroup = 'Transportation';
+    protected static string | UnitEnum | null $navigationGroup = 'Data Types';
 
     protected static ?int $navigationSort = 1;
 

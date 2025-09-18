@@ -31,7 +31,7 @@ class CompanionTypeResource extends Resource
 
     protected static ?string $pluralModelLabel = 'Companion Types';
 
-    protected static string | UnitEnum | null $navigationGroup = 'Companions';
+    protected static string | UnitEnum | null $navigationGroup = 'Data Types';
 
     protected static ?int $navigationSort = 1;
 

@@ -31,7 +31,7 @@ class MealTypeResource extends Resource
 
     protected static ?string $pluralModelLabel = 'Meal Types';
 
-    protected static string | UnitEnum | null $navigationGroup = 'Meals';
+    protected static string | UnitEnum | null $navigationGroup = 'Data Types';
 
     protected static ?int $navigationSort = 1;
 
