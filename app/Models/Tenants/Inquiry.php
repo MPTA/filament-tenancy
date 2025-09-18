@@ -179,4 +179,34 @@ class Inquiry extends Model
         return $this->hasMany(Quotation::class);
     }
 
+    /**
+     * Boot method to generate inquiry number.
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($inquiry) {
+            if (empty($inquiry->number)) {
+                $inquiry->number = static::generateInquiryNumber();
+            }
+        });
+    }
+
+    /**
+     * Generate a unique inquiry number starting from 1000100.
+     */
+    protected static function generateInquiryNumber(): string
+    {
+        $lastInquiry = static::query()->orderBy('number', 'desc')->first();
+        
+        if ($lastInquiry && is_numeric($lastInquiry->number)) {
+            $nextNumber = (int) $lastInquiry->number + 1;
+        } else {
+            $nextNumber = 2500100;
+        }
+
+        return (string) $nextNumber;
+    }
+
 }

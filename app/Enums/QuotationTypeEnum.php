@@ -14,4 +14,14 @@ enum QuotationTypeEnum: string
             self::ITINERARY => 'Itinerary',
         };
     }
+
+    /**
+     * Get options for select inputs.
+     */
+    public static function getOptions(): array
+    {
+        return collect(self::cases())
+            ->mapWithKeys(fn($case) => [$case->value => $case->getLabel()])
+            ->toArray();
+    }
 }
