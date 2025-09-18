@@ -20,7 +20,7 @@ return new class extends Migration
             $table->decimal('price', 10, 2)->nullable();
             $table->uuid('currency_id')->nullable();
             $table->text('address')->nullable();
-            $table->uuid('city_id')->nullable();
+            $table->uuid('city_id');
             $table->uuid('district_id')->nullable();
             $table->boolean('is_active')->default(true);
             $table->string('tenant_id');

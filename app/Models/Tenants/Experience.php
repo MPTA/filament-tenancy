@@ -48,6 +48,27 @@ class Experience extends Model
     ];
 
     /**
+     * Get the validation rules for the model.
+     */
+    public static function validationRules($id = null): array
+    {
+        return [
+            'name' => 'required|array',
+            'slug' => 'required|string|unique:experiences,slug,' . $id,
+            'city_id' => 'required|uuid|exists:cities,id',
+            'district_id' => 'nullable|uuid|exists:districts,id',
+            'currency_id' => 'nullable|uuid|exists:currencies,id',
+            'price' => 'nullable|numeric|min:0',
+            'charge_mode' => 'required|string',
+            'is_active' => 'required|boolean',
+            'address' => 'nullable|string|max:500',
+            'description' => 'nullable|array',
+            'content' => 'nullable|array',
+            'creator_user_id' => 'required|uuid|exists:users,id',
+        ];
+    }
+
+    /**
      * Get the route key for the model.
      */
     public function getRouteKeyName(): string
