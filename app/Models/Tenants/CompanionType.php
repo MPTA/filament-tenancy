@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Validation\Rule;
 use Spatie\Translatable\HasTranslations;
 use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 
@@ -49,6 +50,54 @@ class CompanionType extends Model
     protected $translatable = [
         'name',
     ];
+
+    /**
+     * Get the validation rules for the model.
+     */
+    public static function validationRules($id = null): array
+    {
+        return [
+            'name' => 'required|array',
+            'tenant_id' => 'required|string',
+            'companion_category_id' => [
+                'required',
+                'uuid',
+                Rule::unique('companion_types')
+                    ->where('tenant_id', tenant('id'))
+                    ->where('native_language_id', request()->input('native_language_id'))
+                    ->where('speaking_language_id', request()->input('speaking_language_id'))
+                    ->ignore($id)
+            ],
+            'native_language_id' => [
+                'required',
+                'uuid',
+                Rule::unique('companion_types')
+                    ->where('tenant_id', tenant('id'))
+                    ->where('companion_category_id', request()->input('companion_category_id'))
+                    ->where('speaking_language_id', request()->input('speaking_language_id'))
+                    ->ignore($id)
+            ],
+            'speaking_language_id' => [
+                'required',
+                'uuid',
+                Rule::unique('companion_types')
+                    ->where('tenant_id', tenant('id'))
+                    ->where('companion_category_id', request()->input('companion_category_id'))
+                    ->where('native_language_id', request()->input('native_language_id'))
+                    ->ignore($id)
+            ],
+            'slug' => 'required|string|unique:companion_types,slug,' . $id,
+            'per_day_price' => 'nullable|numeric|min:0',
+            'half_day_price' => 'nullable|numeric|min:0',
+            'per_hour_price' => 'nullable|numeric|min:0',
+            'max_hour_per_day' => 'nullable|integer|min:1',
+            'max_hour_half_day' => 'nullable|integer|min:1',
+            'extra_hour_price' => 'nullable|numeric|min:0',
+            'currency_id' => 'nullable|uuid|exists:currencies,id',
+            'base_meal_budget' => 'nullable|numeric|min:0',
+            'base_accommodation_budget' => 'nullable|numeric|min:0',
+        ];
+    }
 
     /**
      * Get the route key for the model.
