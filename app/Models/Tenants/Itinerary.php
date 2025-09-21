@@ -2,7 +2,9 @@
 
 namespace App\Models\Tenants;
 
+use App\Enums\StarRatingEnum;
 use App\Enums\TravelModeEnum;
+use App\Models\Base\City;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
@@ -31,6 +33,7 @@ class Itinerary extends Model
         'is_advanced' => 'boolean',
         'is_complete' => 'boolean',
         'is_vip' => 'boolean',
+        'accommodation_star_rating' => StarRatingEnum::class,
     ];
 
     /**
@@ -60,8 +63,16 @@ class Itinerary extends Model
     /**
      * Get the itinerary days.
      */
-    public function itineraryDays(): HasMany
+    public function days(): HasMany
     {
         return $this->hasMany(ItineraryDay::class);
+    }
+
+    public function currenctCity(){
+        return $this->belongsTo(City::class, 'current_city_id');    
+    }
+
+    public function accommodationCity(){
+        return $this->belongsTo(City::class, 'accommodation_city_id');    
     }
 }

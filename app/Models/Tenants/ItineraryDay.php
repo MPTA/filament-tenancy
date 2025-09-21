@@ -2,6 +2,7 @@
 
 namespace App\Models\Tenants;
 
+use App\Enums\StarRatingEnum;
 use App\Models\Base\City;
 use App\Models\Base\Accommodation;
 use App\Models\User;
@@ -33,7 +34,7 @@ class ItineraryDay extends Model
         'description' => 'array',
         'has_vehicle' => 'boolean',
         'has_tour_guide' => 'boolean',
-        'accommodation_star_rating' => 'integer',
+        'accommodation_star_rating' => StarRatingEnum::class,
         'day_number' => 'integer',
     ];
 

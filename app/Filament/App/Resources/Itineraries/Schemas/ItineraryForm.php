@@ -2,7 +2,9 @@
 
 namespace App\Filament\App\Resources\Itineraries\Schemas;
 
+use App\Enums\StarRatingEnum;
 use App\Enums\TravelModeEnum;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
@@ -14,23 +16,18 @@ class ItineraryForm
     {
         return $schema
             ->components([
-                Select::make('tenant_id')
-                    ->relationship('tenant', 'name')
-                    ->required(),
-                Select::make('travel_mode')
-                    ->options(TravelModeEnum::class)
-                    ->required(),
-                Toggle::make('is_advanced')
-                    ->required(),
-                Toggle::make('is_complete')
-                    ->required(),
-                Toggle::make('is_vip')
-                    ->required(),
-                TextInput::make('creator_user_id')
-                    ->required(),
-                TextInput::make('itineraryable_type')
-                    ->required(),
-                TextInput::make('itineraryable_id')
+                Repeater::make('days')->columnSpanFull()
+                    ->schema([
+                        Select::make('current_city_id')
+                            ->relationship('currentCity', 'name')
+                            ->required(),
+                        Select::make('accommodation_city_id')
+                        ->relationship('accommodationCity', 'name'),
+                        Select::make('accommodation_star_rating')->options(StarRatingEnum::getOptions()),
+                        Toggle::make('has_vehicle')->label('Has Car'),
+                        Toggle::make('has_tour_guide'),
+                    ])
+                    ->relationship('days')
                     ->required(),
             ]);
     }

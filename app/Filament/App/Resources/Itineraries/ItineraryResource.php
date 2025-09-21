@@ -22,7 +22,14 @@ class ItineraryResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $recordTitleAttribute = 'travel_mode';
+    public static function getRecordTitle($record): string
+    {
+        $travelMode = $record->travel_mode;
+        if ($travelMode instanceof \App\Enums\TravelModeEnum) {
+            return $travelMode->getLabel();
+        }
+        return (string) $travelMode;
+    }
 
     public static function form(Schema $schema): Schema
     {
