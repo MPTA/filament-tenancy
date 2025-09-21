@@ -28,9 +28,9 @@ class ItineraryForm
                         Select::make('accommodation_id')->relationship('accommodation', 'name'),
                         Toggle::make('has_vehicle')->label('Has Car'),
                         Toggle::make('has_tour_guide'),
-                        Select::make('breakfast')->options(MealType::all()->pluck('name', 'id')),
-                        Select::make('lunch')->options(MealType::all()->pluck('name', 'id')),
-                        Select::make('dinner')->options(MealType::all()->pluck('name', 'id'))
+                        Select::make('breakfast')->options(MealType::getCachedSelectOptions()),
+                        Select::make('lunch')->options(MealType::getCachedSelectOptions()),
+                        Select::make('dinner')->options(MealType::getCachedSelectOptions())
                     ])
                     ->relationship('days')
                     ->required(),

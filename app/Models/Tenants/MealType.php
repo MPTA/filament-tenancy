@@ -52,6 +52,20 @@ class MealType extends Model
                 $model->slug = Str::slug($model->getTranslation('name', 'en') ?? 'meal-type');
             }
         });
+
+        // Clear static cache when meal type is created, updated, or deleted
+        static::created(function () {
+            static::clearStaticCache();
+        });
+
+        static::updated(function () {
+            static::clearStaticCache();
+        });
+
+        static::deleted(function () {
+            static::clearStaticCache();
+        });
+
     }
 
     /**
@@ -103,6 +117,45 @@ class MealType extends Model
             $q->where('name', 'like', "%{$search}%")
               ->orWhere('description', 'like', "%{$search}%");
         });
+    }
+
+    /**
+     * Scope to get meal types for select options.
+     */
+    public function scopeForSelectOptions($query)
+    {
+        return $query->select('id', 'name')
+                    ->orderBy('name');
+    }
+
+    /**
+     * Static cache for select options to avoid repeated queries.
+     */
+    private static $selectOptionsCache = null;
+
+    /**
+     * Get meal types for select options (optimized query with static caching).
+     */
+    public static function getCachedSelectOptions()
+    {
+        // Use static cache to avoid repeated queries in the same request
+        if (static::$selectOptionsCache === null) {
+            static::$selectOptionsCache = static::query()
+                ->select('id', 'name')
+                ->orderBy('name')
+                ->get()
+                ->pluck('name', 'id');
+        }
+        
+        return static::$selectOptionsCache;
+    }
+
+    /**
+     * Clear the static cache (useful for testing or when data changes).
+     */
+    public static function clearStaticCache()
+    {
+        static::$selectOptionsCache = null;
     }
 
     /**
