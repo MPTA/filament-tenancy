@@ -18,7 +18,7 @@ class ItineraryForm
     {
         return $schema
             ->components([
-                Repeater::make('days')->columnSpanFull()
+                Repeater::make('days')->columnSpanFull()->columns(['md' => 2, 'lg' => 4])
                     ->schema([
                         Select::make('current_city_id')
                             ->relationship('currentCity', 'name')
@@ -31,6 +31,7 @@ class ItineraryForm
                             }),
                         Select::make('accommodation_star_rating')
                             ->options(StarRatingEnum::getOptions())
+                            ->label('Star Rating')
                             ->reactive()
                             ->afterStateUpdated(function ($state, callable $set) {
                                 $set('accommodation_id', null);
@@ -67,7 +68,7 @@ class ItineraryForm
                             }),
                         Toggle::make('has_vehicle')->label('Has Car'),
                         Toggle::make('has_tour_guide'),
-                        Select::make('breakfast')->options(MealType::getCachedSelectOptions()),
+                        Select::make('breakfast')->options(MealType::getCachedSelectOptions())->columnStart(1),
                         Select::make('lunch')->options(MealType::getCachedSelectOptions()),
                         Select::make('dinner')->options(MealType::getCachedSelectOptions())
                     ])
