@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Str;
 use Spatie\Translatable\HasTranslations;
 use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 
@@ -17,6 +18,7 @@ class MealType extends Model
     protected $fillable = [
         'meal_category_id',
         'name',
+        'slug',
         'description',
         'price',
     ];
@@ -31,6 +33,34 @@ class MealType extends Model
         'name',
         'description',
     ];
+
+    /**
+     * Boot the model.
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            if (empty($model->slug)) {
+                $model->slug = Str::slug($model->getTranslation('name', 'en') ?? 'meal-type');
+            }
+        });
+
+        static::updating(function ($model) {
+            if ($model->isDirty('name') && empty($model->slug)) {
+                $model->slug = Str::slug($model->getTranslation('name', 'en') ?? 'meal-type');
+            }
+        });
+    }
+
+    /**
+     * Get the route key for the model.
+     */
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 
     /**
      * Get the meal category that owns the meal type.
