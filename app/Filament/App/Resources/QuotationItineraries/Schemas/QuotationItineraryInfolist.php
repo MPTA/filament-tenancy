@@ -2,7 +2,11 @@
 
 namespace App\Filament\App\Resources\QuotationItineraries\Schemas;
 
+use App\Enums\TravelModeEnum;
+use App\Filament\App\Resources\Itineraries\ItineraryResource;
+use App\Models\Tenants\Itinerary;
 use Filament\Actions\Action;
+use Filament\Forms\Components\Select;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Components\IconEntry;
 use Filament\Infolists\Components\ViewEntry;
@@ -12,6 +16,7 @@ use Filament\Schemas\Components\Tabs;
 use Filament\Schemas\Components\Tabs\Tab;
 use Filament\Schemas\Schema;
 use Filament\Support\Enums\Size;
+use Illuminate\Support\Facades\Auth;
 
 class QuotationItineraryInfolist
 {
@@ -23,6 +28,8 @@ class QuotationItineraryInfolist
                     ->tabs([
                         Tab::make('Information')
                             ->icon('heroicon-o-check-circle')
+                            ->badge('✓')
+                            ->badgeColor('success')
                             ->schema([
                                 TextEntry::make('quotation.number'),
                                 TextEntry::make('quotation.currency.name'),
@@ -37,10 +44,20 @@ class QuotationItineraryInfolist
                                 Grid::make(1)
                                     ->schema([
                                         Action::make('Create Itinerary')
-                                            ->size(Size::ExtraLarge)->action(function(){
-                                                
-                                            })
+                                        // ->url(fn() => ItineraryResource::getUrl('create'))
+                                            ->size(Size::ExtraLarge)
                                             ->icon('heroicon-m-pencil-square')
+                                            ->color('success')
+                                            ->schema([
+                                                Select::make('travel_mode')
+                                                    ->options(TravelModeEnum::class)
+                                            ])->action(function(array $data){
+                                                Itinerary::create([
+                                                    'travel_mode' => $data['travel_mode'],
+                                                    'creator_user_id' => Auth::user()->id,
+                                                    
+                                                ]);
+                                            })
                                     ])
                                     ->extraAttributes(['class' => 'flex justify-center items-center min-h-[200px]'])
                             ]),

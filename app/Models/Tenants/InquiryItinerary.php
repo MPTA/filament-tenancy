@@ -44,6 +44,9 @@ class InquiryItinerary extends Model
     {
         return $this->hasMany(InquiryStayPlan::class);
     }
+    public function itinerary(){
+        return $this->morphOne(Itinerary::class, 'itineraryable');
+    }
 
     /**
      * Scope a query to filter by date type.
