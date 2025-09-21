@@ -62,7 +62,15 @@ class QuotationItineraryInfolist
                                      
                                             })
                                     ])
-                                    ->extraAttributes(['class' => 'flex justify-center items-center min-h-[200px]'])
+                                    ->extraAttributes(['class' => 'flex justify-center items-center min-h-[200px]']),
+                                    Grid::make(1)
+                                    ->schema([
+                                        Action::make('Edit Itinerary Days')->hidden(fn( QuotationItinerary $quotationItinerary) => !$quotationItinerary->itinerary)
+                                            ->size(Size::ExtraLarge)
+                                            ->icon('heroicon-m-pencil-square')
+                                            ->color('primary')
+                                    ])
+                                    ->extraAttributes(['class' => 'flex justify-end items-center min-h-[200px]'])
                             ]),
                         Tab::make('Breakdown')
                             
