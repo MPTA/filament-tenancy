@@ -80,4 +80,24 @@ class City extends Model
         static $cache = null;
         $cache = null;
     }
+
+    /**
+     * Boot method to clear cache on model events.
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::created(function () {
+            static::clearStaticCache();
+        });
+
+        static::updated(function () {
+            static::clearStaticCache();
+        });
+
+        static::deleted(function () {
+            static::clearStaticCache();
+        });
+    }
 }
