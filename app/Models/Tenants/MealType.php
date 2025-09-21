@@ -43,13 +43,13 @@ class MealType extends Model
 
         static::creating(function ($model) {
             if (empty($model->slug)) {
-                $model->slug = Str::slug($model->getTranslation('name', 'en') ?? 'meal-type');
+                $model->slug = static::generateUniqueSlug($model);
             }
         });
 
         static::updating(function ($model) {
             if ($model->isDirty('name') && empty($model->slug)) {
-                $model->slug = Str::slug($model->getTranslation('name', 'en') ?? 'meal-type');
+                $model->slug = static::generateUniqueSlug($model);
             }
         });
 
@@ -156,6 +156,28 @@ class MealType extends Model
     public static function clearStaticCache()
     {
         static::$selectOptionsCache = null;
+    }
+
+    /**
+     * Generate a unique slug for the meal type within the same tenant.
+     */
+    private static function generateUniqueSlug($model)
+    {
+        $baseSlug = Str::slug($model->getTranslation('name', 'en') ?? 'meal-type');
+        $slug = $baseSlug;
+        $counter = 1;
+
+        // Check if slug exists within the same tenant
+        while (static::query()
+                    ->where('slug', $slug)
+                    ->where('tenant_id', $model->tenant_id)
+                    ->where('id', '!=', $model->id ?? '')
+                    ->exists()) {
+            $slug = "{$baseSlug}-{$counter}";
+            $counter++;
+        }
+
+        return $slug;
     }
 
     /**
