@@ -4,6 +4,7 @@ namespace App\Filament\App\Resources\Itineraries\Schemas;
 
 use App\Enums\StarRatingEnum;
 use App\Enums\TravelModeEnum;
+use App\Models\Tenants\MealType;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -24,8 +25,12 @@ class ItineraryForm
                         Select::make('accommodation_city_id')
                         ->relationship('accommodationCity', 'name'),
                         Select::make('accommodation_star_rating')->options(StarRatingEnum::getOptions()),
+                        Select::make('accommodation_id')->relationship('accommodation', 'name'),
                         Toggle::make('has_vehicle')->label('Has Car'),
                         Toggle::make('has_tour_guide'),
+                        Select::make('breakfast')->options(MealType::all()->pluck('name', 'id')),
+                        Select::make('lunch')->options(MealType::all()->pluck('name', 'id')),
+                        Select::make('dinner')->options(MealType::all()->pluck('name', 'id'))
                     ])
                     ->relationship('days')
                     ->required(),
