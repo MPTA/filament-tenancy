@@ -53,4 +53,31 @@ class City extends Model
     {
         return $this->hasMany(Accommodation::class);
     }
+
+    /**
+     * Get cached select options for cities.
+     */
+    public static function getCachedSelectOptions()
+    {
+        static $cache = null;
+        
+        if ($cache === null) {
+            $cache = static::query()
+                ->select('id', 'name')
+                ->orderBy('name')
+                ->get()
+                ->pluck('name', 'id');
+        }
+        
+        return $cache;
+    }
+
+    /**
+     * Clear the static cache.
+     */
+    public static function clearStaticCache()
+    {
+        static $cache = null;
+        $cache = null;
+    }
 }

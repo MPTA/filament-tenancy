@@ -5,8 +5,12 @@ namespace App\Filament\App\Resources\Itineraries\Schemas;
 use App\Enums\StarRatingEnum;
 use App\Enums\TravelModeEnum;
 use App\Models\Base\Accommodation;
+use App\Models\Base\Attraction;
+use App\Models\Base\City;
+use App\Models\Base\SubAttraction;
 use App\Models\Tenants\MealType;
 use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\Repeater\TableColumn;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
@@ -70,7 +74,63 @@ class ItineraryForm
                         Toggle::make('has_tour_guide'),
                         Select::make('breakfast')->options(MealType::getCachedSelectOptions())->columnStart(1),
                         Select::make('lunch')->options(MealType::getCachedSelectOptions()),
-                        Select::make('dinner')->options(MealType::getCachedSelectOptions())
+                        Select::make('dinner')->options(MealType::getCachedSelectOptions()),
+                        Repeater::make('attractions')
+                            ->columnStart(1)
+                            ->columnSpanFull()
+                            ->label('Attractions')
+                            ->table([
+                                TableColumn::make('City'),
+                                TableColumn::make('Attraction'),
+                                TableColumn::make('Sub Attractions'),
+                            ])
+                            ->schema([
+                                Select::make('city_id')
+                                    ->label('City')
+                                    ->options(City::getCachedSelectOptions())
+                                    ->reactive()
+                                    ->afterStateUpdated(function ($state, callable $set) {
+                                        $set('attraction_id', null);
+                                        $set('sub_attractions', []);
+                                    }),
+                                
+                                Select::make('attraction_id')
+                                    ->label('Main Attraction')
+                                    ->options(function (callable $get) {
+                                        $cityId = $get('city_id');
+                                        if (!$cityId) {
+                                            return [];
+                                        }
+                                        
+                                        return Attraction::where('city_id', $cityId)
+                                            ->pluck('name', 'id')
+                                            ->toArray();
+                                    })
+                                    ->reactive()
+                                    ->afterStateUpdated(function ($state, callable $set) {
+                                        $set('sub_attractions', []);
+                                    }),
+                                
+                                Select::make('sub_attractions')
+                                    ->label('Sub Attractions')
+                                    ->multiple()
+                                    ->options(function (callable $get) {
+                                        $attractionId = $get('attraction_id');
+                                        if (!$attractionId) {
+                                            return [];
+                                        }
+                                        
+                                        return SubAttraction::where('attraction_id', $attractionId)
+                                            ->pluck('name', 'id')
+                                            ->toArray();
+                                    })
+                                    ->visible(fn (callable $get) => !empty($get('attraction_id')))
+                                    ->searchable()
+                                    ->preload(),
+                            ])
+                            ->addActionLabel('Add Attraction')
+                            ->reorderable()
+                            ->collapsible(),
                     ])
                     ->relationship('days')
                     ->required(),
