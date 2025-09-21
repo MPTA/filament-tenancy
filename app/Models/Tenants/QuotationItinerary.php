@@ -32,4 +32,8 @@ class QuotationItinerary extends Model
     {
         return $this->hasMany(QuotationOfferGroup::class);
     }
+
+    public function itinerary(){
+        return $this->morphOne(Itinerary::class, 'itineraryable');
+    }
 }
