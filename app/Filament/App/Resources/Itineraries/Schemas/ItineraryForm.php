@@ -89,6 +89,7 @@ class ItineraryForm
                                 ->schema([
                                     Repeater::make('attractions')
                                         ->hiddenLabel()
+                                        ->defaultItems(0)
                                         ->columnStart(1)
                                         ->columnSpanFull()
                                         ->label('Attractions')
@@ -100,6 +101,7 @@ class ItineraryForm
                                         ])
                                         ->schema([
                                             Select::make('city_id')
+                                                ->required()
                                                 ->label('City')
                                                 ->options(City::getCachedSelectOptions())
                                                 ->reactive()
@@ -109,6 +111,7 @@ class ItineraryForm
                                                 }),
 
                                             Select::make('attraction_id')
+                                                ->required()
                                                 ->label('Main Attraction')
                                                 ->options(function (callable $get) {
                                                     $cityId = $get('city_id');
@@ -159,6 +162,7 @@ class ItineraryForm
                             Tab::make('Tickets')
                                 ->schema([
                                     Repeater::make('tickets')
+                                        ->defaultItems(0)
                                         ->hiddenLabel()
                                         ->columnStart(1)
                                         ->columnSpanFull()
@@ -175,11 +179,12 @@ class ItineraryForm
                                         ->schema([
                                             Select::make('transport_mode')
                                                 ->options(TransportModeEnum::class)
+                                                ->required()
                                                 ->label('Mode'),
-                                            Select::make('from_city_id')->options(City::getCachedSelectOptions())->label('From City'),
-                                            Select::make('to_city_id')->options(City::getCachedSelectOptions())->label('To City'),
+                                            Select::make('from_city_id')->options(City::getCachedSelectOptions())->label('From City')->required(),
+                                            Select::make('to_city_id')->options(City::getCachedSelectOptions())->label('To City')->required(),
                                             TextInput::make('transport_number')->label('Number'),
-                                            Select::make('class')->options(TicketClassEnum::class)->label('Class'),
+                                            Select::make('class')->options(TicketClassEnum::class)->label('Class')->required(),
                                             TimePicker::make('departure')->label('Departure')->seconds(false),
                                             TimePicker::make('arrival')->label('Arrival')->seconds(false),
                                         ])
@@ -190,6 +195,7 @@ class ItineraryForm
                             Tab::make('Experiences')
                                 ->schema([
                                     Repeater::make('experiences')
+                                        ->defaultItems(0)
                                         ->hiddenLabel()
                                         ->columnStart(1)
                                         ->columnSpanFull()
