@@ -26,14 +26,12 @@ class ItineraryDay extends Model
         'accommodation_id',
         'accommodation_star_rating',
         'has_vehicle',
-        'has_tour_guide',
         'creator_user_id',
     ];
 
     protected $casts = [
         'description' => 'array',
         'has_vehicle' => 'boolean',
-        'has_tour_guide' => 'boolean',
         'accommodation_star_rating' => StarRatingEnum::class,
         'day_number' => 'integer',
     ];
