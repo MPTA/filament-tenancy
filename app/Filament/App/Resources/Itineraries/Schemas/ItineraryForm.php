@@ -88,6 +88,7 @@ class ItineraryForm
                             Tab::make('Attractions')
                                 ->schema([
                                     Repeater::make('attractions')
+                                        ->hiddenLabel()
                                         ->columnStart(1)
                                         ->columnSpanFull()
                                         ->label('Attractions')
@@ -158,6 +159,7 @@ class ItineraryForm
                             Tab::make('Tickets')
                                 ->schema([
                                     Repeater::make('tickets')
+                                        ->hiddenLabel()
                                         ->columnStart(1)
                                         ->columnSpanFull()
                                         ->label('Tickets')
@@ -188,6 +190,7 @@ class ItineraryForm
                             Tab::make('Experiences')
                                 ->schema([
                                     Repeater::make('experiences')
+                                        ->hiddenLabel()
                                         ->columnStart(1)
                                         ->columnSpanFull()
                                         ->label('Experiences')
