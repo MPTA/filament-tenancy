@@ -87,117 +87,143 @@ class ItineraryForm
                             Tab::make('Attractions')
                                 ->schema([
                                     Repeater::make('attractions')
-                                    ->columnStart(1)
-                                    ->columnSpanFull()
-                                    ->label('Attractions')
-                                    ->table([
-                                        TableColumn::make('City'),
-                                        TableColumn::make('Attraction'),
-                                        TableColumn::make('Outview'),
-                                        TableColumn::make('Sub Attractions'),
-                                    ])
-                                    ->schema([
-                                        Select::make('city_id')
-                                            ->label('City')
-                                            ->options(City::getCachedSelectOptions())
-                                            ->reactive()
-                                            ->afterStateUpdated(function ($state, callable $set) {
-                                                $set('attraction_id', null);
-                                                $set('sub_attractions', []);
-                                            }),
-        
-                                        Select::make('attraction_id')
-                                            ->label('Main Attraction')
-                                            ->options(function (callable $get) {
-                                                $cityId = $get('city_id');
-                                                if (!$cityId) {
-                                                    return [];
-                                                }
-        
-                                                return Attraction::where('city_id', $cityId)
-                                                    ->pluck('name', 'id')
-                                                    ->toArray();
-                                            })
-                                            ->reactive()
-                                            ->afterStateUpdated(function ($state, callable $set) {
-                                                $set('sub_attractions', []);
-                                            }),
-                                        Toggle::make('is_outview')
-                                            ->label('Outview')
-                                            ->reactive()
-                                            ->afterStateUpdated(function ($state, callable $set) {
-                                                // اگر outview فعال شد، sub_attractions رو پاک کن
-                                                if ($state) {
+                                        ->columnStart(1)
+                                        ->columnSpanFull()
+                                        ->label('Attractions')
+                                        ->table([
+                                            TableColumn::make('City'),
+                                            TableColumn::make('Attraction'),
+                                            TableColumn::make('Outview'),
+                                            TableColumn::make('Sub Attractions'),
+                                        ])
+                                        ->schema([
+                                            Select::make('city_id')
+                                                ->label('City')
+                                                ->options(City::getCachedSelectOptions())
+                                                ->reactive()
+                                                ->afterStateUpdated(function ($state, callable $set) {
+                                                    $set('attraction_id', null);
                                                     $set('sub_attractions', []);
-                                                }
-                                            }),
-        
-                                        Select::make('sub_attractions')
-                                            ->label('Sub Attractions')
-                                            ->multiple()
-                                            ->options(function (callable $get) {
-                                                $attractionId = $get('attraction_id');
-                                                if (!$attractionId) {
-                                                    return [];
-                                                }
-        
-                                                return SubAttraction::where('attraction_id', $attractionId)
-                                                    ->pluck('name', 'id')
-                                                    ->toArray();
-                                            })
-                                            ->visible(fn(callable $get) => !empty($get('attraction_id')) && !$get('is_outview'))
-                                            ->disabled(fn(callable $get) => $get('is_outview'))
-                                            ->searchable()
-                                            ->preload(),
-                                    ])
-                                    ->addActionLabel('Add Attraction')
-                                    ->reorderable()
-                                    ->collapsible(),
+                                                }),
+
+                                            Select::make('attraction_id')
+                                                ->label('Main Attraction')
+                                                ->options(function (callable $get) {
+                                                    $cityId = $get('city_id');
+                                                    if (!$cityId) {
+                                                        return [];
+                                                    }
+
+                                                    return Attraction::where('city_id', $cityId)
+                                                        ->pluck('name', 'id')
+                                                        ->toArray();
+                                                })
+                                                ->reactive()
+                                                ->afterStateUpdated(function ($state, callable $set) {
+                                                    $set('sub_attractions', []);
+                                                }),
+                                            Toggle::make('is_outview')
+                                                ->label('Outview')
+                                                ->reactive()
+                                                ->afterStateUpdated(function ($state, callable $set) {
+                                                    // اگر outview فعال شد، sub_attractions رو پاک کن
+                                                    if ($state) {
+                                                        $set('sub_attractions', []);
+                                                    }
+                                                }),
+
+                                            Select::make('sub_attractions')
+                                                ->label('Sub Attractions')
+                                                ->multiple()
+                                                ->options(function (callable $get) {
+                                                    $attractionId = $get('attraction_id');
+                                                    if (!$attractionId) {
+                                                        return [];
+                                                    }
+
+                                                    return SubAttraction::where('attraction_id', $attractionId)
+                                                        ->pluck('name', 'id')
+                                                        ->toArray();
+                                                })
+                                                ->visible(fn(callable $get) => !empty($get('attraction_id')) && !$get('is_outview'))
+                                                ->disabled(fn(callable $get) => $get('is_outview'))
+                                                ->searchable()
+                                                ->preload(),
+                                        ])
+                                        ->addActionLabel('Add Attraction')
+                                        ->reorderable()
+                                        ->collapsible(),
                                 ]),
                             Tab::make('Tickets')
                                 ->schema([
                                     Repeater::make('tickets')
-                                    ->columnStart(1)
-                                    ->columnSpanFull()
-                                    ->label('Tickets')
-                                    ->table([
-                                        TableColumn::make('Mode'),
-                                        TableColumn::make('From City'),
-                                        TableColumn::make('To City'),
-                                        TableColumn::make('Number'),
-                                        TableColumn::make('Class'),
-                                        TableColumn::make('Departure'),
-                                        TableColumn::make('Arrival'),
-                                    ])
-                                    ->schema([
-                                        Select::make('transport_mode')
-                                            ->options(TransportModeEnum::class)
-                                            ->label('Mode'),
-                                        Select::make('from_city_id')->options(City::getCachedSelectOptions())->label('From City'),
-                                        Select::make('to_city_id')->options(City::getCachedSelectOptions())->label('To City'),
-                                        TextInput::make('transport_number')->label('Number'),
-                                        Select::make('class')->options(TicketClassEnum::class)->label('Class'),
-                                        TimePicker::make('departure')->label('Departure')->seconds(false),
-                                        TimePicker::make('arrival')->label('Arrival')->seconds(false),
-                                    ])
-                                    ->addActionLabel('Add Ticket')
-                                    ->reorderable(false)
-                                    ->collapsible(),
+                                        ->columnStart(1)
+                                        ->columnSpanFull()
+                                        ->label('Tickets')
+                                        ->table([
+                                            TableColumn::make('Mode'),
+                                            TableColumn::make('From City'),
+                                            TableColumn::make('To City'),
+                                            TableColumn::make('Number'),
+                                            TableColumn::make('Class'),
+                                            TableColumn::make('Departure'),
+                                            TableColumn::make('Arrival'),
+                                        ])
+                                        ->schema([
+                                            Select::make('transport_mode')
+                                                ->options(TransportModeEnum::class)
+                                                ->label('Mode'),
+                                            Select::make('from_city_id')->options(City::getCachedSelectOptions())->label('From City'),
+                                            Select::make('to_city_id')->options(City::getCachedSelectOptions())->label('To City'),
+                                            TextInput::make('transport_number')->label('Number'),
+                                            Select::make('class')->options(TicketClassEnum::class)->label('Class'),
+                                            TimePicker::make('departure')->label('Departure')->seconds(false),
+                                            TimePicker::make('arrival')->label('Arrival')->seconds(false),
+                                        ])
+                                        ->addActionLabel('Add Ticket')
+                                        ->reorderable(false)
+                                        ->collapsible(),
                                 ]),
                             Tab::make('Experiences')
                                 ->schema([
                                     Repeater::make('experiences')
-                                    ->table([
-                                        TableColumn::make('City'),
-                                        TableColumn::make('Experience'),
-                                    ])
+                                        ->columnStart(1)
+                                        ->columnSpanFull()
+                                        ->label('Experiences')
+                                        ->table([
+                                            TableColumn::make('City'),
+                                            TableColumn::make('Experience'),
+                                        ])
                                         ->schema([
-                                            Select::make('city_id')->options(City::getCachedSelectOptions())->label('City'),
-                                            Select::make('experience_id')->options(function(Get $get){
-                                                Experience::where('city_id', $get('city_id'))->pluck('name', 'id');
-                                            })->label('Experience'),
-                                        ]),
-                                ])  
+                                            Select::make('city_id')
+                                            ->required()
+                                                ->label('City')
+                                                ->options(City::getCachedSelectOptions())
+                                                ->reactive()
+                                                ->afterStateUpdated(function ($state, callable $set) {
+                                                    $set('experience_id', null);
+                                                }),
+
+                                            Select::make('experience_id')->required()
+                                                ->label('Experience')
+                                                ->options(function (callable $get) {
+                                                    $cityId = $get('city_id');
+                                                    if (!$cityId) {
+                                                        return [];
+                                                    }
+
+                                                    return Experience::where('city_id', $cityId)
+                                                        ->pluck('name', 'id')
+                                                        ->toArray();
+                                                })
+                                                ->disabled(fn(callable $get) => empty($get('city_id')))
+                                                ->searchable()
+                                                ->preload(),
+                                        ])
+                                        ->addActionLabel('Add Experience')
+                                        ->reorderable()
+                                        ->collapsible(),
+                                ])
                         ])->columnStart(1)->columnSpanFull(),
 
 
