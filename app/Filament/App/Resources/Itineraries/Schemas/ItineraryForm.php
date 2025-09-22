@@ -82,6 +82,7 @@ class ItineraryForm
                             ->table([
                                 TableColumn::make('City'),
                                 TableColumn::make('Attraction'),
+                                TableColumn::make('Outview'),
                                 TableColumn::make('Sub Attractions'),
                             ])
                             ->schema([
@@ -110,6 +111,15 @@ class ItineraryForm
                                     ->afterStateUpdated(function ($state, callable $set) {
                                         $set('sub_attractions', []);
                                     }),
+                                Toggle::make('is_outview')
+                                    ->label('Outview')
+                                    ->reactive()
+                                    ->afterStateUpdated(function ($state, callable $set) {
+                                        // اگر outview فعال شد، sub_attractions رو پاک کن
+                                        if ($state) {
+                                            $set('sub_attractions', []);
+                                        }
+                                    }),
                                 
                                 Select::make('sub_attractions')
                                     ->label('Sub Attractions')
@@ -124,7 +134,8 @@ class ItineraryForm
                                             ->pluck('name', 'id')
                                             ->toArray();
                                     })
-                                    ->visible(fn (callable $get) => !empty($get('attraction_id')))
+                                    ->visible(fn (callable $get) => !empty($get('attraction_id')) && !$get('is_outview'))
+                                    ->disabled(fn (callable $get) => $get('is_outview'))
                                     ->searchable()
                                     ->preload(),
                             ])
