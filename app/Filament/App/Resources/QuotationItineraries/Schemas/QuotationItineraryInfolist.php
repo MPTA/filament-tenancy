@@ -26,6 +26,7 @@ class QuotationItineraryInfolist
         return $schema
             ->components([
                 Tabs::make('Tabs')->columnSpanFull()
+                    ->persistTabInQueryString()
                     ->tabs([
                         Tab::make('Information')
                             ->icon('heroicon-o-check-circle')
@@ -69,6 +70,7 @@ class QuotationItineraryInfolist
                                             ->size(Size::ExtraLarge)
                                             ->icon('heroicon-m-pencil-square')
                                             ->color('primary')
+                                            ->url(fn( QuotationItinerary $quotationItinerary) => ItineraryResource::getUrl('edit', ['record' => $quotationItinerary->itinerary]))
                                     ])
                                     ->extraAttributes(['class' => 'flex justify-end items-center min-h-[200px]'])
                             ]),
@@ -83,19 +85,6 @@ class QuotationItineraryInfolist
                                 // ...
                             ]),
                     ]),
-
-                // Section::make('Offers')->schema([
-
-                // ]),
-                // Section::make('Breakdown')->schema([
-
-                // ]),
-                // Section::make('Itinerary')->schema([
-
-                // ]),
-                // Section::make('Information')->schema([
-
-                //     ])
             ]);
     }
 }

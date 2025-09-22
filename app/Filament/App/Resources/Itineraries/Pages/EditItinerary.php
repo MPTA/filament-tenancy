@@ -30,7 +30,7 @@ class EditItinerary extends EditRecord
                     $quotationItinerary = $this->record->itineraryable;
                     if ($quotationItinerary?->quotation) {
                         // Redirect to the quotation edit page
-                        return QuotationItineraryResource::getUrl('view', ['record' => $quotationItinerary]);
+                        return QuotationItineraryResource::getUrl('view', ['record' => $quotationItinerary]) . '?tab=itinerary%3A%3Atab';
                     }
                 }
                 
