@@ -3,17 +3,24 @@
 namespace App\Filament\App\Resources\Itineraries\Schemas;
 
 use App\Enums\StarRatingEnum;
+use App\Enums\TicketClassEnum;
+use App\Enums\TransportModeEnum;
 use App\Enums\TravelModeEnum;
 use App\Models\Base\Accommodation;
 use App\Models\Base\Attraction;
 use App\Models\Base\City;
 use App\Models\Base\SubAttraction;
+use App\Models\Tenants\Experience;
 use App\Models\Tenants\MealType;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Repeater\TableColumn;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\TimePicker;
 use Filament\Forms\Components\Toggle;
+use Filament\Schemas\Components\Tabs;
+use Filament\Schemas\Components\Tabs\Tab;
+use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Schema;
 
 class ItineraryForm
@@ -44,18 +51,18 @@ class ItineraryForm
                             ->options(function (callable $get) {
                                 $accommodationCityId = $get('accommodation_city_id');
                                 $starRating = $get('accommodation_star_rating');
-                                
+
                                 if (!$accommodationCityId) {
                                     return [];
                                 }
-                                
+
                                 $query = Accommodation::query()
                                     ->where('city_id', $accommodationCityId);
-                                
+
                                 if ($starRating) {
                                     $query->where('star_rating', $starRating);
                                 }
-                                
+
                                 return $query->pluck('name', 'id')->toArray();
                             })
                             ->searchable()
@@ -75,73 +82,125 @@ class ItineraryForm
                         Select::make('breakfast')->options(MealType::getCachedSelectOptions())->columnStart(1),
                         Select::make('lunch')->options(MealType::getCachedSelectOptions()),
                         Select::make('dinner')->options(MealType::getCachedSelectOptions()),
-                        Repeater::make('attractions')
-                            ->columnStart(1)
-                            ->columnSpanFull()
-                            ->label('Attractions')
-                            ->table([
-                                TableColumn::make('City'),
-                                TableColumn::make('Attraction'),
-                                TableColumn::make('Outview'),
-                                TableColumn::make('Sub Attractions'),
-                            ])
-                            ->schema([
-                                Select::make('city_id')
-                                    ->label('City')
-                                    ->options(City::getCachedSelectOptions())
-                                    ->reactive()
-                                    ->afterStateUpdated(function ($state, callable $set) {
-                                        $set('attraction_id', null);
-                                        $set('sub_attractions', []);
-                                    }),
-                                
-                                Select::make('attraction_id')
-                                    ->label('Main Attraction')
-                                    ->options(function (callable $get) {
-                                        $cityId = $get('city_id');
-                                        if (!$cityId) {
-                                            return [];
-                                        }
-                                        
-                                        return Attraction::where('city_id', $cityId)
-                                            ->pluck('name', 'id')
-                                            ->toArray();
-                                    })
-                                    ->reactive()
-                                    ->afterStateUpdated(function ($state, callable $set) {
-                                        $set('sub_attractions', []);
-                                    }),
-                                Toggle::make('is_outview')
-                                    ->label('Outview')
-                                    ->reactive()
-                                    ->afterStateUpdated(function ($state, callable $set) {
-                                        // اگر outview فعال شد، sub_attractions رو پاک کن
-                                        if ($state) {
-                                            $set('sub_attractions', []);
-                                        }
-                                    }),
-                                
-                                Select::make('sub_attractions')
-                                    ->label('Sub Attractions')
-                                    ->multiple()
-                                    ->options(function (callable $get) {
-                                        $attractionId = $get('attraction_id');
-                                        if (!$attractionId) {
-                                            return [];
-                                        }
-                                        
-                                        return SubAttraction::where('attraction_id', $attractionId)
-                                            ->pluck('name', 'id')
-                                            ->toArray();
-                                    })
-                                    ->visible(fn (callable $get) => !empty($get('attraction_id')) && !$get('is_outview'))
-                                    ->disabled(fn (callable $get) => $get('is_outview'))
-                                    ->searchable()
-                                    ->preload(),
-                            ])
-                            ->addActionLabel('Add Attraction')
-                            ->reorderable()
-                            ->collapsible(),
+
+                        Tabs::make('activities')->tabs([
+                            Tab::make('Attractions')
+                                ->schema([
+                                    Repeater::make('attractions')
+                                    ->columnStart(1)
+                                    ->columnSpanFull()
+                                    ->label('Attractions')
+                                    ->table([
+                                        TableColumn::make('City'),
+                                        TableColumn::make('Attraction'),
+                                        TableColumn::make('Outview'),
+                                        TableColumn::make('Sub Attractions'),
+                                    ])
+                                    ->schema([
+                                        Select::make('city_id')
+                                            ->label('City')
+                                            ->options(City::getCachedSelectOptions())
+                                            ->reactive()
+                                            ->afterStateUpdated(function ($state, callable $set) {
+                                                $set('attraction_id', null);
+                                                $set('sub_attractions', []);
+                                            }),
+        
+                                        Select::make('attraction_id')
+                                            ->label('Main Attraction')
+                                            ->options(function (callable $get) {
+                                                $cityId = $get('city_id');
+                                                if (!$cityId) {
+                                                    return [];
+                                                }
+        
+                                                return Attraction::where('city_id', $cityId)
+                                                    ->pluck('name', 'id')
+                                                    ->toArray();
+                                            })
+                                            ->reactive()
+                                            ->afterStateUpdated(function ($state, callable $set) {
+                                                $set('sub_attractions', []);
+                                            }),
+                                        Toggle::make('is_outview')
+                                            ->label('Outview')
+                                            ->reactive()
+                                            ->afterStateUpdated(function ($state, callable $set) {
+                                                // اگر outview فعال شد، sub_attractions رو پاک کن
+                                                if ($state) {
+                                                    $set('sub_attractions', []);
+                                                }
+                                            }),
+        
+                                        Select::make('sub_attractions')
+                                            ->label('Sub Attractions')
+                                            ->multiple()
+                                            ->options(function (callable $get) {
+                                                $attractionId = $get('attraction_id');
+                                                if (!$attractionId) {
+                                                    return [];
+                                                }
+        
+                                                return SubAttraction::where('attraction_id', $attractionId)
+                                                    ->pluck('name', 'id')
+                                                    ->toArray();
+                                            })
+                                            ->visible(fn(callable $get) => !empty($get('attraction_id')) && !$get('is_outview'))
+                                            ->disabled(fn(callable $get) => $get('is_outview'))
+                                            ->searchable()
+                                            ->preload(),
+                                    ])
+                                    ->addActionLabel('Add Attraction')
+                                    ->reorderable()
+                                    ->collapsible(),
+                                ]),
+                            Tab::make('Tickets')
+                                ->schema([
+                                    Repeater::make('tickets')
+                                    ->columnStart(1)
+                                    ->columnSpanFull()
+                                    ->label('Tickets')
+                                    ->table([
+                                        TableColumn::make('Mode'),
+                                        TableColumn::make('From City'),
+                                        TableColumn::make('To City'),
+                                        TableColumn::make('Number'),
+                                        TableColumn::make('Class'),
+                                        TableColumn::make('Departure'),
+                                        TableColumn::make('Arrival'),
+                                    ])
+                                    ->schema([
+                                        Select::make('transport_mode')
+                                            ->options(TransportModeEnum::class)
+                                            ->label('Mode'),
+                                        Select::make('from_city_id')->options(City::getCachedSelectOptions())->label('From City'),
+                                        Select::make('to_city_id')->options(City::getCachedSelectOptions())->label('To City'),
+                                        TextInput::make('transport_number')->label('Number'),
+                                        Select::make('class')->options(TicketClassEnum::class)->label('Class'),
+                                        TimePicker::make('departure')->label('Departure')->seconds(false),
+                                        TimePicker::make('arrival')->label('Arrival')->seconds(false),
+                                    ])
+                                    ->addActionLabel('Add Ticket')
+                                    ->reorderable(false)
+                                    ->collapsible(),
+                                ]),
+                            Tab::make('Experiences')
+                                ->schema([
+                                    Repeater::make('experiences')
+                                    ->table([
+                                        TableColumn::make('City'),
+                                        TableColumn::make('Experience'),
+                                    ])
+                                        ->schema([
+                                            Select::make('city_id')->options(City::getCachedSelectOptions())->label('City'),
+                                            Select::make('experience_id')->options(function(Get $get){
+                                                Experience::where('city_id', $get('city_id'))->pluck('name', 'id');
+                                            })->label('Experience'),
+                                        ]),
+                                ])  
+                        ])->columnStart(1)->columnSpanFull(),
+
+
                     ])
                     ->relationship('days')
                     ->required(),
