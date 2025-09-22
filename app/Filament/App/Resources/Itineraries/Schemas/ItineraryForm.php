@@ -15,6 +15,7 @@ use App\Models\Tenants\MealType;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Repeater\TableColumn;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\TimePicker;
 use Filament\Forms\Components\Toggle;
@@ -223,7 +224,11 @@ class ItineraryForm
                                         ->addActionLabel('Add Experience')
                                         ->reorderable()
                                         ->collapsible(),
-                                ])
+                                            ]),
+                            Tab::make('Description')->schema([
+                                Textarea::make('description')->label('Description'),
+                            ]),
+
                         ])->columnStart(1)->columnSpanFull(),
 
 
