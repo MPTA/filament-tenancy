@@ -20,6 +20,27 @@ class EditItinerary extends EditRecord
             DeleteAction::make(),
         ];
     }
+    protected function mutateFormDataBeforeSave(array $data): array
+    {
+        dd('Form data before save:', $data);
+        
+        // Handle days manually
+        if (isset($data['days'])) {
+            $days = $data['days'];
+            unset($data['days']); // Remove from main data
+            
+            // Process days manually here
+            foreach ($days as $index => $dayData) {
+                // Add day_number automatically based on index
+                $dayData['day_number'] = $index + 1;
+                
+                // You can process each day here
+                dd('Processing day ' . ($index + 1) . ':', $dayData);
+            }
+        }
+        
+        return $data;
+    }
 
     protected function getCancelFormAction(): \Filament\Actions\Action
     {

@@ -33,10 +33,10 @@ class ItineraryForm
                 Repeater::make('days')->columnSpanFull()->columns(['md' => 2, 'lg' => 4])
                     ->schema([
                         Select::make('current_city_id')
-                            ->relationship('currentCity', 'name')
+                            ->options(City::getCachedSelectOptions())
                             ->required(),
                         Select::make('accommodation_city_id')
-                            ->relationship('accommodationCity', 'name')
+                            ->options(City::getCachedSelectOptions())
                             ->reactive()
                             ->afterStateUpdated(function ($state, callable $set) {
                                 $set('accommodation_id', null);
@@ -242,7 +242,6 @@ class ItineraryForm
 
 
                     ])
-                    ->relationship('days')
                     ->required(),
             ]);
     }
