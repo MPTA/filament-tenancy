@@ -114,6 +114,7 @@ class QuotationItineraryInfolist
 
                                 // Itinerary Days Display
                                 Section::make('Itinerary Days')
+                                    
                                     ->description('Your travel plan day by day')
                                     ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->itinerary)
                                     ->headerActions([
@@ -124,7 +125,8 @@ class QuotationItineraryInfolist
                                             ->openUrlInNewTab()
                                     ])
                                     ->schema([
-                                        \Filament\Infolists\Components\RepeatableEntry::make('itinerary.days')
+                                        RepeatableEntry::make('itinerary.days')
+                                            ->hiddenLabel()
                                             ->label('')
                                             ->schema([
                                                 Grid::make(2)
@@ -253,6 +255,50 @@ class QuotationItineraryInfolist
                                                     })
                                                     ->icon('heroicon-o-ticket')
                                                     ->color('primary')
+                                                    ->columnSpanFull(),
+                                                
+                                                // Attractions Section
+                                                TextEntry::make('itinerary.id')
+                                                    ->label('🏛️ Attractions')
+                                                    ->formatStateUsing(function($state, $record) {
+                                                        // Get attractions directly from activities
+                                                        $attractionActivities = $record->activities()
+                                                            ->whereHas('activityCategory', function ($query) {
+                                                                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::ATTRACTION->value);
+                                                            })
+                                                            ->with(['attraction.attraction', 'attraction.subAttractions.subAttraction'])
+                                                            ->get();
+                                                        
+                                                        if ($attractionActivities->isEmpty()) {
+                                                            return 'No attractions';
+                                                        }
+                                                        
+                                                        $attractionInfo = [];
+                                                        foreach ($attractionActivities as $activity) {
+                                                            if ($activity->attraction) {
+                                                                $attractionName = $activity->attraction->attraction?->name ?? 'Unknown';
+                                                                $isOutview = $activity->attraction->is_outview ? ' (Outview)' : '';
+                                                                
+                                                                // Get sub-attractions
+                                                                $subAttractions = $activity->attraction->subAttractions
+                                                                    ->map(fn($sub) => $sub->subAttraction?->name ?? 'Unknown')
+                                                                    ->filter()
+                                                                    ->values();
+                                                                
+                                                                $subInfo = '';
+                                                                if ($subAttractions->isNotEmpty()) {
+                                                                    $subList = $subAttractions->implode(', ');
+                                                                    $subInfo = " ({$subList})";
+                                                                }
+                                                                
+                                                                $attractionInfo[] = "🏛️ {$attractionName}{$isOutview}{$subInfo}";
+                                                            }
+                                                        }
+                                                        
+                                                        return implode(' | ', $attractionInfo);
+                                                    })
+                                                    ->icon('heroicon-o-building-library')
+                                                    ->color('info')
                                                     ->columnSpanFull(),
                                                 
                                                 TextEntry::make('description')
