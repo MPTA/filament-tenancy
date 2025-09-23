@@ -185,8 +185,8 @@ class ItineraryForm
                                             Select::make('to_city_id')->options(City::getCachedSelectOptions())->label('To City')->required(),
                                             TextInput::make('transport_number')->label('Number'),
                                             Select::make('class')->options(TicketClassEnum::class)->label('Class')->required(),
-                                            TimePicker::make('departure')->label('Departure')->seconds(false),
-                                            TimePicker::make('arrival')->label('Arrival')->seconds(false),
+                                            TimePicker::make('departure_time')->label('Departure')->seconds(false),
+                                            TimePicker::make('arrival_time')->label('Arrival')->seconds(false),
                                         ])
                                         ->addActionLabel('Add Ticket')
                                         ->reorderable(false)

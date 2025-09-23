@@ -79,7 +79,7 @@ class EditItinerary extends EditRecord
                     'city_id' => $dayData['current_city_id'],
                     'description' => ucfirst($mealType) . ' meal',
                     'creator_user_id' => \Illuminate\Support\Facades\Auth::user()->id,
-                    'activity_category_id' => ActivityCategoryTypeEnum::MEAL->value,
+                    'activity_category_id' => \App\Models\Base\ActivityCategory::where('type', ActivityCategoryTypeEnum::MEAL->value)->first()->id,
                 ]);
                 
                 $activity->meal()->create([
@@ -99,7 +99,7 @@ class EditItinerary extends EditRecord
                 $activity = $itineraryDay->activities()->create([
                     'city_id' => $attractionData['city_id'],
                     'description' => 'Visit attraction',
-                    'activity_category_id' => ActivityCategoryTypeEnum::ATTRACTION->value,
+                    'activity_category_id' => \App\Models\Base\ActivityCategory::where('type', ActivityCategoryTypeEnum::ATTRACTION->value)->first()->id,
                     'creator_user_id' => \Illuminate\Support\Facades\Auth::user()->id,
                 ]);
                 
@@ -126,10 +126,10 @@ class EditItinerary extends EditRecord
             foreach ($dayData['tickets'] as $ticketData) {
                 $activity = $itineraryDay->activities()->create([
                     'city_id' => $ticketData['from_city_id'],
-                    'start_time' => $ticketData['from_time'],
-                    'end_time' => $ticketData['to_time'],
+                    'start_time' => $ticketData['departure_time'],
+                    'end_time' => $ticketData['arrival_time'],
                     'description' => 'Transport ticket',
-                    'activity_category_id' => ActivityCategoryTypeEnum::TICKET->value,
+                    'activity_category_id' => \App\Models\Base\ActivityCategory::where('type', ActivityCategoryTypeEnum::TICKET->value)->first()->id,
                     'creator_user_id' => \Illuminate\Support\Facades\Auth::user()->id,
                 ]);
                 
@@ -150,7 +150,7 @@ class EditItinerary extends EditRecord
                 $activity = $itineraryDay->activities()->create([
                     'city_id' => $experienceData['city_id'],
                     'description' => 'Experience activity',
-                    'activity_category_id' => ActivityCategoryTypeEnum::EXPERIENCE->value,
+                    'activity_category_id' => \App\Models\Base\ActivityCategory::where('type', ActivityCategoryTypeEnum::EXPERIENCE->value)->first()->id,
                     'creator_user_id' => \Illuminate\Support\Facades\Auth::user()->id,
                 ]);
                 
