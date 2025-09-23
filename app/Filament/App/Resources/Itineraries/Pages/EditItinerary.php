@@ -29,41 +29,48 @@ class EditItinerary extends EditRecord
             $days = $data['days'];
             unset($data['days']); // Remove from main data
             
-            // Process each day
-            foreach ($days as $index => $dayData) {
-                // Add day_number automatically based on index
-                $dayData['day_number'] = $index + 1;
-                
-                // Create ItineraryDay
+            // Use database transaction to ensure data consistency
+            \Illuminate\Support\Facades\DB::transaction(function () use ($days) {
                 $itinerary = $this->getRecord();
-                $itineraryDay = \App\Models\Tenants\Itinerary::find($itinerary->id)->days()->create([
-                    'day_number' => $dayData['day_number'],
-                    'current_city_id' => $dayData['current_city_id'],
-                    'accommodation_city_id' => $dayData['accommodation_city_id'],
-                    'accommodation_id' => $dayData['accommodation_id'] ?? null,
-                    'accommodation_star_rating' => $dayData['accommodation_star_rating'] ?? null,
-                    'has_vehicle' => $dayData['has_vehicle'] ?? false,
-                    'description' => $dayData['description'] ?? null,
-                    'creator_user_id' => \Illuminate\Support\Facades\Auth::user()->id,
-                ]);
                 
-                // Create tour guide companion if has_tour_guide is true
-                if (isset($dayData['has_tour_guide']) && $dayData['has_tour_guide']) {
-                    $this->createTourGuideCompanion($itineraryDay);
+                // Delete all existing days (cascade will handle related data)
+                $itinerary->days()->delete();
+                
+                // Process each day
+                foreach ($days as $index => $dayData) {
+                    // Add day_number automatically based on index
+                    $dayData['day_number'] = $index + 1;
+                    
+                    // Create ItineraryDay
+                    $itineraryDay = \App\Models\Tenants\Itinerary::find($itinerary->id)->days()->create([
+                        'day_number' => $dayData['day_number'],
+                        'current_city_id' => $dayData['current_city_id'],
+                        'accommodation_city_id' => $dayData['accommodation_city_id'],
+                        'accommodation_id' => $dayData['accommodation_id'] ?? null,
+                        'accommodation_star_rating' => $dayData['accommodation_star_rating'] ?? null,
+                        'has_vehicle' => $dayData['has_vehicle'] ?? false,
+                        'description' => $dayData['description'] ?? null,
+                        'creator_user_id' => \Illuminate\Support\Facades\Auth::user()->id,
+                    ]);
+                    
+                    // Create tour guide companion if has_tour_guide is true
+                    if (isset($dayData['has_tour_guide']) && $dayData['has_tour_guide']) {
+                        $this->createTourGuideCompanion($itineraryDay);
+                    }
+                    
+                    // Process meals
+                    $this->processMeals($itineraryDay, $dayData);
+                    
+                    // Process attractions
+                    $this->processAttractions($itineraryDay, $dayData);
+                    
+                    // Process tickets
+                    $this->processTickets($itineraryDay, $dayData);
+                    
+                    // Process experiences
+                    $this->processExperiences($itineraryDay, $dayData);
                 }
-                
-                // Process meals
-                $this->processMeals($itineraryDay, $dayData);
-                
-                // Process attractions
-                $this->processAttractions($itineraryDay, $dayData);
-                
-                // Process tickets
-                $this->processTickets($itineraryDay, $dayData);
-                
-                // Process experiences
-                $this->processExperiences($itineraryDay, $dayData);
-            }
+            });
         }
         
         return $data;
