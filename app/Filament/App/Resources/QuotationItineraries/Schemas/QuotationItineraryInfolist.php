@@ -303,7 +303,7 @@ class QuotationItineraryInfolist
                                                 
                                                 TextEntry::make('description')
                                                     ->label('Description')
-                                                    ->formatStateUsing(fn($state) => $state ? $state[app()->getLocale()] ?? 'No description' : 'No description')
+                                                    ->formatStateUsing(fn($state) => $state ?? 'No description')
                                                     ->icon('heroicon-o-document-text')
                                                     ->columnSpanFull(),
                                             ])
