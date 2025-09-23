@@ -15,8 +15,8 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->uuid('itinerary_day_id');
             $table->uuid('activity_category_id');
-            $table->time('start_time');
-            $table->time('end_time');
+            $table->time('start_time')->nullable();
+            $table->time('end_time')->nullable();
             $table->uuid('city_id');
             $table->jsonb('description')->nullable();
             $table->timestamps();
