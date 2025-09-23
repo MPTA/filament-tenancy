@@ -301,6 +301,36 @@ class QuotationItineraryInfolist
                                                     ->color('info')
                                                     ->columnSpanFull(),
                                                 
+                                                // Experiences Section
+                                                TextEntry::make('itinerary.id')
+                                                    ->label('🎭 Experiences')
+                                                    ->formatStateUsing(function($state, $record) {
+                                                        // Get experiences directly from activities
+                                                        $experienceActivities = $record->activities()
+                                                            ->whereHas('activityCategory', function ($query) {
+                                                                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::EXPERIENCE->value);
+                                                            })
+                                                            ->with('experience.experience')
+                                                            ->get();
+                                                        
+                                                        if ($experienceActivities->isEmpty()) {
+                                                            return 'No experiences';
+                                                        }
+                                                        
+                                                        $experienceInfo = [];
+                                                        foreach ($experienceActivities as $activity) {
+                                                            if ($activity->experience) {
+                                                                $experienceName = $activity->experience->experience?->name ?? 'Unknown';
+                                                                $experienceInfo[] = "🎭 {$experienceName}";
+                                                            }
+                                                        }
+                                                        
+                                                        return implode(' | ', $experienceInfo);
+                                                    })
+                                                    ->icon('heroicon-o-sparkles')
+                                                    ->color('warning')
+                                                    ->columnSpanFull(),
+                                                
                                                 TextEntry::make('description')
                                                     ->label('Description')
                                                     ->formatStateUsing(fn($state) => $state ?? 'No description')
