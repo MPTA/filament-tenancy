@@ -181,35 +181,95 @@ class QuotationItineraryInfolist
                                                 // Meals Section
                                                 Grid::make(3)
                                                     ->schema([
-                                                        TextEntry::make('breakfast')
+                                                        TextEntry::make('itinerary.id')
                                                             ->label('🌅 Breakfast')
                                                             ->formatStateUsing(function($state, $record) {
-                                                                $meals = $record->meals_data;
-                                                                return $meals['breakfast'] ? 
-                                                                    \App\Models\Tenants\MealType::find($meals['breakfast'])?->getTranslation('name', app()->getLocale()) ?? 'Unknown' 
-                                                                    : 'Not specified';
+                                                                $mealActivity = $record->activities()
+                                                                    ->whereHas('activityCategory', function ($query) {
+                                                                        $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
+                                                                    })
+                                                                    ->whereHas('meal', function ($query) {
+                                                                        $query->where('meal_part', \App\Enums\MealPartEnum::BREAKFAST->value);
+                                                                    })
+                                                                    ->with('meal.mealType')
+                                                                    ->first();
+                                                                
+                                                                return $mealActivity?->meal?->mealType?->name ?? null;
                                                             })
-                                                            ->color('warning'),
+                                                            ->color('warning')
+                                                            ->hidden(function($state, $record) {
+                                                                $mealActivity = $record->activities()
+                                                                    ->whereHas('activityCategory', function ($query) {
+                                                                        $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
+                                                                    })
+                                                                    ->whereHas('meal', function ($query) {
+                                                                        $query->where('meal_part', \App\Enums\MealPartEnum::BREAKFAST->value);
+                                                                    })
+                                                                    ->with('meal.mealType')
+                                                                    ->first();
+                                                                
+                                                                return empty($mealActivity?->meal?->mealType?->name);
+                                                            }),
                                                         
-                                                        TextEntry::make('lunch')
+                                                        TextEntry::make('itinerary.id')
                                                             ->label('☀️ Lunch')
                                                             ->formatStateUsing(function($state, $record) {
-                                                                $meals = $record->meals_data;
-                                                                return $meals['lunch'] ? 
-                                                                    \App\Models\Tenants\MealType::find($meals['lunch'])?->getTranslation('name', app()->getLocale()) ?? 'Unknown' 
-                                                                    : 'Not specified';
+                                                                $mealActivity = $record->activities()
+                                                                    ->whereHas('activityCategory', function ($query) {
+                                                                        $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
+                                                                    })
+                                                                    ->whereHas('meal', function ($query) {
+                                                                        $query->where('meal_part', \App\Enums\MealPartEnum::LUNCH->value);
+                                                                    })
+                                                                    ->with('meal.mealType')
+                                                                    ->first();
+                                                                
+                                                                return $mealActivity?->meal?->mealType?->name ?? null;
                                                             })
-                                                            ->color('success'),
+                                                            ->color('success')
+                                                            ->hidden(function($state, $record) {
+                                                                $mealActivity = $record->activities()
+                                                                    ->whereHas('activityCategory', function ($query) {
+                                                                        $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
+                                                                    })
+                                                                    ->whereHas('meal', function ($query) {
+                                                                        $query->where('meal_part', \App\Enums\MealPartEnum::LUNCH->value);
+                                                                    })
+                                                                    ->with('meal.mealType')
+                                                                    ->first();
+                                                                
+                                                                return empty($mealActivity?->meal?->mealType?->name);
+                                                            }),
                                                         
-                                                        TextEntry::make('dinner')
+                                                        TextEntry::make('itinerary.id')
                                                             ->label('🌙 Dinner')
                                                             ->formatStateUsing(function($state, $record) {
-                                                                $meals = $record->meals_data;
-                                                                return $meals['dinner'] ? 
-                                                                    \App\Models\Tenants\MealType::find($meals['dinner'])?->getTranslation('name', app()->getLocale()) ?? 'Unknown' 
-                                                                    : 'Not specified';
+                                                                $mealActivity = $record->activities()
+                                                                    ->whereHas('activityCategory', function ($query) {
+                                                                        $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
+                                                                    })
+                                                                    ->whereHas('meal', function ($query) {
+                                                                        $query->where('meal_part', \App\Enums\MealPartEnum::DINNER->value);
+                                                                    })
+                                                                    ->with('meal.mealType')
+                                                                    ->first();
+                                                                
+                                                                return $mealActivity?->meal?->mealType?->name ?? null;
                                                             })
-                                                            ->color('info'),
+                                                            ->color('info')
+                                                            ->hidden(function($state, $record) {
+                                                                $mealActivity = $record->activities()
+                                                                    ->whereHas('activityCategory', function ($query) {
+                                                                        $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
+                                                                    })
+                                                                    ->whereHas('meal', function ($query) {
+                                                                        $query->where('meal_part', \App\Enums\MealPartEnum::DINNER->value);
+                                                                    })
+                                                                    ->with('meal.mealType')
+                                                                    ->first();
+                                                                
+                                                                return empty($mealActivity?->meal?->mealType?->name);
+                                                            }),
                                                     ])
                                                     ->columnSpanFull(),
                                                 
