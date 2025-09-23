@@ -79,7 +79,7 @@ class ItineraryForm
                                 }
                             }),
                         Toggle::make('has_vehicle')->label('Has Car'),
-                        Toggle::make('has_tour_guide'),
+                        Toggle::make('has_tour_guide')->label('Has Tour Guide'),
                         Select::make('breakfast')->options(MealType::getCachedSelectOptions())->columnStart(1),
                         Select::make('lunch')->options(MealType::getCachedSelectOptions()),
                         Select::make('dinner')->options(MealType::getCachedSelectOptions()),
