@@ -10,7 +10,7 @@ use Filament\Actions\Action;
 use Filament\Forms\Components\Select;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Components\IconEntry;
-use Filament\Infolists\Components\ViewEntry;
+use Filament\Infolists\Components\RepeatableEntry;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Tabs;
@@ -41,38 +41,230 @@ class QuotationItineraryInfolist
 
                             ]),
                         Tab::make('Itinerary')
-                            ->icon('heroicon-o-clock')
+                            ->icon('heroicon-o-map')
+                            ->badge(fn(QuotationItinerary $record) => $record->itinerary ? $record->itinerary->days()->count() . ' Days' : '0 Days')
+                            ->badgeColor(fn(QuotationItinerary $record) => $record->itinerary ? 'success' : 'gray')
                             ->schema([
-                                Grid::make(1)
+                                // Itinerary Summary
+                                Section::make('Itinerary Summary')
+                                    ->description('Quick overview of your travel plan')
+                                    ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->itinerary)
                                     ->schema([
-                                        Action::make('Create Itinerary')->hidden(fn( QuotationItinerary $quotationItinerary) => $quotationItinerary->itinerary)
-                                        // ->url(fn() => ItineraryResource::getUrl('create'))
+                                        Grid::make(4)
+                                            ->schema([
+                                                TextEntry::make('itinerary.travel_mode')
+                                                    ->label('Travel Mode')
+                                                    ->formatStateUsing(fn($state) => $state?->value ?? 'Not specified')
+                                                    ->icon('heroicon-o-globe-alt')
+                                                    ->color('primary'),
+                                                
+                                                TextEntry::make('itinerary.id')
+                                                    ->label('Total Days')
+                                                    ->formatStateUsing(fn($state, $record) => $record->itinerary?->days?->count() ?? 0)
+                                                    ->icon('heroicon-o-calendar')
+                                                    ->color('success'),
+                                                
+                                                TextEntry::make('itinerary.id')
+                                                    ->label('Total Activities')
+                                                    ->formatStateUsing(fn($state, $record) => $record->itinerary?->days?->sum(fn($day) => $day->activities?->count() ?? 0) ?? 0)
+                                                    ->icon('heroicon-o-map-pin')
+                                                    ->color('warning'),
+                                                
+                                                TextEntry::make('itinerary.is_complete')
+                                                    ->label('Status')
+                                                    ->formatStateUsing(fn($state) => $state ? 'Complete' : 'In Progress')
+                                                    ->icon(fn($state) => $state ? 'heroicon-o-check-circle' : 'heroicon-o-clock')
+                                                    ->color(fn($state) => $state ? 'success' : 'warning')
+                                            ])
+                                    ])
+                                    ->collapsible(false),
+
+                                // Create Itinerary Section (when no itinerary exists)
+                                Section::make('Create Itinerary')
+                                    ->description('Start building your travel plan')
+                                    ->hidden(fn(QuotationItinerary $quotationItinerary) => $quotationItinerary->itinerary)
+                                    ->schema([
+                                        Grid::make(1)
+                                            ->schema([
+                                                Action::make('Create Itinerary')
                                             ->size(Size::ExtraLarge)
-                                            ->icon('heroicon-m-pencil-square')
+                                                    ->icon('heroicon-m-plus-circle')
                                             ->color('success')
                                             ->schema([
                                                 Select::make('travel_mode')
-                                                    ->options(TravelModeEnum::class)
-                                            ])->action(function(array $data, QuotationItinerary $quotationItinerary){
+                                                            ->options(TravelModeEnum::getOptions())
+                                                            ->required()
+                                                            ->placeholder('Select travel mode')
+                                                    ])
+                                                    ->action(function(array $data, QuotationItinerary $quotationItinerary){
                                                 if (!$quotationItinerary->itinerary) {
                                                     $quotationItinerary->itinerary()->create([
                                                         'travel_mode' => $data['travel_mode'],
                                                         'creator_user_id' => Auth::user()->id,
                                                     ]);
                                                 }
-                                     
-                                            })
+                                                    })
+                                                    ->modalHeading('Create New Itinerary')
+                                                    ->modalDescription('Choose the travel mode for your itinerary')
+                                                    ->modalSubmitActionLabel('Create Itinerary')
+                                            ])
+                                            ->extraAttributes(['class' => 'flex justify-center items-center min-h-[200px]'])
                                     ])
-                                    ->extraAttributes(['class' => 'flex justify-center items-center min-h-[200px]']),
-                                    Grid::make(1)
-                                    ->schema([
-                                        Action::make('Edit Itinerary Days')->hidden(fn( QuotationItinerary $quotationItinerary) => !$quotationItinerary->itinerary)
-                                            ->size(Size::ExtraLarge)
+                                    ->collapsible(false),
+
+                                // Itinerary Days Display
+                                Section::make('Itinerary Days')
+                                    ->description('Your travel plan day by day')
+                                    ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->itinerary)
+                                    ->headerActions([
+                                        Action::make('Edit Itinerary')
                                             ->icon('heroicon-m-pencil-square')
                                             ->color('primary')
-                                            ->url(fn( QuotationItinerary $quotationItinerary) => ItineraryResource::getUrl('edit', ['record' => $quotationItinerary->itinerary]))
+                                            ->url(fn(QuotationItinerary $quotationItinerary) => ItineraryResource::getUrl('edit', ['record' => $quotationItinerary->itinerary]))
+                                            ->openUrlInNewTab()
                                     ])
-                                    ->extraAttributes(['class' => 'flex justify-end items-center min-h-[200px]'])
+                                    ->schema([
+                                        \Filament\Infolists\Components\RepeatableEntry::make('itinerary.days')
+                                            ->label('')
+                                            ->schema([
+                                                Grid::make(2)
+                                                    ->schema([
+                                                        TextEntry::make('day_number')
+                                                            ->label('Day')
+                                                            ->formatStateUsing(fn($state) => "Day {$state}")
+                                                            ->icon('heroicon-o-calendar')
+                                                            ->color('primary'),
+                                                        
+                                                        TextEntry::make('current_city_id')
+                                                            ->label('City')
+                                                            ->formatStateUsing(fn($state, $record) => $record->currentCity?->getTranslation('name', app()->getLocale()) ?? 'Unknown')
+                                                            ->icon('heroicon-o-map-pin')
+                                                            ->color('success'),
+                                                    ]),
+                                                
+                                                Grid::make(2)
+                                                    ->schema([
+                                                        TextEntry::make('accommodation_id')
+                                                            ->label('Accommodation')
+                                                            ->formatStateUsing(fn($state, $record) => $record->accommodation?->getTranslation('name', app()->getLocale()) ?? 'Not specified')
+                                                            ->icon('heroicon-o-building-office')
+                                                            ->color('info'),
+                                                        
+                                                        TextEntry::make('accommodation_star_rating')
+                                                            ->label('Star Rating')
+                                                            ->formatStateUsing(fn($state) => $state ? str_repeat('★', $state->value) : 'Not rated')
+                                                            ->icon('heroicon-o-star')
+                                                            ->color('warning'),
+                                                    ]),
+                                                
+                                                Grid::make(2)
+                                                    ->schema([
+                                                        TextEntry::make('has_vehicle')
+                                                            ->label('Vehicle')
+                                                            ->formatStateUsing(fn($state) => $state ? 'Yes' : 'No')
+                                                            ->icon('heroicon-o-truck')
+                                                            ->color(fn($state) => $state ? 'success' : 'gray'),
+                                                        
+                                                        TextEntry::make('has_tour_guide')
+                                                            ->label('Tour Guide')
+                                                            ->formatStateUsing(fn($state, $record) => $record->companions()->whereHas('companionCategory', function($query) {
+                                                                $query->where('category_type', \App\Enums\CompanionCategoryEnum::TOUR_GUIDE->value);
+                                                            })->exists() ? 'Yes' : 'No')
+                                                            ->icon('heroicon-o-user')
+                                                            ->color(fn($state, $record) => $record->companions()->whereHas('companionCategory', function($query) {
+                                                                $query->where('category_type', \App\Enums\CompanionCategoryEnum::TOUR_GUIDE->value);
+                                                            })->exists() ? 'success' : 'gray'),
+                                                    ]),
+                                                
+                                                // Meals Section
+                                                Grid::make(3)
+                                                    ->schema([
+                                                        TextEntry::make('breakfast')
+                                                            ->label('🌅 Breakfast')
+                                                            ->formatStateUsing(function($state, $record) {
+                                                                $meals = $record->meals_data;
+                                                                return $meals['breakfast'] ? 
+                                                                    \App\Models\Tenants\MealType::find($meals['breakfast'])?->getTranslation('name', app()->getLocale()) ?? 'Unknown' 
+                                                                    : 'Not specified';
+                                                            })
+                                                            ->color('warning'),
+                                                        
+                                                        TextEntry::make('lunch')
+                                                            ->label('☀️ Lunch')
+                                                            ->formatStateUsing(function($state, $record) {
+                                                                $meals = $record->meals_data;
+                                                                return $meals['lunch'] ? 
+                                                                    \App\Models\Tenants\MealType::find($meals['lunch'])?->getTranslation('name', app()->getLocale()) ?? 'Unknown' 
+                                                                    : 'Not specified';
+                                                            })
+                                                            ->color('success'),
+                                                        
+                                                        TextEntry::make('dinner')
+                                                            ->label('🌙 Dinner')
+                                                            ->formatStateUsing(function($state, $record) {
+                                                                $meals = $record->meals_data;
+                                                                return $meals['dinner'] ? 
+                                                                    \App\Models\Tenants\MealType::find($meals['dinner'])?->getTranslation('name', app()->getLocale()) ?? 'Unknown' 
+                                                                    : 'Not specified';
+                                                            })
+                                                            ->color('info'),
+                                                    ])
+                                                    ->columnSpanFull(),
+                                                
+                                                // Tickets Section
+                                                TextEntry::make('itinerary.id')
+                                                    ->label('🎫 Tickets')
+                                                    ->formatStateUsing(function($state, $record) {
+                                                        // Get tickets directly from activities
+                                                        $ticketActivities = $record->activities()
+                                                            ->whereHas('activityCategory', function ($query) {
+                                                                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::TICKET->value);
+                                                            })
+                                                            ->with('ticket.toCity')
+                                                            ->get();
+                                                        
+                                                        if ($ticketActivities->isEmpty()) {
+                                                            return 'No tickets';
+                                                        }
+                                                        
+                                                        $ticketInfo = [];
+                                                        foreach ($ticketActivities as $activity) {
+                                                            if ($activity->ticket) {
+                                                                $fromCity = $activity->city?->name ?? 'Unknown';
+                                                                $toCity = $activity->ticket->toCity?->name ?? 'Unknown';
+                                                                $class = $activity->ticket->class?->value ?? 'Unknown';
+                                                                $transportNumber = $activity->ticket->transport_number ?? 'N/A';
+                                                                $departureTime = $activity->start_time?->format('H:i') ?? 'N/A';
+                                                                $transportMode = $activity->ticket->transport_mode ?? null;
+                                                                
+                                                                // Get appropriate icon based on TransportModeEnum
+                                                                $icon = match($transportMode) {
+                                                                    \App\Enums\TransportModeEnum::AIR->value => '✈️',
+                                                                    \App\Enums\TransportModeEnum::TRAIN->value => '🚂',
+                                                                    \App\Enums\TransportModeEnum::LAND->value => '🚗',
+                                                                    default => '🎫'
+                                                                };
+                                                                
+                                                                $ticketInfo[] = "{$icon} {$fromCity} → {$toCity} ({$class}) - {$transportNumber} at {$departureTime}";
+                                                            }
+                                                        }
+                                                        
+                                                        return implode(' | ', $ticketInfo);
+                                                    })
+                                                    ->icon('heroicon-o-ticket')
+                                                    ->color('primary')
+                                                    ->columnSpanFull(),
+                                                
+                                                TextEntry::make('description')
+                                                    ->label('Description')
+                                                    ->formatStateUsing(fn($state) => $state ? $state[app()->getLocale()] ?? 'No description' : 'No description')
+                                                    ->icon('heroicon-o-document-text')
+                                                    ->columnSpanFull(),
+                                            ])
+                                            ->columns(1)
+                                    ])
+                                    ->collapsible()
+                                    ->collapsed(false)
                             ]),
                         Tab::make('Breakdown')
                             
