@@ -40,6 +40,15 @@ class ItineraryDay extends Model
         'description',
     ];
 
+    protected $appends = [
+        'formatted_data',
+        'has_tour_guide',
+        'meals_data',
+        'attractions_data', 
+        'tickets_data',
+        'experiences_data'
+    ];
+
     /**
      * Get the itinerary that owns the day.
      */
@@ -94,5 +103,173 @@ class ItineraryDay extends Model
     public function companions(): HasMany
     {
         return $this->hasMany(ItineraryDayCompanion::class);
+    }
+
+    /**
+     * Get formatted data for form editing.
+     */
+    public function getFormattedDataAttribute(): array
+    {
+        return [
+            'current_city_id' => $this->current_city_id,
+            'accommodation_city_id' => $this->accommodation_city_id,
+            'accommodation_id' => $this->accommodation_id,
+            'accommodation_star_rating' => $this->accommodation_star_rating?->value,
+            'has_vehicle' => $this->has_vehicle,
+            'has_tour_guide' => $this->has_tour_guide,
+            'description' => $this->description,
+            'breakfast' => $this->meals_data['breakfast'] ?? null,
+            'lunch' => $this->meals_data['lunch'] ?? null,
+            'dinner' => $this->meals_data['dinner'] ?? null,
+            'attractions' => $this->attractions_data,
+            'tickets' => $this->tickets_data,
+            'experiences' => $this->experiences_data,
+        ];
+    }
+
+    /**
+     * Check if this day has a tour guide.
+     */
+    public function getHasTourGuideAttribute(): bool
+    {
+        return $this->companions()
+            ->whereHas('companionCategory', function ($query) {
+                $query->where('category_type', \App\Enums\CompanionCategoryEnum::TOUR_GUIDE->value);
+            })
+            ->exists();
+    }
+
+    /**
+     * Get meals data formatted for form.
+     */
+    public function getMealsDataAttribute(): array
+    {
+        $meals = ['breakfast' => null, 'lunch' => null, 'dinner' => null];
+        
+        $mealActivities = $this->activities()
+            ->whereHas('activityCategory', function ($query) {
+                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
+            })
+            ->with('meal.mealType')
+            ->get();
+
+        foreach ($mealActivities as $activity) {
+            if ($activity->meal) {
+                $mealPart = $activity->meal->meal_part->value;
+                $meals[$mealPart] = $activity->meal->meal_type_id;
+            }
+        }
+
+        return $meals;
+    }
+
+    /**
+     * Get attractions data formatted for form.
+     */
+    public function getAttractionsDataAttribute(): array
+    {
+        $attractions = [];
+        
+        $attractionActivities = $this->activities()
+            ->whereHas('activityCategory', function ($query) {
+                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::ATTRACTION->value);
+            })
+            ->with(['attraction.attraction', 'attraction.subAttractions.subAttraction'])
+            ->get();
+
+        foreach ($attractionActivities as $activity) {
+            if ($activity->attraction) {
+                $attractions[] = [
+                    'city_id' => $activity->city_id,
+                    'attraction_id' => $activity->attraction->attraction_id,
+                    'is_outview' => $activity->attraction->is_outview,
+                    'sub_attractions' => $activity->attraction->subAttractions->pluck('sub_attraction_id')->toArray(),
+                ];
+            }
+        }
+
+        return $attractions;
+    }
+
+    /**
+     * Get tickets data formatted for form.
+     */
+    public function getTicketsDataAttribute(): array
+    {
+        $tickets = [];
+        
+        $ticketActivities = $this->activities()
+            ->whereHas('activityCategory', function ($query) {
+                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::TICKET->value);
+            })
+            ->with('ticket.toCity')
+            ->get();
+
+        foreach ($ticketActivities as $activity) {
+            if ($activity->ticket) {
+                $tickets[] = [
+                    'from_city_id' => $activity->city_id,
+                    'to_city_id' => $activity->ticket->to_city_id,
+                    'departure_time' => $activity->start_time?->format('H:i'),
+                    'arrival_time' => $activity->end_time?->format('H:i'),
+                    'class' => $activity->ticket->class?->value,
+                    'transport_number' => $activity->ticket->transport_number,
+                    'transport_mode' => $activity->ticket->transport_mode,
+                ];
+            }
+        }
+
+        return $tickets;
+    }
+
+    /**
+     * Get experiences data formatted for form.
+     */
+    public function getExperiencesDataAttribute(): array
+    {
+        $experiences = [];
+        
+        $experienceActivities = $this->activities()
+            ->whereHas('activityCategory', function ($query) {
+                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::EXPERIENCE->value);
+            })
+            ->with('experience.experience')
+            ->get();
+
+        foreach ($experienceActivities as $activity) {
+            if ($activity->experience) {
+                $experiences[] = [
+                    'city_id' => $activity->city_id,
+                    'experience_id' => $activity->experience->experience_id,
+                ];
+            }
+        }
+
+        return $experiences;
+    }
+
+    /**
+     * Get all form data in one optimized query.
+     */
+    public function getFormDataOptimized(): array
+    {
+        // Load all relationships in one query
+        $this->load([
+            'currentCity',
+            'accommodationCity', 
+            'accommodation',
+            'activities' => function ($query) {
+                $query->with([
+                    'meal.mealType',
+                    'ticket.toCity',
+                    'attraction.attraction',
+                    'attraction.subAttractions.subAttraction',
+                    'experience.experience'
+                ]);
+            },
+            'companions.companionCategory'
+        ]);
+
+        return $this->formatted_data;
     }
 }

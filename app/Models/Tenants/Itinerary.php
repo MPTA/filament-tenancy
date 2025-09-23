@@ -68,11 +68,75 @@ class Itinerary extends Model
         return $this->hasMany(ItineraryDay::class);
     }
 
+    /**
+     * Get the itinerary days with all related data for form editing.
+     */
+    public function daysForForm(): HasMany
+    {
+        return $this->hasMany(ItineraryDay::class)
+            ->with([
+                'currentCity',
+                'accommodationCity', 
+                'accommodation',
+                'activities.meal.mealType',
+                'activities.ticket.toCity',
+                'activities.attraction.attraction',
+                'activities.attraction.subAttractions.subAttraction',
+                'activities.experience.experience',
+                'companions.companionCategory'
+            ])
+            ->orderBy('day_number');
+    }
+
+    /**
+     * Scope to load itinerary with all form data in one query.
+     */
+    public function scopeForFormEdit($query)
+    {
+        return $query->with([
+            'daysForForm' => function ($query) {
+                $query->with([
+                    'currentCity',
+                    'accommodationCity', 
+                    'accommodation',
+                    'activities' => function ($query) {
+                        $query->with([
+                            'meal.mealType',
+                            'ticket.toCity',
+                            'attraction.attraction',
+                            'attraction.subAttractions.subAttraction',
+                            'experience.experience'
+                        ]);
+                    },
+                    'companions.companionCategory'
+                ])->orderBy('day_number');
+            }
+        ]);
+    }
+
     public function currenctCity(){
         return $this->belongsTo(City::class, 'current_city_id');    
     }
 
     public function accommodationCity(){
         return $this->belongsTo(City::class, 'accommodation_city_id');    
+    }
+
+    /**
+     * Get itinerary with all form data optimized for editing.
+     */
+    public static function getForFormEdit($id): ?self
+    {
+        return static::forFormEdit()->find($id);
+    }
+
+    /**
+     * Get formatted days data for form editing.
+     */
+    public function getFormattedDaysData(): array
+    {
+        return $this->daysForForm->map(function ($day) {
+            return $day->formatted_data;
+        })->toArray();
     }
 }

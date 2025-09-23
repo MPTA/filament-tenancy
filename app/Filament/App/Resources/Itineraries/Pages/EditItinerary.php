@@ -15,6 +15,19 @@ class EditItinerary extends EditRecord
 {
     protected static string $resource = ItineraryResource::class;
 
+    protected function mutateFormDataBeforeFill(array $data): array
+    {
+        // Load itinerary with optimized relationships using static method
+        $itinerary = \App\Models\Tenants\Itinerary::getForFormEdit($this->getRecord()->id);
+        
+        if ($itinerary) {
+            // Transform days data for form using optimized method
+            $data['days'] = $itinerary->getFormattedDaysData();
+        }
+        
+        return $data;
+    }
+
     protected function getHeaderActions(): array
     {
         return [
