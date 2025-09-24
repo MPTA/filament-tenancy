@@ -114,7 +114,6 @@ class QuotationItineraryInfolist
 
                                 // Itinerary Days Display
                                 Section::make('Itinerary Days')
-                                    
                                     ->description('Your travel plan day by day')
                                     ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->itinerary)
                                     ->headerActions([
@@ -127,275 +126,300 @@ class QuotationItineraryInfolist
                                     ->schema([
                                         RepeatableEntry::make('itinerary.days')
                                             ->hiddenLabel()
+                                            ->contained(false)
                                             ->label('')
                                             ->schema([
-                                                Grid::make(2)
-                                                    ->schema([
-                                                        TextEntry::make('day_number')
-                                                            ->label('Day')
-                                                            ->formatStateUsing(fn($state) => "Day {$state}")
-                                                            ->icon('heroicon-o-calendar')
-                                                            ->color('primary'),
+                                                // Day Header
+                                                Section::make()
+                                                    ->heading(fn($record) => "Day {$record->day_number}")
+                                                    ->description(function($record) {
+                                                        $items = [];
+                                                        $items[] = '📍 ' . ($record->accommodationCity?->name ?? 'Unknown City');
                                                         
-                                                        TextEntry::make('current_city_id')
-                                                            ->label('City')
-                                                            ->formatStateUsing(fn($state, $record) => $record->currentCity?->getTranslation('name', app()->getLocale()) ?? 'Unknown')
-                                                            ->icon('heroicon-o-map-pin')
-                                                            ->color('success'),
-                                                    ]),
-                                                
-                                                Grid::make(2)
-                                                    ->schema([
-                                                        TextEntry::make('accommodation_id')
-                                                            ->label('Accommodation')
-                                                            ->formatStateUsing(fn($state, $record) => $record->accommodation?->getTranslation('name', app()->getLocale()) ?? 'Not specified')
-                                                            ->icon('heroicon-o-building-office')
-                                                            ->color('info'),
-                                                        
-                                                        TextEntry::make('accommodation_star_rating')
-                                                            ->label('Star Rating')
-                                                            ->formatStateUsing(fn($state) => $state ? str_repeat('★', $state->value) : 'Not rated')
-                                                            ->icon('heroicon-o-star')
-                                                            ->color('warning'),
-                                                    ]),
-                                                
-                                                Grid::make(2)
-                                                    ->schema([
-                                                        TextEntry::make('has_vehicle')
-                                                            ->label('Vehicle')
-                                                            ->formatStateUsing(fn($state) => $state ? 'Yes' : 'No')
-                                                            ->icon('heroicon-o-truck')
-                                                            ->color(fn($state) => $state ? 'success' : 'gray'),
-                                                        
-                                                        TextEntry::make('has_tour_guide')
-                                                            ->label('Tour Guide')
-                                                            ->formatStateUsing(fn($state, $record) => $record->companions()->whereHas('companionCategory', function($query) {
-                                                                $query->where('category_type', \App\Enums\CompanionCategoryEnum::TOUR_GUIDE->value);
-                                                            })->exists() ? 'Yes' : 'No')
-                                                            ->icon('heroicon-o-user')
-                                                            ->color(fn($state, $record) => $record->companions()->whereHas('companionCategory', function($query) {
-                                                                $query->where('category_type', \App\Enums\CompanionCategoryEnum::TOUR_GUIDE->value);
-                                                            })->exists() ? 'success' : 'gray'),
-                                                    ]),
-                                                
-                                                // Meals Section
-                                                Grid::make(3)
-                                                    ->schema([
-                                                        TextEntry::make('itinerary.id')
-                                                            ->label('🌅 Breakfast')
-                                                            ->formatStateUsing(function($state, $record) {
-                                                                $mealActivity = $record->activities()
-                                                                    ->whereHas('activityCategory', function ($query) {
-                                                                        $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
-                                                                    })
-                                                                    ->whereHas('meal', function ($query) {
-                                                                        $query->where('meal_part', \App\Enums\MealPartEnum::BREAKFAST->value);
-                                                                    })
-                                                                    ->with('meal.mealType')
-                                                                    ->first();
-                                                                
-                                                                return $mealActivity?->meal?->mealType?->name ?? null;
-                                                            })
-                                                            ->color('warning')
-                                                            ->hidden(function($state, $record) {
-                                                                $mealActivity = $record->activities()
-                                                                    ->whereHas('activityCategory', function ($query) {
-                                                                        $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
-                                                                    })
-                                                                    ->whereHas('meal', function ($query) {
-                                                                        $query->where('meal_part', \App\Enums\MealPartEnum::BREAKFAST->value);
-                                                                    })
-                                                                    ->with('meal.mealType')
-                                                                    ->first();
-                                                                
-                                                                return empty($mealActivity?->meal?->mealType?->name);
-                                                            }),
-                                                        
-                                                        TextEntry::make('itinerary.id')
-                                                            ->label('☀️ Lunch')
-                                                            ->formatStateUsing(function($state, $record) {
-                                                                $mealActivity = $record->activities()
-                                                                    ->whereHas('activityCategory', function ($query) {
-                                                                        $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
-                                                                    })
-                                                                    ->whereHas('meal', function ($query) {
-                                                                        $query->where('meal_part', \App\Enums\MealPartEnum::LUNCH->value);
-                                                                    })
-                                                                    ->with('meal.mealType')
-                                                                    ->first();
-                                                                
-                                                                return $mealActivity?->meal?->mealType?->name ?? null;
-                                                            })
-                                                            ->color('success')
-                                                            ->hidden(function($state, $record) {
-                                                                $mealActivity = $record->activities()
-                                                                    ->whereHas('activityCategory', function ($query) {
-                                                                        $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
-                                                                    })
-                                                                    ->whereHas('meal', function ($query) {
-                                                                        $query->where('meal_part', \App\Enums\MealPartEnum::LUNCH->value);
-                                                                    })
-                                                                    ->with('meal.mealType')
-                                                                    ->first();
-                                                                
-                                                                return empty($mealActivity?->meal?->mealType?->name);
-                                                            }),
-                                                        
-                                                        TextEntry::make('itinerary.id')
-                                                            ->label('🌙 Dinner')
-                                                            ->formatStateUsing(function($state, $record) {
-                                                                $mealActivity = $record->activities()
-                                                                    ->whereHas('activityCategory', function ($query) {
-                                                                        $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
-                                                                    })
-                                                                    ->whereHas('meal', function ($query) {
-                                                                        $query->where('meal_part', \App\Enums\MealPartEnum::DINNER->value);
-                                                                    })
-                                                                    ->with('meal.mealType')
-                                                                    ->first();
-                                                                
-                                                                return $mealActivity?->meal?->mealType?->name ?? null;
-                                                            })
-                                                            ->color('info')
-                                                            ->hidden(function($state, $record) {
-                                                                $mealActivity = $record->activities()
-                                                                    ->whereHas('activityCategory', function ($query) {
-                                                                        $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
-                                                                    })
-                                                                    ->whereHas('meal', function ($query) {
-                                                                        $query->where('meal_part', \App\Enums\MealPartEnum::DINNER->value);
-                                                                    })
-                                                                    ->with('meal.mealType')
-                                                                    ->first();
-                                                                
-                                                                return empty($mealActivity?->meal?->mealType?->name);
-                                                            }),
-                                                    ])
-                                                    ->columnSpanFull(),
-                                                
-                                                // Tickets Section
-                                                TextEntry::make('itinerary.id')
-                                                    ->label('🎫 Tickets')
-                                                    ->formatStateUsing(function($state, $record) {
-                                                        // Get tickets directly from activities
-                                                        $ticketActivities = $record->activities()
-                                                            ->whereHas('activityCategory', function ($query) {
-                                                                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::TICKET->value);
-                                                            })
-                                                            ->with('ticket.toCity')
-                                                            ->get();
-                                                        
-                                                        if ($ticketActivities->isEmpty()) {
-                                                            return 'No tickets';
-                                                        }
-                                                        
-                                                        $ticketInfo = [];
-                                                        foreach ($ticketActivities as $activity) {
-                                                            if ($activity->ticket) {
-                                                                $fromCity = $activity->city?->name ?? 'Unknown';
-                                                                $toCity = $activity->ticket->toCity?->name ?? 'Unknown';
-                                                                $class = $activity->ticket->class?->value ?? 'Unknown';
-                                                                $transportNumber = $activity->ticket->transport_number ?? 'N/A';
-                                                                $departureTime = $activity->start_time?->format('H:i') ?? 'N/A';
-                                                                $transportMode = $activity->ticket->transport_mode ?? null;
-                                                                
-                                                                // Get appropriate icon based on TransportModeEnum
-                                                                $icon = match($transportMode) {
-                                                                    \App\Enums\TransportModeEnum::AIR->value => '✈️',
-                                                                    \App\Enums\TransportModeEnum::TRAIN->value => '🚂',
-                                                                    \App\Enums\TransportModeEnum::LAND->value => '🚗',
-                                                                    default => '🎫'
-                                                                };
-                                                                
-                                                                $ticketInfo[] = "{$icon} {$fromCity} → {$toCity} ({$class}) - {$transportNumber} at {$departureTime}";
+                                                        // Add hotel name and star rating
+                                                        if ($record->accommodation) {
+                                                            $hotelName = $record->accommodation?->getTranslation('name', app()->getLocale()) ?? 'Not specified';
+                                                            $items[] = '🏨 ' . $hotelName;
+                                                            
+                                                            if ($record->accommodation_star_rating) {
+                                                                $stars = str_repeat('★', $record->accommodation_star_rating->value);
+                                                                $items[] = $stars;
                                                             }
                                                         }
                                                         
-                                                        return implode(' | ', $ticketInfo);
-                                                    })
-                                                    ->icon('heroicon-o-ticket')
-                                                    ->color('primary')
-                                                    ->columnSpanFull(),
-                                                
-                                                // Attractions Section
-                                                TextEntry::make('itinerary.id')
-                                                    ->label('🏛️ Attractions')
-                                                    ->formatStateUsing(function($state, $record) {
-                                                        // Get attractions directly from activities
-                                                        $attractionActivities = $record->activities()
-                                                            ->whereHas('activityCategory', function ($query) {
-                                                                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::ATTRACTION->value);
-                                                            })
-                                                            ->with(['attraction.attraction', 'attraction.subAttractions.subAttraction'])
-                                                            ->get();
+                                                        // Add BLD (Breakfast, Lunch, Dinner) status
+                                                        $bldItems = [];
                                                         
-                                                        if ($attractionActivities->isEmpty()) {
-                                                            return 'No attractions';
+                                                        // Check for Breakfast
+                                                        $breakfastActivity = $record->activities()
+                                                            ->whereHas('activityCategory', function ($query) {
+                                                                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
+                                                            })
+                                                            ->whereHas('meal', function ($query) {
+                                                                $query->where('meal_part', \App\Enums\MealPartEnum::BREAKFAST->value);
+                                                            })
+                                                            ->with('meal.mealType')
+                                                            ->first();
+                                                        
+                                                        if ($breakfastActivity?->meal?->mealType?->name) {
+                                                            $bldItems[] = 'B';
                                                         }
                                                         
-                                                        $attractionInfo = [];
-                                                        foreach ($attractionActivities as $activity) {
-                                                            if ($activity->attraction) {
-                                                                $attractionName = $activity->attraction->attraction?->name ?? 'Unknown';
-                                                                $isOutview = $activity->attraction->is_outview ? ' (Outview)' : '';
+                                                        // Check for Lunch
+                                                        $lunchActivity = $record->activities()
+                                                            ->whereHas('activityCategory', function ($query) {
+                                                                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
+                                                            })
+                                                            ->whereHas('meal', function ($query) {
+                                                                $query->where('meal_part', \App\Enums\MealPartEnum::LUNCH->value);
+                                                            })
+                                                            ->with('meal.mealType')
+                                                            ->first();
+                                                        
+                                                        if ($lunchActivity?->meal?->mealType?->name) {
+                                                            $bldItems[] = 'L';
+                                                        }
+                                                        
+                                                        // Check for Dinner
+                                                        $dinnerActivity = $record->activities()
+                                                            ->whereHas('activityCategory', function ($query) {
+                                                                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
+                                                            })
+                                                            ->whereHas('meal', function ($query) {
+                                                                $query->where('meal_part', \App\Enums\MealPartEnum::DINNER->value);
+                                                            })
+                                                            ->with('meal.mealType')
+                                                            ->first();
+                                                        
+                                                        if ($dinnerActivity?->meal?->mealType?->name) {
+                                                            $bldItems[] = 'D';
+                                                        }
+                                                        
+                                                        if (!empty($bldItems)) {
+                                                            $items[] = '🍽️ ' . implode('', $bldItems);
+                                                        }
+                                                        
+                                                        return implode(' | ', $items);
+                                                    })
+                                                    ->icon('heroicon-o-calendar')
+                                                    ->collapsible()
+                                                    ->collapsed()
+                                                    ->schema([
+                                                        
+                                                        // Meals Section
+                                                        Grid::make(3)
+                                                            ->schema([
+                                                                TextEntry::make('itinerary.id')
+                                                                    ->label('🌅 Breakfast')
+                                                                    ->formatStateUsing(function($state, $record) {
+                                                                        $mealActivity = $record->activities()
+                                                                            ->whereHas('activityCategory', function ($query) {
+                                                                                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
+                                                                            })
+                                                                            ->whereHas('meal', function ($query) {
+                                                                                $query->where('meal_part', \App\Enums\MealPartEnum::BREAKFAST->value);
+                                                                            })
+                                                                            ->with('meal.mealType')
+                                                                            ->first();
+                                                                        
+                                                                        return $mealActivity?->meal?->mealType?->name ?? null;
+                                                                    })
+                                                                    ->color('warning')
+                                                                    ->hidden(function($state, $record) {
+                                                                        $mealActivity = $record->activities()
+                                                                            ->whereHas('activityCategory', function ($query) {
+                                                                                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
+                                                                            })
+                                                                            ->whereHas('meal', function ($query) {
+                                                                                $query->where('meal_part', \App\Enums\MealPartEnum::BREAKFAST->value);
+                                                                            })
+                                                                            ->with('meal.mealType')
+                                                                            ->first();
+                                                                        
+                                                                        return empty($mealActivity?->meal?->mealType?->name);
+                                                                    }),
                                                                 
-                                                                // Get sub-attractions
-                                                                $subAttractions = $activity->attraction->subAttractions
-                                                                    ->map(fn($sub) => $sub->subAttraction?->name ?? 'Unknown')
-                                                                    ->filter()
-                                                                    ->values();
+                                                                TextEntry::make('itinerary.id')
+                                                                    ->label('☀️ Lunch')
+                                                                    ->formatStateUsing(function($state, $record) {
+                                                                        $mealActivity = $record->activities()
+                                                                            ->whereHas('activityCategory', function ($query) {
+                                                                                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
+                                                                            })
+                                                                            ->whereHas('meal', function ($query) {
+                                                                                $query->where('meal_part', \App\Enums\MealPartEnum::LUNCH->value);
+                                                                            })
+                                                                            ->with('meal.mealType')
+                                                                            ->first();
+                                                                        
+                                                                        return $mealActivity?->meal?->mealType?->name ?? null;
+                                                                    })
+                                                                    ->color('success')
+                                                                    ->hidden(function($state, $record) {
+                                                                        $mealActivity = $record->activities()
+                                                                            ->whereHas('activityCategory', function ($query) {
+                                                                                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
+                                                                            })
+                                                                            ->whereHas('meal', function ($query) {
+                                                                                $query->where('meal_part', \App\Enums\MealPartEnum::LUNCH->value);
+                                                                            })
+                                                                            ->with('meal.mealType')
+                                                                            ->first();
+                                                                        
+                                                                        return empty($mealActivity?->meal?->mealType?->name);
+                                                                    }),
                                                                 
-                                                                $subInfo = '';
-                                                                if ($subAttractions->isNotEmpty()) {
-                                                                    $subList = $subAttractions->implode(', ');
-                                                                    $subInfo = " ({$subList})";
+                                                                TextEntry::make('itinerary.id')
+                                                                    ->label('🌙 Dinner')
+                                                                    ->formatStateUsing(function($state, $record) {
+                                                                        $mealActivity = $record->activities()
+                                                                            ->whereHas('activityCategory', function ($query) {
+                                                                                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
+                                                                            })
+                                                                            ->whereHas('meal', function ($query) {
+                                                                                $query->where('meal_part', \App\Enums\MealPartEnum::DINNER->value);
+                                                                            })
+                                                                            ->with('meal.mealType')
+                                                                            ->first();
+                                                                        
+                                                                        return $mealActivity?->meal?->mealType?->name ?? null;
+                                                                    })
+                                                                    ->color('info')
+                                                                    ->hidden(function($state, $record) {
+                                                                        $mealActivity = $record->activities()
+                                                                            ->whereHas('activityCategory', function ($query) {
+                                                                                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
+                                                                            })
+                                                                            ->whereHas('meal', function ($query) {
+                                                                                $query->where('meal_part', \App\Enums\MealPartEnum::DINNER->value);
+                                                                            })
+                                                                            ->with('meal.mealType')
+                                                                            ->first();
+                                                                        
+                                                                        return empty($mealActivity?->meal?->mealType?->name);
+                                                                    }),
+                                                            ])
+                                                            ->columnSpanFull(),
+                                                        
+                                                        // Tickets Section
+                                                        TextEntry::make('itinerary.id')
+                                                            ->label('🎫 Tickets')
+                                                            ->formatStateUsing(function($state, $record) {
+                                                                $ticketActivities = $record->activities()
+                                                                    ->whereHas('activityCategory', function ($query) {
+                                                                        $query->where('type', \App\Enums\ActivityCategoryTypeEnum::TICKET->value);
+                                                                    })
+                                                                    ->with('ticket.toCity')
+                                                                    ->get();
+                                                                
+                                                                if ($ticketActivities->isEmpty()) {
+                                                                    return 'No tickets';
                                                                 }
                                                                 
-                                                                $attractionInfo[] = "🏛️ {$attractionName}{$isOutview}{$subInfo}";
-                                                            }
-                                                        }
-                                                        
-                                                        return implode(' | ', $attractionInfo);
-                                                    })
-                                                    ->icon('heroicon-o-building-library')
-                                                    ->color('info')
-                                                    ->columnSpanFull(),
-                                                
-                                                // Experiences Section
-                                                TextEntry::make('itinerary.id')
-                                                    ->label('🎭 Experiences')
-                                                    ->formatStateUsing(function($state, $record) {
-                                                        // Get experiences directly from activities
-                                                        $experienceActivities = $record->activities()
-                                                            ->whereHas('activityCategory', function ($query) {
-                                                                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::EXPERIENCE->value);
+                                                                $ticketInfo = [];
+                                                                foreach ($ticketActivities as $activity) {
+                                                                    if ($activity->ticket) {
+                                                                        $fromCity = $activity->city?->name ?? 'Unknown';
+                                                                        $toCity = $activity->ticket->toCity?->name ?? 'Unknown';
+                                                                        $class = $activity->ticket->class?->value ?? 'Unknown';
+                                                                        $transportNumber = $activity->ticket->transport_number ?? 'N/A';
+                                                                        $departureTime = $activity->start_time?->format('H:i') ?? 'N/A';
+                                                                        $transportMode = $activity->ticket->transport_mode ?? null;
+                                                                        
+                                                                        $icon = match($transportMode) {
+                                                                            \App\Enums\TransportModeEnum::AIR->value => '✈️',
+                                                                            \App\Enums\TransportModeEnum::TRAIN->value => '🚂',
+                                                                            \App\Enums\TransportModeEnum::LAND->value => '🚗',
+                                                                            default => '🎫'
+                                                                        };
+                                                                        
+                                                                        $ticketInfo[] = "{$icon} {$fromCity} → {$toCity} ({$class}) - {$transportNumber} at {$departureTime}";
+                                                                    }
+                                                                }
+                                                                
+                                                                return implode(' | ', $ticketInfo);
                                                             })
-                                                            ->with('experience.experience')
-                                                            ->get();
+                                                            ->icon('heroicon-o-ticket')
+                                                            ->color('primary')
+                                                            ->columnSpanFull(),
                                                         
-                                                        if ($experienceActivities->isEmpty()) {
-                                                            return 'No experiences';
-                                                        }
+                                                        // Attractions Section
+                                                        TextEntry::make('itinerary.id')
+                                                            ->label('🏛️ Attractions')
+                                                            ->formatStateUsing(function($state, $record) {
+                                                                $attractionActivities = $record->activities()
+                                                                    ->whereHas('activityCategory', function ($query) {
+                                                                        $query->where('type', \App\Enums\ActivityCategoryTypeEnum::ATTRACTION->value);
+                                                                    })
+                                                                    ->with(['attraction.attraction', 'attraction.subAttractions.subAttraction'])
+                                                                    ->get();
+                                                                
+                                                                if ($attractionActivities->isEmpty()) {
+                                                                    return 'No attractions';
+                                                                }
+                                                                
+                                                                $attractionInfo = [];
+                                                                foreach ($attractionActivities as $activity) {
+                                                                    if ($activity->attraction) {
+                                                                        $attractionName = $activity->attraction->attraction?->name ?? 'Unknown';
+                                                                        $isOutview = $activity->attraction->is_outview ? ' (Outview)' : '';
+                                                                        
+                                                                        $subAttractions = $activity->attraction->subAttractions
+                                                                            ->map(fn($sub) => $sub->subAttraction?->name ?? 'Unknown')
+                                                                            ->filter()
+                                                                            ->values();
+                                                                        
+                                                                        $subInfo = '';
+                                                                        if ($subAttractions->isNotEmpty()) {
+                                                                            $subList = $subAttractions->implode(', ');
+                                                                            $subInfo = " ({$subList})";
+                                                                        }
+                                                                        
+                                                                        $attractionInfo[] = "🏛️ {$attractionName}{$isOutview}{$subInfo}";
+                                                                    }
+                                                                }
+                                                                
+                                                                return implode(' | ', $attractionInfo);
+                                                            })
+                                                            ->icon('heroicon-o-building-library')
+                                                            ->color('info')
+                                                            ->columnSpanFull(),
                                                         
-                                                        $experienceInfo = [];
-                                                        foreach ($experienceActivities as $activity) {
-                                                            if ($activity->experience) {
-                                                                $experienceName = $activity->experience->experience?->name ?? 'Unknown';
-                                                                $experienceInfo[] = "🎭 {$experienceName}";
-                                                            }
-                                                        }
+                                                        // Experiences Section
+                                                        TextEntry::make('itinerary.id')
+                                                            ->label('🎭 Experiences')
+                                                            ->formatStateUsing(function($state, $record) {
+                                                                $experienceActivities = $record->activities()
+                                                                    ->whereHas('activityCategory', function ($query) {
+                                                                        $query->where('type', \App\Enums\ActivityCategoryTypeEnum::EXPERIENCE->value);
+                                                                    })
+                                                                    ->with('experience.experience')
+                                                                    ->get();
+                                                                
+                                                                if ($experienceActivities->isEmpty()) {
+                                                                    return 'No experiences';
+                                                                }
+                                                                
+                                                                $experienceInfo = [];
+                                                                foreach ($experienceActivities as $activity) {
+                                                                    if ($activity->experience) {
+                                                                        $experienceName = $activity->experience->experience?->name ?? 'Unknown';
+                                                                        $experienceInfo[] = "🎭 {$experienceName}";
+                                                                    }
+                                                                }
+                                                                
+                                                                return implode(' | ', $experienceInfo);
+                                                            })
+                                                            ->icon('heroicon-o-sparkles')
+                                                            ->color('warning')
+                                                            ->columnSpanFull(),
                                                         
-                                                        return implode(' | ', $experienceInfo);
-                                                    })
-                                                    ->icon('heroicon-o-sparkles')
-                                                    ->color('warning')
-                                                    ->columnSpanFull(),
-                                                
-                                                TextEntry::make('description')
-                                                    ->label('Description')
-                                                    ->formatStateUsing(fn($state) => $state ?? 'No description')
-                                                    ->icon('heroicon-o-document-text')
-                                                    ->columnSpanFull(),
+                                                        TextEntry::make('description')
+                                                            ->label('Description')
+                                                            ->formatStateUsing(fn($state) => $state ?? 'No description')
+                                                            ->icon('heroicon-o-document-text')
+                                                            ->columnSpanFull(),
+                                                    ])
                                             ])
                                             ->columns(1)
                                     ])
@@ -403,12 +427,10 @@ class QuotationItineraryInfolist
                                     ->collapsed(false)
                             ]),
                         Tab::make('Breakdown')
-                            
                             ->schema([
                                 // ...
                             ]),
                         Tab::make('Offers')
-                            
                             ->schema([
                                 // ...
                             ]),
