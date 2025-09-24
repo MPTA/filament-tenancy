@@ -30,7 +30,14 @@ class ItineraryForm
     {
         return $schema
             ->components([
-                Repeater::make('days')->columnSpanFull()->columns(['md' => 2, 'lg' => 4])
+                Repeater::make('days')
+                    ->columnSpanFull()
+                    ->columns(['md' => 2, 'lg' => 4])
+                    ->label('Days')
+                    ->itemLabel(function () {
+                        static $counter = 0;
+                        return 'Day ' . (++$counter);
+                    })
                     ->schema([
                         Select::make('current_city_id')
                             ->options(City::getCachedSelectOptions())
