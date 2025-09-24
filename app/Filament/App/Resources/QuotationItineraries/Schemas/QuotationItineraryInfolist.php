@@ -42,8 +42,28 @@ class QuotationItineraryInfolist
                             ]),
                         Tab::make('Itinerary')
                             ->icon('heroicon-o-map')
-                            ->badge(fn(QuotationItinerary $record) => $record->itinerary ? $record->itinerary->days()->count() . ' Days' : '0 Days')
-                            ->badgeColor(fn(QuotationItinerary $record) => $record->itinerary ? 'success' : 'gray')
+                            ->badge(function(QuotationItinerary $record) {
+                                if (!$record->itinerary) {
+                                    return null; // No badge when no itinerary
+                                }
+                                
+                                if ($record->itinerary->is_complete) {
+                                    return '✓'; // Green tick when complete
+                                }
+                                
+                                return '⏳'; // Pending symbol when incomplete
+                            })
+                            ->badgeColor(function(QuotationItinerary $record) {
+                                if (!$record->itinerary) {
+                                    return 'gray';
+                                }
+                                
+                                if ($record->itinerary->is_complete) {
+                                    return 'success';
+                                }
+                                
+                                return 'gray'; // Gray for pending
+                            })
                             ->schema([
                                 // Itinerary Summary
                                 Section::make('Itinerary Summary')
@@ -59,7 +79,22 @@ class QuotationItineraryInfolist
                                         Action::make('Complete')
                                             ->icon('heroicon-m-check-circle')
                                             ->color('success')
-                                            ->hidden(fn(QuotationItinerary $quotationItinerary) => $quotationItinerary->itinerary?->is_complete ?? true)
+                                            ->hidden(function(QuotationItinerary $quotationItinerary) {
+                                                // Hide if no itinerary, already complete, or no days
+                                                if (!$quotationItinerary->itinerary) {
+                                                    return true;
+                                                }
+                                                
+                                                if ($quotationItinerary->itinerary->is_complete) {
+                                                    return true;
+                                                }
+                                                
+                                                if ($quotationItinerary->itinerary->days()->count() === 0) {
+                                                    return true;
+                                                }
+                                                
+                                                return false;
+                                            })
                                             ->action(function(QuotationItinerary $quotationItinerary) {
                                                 if ($quotationItinerary->itinerary) {
                                                     $quotationItinerary->itinerary->update(['is_complete' => true]);
@@ -137,7 +172,18 @@ class QuotationItineraryInfolist
                                 Section::make('Itinerary Days')
                                     ->description('Your travel plan day by day')
                                     ->compact()
-                                    ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->itinerary)
+                                    ->hidden(function(QuotationItinerary $quotationItinerary) {
+                                        // Hide if no itinerary or no days
+                                        if (!$quotationItinerary->itinerary) {
+                                            return true;
+                                        }
+                                        
+                                        if ($quotationItinerary->itinerary->days()->count() === 0) {
+                                            return true;
+                                        }
+                                        
+                                        return false;
+                                    })
                                     ->schema([
                                         RepeatableEntry::make('itinerary.days')
                                             ->hiddenLabel()
