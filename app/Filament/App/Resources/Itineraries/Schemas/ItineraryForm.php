@@ -34,9 +34,56 @@ class ItineraryForm
                     ->columnSpanFull()
                     ->columns(['md' => 2, 'lg' => 4])
                     ->label('Days')
-                    ->itemLabel(function () {
+                    ->itemLabel(function (array $state) {
                         static $counter = 0;
-                        return 'Day ' . (++$counter);
+                        $dayNumber = ++$counter;
+                        
+                        $cityName = '';
+                        $hotelName = '';
+                        
+                        // Get accommodation city name
+                        if (!empty($state['accommodation_city_id'])) {
+                            $city = City::find($state['accommodation_city_id']);
+                            if ($city) {
+                                $cityName = $city->name;
+                            }
+                        } else if (!empty($state['current_city_id'])) {
+                            // Fallback to current city if accommodation city is not set
+                            $city = City::find($state['current_city_id']);
+                            if ($city) {
+                                $cityName = $city->name;
+                            }
+                        }
+                        
+                        // Get hotel name
+                        if (!empty($state['accommodation_id'])) {
+                            $accommodation = Accommodation::find($state['accommodation_id']);
+                            if ($accommodation) {
+                                $hotelName = $accommodation->name;
+                            }
+                        }
+                        
+                        $label = "Day {$dayNumber}";
+                        
+                        if ($cityName) {
+                            $label .= " - {$cityName}";
+                        }
+                        
+                        if ($hotelName) {
+                            $label .= " ({$hotelName})";
+                        }
+                        
+                        // Add vehicle icon
+                        if (!empty($state['has_vehicle']) && $state['has_vehicle']) {
+                            $label .= " 🚗";
+                        }
+                        
+                        // Add tour guide icon
+                        if (!empty($state['has_tour_guide']) && $state['has_tour_guide']) {
+                            $label .= " 👨";
+                        }
+                        
+                        return $label;
                     })
                     ->collapsible()
                     ->collapsed()
