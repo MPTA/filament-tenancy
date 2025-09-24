@@ -3,6 +3,7 @@
 namespace App\Filament\App\Resources\Itineraries\Pages;
 
 use App\Enums\ActivityCategoryTypeEnum;
+use App\Enums\VehicleUsageModeEnum;
 use App\Filament\App\Resources\Itineraries\ItineraryResource;
 use App\Filament\App\Resources\QuotationItineraries\QuotationItineraryResource;
 use App\Models\Base\CompanionCategory;
@@ -54,6 +55,16 @@ class EditItinerary extends EditRecord
                     // Add day_number automatically based on index
                     $dayData['day_number'] = $index + 1;
                     
+                    // Handle vehicle fields conversion
+                    $vehicleUsageMode = null;
+                    $vehicleHours = null;
+                    
+                    // If has_vehicle is true, set to FULL_DAY with 0 hours
+                    if (isset($dayData['has_vehicle']) && $dayData['has_vehicle']) {
+                        $vehicleUsageMode = VehicleUsageModeEnum::FULL_DAY->value;
+                        $vehicleHours = 0;
+                    }
+                    
                     // Create ItineraryDay
                     $itineraryDay = \App\Models\Tenants\Itinerary::find($itinerary->id)->days()->create([
                         'day_number' => $dayData['day_number'],
@@ -61,7 +72,8 @@ class EditItinerary extends EditRecord
                         'accommodation_city_id' => $dayData['accommodation_city_id'],
                         'accommodation_id' => $dayData['accommodation_id'] ?? null,
                         'accommodation_star_rating' => $dayData['accommodation_star_rating'] ?? null,
-                        'has_vehicle' => $dayData['has_vehicle'] ?? false,
+                        'vehicle_usage_mode' => $vehicleUsageMode,
+                        'vehicle_hours' => $vehicleHours,
                         'description' => $dayData['description'] ?? null,
                         'creator_user_id' => \Illuminate\Support\Facades\Auth::user()->id,
                     ]);

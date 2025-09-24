@@ -6,6 +6,7 @@ use App\Enums\StarRatingEnum;
 use App\Enums\TicketClassEnum;
 use App\Enums\TransportModeEnum;
 use App\Enums\TravelModeEnum;
+use App\Enums\VehicleUsageModeEnum;
 use App\Models\Base\Accommodation;
 use App\Models\Base\Attraction;
 use App\Models\Base\City;

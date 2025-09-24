@@ -136,7 +136,17 @@ class Itinerary extends Model
     public function getFormattedDaysData(): array
     {
         return $this->daysForForm->map(function ($day) {
-            return $day->formatted_data;
+            $formattedData = $day->formatted_data;
+            
+            // Add has_vehicle based on vehicle fields for backward compatibility
+            if ((isset($formattedData['vehicle_usage_mode']) && !empty($formattedData['vehicle_usage_mode'])) || 
+                (isset($formattedData['vehicle_hours']) && !empty($formattedData['vehicle_hours']))) {
+                $formattedData['has_vehicle'] = true;
+            } else {
+                $formattedData['has_vehicle'] = false;
+            }
+            
+            return $formattedData;
         })->toArray();
     }
 }
