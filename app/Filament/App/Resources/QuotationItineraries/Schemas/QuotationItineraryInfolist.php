@@ -54,7 +54,21 @@ class QuotationItineraryInfolist
                                             ->icon('heroicon-m-pencil-square')
                                             ->color('primary')
                                             ->url(fn(QuotationItinerary $quotationItinerary) => ItineraryResource::getUrl('edit', ['record' => $quotationItinerary->itinerary]))
-                                            ->openUrlInNewTab()
+                                            ->openUrlInNewTab(),
+                                        
+                                        Action::make('Complete')
+                                            ->icon('heroicon-m-check-circle')
+                                            ->color('success')
+                                            ->hidden(fn(QuotationItinerary $quotationItinerary) => $quotationItinerary->itinerary?->is_complete ?? true)
+                                            ->action(function(QuotationItinerary $quotationItinerary) {
+                                                if ($quotationItinerary->itinerary) {
+                                                    $quotationItinerary->itinerary->update(['is_complete' => true]);
+                                                }
+                                            })
+                                            ->requiresConfirmation()
+                                            ->modalHeading('Complete Itinerary')
+                                            ->modalDescription('Are you sure you want to mark this itinerary as complete?')
+                                            ->modalSubmitActionLabel('Complete')
                                     ])
                                     ->schema([
                                         Grid::make(4)
