@@ -49,6 +49,13 @@ class QuotationItineraryInfolist
                                 Section::make('Itinerary Summary')
                                     ->description('Quick overview of your travel plan')
                                     ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->itinerary)
+                                    ->headerActions([
+                                        Action::make('Edit Itinerary')
+                                            ->icon('heroicon-m-pencil-square')
+                                            ->color('primary')
+                                            ->url(fn(QuotationItinerary $quotationItinerary) => ItineraryResource::getUrl('edit', ['record' => $quotationItinerary->itinerary]))
+                                            ->openUrlInNewTab()
+                                    ])
                                     ->schema([
                                         Grid::make(4)
                                             ->schema([
@@ -116,13 +123,6 @@ class QuotationItineraryInfolist
                                 Section::make('Itinerary Days')
                                     ->description('Your travel plan day by day')
                                     ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->itinerary)
-                                    ->headerActions([
-                                        Action::make('Edit Itinerary')
-                                            ->icon('heroicon-m-pencil-square')
-                                            ->color('primary')
-                                            ->url(fn(QuotationItinerary $quotationItinerary) => ItineraryResource::getUrl('edit', ['record' => $quotationItinerary->itinerary]))
-                                            ->openUrlInNewTab()
-                                    ])
                                     ->schema([
                                         RepeatableEntry::make('itinerary.days')
                                             ->hiddenLabel()
@@ -340,7 +340,7 @@ class QuotationItineraryInfolist
                                                                 return implode(' | ', $ticketInfo);
                                                             })
                                                             ->icon('heroicon-o-ticket')
-                                                            ->color('primary')
+                                            ->color('primary')
                                                             ->columnSpanFull(),
                                                         
                                                         // Attractions Section
