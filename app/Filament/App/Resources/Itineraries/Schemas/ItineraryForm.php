@@ -55,11 +55,18 @@ class ItineraryForm
                             }
                         }
                         
-                        // Get hotel name
+                        // Get hotel name and star rating
                         if (!empty($state['accommodation_id'])) {
                             $accommodation = Accommodation::find($state['accommodation_id']);
                             if ($accommodation) {
                                 $hotelName = $accommodation->name;
+                                
+                                // Add star rating
+                                if (!empty($state['accommodation_star_rating'])) {
+                                    $starRating = (int) $state['accommodation_star_rating'];
+                                    $stars = str_repeat('⭐', $starRating);
+                                    $hotelName .= " {$stars}";
+                                }
                             }
                         }
                         
@@ -81,6 +88,22 @@ class ItineraryForm
                         // Add tour guide icon
                         if (!empty($state['has_tour_guide']) && $state['has_tour_guide']) {
                             $label .= " 👨";
+                        }
+                        
+                        // Add meal abbreviations (BLD)
+                        $mealAbbrev = '';
+                        if (!empty($state['breakfast'])) {
+                            $mealAbbrev .= 'B';
+                        }
+                        if (!empty($state['lunch'])) {
+                            $mealAbbrev .= 'L';
+                        }
+                        if (!empty($state['dinner'])) {
+                            $mealAbbrev .= 'D';
+                        }
+                        
+                        if ($mealAbbrev) {
+                            $label .= " ({$mealAbbrev})";
                         }
                         
                         return $label;
