@@ -3,6 +3,7 @@
 namespace App\Models\Tenants;
 
 use App\Enums\StarRatingEnum;
+use App\Enums\VehicleUsageModeEnum;
 use App\Models\Base\City;
 use App\Models\Base\Accommodation;
 use App\Models\User;
@@ -25,13 +26,15 @@ class ItineraryDay extends Model
         'accommodation_city_id',
         'accommodation_id',
         'accommodation_star_rating',
-        'has_vehicle',
+        'vehicle_usage_mode',
+        'vehicle_hours',
         'creator_user_id',
     ];
 
     protected $casts = [
         'description' => 'array',
-        'has_vehicle' => 'boolean',
+        'vehicle_usage_mode' => VehicleUsageModeEnum::class,
+        'vehicle_hours' => 'integer',
         'accommodation_star_rating' => StarRatingEnum::class,
         'day_number' => 'integer',
     ];
@@ -115,7 +118,8 @@ class ItineraryDay extends Model
             'accommodation_city_id' => $this->accommodation_city_id,
             'accommodation_id' => $this->accommodation_id,
             'accommodation_star_rating' => $this->accommodation_star_rating?->value,
-            'has_vehicle' => $this->has_vehicle,
+            'vehicle_usage_mode' => $this->vehicle_usage_mode?->value,
+            'vehicle_hours' => $this->vehicle_hours,
             'has_tour_guide' => $this->has_tour_guide,
             'description' => $this->description,
             'breakfast' => $this->meals_data['breakfast'] ?? null,
