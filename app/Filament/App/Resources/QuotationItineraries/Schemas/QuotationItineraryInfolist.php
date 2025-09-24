@@ -110,7 +110,39 @@ class QuotationItineraryInfolist
                                     ->description('Quotation and pricing details')
                                     ->icon('heroicon-o-currency-dollar')
                                     ->schema([
-                                        // فیلدهای Quotation اینجا اضافه خواهند شد
+                                        Grid::make(2)
+                                            ->schema([
+                                                TextEntry::make('quotation.number')
+                                                    ->label('Quotation Number')
+                                                    ->icon('heroicon-o-hashtag')
+                                                    ->color('primary'),
+
+                                                TextEntry::make('quotation.exchange_rate')
+                                                    ->label('Exchange Rate')
+                                                    ->formatStateUsing(fn($state) => $state ? number_format($state, 4) : 'Not specified')
+                                                    ->icon('heroicon-o-arrow-path')
+                                                    ->color('info'),
+                                            ]),
+
+                                        TextEntry::make('quotation.expire_date')
+                                            ->label('Expiry Date')
+                                            ->date()
+                                            ->icon('heroicon-o-calendar-days')
+                                            ->color('danger')
+                                            ->columnSpanFull(),
+
+                                        TextEntry::make('quotation.description')
+                                            ->label('Description')
+                                            ->formatStateUsing(fn($state) => $state ?? 'No description')
+                                            ->icon('heroicon-o-document-text')
+                                            ->columnSpanFull(),
+
+                                        TextEntry::make('quotation.internal_note')
+                                            ->label('Internal Note')
+                                            ->formatStateUsing(fn($state) => $state ?? 'No internal note')
+                                            ->icon('heroicon-o-exclamation-triangle')
+                                            ->color('warning')
+                                            ->columnSpanFull(),
                                     ]),
                             ]),
                         Tab::make('Itinerary')
