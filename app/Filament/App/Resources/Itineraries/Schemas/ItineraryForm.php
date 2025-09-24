@@ -38,6 +38,8 @@ class ItineraryForm
                         static $counter = 0;
                         return 'Day ' . (++$counter);
                     })
+                    ->collapsible()
+                    ->collapsed()
                     ->schema([
                         Select::make('current_city_id')
                             ->options(City::getCachedSelectOptions())
