@@ -34,93 +34,84 @@ class QuotationItineraryInfolist
                             ->badgeColor('success')
                             ->schema([
                                 // Inquiry Information
-                                Section::make('Inquiry Details')
-                                    ->description('Basic inquiry information')
+                                Section::make('Inquiry Information')
+                                    ->description('Basic inquiry details and information')
                                     ->icon('heroicon-o-document-text')
                                     ->schema([
                                         Grid::make(2)
                                             ->schema([
-                                                TextEntry::make('inquiry.type')
-                                                    ->label('Inquiry Type')
-                                                    ->formatStateUsing(fn($state) => $state?->value ?? 'Not specified')
+                                                TextEntry::make('quotation.id')
+                                                    ->label('Title')
+                                                    ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->getTranslation('title', app()->getLocale()) ?? 'No title')
                                                     ->icon('heroicon-o-tag')
                                                     ->color('primary'),
                                                 
-                                                TextEntry::make('inquiry.date_type')
-                                                    ->label('Date Type')
-                                                    ->formatStateUsing(fn($state) => $state?->value ?? 'Not specified')
-                                                    ->icon('heroicon-o-calendar')
+                                                TextEntry::make('quotation.id')
+                                                    ->label('Inquiry Number')
+                                                    ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->number ?? 'No number')
+                                                    ->icon('heroicon-o-hashtag')
                                                     ->color('info'),
                                             ]),
                                         
-                                        TextEntry::make('inquiry.description')
+                                        TextEntry::make('quotation.id')
+                                            ->label('Reference')
+                                            ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->reference ?? 'No reference')
+                                            ->icon('heroicon-o-link')
+                                            ->color('warning')
+                                            ->columnSpanFull(),
+                                        
+                                        Grid::make(2)
+                                            ->schema([
+                                                TextEntry::make('quotation.id')
+                                                    ->label('Contact')
+                                                    ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->contact?->full_name ?? 'No contact')
+                                                    ->icon('heroicon-o-user')
+                                                    ->color('success'),
+                                                
+                                                TextEntry::make('quotation.id')
+                                                    ->label('Requested Currency')
+                                                    ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->requestedCurrency?->name ?? 'Not specified')
+                                                    ->icon('heroicon-o-banknotes')
+                                                    ->color('info'),
+                                            ]),
+                                        
+                                        TextEntry::make('quotation.id')
                                             ->label('Description')
-                                            ->formatStateUsing(fn($state) => $state ?? 'No description')
+                                            ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->getTranslation('description', app()->getLocale()) ?? 'No description')
                                             ->icon('heroicon-o-document-text')
+                                            ->columnSpanFull(),
+                                        
+                                        Grid::make(2)
+                                            ->schema([
+                                                TextEntry::make('quotation.id')
+                                                    ->label('Date Type')
+                                                    ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->inquiryItinerary?->date_type?->value ?? 'Not specified')
+                                                    ->icon('heroicon-o-calendar')
+                                                    ->color('primary'),
+                                                
+                                                TextEntry::make('quotation.id')
+                                                    ->label('From Date')
+                                                    ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->inquiryItinerary?->from_date?->format('Y-m-d') ?? 'Not specified')
+                                                    ->icon('heroicon-o-calendar-days')
+                                                    ->color('success'),
+                                            ]),
+                                        
+                                        TextEntry::make('quotation.id')
+                                            ->label('To Date')
+                                            ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->inquiryItinerary?->to_date?->format('Y-m-d') ?? 'Not specified')
+                                            ->icon('heroicon-o-calendar-days')
+                                            ->color('warning')
                                             ->columnSpanFull(),
                                     ])
                                     ->collapsible()
                                     ->collapsed(false),
                                 
                                 // Quotation Information
-                                Section::make('Quotation Details')
-                                    ->description('Quotation and pricing information')
+                                Section::make('Quotation Information')
+                                    ->description('Quotation and pricing details')
                                     ->icon('heroicon-o-currency-dollar')
                                     ->schema([
-                                        Grid::make(3)
-                                            ->schema([
-                                                TextEntry::make('quotation.number')
-                                                    ->label('Quotation Number')
-                                                    ->icon('heroicon-o-hashtag')
-                                                    ->color('primary'),
-                                                
-                                                TextEntry::make('quotation.currency.name')
-                                                    ->label('Currency')
-                                                    ->icon('heroicon-o-banknotes')
-                                                    ->color('success'),
-                                                
-                                                TextEntry::make('quotation.exchange_rate')
-                                                    ->label('Exchange Rate')
-                                                    ->icon('heroicon-o-arrow-path')
-                                                    ->color('warning'),
-                                            ]),
-                                        
-                                        Grid::make(2)
-                                            ->schema([
-                                                TextEntry::make('quotation.expire_date')
-                                                    ->label('Expiry Date')
-                                                    ->date()
-                                                    ->icon('heroicon-o-calendar-days')
-                                                    ->color('danger'),
-                                                
-                                                TextEntry::make('quotation.creator.name')
-                                                    ->label('Created By')
-                                                    ->icon('heroicon-o-user')
-                                                    ->color('info'),
-                                            ]),
-                                    ])
-                                    ->collapsible()
-                                    ->collapsed(false),
-                                
-                                // QuotationItinerary Information
-                                Section::make('Itinerary Quotation Details')
-                                    ->description('Specific itinerary quotation information')
-                                    ->icon('heroicon-o-map')
-                                    ->schema([
-                                        Grid::make(2)
-                                            ->schema([
-                                                TextEntry::make('created_at')
-                                                    ->label('Created At')
-                                                    ->dateTime()
-                                                    ->icon('heroicon-o-clock')
-                                                    ->color('info'),
-                                                
-                                                TextEntry::make('updated_at')
-                                                    ->label('Updated At')
-                                                    ->dateTime()
-                                                    ->icon('heroicon-o-pencil')
-                                                    ->color('warning'),
-                                            ]),
+                                        // فیلدهای Quotation اینجا اضافه خواهند شد
                                     ])
                                     ->collapsible()
                                     ->collapsed(false),
