@@ -86,6 +86,10 @@ class ItineraryForm
 
                         Tabs::make('activities')->tabs([
                             Tab::make('Attractions')
+                                ->badge(function (callable $get) {
+                                    $attractions = $get('attractions') ?? [];
+                                    return count($attractions);
+                                })
                                 ->schema([
                                     Repeater::make('attractions')
                                         ->hiddenLabel()
@@ -160,6 +164,10 @@ class ItineraryForm
                                         ->collapsible(),
                                 ]),
                             Tab::make('Tickets')
+                                ->badge(function (callable $get) {
+                                    $tickets = $get('tickets') ?? [];
+                                    return count($tickets);
+                                })
                                 ->schema([
                                     Repeater::make('tickets')
                                         ->defaultItems(0)
@@ -193,6 +201,10 @@ class ItineraryForm
                                         ->collapsible(),
                                 ]),
                             Tab::make('Experiences')
+                                ->badge(function (callable $get) {
+                                    $experiences = $get('experiences') ?? [];
+                                    return count($experiences);
+                                })
                                 ->schema([
                                     Repeater::make('experiences')
                                         ->defaultItems(0)
@@ -234,7 +246,12 @@ class ItineraryForm
                                         ->reorderable()
                                         ->collapsible(),
                                             ]),
-                            Tab::make('Description')->schema([
+                            Tab::make('Description')
+                                ->badge(function (callable $get) {
+                                    $description = $get('description') ?? '';
+                                    return !empty(trim($description)) ? '●' : null;
+                                })
+                                ->schema([
                                 Textarea::make('description')->label('Description'),
                             ]),
 
