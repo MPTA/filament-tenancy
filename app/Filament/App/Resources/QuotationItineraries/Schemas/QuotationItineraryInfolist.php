@@ -122,6 +122,7 @@ class QuotationItineraryInfolist
                                 // Itinerary Days Display
                                 Section::make('Itinerary Days')
                                     ->description('Your travel plan day by day')
+                                    ->compact()
                                     ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->itinerary)
                                     ->schema([
                                         RepeatableEntry::make('itinerary.days')
@@ -423,8 +424,8 @@ class QuotationItineraryInfolist
                                             ])
                                             ->columns(1)
                                     ])
-                                    ->collapsible()
-                                    ->collapsed(false)
+                                    
+                                    
                             ]),
                         Tab::make('Breakdown')
                             ->schema([
