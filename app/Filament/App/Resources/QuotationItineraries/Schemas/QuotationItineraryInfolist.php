@@ -634,6 +634,394 @@ class QuotationItineraryInfolist
                                     ])
                                     ->collapsible(false),
 
+                                // Breakdown Overview (when breakdown exists)
+                                Section::make('Breakdown Overview')
+                                    ->description('Cost breakdown summary and details')
+                                    ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
+                                    ->schema([
+                                        Grid::make(4)
+                                            ->schema([
+                                                TextEntry::make('breakdown.vehicle_days_qty')
+                                                    ->label('Vehicle Days')
+                                                    ->numeric()
+                                                    ->icon('heroicon-o-truck')
+                                                    ->color('primary'),
+
+                                                TextEntry::make('breakdown.vehicle_half_days_qty')
+                                                    ->label('Half Days')
+                                                    ->numeric()
+                                                    ->icon('heroicon-o-clock')
+                                                    ->color('warning'),
+
+                                                TextEntry::make('breakdown.vehicle_hours_qty')
+                                                    ->label('Vehicle Hours')
+                                                    ->numeric()
+                                                    ->icon('heroicon-o-clock')
+                                                    ->color('info'),
+
+                                                TextEntry::make('breakdown.currency.name')
+                                                    ->label('Currency')
+                                                    ->icon('heroicon-o-banknotes')
+                                                    ->color('success'),
+                                            ]),
+
+                                        Grid::make(2)
+                                            ->schema([
+                                                TextEntry::make('breakdown.driver_base_meal_budget')
+                                                    ->label('Driver Meal Budget')
+                                                    ->money('CNY')
+                                                    ->icon('heroicon-o-currency-dollar')
+                                                    ->color('success'),
+
+                                                TextEntry::make('breakdown.driver_base_accommodation_budget')
+                                                    ->label('Driver Accommodation Budget')
+                                                    ->money('CNY')
+                                                    ->icon('heroicon-o-home')
+                                                    ->color('primary'),
+
+                                                TextEntry::make('breakdown.companion_base_meal_budget')
+                                                    ->label('Companion Meal Budget')
+                                                    ->money('CNY')
+                                                    ->icon('heroicon-o-currency-dollar')
+                                                    ->color('warning'),
+
+                                                TextEntry::make('breakdown.companion_base_accommodation_budget')
+                                                    ->label('Companion Accommodation Budget')
+                                                    ->money('CNY')
+                                                    ->icon('heroicon-o-home')
+                                                    ->color('info'),
+                                            ]),
+                                    ])
+                                    ->collapsible(false),
+
+                                // Vehicle Types Section
+                                Section::make('Vehicle Types')
+                                    ->description('Vehicle pricing and details')
+                                    ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
+                                    ->schema([
+                                        RepeatableEntry::make('breakdown.vehicleTypes')
+                                            ->hiddenLabel()
+                                            ->contained(false)
+                                            ->schema([
+                                                Grid::make(4)
+                                                    ->schema([
+                                                        TextEntry::make('vehicleType.name')
+                                                            ->label('Vehicle Type')
+                                                            ->icon('heroicon-o-truck')
+                                                            ->color('primary'),
+
+                                                        TextEntry::make('per_day_price')
+                                                            ->label('Per Day Price')
+                                                            ->money('CNY')
+                                                            ->icon('heroicon-o-currency-dollar')
+                                                            ->color('success'),
+
+                                                        TextEntry::make('half_day_price')
+                                                            ->label('Half Day Price')
+                                                            ->money('CNY')
+                                                            ->icon('heroicon-o-clock')
+                                                            ->color('warning'),
+
+                                                        TextEntry::make('extra_hour_price')
+                                                            ->label('Extra Hour Price')
+                                                            ->money('CNY')
+                                                            ->icon('heroicon-o-clock')
+                                                            ->color('info'),
+                                                    ])
+                                            ])
+                                    ])
+                                    ->collapsible(),
+
+                                // Tickets Section
+                                Section::make('Tickets')
+                                    ->description('Transportation tickets and pricing')
+                                    ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
+                                    ->schema([
+                                        RepeatableEntry::make('breakdown.tickets')
+                                            ->hiddenLabel()
+                                            ->contained(false)
+                                            ->schema([
+                                                Grid::make(4)
+                                                    ->schema([
+                                                        TextEntry::make('transport_mode')
+                                                            ->label('Transport Mode')
+                                                            ->badge()
+                                                            ->color('primary'),
+
+                                                        TextEntry::make('fromCity.name')
+                                                            ->label('From City')
+                                                            ->icon('heroicon-o-map-pin')
+                                                            ->color('success'),
+
+                                                        TextEntry::make('toCity.name')
+                                                            ->label('To City')
+                                                            ->icon('heroicon-o-map-pin')
+                                                            ->color('warning'),
+
+                                                        TextEntry::make('class')
+                                                            ->label('Class')
+                                                            ->badge()
+                                                            ->color('info'),
+                                                    ]),
+
+                                                TextEntry::make('price')
+                                                    ->label('Price')
+                                                    ->money('CNY')
+                                                    ->icon('heroicon-o-currency-dollar')
+                                                    ->color('success')
+                                                    ->columnSpanFull(),
+                                            ])
+                                    ])
+                                    ->collapsible(),
+
+                                // Meals Section
+                                Section::make('Meals')
+                                    ->description('Meal types and quantities')
+                                    ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
+                                    ->schema([
+                                        RepeatableEntry::make('breakdown.meals')
+                                            ->hiddenLabel()
+                                            ->contained(false)
+                                            ->schema([
+                                                Grid::make(3)
+                                                    ->schema([
+                                                        TextEntry::make('mealType.name')
+                                                            ->label('Meal Type')
+                                                            ->icon('heroicon-o-cake')
+                                                            ->color('primary'),
+
+                                                        TextEntry::make('qty')
+                                                            ->label('Quantity')
+                                                            ->numeric()
+                                                            ->icon('heroicon-o-hashtag')
+                                                            ->color('success'),
+
+                                                        TextEntry::make('price')
+                                                            ->label('Price')
+                                                            ->money('CNY')
+                                                            ->icon('heroicon-o-currency-dollar')
+                                                            ->color('warning'),
+                                                    ])
+                                            ])
+                                    ])
+                                    ->collapsible(),
+
+                                // Experiences Section
+                                Section::make('Experiences')
+                                    ->description('Experience activities and pricing')
+                                    ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
+                                    ->schema([
+                                        RepeatableEntry::make('breakdown.experiences')
+                                            ->hiddenLabel()
+                                            ->contained(false)
+                                            ->schema([
+                                                Grid::make(3)
+                                                    ->schema([
+                                                        TextEntry::make('experience.name')
+                                                            ->label('Experience')
+                                                            ->icon('heroicon-o-sparkles')
+                                                            ->color('primary'),
+
+                                                        TextEntry::make('price')
+                                                            ->label('Price')
+                                                            ->money('CNY')
+                                                            ->icon('heroicon-o-currency-dollar')
+                                                            ->color('success'),
+
+                                                        TextEntry::make('charge_mode')
+                                                            ->label('Charge Mode')
+                                                            ->badge()
+                                                            ->color('info'),
+                                                    ])
+                                            ])
+                                    ])
+                                    ->collapsible(),
+
+                                // Accommodations Section
+                                Section::make('Accommodations')
+                                    ->description('Hotel accommodations and room details')
+                                    ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
+                                    ->schema([
+                                        RepeatableEntry::make('breakdown.accommodations')
+                                            ->hiddenLabel()
+                                            ->contained(false)
+                                            ->schema([
+                                                Grid::make(3)
+                                                    ->schema([
+                                                        TextEntry::make('accommodation.name')
+                                                            ->label('Accommodation')
+                                                            ->icon('heroicon-o-home')
+                                                            ->color('primary'),
+
+                                                        TextEntry::make('city.name')
+                                                            ->label('City')
+                                                            ->icon('heroicon-o-map-pin')
+                                                            ->color('success'),
+
+                                                        TextEntry::make('nights_qty')
+                                                            ->label('Nights')
+                                                            ->numeric()
+                                                            ->icon('heroicon-o-moon')
+                                                            ->color('warning'),
+                                                    ]),
+
+                                                // Room Categories
+                                                RepeatableEntry::make('rooms')
+                                                    ->label('Room Categories')
+                                                    ->hiddenLabel()
+                                                    ->contained(false)
+                                                    ->schema([
+                                                        Grid::make(2)
+                                                            ->schema([
+                                                                TextEntry::make('roomCategory.name')
+                                                                    ->label('Room Type')
+                                                                    ->icon('heroicon-o-home')
+                                                                    ->color('primary'),
+
+                                                                TextEntry::make('price')
+                                                                    ->label('Price')
+                                                                    ->money('CNY')
+                                                                    ->icon('heroicon-o-currency-dollar')
+                                                                    ->color('success'),
+                                                            ])
+                                                    ])
+                                            ])
+                                    ])
+                                    ->collapsible(),
+
+                                // Attractions Section
+                                Section::make('Attractions')
+                                    ->description('Tourist attractions and entry fees')
+                                    ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
+                                    ->schema([
+                                        RepeatableEntry::make('breakdown.attractions')
+                                            ->hiddenLabel()
+                                            ->contained(false)
+                                            ->schema([
+                                                Grid::make(3)
+                                                    ->schema([
+                                                        TextEntry::make('attraction.name')
+                                                            ->label('Attraction')
+                                                            ->icon('heroicon-o-building-library')
+                                                            ->color('primary'),
+
+                                                        TextEntry::make('city.name')
+                                                            ->label('City')
+                                                            ->icon('heroicon-o-map-pin')
+                                                            ->color('success'),
+
+                                                        TextEntry::make('entry_price')
+                                                            ->label('Entry Price')
+                                                            ->money('CNY')
+                                                            ->icon('heroicon-o-currency-dollar')
+                                                            ->color('warning'),
+                                                    ]),
+
+                                                TextEntry::make('is_outview')
+                                                    ->label('Outview')
+                                                    ->formatStateUsing(fn($state) => $state ? 'Yes' : 'No')
+                                                    ->badge()
+                                                    ->color(fn($state) => $state ? 'warning' : 'success'),
+
+                                                // Sub Attractions
+                                                RepeatableEntry::make('subAttractions')
+                                                    ->label('Sub Attractions')
+                                                    ->hiddenLabel()
+                                                    ->contained(false)
+                                                    ->schema([
+                                                        Grid::make(2)
+                                                            ->schema([
+                                                                TextEntry::make('subAttraction.name')
+                                                                    ->label('Sub Attraction')
+                                                                    ->icon('heroicon-o-building-office')
+                                                                    ->color('primary'),
+
+                                                                TextEntry::make('price')
+                                                                    ->label('Price')
+                                                                    ->money('CNY')
+                                                                    ->icon('heroicon-o-currency-dollar')
+                                                                    ->color('success'),
+                                                            ])
+                                                    ])
+                                            ])
+                                    ])
+                                    ->collapsible(),
+
+                                // Companions Section
+                                Section::make('Companions')
+                                    ->description('Tour guides and companion services')
+                                    ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
+                                    ->schema([
+                                        RepeatableEntry::make('breakdown.companions')
+                                            ->hiddenLabel()
+                                            ->contained(false)
+                                            ->schema([
+                                                Grid::make(5)
+                                                    ->schema([
+                                                        TextEntry::make('companionType.name')
+                                                            ->label('Companion Type')
+                                                            ->icon('heroicon-o-user')
+                                                            ->color('primary'),
+
+                                                        TextEntry::make('per_day_price')
+                                                            ->label('Per Day Price')
+                                                            ->money('CNY')
+                                                            ->icon('heroicon-o-currency-dollar')
+                                                            ->color('success'),
+
+                                                        TextEntry::make('half_day_price')
+                                                            ->label('Half Day Price')
+                                                            ->money('CNY')
+                                                            ->icon('heroicon-o-clock')
+                                                            ->color('warning'),
+
+                                                        TextEntry::make('pickup_price')
+                                                            ->label('Pickup Price')
+                                                            ->money('CNY')
+                                                            ->icon('heroicon-o-truck')
+                                                            ->color('info'),
+
+                                                        TextEntry::make('per_hour_price')
+                                                            ->label('Per Hour Price')
+                                                            ->money('CNY')
+                                                            ->icon('heroicon-o-clock')
+                                                            ->color('gray'),
+                                                    ])
+                                            ])
+                                    ])
+                                    ->collapsible(),
+
+                                // Expenses Section
+                                Section::make('Additional Expenses')
+                                    ->description('Miscellaneous expenses and costs')
+                                    ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
+                                    ->schema([
+                                        RepeatableEntry::make('breakdown.expenses')
+                                            ->hiddenLabel()
+                                            ->contained(false)
+                                            ->schema([
+                                                Grid::make(3)
+                                                    ->schema([
+                                                        TextEntry::make('description')
+                                                            ->label('Description')
+                                                            ->icon('heroicon-o-document-text')
+                                                            ->color('primary'),
+
+                                                        TextEntry::make('price')
+                                                            ->label('Price')
+                                                            ->money('CNY')
+                                                            ->icon('heroicon-o-currency-dollar')
+                                                            ->color('success'),
+
+                                                        TextEntry::make('charge_mode')
+                                                            ->label('Charge Mode')
+                                                            ->badge()
+                                                            ->color('info'),
+                                                    ])
+                                            ])
+                                    ])
+                                    ->collapsible(),
+
                                 // Delete Breakdown Section (when breakdown exists)
                                 Section::make('Delete Breakdown')
                                     ->description('Remove the existing cost breakdown')

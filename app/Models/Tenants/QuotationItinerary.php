@@ -194,20 +194,20 @@ class QuotationItinerary extends Model
                 ->whereHas('activityCategory', function ($query) {
                     $query->where('type', \App\Enums\ActivityCategoryTypeEnum::EXPERIENCE->value);
                 })
-                ->with('experience')
+                ->with('experience.experience')
                 ->get();
 
             foreach ($experienceActivities as $activity) {
-                if ($activity->experience?->exists) {
+                if ($activity->experience?->experience?->exists) {
                     // Double check that the experience actually exists in the database
-                    $experienceExists = \App\Models\Tenants\Experience::where('id', $activity->experience->id)->exists();
+                    $experienceExists = \App\Models\Tenants\Experience::where('id', $activity->experience->experience->id)->exists();
                     
                     if ($experienceExists) {
                         $breakdown->experiences()->firstOrCreate([
-                            'experience_id' => $activity->experience->id,
+                            'experience_id' => $activity->experience->experience->id,
                         ], [
-                            'price' => $activity->experience->price ?? 0.00,
-                            'charge_mode' => $activity->experience->charge_mode ?? \App\Enums\ChargeModeEnum::PER_PERSON,
+                            'price' => $activity->experience->experience->price ?? 0.00,
+                            'charge_mode' => $activity->experience->experience->charge_mode ?? \App\Enums\ChargeModeEnum::PER_PERSON,
                         ]);
                     }
                 }
@@ -284,28 +284,28 @@ class QuotationItinerary extends Model
         if (!$this->itinerary) return;
 
         foreach ($this->itinerary->days as $day) {
-                $attractionActivities = $day->activities()
-                    ->whereHas('activityCategory', function ($query) {
-                        $query->where('type', \App\Enums\ActivityCategoryTypeEnum::ATTRACTION->value);
-                    })
-                    ->with(['attraction.subAttractions'])
-                    ->get();
+            $attractionActivities = $day->activities()
+                ->whereHas('activityCategory', function ($query) {
+                    $query->where('type', \App\Enums\ActivityCategoryTypeEnum::ATTRACTION->value);
+                })
+                ->with(['attraction.attraction.subAttractions'])
+                ->get();
 
             foreach ($attractionActivities as $activity) {
-                if ($activity->attraction?->exists) {
+                if ($activity->attraction?->attraction?->exists) {
                     // Double check that the attraction actually exists in the database
-                    $attractionExists = \App\Models\Base\Attraction::where('id', $activity->attraction->id)->exists();
+                    $attractionExists = \App\Models\Base\Attraction::where('id', $activity->attraction->attraction->id)->exists();
                     
                     if ($attractionExists) {
                         $breakdownAttraction = $breakdown->attractions()->firstOrCreate([
-                            'attraction_id' => $activity->attraction->id,
+                            'attraction_id' => $activity->attraction->attraction->id,
                             'city_id' => $activity->city_id,
                         ], [
-                            'is_outview' => false, // Default value since we can't access attractionActivity
-                            'entry_price' => $activity->attraction->entry_price ?? 0.00,
+                            'is_outview' => $activity->attraction->is_outview ?? false,
+                            'entry_price' => $activity->attraction->attraction->entry_price ?? 0.00,
                         ]);
 
-                        $this->createBreakdownSubAttractions($breakdownAttraction, $activity->attraction);
+                        $this->createBreakdownSubAttractions($breakdownAttraction, $activity->attraction->attraction);
                     }
                 }
             }

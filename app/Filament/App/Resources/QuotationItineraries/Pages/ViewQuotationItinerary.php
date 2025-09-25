@@ -29,7 +29,8 @@ class ViewQuotationItinerary extends ViewRecord
             'itinerary.days.activities.ticket.toCity',
             'itinerary.days.activities.activityCategory',
             'quotation.currency',
-            'quotation.creator'
+            'quotation.creator',
+            'breakdown.currency'
         ]);
     }
 }

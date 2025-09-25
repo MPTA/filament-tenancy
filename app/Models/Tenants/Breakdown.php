@@ -60,6 +60,14 @@ class Breakdown extends Model
     }
 
     /**
+     * Get the currency for this breakdown.
+     */
+    public function currency(): BelongsTo
+    {
+        return $this->belongsTo(\App\Models\Base\Currency::class, 'currency_id');
+    }
+
+    /**
      * Get the vehicle types with pricing for this breakdown.
      */
     public function vehicleTypes(): HasMany
