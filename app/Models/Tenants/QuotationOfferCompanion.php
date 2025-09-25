@@ -2,6 +2,7 @@
 
 namespace App\Models\Tenants;
 
+use App\Models\Base\City;
 use App\Models\Base\RoomCategory;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
@@ -21,6 +22,7 @@ class QuotationOfferCompanion extends Model
         'is_stay_same_hotel',
         'is_same_meal',
         'room_category_id',
+        'living_city_id',
         'accommodation_cost',
         'ticket_cost',
         'experience_cost',
@@ -69,6 +71,14 @@ class QuotationOfferCompanion extends Model
     }
 
     /**
+     * Get the living city for this companion.
+     */
+    public function livingCity(): BelongsTo
+    {
+        return $this->belongsTo(City::class, 'living_city_id');
+    }
+
+    /**
      * Scope a query to filter by quotation offer group.
      */
     public function scopeByQuotationOfferGroup($query, $quotationOfferGroupId)
@@ -106,6 +116,14 @@ class QuotationOfferCompanion extends Model
     public function scopeByRoomCategory($query, $roomCategoryId)
     {
         return $query->where('room_category_id', $roomCategoryId);
+    }
+
+    /**
+     * Scope a query to filter by living city.
+     */
+    public function scopeByLivingCity($query, $cityId)
+    {
+        return $query->where('living_city_id', $cityId);
     }
 
     /**
@@ -240,6 +258,14 @@ class QuotationOfferCompanion extends Model
     public function getRoomCategoryNameAttribute(): ?string
     {
         return $this->roomCategory?->name;
+    }
+
+    /**
+     * Get the living city name.
+     */
+    public function getLivingCityNameAttribute(): ?string
+    {
+        return $this->livingCity?->name;
     }
 
     /**
