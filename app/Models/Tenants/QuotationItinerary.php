@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 
 class QuotationItinerary extends Model
@@ -35,5 +36,13 @@ class QuotationItinerary extends Model
 
     public function itinerary(){
         return $this->morphOne(Itinerary::class, 'itineraryable');
+    }
+
+    /**
+     * Get the breakdown for this quotation itinerary (one-to-one relationship).
+     */
+    public function breakdown(): HasOne
+    {
+        return $this->hasOne(Breakdown::class);
     }
 }
