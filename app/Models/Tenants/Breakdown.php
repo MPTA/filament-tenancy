@@ -74,4 +74,12 @@ class Breakdown extends Model
     {
         return $this->hasMany(BreakdownCompanion::class);
     }
+
+    /**
+     * Get the tickets with pricing for this breakdown.
+     */
+    public function tickets(): HasMany
+    {
+        return $this->hasMany(BreakdownTicket::class);
+    }
 }
