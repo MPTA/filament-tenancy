@@ -5,6 +5,7 @@ namespace App\Models\Tenants;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 
 class Breakdown extends Model
@@ -56,5 +57,13 @@ class Breakdown extends Model
     public function creator(): BelongsTo
     {
         return $this->belongsTo(\App\Models\User::class, 'creator_user_id');
+    }
+
+    /**
+     * Get the vehicle types with pricing for this breakdown.
+     */
+    public function vehicleTypes(): HasMany
+    {
+        return $this->hasMany(BreakdownVehicleType::class);
     }
 }
