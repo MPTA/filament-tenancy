@@ -90,4 +90,12 @@ class Breakdown extends Model
     {
         return $this->hasMany(BreakdownMeal::class);
     }
+
+    /**
+     * Get the experiences with pricing for this breakdown.
+     */
+    public function experiences(): HasMany
+    {
+        return $this->hasMany(BreakdownExperience::class);
+    }
 }
