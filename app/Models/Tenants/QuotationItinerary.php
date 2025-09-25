@@ -2,7 +2,9 @@
 
 namespace App\Models\Tenants;
 
+use App\Models\Base\CompanionCategory;
 use App\Models\Base\Currency;
+use App\Models\Base\RoomCategory;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -177,6 +179,132 @@ class QuotationItinerary extends Model
                         ]);
                     }
                 }
+            }
+        }
+
+        // Create breakdown accommodations from itinerary days
+        if ($this->itinerary) {
+            $days = $this->itinerary->days;
+            $accommodationNights = [];
+            
+            foreach ($days as $day) {
+                if ($day->accommodation_id && $day->accommodation_city_id) {
+                    $accommodationId = $day->accommodation_id;
+                    $cityId = $day->accommodation_city_id;
+                    $key = "{$accommodationId}_{$cityId}";
+                    
+                    if (!isset($accommodationNights[$key])) {
+                        $accommodationNights[$key] = [
+                            'accommodation_id' => $accommodationId,
+                            'city_id' => $cityId,
+                            'nights' => 0
+                        ];
+                    }
+                    $accommodationNights[$key]['nights']++;
+                }
+            }
+
+            // Create breakdown accommodations
+            foreach ($accommodationNights as $accommodationData) {
+                $breakdownAccommodation = $breakdown->accommodations()->firstOrCreate([
+                    'accommodation_id' => $accommodationData['accommodation_id'],
+                    'city_id' => $accommodationData['city_id'],
+                ], [
+                    'nights_qty' => $accommodationData['nights'],
+                ]);
+
+                // Create default room categories (Twin and Single)
+                $twinRoomCategory = RoomCategory::where('category', \App\Enums\RoomCategoryEnum::TWIN->value)->first();
+                $singleRoomCategory = RoomCategory::where('category', \App\Enums\RoomCategoryEnum::SINGLE->value)->first();
+
+                if ($twinRoomCategory) {
+                    $breakdownAccommodation->rooms()->firstOrCreate([
+                        'room_category_id' => $twinRoomCategory->id,
+                    ], [
+                        'price' => 0.00,
+                    ]);
+                }
+
+                if ($singleRoomCategory) {
+                    $breakdownAccommodation->rooms()->firstOrCreate([
+                        'room_category_id' => $singleRoomCategory->id,
+                    ], [
+                        'price' => 0.00,
+                    ]);
+                }
+            }
+        }
+
+        // Create breakdown attractions from itinerary days
+        if ($this->itinerary) {
+            $days = $this->itinerary->days;
+            
+            foreach ($days as $day) {
+                $attractionActivities = $day->activities()
+                    ->whereHas('activityCategory', function ($query) {
+                        $query->where('type', \App\Enums\ActivityCategoryTypeEnum::ATTRACTION->value);
+                    })
+                    ->with(['attraction.subAttractions', 'attractionActivity'])
+                    ->get();
+
+                foreach ($attractionActivities as $activity) {
+                    if ($activity->attraction) {
+                        $breakdownAttraction = $breakdown->attractions()->firstOrCreate([
+                            'attraction_id' => $activity->attraction->id,
+                            'city_id' => $activity->city_id,
+                        ], [
+                            'is_outview' => $activity->attractionActivity?->is_outview ?? false,
+                            'entry_price' => $activity->attraction->entry_price ?? 0.00,
+                        ]);
+
+                        // Create sub-attractions if they exist
+                        if ($activity->attraction->subAttractions) {
+                            foreach ($activity->attraction->subAttractions as $subAttraction) {
+                                $breakdownAttraction->subAttractions()->firstOrCreate([
+                                    'sub_attraction_id' => $subAttraction->id,
+                                ], [
+                                    'price' => $subAttraction->price ?? 0.00,
+                                ]);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // Create breakdown companions from itinerary days
+        if ($this->itinerary) {
+            $days = $this->itinerary->days;
+            $companionTypes = [];
+            
+            foreach ($days as $day) {
+                $companions = $day->companions;
+                
+                foreach ($companions as $companion) {
+                    $companionCategoryId = $companion->companion_category_id;
+                    
+                    if (!isset($companionTypes[$companionCategoryId])) {
+                        $companionTypes[$companionCategoryId] = [
+                            'companion_category_id' => $companionCategoryId,
+                            'count' => 0
+                        ];
+                    }
+                    $companionTypes[$companionCategoryId]['count']++;
+                }
+            }
+
+            // Create breakdown companions
+            foreach ($companionTypes as $companionData) {
+                $companionCategory = CompanionCategory::find($companionData['companion_category_id']);
+                
+                $breakdown->companions()->firstOrCreate([
+                    'companion_type_id' => $companionData['companion_category_id'],
+                ], [
+                    'per_day_price' => $companionCategory?->per_day_price ?? 0.00,
+                    'half_day_price' => $companionCategory?->half_day_price ?? 0.00,
+                    'pickup_price' => $companionCategory?->pickup_price ?? 0.00,
+                    'per_hour_price' => $companionCategory?->per_hour_price ?? 0.00,
+                ]);
             }
         }
 
