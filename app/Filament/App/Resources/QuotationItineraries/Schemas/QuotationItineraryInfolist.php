@@ -593,8 +593,31 @@ class QuotationItineraryInfolist
 
                             ]),
                         Tab::make('Breakdown')
+                            ->icon('heroicon-o-calculator')
                             ->schema([
-                                // ...
+                                // Create Breakdown Section (when no breakdown exists)
+                                Section::make('Create Breakdown')
+                                    ->description('Start building your cost breakdown')
+                                    ->hidden(fn(QuotationItinerary $quotationItinerary) => $quotationItinerary->breakdown)
+                                    ->schema([
+                                        Grid::make(1)
+                                            ->schema([
+                                                Action::make('Create Breakdown')
+                                                    ->size(Size::ExtraLarge)
+                                                    ->icon('heroicon-m-plus-circle')
+                                                    ->color('primary')
+                                                    ->action(function (QuotationItinerary $quotationItinerary) {
+                                                        if (!$quotationItinerary->breakdown) {
+                                                            return null;
+                                                        }
+                                                    })
+                                                    ->modalHeading('Create New Breakdown')
+                                                    ->modalDescription('Create a detailed cost breakdown for this quotation itinerary')
+                                                    ->modalSubmitActionLabel('Create Breakdown')
+                                            ])
+                                            ->extraAttributes(['class' => 'flex justify-center items-center min-h-[200px]'])
+                                    ])
+                                    ->collapsible(false),
                             ]),
                         Tab::make('Offers')
                             ->schema([
