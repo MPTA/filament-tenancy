@@ -5,6 +5,7 @@ namespace App\Models\Tenants;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 
 class BreakdownAccommodation extends Model
@@ -48,5 +49,13 @@ class BreakdownAccommodation extends Model
     public function city(): BelongsTo
     {
         return $this->belongsTo(\App\Models\Base\City::class);
+    }
+
+    /**
+     * Get the rooms with pricing for this breakdown accommodation.
+     */
+    public function rooms(): HasMany
+    {
+        return $this->hasMany(BreakdownAccommodationRoom::class);
     }
 }
