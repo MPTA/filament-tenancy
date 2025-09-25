@@ -929,7 +929,7 @@ class QuotationItineraryInfolist
                                                     ->hiddenLabel()
                                                     ->contained(false)
                                                     ->schema([
-                                                        Grid::make(4)
+                                                        Grid::make(2)
                                                             ->schema([
                                                                 TextEntry::make('subAttraction.name')
                                                                     ->label('Sub Attraction')
@@ -937,22 +937,10 @@ class QuotationItineraryInfolist
                                                                     ->color('primary'),
 
                                                                 TextEntry::make('price')
-                                                                    ->label('General Price')
+                                                                    ->label('Price')
                                                                     ->money('CNY')
                                                                     ->icon('heroicon-o-currency-dollar')
                                                                     ->color('success'),
-
-                                                                TextEntry::make('local_price')
-                                                                    ->label('Local Price')
-                                                                    ->money('CNY')
-                                                                    ->icon('heroicon-o-user')
-                                                                    ->color('warning'),
-
-                                                                TextEntry::make('foreigner_price')
-                                                                    ->label('Foreigner Price')
-                                                                    ->money('CNY')
-                                                                    ->icon('heroicon-o-globe-alt')
-                                                                    ->color('info'),
                                                             ])
                                                     ])
                                             ])

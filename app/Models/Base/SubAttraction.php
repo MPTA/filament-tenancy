@@ -22,6 +22,9 @@ class SubAttraction extends Model
         'latitude',
         'longitude',
         'attraction_id',
+        'price',
+        'local_price',
+        'foreigner_price',
     ];
 
     protected $casts = [
@@ -29,6 +32,9 @@ class SubAttraction extends Model
         'description' => 'array',
         'latitude' => 'decimal:8',
         'longitude' => 'decimal:8',
+        'price' => 'decimal:2',
+        'local_price' => 'decimal:2',
+        'foreigner_price' => 'decimal:2',
     ];
 
     /**

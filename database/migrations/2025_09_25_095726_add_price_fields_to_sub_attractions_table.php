@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('breakdown_sub_attractions', function (Blueprint $table) {
+        Schema::table('sub_attractions', function (Blueprint $table) {
             $table->decimal('local_price', 20, 2)->nullable()->after('price');
             $table->decimal('foreigner_price', 20, 2)->nullable()->after('local_price');
         });
@@ -22,7 +22,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('breakdown_sub_attractions', function (Blueprint $table) {
+        Schema::table('sub_attractions', function (Blueprint $table) {
             $table->dropColumn(['local_price', 'foreigner_price']);
         });
     }
