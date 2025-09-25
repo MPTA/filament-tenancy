@@ -15,18 +15,17 @@ class QuotationOfferGroup extends Model
 
     protected $fillable = [
         'quotation_itinerary_id',
-        'is_companion_stay_same_hotel',
-        'companion_room_category_id',
         'is_include_driver_cost',
         'is_driver_stay_same_hotel',
+        'is_driver_same_meal',
         'driver_room_category_id',
         'tenant_id',
     ];
 
     protected $casts = [
-        'is_companion_stay_same_hotel' => 'boolean',
         'is_include_driver_cost' => 'boolean',
         'is_driver_stay_same_hotel' => 'boolean',
+        'is_driver_same_meal' => 'boolean',
     ];
 
     /**
@@ -37,13 +36,6 @@ class QuotationOfferGroup extends Model
         return $this->belongsTo(QuotationItinerary::class);
     }
 
-    /**
-     * Get the companion room category for this offer group.
-     */
-    public function companionRoomCategory(): BelongsTo
-    {
-        return $this->belongsTo(RoomCategory::class, 'companion_room_category_id');
-    }
 
     /**
      * Get the driver room category for this offer group.
@@ -77,13 +69,6 @@ class QuotationOfferGroup extends Model
         return $query->where('quotation_itinerary_id', $quotationItineraryId);
     }
 
-    /**
-     * Scope a query to filter by companion stay same hotel.
-     */
-    public function scopeCompanionStaySameHotel($query, $value = true)
-    {
-        return $query->where('is_companion_stay_same_hotel', $value);
-    }
 
     /**
      * Scope a query to filter by include driver cost.
@@ -102,12 +87,13 @@ class QuotationOfferGroup extends Model
     }
 
     /**
-     * Scope a query to filter by companion room category.
+     * Scope a query to filter by driver same meal.
      */
-    public function scopeByCompanionRoomCategory($query, $roomCategoryId)
+    public function scopeDriverSameMeal($query, $value = true)
     {
-        return $query->where('companion_room_category_id', $roomCategoryId);
+        return $query->where('is_driver_same_meal', $value);
     }
+
 
     /**
      * Scope a query to filter by driver room category.
@@ -117,13 +103,6 @@ class QuotationOfferGroup extends Model
         return $query->where('driver_room_category_id', $roomCategoryId);
     }
 
-    /**
-     * Check if companion stays in the same hotel.
-     */
-    public function getCompanionStaysSameHotelAttribute(): bool
-    {
-        return $this->is_companion_stay_same_hotel;
-    }
 
     /**
      * Check if driver cost is included.
@@ -142,12 +121,13 @@ class QuotationOfferGroup extends Model
     }
 
     /**
-     * Get the companion room category name.
+     * Check if driver has same meal.
      */
-    public function getCompanionRoomCategoryNameAttribute(): ?string
+    public function getDriverSameMealAttribute(): bool
     {
-        return $this->companionRoomCategory?->name;
+        return $this->is_driver_same_meal;
     }
+
 
     /**
      * Get the driver room category name.
