@@ -106,4 +106,12 @@ class Breakdown extends Model
     {
         return $this->hasMany(BreakdownExpense::class);
     }
+
+    /**
+     * Get the accommodations for this breakdown.
+     */
+    public function accommodations(): HasMany
+    {
+        return $this->hasMany(BreakdownAccommodation::class);
+    }
 }
