@@ -98,4 +98,12 @@ class Breakdown extends Model
     {
         return $this->hasMany(BreakdownExperience::class);
     }
+
+    /**
+     * Get the expenses for this breakdown.
+     */
+    public function expenses(): HasMany
+    {
+        return $this->hasMany(BreakdownExpense::class);
+    }
 }
