@@ -5,6 +5,7 @@ namespace App\Models\Tenants;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 
 class BreakdownAttraction extends Model
@@ -50,5 +51,13 @@ class BreakdownAttraction extends Model
     public function attraction(): BelongsTo
     {
         return $this->belongsTo(\App\Models\Base\Attraction::class);
+    }
+
+    /**
+     * Get the sub-attractions with pricing for this breakdown attraction.
+     */
+    public function subAttractions(): HasMany
+    {
+        return $this->hasMany(BreakdownSubAttraction::class);
     }
 }
