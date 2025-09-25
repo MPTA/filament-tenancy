@@ -607,13 +607,59 @@ class QuotationItineraryInfolist
                                                     ->icon('heroicon-m-plus-circle')
                                                     ->color('primary')
                                                     ->action(function (QuotationItinerary $quotationItinerary) {
-                                                        if (!$quotationItinerary->breakdown) {
-                                                            return null;
+                                                        // Check if itinerary is complete
+                                                        if (!$quotationItinerary->itinerary || !$quotationItinerary->itinerary->days->count()) {
+                                                            \Filament\Notifications\Notification::make()
+                                                                ->title('Incomplete Itinerary')
+                                                                ->body('Please complete the itinerary first before generating breakdown.')
+                                                                ->warning()
+                                                                ->send();
+                                                            return;
                                                         }
+
+                                                        // Generate breakdown from itinerary
+                                                        $quotationItinerary->generateBreakdownFromItinerary();
+                                                        
+                                                        \Filament\Notifications\Notification::make()
+                                                            ->title('Breakdown Generated')
+                                                            ->body('Cost breakdown has been successfully generated from the itinerary.')
+                                                            ->success()
+                                                            ->send();
                                                     })
                                                     ->modalHeading('Create New Breakdown')
                                                     ->modalDescription('Create a detailed cost breakdown for this quotation itinerary')
                                                     ->modalSubmitActionLabel('Create Breakdown')
+                                            ])
+                                            ->extraAttributes(['class' => 'flex justify-center items-center min-h-[200px]'])
+                                    ])
+                                    ->collapsible(false),
+
+                                // Delete Breakdown Section (when breakdown exists)
+                                Section::make('Delete Breakdown')
+                                    ->description('Remove the existing cost breakdown')
+                                    ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
+                                    ->schema([
+                                        Grid::make(1)
+                                            ->schema([
+                                                Action::make('Delete Breakdown')
+                                                    ->size(Size::ExtraLarge)
+                                                    ->icon('heroicon-m-trash')
+                                                    ->color('danger')
+                                                    ->action(function (QuotationItinerary $quotationItinerary) {
+                                                        if ($quotationItinerary->breakdown) {
+                                                            $quotationItinerary->breakdown->delete();
+                                                            
+                                                            \Filament\Notifications\Notification::make()
+                                                                ->title('Breakdown Deleted')
+                                                                ->body('Cost breakdown has been successfully deleted.')
+                                                                ->success()
+                                                                ->send();
+                                                        }
+                                                    })
+                                                    ->modalHeading('Delete Breakdown')
+                                                    ->modalDescription('Are you sure you want to delete this breakdown? This action cannot be undone.')
+                                                    ->modalSubmitActionLabel('Delete')
+                                                    ->requiresConfirmation()
                                             ])
                                             ->extraAttributes(['class' => 'flex justify-center items-center min-h-[200px]'])
                                     ])

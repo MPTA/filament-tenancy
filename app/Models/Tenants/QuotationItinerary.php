@@ -198,13 +198,18 @@ class QuotationItinerary extends Model
                 ->get();
 
             foreach ($experienceActivities as $activity) {
-                if ($activity->experience) {
-                    $breakdown->experiences()->firstOrCreate([
-                        'experience_id' => $activity->experience->id,
-                    ], [
-                        'price' => $activity->experience->price ?? 0.00,
-                        'charge_mode' => $activity->experience->charge_mode ?? \App\Enums\ChargeModeEnum::PER_PERSON,
-                    ]);
+                if ($activity->experience?->exists) {
+                    // Double check that the experience actually exists in the database
+                    $experienceExists = \App\Models\Tenants\Experience::where('id', $activity->experience->id)->exists();
+                    
+                    if ($experienceExists) {
+                        $breakdown->experiences()->firstOrCreate([
+                            'experience_id' => $activity->experience->id,
+                        ], [
+                            'price' => $activity->experience->price ?? 0.00,
+                            'charge_mode' => $activity->experience->charge_mode ?? \App\Enums\ChargeModeEnum::PER_PERSON,
+                        ]);
+                    }
                 }
             }
         }
@@ -279,24 +284,29 @@ class QuotationItinerary extends Model
         if (!$this->itinerary) return;
 
         foreach ($this->itinerary->days as $day) {
-            $attractionActivities = $day->activities()
-                ->whereHas('activityCategory', function ($query) {
-                    $query->where('type', \App\Enums\ActivityCategoryTypeEnum::ATTRACTION->value);
-                })
-                ->with(['attraction.subAttractions', 'attractionActivity'])
-                ->get();
+                $attractionActivities = $day->activities()
+                    ->whereHas('activityCategory', function ($query) {
+                        $query->where('type', \App\Enums\ActivityCategoryTypeEnum::ATTRACTION->value);
+                    })
+                    ->with(['attraction.subAttractions'])
+                    ->get();
 
             foreach ($attractionActivities as $activity) {
-                if ($activity->attraction) {
-                    $breakdownAttraction = $breakdown->attractions()->firstOrCreate([
-                        'attraction_id' => $activity->attraction->id,
-                        'city_id' => $activity->city_id,
-                    ], [
-                        'is_outview' => $activity->attractionActivity?->is_outview ?? false,
-                        'entry_price' => $activity->attraction->entry_price ?? 0.00,
-                    ]);
+                if ($activity->attraction?->exists) {
+                    // Double check that the attraction actually exists in the database
+                    $attractionExists = \App\Models\Base\Attraction::where('id', $activity->attraction->id)->exists();
+                    
+                    if ($attractionExists) {
+                        $breakdownAttraction = $breakdown->attractions()->firstOrCreate([
+                            'attraction_id' => $activity->attraction->id,
+                            'city_id' => $activity->city_id,
+                        ], [
+                            'is_outview' => false, // Default value since we can't access attractionActivity
+                            'entry_price' => $activity->attraction->entry_price ?? 0.00,
+                        ]);
 
-                    $this->createBreakdownSubAttractions($breakdownAttraction, $activity->attraction);
+                        $this->createBreakdownSubAttractions($breakdownAttraction, $activity->attraction);
+                    }
                 }
             }
         }
@@ -344,14 +354,21 @@ class QuotationItinerary extends Model
         foreach ($companionTypes as $companionData) {
             $companionCategory = CompanionCategory::find($companionData['companion_category_id']);
             
-            $breakdown->companions()->firstOrCreate([
-                'companion_type_id' => $companionData['companion_category_id'],
-            ], [
-                'per_day_price' => $companionCategory?->per_day_price ?? 0.00,
-                'half_day_price' => $companionCategory?->half_day_price ?? 0.00,
-                'pickup_price' => $companionCategory?->pickup_price ?? 0.00,
-                'per_hour_price' => $companionCategory?->per_hour_price ?? 0.00,
-            ]);
+            if ($companionCategory && $companionCategory->exists) {
+                // Double check that the companion category actually exists in the database
+                $companionCategoryExists = CompanionCategory::where('id', $companionData['companion_category_id'])->exists();
+                
+                if ($companionCategoryExists) {
+                    $breakdown->companions()->firstOrCreate([
+                        'companion_type_id' => $companionData['companion_category_id'],
+                    ], [
+                        'per_day_price' => $companionCategory->per_day_price ?? 0.00,
+                        'half_day_price' => $companionCategory->half_day_price ?? 0.00,
+                        'pickup_price' => $companionCategory->pickup_price ?? 0.00,
+                        'per_hour_price' => $companionCategory->per_hour_price ?? 0.00,
+                    ]);
+                }
+            }
         }
     }
 }

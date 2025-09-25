@@ -34,7 +34,7 @@ return new class extends Migration
             // Foreign key constraints
             $table->foreign('breakdown_id')->references('id')->on('breakdowns')->onDelete('cascade');
             $table->foreign('tenant_id')->references('id')->on('tenants')->onDelete('cascade');
-            $table->foreign('companion_type_id')->references('id')->on('companion_types')->onDelete('restrict');
+            $table->foreign('companion_type_id')->references('id')->on('companion_categories')->onDelete('restrict');
         });
     }
 
