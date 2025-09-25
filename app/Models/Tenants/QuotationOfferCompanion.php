@@ -19,6 +19,7 @@ class QuotationOfferCompanion extends Model
         'half_days_qty',
         'full_days_qty',
         'is_stay_same_hotel',
+        'is_same_meal',
         'room_category_id',
         'accommodation_cost',
         'ticket_cost',
@@ -34,6 +35,7 @@ class QuotationOfferCompanion extends Model
         'half_days_qty' => 'integer',
         'full_days_qty' => 'integer',
         'is_stay_same_hotel' => 'boolean',
+        'is_same_meal' => 'boolean',
         'accommodation_cost' => 'decimal:2',
         'ticket_cost' => 'decimal:2',
         'experience_cost' => 'decimal:2',
@@ -88,6 +90,14 @@ class QuotationOfferCompanion extends Model
     public function scopeStaySameHotel($query, $value = true)
     {
         return $query->where('is_stay_same_hotel', $value);
+    }
+
+    /**
+     * Scope a query to filter by same meal.
+     */
+    public function scopeSameMeal($query, $value = true)
+    {
+        return $query->where('is_same_meal', $value);
     }
 
     /**
@@ -238,6 +248,14 @@ class QuotationOfferCompanion extends Model
     public function getStaysSameHotelAttribute(): bool
     {
         return $this->is_stay_same_hotel;
+    }
+
+    /**
+     * Check if companion has same meal.
+     */
+    public function getHasSameMealAttribute(): bool
+    {
+        return $this->is_same_meal;
     }
 
     /**
