@@ -2,6 +2,7 @@
 
 namespace App\Models\Tenants;
 
+use App\Models\Base\RoomCategory;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -14,6 +15,11 @@ class QuotationOfferCompanion extends Model
     protected $fillable = [
         'quotation_offer_group_id',
         'companion_type_id',
+        'pickups_qty',
+        'half_days_qty',
+        'full_days_qty',
+        'is_stay_same_hotel',
+        'room_category_id',
         'accommodation_cost',
         'ticket_cost',
         'experience_cost',
@@ -24,6 +30,10 @@ class QuotationOfferCompanion extends Model
     ];
 
     protected $casts = [
+        'pickups_qty' => 'integer',
+        'half_days_qty' => 'integer',
+        'full_days_qty' => 'integer',
+        'is_stay_same_hotel' => 'boolean',
         'accommodation_cost' => 'decimal:2',
         'ticket_cost' => 'decimal:2',
         'experience_cost' => 'decimal:2',
@@ -49,6 +59,14 @@ class QuotationOfferCompanion extends Model
     }
 
     /**
+     * Get the room category for this companion.
+     */
+    public function roomCategory(): BelongsTo
+    {
+        return $this->belongsTo(RoomCategory::class);
+    }
+
+    /**
      * Scope a query to filter by quotation offer group.
      */
     public function scopeByQuotationOfferGroup($query, $quotationOfferGroupId)
@@ -62,6 +80,55 @@ class QuotationOfferCompanion extends Model
     public function scopeByCompanionType($query, $companionTypeId)
     {
         return $query->where('companion_type_id', $companionTypeId);
+    }
+
+    /**
+     * Scope a query to filter by stay same hotel.
+     */
+    public function scopeStaySameHotel($query, $value = true)
+    {
+        return $query->where('is_stay_same_hotel', $value);
+    }
+
+    /**
+     * Scope a query to filter by room category.
+     */
+    public function scopeByRoomCategory($query, $roomCategoryId)
+    {
+        return $query->where('room_category_id', $roomCategoryId);
+    }
+
+    /**
+     * Scope a query to filter by pickup quantity.
+     */
+    public function scopeByPickupQty($query, $minQty = 0, $maxQty = null)
+    {
+        if ($maxQty === null) {
+            return $query->where('pickups_qty', '>=', $minQty);
+        }
+        return $query->whereBetween('pickups_qty', [$minQty, $maxQty]);
+    }
+
+    /**
+     * Scope a query to filter by half days quantity.
+     */
+    public function scopeByHalfDaysQty($query, $minQty = 0, $maxQty = null)
+    {
+        if ($maxQty === null) {
+            return $query->where('half_days_qty', '>=', $minQty);
+        }
+        return $query->whereBetween('half_days_qty', [$minQty, $maxQty]);
+    }
+
+    /**
+     * Scope a query to filter by full days quantity.
+     */
+    public function scopeByFullDaysQty($query, $minQty = 0, $maxQty = null)
+    {
+        if ($maxQty === null) {
+            return $query->where('full_days_qty', '>=', $minQty);
+        }
+        return $query->whereBetween('full_days_qty', [$minQty, $maxQty]);
     }
 
     /**
@@ -155,6 +222,52 @@ class QuotationOfferCompanion extends Model
     public function getCompanionTypeNameAttribute(): ?string
     {
         return $this->companionType?->name;
+    }
+
+    /**
+     * Get the room category name.
+     */
+    public function getRoomCategoryNameAttribute(): ?string
+    {
+        return $this->roomCategory?->name;
+    }
+
+    /**
+     * Check if companion stays in the same hotel.
+     */
+    public function getStaysSameHotelAttribute(): bool
+    {
+        return $this->is_stay_same_hotel;
+    }
+
+    /**
+     * Get total quantity (pickups + half days + full days).
+     */
+    public function getTotalQuantityAttribute(): int
+    {
+        return $this->pickups_qty + $this->half_days_qty + $this->full_days_qty;
+    }
+
+    /**
+     * Get total days (half days + full days).
+     */
+    public function getTotalDaysAttribute(): int
+    {
+        return $this->half_days_qty + $this->full_days_qty;
+    }
+
+    /**
+     * Get quantity breakdown as array.
+     */
+    public function getQuantityBreakdownAttribute(): array
+    {
+        return [
+            'pickups' => $this->pickups_qty,
+            'half_days' => $this->half_days_qty,
+            'full_days' => $this->full_days_qty,
+            'total_quantity' => $this->total_quantity,
+            'total_days' => $this->total_days,
+        ];
     }
 
     /**
