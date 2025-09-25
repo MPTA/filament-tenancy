@@ -82,4 +82,12 @@ class Breakdown extends Model
     {
         return $this->hasMany(BreakdownTicket::class);
     }
+
+    /**
+     * Get the meals with pricing for this breakdown.
+     */
+    public function meals(): HasMany
+    {
+        return $this->hasMany(BreakdownMeal::class);
+    }
 }
