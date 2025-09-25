@@ -16,12 +16,16 @@ class BreakdownSubAttraction extends Model
         'tenant_id',
         'sub_attraction_id',
         'price',
+        'local_price',
+        'foreigner_price',
     ];
 
     protected function casts(): array
     {
         return [
             'price' => 'decimal:2',
+            'local_price' => 'decimal:2',
+            'foreigner_price' => 'decimal:2',
         ];
     }
 
