@@ -66,4 +66,12 @@ class Breakdown extends Model
     {
         return $this->hasMany(BreakdownVehicleType::class);
     }
+
+    /**
+     * Get the companions with pricing for this breakdown.
+     */
+    public function companions(): HasMany
+    {
+        return $this->hasMany(BreakdownCompanion::class);
+    }
 }
