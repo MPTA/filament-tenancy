@@ -2,6 +2,7 @@
 
 namespace App\Models\Base;
 
+use App\Enums\RoomCategoryEnum;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -19,6 +20,7 @@ class RoomCategory extends Model
     protected $fillable = [
         'name',
         'slug',
+        'category',
         'capacity',
         'description',
         'is_active',
@@ -27,6 +29,7 @@ class RoomCategory extends Model
     protected $casts = [
         'name' => 'array',
         'description' => 'array',
+        'category' => RoomCategoryEnum::class,
         'capacity' => 'integer',
         'is_active' => 'boolean',
     ];
