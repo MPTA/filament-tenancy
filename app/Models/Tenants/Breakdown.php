@@ -114,4 +114,12 @@ class Breakdown extends Model
     {
         return $this->hasMany(BreakdownAccommodation::class);
     }
+
+    /**
+     * Get the attractions for this breakdown.
+     */
+    public function attractions(): HasMany
+    {
+        return $this->hasMany(BreakdownAttraction::class);
+    }
 }
