@@ -8,6 +8,7 @@ use App\Models\Tenants\Itinerary;
 use App\Models\Tenants\QuotationItinerary;
 use Filament\Actions\Action;
 use Filament\Forms\Components\Select;
+use Filament\Notifications\Notification;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Components\IconEntry;
 use Filament\Infolists\Components\RepeatableEntry;
@@ -627,7 +628,7 @@ class QuotationItineraryInfolist
                                                     ->action(function (QuotationItinerary $quotationItinerary) {
                                                         // Check if itinerary is complete
                                                         if (!$quotationItinerary->itinerary || !$quotationItinerary->itinerary->days->count()) {
-                                                            \Filament\Notifications\Notification::make()
+                                                            Notification::make()
                                                                 ->title('Incomplete Itinerary')
                                                                 ->body('Please complete the itinerary first before generating breakdown.')
                                                                 ->warning()
@@ -656,6 +657,30 @@ class QuotationItineraryInfolist
                                 Section::make('Breakdown Overview')
                                     ->description('Cost breakdown summary and details')
                                     ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
+                                    ->headerActions([
+                                        Action::make('edit_breakdown')
+                                            ->label('Edit')
+                                            ->icon('heroicon-m-pencil-square')
+                                            ->color('success')
+                                            ->url(fn(QuotationItinerary $quotationItinerary) => \App\Filament\App\Resources\QuotationItineraries\QuotationItineraryResource::getUrl('edit-breakdown', ['record' => $quotationItinerary])),
+                                        Action::make('delete_breakdown')
+                                            ->label('Delete')
+                                            ->icon('heroicon-m-trash')
+                                            ->color('danger')
+                                            ->requiresConfirmation()
+                                            ->modalHeading('Delete Breakdown')
+                                            ->modalDescription('Are you sure you want to delete this breakdown? This action cannot be undone.')
+                                            ->modalSubmitActionLabel('Delete')
+                                            ->action(function (QuotationItinerary $quotationItinerary) {
+                                                if ($quotationItinerary->breakdown) {
+                                                    $quotationItinerary->breakdown->delete();
+                                                    Notification::make()
+                                                        ->title('Breakdown deleted successfully!')
+                                                        ->success()
+                                                        ->send();
+                                                }
+                                            }),
+                                    ])
                                     ->schema([
                                         Grid::make(4)
                                             ->schema([
@@ -1040,54 +1065,6 @@ class QuotationItineraryInfolist
                                     ])
                                     ->collapsible(),
 
-                                // Edit Breakdown Section (when breakdown exists)
-                                Section::make('Edit Breakdown')
-                                    ->description('Modify the cost breakdown details')
-                                    ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
-                                    ->schema([
-                                        Grid::make(1)
-                                            ->schema([
-                                                Action::make('Edit Breakdown')
-                                                    ->size(Size::ExtraLarge)
-                                                    ->icon('heroicon-m-pencil-square')
-                                                    ->color('success')
-                                                    ->url(fn(QuotationItinerary $quotationItinerary) => route('filament.app.resources.quotation-itineraries.edit-breakdown', $quotationItinerary))
-                                                    ->openUrlInNewTab()
-                                            ])
-                                            ->extraAttributes(['class' => 'flex justify-center items-center min-h-[100px]'])
-                                    ])
-                                    ->collapsible(false),
-
-                                // Delete Breakdown Section (when breakdown exists)
-                                Section::make('Delete Breakdown')
-                                    ->description('Remove the existing cost breakdown')
-                                    ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
-                                    ->schema([
-                                        Grid::make(1)
-                                            ->schema([
-                                                Action::make('Delete Breakdown')
-                                                    ->size(Size::ExtraLarge)
-                                                    ->icon('heroicon-m-trash')
-                                                    ->color('danger')
-                                                    ->action(function (QuotationItinerary $quotationItinerary) {
-                                                        if ($quotationItinerary->breakdown) {
-                                                            $quotationItinerary->breakdown->delete();
-                                                            
-                                                            \Filament\Notifications\Notification::make()
-                                                                ->title('Breakdown Deleted')
-                                                                ->body('Cost breakdown has been successfully deleted.')
-                                                                ->success()
-                                                                ->send();
-                                                        }
-                                                    })
-                                                    ->modalHeading('Delete Breakdown')
-                                                    ->modalDescription('Are you sure you want to delete this breakdown? This action cannot be undone.')
-                                                    ->modalSubmitActionLabel('Delete')
-                                                    ->requiresConfirmation()
-                                            ])
-                                            ->extraAttributes(['class' => 'flex justify-center items-center min-h-[200px]'])
-                                    ])
-                                    ->collapsible(false),
                             ]);
     }
 
