@@ -82,7 +82,14 @@ class VehicleTypeForm
                             ->maxValue(100)
                             ->placeholder('1')
                             ->helperText('Minimum number of passengers')
-                            ->suffix('passengers'),
+                            ->suffix('passengers')
+                            ->live(onBlur: true)
+                            ->afterStateUpdated(function ($state, $get, $set) {
+                                $capacityTo = $get('capacity_to');
+                                if ($state && $capacityTo && $capacityTo < $state) {
+                                    $set('capacity_to', $state);
+                                }
+                            }),
                         
                         TextInput::make('capacity_to')
                             ->label('Maximum Capacity')
@@ -93,7 +100,13 @@ class VehicleTypeForm
                             ->placeholder('4')
                             ->helperText('Maximum number of passengers')
                             ->suffix('passengers')
-                            ->rules(['gte:capacity_from']),
+                            ->live(onBlur: true)
+                            ->afterStateUpdated(function ($state, $get, $set) {
+                                $capacityFrom = $get('capacity_from');
+                                if ($state && $capacityFrom && $state < $capacityFrom) {
+                                    $set('capacity_to', $capacityFrom);
+                                }
+                            }),
                         
                         TextInput::make('max_hour_per_day')
                             ->label('Max Hours Per Day')
