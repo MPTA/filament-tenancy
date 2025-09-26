@@ -40,10 +40,10 @@ class QuotationItineraryInfolist
     private static function informationTab(): Tab
     {
         return Tab::make('Information')
-            ->icon('heroicon-o-information-circle')
-            ->badge('✓')
-            ->badgeColor('success')
-            ->schema([
+                            ->icon('heroicon-o-information-circle')
+                            ->badge('✓')
+                            ->badgeColor('success')
+                            ->schema([
                                 // Inquiry Information
                                 Section::make('Inquiry Information')
                                     ->description('Basic inquiry details and information')
@@ -613,6 +613,28 @@ class QuotationItineraryInfolist
     {
         return Tab::make('Breakdown')
                             ->icon('heroicon-o-calculator')
+                            ->badge(function (QuotationItinerary $record) {
+                                if (!$record->breakdown) {
+                                    return null; // No badge when no breakdown
+                                }
+
+                                if ($record->breakdown->is_completed) {
+                                    return '✓'; // Green tick when complete
+                                }
+
+                                return '⏳'; // Pending symbol when incomplete
+                            })
+                            ->badgeColor(function (QuotationItinerary $record) {
+                                if (!$record->breakdown) {
+                                    return 'gray';
+                                }
+
+                                if ($record->breakdown->is_completed) {
+                                    return 'success';
+                                }
+
+                                return 'gray'; // Gray for pending
+                            })
                             ->schema([
                                 // Create Breakdown Section (when no breakdown exists)
                                 Section::make('Create Breakdown')
@@ -639,7 +661,7 @@ class QuotationItineraryInfolist
                                                         // Generate breakdown from itinerary
                                                         $quotationItinerary->generateBreakdownFromItinerary();
                                                         
-                                                        \Filament\Notifications\Notification::make()
+                                                        Notification::make()
                                                             ->title('Breakdown Generated')
                                                             ->body('Cost breakdown has been successfully generated from the itinerary.')
                                                             ->success()
@@ -684,6 +706,16 @@ class QuotationItineraryInfolist
                                     ->schema([
                                         Grid::make(4)
                                             ->schema([
+                                                TextEntry::make('breakdown.is_completed')
+                                                    ->label('Status')
+                                                    ->formatStateUsing(fn($state) => $state ? 'Completed' : 'In Progress')
+                                                    ->icon(fn($state) => $state ? 'heroicon-o-check-circle' : 'heroicon-o-clock')
+                                                    ->color(fn($state) => $state ? 'success' : 'warning')
+                                                    ->columnStart(1),
+                                            ]),
+
+                                        Grid::make(4)
+                            ->schema([
                                                 TextEntry::make('breakdown.vehicle_days_qty')
                                                     ->label('Vehicle Days')
                                                     ->numeric()
@@ -709,7 +741,7 @@ class QuotationItineraryInfolist
                                             ]),
 
                                         Grid::make(2)
-                                            ->schema([
+                            ->schema([
                                                 TextEntry::make('breakdown.driver_base_meal_budget')
                                                     ->label('Driver Meal Budget')
                                                     ->money('CNY')
