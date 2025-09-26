@@ -26,6 +26,7 @@ class Breakdown extends Model
         'driver_base_accommodation_budget',
         'companion_base_meal_budget',
         'companion_base_accommodation_budget',
+        'is_completed',
     ];
 
     protected function casts(): array
@@ -40,6 +41,7 @@ class Breakdown extends Model
             'driver_base_accommodation_budget' => 'decimal:2',
             'companion_base_meal_budget' => 'decimal:2',
             'companion_base_accommodation_budget' => 'decimal:2',
+            'is_completed' => 'boolean',
         ];
     }
 
