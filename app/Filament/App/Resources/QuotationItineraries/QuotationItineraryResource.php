@@ -4,10 +4,12 @@ namespace App\Filament\App\Resources\QuotationItineraries;
 
 use App\Filament\App\Resources\QuotationItineraries\Pages\CreateQuotationItinerary;
 use App\Filament\App\Resources\QuotationItineraries\Pages\EditQuotationItinerary;
+use App\Filament\App\Resources\QuotationItineraries\Pages\EditBreakdown;
 use App\Filament\App\Resources\QuotationItineraries\Pages\ListQuotationItineraries;
 use App\Filament\App\Resources\QuotationItineraries\Pages\ViewQuotationItinerary;
 use App\Filament\App\Resources\QuotationItineraries\Schemas\QuotationItineraryForm;
 use App\Filament\App\Resources\QuotationItineraries\Schemas\QuotationItineraryInfolist;
+use App\Filament\App\Resources\QuotationItineraries\Schemas\BreakdownForm;
 use App\Filament\App\Resources\QuotationItineraries\Tables\QuotationItinerariesTable;
 use App\Models\Tenants\QuotationItinerary;
 use BackedEnum;
@@ -27,6 +29,11 @@ class QuotationItineraryResource extends Resource
     public static function form(Schema $schema): Schema
     {
         return QuotationItineraryForm::configure($schema);
+    }
+
+    public static function breakdownForm(Schema $schema): Schema
+    {
+        return BreakdownForm::configure($schema);
     }
 
     public static function infolist(Schema $schema): Schema
@@ -53,6 +60,7 @@ class QuotationItineraryResource extends Resource
             'create' => CreateQuotationItinerary::route('/create'),
             'view' => ViewQuotationItinerary::route('/{record}'),
             'edit' => EditQuotationItinerary::route('/{record}/edit'),
+            'edit-breakdown' => EditBreakdown::route('/{record}/edit-breakdown'),
         ];
     }
 }

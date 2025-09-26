@@ -28,11 +28,21 @@ class QuotationItineraryInfolist
                 Tabs::make('Tabs')->columnSpanFull()
                     ->persistTabInQueryString()
                     ->tabs([
-                        Tab::make('Information')
-                            ->icon('heroicon-o-information-circle')
-                            ->badge('✓')
-                            ->badgeColor('success')
-                            ->schema([
+                        self::informationTab(),
+                        self::itineraryTab(),
+                        self::breakdownTab(),
+                        self::offersTab(),
+                    ]),
+            ]);
+    }
+
+    private static function informationTab(): Tab
+    {
+        return Tab::make('Information')
+            ->icon('heroicon-o-information-circle')
+            ->badge('✓')
+            ->badgeColor('success')
+            ->schema([
                                 // Inquiry Information
                                 Section::make('Inquiry Information')
                                     ->description('Basic inquiry details and information')
@@ -144,8 +154,12 @@ class QuotationItineraryInfolist
                                             ->color('warning')
                                             ->columnSpanFull(),
                                     ]),
-                            ]),
-                        Tab::make('Itinerary')
+                            ]);
+    }
+
+    private static function itineraryTab(): Tab
+    {
+        return Tab::make('Itinerary')
                             ->icon('heroicon-o-map')
                             ->badge(function (QuotationItinerary $record) {
                                 if (!$record->itinerary) {
@@ -591,8 +605,12 @@ class QuotationItineraryInfolist
                                     ])
 
 
-                            ]),
-                        Tab::make('Breakdown')
+                            ]);
+    }
+
+    private static function breakdownTab(): Tab
+    {
+        return Tab::make('Breakdown')
                             ->icon('heroicon-o-calculator')
                             ->schema([
                                 // Create Breakdown Section (when no breakdown exists)
@@ -1022,6 +1040,24 @@ class QuotationItineraryInfolist
                                     ])
                                     ->collapsible(),
 
+                                // Edit Breakdown Section (when breakdown exists)
+                                Section::make('Edit Breakdown')
+                                    ->description('Modify the cost breakdown details')
+                                    ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
+                                    ->schema([
+                                        Grid::make(1)
+                                            ->schema([
+                                                Action::make('Edit Breakdown')
+                                                    ->size(Size::ExtraLarge)
+                                                    ->icon('heroicon-m-pencil-square')
+                                                    ->color('success')
+                                                    ->url(fn(QuotationItinerary $quotationItinerary) => route('filament.app.resources.quotation-itineraries.edit-breakdown', $quotationItinerary))
+                                                    ->openUrlInNewTab()
+                                            ])
+                                            ->extraAttributes(['class' => 'flex justify-center items-center min-h-[100px]'])
+                                    ])
+                                    ->collapsible(false),
+
                                 // Delete Breakdown Section (when breakdown exists)
                                 Section::make('Delete Breakdown')
                                     ->description('Remove the existing cost breakdown')
@@ -1052,12 +1088,14 @@ class QuotationItineraryInfolist
                                             ->extraAttributes(['class' => 'flex justify-center items-center min-h-[200px]'])
                                     ])
                                     ->collapsible(false),
-                            ]),
-                        Tab::make('Offers')
-                            ->schema([
-                                // ...
-                            ]),
-                    ]),
+                            ]);
+    }
+
+    private static function offersTab(): Tab
+    {
+        return Tab::make('Offers')
+            ->schema([
+                // ...
             ]);
     }
 }
