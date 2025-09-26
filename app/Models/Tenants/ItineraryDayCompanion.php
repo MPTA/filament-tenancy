@@ -4,7 +4,6 @@ namespace App\Models\Tenants;
 
 use App\Enums\HireModeEnum;
 use App\Models\Base\CompanionCategory;
-use App\Models\Base\Language;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -17,7 +16,6 @@ class ItineraryDayCompanion extends Model
     protected $fillable = [
         'itinerary_day_id',
         'companion_category_id',
-        'preferred_language_id',
         'hire_mode',
         'from_time',
         'to_time',
@@ -46,13 +44,6 @@ class ItineraryDayCompanion extends Model
         return $this->belongsTo(CompanionCategory::class);
     }
 
-    /**
-     * Get the preferred language for this companion.
-     */
-    public function preferredLanguage(): BelongsTo
-    {
-        return $this->belongsTo(Language::class, 'preferred_language_id');
-    }
 
     /**
      * Scope a query to filter by hire mode.
