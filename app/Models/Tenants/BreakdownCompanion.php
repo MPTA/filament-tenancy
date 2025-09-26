@@ -44,6 +44,6 @@ class BreakdownCompanion extends Model
      */
     public function companionType(): BelongsTo
     {
-        return $this->belongsTo(CompanionType::class);
+        return $this->belongsTo(\App\Models\Tenants\CompanionType::class, 'companion_type_id');
     }
 }

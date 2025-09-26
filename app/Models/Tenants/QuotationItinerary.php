@@ -61,7 +61,6 @@ class QuotationItinerary extends Model
         $this->createBreakdownExperiences($breakdown);
         $this->createBreakdownAccommodations($breakdown);
         $this->createBreakdownAttractions($breakdown);
-        $this->createBreakdownCompanions($breakdown);
 
         return $breakdown;
     }
@@ -328,47 +327,4 @@ class QuotationItinerary extends Model
         }
     }
 
-    /**
-     * Create breakdown companions from itinerary
-     */
-    private function createBreakdownCompanions($breakdown)
-    {
-        if (!$this->itinerary) return;
-
-        $companionTypes = [];
-        
-        foreach ($this->itinerary->days as $day) {
-            foreach ($day->companions as $companion) {
-                $companionCategoryId = $companion->companion_category_id;
-                
-                if (!isset($companionTypes[$companionCategoryId])) {
-                    $companionTypes[$companionCategoryId] = [
-                        'companion_category_id' => $companionCategoryId,
-                        'count' => 0
-                    ];
-                }
-                $companionTypes[$companionCategoryId]['count']++;
-            }
-        }
-
-        foreach ($companionTypes as $companionData) {
-            $companionCategory = CompanionCategory::find($companionData['companion_category_id']);
-            
-            if ($companionCategory && $companionCategory->exists) {
-                // Double check that the companion category actually exists in the database
-                $companionCategoryExists = CompanionCategory::where('id', $companionData['companion_category_id'])->exists();
-                
-                if ($companionCategoryExists) {
-                    $breakdown->companions()->firstOrCreate([
-                        'companion_type_id' => $companionData['companion_category_id'],
-                    ], [
-                        'per_day_price' => $companionCategory->per_day_price ?? 0.00,
-                        'half_day_price' => $companionCategory->half_day_price ?? 0.00,
-                        'pickup_price' => $companionCategory->pickup_price ?? 0.00,
-                        'per_hour_price' => $companionCategory->per_hour_price ?? 0.00,
-                    ]);
-                }
-            }
-        }
-    }
 }

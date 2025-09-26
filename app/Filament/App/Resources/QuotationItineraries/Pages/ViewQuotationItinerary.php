@@ -30,7 +30,19 @@ class ViewQuotationItinerary extends ViewRecord
             'itinerary.days.activities.activityCategory',
             'quotation.currency',
             'quotation.creator',
-            'breakdown.currency'
+            'breakdown.currency',
+            'breakdown.companions.companionType',
+            'breakdown.vehicleTypes.vehicleType',
+            'breakdown.tickets.fromCity',
+            'breakdown.tickets.toCity',
+            'breakdown.meals.mealType',
+            'breakdown.experiences.experience',
+            'breakdown.accommodations.accommodation',
+            'breakdown.accommodations.city',
+            'breakdown.accommodations.rooms.roomCategory',
+            'breakdown.attractions.attraction',
+            'breakdown.attractions.city',
+            'breakdown.attractions.subAttractions.subAttraction'
         ]);
     }
 }
