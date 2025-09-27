@@ -72,6 +72,7 @@ class BreakdownForm
                                         Select::make('vehicle_type_id')
                                             ->label('Vehicle Type')
                                             ->options(\App\Models\Tenants\VehicleType::pluck('name', 'id'))
+                                            ->searchable()
                                             ->required(),
                                         TextInput::make('per_day_price')
                                             ->label('Per Day Price')
@@ -119,7 +120,8 @@ class BreakdownForm
                                         'train' => 'Train',
                                         'land' => 'Land',
                                     ])
-                                    ->required(),
+                                    ->required()
+                                    ->dehydrated(),
                                 Select::make('class')
                                     ->disabled()
                                     ->label('Class')
@@ -128,19 +130,22 @@ class BreakdownForm
                                         'business' => 'Business',
                                         'first' => 'First',
                                     ])
-                                    ->required(),
+                                    ->required()
+                                    ->dehydrated(),
                                 Select::make('from_city_id')
                                     ->disabled()
                                     ->label('From City')
                                     ->options(\App\Models\Base\City::pluck('name', 'id'))
                                     ->searchable()
-                                    ->required(),
+                                    ->required()
+                                    ->dehydrated(),
                                 Select::make('to_city_id')
                                     ->disabled()
                                     ->label('To City')
                                     ->options(\App\Models\Base\City::pluck('name', 'id'))
                                     ->searchable()
-                                    ->required(),
+                                    ->required()
+                                    ->dehydrated(),
                                 TextInput::make('price')
                                     ->label('Price')
                                     ->numeric()
@@ -171,12 +176,14 @@ class BreakdownForm
                                     ->disabled()
                                     ->options(\App\Models\Tenants\MealType::pluck('name', 'id'))
                                     ->searchable()
-                                    ->required(),
+                                    ->required()
+                                    ->dehydrated(),
                                 TextInput::make('qty')
                                     ->disabled()
                                     ->label('Quantity')
                                     ->numeric()
-                                    ->default(1),
+                                    ->default(1)
+                                    ->dehydrated(),
                                 TextInput::make('price')
                                     ->label('Price')
                                     ->numeric()
@@ -207,18 +214,21 @@ class BreakdownForm
                                     ->options(\App\Models\Base\Accommodation::pluck('name', 'id'))
                                     ->searchable()
                                     ->required()
-                                    ->disabled(),
+                                    ->disabled()
+                                    ->dehydrated(),
                                 Select::make('city_id')
                                     ->label('City')
                                     ->options(\App\Models\Base\City::pluck('name', 'id'))
                                     ->searchable()
                                     ->required()
-                                    ->disabled(),
+                                    ->disabled()
+                                    ->dehydrated(),
                                 TextInput::make('nights_qty')
                                     ->label('Nights')
                                     ->numeric()
                                     ->disabled()
-                                    ->default(1),
+                                    ->default(1)
+                                    ->dehydrated(),
                                 Repeater::make('rooms')
                                     ->label('Room Categories')
                                     ->addable(false)
@@ -236,7 +246,8 @@ class BreakdownForm
                                                     ->options(\App\Models\Base\RoomCategory::pluck('name', 'id'))
                                                     ->searchable()
                                                     ->required()
-                                                    ->disabled(),
+                                                    ->disabled()
+                                                    ->dehydrated(),
                                                 TextInput::make('price')
                                                     ->label('Price')
                                                     ->numeric()
@@ -271,7 +282,8 @@ class BreakdownForm
                                             ->disabled()
                                             ->options(\App\Models\Tenants\Experience::pluck('name', 'id'))
                                             ->searchable()
-                                            ->required(),
+                                            ->required()
+                                            ->dehydrated(),
                                         Select::make('charge_mode')
                                             ->disabled()
                                             ->label('Charge Mode')
@@ -280,7 +292,8 @@ class BreakdownForm
                                                 'per_group' => 'Per Group',
                                                 'per_hour' => 'Per Hour',
                                             ])
-                                            ->required(),
+                                            ->required()
+                                            ->dehydrated(),
                                         TextInput::make('price')
                                         
                                             ->label('Price')
@@ -308,13 +321,15 @@ class BreakdownForm
                                             ->options(\App\Models\Base\Attraction::pluck('name', 'id'))
                                             ->searchable()
                                             ->required()
-                                            ->disabled(),
+                                            ->disabled()
+                                            ->dehydrated(),
                                         Select::make('city_id')
                                             ->label('City')
                                             ->options(\App\Models\Base\City::pluck('name', 'id'))
                                             ->searchable()
                                             ->required()
-                                            ->disabled(),
+                                            ->disabled()
+                                            ->dehydrated(),
                                         TextInput::make('entry_price')
                                             ->label('Entry Price')
                                             ->numeric()
@@ -337,7 +352,8 @@ class BreakdownForm
                                                             ->options(\App\Models\Base\SubAttraction::pluck('name', 'id'))
                                                             ->searchable()
                                                             ->required()
-                                                            ->disabled(),
+                                                            ->disabled()
+                                                            ->dehydrated(),
                                                         TextInput::make('price')
                                                             ->label('Price')
                                                             ->numeric()

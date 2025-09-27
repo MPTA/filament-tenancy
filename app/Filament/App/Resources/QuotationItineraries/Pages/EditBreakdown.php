@@ -10,6 +10,7 @@ use Filament\Notifications\Notification;
 use Filament\Resources\Pages\EditRecord;
 use Filament\Schemas\Schema;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class EditBreakdown extends EditRecord
 {
@@ -85,13 +86,116 @@ class EditBreakdown extends EditRecord
     protected function mutateFormDataBeforeSave(array $data): array
     {
         if ($this->record->breakdown) {
-            $this->record->breakdown->update($data);
+            // Update main breakdown fields
+            $breakdownData = collect($data)->except([
+                'vehicleTypes', 'tickets', 'meals', 'experiences', 
+                'accommodations', 'attractions', 'companions', 'expenses'
+            ])->toArray();
+            
+            $this->record->breakdown->update($breakdownData);
+            
+            // Handle relationship data
+            $this->handleRelationshipData($data);
+            
             Notification::make()
                 ->title('Breakdown updated successfully!')
                 ->success()
                 ->send();
         }
         return $data;
+    }
+
+    private function handleRelationshipData(array $data): void
+    {
+        $breakdown = $this->record->breakdown;
+        
+        DB::transaction(function () use ($breakdown, $data) {
+            // Handle Vehicle Types - Use model methods
+            if (isset($data['vehicleTypes'])) {
+                $breakdown->vehicleTypes()->delete();
+                    
+                foreach ($data['vehicleTypes'] as $vehicleTypeData) {
+                    $breakdown->vehicleTypes()->create($vehicleTypeData);
+                }
+            }
+            
+            // Handle Tickets - Use model methods
+            if (isset($data['tickets'])) {
+                $breakdown->tickets()->delete();
+                    
+                foreach ($data['tickets'] as $ticketData) {
+                    $breakdown->tickets()->create($ticketData);
+                }
+            }
+            
+            // Handle Meals - Use model methods
+            if (isset($data['meals'])) {
+                $breakdown->meals()->delete();
+                    
+                foreach ($data['meals'] as $mealData) {
+                    $breakdown->meals()->create($mealData);
+                }
+            }
+            
+            // Handle Experiences - Use model methods
+            if (isset($data['experiences'])) {
+                $breakdown->experiences()->delete();
+                    
+                foreach ($data['experiences'] as $experienceData) {
+                    $breakdown->experiences()->create($experienceData);
+                }
+            }
+            
+            // Handle Accommodations with Rooms - Use model methods
+            if (isset($data['accommodations'])) {
+                $breakdown->accommodations()->delete();
+                    
+                foreach ($data['accommodations'] as $accommodationData) {
+                    $roomsData = $accommodationData['rooms'] ?? [];
+                    unset($accommodationData['rooms']);
+                    
+                    $accommodation = $breakdown->accommodations()->create($accommodationData);
+                    
+                    foreach ($roomsData as $roomData) {
+                        $accommodation->rooms()->create($roomData);
+                    }
+                }
+            }
+            
+            // Handle Attractions with Sub Attractions - Use model methods
+            if (isset($data['attractions'])) {
+                $breakdown->attractions()->delete();
+                    
+                foreach ($data['attractions'] as $attractionData) {
+                    $subAttractionsData = $attractionData['subAttractions'] ?? [];
+                    unset($attractionData['subAttractions']);
+                    
+                    $attraction = $breakdown->attractions()->create($attractionData);
+                    
+                    foreach ($subAttractionsData as $subAttractionData) {
+                        $attraction->subAttractions()->create($subAttractionData);
+                    }
+                }
+            }
+            
+            // Handle Companions - Use model methods
+            if (isset($data['companions'])) {
+                $breakdown->companions()->delete();
+                    
+                foreach ($data['companions'] as $companionData) {
+                    $breakdown->companions()->create($companionData);
+                }
+            }
+            
+            // Handle Expenses - Use model methods
+            if (isset($data['expenses'])) {
+                $breakdown->expenses()->delete();
+                    
+                foreach ($data['expenses'] as $expenseData) {
+                    $breakdown->expenses()->create($expenseData);
+                }
+            }
+        });
     }
 
     protected function getRedirectUrl(): string
