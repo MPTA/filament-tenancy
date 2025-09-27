@@ -47,6 +47,7 @@ class CreateQuotationItinerary extends CreateRecord
             'expire_date' => 'required|date|after:today',
             'quotation_description' => 'nullable|string',
             'internal_note' => 'nullable|string',
+            'is_foreigner_passengers' => 'nullable|boolean',
         ];
     }
 
@@ -90,6 +91,7 @@ class CreateQuotationItinerary extends CreateRecord
             // 4. Create QuotationItinerary
             $quotationItinerary = QuotationItinerary::create([
                 'quotation_id' => $quotation->id,
+                'is_foreigner_passengers' => $data['is_foreigner_passengers'] ?? false,
             ]);
 
             return $quotationItinerary;

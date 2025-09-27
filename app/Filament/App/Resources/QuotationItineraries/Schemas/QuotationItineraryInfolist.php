@@ -154,6 +154,13 @@ class QuotationItineraryInfolist
                                             ->icon('heroicon-o-exclamation-triangle')
                                             ->color('warning')
                                             ->columnSpanFull(),
+
+                                        IconEntry::make('is_foreigner_passengers')
+                                            ->label('Foreigner Passengers')
+                                            ->boolean()
+                                            ->icon(fn($state) => $state ? 'heroicon-o-globe-alt' : 'heroicon-o-home')
+                                            ->color(fn($state) => $state ? 'info' : 'gray')
+                                            ->columnSpanFull(),
                                     ]),
                             ]);
     }

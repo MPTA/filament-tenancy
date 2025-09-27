@@ -13,6 +13,7 @@ use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use Illuminate\Support\Facades\Auth;
@@ -123,6 +124,18 @@ class ComprehensiveQuotationItineraryForm
                                     ->label('Expire Date')
                                     ->required()
                                     ->after('today'),
+                            ]),
+                        
+                        Grid::make(2)
+                            ->schema([
+                                Toggle::make('is_foreigner_passengers')
+                                    ->label('Foreigner Passengers')
+                                    ->helperText('Check if this quotation is for foreign passengers')
+                                    ->default(false),
+                                
+                                // Placeholder for future fields
+                                Hidden::make('placeholder')
+                                    ->default(''),
                             ]),
                         
                         Textarea::make('quotation_description')
