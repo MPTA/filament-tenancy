@@ -2,12 +2,15 @@
 
 namespace App\Filament\Base\Resources\Attractions\Tables;
 
+use App\Enums\AttractionTypeEnum;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
+use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 
 class AttractionsTable
@@ -16,29 +19,50 @@ class AttractionsTable
     {
         return $table
             ->columns([
-                TextColumn::make('id')
-                    ->label('ID'),
-                TextColumn::make('latitude')
-                    ->numeric()
-                    ->sortable(),
-                TextColumn::make('longitude')
-                    ->numeric()
-                    ->sortable(),
-                TextColumn::make('country.name')
-                    ->searchable(),
-                TextColumn::make('province.name')
-                    ->searchable(),
-                TextColumn::make('city.name')
-                    ->searchable(),
-                TextColumn::make('district.name')
-                    ->searchable(),
+                TextColumn::make('name')
+                    ->searchable()
+                    ->sortable()
+                    ->weight('bold')
+                    ->limit(30),
+                TextColumn::make('type')
+                    ->badge()
+                    ->color(fn (string $state): string => match ($state) {
+                        'natural' => 'success',
+                        'man_made' => 'info',
+                        'cultural' => 'warning',
+                        'sport' => 'danger',
+                        'events' => 'primary',
+                        'leisure' => 'gray',
+                        default => 'gray',
+                    })
+                    ->formatStateUsing(fn (string $state): string => AttractionTypeEnum::from($state)->label()),
+                TextColumn::make('location')
+                    ->getStateUsing(function ($record) {
+                        $parts = array_filter([
+                            $record->city?->name,
+                            $record->province?->name,
+                            $record->country?->name,
+                        ]);
+                        return implode(', ', $parts);
+                    })
+                    ->searchable(['city.name', 'province.name', 'country.name'])
+                    ->sortable(false),
                 TextColumn::make('rating')
                     ->numeric()
-                    ->sortable(),
-                TextColumn::make('external_id')
-                    ->searchable(),
+                    ->sortable()
+                    ->formatStateUsing(fn ($state) => $state ? number_format($state, 1) . '/5' : '-')
+                    ->color(fn ($state) => $state >= 4 ? 'success' : ($state >= 3 ? 'warning' : 'gray')),
+                TextColumn::make('local_price')
+                    ->money('USD')
+                    ->sortable()
+                    ->toggleable(),
+                TextColumn::make('foreigner_price')
+                    ->money('USD')
+                    ->sortable()
+                    ->toggleable(),
                 IconColumn::make('is_active')
-                    ->boolean(),
+                    ->boolean()
+                    ->sortable(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -49,8 +73,28 @@ class AttractionsTable
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                //
+                SelectFilter::make('type')
+                    ->options(AttractionTypeEnum::getOptions())
+                    ->multiple(),
+                SelectFilter::make('country_id')
+                    ->relationship('country', 'name')
+                    ->searchable()
+                    ->preload(),
+                SelectFilter::make('province_id')
+                    ->relationship('province', 'name')
+                    ->searchable()
+                    ->preload(),
+                SelectFilter::make('city_id')
+                    ->relationship('city', 'name')
+                    ->searchable()
+                    ->preload(),
+                TernaryFilter::make('is_active')
+                    ->label('Active Status')
+                    ->placeholder('All attractions')
+                    ->trueLabel('Active only')
+                    ->falseLabel('Inactive only'),
             ])
+            ->defaultSort('created_at', 'desc')
             ->recordActions([
                 ViewAction::make(),
                 EditAction::make(),
