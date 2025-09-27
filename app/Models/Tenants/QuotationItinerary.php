@@ -19,6 +19,11 @@ class QuotationItinerary extends Model
     protected $fillable = [
         'quotation_id',
         'tenant_id',
+        'is_foreigner_passengers',
+    ];
+
+    protected $casts = [
+        'is_foreigner_passengers' => 'boolean',
     ];
 
     /**
