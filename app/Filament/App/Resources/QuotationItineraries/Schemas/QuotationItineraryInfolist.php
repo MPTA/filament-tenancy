@@ -679,6 +679,26 @@ class QuotationItineraryInfolist
                                     ->description('Cost breakdown summary and details')
                                     ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
                                     ->headerActions([
+                                        Action::make('regenerate_breakdown')
+                                            ->label('Regenerate')
+                                            ->icon('heroicon-m-arrow-path')
+                                            ->color('primary')
+                                            ->action(function (QuotationItinerary $quotationItinerary) {
+                                                if ($quotationItinerary->breakdown && $quotationItinerary->itinerary) {
+                                                    // Regenerate breakdown from itinerary
+                                                    $quotationItinerary->generateBreakdownFromItinerary();
+                                                    
+                                                    Notification::make()
+                                                        ->title('Breakdown regenerated successfully!')
+                                                        ->body('The breakdown has been updated based on the current itinerary.')
+                                                        ->success()
+                                                        ->send();
+                                                }
+                                            })
+                                            ->requiresConfirmation()
+                                            ->modalHeading('Regenerate Breakdown')
+                                            ->modalDescription('This will update the breakdown based on the current itinerary. Are you sure?')
+                                            ->modalSubmitActionLabel('Regenerate'),
                                         Action::make('complete_breakdown')
                                             ->label('Complete')
                                             ->icon('heroicon-m-check-circle')
@@ -1050,7 +1070,7 @@ class QuotationItineraryInfolist
                                             ->hiddenLabel()
                                             ->contained(false)
                                             ->schema([
-                                                Grid::make(5)
+                                                Grid::make(4)
                                                     ->schema([
                                                         TextEntry::make('companionType.name')
                                                             ->label('Companion Type')
@@ -1068,12 +1088,6 @@ class QuotationItineraryInfolist
                                                             ->money('CNY')
                                                             ->icon('heroicon-o-clock')
                                                             ->color('warning'),
-
-                                                        TextEntry::make('pickup_price')
-                                                            ->label('Pickup Price')
-                                                            ->money('CNY')
-                                                            ->icon('heroicon-o-truck')
-                                                            ->color('info'),
 
                                                         TextEntry::make('per_hour_price')
                                                             ->label('Per Hour Price')

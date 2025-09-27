@@ -126,6 +126,11 @@ class QuotationItinerary extends Model
     {
         if (!$this->itinerary) return;
 
+        // Delete all existing tickets first
+        $breakdown->tickets()->delete();
+
+        $processedTickets = [];
+
         foreach ($this->itinerary->days as $day) {
             $ticketActivities = $day->activities()
                 ->whereHas('activityCategory', function ($query) {
@@ -136,14 +141,20 @@ class QuotationItinerary extends Model
 
             foreach ($ticketActivities as $activity) {
                 if ($activity->ticket) {
-                    $breakdown->tickets()->firstOrCreate([
-                        'transport_mode' => $activity->ticket->transport_mode,
-                        'from_city_id' => $activity->city_id,
-                        'to_city_id' => $activity->ticket->to_city_id,
-                        'class' => $activity->ticket->class?->value,
-                    ], [
-                        'price' => 0.00,
-                    ]);
+                    $key = $activity->ticket->transport_mode . '_' . $activity->city_id . '_' . $activity->ticket->to_city_id . '_' . ($activity->ticket->class?->value ?? 'null');
+                    
+                    // Only process if not already processed
+                    if (!isset($processedTickets[$key])) {
+                        $breakdown->tickets()->create([
+                            'transport_mode' => $activity->ticket->transport_mode,
+                            'from_city_id' => $activity->city_id,
+                            'to_city_id' => $activity->ticket->to_city_id,
+                            'class' => $activity->ticket->class?->value,
+                            'price' => 0.00,
+                        ]);
+                        
+                        $processedTickets[$key] = true;
+                    }
                 }
             }
         }
@@ -155,6 +166,9 @@ class QuotationItinerary extends Model
     private function createBreakdownMeals($breakdown)
     {
         if (!$this->itinerary) return;
+
+        // Delete all existing meals first
+        $breakdown->meals()->delete();
 
         $mealCounts = [];
         
@@ -174,11 +188,11 @@ class QuotationItinerary extends Model
             }
         }
 
+        // Create new meals
         foreach ($mealCounts as $mealTypeId => $qty) {
             $mealType = \App\Models\Tenants\MealType::find($mealTypeId);
-            $breakdown->meals()->firstOrCreate([
+            $breakdown->meals()->create([
                 'meal_type_id' => $mealTypeId,
-            ], [
                 'qty' => $qty,
                 'price' => $mealType?->price ?? 0.00,
             ]);
@@ -191,6 +205,9 @@ class QuotationItinerary extends Model
     private function createBreakdownExperiences($breakdown)
     {
         if (!$this->itinerary) return;
+
+        // Delete all existing experiences first
+        $breakdown->experiences()->delete();
 
         foreach ($this->itinerary->days as $day) {
             $experienceActivities = $day->activities()
@@ -206,9 +223,8 @@ class QuotationItinerary extends Model
                     $experienceExists = \App\Models\Tenants\Experience::where('id', $activity->experience->experience->id)->exists();
                     
                     if ($experienceExists) {
-                        $breakdown->experiences()->firstOrCreate([
+                        $breakdown->experiences()->create([
                             'experience_id' => $activity->experience->experience->id,
-                        ], [
                             'price' => $activity->experience->experience->price ?? 0.00,
                             'charge_mode' => $activity->experience->experience->charge_mode ?? \App\Enums\ChargeModeEnum::PER_PERSON,
                         ]);
@@ -224,6 +240,9 @@ class QuotationItinerary extends Model
     private function createBreakdownAccommodations($breakdown)
     {
         if (!$this->itinerary) return;
+
+        // Delete all existing accommodations first
+        $breakdown->accommodations()->delete();
 
         $accommodationNights = [];
         
@@ -243,10 +262,9 @@ class QuotationItinerary extends Model
         }
 
         foreach ($accommodationNights as $accommodationData) {
-            $breakdownAccommodation = $breakdown->accommodations()->firstOrCreate([
+            $breakdownAccommodation = $breakdown->accommodations()->create([
                 'accommodation_id' => $accommodationData['accommodation_id'],
                 'city_id' => $accommodationData['city_id'],
-            ], [
                 'nights_qty' => $accommodationData['nights'],
             ]);
 
@@ -263,17 +281,15 @@ class QuotationItinerary extends Model
         $singleRoomCategory = RoomCategory::where('category', \App\Enums\RoomCategoryEnum::SINGLE->value)->first();
 
         if ($twinRoomCategory) {
-            $breakdownAccommodation->rooms()->firstOrCreate([
+            $breakdownAccommodation->rooms()->create([
                 'room_category_id' => $twinRoomCategory->id,
-            ], [
                 'price' => 0.00,
             ]);
         }
 
         if ($singleRoomCategory) {
-            $breakdownAccommodation->rooms()->firstOrCreate([
+            $breakdownAccommodation->rooms()->create([
                 'room_category_id' => $singleRoomCategory->id,
-            ], [
                 'price' => 0.00,
             ]);
         }
@@ -285,6 +301,9 @@ class QuotationItinerary extends Model
     private function createBreakdownAttractions($breakdown)
     {
         if (!$this->itinerary) return;
+
+        // Delete all existing attractions first
+        $breakdown->attractions()->delete();
 
         foreach ($this->itinerary->days as $day) {
             $attractionActivities = $day->activities()
@@ -300,10 +319,9 @@ class QuotationItinerary extends Model
                     $attractionExists = \App\Models\Base\Attraction::where('id', $activity->attraction->attraction->id)->exists();
                     
                     if ($attractionExists) {
-                        $breakdownAttraction = $breakdown->attractions()->firstOrCreate([
+                        $breakdownAttraction = $breakdown->attractions()->create([
                             'attraction_id' => $activity->attraction->attraction->id,
                             'city_id' => $activity->city_id,
-                        ], [
                             'is_outview' => $activity->attraction->is_outview ?? false,
                             'entry_price' => $activity->attraction->attraction->entry_price ?? 0.00,
                         ]);
@@ -320,11 +338,11 @@ class QuotationItinerary extends Model
      */
     private function createBreakdownSubAttractions($breakdownAttraction, $attraction)
     {
-        if ($attraction->subAttractions) {
+        // Only create sub-attractions if the attraction is NOT outview
+        if (!$breakdownAttraction->is_outview && $attraction->subAttractions) {
             foreach ($attraction->subAttractions as $subAttraction) {
-                $breakdownAttraction->subAttractions()->firstOrCreate([
+                $breakdownAttraction->subAttractions()->create([
                     'sub_attraction_id' => $subAttraction->id,
-                ], [
                     'price' => $subAttraction->price ?? 0.00,
                 ]);
             }
