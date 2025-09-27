@@ -48,6 +48,91 @@ class QuotationItineraryInfolist
                                 Section::make('Inquiry Information')
                                     ->description('Basic inquiry details and information')
                                     ->icon('heroicon-o-document-text')
+                                    ->headerActions([
+                                        Action::make('edit_inquiry')
+                                            ->label('Edit Inquiry')
+                                            ->icon('heroicon-m-pencil-square')
+                                            ->color('primary')
+                                            ->schema([
+                                                \Filament\Forms\Components\TextInput::make('inquiry.title')
+                                                    ->label('Title')
+                                                    ->required(),
+                                                
+                                                \Filament\Forms\Components\TextInput::make('inquiry.number')
+                                                    ->label('Inquiry Number')
+                                                    ->disabled()
+                                                    ->dehydrated(),
+                                                
+                                                \Filament\Forms\Components\Textarea::make('inquiry.description')
+                                                    ->label('Description')
+                                                    ->rows(3),
+                                                
+                                                \Filament\Forms\Components\TextInput::make('inquiry.reference')
+                                                    ->label('Reference'),
+                                                
+                                                \Filament\Forms\Components\Select::make('inquiry_itinerary.date_type')
+                                                    ->label('Date Type')
+                                                    ->options(\App\Enums\InquiryDateTypeEnum::getOptions())
+                                                    ->required(),
+                                                
+                                                \Filament\Forms\Components\DatePicker::make('inquiry_itinerary.from_date')
+                                                    ->label('From Date')
+                                                    ->required(),
+                                                
+                                                \Filament\Forms\Components\DatePicker::make('inquiry_itinerary.to_date')
+                                                    ->label('To Date')
+                                                    ->required(),
+                                            ])
+                                            ->fillForm(function (QuotationItinerary $record) {
+                                                $inquiry = $record->quotation?->inquiry;
+                                                $inquiryItinerary = $inquiry?->inquiryItinerary;
+                                                
+                                                return [
+                                                    'inquiry' => $inquiry ? [
+                                                        'title' => $inquiry->getTranslation('title', app()->getLocale()),
+                                                        'number' => $inquiry->number,
+                                                        'description' => $inquiry->getTranslation('description', app()->getLocale()),
+                                                        'reference' => $inquiry->reference,
+                                                    ] : [],
+                                                    'inquiry_itinerary' => $inquiryItinerary ? [
+                                                        'date_type' => $inquiryItinerary->date_type?->value,
+                                                        'from_date' => $inquiryItinerary->from_date,
+                                                        'to_date' => $inquiryItinerary->to_date,
+                                                    ] : [],
+                                                ];
+                                            })
+                                            ->action(function (array $data, QuotationItinerary $record) {
+                                                $inquiry = $record->quotation?->inquiry;
+                                                $inquiryItinerary = $inquiry?->inquiryItinerary;
+                                                
+                                                // Update inquiry data
+                                                if ($inquiry && isset($data['inquiry'])) {
+                                                    $inquiry->setTranslation('title', app()->getLocale(), $data['inquiry']['title']);
+                                                    $inquiry->setTranslation('description', app()->getLocale(), $data['inquiry']['description'] ?? '');
+                                                    $inquiry->reference = $data['inquiry']['reference'] ?? null;
+                                                    $inquiry->save();
+                                                }
+                                                
+                                                // Update inquiry itinerary data
+                                                if ($inquiryItinerary && isset($data['inquiry_itinerary'])) {
+                                                    $inquiryItinerary->update([
+                                                        'date_type' => $data['inquiry_itinerary']['date_type'],
+                                                        'from_date' => $data['inquiry_itinerary']['from_date'],
+                                                        'to_date' => $data['inquiry_itinerary']['to_date'],
+                                                    ]);
+                                                }
+                                                
+                                                // Refresh the record to update the UI
+                                                $record->refresh();
+                                                
+                                                Notification::make()
+                                                    ->title('Inquiry updated successfully!')
+                                                    ->success()
+                                                    ->send();
+                                            })
+                                            ->modalHeading('Edit Inquiry')
+                                            ->modalSubmitActionLabel('Save Changes')
+                                    ])
                                     ->schema([
                                         Grid::make(2)
                                             ->schema([
@@ -120,6 +205,83 @@ class QuotationItineraryInfolist
                                 Section::make('Quotation Information')
                                     ->description('Quotation and pricing details')
                                     ->icon('heroicon-o-currency-dollar')
+                                    ->headerActions([
+                                        Action::make('edit_quotation')
+                                            ->label('Edit Quotation')
+                                            ->icon('heroicon-m-pencil-square')
+                                            ->color('primary')
+                                            ->schema([
+                                                \Filament\Forms\Components\TextInput::make('quotation.number')
+                                                    ->label('Quotation Number')
+                                                    ->disabled()
+                                                    ->dehydrated(),
+                                                
+                                                \Filament\Forms\Components\TextInput::make('quotation.exchange_rate')
+                                                    ->label('Exchange Rate')
+                                                    ->numeric()
+                                                    ->step(0.0001),
+                                                
+                                                \Filament\Forms\Components\DatePicker::make('quotation.expire_date')
+                                                    ->label('Expiry Date'),
+                                                
+                                                \Filament\Forms\Components\Textarea::make('quotation.description')
+                                                    ->label('Description')
+                                                    ->rows(3),
+                                                
+                                                \Filament\Forms\Components\Textarea::make('quotation.internal_note')
+                                                    ->label('Internal Note')
+                                                    ->rows(3),
+                                                
+                                                \Filament\Forms\Components\Toggle::make('is_foreigner_passengers')
+                                                    ->label('Foreigner Passengers')
+                                                    ->helperText('Enable if passengers are foreigners (affects attraction pricing)'),
+                                            ])
+                                            ->fillForm(function (QuotationItinerary $record) {
+                                                return [
+                                                    'quotation' => $record->quotation ? [
+                                                        'number' => $record->quotation->number,
+                                                        'exchange_rate' => $record->quotation->exchange_rate,
+                                                        'expire_date' => $record->quotation->expire_date,
+                                                        'description' => $record->quotation->description,
+                                                        'internal_note' => $record->quotation->internal_note,
+                                                    ] : [],
+                                                    'is_foreigner_passengers' => $record->is_foreigner_passengers,
+                                                ];
+                                            })
+                                            ->action(function (array $data, QuotationItinerary $record) {
+                                                // Update quotation data
+                                                if ($record->quotation) {
+                                                    $record->quotation->update($data['quotation']);
+                                                }
+                                                
+                                                // Update quotation itinerary data
+                                                $record->update([
+                                                    'is_foreigner_passengers' => $data['is_foreigner_passengers'],
+                                                ]);
+                                                
+                                                // If breakdown exists and passenger type changed, regenerate it
+                                                if ($record->breakdown && isset($data['is_foreigner_passengers'])) {
+                                                    $oldPassengerType = $record->getOriginal('is_foreigner_passengers');
+                                                    if ($oldPassengerType !== $data['is_foreigner_passengers']) {
+                                                        // Passenger type changed, regenerate breakdown to update attraction prices
+                                                        $record->generateBreakdownFromItinerary();
+                                                    }
+                                                }
+                                                
+                                                // Refresh the record to update the UI
+                                                $record->refresh();
+                                                
+                                                Notification::make()
+                                                    ->title('Quotation updated successfully!')
+                                                    ->body($record->breakdown && isset($data['is_foreigner_passengers']) && $record->getOriginal('is_foreigner_passengers') !== $data['is_foreigner_passengers'] 
+                                                        ? 'Passenger type changed. Breakdown has been regenerated with updated attraction prices.' 
+                                                        : 'Quotation information has been updated.')
+                                                    ->success()
+                                                    ->send();
+                                            })
+                                            ->modalHeading('Edit Quotation')
+                                            ->modalSubmitActionLabel('Save Changes')
+                                    ])
                                     ->schema([
                                         Grid::make(2)
                                             ->schema([
