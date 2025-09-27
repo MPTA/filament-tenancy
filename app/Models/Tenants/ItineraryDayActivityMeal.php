@@ -25,6 +25,77 @@ class ItineraryDayActivityMeal extends Model
         'is_included_with_hotel' => 'boolean',
     ];
 
+    protected static function booted(): void
+    {
+        // When meal is updated, mark parent itinerary and breakdown as incomplete
+        static::updating(function ($meal) {
+            if ($meal->isDirty()) {
+                $meal->itineraryDayActivity->itineraryDay->itinerary()->update(['is_complete' => false]);
+                
+                // Also mark breakdown as incomplete if it exists
+                if ($meal->itineraryDayActivity->itineraryDay->itinerary->breakdown) {
+                    $meal->itineraryDayActivity->itineraryDay->itinerary->breakdown->update(['is_completed' => false]);
+                }
+            }
+        });
+
+        // When meal is created, mark parent itinerary and breakdown as incomplete
+        static::created(function ($meal) {
+            $meal->itineraryDayActivity->itineraryDay->itinerary()->update(['is_complete' => false]);
+            
+            // Also mark breakdown as incomplete if it exists
+            if ($meal->itineraryDayActivity->itineraryDay->itinerary->breakdown) {
+                $meal->itineraryDayActivity->itineraryDay->itinerary->breakdown->update(['is_completed' => false]);
+            }
+        });
+
+        // When meal is deleted, mark parent itinerary and breakdown as incomplete
+        static::deleted(function ($meal) {
+            $meal->itineraryDayActivity->itineraryDay->itinerary()->update(['is_complete' => false]);
+            
+            // Also mark breakdown as incomplete if it exists
+            if ($meal->itineraryDayActivity->itineraryDay->itinerary->breakdown) {
+                $meal->itineraryDayActivity->itineraryDay->itinerary->breakdown->update(['is_completed' => false]);
+            }
+        });
+
+        // Regenerate breakdown after meal changes
+        static::updated(function ($meal) {
+            if ($meal->wasChanged()) {
+                // Regenerate breakdown if it exists
+                if ($meal->itineraryDayActivity->itineraryDay->itinerary->breakdown && $meal->itineraryDayActivity->itineraryDay->itinerary->itineraryable instanceof QuotationItinerary) {
+                    try {
+                        $meal->itineraryDayActivity->itineraryDay->itinerary->itineraryable->generateBreakdownFromItinerary();
+                    } catch (\Exception $e) {
+                        \Illuminate\Support\Facades\Log::error('Failed to regenerate breakdown after meal update: ' . $e->getMessage());
+                    }
+                }
+            }
+        });
+
+        static::created(function ($meal) {
+            // Regenerate breakdown if it exists
+            if ($meal->itineraryDayActivity->itineraryDay->itinerary->breakdown && $meal->itineraryDayActivity->itineraryDay->itinerary->itineraryable instanceof QuotationItinerary) {
+                try {
+                    $meal->itineraryDayActivity->itineraryDay->itinerary->itineraryable->generateBreakdownFromItinerary();
+                } catch (\Exception $e) {
+                        \Illuminate\Support\Facades\Log::error('Failed to regenerate breakdown after meal creation: ' . $e->getMessage());
+                }
+            }
+        });
+
+        static::deleted(function ($meal) {
+            // Regenerate breakdown if it exists
+            if ($meal->itineraryDayActivity && $meal->itineraryDayActivity->itineraryDay && $meal->itineraryDayActivity->itineraryDay->itinerary && $meal->itineraryDayActivity->itineraryDay->itinerary->breakdown && $meal->itineraryDayActivity->itineraryDay->itinerary->itineraryable instanceof QuotationItinerary) {
+                try {
+                    $meal->itineraryDayActivity->itineraryDay->itinerary->itineraryable->generateBreakdownFromItinerary();
+                } catch (\Exception $e) {
+                        \Illuminate\Support\Facades\Log::error('Failed to regenerate breakdown after meal deletion: ' . $e->getMessage());
+                }
+            }
+        });
+    }
+
     /**
      * Get the itinerary day activity that owns the meal.
      */

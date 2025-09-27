@@ -45,6 +45,16 @@ class Breakdown extends Model
         ];
     }
 
+    protected static function booted(): void
+    {
+        // When breakdown is updated (but not when is_completed is being set to true), mark as incomplete
+        static::updating(function ($breakdown) {
+            if ($breakdown->isDirty() && !$breakdown->isDirty('is_completed')) {
+                $breakdown->is_completed = false;
+            }
+        });
+    }
+
     /**
      * Get the quotation itinerary that owns the breakdown.
      */

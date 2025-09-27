@@ -158,7 +158,25 @@ class ItineraryForm
                                     }
                                 }
                             }),
-                        Toggle::make('has_vehicle')->label('Has Car'),
+                        Toggle::make('has_vehicle')->label('Has Car')
+                            ->reactive()
+                            ->default(function (callable $get) {
+                                // Set default based on existing vehicle data
+                                $vehicleMode = $get('vehicle_usage_mode');
+                                return !empty($vehicleMode);
+                            })
+                            ->afterStateUpdated(function ($state, callable $set, callable $get) {
+                                if ($state) {
+                                    // Set to full_day when has_vehicle is true
+                                    $set('vehicle_usage_mode', \App\Enums\VehicleUsageModeEnum::FULL_DAY->value);
+                                    $set('vehicle_hours', 0);
+                                } else {
+                                    // Clear vehicle fields when has_vehicle is false
+                                    $set('vehicle_usage_mode', null);
+                                    $set('vehicle_hours', null);
+                                }
+                            })
+                            ->live(),
                         Toggle::make('has_tour_guide')->label('Has Tour Guide'),
                         Select::make('breakfast')->options(MealType::getCachedSelectOptions())->columnStart(1),
                         Select::make('lunch')->options(MealType::getCachedSelectOptions()),

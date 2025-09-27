@@ -33,6 +33,26 @@ class BreakdownVehicleType extends Model
         ];
     }
 
+    protected static function booted(): void
+    {
+        // When breakdown vehicle type is updated, mark parent breakdown as incomplete
+        static::updating(function ($vehicleType) {
+            if ($vehicleType->isDirty()) {
+                $vehicleType->breakdown()->update(['is_completed' => false]);
+            }
+        });
+
+        // When breakdown vehicle type is created, mark parent breakdown as incomplete
+        static::created(function ($vehicleType) {
+            $vehicleType->breakdown()->update(['is_completed' => false]);
+        });
+
+        // When breakdown vehicle type is deleted, mark parent breakdown as incomplete
+        static::deleted(function ($vehicleType) {
+            $vehicleType->breakdown()->update(['is_completed' => false]);
+        });
+    }
+
     /**
      * Get the breakdown that owns this vehicle type pricing.
      */

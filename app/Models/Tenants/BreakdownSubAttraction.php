@@ -25,6 +25,26 @@ class BreakdownSubAttraction extends Model
         ];
     }
 
+    protected static function booted(): void
+    {
+        // When breakdown sub attraction is updated, mark parent breakdown as incomplete
+        static::updating(function ($subAttraction) {
+            if ($subAttraction->isDirty()) {
+                $subAttraction->breakdownAttraction->breakdown()->update(['is_completed' => false]);
+            }
+        });
+
+        // When breakdown sub attraction is created, mark parent breakdown as incomplete
+        static::created(function ($subAttraction) {
+            $subAttraction->breakdownAttraction->breakdown()->update(['is_completed' => false]);
+        });
+
+        // When breakdown sub attraction is deleted, mark parent breakdown as incomplete
+        static::deleted(function ($subAttraction) {
+            $subAttraction->breakdownAttraction->breakdown()->update(['is_completed' => false]);
+        });
+    }
+
     /**
      * Get the breakdown attraction that owns this sub-attraction pricing.
      */

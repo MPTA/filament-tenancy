@@ -28,6 +28,26 @@ class BreakdownExpense extends Model
         ];
     }
 
+    protected static function booted(): void
+    {
+        // When breakdown expense is updated, mark parent breakdown as incomplete
+        static::updating(function ($expense) {
+            if ($expense->isDirty()) {
+                $expense->breakdown()->update(['is_completed' => false]);
+            }
+        });
+
+        // When breakdown expense is created, mark parent breakdown as incomplete
+        static::created(function ($expense) {
+            $expense->breakdown()->update(['is_completed' => false]);
+        });
+
+        // When breakdown expense is deleted, mark parent breakdown as incomplete
+        static::deleted(function ($expense) {
+            $expense->breakdown()->update(['is_completed' => false]);
+        });
+    }
+
     /**
      * Get the breakdown that owns this expense.
      */

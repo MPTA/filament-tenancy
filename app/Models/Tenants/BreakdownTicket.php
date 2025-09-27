@@ -30,6 +30,26 @@ class BreakdownTicket extends Model
         ];
     }
 
+    protected static function booted(): void
+    {
+        // When breakdown ticket is updated, mark parent breakdown as incomplete
+        static::updating(function ($ticket) {
+            if ($ticket->isDirty()) {
+                $ticket->breakdown()->update(['is_completed' => false]);
+            }
+        });
+
+        // When breakdown ticket is created, mark parent breakdown as incomplete
+        static::created(function ($ticket) {
+            $ticket->breakdown()->update(['is_completed' => false]);
+        });
+
+        // When breakdown ticket is deleted, mark parent breakdown as incomplete
+        static::deleted(function ($ticket) {
+            $ticket->breakdown()->update(['is_completed' => false]);
+        });
+    }
+
     /**
      * Get the breakdown that owns this ticket pricing.
      */

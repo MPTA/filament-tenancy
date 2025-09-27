@@ -36,6 +36,77 @@ class ItineraryDayActivity extends Model
         'description',
     ];
 
+    protected static function booted(): void
+    {
+        // When itinerary day activity is updated, mark parent itinerary and breakdown as incomplete
+        static::updating(function ($activity) {
+            if ($activity->isDirty()) {
+                $activity->itineraryDay->itinerary()->update(['is_complete' => false]);
+                
+                // Also mark breakdown as incomplete if it exists
+                if ($activity->itineraryDay->itinerary->breakdown) {
+                    $activity->itineraryDay->itinerary->breakdown->update(['is_completed' => false]);
+                }
+            }
+        });
+
+        // When itinerary day activity is created, mark parent itinerary and breakdown as incomplete
+        static::created(function ($activity) {
+            $activity->itineraryDay->itinerary()->update(['is_complete' => false]);
+            
+            // Also mark breakdown as incomplete if it exists
+            if ($activity->itineraryDay->itinerary->breakdown) {
+                $activity->itineraryDay->itinerary->breakdown->update(['is_completed' => false]);
+            }
+        });
+
+        // When itinerary day activity is deleted, mark parent itinerary and breakdown as incomplete
+        static::deleted(function ($activity) {
+            $activity->itineraryDay->itinerary()->update(['is_complete' => false]);
+            
+            // Also mark breakdown as incomplete if it exists
+            if ($activity->itineraryDay->itinerary->breakdown) {
+                $activity->itineraryDay->itinerary->breakdown->update(['is_completed' => false]);
+            }
+        });
+
+        // Regenerate breakdown after activity changes
+        static::updated(function ($activity) {
+            if ($activity->wasChanged()) {
+                // Regenerate breakdown if it exists
+                if ($activity->itineraryDay->itinerary->breakdown && $activity->itineraryDay->itinerary->itineraryable instanceof QuotationItinerary) {
+                    try {
+                        $activity->itineraryDay->itinerary->itineraryable->generateBreakdownFromItinerary();
+                    } catch (\Exception $e) {
+                        \Illuminate\Support\Facades\Log::error('Failed to regenerate breakdown after activity update: ' . $e->getMessage());
+                    }
+                }
+            }
+        });
+
+        static::created(function ($activity) {
+            // Regenerate breakdown if it exists
+            if ($activity->itineraryDay->itinerary->breakdown && $activity->itineraryDay->itinerary->itineraryable instanceof QuotationItinerary) {
+                try {
+                    $activity->itineraryDay->itinerary->itineraryable->generateBreakdownFromItinerary();
+                } catch (\Exception $e) {
+                        \Illuminate\Support\Facades\Log::error('Failed to regenerate breakdown after activity creation: ' . $e->getMessage());
+                }
+            }
+        });
+
+        static::deleted(function ($activity) {
+            // Regenerate breakdown if it exists
+            if ($activity->itineraryDay && $activity->itineraryDay->itinerary && $activity->itineraryDay->itinerary->breakdown && $activity->itineraryDay->itinerary->itineraryable instanceof QuotationItinerary) {
+                try {
+                    $activity->itineraryDay->itinerary->itineraryable->generateBreakdownFromItinerary();
+                } catch (\Exception $e) {
+                        \Illuminate\Support\Facades\Log::error('Failed to regenerate breakdown after activity deletion: ' . $e->getMessage());
+                }
+            }
+        });
+    }
+
     /**
      * Get the itinerary day that owns the activity.
      */

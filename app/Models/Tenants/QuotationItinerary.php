@@ -70,13 +70,17 @@ class QuotationItinerary extends Model
      */
     private function createOrUpdateBreakdown()
     {
-        return $this->breakdown()->firstOrCreate(
-            [],
-            [
+        $breakdown = $this->breakdown;
+        
+        if (!$breakdown) {
+            $breakdown = \App\Models\Tenants\Breakdown::create([
+                'quotation_itinerary_id' => $this->id,
                 'creator_user_id' => \Illuminate\Support\Facades\Auth::id(),
                 'currency_id' => Currency::where('code', 'CNY')->first()->id,
-            ]
-        );
+            ]);
+        }
+        
+        return $breakdown;
     }
 
     /**

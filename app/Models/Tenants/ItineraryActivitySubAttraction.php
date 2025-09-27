@@ -18,6 +18,77 @@ class ItineraryActivitySubAttraction extends Model
         'tenant_id',
     ];
 
+    protected static function booted(): void
+    {
+        // When sub attraction is updated, mark parent itinerary and breakdown as incomplete
+        static::updating(function ($subAttraction) {
+            if ($subAttraction->isDirty()) {
+                $subAttraction->itineraryDayActivityAttraction->itineraryDayActivity->itineraryDay->itinerary()->update(['is_complete' => false]);
+                
+                // Also mark breakdown as incomplete if it exists
+                if ($subAttraction->itineraryDayActivityAttraction->itineraryDayActivity->itineraryDay->itinerary->breakdown) {
+                    $subAttraction->itineraryDayActivityAttraction->itineraryDayActivity->itineraryDay->itinerary->breakdown->update(['is_completed' => false]);
+                }
+            }
+        });
+
+        // When sub attraction is created, mark parent itinerary and breakdown as incomplete
+        static::created(function ($subAttraction) {
+            $subAttraction->itineraryDayActivityAttraction->itineraryDayActivity->itineraryDay->itinerary()->update(['is_complete' => false]);
+            
+            // Also mark breakdown as incomplete if it exists
+            if ($subAttraction->itineraryDayActivityAttraction->itineraryDayActivity->itineraryDay->itinerary->breakdown) {
+                $subAttraction->itineraryDayActivityAttraction->itineraryDayActivity->itineraryDay->itinerary->breakdown->update(['is_completed' => false]);
+            }
+        });
+
+        // When sub attraction is deleted, mark parent itinerary and breakdown as incomplete
+        static::deleted(function ($subAttraction) {
+            $subAttraction->itineraryDayActivityAttraction->itineraryDayActivity->itineraryDay->itinerary()->update(['is_complete' => false]);
+            
+            // Also mark breakdown as incomplete if it exists
+            if ($subAttraction->itineraryDayActivityAttraction->itineraryDayActivity->itineraryDay->itinerary->breakdown) {
+                $subAttraction->itineraryDayActivityAttraction->itineraryDayActivity->itineraryDay->itinerary->breakdown->update(['is_completed' => false]);
+            }
+        });
+
+        // Regenerate breakdown after sub attraction changes
+        static::updated(function ($subAttraction) {
+            if ($subAttraction->wasChanged()) {
+                // Regenerate breakdown if it exists
+                if ($subAttraction->itineraryDayActivityAttraction->itineraryDayActivity->itineraryDay->itinerary->breakdown && $subAttraction->itineraryDayActivityAttraction->itineraryDayActivity->itineraryDay->itinerary->itineraryable instanceof QuotationItinerary) {
+                    try {
+                        $subAttraction->itineraryDayActivityAttraction->itineraryDayActivity->itineraryDay->itinerary->itineraryable->generateBreakdownFromItinerary();
+                    } catch (\Exception $e) {
+                        \Illuminate\Support\Facades\Log::error('Failed to regenerate breakdown after sub attraction update: ' . $e->getMessage());
+                    }
+                }
+            }
+        });
+
+        static::created(function ($subAttraction) {
+            // Regenerate breakdown if it exists
+            if ($subAttraction->itineraryDayActivityAttraction->itineraryDayActivity->itineraryDay->itinerary->breakdown && $subAttraction->itineraryDayActivityAttraction->itineraryDayActivity->itineraryDay->itinerary->itineraryable instanceof QuotationItinerary) {
+                try {
+                    $subAttraction->itineraryDayActivityAttraction->itineraryDayActivity->itineraryDay->itinerary->itineraryable->generateBreakdownFromItinerary();
+                } catch (\Exception $e) {
+                        \Illuminate\Support\Facades\Log::error('Failed to regenerate breakdown after sub attraction creation: ' . $e->getMessage());
+                }
+            }
+        });
+
+        static::deleted(function ($subAttraction) {
+            // Regenerate breakdown if it exists
+            if ($subAttraction->itineraryDayActivityAttraction && $subAttraction->itineraryDayActivityAttraction->itineraryDayActivity && $subAttraction->itineraryDayActivityAttraction->itineraryDayActivity->itineraryDay && $subAttraction->itineraryDayActivityAttraction->itineraryDayActivity->itineraryDay->itinerary && $subAttraction->itineraryDayActivityAttraction->itineraryDayActivity->itineraryDay->itinerary->breakdown && $subAttraction->itineraryDayActivityAttraction->itineraryDayActivity->itineraryDay->itinerary->itineraryable instanceof QuotationItinerary) {
+                try {
+                    $subAttraction->itineraryDayActivityAttraction->itineraryDayActivity->itineraryDay->itinerary->itineraryable->generateBreakdownFromItinerary();
+                } catch (\Exception $e) {
+                        \Illuminate\Support\Facades\Log::error('Failed to regenerate breakdown after sub attraction deletion: ' . $e->getMessage());
+                }
+            }
+        });
+    }
+
     /**
      * Get the itinerary day activity attraction that owns this sub attraction.
      */

@@ -27,6 +27,26 @@ class BreakdownAccommodation extends Model
         ];
     }
 
+    protected static function booted(): void
+    {
+        // When breakdown accommodation is updated, mark parent breakdown as incomplete
+        static::updating(function ($accommodation) {
+            if ($accommodation->isDirty()) {
+                $accommodation->breakdown()->update(['is_completed' => false]);
+            }
+        });
+
+        // When breakdown accommodation is created, mark parent breakdown as incomplete
+        static::created(function ($accommodation) {
+            $accommodation->breakdown()->update(['is_completed' => false]);
+        });
+
+        // When breakdown accommodation is deleted, mark parent breakdown as incomplete
+        static::deleted(function ($accommodation) {
+            $accommodation->breakdown()->update(['is_completed' => false]);
+        });
+    }
+
     /**
      * Get the breakdown that owns this accommodation.
      */

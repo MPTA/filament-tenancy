@@ -27,6 +27,77 @@ class ItineraryDayActivityTicket extends Model
         'class' => TicketClassEnum::class,
     ];
 
+    protected static function booted(): void
+    {
+        // When ticket is updated, mark parent itinerary and breakdown as incomplete
+        static::updating(function ($ticket) {
+            if ($ticket->isDirty()) {
+                $ticket->itineraryDayActivity->itineraryDay->itinerary()->update(['is_complete' => false]);
+                
+                // Also mark breakdown as incomplete if it exists
+                if ($ticket->itineraryDayActivity->itineraryDay->itinerary->breakdown) {
+                    $ticket->itineraryDayActivity->itineraryDay->itinerary->breakdown->update(['is_completed' => false]);
+                }
+            }
+        });
+
+        // When ticket is created, mark parent itinerary and breakdown as incomplete
+        static::created(function ($ticket) {
+            $ticket->itineraryDayActivity->itineraryDay->itinerary()->update(['is_complete' => false]);
+            
+            // Also mark breakdown as incomplete if it exists
+            if ($ticket->itineraryDayActivity->itineraryDay->itinerary->breakdown) {
+                $ticket->itineraryDayActivity->itineraryDay->itinerary->breakdown->update(['is_completed' => false]);
+            }
+        });
+
+        // When ticket is deleted, mark parent itinerary and breakdown as incomplete
+        static::deleted(function ($ticket) {
+            $ticket->itineraryDayActivity->itineraryDay->itinerary()->update(['is_complete' => false]);
+            
+            // Also mark breakdown as incomplete if it exists
+            if ($ticket->itineraryDayActivity->itineraryDay->itinerary->breakdown) {
+                $ticket->itineraryDayActivity->itineraryDay->itinerary->breakdown->update(['is_completed' => false]);
+            }
+        });
+
+        // Regenerate breakdown after ticket changes
+        static::updated(function ($ticket) {
+            if ($ticket->wasChanged()) {
+                // Regenerate breakdown if it exists
+                if ($ticket->itineraryDayActivity->itineraryDay->itinerary->breakdown && $ticket->itineraryDayActivity->itineraryDay->itinerary->itineraryable instanceof QuotationItinerary) {
+                    try {
+                        $ticket->itineraryDayActivity->itineraryDay->itinerary->itineraryable->generateBreakdownFromItinerary();
+                    } catch (\Exception $e) {
+                        \Illuminate\Support\Facades\Log::error('Failed to regenerate breakdown after ticket update: ' . $e->getMessage());
+                    }
+                }
+            }
+        });
+
+        static::created(function ($ticket) {
+            // Regenerate breakdown if it exists
+            if ($ticket->itineraryDayActivity->itineraryDay->itinerary->breakdown && $ticket->itineraryDayActivity->itineraryDay->itinerary->itineraryable instanceof QuotationItinerary) {
+                try {
+                    $ticket->itineraryDayActivity->itineraryDay->itinerary->itineraryable->generateBreakdownFromItinerary();
+                } catch (\Exception $e) {
+                    \Illuminate\Support\Facades\Log::error('Failed to regenerate breakdown after ticket creation: ' . $e->getMessage());
+                }
+            }
+        });
+
+        static::deleted(function ($ticket) {
+            // Regenerate breakdown if it exists
+            if ($ticket->itineraryDayActivity && $ticket->itineraryDayActivity->itineraryDay && $ticket->itineraryDayActivity->itineraryDay->itinerary && $ticket->itineraryDayActivity->itineraryDay->itinerary->breakdown && $ticket->itineraryDayActivity->itineraryDay->itinerary->itineraryable instanceof QuotationItinerary) {
+                try {
+                    $ticket->itineraryDayActivity->itineraryDay->itinerary->itineraryable->generateBreakdownFromItinerary();
+                } catch (\Exception $e) {
+                    \Illuminate\Support\Facades\Log::error('Failed to regenerate breakdown after ticket deletion: ' . $e->getMessage());
+                }
+            }
+        });
+    }
+
     /**
      * Get the itinerary day activity that owns this ticket.
      */

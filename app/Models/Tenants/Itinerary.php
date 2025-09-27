@@ -36,12 +36,64 @@ class Itinerary extends Model
         'accommodation_star_rating' => StarRatingEnum::class,
     ];
 
+    protected static function booted(): void
+    {
+        // When itinerary itself is updated, mark as incomplete and regenerate breakdown
+        static::updating(function ($itinerary) {
+            if ($itinerary->isDirty(['travel_mode', 'is_advanced', 'is_vip'])) {
+                $itinerary->is_complete = false;
+                
+                // Also mark breakdown as incomplete if it exists
+                if ($itinerary->breakdown) {
+                    $itinerary->breakdown->update(['is_completed' => false]);
+                }
+            }
+        });
+
+        // When itinerary is updated, regenerate breakdown if it exists
+        static::updated(function ($itinerary) {
+            if ($itinerary->wasChanged(['travel_mode', 'is_advanced', 'is_vip'])) {
+                // Regenerate breakdown if it exists
+                if ($itinerary->breakdown && $itinerary->itineraryable instanceof QuotationItinerary) {
+                    try {
+                        $itinerary->itineraryable->generateBreakdownFromItinerary();
+                    } catch (\Exception $e) {
+                        // Log error but don't break the flow
+                        \Illuminate\Support\Facades\Log::error('Failed to regenerate breakdown after itinerary update: ' . $e->getMessage());
+                    }
+                }
+            }
+        });
+
+        // When itinerary is deleted, delete the breakdown as well
+        static::deleting(function ($itinerary) {
+            if ($itinerary->breakdown) {
+                try {
+                    $itinerary->breakdown->delete();
+                } catch (\Exception $e) {
+                    \Illuminate\Support\Facades\Log::error('Failed to delete breakdown after itinerary deletion: ' . $e->getMessage());
+                }
+            }
+        });
+    }
+
     /**
      * Get the parent itineraryable model (polymorphic relationship).
      */
     public function itineraryable(): MorphTo
     {
         return $this->morphTo();
+    }
+
+    /**
+     * Get the breakdown for this itinerary (through itineraryable).
+     */
+    public function getBreakdownAttribute()
+    {
+        if ($this->itineraryable instanceof \App\Models\Tenants\QuotationItinerary) {
+            return $this->itineraryable->breakdown;
+        }
+        return null;
     }
 
     /**

@@ -29,6 +29,26 @@ class BreakdownAttraction extends Model
         ];
     }
 
+    protected static function booted(): void
+    {
+        // When breakdown attraction is updated, mark parent breakdown as incomplete
+        static::updating(function ($attraction) {
+            if ($attraction->isDirty()) {
+                $attraction->breakdown()->update(['is_completed' => false]);
+            }
+        });
+
+        // When breakdown attraction is created, mark parent breakdown as incomplete
+        static::created(function ($attraction) {
+            $attraction->breakdown()->update(['is_completed' => false]);
+        });
+
+        // When breakdown attraction is deleted, mark parent breakdown as incomplete
+        static::deleted(function ($attraction) {
+            $attraction->breakdown()->update(['is_completed' => false]);
+        });
+    }
+
     /**
      * Get the breakdown that owns this attraction.
      */

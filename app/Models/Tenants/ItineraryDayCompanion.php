@@ -28,6 +28,77 @@ class ItineraryDayCompanion extends Model
         'to_time' => 'datetime:H:i',
     ];
 
+    protected static function booted(): void
+    {
+        // When itinerary day companion is updated, mark parent itinerary and breakdown as incomplete
+        static::updating(function ($companion) {
+            if ($companion->isDirty()) {
+                $companion->itineraryDay->itinerary()->update(['is_complete' => false]);
+                
+                // Also mark breakdown as incomplete if it exists
+                if ($companion->itineraryDay->itinerary->breakdown) {
+                    $companion->itineraryDay->itinerary->breakdown->update(['is_completed' => false]);
+                }
+            }
+        });
+
+        // When itinerary day companion is created, mark parent itinerary and breakdown as incomplete
+        static::created(function ($companion) {
+            $companion->itineraryDay->itinerary()->update(['is_complete' => false]);
+            
+            // Also mark breakdown as incomplete if it exists
+            if ($companion->itineraryDay->itinerary->breakdown) {
+                $companion->itineraryDay->itinerary->breakdown->update(['is_completed' => false]);
+            }
+        });
+
+        // When itinerary day companion is deleted, mark parent itinerary and breakdown as incomplete
+        static::deleted(function ($companion) {
+            $companion->itineraryDay->itinerary()->update(['is_complete' => false]);
+            
+            // Also mark breakdown as incomplete if it exists
+            if ($companion->itineraryDay->itinerary->breakdown) {
+                $companion->itineraryDay->itinerary->breakdown->update(['is_completed' => false]);
+            }
+        });
+
+        // Regenerate breakdown after companion changes
+        static::updated(function ($companion) {
+            if ($companion->wasChanged()) {
+                // Regenerate breakdown if it exists
+                if ($companion->itineraryDay->itinerary->breakdown && $companion->itineraryDay->itinerary->itineraryable instanceof QuotationItinerary) {
+                    try {
+                        $companion->itineraryDay->itinerary->itineraryable->generateBreakdownFromItinerary();
+                    } catch (\Exception $e) {
+                        \Illuminate\Support\Facades\Log::error('Failed to regenerate breakdown after companion update: ' . $e->getMessage());
+                    }
+                }
+            }
+        });
+
+        static::created(function ($companion) {
+            // Regenerate breakdown if it exists
+            if ($companion->itineraryDay->itinerary->breakdown && $companion->itineraryDay->itinerary->itineraryable instanceof QuotationItinerary) {
+                try {
+                    $companion->itineraryDay->itinerary->itineraryable->generateBreakdownFromItinerary();
+                } catch (\Exception $e) {
+                        \Illuminate\Support\Facades\Log::error('Failed to regenerate breakdown after companion creation: ' . $e->getMessage());
+                }
+            }
+        });
+
+        static::deleted(function ($companion) {
+            // Regenerate breakdown if it exists
+            if ($companion->itineraryDay && $companion->itineraryDay->itinerary && $companion->itineraryDay->itinerary->breakdown && $companion->itineraryDay->itinerary->itineraryable instanceof QuotationItinerary) {
+                try {
+                    $companion->itineraryDay->itinerary->itineraryable->generateBreakdownFromItinerary();
+                } catch (\Exception $e) {
+                        \Illuminate\Support\Facades\Log::error('Failed to regenerate breakdown after companion deletion: ' . $e->getMessage());
+                }
+            }
+        });
+    }
+
     /**
      * Get the itinerary day that owns this companion.
      */

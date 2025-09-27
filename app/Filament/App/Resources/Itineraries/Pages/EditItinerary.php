@@ -55,19 +55,29 @@ class EditItinerary extends EditRecord
             ->label('Save and Close')
             ->submit('save')
             ->color('success')
-            ->url(function () {
-                // Check if this itinerary belongs to a quotation
-                if ($this->record->itineraryable_type === QuotationItinerary::class) {
-                    $quotationItinerary = $this->record->itineraryable;
-                    if ($quotationItinerary?->quotation) {
-                        // Redirect to the quotation edit page
-                        return QuotationItineraryResource::getUrl('view', ['record' => $quotationItinerary]) . '?tab=itinerary%3A%3Atab';
-                    }
-                }
+            ->action(function () {
+                // Save the record first
+                $this->save();
                 
-                // Default redirect to itinerary list
-                return static::getResource()::getUrl('index');
+                // Then redirect
+                $redirectUrl = $this->getRedirectUrl();
+                return redirect($redirectUrl);
             });
+    }
+    
+    protected function getRedirectUrl(): string
+    {
+        // Check if this itinerary belongs to a quotation
+        if ($this->record->itineraryable_type === QuotationItinerary::class) {
+            $quotationItinerary = $this->record->itineraryable;
+            if ($quotationItinerary?->quotation) {
+                // Redirect to the quotation edit page
+                return QuotationItineraryResource::getUrl('view', ['record' => $quotationItinerary]) . '?tab=itinerary%3A%3Atab';
+            }
+        }
+        
+        // Default redirect to itinerary list
+        return static::getResource()::getUrl('index');
     }
     protected function mutateFormDataBeforeSave(array $data): array
     {
@@ -256,18 +266,6 @@ class EditItinerary extends EditRecord
     protected function getCancelFormAction(): \Filament\Actions\Action
     {
         return parent::getCancelFormAction()
-            ->url(function () {
-                // Check if this itinerary belongs to a quotation
-                if ($this->record->itineraryable_type === QuotationItinerary::class) {
-                    $quotationItinerary = $this->record->itineraryable;
-                    if ($quotationItinerary?->quotation) {
-                        // Redirect to the quotation edit page
-                        return QuotationItineraryResource::getUrl('view', ['record' => $quotationItinerary]) . '?tab=itinerary%3A%3Atab';
-                    }
-                }
-                
-                // Default redirect to itinerary list
-                return static::getResource()::getUrl('index');
-            });
+            ->url($this->getRedirectUrl());
     }
 }

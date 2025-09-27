@@ -27,6 +27,26 @@ class BreakdownMeal extends Model
         ];
     }
 
+    protected static function booted(): void
+    {
+        // When breakdown meal is updated, mark parent breakdown as incomplete
+        static::updating(function ($meal) {
+            if ($meal->isDirty()) {
+                $meal->breakdown()->update(['is_completed' => false]);
+            }
+        });
+
+        // When breakdown meal is created, mark parent breakdown as incomplete
+        static::created(function ($meal) {
+            $meal->breakdown()->update(['is_completed' => false]);
+        });
+
+        // When breakdown meal is deleted, mark parent breakdown as incomplete
+        static::deleted(function ($meal) {
+            $meal->breakdown()->update(['is_completed' => false]);
+        });
+    }
+
     /**
      * Get the breakdown that owns this meal pricing.
      */

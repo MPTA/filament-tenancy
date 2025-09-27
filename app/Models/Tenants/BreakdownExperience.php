@@ -28,6 +28,26 @@ class BreakdownExperience extends Model
         ];
     }
 
+    protected static function booted(): void
+    {
+        // When breakdown experience is updated, mark parent breakdown as incomplete
+        static::updating(function ($experience) {
+            if ($experience->isDirty()) {
+                $experience->breakdown()->update(['is_completed' => false]);
+            }
+        });
+
+        // When breakdown experience is created, mark parent breakdown as incomplete
+        static::created(function ($experience) {
+            $experience->breakdown()->update(['is_completed' => false]);
+        });
+
+        // When breakdown experience is deleted, mark parent breakdown as incomplete
+        static::deleted(function ($experience) {
+            $experience->breakdown()->update(['is_completed' => false]);
+        });
+    }
+
     /**
      * Get the breakdown that owns this experience pricing.
      */
