@@ -217,6 +217,18 @@ class QuotationItineraryInfolist
                                             ->action(function (QuotationItinerary $quotationItinerary) {
                                                 if ($quotationItinerary->itinerary) {
                                                     $quotationItinerary->itinerary->update(['is_complete' => true]);
+                                                    
+                                                    // Generate breakdown automatically when itinerary is completed
+                                                    $quotationItinerary->generateBreakdownFromItinerary();
+                                                    
+                                                    Notification::make()
+                                                        ->title('Itinerary completed successfully!')
+                                                        ->body('Breakdown has been automatically generated. Redirecting to breakdown form...')
+                                                        ->success()
+                                                        ->send();
+                                                    
+                                                    // Redirect to breakdown edit form
+                                                    return redirect()->to(\App\Filament\App\Resources\QuotationItineraries\QuotationItineraryResource::getUrl('edit-breakdown', ['record' => $quotationItinerary]));
                                                 }
                                             })
                                             ->requiresConfirmation()
@@ -707,6 +719,16 @@ class QuotationItineraryInfolist
                                                 return !$quotationItinerary->breakdown || $quotationItinerary->breakdown->is_completed;
                                             })
                                             ->action(function (QuotationItinerary $quotationItinerary) {
+                                                // Check if itinerary is complete first
+                                                if (!$quotationItinerary->itinerary || !$quotationItinerary->itinerary->is_complete) {
+                                                    Notification::make()
+                                                        ->title('Cannot Complete Breakdown')
+                                                        ->body('Please complete the itinerary first before marking the breakdown as complete.')
+                                                        ->warning()
+                                                        ->send();
+                                                    return;
+                                                }
+                                                
                                                 if ($quotationItinerary->breakdown) {
                                                     $quotationItinerary->breakdown->update(['is_completed' => true]);
                                                     Notification::make()
@@ -717,7 +739,12 @@ class QuotationItineraryInfolist
                                             })
                                             ->requiresConfirmation()
                                             ->modalHeading('Complete Breakdown')
-                                            ->modalDescription('Are you sure you want to mark this breakdown as complete?')
+                                            ->modalDescription(function (QuotationItinerary $quotationItinerary) {
+                                                if (!$quotationItinerary->itinerary || !$quotationItinerary->itinerary->is_complete) {
+                                                    return 'Please complete the itinerary first before marking the breakdown as complete.';
+                                                }
+                                                return 'Are you sure you want to mark this breakdown as complete?';
+                                            })
                                             ->modalSubmitActionLabel('Complete'),
                                         Action::make('edit_breakdown')
                                             ->label('Edit')
@@ -735,6 +762,10 @@ class QuotationItineraryInfolist
                                             ->action(function (QuotationItinerary $quotationItinerary) {
                                                 if ($quotationItinerary->breakdown) {
                                                     $quotationItinerary->breakdown->delete();
+                                                    
+                                                    // Refresh the record to update the UI
+                                                    $quotationItinerary->refresh();
+                                                    
                                                     Notification::make()
                                                         ->title('Breakdown deleted successfully!')
                                                         ->success()
