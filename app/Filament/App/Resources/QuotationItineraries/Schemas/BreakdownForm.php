@@ -62,6 +62,26 @@ class BreakdownForm
                             Repeater::make('vehicleTypes')
                                     ->hiddenLabel()
                                     ->reorderable(false)
+                                    ->rules([
+                                        function () {
+                                            return function (string $attribute, $value, \Closure $fail) {
+                                                if (is_array($value)) {
+                                                    // Count occurrences of each vehicle_type_id
+                                                    $vehicleTypeIds = collect($value)->pluck('vehicle_type_id')->filter()->toArray();
+                                                    $counts = array_count_values($vehicleTypeIds);
+                                                    
+                                                    foreach ($counts as $vehicleTypeId => $count) {
+                                                        if ($count > 1) {
+                                                            $vehicleType = \App\Models\Tenants\VehicleType::find($vehicleTypeId);
+                                                            $vehicleTypeName = $vehicleType ? $vehicleType->name : 'Unknown';
+                                                            $fail("Vehicle type '{$vehicleTypeName}' is selected multiple times. Each vehicle type can only be selected once.");
+                                                            break;
+                                                        }
+                                                    }
+                                                }
+                                            };
+                                        },
+                                    ])
                                     ->table([
                                         TableColumn::make('Vehicle Type'),
                                         TableColumn::make('Per Day Price'),
@@ -390,6 +410,26 @@ class BreakdownForm
                             Repeater::make('companions')
                                     ->hiddenLabel()
                                     ->reorderable(false)
+                                    ->rules([
+                                        function () {
+                                            return function (string $attribute, $value, \Closure $fail) {
+                                                if (is_array($value)) {
+                                                    // Count occurrences of each companion_type_id
+                                                    $companionTypeIds = collect($value)->pluck('companion_type_id')->filter()->toArray();
+                                                    $counts = array_count_values($companionTypeIds);
+                                                    
+                                                    foreach ($counts as $companionTypeId => $count) {
+                                                        if ($count > 1) {
+                                                            $companionType = \App\Models\Tenants\CompanionType::find($companionTypeId);
+                                                            $companionTypeName = $companionType ? $companionType->name : 'Unknown';
+                                                            $fail("Companion type '{$companionTypeName}' is selected multiple times. Each companion type can only be selected once.");
+                                                            break;
+                                                        }
+                                                    }
+                                                }
+                                            };
+                                        },
+                                    ])
                                     ->table([
                                         TableColumn::make('Companion Type'),
                                         TableColumn::make('Per Day Price'),
