@@ -96,11 +96,6 @@ class EditBreakdown extends EditRecord
             
             // Handle relationship data
             $this->handleRelationshipData($data);
-            
-            Notification::make()
-                ->title('Breakdown updated successfully!')
-                ->success()
-                ->send();
         }
         return $data;
     }
@@ -200,6 +195,6 @@ class EditBreakdown extends EditRecord
 
     protected function getRedirectUrl(): string
     {
-        return $this->getResource()::getUrl('view', ['record' => $this->record]);
+        return $this->getResource()::getUrl('view', ['record' => $this->record]) . '?tab=breakdown%3A%3Atab';
     }
 }

@@ -36,6 +36,39 @@ class EditItinerary extends EditRecord
             DeleteAction::make(),
         ];
     }
+
+    protected function getFormActions(): array
+    {
+        return [
+            \Filament\Actions\Action::make('save')
+                ->label('Save')
+                ->submit('save')
+                ->color('primary'),
+            $this->getSaveAndCloseAction(),
+            $this->getCancelFormAction(),
+        ];
+    }
+
+    protected function getSaveAndCloseAction(): \Filament\Actions\Action
+    {
+        return \Filament\Actions\Action::make('saveAndClose')
+            ->label('Save and Close')
+            ->submit('save')
+            ->color('success')
+            ->url(function () {
+                // Check if this itinerary belongs to a quotation
+                if ($this->record->itineraryable_type === QuotationItinerary::class) {
+                    $quotationItinerary = $this->record->itineraryable;
+                    if ($quotationItinerary?->quotation) {
+                        // Redirect to the quotation edit page
+                        return QuotationItineraryResource::getUrl('view', ['record' => $quotationItinerary]) . '?tab=itinerary%3A%3Atab';
+                    }
+                }
+                
+                // Default redirect to itinerary list
+                return static::getResource()::getUrl('index');
+            });
+    }
     protected function mutateFormDataBeforeSave(array $data): array
     {
         // Handle days manually

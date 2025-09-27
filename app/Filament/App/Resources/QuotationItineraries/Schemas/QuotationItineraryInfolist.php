@@ -193,8 +193,7 @@ class QuotationItineraryInfolist
                                         Action::make('Edit Itinerary')
                                             ->icon('heroicon-m-pencil-square')
                                             ->color('primary')
-                                            ->url(fn(QuotationItinerary $quotationItinerary) => ItineraryResource::getUrl('edit', ['record' => $quotationItinerary->itinerary]))
-                                            ->openUrlInNewTab(),
+                                            ->url(fn(QuotationItinerary $quotationItinerary) => ItineraryResource::getUrl('edit', ['record' => $quotationItinerary->itinerary])),
 
                                         Action::make('Complete')
                                             ->icon('heroicon-m-check-circle')
@@ -680,10 +679,30 @@ class QuotationItineraryInfolist
                                     ->description('Cost breakdown summary and details')
                                     ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
                                     ->headerActions([
+                                        Action::make('complete_breakdown')
+                                            ->label('Complete')
+                                            ->icon('heroicon-m-check-circle')
+                                            ->color('success')
+                                            ->hidden(function (QuotationItinerary $quotationItinerary) {
+                                                return !$quotationItinerary->breakdown || $quotationItinerary->breakdown->is_completed;
+                                            })
+                                            ->action(function (QuotationItinerary $quotationItinerary) {
+                                                if ($quotationItinerary->breakdown) {
+                                                    $quotationItinerary->breakdown->update(['is_completed' => true]);
+                                                    Notification::make()
+                                                        ->title('Breakdown completed successfully!')
+                                                        ->success()
+                                                        ->send();
+                                                }
+                                            })
+                                            ->requiresConfirmation()
+                                            ->modalHeading('Complete Breakdown')
+                                            ->modalDescription('Are you sure you want to mark this breakdown as complete?')
+                                            ->modalSubmitActionLabel('Complete'),
                                         Action::make('edit_breakdown')
                                             ->label('Edit')
                                             ->icon('heroicon-m-pencil-square')
-                                            ->color('success')
+                                            ->color('gray')
                                             ->url(fn(QuotationItinerary $quotationItinerary) => \App\Filament\App\Resources\QuotationItineraries\QuotationItineraryResource::getUrl('edit-breakdown', ['record' => $quotationItinerary])),
                                         Action::make('delete_breakdown')
                                             ->label('Delete')
