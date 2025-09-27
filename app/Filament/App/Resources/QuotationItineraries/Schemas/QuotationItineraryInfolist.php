@@ -679,11 +679,17 @@ class QuotationItineraryInfolist
                                                         // Generate breakdown from itinerary
                                                         $quotationItinerary->generateBreakdownFromItinerary();
                                                         
+                                                        // Refresh the record to update the UI
+                                                        $quotationItinerary->refresh();
+                                                        
                                                         Notification::make()
                                                             ->title('Breakdown Generated')
-                                                            ->body('Cost breakdown has been successfully generated from the itinerary.')
+                                                            ->body('Cost breakdown has been successfully generated. Redirecting to breakdown form...')
                                                             ->success()
                                                             ->send();
+                                                        
+                                                        // Redirect to breakdown edit form
+                                                        return redirect()->to(\App\Filament\App\Resources\QuotationItineraries\QuotationItineraryResource::getUrl('edit-breakdown', ['record' => $quotationItinerary]));
                                                     })
                                                     ->modalHeading('Create New Breakdown')
                                                     ->modalDescription('Create a detailed cost breakdown for this quotation itinerary')

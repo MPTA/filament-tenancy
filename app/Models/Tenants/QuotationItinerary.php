@@ -324,11 +324,16 @@ class QuotationItinerary extends Model
                     $attractionExists = \App\Models\Base\Attraction::where('id', $activity->attraction->attraction->id)->exists();
                     
                     if ($attractionExists) {
+                        // Determine price based on passenger type
+                        $entryPrice = $this->is_foreigner_passengers 
+                            ? ($activity->attraction->attraction->foreigner_price ?? $activity->attraction->attraction->entry_price ?? 0.00)
+                            : ($activity->attraction->attraction->local_price ?? $activity->attraction->attraction->entry_price ?? 0.00);
+
                         $breakdownAttraction = $breakdown->attractions()->create([
                             'attraction_id' => $activity->attraction->attraction->id,
                             'city_id' => $activity->city_id,
                             'is_outview' => $activity->attraction->is_outview ?? false,
-                            'entry_price' => $activity->attraction->attraction->entry_price ?? 0.00,
+                            'entry_price' => $entryPrice,
                         ]);
 
                         $this->createBreakdownSubAttractions($breakdownAttraction, $activity->attraction->attraction);
@@ -346,9 +351,14 @@ class QuotationItinerary extends Model
         // Only create sub-attractions if the attraction is NOT outview
         if (!$breakdownAttraction->is_outview && $attraction->subAttractions) {
             foreach ($attraction->subAttractions as $subAttraction) {
+                // Determine price based on passenger type for sub-attractions
+                $subAttractionPrice = $this->is_foreigner_passengers 
+                    ? ($subAttraction->foreigner_price ?? $subAttraction->price ?? 0.00)
+                    : ($subAttraction->local_price ?? $subAttraction->price ?? 0.00);
+
                 $breakdownAttraction->subAttractions()->create([
                     'sub_attraction_id' => $subAttraction->id,
-                    'price' => $subAttraction->price ?? 0.00,
+                    'price' => $subAttractionPrice,
                 ]);
             }
         }
