@@ -60,6 +60,10 @@ class QuotationItinerary extends Model
     public function generateBreakdownFromItinerary()
     {
         $breakdown = $this->createOrUpdateBreakdown();
+        
+        // Mark breakdown as incomplete when regenerating
+        $breakdown->update(['is_completed' => false]);
+        
         $this->updateVehicleData($breakdown);
         $this->createBreakdownTickets($breakdown);
         $this->createBreakdownMeals($breakdown);
