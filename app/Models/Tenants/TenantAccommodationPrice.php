@@ -30,6 +30,9 @@ class TenantAccommodationPrice extends Model
         'valid_from',
         'valid_to',
         'creator_user_id',
+        'is_include_breakfast',
+        'is_include_lunch',
+        'is_include_dinner',
     ];
 
     /**
@@ -39,6 +42,9 @@ class TenantAccommodationPrice extends Model
         'price' => 'decimal:2',
         'valid_from' => 'date',
         'valid_to' => 'date',
+        'is_include_breakfast' => 'boolean',
+        'is_include_lunch' => 'boolean',
+        'is_include_dinner' => 'boolean',
     ];
 
     /**
