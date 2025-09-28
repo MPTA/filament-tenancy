@@ -114,16 +114,22 @@ class BreakdownForm
                                             ->label('Per Day Price')
                                             ->numeric()
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
+                                            ->formatStateUsing(fn($state) => $state == 0 ? null : $state)
+                                            ->dehydrateStateUsing(fn($state) => $state ?: 0)
                                             ->default(0),
                                         TextInput::make('half_day_price')
                                             ->label('Half Day Price')
                                             ->numeric()
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
+                                            ->formatStateUsing(fn($state) => $state == 0 ? null : $state)
+                                            ->dehydrateStateUsing(fn($state) => $state ?: 0)
                                             ->default(0),
                                         TextInput::make('extra_hour_price')
                                             ->label('Extra Hour Price')
                                             ->numeric()
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
+                                            ->formatStateUsing(fn($state) => $state == 0 ? null : $state)
+                                            ->dehydrateStateUsing(fn($state) => $state ?: 0)
                                             ->default(0),
                                     ])
                                     ->addActionLabel('Add Vehicle Type')
@@ -186,6 +192,8 @@ class BreakdownForm
                                     ->label('Price')
                                     ->numeric()
                                     ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
+                                    ->formatStateUsing(fn($state) => $state == 0 ? null : $state)
+                                    ->dehydrateStateUsing(fn($state) => $state ?: 0)
                                     ->default(0),
                             ])
                             ->addActionLabel('Add Ticket')
@@ -469,25 +477,31 @@ class BreakdownForm
                                                     }
                                                 } else {
                                                     // Clear prices when companion type is removed
-                                                    $set('per_day_price', 0);
-                                                    $set('half_day_price', 0);
-                                                    $set('per_hour_price', 0);
+                                                    $set('per_day_price', null);
+                                                    $set('half_day_price', null);
+                                                    $set('per_hour_price', null);
                                                 }
                                             }),
                                         TextInput::make('per_day_price')
                                             ->label('Per Day Price')
                                             ->numeric()
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
+                                            ->formatStateUsing(fn($state) => $state == 0 ? null : $state)
+                                            ->dehydrateStateUsing(fn($state) => $state ?: 0)
                                             ->default(0),
                                         TextInput::make('half_day_price')
                                             ->label('Half Day Price')
                                             ->numeric()
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
+                                            ->formatStateUsing(fn($state) => $state == 0 ? null : $state)
+                                            ->dehydrateStateUsing(fn($state) => $state ?: 0)
                                             ->default(0),
                                         TextInput::make('per_hour_price')
                                             ->label('Per Hour Price')
                                             ->numeric()
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
+                                            ->formatStateUsing(fn($state) => $state == 0 ? null : $state)
+                                            ->dehydrateStateUsing(fn($state) => $state ?: 0)
                                             ->default(0),
                                     ])
                                     ->addActionLabel('Add Companion')

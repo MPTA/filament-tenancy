@@ -164,8 +164,8 @@ class QuotationItinerary extends Model
                     
                     // Only process if not already processed
                     if (!isset($processedTickets[$key])) {
-                        // Preserve existing price if available, otherwise use 0.00
-                        $price = $existingTickets->get($key, 0.00);
+                        // Preserve existing price if available, otherwise use null for tickets (no source table)
+                        $price = $existingTickets->get($key, null);
                         
                         $breakdown->tickets()->create([
                             'transport_mode' => $activity->ticket->transport_mode,
