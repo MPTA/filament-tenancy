@@ -52,4 +52,12 @@ class SubAttraction extends Model
     {
         return $this->hasMany(\App\Models\Tenants\TenantSubAttraction::class);
     }
+
+    /**
+     * Get the tenant sub attraction prices for this sub attraction.
+     */
+    public function tenantPrices(): HasMany
+    {
+        return $this->hasMany(\App\Models\Tenants\TenantSubAttractionPrice::class);
+    }
 }
