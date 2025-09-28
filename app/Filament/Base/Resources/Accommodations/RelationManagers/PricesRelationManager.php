@@ -36,23 +36,23 @@ class PricesRelationManager extends RelationManager
     {
         return $schema
             ->components([
-                Grid::make(2)
-                    ->schema([
+                // First line: Currency only (1 field)
+                Select::make('currency_id')
+                    ->label('Currency')
+                    ->relationship('currency', 'name')
+                    ->searchable()
+                    ->preload()
+                    ->required(),
+                
+                // Second line: Room Category and Price (2 fields)
+                
                         Select::make('room_category_id')
                             ->label('Room Category')
                             ->relationship('roomCategory', 'name')
                             ->searchable()
                             ->preload()
+                            ->columnStart(1)
                             ->required(),
-                        Select::make('currency_id')
-                            ->label('Currency')
-                            ->relationship('currency', 'name')
-                            ->searchable()
-                            ->preload()
-                            ->required(),
-                    ]),
-                Grid::make(2)
-                    ->schema([
                         TextInput::make('price')
                             ->label('Price')
                             ->required()
@@ -64,37 +64,46 @@ class PricesRelationManager extends RelationManager
                                 'numeric' => 'Price must be a number',
                                 'min' => 'Price cannot be negative',
                             ]),
+                 
+                
+                // Third line: Valid From and Valid To (2 fields)
+             
                         DatePicker::make('valid_from')
                             ->label('Valid From')
                             ->default(Carbon::now())
                             ->required(),
-                    ]),
-                DatePicker::make('valid_to')
-                    ->label('Valid To')
-                    ->after('valid_from')
-                    ->placeholder('Leave empty for indefinite validity'),
+                        DatePicker::make('valid_to')
+                            ->label('Valid To')
+                            ->after('valid_from')
+                            ->placeholder('Leave empty for indefinite validity'),
+                   
                 
+                // Fourth line: Meal Inclusion section only
                 Section::make('Meal Inclusion')
                     ->description('Select which meals are included in this price')
-                    ->icon('heroicon-o-utensils')
+                    ->icon('heroicon-o-cake')
+                    ->compact()
+                    ->columnSpanFull()
                     ->schema([
                         Grid::make(3)
                             ->schema([
                                 Toggle::make('is_include_breakfast')
-                                    ->label('Include Breakfast')
+                                    ->label('Breakfast')
                                     ->default(false)
-                                    ->helperText('Breakfast is included in the price'),
+                                    ->inline(false),
                                 Toggle::make('is_include_lunch')
-                                    ->label('Include Lunch')
+                                    ->label('Lunch')
                                     ->default(false)
-                                    ->helperText('Lunch is included in the price'),
+                                    ->inline(false),
                                 Toggle::make('is_include_dinner')
-                                    ->label('Include Dinner')
+                                    ->label('Dinner')
                                     ->default(false)
-                                    ->helperText('Dinner is included in the price'),
+                                    ->inline(false),
                             ]),
                     ])
-                    ->collapsible(),
+                    
+                    ->collapsible()
+                    ->collapsed(false),
             ]);
     }
 
