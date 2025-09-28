@@ -2,26 +2,19 @@
 
 namespace App\Models\Base;
 
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Carbon\Carbon;
 
 class AccommodationPrice extends Model
 {
+    use HasUuids;
+
     /**
      * The table associated with the model.
      */
     protected $table = 'accommodation_prices';
-
-    /**
-     * Indicates if the model's ID is auto-incrementing.
-     */
-    public $incrementing = false;
-
-    /**
-     * The data type of the auto-incrementing ID.
-     */
-    protected $keyType = 'string';
 
     /**
      * The attributes that are mass assignable.
@@ -45,19 +38,6 @@ class AccommodationPrice extends Model
         'valid_to' => 'date',
     ];
 
-    /**
-     * Boot the model.
-     */
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::creating(function ($model) {
-            if (empty($model->id)) {
-                $model->id = \Illuminate\Support\Str::uuid()->toString();
-            }
-        });
-    }
 
     /**
      * Get the accommodation that owns the price.
