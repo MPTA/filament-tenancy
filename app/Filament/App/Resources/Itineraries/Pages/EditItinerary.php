@@ -32,21 +32,21 @@ class EditItinerary extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
-            ViewAction::make(),
-            DeleteAction::make(),
+            \Filament\Actions\Action::make('save')
+                ->label('Store')
+                ->submit('save')
+                ->color('success')
+                ->icon('heroicon-o-check'),
+            $this->getSaveAndCloseAction(),
+            $this->getViewQuotationAction(),
+            // DeleteAction::make()
+            //     ->icon('heroicon-o-trash'),
         ];
     }
 
     protected function getFormActions(): array
     {
-        return [
-            \Filament\Actions\Action::make('save')
-                ->label('Save')
-                ->submit('save')
-                ->color('primary'),
-            $this->getSaveAndCloseAction(),
-            $this->getCancelFormAction(),
-        ];
+        return [];
     }
 
     protected function getSaveAndCloseAction(): \Filament\Actions\Action
@@ -54,7 +54,8 @@ class EditItinerary extends EditRecord
         return \Filament\Actions\Action::make('saveAndClose')
             ->label('Save and Close')
             ->submit('save')
-            ->color('success')
+            ->color('primary')
+            ->icon('heroicon-o-check-circle')
             ->action(function () {
                 // Save the record first
                 $this->save();
@@ -263,9 +264,25 @@ class EditItinerary extends EditRecord
         ]);
     }
 
-    protected function getCancelFormAction(): \Filament\Actions\Action
+    protected function getViewQuotationAction(): \Filament\Actions\Action
     {
-        return parent::getCancelFormAction()
-            ->url($this->getRedirectUrl());
+        return \Filament\Actions\Action::make('view_quotation')
+            ->label('View Quotation')
+            ->url(fn() => $this->getQuotationUrl())
+            ->icon('heroicon-o-eye')
+            ->color('gray')
+            ->visible(fn() => $this->record->itineraryable_type === QuotationItinerary::class);
+    }
+    
+    protected function getQuotationUrl(): string
+    {
+        if ($this->record->itineraryable_type === QuotationItinerary::class) {
+            $quotationItinerary = $this->record->itineraryable;
+            if ($quotationItinerary?->quotation) {
+                return QuotationItineraryResource::getUrl('view', ['record' => $quotationItinerary]) . '?tab=itinerary%3A%3Atab';
+            }
+        }
+        
+        return '#';
     }
 }
