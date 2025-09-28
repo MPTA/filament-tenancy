@@ -135,6 +135,16 @@ class QuotationItinerary extends Model
     {
         if (!$this->itinerary) return;
 
+        // Get existing tickets with their prices before deleting
+        $existingTickets = $breakdown->tickets->mapWithKeys(function ($ticket) {
+            $classValue = $ticket->class;
+            if ($classValue instanceof \App\Enums\TicketClassEnum) {
+                $classValue = $classValue->value;
+            }
+            $key = $ticket->transport_mode . '_' . $ticket->from_city_id . '_' . $ticket->to_city_id . '_' . ($classValue ?? 'null');
+            return [$key => $ticket->price];
+        });
+
         // Delete all existing tickets first
         $breakdown->tickets()->delete();
 
@@ -154,14 +164,17 @@ class QuotationItinerary extends Model
                     
                     // Only process if not already processed
                     if (!isset($processedTickets[$key])) {
+                        // Preserve existing price if available, otherwise use 0.00
+                        $price = $existingTickets->get($key, 0.00);
+                        
                         $breakdown->tickets()->create([
                             'transport_mode' => $activity->ticket->transport_mode,
                             'from_city_id' => $activity->city_id,
                             'to_city_id' => $activity->ticket->to_city_id,
                             'class' => $activity->ticket->class?->value,
-                            'price' => 0.00,
+                            'price' => $price,
                         ]);
-                        
+
                         $processedTickets[$key] = true;
                     }
                 }
@@ -175,6 +188,12 @@ class QuotationItinerary extends Model
     private function createBreakdownMeals($breakdown)
     {
         if (!$this->itinerary) return;
+
+        // Get existing meals with their prices before deleting
+        $existingMeals = $breakdown->meals->mapWithKeys(function ($meal) {
+            $key = $meal->meal_type_id;
+            return [$key => $meal->price];
+        });
 
         // Delete all existing meals first
         $breakdown->meals()->delete();
@@ -200,10 +219,13 @@ class QuotationItinerary extends Model
         // Create new meals
         foreach ($mealCounts as $mealTypeId => $qty) {
             $mealType = \App\Models\Tenants\MealType::find($mealTypeId);
+            // Preserve existing price if available, otherwise use meal type default price
+            $price = $existingMeals->get($mealTypeId, $mealType?->price ?? 0.00);
+            
             $breakdown->meals()->create([
                 'meal_type_id' => $mealTypeId,
                 'qty' => $qty,
-                'price' => $mealType?->price ?? 0.00,
+                'price' => $price,
             ]);
         }
     }
@@ -215,8 +237,19 @@ class QuotationItinerary extends Model
     {
         if (!$this->itinerary) return;
 
+        // Get existing experiences with their prices before deleting
+        $existingExperiences = $breakdown->experiences->mapWithKeys(function ($experience) {
+            $key = $experience->experience_id;
+            return [$key => [
+                'price' => $experience->price,
+                'charge_mode' => $experience->charge_mode,
+            ]];
+        });
+
         // Delete all existing experiences first
         $breakdown->experiences()->delete();
+
+        $processedExperiences = [];
 
         foreach ($this->itinerary->days as $day) {
             $experienceActivities = $day->activities()
@@ -232,11 +265,26 @@ class QuotationItinerary extends Model
                     $experienceExists = \App\Models\Tenants\Experience::where('id', $activity->experience->experience->id)->exists();
                     
                     if ($experienceExists) {
-                        $breakdown->experiences()->create([
-                            'experience_id' => $activity->experience->experience->id,
-                            'price' => $activity->experience->experience->price ?? 0.00,
-                            'charge_mode' => $activity->experience->experience->charge_mode ?? \App\Enums\ChargeModeEnum::PER_PERSON,
-                        ]);
+                        $experienceId = $activity->experience->experience->id;
+                        
+                        // Only process if not already processed
+                        if (!isset($processedExperiences[$experienceId])) {
+                            $existingData = $existingExperiences->get($experienceId, [
+                                'price' => 0.00,
+                                'charge_mode' => \App\Enums\ChargeModeEnum::PER_PERSON,
+                            ]);
+
+                            // Preserve existing price if available, otherwise use experience default price
+                            $price = $existingData['price'] > 0 ? $existingData['price'] : ($activity->experience->experience->price ?? 0.00);
+                            
+                            $breakdown->experiences()->create([
+                                'experience_id' => $experienceId,
+                                'price' => $price,
+                                'charge_mode' => $existingData['charge_mode'] ?? ($activity->experience->experience->charge_mode ?? \App\Enums\ChargeModeEnum::PER_PERSON),
+                            ]);
+
+                            $processedExperiences[$experienceId] = true;
+                        }
                     }
                 }
             }
@@ -249,6 +297,15 @@ class QuotationItinerary extends Model
     private function createBreakdownAccommodations($breakdown)
     {
         if (!$this->itinerary) return;
+
+        // Get existing accommodations with their room prices before deleting
+        $existingAccommodations = $breakdown->accommodations->mapWithKeys(function ($accommodation) {
+            $key = "{$accommodation->accommodation_id}_{$accommodation->city_id}";
+            $rooms = $accommodation->rooms->mapWithKeys(function ($room) {
+                return [$room->room_category_id => $room->price];
+            });
+            return [$key => $rooms];
+        });
 
         // Delete all existing accommodations first
         $breakdown->accommodations()->delete();
@@ -271,35 +328,40 @@ class QuotationItinerary extends Model
         }
 
         foreach ($accommodationNights as $accommodationData) {
+            $key = "{$accommodationData['accommodation_id']}_{$accommodationData['city_id']}";
+            $existingRooms = $existingAccommodations->get($key, collect());
+
             $breakdownAccommodation = $breakdown->accommodations()->create([
                 'accommodation_id' => $accommodationData['accommodation_id'],
                 'city_id' => $accommodationData['city_id'],
                 'nights_qty' => $accommodationData['nights'],
             ]);
 
-            $this->createDefaultRoomCategories($breakdownAccommodation);
+            $this->createDefaultRoomCategories($breakdownAccommodation, $existingRooms);
         }
     }
 
     /**
      * Create default room categories for accommodation
      */
-    private function createDefaultRoomCategories($breakdownAccommodation)
+    private function createDefaultRoomCategories($breakdownAccommodation, $existingRooms = null)
     {
         $twinRoomCategory = RoomCategory::where('category', \App\Enums\RoomCategoryEnum::TWIN->value)->first();
         $singleRoomCategory = RoomCategory::where('category', \App\Enums\RoomCategoryEnum::SINGLE->value)->first();
 
         if ($twinRoomCategory) {
+            $price = $existingRooms ? $existingRooms->get($twinRoomCategory->id, 0.00) : 0.00;
             $breakdownAccommodation->rooms()->create([
                 'room_category_id' => $twinRoomCategory->id,
-                'price' => 0.00,
+                'price' => $price,
             ]);
         }
 
         if ($singleRoomCategory) {
+            $price = $existingRooms ? $existingRooms->get($singleRoomCategory->id, 0.00) : 0.00;
             $breakdownAccommodation->rooms()->create([
                 'room_category_id' => $singleRoomCategory->id,
-                'price' => 0.00,
+                'price' => $price,
             ]);
         }
     }
@@ -310,6 +372,18 @@ class QuotationItinerary extends Model
     private function createBreakdownAttractions($breakdown)
     {
         if (!$this->itinerary) return;
+
+        // Get existing attractions with their prices before deleting
+        $existingAttractions = $breakdown->attractions->mapWithKeys(function ($attraction) {
+            $key = "{$attraction->attraction_id}_{$attraction->city_id}_{$attraction->is_outview}";
+            $subAttractions = $attraction->subAttractions->mapWithKeys(function ($subAttraction) {
+                return [$subAttraction->sub_attraction_id => $subAttraction->price];
+            });
+            return [$key => [
+                'entry_price' => $attraction->entry_price,
+                'sub_attractions' => $subAttractions,
+            ]];
+        });
 
         // Delete all existing attractions first
         $breakdown->attractions()->delete();
@@ -328,10 +402,18 @@ class QuotationItinerary extends Model
                     $attractionExists = \App\Models\Base\Attraction::where('id', $activity->attraction->attraction->id)->exists();
                     
                     if ($attractionExists) {
-                        // Determine price based on passenger type
-                        $entryPrice = $this->is_foreigner_passengers 
-                            ? ($activity->attraction->attraction->foreigner_price ?? $activity->attraction->attraction->entry_price ?? 0.00)
-                            : ($activity->attraction->attraction->local_price ?? $activity->attraction->attraction->entry_price ?? 0.00);
+                        $key = "{$activity->attraction->attraction->id}_{$activity->city_id}_{$activity->attraction->is_outview}";
+                        $existingData = $existingAttractions->get($key, [
+                            'entry_price' => 0.00,
+                            'sub_attractions' => collect(),
+                        ]);
+
+                        // Preserve existing price if available, otherwise use passenger type based price
+                        $entryPrice = $existingData['entry_price'] > 0 ? $existingData['entry_price'] : (
+                            $this->is_foreigner_passengers 
+                                ? ($activity->attraction->attraction->foreigner_price ?? $activity->attraction->attraction->entry_price ?? 0.00)
+                                : ($activity->attraction->attraction->local_price ?? $activity->attraction->attraction->entry_price ?? 0.00)
+                        );
 
                         $breakdownAttraction = $breakdown->attractions()->create([
                             'attraction_id' => $activity->attraction->attraction->id,
@@ -340,7 +422,7 @@ class QuotationItinerary extends Model
                             'entry_price' => $entryPrice,
                         ]);
 
-                        $this->createBreakdownSubAttractions($breakdownAttraction, $activity->attraction->attraction);
+                        $this->createBreakdownSubAttractions($breakdownAttraction, $activity->attraction->attraction, $existingData['sub_attractions']);
                     }
                 }
             }
@@ -350,15 +432,18 @@ class QuotationItinerary extends Model
     /**
      * Create breakdown sub-attractions
      */
-    private function createBreakdownSubAttractions($breakdownAttraction, $attraction)
+    private function createBreakdownSubAttractions($breakdownAttraction, $attraction, $existingSubAttractions = null)
     {
         // Only create sub-attractions if the attraction is NOT outview
         if (!$breakdownAttraction->is_outview && $attraction->subAttractions) {
             foreach ($attraction->subAttractions as $subAttraction) {
-                // Determine price based on passenger type for sub-attractions
-                $subAttractionPrice = $this->is_foreigner_passengers 
-                    ? ($subAttraction->foreigner_price ?? $subAttraction->price ?? 0.00)
-                    : ($subAttraction->local_price ?? $subAttraction->price ?? 0.00);
+                // Preserve existing price if available, otherwise use passenger type based price
+                $existingPrice = $existingSubAttractions ? $existingSubAttractions->get($subAttraction->id, 0.00) : 0.00;
+                $subAttractionPrice = $existingPrice > 0 ? $existingPrice : (
+                    $this->is_foreigner_passengers 
+                        ? ($subAttraction->foreigner_price ?? $subAttraction->price ?? 0.00)
+                        : ($subAttraction->local_price ?? $subAttraction->price ?? 0.00)
+                );
 
                 $breakdownAttraction->subAttractions()->create([
                     'sub_attraction_id' => $subAttraction->id,
