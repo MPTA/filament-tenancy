@@ -64,10 +64,11 @@ class EditBreakdown extends EditRecord
                 ->color('primary')
                 ->icon('heroicon-o-check-circle'),
             
-            Actions\Action::make('view_itinerary')
-                ->label('View Itinerary')
-                ->url(fn() => route('filament.app.resources.quotation-itineraries.view', $this->record))
-                ->icon('heroicon-o-eye'),
+            Actions\Action::make('view_quotation')
+                ->label('View Quotation')
+                ->url(fn() => route('filament.app.resources.quotation-itineraries.view', $this->record) . '?tab=breakdown%3A%3Atab')
+                ->icon('heroicon-o-eye')
+                ->color('gray'),
         ];
     }
 
