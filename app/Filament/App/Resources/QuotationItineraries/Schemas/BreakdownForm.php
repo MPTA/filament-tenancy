@@ -146,6 +146,32 @@ class BreakdownForm
                             ->addable(false)
                             ->deletable(false)
                             ->reorderable(false)
+                            ->rules([
+                                function () {
+                                    return function (string $attribute, $value, \Closure $fail) {
+                                        if (is_array($value)) {
+                                            foreach ($value as $index => $ticket) {
+                                                // Create route description for better error messages
+                                                $fromCity = \App\Models\Base\City::find($ticket['from_city_id'] ?? null)?->name ?? 'Unknown';
+                                                $toCity = \App\Models\Base\City::find($ticket['to_city_id'] ?? null)?->name ?? 'Unknown';
+                                                $transportMode = $ticket['transport_mode'] ?? 'Unknown';
+                                                $class = $ticket['class'] ?? 'Unknown';
+                                                
+                                                $routeDescription = "{$fromCity} to {$toCity} ({$transportMode} - {$class})";
+                                                
+                                                if (!isset($ticket['price']) || $ticket['price'] === null || $ticket['price'] === '') {
+                                                    $fail("Ticket price is required for route: {$routeDescription}");
+                                                    break;
+                                                }
+                                                if (!is_numeric($ticket['price']) || $ticket['price'] < 0) {
+                                                    $fail("Ticket price must be a valid number (0 or greater) for route: {$routeDescription}");
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                    };
+                                },
+                            ])
                             ->table([
                                 TableColumn::make('Transport Mode'),
                                 TableColumn::make('Class'),
@@ -193,7 +219,14 @@ class BreakdownForm
                                     ->numeric()
                                     ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
                                     ->formatStateUsing(fn($state) => $state == 0 ? null : $state)
-                                    ->dehydrateStateUsing(fn($state) => $state ?: 0)
+                                    ->dehydrateStateUsing(fn($state) => $state === null ? null : (float)$state)
+                                    ->required()
+                                    ->rules(['required', 'numeric', 'min:0'])
+                                    ->validationMessages([
+                                        'required' => 'Ticket price is required',
+                                        'numeric' => 'Ticket price must be a number',
+                                        'min' => 'Ticket price cannot be negative',
+                                    ])
                                     ->default(0),
                             ])
                             ->addActionLabel('Add Ticket')
