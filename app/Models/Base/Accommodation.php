@@ -5,6 +5,7 @@ namespace App\Models\Base;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\Translatable\HasTranslations;
 use Stancl\Tenancy\Database\Concerns\CentralConnection;
 
@@ -69,5 +70,21 @@ class Accommodation extends Model
     public function district(): BelongsTo
     {
         return $this->belongsTo(District::class);
+    }
+
+    /**
+     * Get the accommodation prices for this accommodation.
+     */
+    public function prices(): HasMany
+    {
+        return $this->hasMany(AccommodationPrice::class);
+    }
+
+    /**
+     * Get the tenant accommodation prices for this accommodation.
+     */
+    public function tenantPrices(): HasMany
+    {
+        return $this->hasMany(\App\Models\Tenants\TenantAccommodationPrice::class);
     }
 }

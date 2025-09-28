@@ -9,6 +9,7 @@ use App\Filament\Base\Resources\Accommodations\Pages\ViewAccommodation;
 use App\Filament\Base\Resources\Accommodations\Schemas\AccommodationForm;
 use App\Filament\Base\Resources\Accommodations\Schemas\AccommodationInfolist;
 use App\Filament\Base\Resources\Accommodations\Tables\AccommodationsTable;
+use App\Filament\Base\Resources\Accommodations\RelationManagers\PricesRelationManager;
 use App\Models\Base\Accommodation;
 use BackedEnum;
 use Filament\Resources\Resource;
@@ -44,7 +45,7 @@ class AccommodationResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            PricesRelationManager::class,
         ];
     }
 
