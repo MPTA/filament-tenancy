@@ -155,7 +155,7 @@ class Quotation extends Model
      */
     public function getIsExpiredAttribute(): bool
     {
-        return $this->expire_date && $this->expire_date->isPast();
+        return $this->expire_date && $this->expire_date < now();
     }
 
     /**
