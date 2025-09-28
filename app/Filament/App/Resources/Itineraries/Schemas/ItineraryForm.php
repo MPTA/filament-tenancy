@@ -35,21 +35,23 @@ class ItineraryForm
                     ->columnSpanFull()
                     ->columns(['md' => 2, 'lg' => 4])
                     ->label('Days')
-                    ->itemLabel(function (array $state) {
-                        static $counter = 0;
-                        $dayNumber = ++$counter;
+                    ->live()
+                    ->itemLabel(function (array $state, $component) {
+                        $dayNumber = $component->getStatePath() ? (int) substr($component->getStatePath(), -1) + 1 : 1;
                         
                         $cityName = '';
                         $hotelName = '';
                         
-                        // Get accommodation city name
+                        // Get city name - prefer accommodation city, fallback to current city
                         if (!empty($state['accommodation_city_id'])) {
                             $city = City::find($state['accommodation_city_id']);
                             if ($city) {
                                 $cityName = $city->name;
                             }
-                        } else if (!empty($state['current_city_id'])) {
-                            // Fallback to current city if accommodation city is not set
+                        }
+                        
+                        // If no accommodation city, use current city
+                        if (empty($cityName) && !empty($state['current_city_id'])) {
                             $city = City::find($state['current_city_id']);
                             if ($city) {
                                 $cityName = $city->name;
@@ -114,10 +116,11 @@ class ItineraryForm
                     ->schema([
                         Select::make('current_city_id')
                             ->options(City::getCachedSelectOptions())
-                            ->required(),
+                            ->required()
+                            ->live(),
                         Select::make('accommodation_city_id')
                             ->options(City::getCachedSelectOptions())
-                            ->reactive()
+                            ->live()
                             ->afterStateUpdated(function ($state, callable $set) {
                                 $set('accommodation_id', null);
                             }),
