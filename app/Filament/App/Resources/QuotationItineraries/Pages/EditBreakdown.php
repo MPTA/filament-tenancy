@@ -27,6 +27,43 @@ class EditBreakdown extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
+            Actions\Action::make('store')
+                ->label('Store')
+                ->action(function () {
+                    try {
+                        // Get form data
+                        $data = $this->form->getState();
+                        
+                        // Save breakdown data
+                        $this->mutateFormDataBeforeSave($data);
+                        
+                        // Refresh the breakdown to get updated data
+                        $this->breakdown->refresh();
+                        
+                        Notification::make()
+                            ->title('Breakdown saved successfully!')
+                            ->success()
+                            ->send();
+                    } catch (\Exception $e) {
+                        Notification::make()
+                            ->title('Error saving breakdown')
+                            ->body($e->getMessage())
+                            ->danger()
+                            ->send();
+                    }
+                })
+                ->color('success')
+                ->icon('heroicon-o-check'),
+            
+            Actions\Action::make('save_and_close')
+                ->label('Save and Close')
+                ->action(function () {
+                    $this->save();
+                    $this->redirect($this->getRedirectUrl());
+                })
+                ->color('primary')
+                ->icon('heroicon-o-check-circle'),
+            
             Actions\Action::make('view_itinerary')
                 ->label('View Itinerary')
                 ->url(fn() => route('filament.app.resources.quotation-itineraries.view', $this->record))
@@ -196,5 +233,10 @@ class EditBreakdown extends EditRecord
     protected function getRedirectUrl(): string
     {
         return $this->getResource()::getUrl('view', ['record' => $this->record]) . '?tab=breakdown%3A%3Atab';
+    }
+
+    protected function getFormActions(): array
+    {
+        return [];
     }
 }
