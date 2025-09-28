@@ -115,10 +115,12 @@ class ItineraryForm
                     ->collapsed()
                     ->schema([
                         Select::make('current_city_id')
+                        ->label('Current City')
                             ->options(City::getCachedSelectOptions())
                             ->required()
                             ->live(),
                         Select::make('accommodation_city_id')
+                            ->label('Accommodation City')
                             ->options(City::getCachedSelectOptions())
                             ->live()
                             ->afterStateUpdated(function ($state, callable $set) {
@@ -132,6 +134,7 @@ class ItineraryForm
                                 $set('accommodation_id', null);
                             }),
                         Select::make('accommodation_id')
+                            ->label('Accommodation')
                             ->options(function (callable $get) {
                                 $accommodationCityId = $get('accommodation_city_id');
                                 $starRating = $get('accommodation_star_rating');
