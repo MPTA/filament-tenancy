@@ -209,11 +209,11 @@ class TenantPricesRelationManager extends RelationManager
                     ->badge(),
                 TextColumn::make('price')
                     ->label('Price')
-                    ->money()
+                    ->money(fn($record) => $record->currency?->code )
                     ->sortable()
                     ->badge()
                     ->color('success'),
-                TextColumn::make('currency.name')
+                TextColumn::make('currency.symbol')
                     ->label('Currency')
                     ->searchable()
                     ->badge(),
@@ -230,7 +230,7 @@ class TenantPricesRelationManager extends RelationManager
                     ->badge()
                     ->color('warning')
                     ->placeholder('Indefinite'),
-                TextColumn::make('meals')
+                TextColumn::make('is_include_breakfast')
                     ->label('Meals Included')
                     ->badge()
                     ->color('info')

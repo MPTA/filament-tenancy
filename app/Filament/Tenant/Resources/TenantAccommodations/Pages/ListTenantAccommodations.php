@@ -32,6 +32,7 @@ class ListTenantAccommodations extends ListRecords
         // Filter accommodations by tenant's country
         return $this->getResource()::getEloquentQuery()
             ->where('country_id', $countryId)
-            ->where('is_active', true); // Only show active accommodations
+            ->where('is_active', true) // Only show active accommodations
+            ->withCount('tenantPrices'); // Add count of tenant prices
     }
 }

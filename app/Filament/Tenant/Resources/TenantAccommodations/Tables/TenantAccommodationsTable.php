@@ -6,6 +6,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Filament\Actions\ViewAction;
+use Filament\Tables\Enums\FiltersLayout;
 
 class TenantAccommodationsTable
 {
@@ -24,54 +25,46 @@ class TenantAccommodationsTable
                     ->badge()
                     ->color('warning')
                     ->formatStateUsing(fn($state) => $state ? str_repeat('★', $state) : 'No rating'),
-                TextColumn::make('country.name')
-                    ->label('Country')
-                    ->searchable()
-                    ->sortable()
-                    ->badge()
-                    ->color('info'),
+
                 TextColumn::make('city.name')
                     ->label('City')
                     ->searchable()
                     ->sortable()
                     ->badge()
                     ->color('success'),
-                TextColumn::make('address')
-                    ->label('Address')
-                    ->limit(50)
-                    ->tooltip(function (TextColumn $column): ?string {
-                        $state = $column->getState();
-                        return strlen($state) > 50 ? $state : null;
-                    }),
-                TextColumn::make('is_active')
-                    ->label('Status')
+                TextColumn::make('district.name')
+                    ->label('District')
+                    ->searchable()
+                    ->sortable()
                     ->badge()
-                    ->color(fn($state) => $state ? 'success' : 'danger')
-                    ->formatStateUsing(fn($state) => $state ? 'Active' : 'Inactive'),
+                    ->color('secondary'),
+                TextColumn::make('tenant_prices_count')
+                    ->label('Tenant Prices')
+                    ->badge()
+                    ->color('primary')
+                    ->formatStateUsing(function ($record) {
+                        return ($record->tenant_prices_count ?? 0) . ' prices';
+                    }),
             ])
             ->filters([
-                SelectFilter::make('country_id')
-                    ->label('Country')
-                    ->relationship('country', 'name'),
                 SelectFilter::make('city_id')
                     ->label('City')
-                    ->relationship('city', 'name'),
+                    ->relationship('city', 'name')
+                    ->searchable()
+                    ->preload()
+                    ->multiple(),
                 SelectFilter::make('star_rating')
                     ->label('Star Rating')
                     ->options([
                         1 => '1 Star',
-                        2 => '2 Stars',
+                        2 => '2 Stars', 
                         3 => '3 Stars',
                         4 => '4 Stars',
                         5 => '5 Stars',
-                    ]),
-                SelectFilter::make('is_active')
-                    ->label('Status')
-                    ->options([
-                        1 => 'Active',
-                        0 => 'Inactive',
-                    ]),
+                    ])
+                    ->multiple(),
             ])
+            ->filtersLayout(FiltersLayout::AboveContent)
             ->defaultSort('name', 'asc')
             ->recordActions([
                 ViewAction::make(),
