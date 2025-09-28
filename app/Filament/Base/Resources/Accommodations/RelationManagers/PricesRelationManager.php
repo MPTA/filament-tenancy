@@ -14,6 +14,8 @@ use Filament\Actions\ViewAction;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Grid;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Grid as InfolistGrid;
@@ -71,6 +73,28 @@ class PricesRelationManager extends RelationManager
                     ->label('Valid To')
                     ->after('valid_from')
                     ->placeholder('Leave empty for indefinite validity'),
+                
+                Section::make('Meal Inclusion')
+                    ->description('Select which meals are included in this price')
+                    ->icon('heroicon-o-utensils')
+                    ->schema([
+                        Grid::make(3)
+                            ->schema([
+                                Toggle::make('is_include_breakfast')
+                                    ->label('Include Breakfast')
+                                    ->default(false)
+                                    ->helperText('Breakfast is included in the price'),
+                                Toggle::make('is_include_lunch')
+                                    ->label('Include Lunch')
+                                    ->default(false)
+                                    ->helperText('Lunch is included in the price'),
+                                Toggle::make('is_include_dinner')
+                                    ->label('Include Dinner')
+                                    ->default(false)
+                                    ->helperText('Dinner is included in the price'),
+                            ]),
+                    ])
+                    ->collapsible(),
             ]);
     }
 
@@ -106,6 +130,24 @@ class PricesRelationManager extends RelationManager
                     ->placeholder('Indefinite validity')
                     ->badge()
                     ->color('warning'),
+                InfolistGrid::make(3)
+                    ->schema([
+                        TextEntry::make('is_include_breakfast')
+                            ->label('Breakfast')
+                            ->badge()
+                            ->color(fn($state) => $state ? 'success' : 'gray')
+                            ->formatStateUsing(fn($state) => $state ? 'Included' : 'Not Included'),
+                        TextEntry::make('is_include_lunch')
+                            ->label('Lunch')
+                            ->badge()
+                            ->color(fn($state) => $state ? 'success' : 'gray')
+                            ->formatStateUsing(fn($state) => $state ? 'Included' : 'Not Included'),
+                        TextEntry::make('is_include_dinner')
+                            ->label('Dinner')
+                            ->badge()
+                            ->color(fn($state) => $state ? 'success' : 'gray')
+                            ->formatStateUsing(fn($state) => $state ? 'Included' : 'Not Included'),
+                    ]),
                 InfolistGrid::make(2)
                     ->schema([
                         TextEntry::make('created_at')
@@ -153,6 +195,17 @@ class PricesRelationManager extends RelationManager
                     ->badge()
                     ->color('warning')
                     ->placeholder('Indefinite'),
+                TextColumn::make('meals')
+                    ->label('Meals Included')
+                    ->badge()
+                    ->color('info')
+                    ->formatStateUsing(function ($record) {
+                        $meals = [];
+                        if ($record->is_include_breakfast) $meals[] = 'Breakfast';
+                        if ($record->is_include_lunch) $meals[] = 'Lunch';
+                        if ($record->is_include_dinner) $meals[] = 'Dinner';
+                        return empty($meals) ? 'No meals' : implode(', ', $meals);
+                    }),
                 TextColumn::make('status')
                     ->label('Status')
                     ->badge()
@@ -176,6 +229,15 @@ class PricesRelationManager extends RelationManager
                 Filter::make('expired')
                     ->label('Expired Prices')
                     ->query(fn(Builder $query) => $query->where('valid_to', '<', Carbon::now())),
+                Filter::make('with_breakfast')
+                    ->label('With Breakfast')
+                    ->query(fn(Builder $query) => $query->where('is_include_breakfast', true)),
+                Filter::make('with_lunch')
+                    ->label('With Lunch')
+                    ->query(fn(Builder $query) => $query->where('is_include_lunch', true)),
+                Filter::make('with_dinner')
+                    ->label('With Dinner')
+                    ->query(fn(Builder $query) => $query->where('is_include_dinner', true)),
             ])
             ->defaultSort('valid_from', 'desc')
             ->headerActions([
