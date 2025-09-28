@@ -28,31 +28,45 @@ class BreakdownForm
                                     ->schema([
                                         TextInput::make('vehicle_days_qty')
                                             ->label('Vehicle Days')
-                                            ->numeric()
-                                            ->default(0),
+                                            ->default(0)
+                                            ->rules(['numeric', 'min:0'])
+                                            ->validationMessages([
+                                                'numeric' => 'Value must be a valid number',
+                                                'min' => 'Value cannot be negative',
+                                            ]),
                                         TextInput::make('vehicle_half_days_qty')
                                             ->label('Vehicle Half Days')
-                                            ->numeric()
-                                            ->default(0),
+                                            ->default(0)
+                                            ->rules(['numeric', 'min:0'])
+                                            ->validationMessages([
+                                                'numeric' => 'Value must be a valid number',
+                                                'min' => 'Value cannot be negative',
+                                            ]),
                                         TextInput::make('vehicle_hours_qty')
                                             ->label('Vehicle Hours')
-                                            ->numeric()
-                                            ->default(0),
+                                            ->default(0)
+                                            ->rules(['numeric', 'min:0'])
+                                            ->validationMessages([
+                                                'numeric' => 'Value must be a valid number',
+                                                'min' => 'Value cannot be negative',
+                                            ]),
                                         TextInput::make('vehicle_airport_transfers_qty')
                                             ->label('Airport Transfers')
-                                            ->numeric()
-                                            ->default(0),
+                                            ->default(0)
+                                            ->rules(['numeric', 'min:0'])
+                                            ->validationMessages([
+                                                'numeric' => 'Value must be a valid number',
+                                                'min' => 'Value cannot be negative',
+                                            ]),
                                     ]),
                                 Grid::make(2)
                                     ->schema([
                                         TextInput::make('driver_base_meal_budget')
                                             ->label('Driver Meal Budget')
-                                            ->numeric()
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
                                             ->default(50),
                                         TextInput::make('driver_base_accommodation_budget')
                                             ->label('Driver Accommodation Budget')
-                                            ->numeric()
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
                                             ->default(100),
                                     ]),
@@ -112,25 +126,37 @@ class BreakdownForm
                                             }),
                                         TextInput::make('per_day_price')
                                             ->label('Per Day Price')
-                                            ->numeric()
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
                                             ->formatStateUsing(fn($state) => $state == 0 ? null : $state)
                                             ->dehydrateStateUsing(fn($state) => $state ?: 0)
-                                            ->default(0),
+                                            ->default(0)
+                                            ->rules(['numeric', 'min:0'])
+                                            ->validationMessages([
+                                                'numeric' => 'Price must be a valid number',
+                                                'min' => 'Price cannot be negative',
+                                            ]),
                                         TextInput::make('half_day_price')
                                             ->label('Half Day Price')
-                                            ->numeric()
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
                                             ->formatStateUsing(fn($state) => $state == 0 ? null : $state)
                                             ->dehydrateStateUsing(fn($state) => $state ?: 0)
-                                            ->default(0),
+                                            ->default(0)
+                                            ->rules(['numeric', 'min:0'])
+                                            ->validationMessages([
+                                                'numeric' => 'Price must be a valid number',
+                                                'min' => 'Price cannot be negative',
+                                            ]),
                                         TextInput::make('extra_hour_price')
                                             ->label('Extra Hour Price')
-                                            ->numeric()
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
                                             ->formatStateUsing(fn($state) => $state == 0 ? null : $state)
                                             ->dehydrateStateUsing(fn($state) => $state ?: 0)
-                                            ->default(0),
+                                            ->default(0)
+                                            ->rules(['numeric', 'min:0'])
+                                            ->validationMessages([
+                                                'numeric' => 'Price must be a valid number',
+                                                'min' => 'Price cannot be negative',
+                                            ]),
                                     ])
                                     ->addActionLabel('Add Vehicle Type')
                                     ->collapsible(),
@@ -216,7 +242,6 @@ class BreakdownForm
                                     ->dehydrated(),
                                 TextInput::make('price')
                                     ->label('Price')
-                                    ->numeric()
                                     ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
                                     ->formatStateUsing(fn($state) => $state == 0 ? null : $state)
                                     ->dehydrateStateUsing(fn($state) => $state === null ? null : (float)$state)
@@ -263,9 +288,13 @@ class BreakdownForm
                                     ->dehydrated(),
                                 TextInput::make('price')
                                     ->label('Price')
-                                    ->numeric()
                                     ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
-                                    ->default(0),
+                                    ->default(0)
+                                    ->rules(['numeric', 'min:0'])
+                                    ->validationMessages([
+                                        'numeric' => 'Price must be a valid number',
+                                        'min' => 'Price cannot be negative',
+                                    ]),
                             ])
                             ->addActionLabel('Add Meal')
                             ->collapsible(),
@@ -327,9 +356,13 @@ class BreakdownForm
                                                     ->dehydrated(),
                                                 TextInput::make('price')
                                                     ->label('Price')
-                                                    ->numeric()
                                                     ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
-                                                    ->default(0),
+                                                    ->default(0)
+                                            ->rules(['numeric', 'min:0'])
+                                            ->validationMessages([
+                                                'numeric' => 'Value must be a valid number',
+                                                'min' => 'Value cannot be negative',
+                                            ]),
                                             ])
                                     ])
                                     ->columnSpanFull(),
@@ -374,9 +407,13 @@ class BreakdownForm
                                         TextInput::make('price')
                                         
                                             ->label('Price')
-                                            ->numeric()
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
-                                            ->default(0),
+                                            ->default(0)
+                                            ->rules(['numeric', 'min:0'])
+                                            ->validationMessages([
+                                                'numeric' => 'Value must be a valid number',
+                                                'min' => 'Value cannot be negative',
+                                            ]),
                                     ])
                                     ->addActionLabel('Add Experience')
                                     ->collapsible(),
@@ -409,9 +446,13 @@ class BreakdownForm
                                             ->dehydrated(),
                                         TextInput::make('entry_price')
                                             ->label('Entry Price')
-                                            ->numeric()
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
-                                            ->default(0),
+                                            ->default(0)
+                                            ->rules(['numeric', 'min:0'])
+                                            ->validationMessages([
+                                                'numeric' => 'Value must be a valid number',
+                                                'min' => 'Value cannot be negative',
+                                            ]),
                                         Toggle::make('is_outview')
                                             ->label('Outview')
                                             ->disabled(),
@@ -433,9 +474,13 @@ class BreakdownForm
                                                             ->dehydrated(),
                                                         TextInput::make('price')
                                                             ->label('Price')
-                                                            ->numeric()
                                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
-                                                            ->default(0),
+                                                            ->default(0)
+                                            ->rules(['numeric', 'min:0'])
+                                            ->validationMessages([
+                                                'numeric' => 'Value must be a valid number',
+                                                'min' => 'Value cannot be negative',
+                                            ]),
                                                     ])
                                             ])->addable(false)->deletable(false)
                                             ->columnSpanFull(),
@@ -452,12 +497,10 @@ class BreakdownForm
                                     ->schema([
                                         TextInput::make('companion_base_meal_budget')
                                             ->label('Companion Meal Budget')
-                                            ->numeric()
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
                                             ->default(50),
                                         TextInput::make('companion_base_accommodation_budget')
                                             ->label('Companion Accommodation Budget')
-                                            ->numeric()
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
                                             ->default(100),
                                     ]),
@@ -517,25 +560,37 @@ class BreakdownForm
                                             }),
                                         TextInput::make('per_day_price')
                                             ->label('Per Day Price')
-                                            ->numeric()
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
                                             ->formatStateUsing(fn($state) => $state == 0 ? null : $state)
                                             ->dehydrateStateUsing(fn($state) => $state ?: 0)
-                                            ->default(0),
+                                            ->default(0)
+                                            ->rules(['numeric', 'min:0'])
+                                            ->validationMessages([
+                                                'numeric' => 'Price must be a valid number',
+                                                'min' => 'Price cannot be negative',
+                                            ]),
                                         TextInput::make('half_day_price')
                                             ->label('Half Day Price')
-                                            ->numeric()
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
                                             ->formatStateUsing(fn($state) => $state == 0 ? null : $state)
                                             ->dehydrateStateUsing(fn($state) => $state ?: 0)
-                                            ->default(0),
+                                            ->default(0)
+                                            ->rules(['numeric', 'min:0'])
+                                            ->validationMessages([
+                                                'numeric' => 'Price must be a valid number',
+                                                'min' => 'Price cannot be negative',
+                                            ]),
                                         TextInput::make('per_hour_price')
                                             ->label('Per Hour Price')
-                                            ->numeric()
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
                                             ->formatStateUsing(fn($state) => $state == 0 ? null : $state)
                                             ->dehydrateStateUsing(fn($state) => $state ?: 0)
-                                            ->default(0),
+                                            ->default(0)
+                                            ->rules(['numeric', 'min:0'])
+                                            ->validationMessages([
+                                                'numeric' => 'Price must be a valid number',
+                                                'min' => 'Price cannot be negative',
+                                            ]),
                                     ])
                                     ->addActionLabel('Add Companion')
                                     ->collapsible(),
@@ -563,9 +618,13 @@ class BreakdownForm
                                     ->required(),
                                 TextInput::make('price')
                                     ->label('Price')
-                                    ->numeric()
                                     ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
-                                    ->default(0),
+                                    ->default(0)
+                                    ->rules(['numeric', 'min:0'])
+                                    ->validationMessages([
+                                        'numeric' => 'Price must be a valid number',
+                                        'min' => 'Price cannot be negative',
+                                    ]),
                             ])
                             ->addActionLabel('Add Expense')
                             ->collapsible(),
