@@ -26,7 +26,7 @@ class AttractionsTable
                     ->limit(30),
                 TextColumn::make('type')
                     ->badge()
-                    ->color(fn (string $state): string => match ($state) {
+                    ->color(fn ($state): string => match ($state?->value ?? $state) {
                         'natural' => 'success',
                         'man_made' => 'info',
                         'cultural' => 'warning',
@@ -35,7 +35,7 @@ class AttractionsTable
                         'leisure' => 'gray',
                         default => 'gray',
                     })
-                    ->formatStateUsing(fn (string $state): string => AttractionTypeEnum::from($state)->label()),
+                    ->formatStateUsing(fn ($state): string => $state instanceof AttractionTypeEnum ? $state->label() : AttractionTypeEnum::from($state)->label()),
                 TextColumn::make('location')
                     ->getStateUsing(function ($record) {
                         $parts = array_filter([
