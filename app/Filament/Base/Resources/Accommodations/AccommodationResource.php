@@ -26,6 +26,14 @@ class AccommodationResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedBuildingOffice;
 
     protected static ?string $recordTitleAttribute = 'name';
+    
+    protected static ?string $navigationLabel = 'Accommodations';
+    
+    protected static ?string $modelLabel = 'Accommodation';
+    
+    protected static ?string $pluralModelLabel = 'Accommodations';
+    
+    protected static ?int $navigationSort = 3;
 
     public static function form(Schema $schema): Schema
     {
