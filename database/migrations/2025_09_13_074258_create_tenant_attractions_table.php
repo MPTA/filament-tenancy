@@ -12,20 +12,20 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tenant_attractions', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->id();
             $table->string('tenant_id');
             $table->uuid('attraction_id');
             $table->decimal('local_price', 20, 2)->nullable();
             $table->decimal('foreigner_price', 20, 2)->nullable();
+            $table->json('additional_content')->nullable();
+            $table->uuid('creator_user_id');
             $table->timestamps();
-
-            $table->foreign('tenant_id')->references('id')->on('tenants')->onDelete('cascade');
-            $table->foreign('attraction_id')->references('id')->on('attractions')->onDelete('restrict');
-
-            $table->index('tenant_id');
             
-            // Unique constraint for tenant_id and attraction_id combination
-            $table->unique(['tenant_id', 'attraction_id']);
+            $table->foreign('tenant_id')->references('id')->on('tenants')->onDelete('cascade');
+            $table->foreign('attraction_id')->references('id')->on('attractions')->onDelete('cascade');
+            $table->foreign('creator_user_id')->references('id')->on('users')->onDelete('cascade');
+            
+            $table->unique(['tenant_id', 'attraction_id'], 'unique_tenant_attraction');
         });
     }
 

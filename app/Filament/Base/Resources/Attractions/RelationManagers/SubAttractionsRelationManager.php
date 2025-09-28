@@ -61,14 +61,8 @@ class SubAttractionsRelationManager extends RelationManager
                     ->columns(2),
 
                 FormSection::make('Pricing Information')
+                    ->columnSpanFull()
                     ->schema([
-                        TextInput::make('price')
-                            ->numeric()
-                            ->step(0.01)
-                            ->minValue(0)
-                            ->prefix('$')
-                            ->suffix('USD')
-                            ->helperText('General price for all visitors'),
                         TextInput::make('local_price')
                             ->numeric()
                             ->step(0.01)

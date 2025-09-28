@@ -12,24 +12,20 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tenant_sub_attractions', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->uuid('tenant_attraction_id');
+            $table->id();
+            $table->string('tenant_id');
             $table->uuid('sub_attraction_id');
             $table->decimal('local_price', 20, 2)->nullable();
             $table->decimal('foreigner_price', 20, 2)->nullable();
-            $table->string('tenant_id');
+            $table->json('additional_content')->nullable();
+            $table->uuid('creator_user_id');
             $table->timestamps();
-
-            $table->foreign('tenant_attraction_id')->references('id')->on('tenant_attractions')->onDelete('cascade');
-            $table->foreign('sub_attraction_id')->references('id')->on('sub_attractions')->onDelete('restrict');
-            $table->foreign('tenant_id')->references('id')->on('tenants')->onDelete('cascade');
-
-            $table->index('tenant_attraction_id');
-            $table->index('sub_attraction_id');
-            $table->index('tenant_id');
             
-            // Unique constraint for tenant_attraction_id, sub_attraction_id, and tenant_id combination
-            $table->unique(['tenant_attraction_id', 'sub_attraction_id', 'tenant_id']);
+            $table->foreign('tenant_id')->references('id')->on('tenants')->onDelete('cascade');
+            $table->foreign('sub_attraction_id')->references('id')->on('sub_attractions')->onDelete('cascade');
+            $table->foreign('creator_user_id')->references('id')->on('users')->onDelete('cascade');
+            
+            $table->unique(['tenant_id', 'sub_attraction_id'], 'unique_tenant_sub_attraction');
         });
     }
 

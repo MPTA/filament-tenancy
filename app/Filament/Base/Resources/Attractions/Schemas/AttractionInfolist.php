@@ -24,7 +24,7 @@ class AttractionInfolist
                             ->columnSpanFull(),
                         TextEntry::make('type')
                             ->badge()
-                            ->color(fn (string $state): string => match ($state) {
+                            ->color(fn ($state): string => match ($state?->value ?? $state) {
                                 'natural' => 'success',
                                 'man_made' => 'info',
                                 'cultural' => 'warning',
@@ -33,7 +33,7 @@ class AttractionInfolist
                                 'leisure' => 'gray',
                                 default => 'gray',
                             })
-                            ->formatStateUsing(fn (string $state): string => AttractionTypeEnum::from($state)->label()),
+                            ->formatStateUsing(fn ($state): string => $state instanceof AttractionTypeEnum ? $state->label() : AttractionTypeEnum::from($state)->label()),
                         IconEntry::make('is_active')
                             ->boolean()
                             ->label('Status'),
