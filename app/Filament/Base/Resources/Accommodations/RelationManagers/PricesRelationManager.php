@@ -70,8 +70,7 @@ class PricesRelationManager extends RelationManager
              
                         DatePicker::make('valid_from')
                             ->label('Valid From')
-                            ->default(Carbon::now())
-                            ->required(),
+                            ->default(Carbon::now()),
                         DatePicker::make('valid_to')
                             ->label('Valid To')
                             ->after('valid_from')
