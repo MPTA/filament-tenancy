@@ -93,7 +93,23 @@ class BreakdownForm
                                             ->label('Vehicle Type')
                                             ->options(\App\Models\Tenants\VehicleType::pluck('name', 'id'))
                                             ->searchable()
-                                            ->required(),
+                                            ->required()
+                                            ->reactive()
+                                            ->afterStateUpdated(function ($state, callable $set) {
+                                                if ($state) {
+                                                    $vehicleType = \App\Models\Tenants\VehicleType::find($state);
+                                                    if ($vehicleType) {
+                                                        $set('per_day_price', $vehicleType->per_day_price ?? 0);
+                                                        $set('half_day_price', $vehicleType->half_day_price ?? 0);
+                                                        $set('extra_hour_price', $vehicleType->extra_hour_price ?? 0);
+                                                    }
+                                                } else {
+                                                    // Clear prices when vehicle type is removed
+                                                    $set('per_day_price', null);
+                                                    $set('half_day_price', null);
+                                                    $set('extra_hour_price', null);
+                                                }
+                                            }),
                                         TextInput::make('per_day_price')
                                             ->label('Per Day Price')
                                             ->numeric()
@@ -441,7 +457,23 @@ class BreakdownForm
                                             ->label('Companion Type')
                                             ->options(\App\Models\Tenants\CompanionType::pluck('name', 'id'))
                                             ->searchable()
-                                            ->required(),
+                                            ->required()
+                                            ->reactive()
+                                            ->afterStateUpdated(function ($state, callable $set) {
+                                                if ($state) {
+                                                    $companionType = \App\Models\Tenants\CompanionType::find($state);
+                                                    if ($companionType) {
+                                                        $set('per_day_price', $companionType->per_day_price ?? 0);
+                                                        $set('half_day_price', $companionType->half_day_price ?? 0);
+                                                        $set('per_hour_price', $companionType->per_hour_price ?? 0);
+                                                    }
+                                                } else {
+                                                    // Clear prices when companion type is removed
+                                                    $set('per_day_price', 0);
+                                                    $set('half_day_price', 0);
+                                                    $set('per_hour_price', 0);
+                                                }
+                                            }),
                                         TextInput::make('per_day_price')
                                             ->label('Per Day Price')
                                             ->numeric()
@@ -480,11 +512,7 @@ class BreakdownForm
                                     ->required(),
                                 Select::make('charge_mode')
                                     ->label('Charge Mode')
-                                    ->options([
-                                        'per_person' => 'Per Person',
-                                        'per_group' => 'Per Group',
-                                        'per_hour' => 'Per Hour',
-                                    ])
+                                    ->options(\App\Enums\ChargeModeEnum::getOptions())
                                     ->required(),
                                 TextInput::make('price')
                                     ->label('Price')
