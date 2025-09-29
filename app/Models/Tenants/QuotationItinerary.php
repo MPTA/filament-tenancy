@@ -62,13 +62,22 @@ class QuotationItinerary extends Model
         parent::boot();
 
         static::deleting(function ($quotationItinerary) {
-            // Clear cache for quotation itinerary
-            $cacheKey = "itinerary_summary_{$quotationItinerary->id}";
-            cache()->forget($cacheKey);
+            // Clear cache for quotation itinerary (using direct cache access)
+            try {
+                $cacheKey = "itinerary_summary_{$quotationItinerary->id}";
+                \Illuminate\Support\Facades\Cache::forget($cacheKey);
+            } catch (\Exception $e) {
+                // Ignore cache errors
+            }
             
             // Delete itinerary and its related data
             if ($quotationItinerary->itinerary) {
                 $quotationItinerary->itinerary->delete();
+            }
+            
+            // Delete breakdown and its related data
+            if ($quotationItinerary->breakdown) {
+                $quotationItinerary->breakdown->delete();
             }
         });
     }
