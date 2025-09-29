@@ -63,4 +63,19 @@ class TenantSetting extends Model
     {
         return $this->belongsTo(\App\Models\Base\City::class);
     }
+
+    /**
+     * Boot method to clear city cache when country changes.
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::updated(function ($tenantSetting) {
+            // Clear city cache when country_id changes
+            if ($tenantSetting->isDirty('country_id')) {
+                \App\Models\Base\City::clearTenantCache();
+            }
+        });
+    }
 }

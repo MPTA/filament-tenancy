@@ -40,479 +40,544 @@ class QuotationItineraryInfolist
     private static function informationTab(): Tab
     {
         return Tab::make('Information')
-                            ->icon('heroicon-o-information-circle')
-                            ->badge('✓')
-                            ->badgeColor('success')
+            ->icon('heroicon-o-information-circle')
+            ->badge('✓')
+            ->badgeColor('success')
+            ->schema([
+                // Inquiry Information
+                Section::make('Inquiry Information')
+                    ->description('Basic inquiry details and information')
+                    ->icon('heroicon-o-document-text')
+                    ->headerActions([
+                        Action::make('edit_inquiry')
+                            ->label('Edit Inquiry')
+                            ->icon('heroicon-m-pencil-square')
+                            ->color('primary')
                             ->schema([
-                                // Inquiry Information
-                                Section::make('Inquiry Information')
-                                    ->description('Basic inquiry details and information')
-                                    ->icon('heroicon-o-document-text')
-                                    ->headerActions([
-                                        Action::make('edit_inquiry')
-                                            ->label('Edit Inquiry')
-                                            ->icon('heroicon-m-pencil-square')
-                                            ->color('primary')
-                                            ->schema([
-                                                \Filament\Forms\Components\TextInput::make('inquiry.title')
-                                                    ->label('Title')
-                                                    ->required(),
-                                                
-                                                \Filament\Forms\Components\TextInput::make('inquiry.number')
-                                                    ->label('Inquiry Number')
-                                                    ->disabled()
-                                                    ->dehydrated(),
-                                                
-                                                \Filament\Forms\Components\Textarea::make('inquiry.description')
-                                                    ->label('Description')
-                                                    ->rows(3),
-                                                
-                                                \Filament\Forms\Components\TextInput::make('inquiry.reference')
-                                                    ->label('Reference'),
-                                                
-                                                Select::make('inquiry_itinerary.date_type')
-                                                    ->label('Date Type')
-                                                    ->options(\App\Enums\InquiryDateTypeEnum::getOptions())
-                                                    ->required(),
-                                                
-                                                \Filament\Forms\Components\DatePicker::make('inquiry_itinerary.from_date')
-                                                    ->label('From Date')
-                                                    ->required(),
-                                                
-                                                \Filament\Forms\Components\DatePicker::make('inquiry_itinerary.to_date')
-                                                    ->label('To Date')
-                                                    ->required(),
-                                            ])
-                                            ->fillForm(function (QuotationItinerary $record) {
-                                                $inquiry = $record->quotation?->inquiry;
-                                                $inquiryItinerary = $inquiry?->inquiryItinerary;
-                                                
-                                                return [
-                                                    'inquiry' => $inquiry ? [
-                                                        'title' => $inquiry->getTranslation('title', app()->getLocale()),
-                                                        'number' => $inquiry->number,
-                                                        'description' => $inquiry->getTranslation('description', app()->getLocale()),
-                                                        'reference' => $inquiry->reference,
-                                                    ] : [],
-                                                    'inquiry_itinerary' => $inquiryItinerary ? [
-                                                        'date_type' => $inquiryItinerary->date_type?->value,
-                                                        'from_date' => $inquiryItinerary->from_date,
-                                                        'to_date' => $inquiryItinerary->to_date,
-                                                    ] : [],
-                                                ];
-                                            })
-                                            ->action(function (array $data, QuotationItinerary $record) {
-                                                $inquiry = $record->quotation?->inquiry;
-                                                $inquiryItinerary = $inquiry?->inquiryItinerary;
-                                                
-                                                // Update inquiry data
-                                                if ($inquiry && isset($data['inquiry'])) {
-                                                    $inquiry->setTranslation('title', app()->getLocale(), $data['inquiry']['title']);
-                                                    $inquiry->setTranslation('description', app()->getLocale(), $data['inquiry']['description'] ?? '');
-                                                    $inquiry->reference = $data['inquiry']['reference'] ?? null;
-                                                    $inquiry->save();
-                                                }
-                                                
-                                                // Update inquiry itinerary data
-                                                if ($inquiryItinerary && isset($data['inquiry_itinerary'])) {
-                                                    $inquiryItinerary->update([
-                                                        'date_type' => $data['inquiry_itinerary']['date_type'],
-                                                        'from_date' => $data['inquiry_itinerary']['from_date'],
-                                                        'to_date' => $data['inquiry_itinerary']['to_date'],
-                                                    ]);
-                                                }
-                                                
-                                                // Refresh the record to update the UI
-                                                $record->refresh();
-                                                
-                                                Notification::make()
-                                                    ->title('Inquiry updated successfully!')
-                                                    ->success()
-                                                    ->send();
-                                            })
-                                            ->modalHeading('Edit Inquiry')
-                                            ->modalSubmitActionLabel('Save Changes')
-                                    ])
-                                    ->schema([
-                                        Grid::make(2)
-                                            ->schema([
-                                                TextEntry::make('quotation.id')
-                                                    ->label('Title')
-                                                    ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->getTranslation('title', app()->getLocale()) ?? 'No title')
-                                                    ->icon('heroicon-o-tag')
-                                                    ->color('primary'),
+                                \Filament\Forms\Components\TextInput::make('inquiry.title')
+                                    ->label('Title')
+                                    ->required(),
 
-                                                TextEntry::make('quotation.id')
-                                                    ->label('Inquiry Number')
-                                                    ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->number ?? 'No number')
-                                                    ->icon('heroicon-o-hashtag')
-                                                    ->color('info'),
-                                            ]),
+                                \Filament\Forms\Components\TextInput::make('inquiry.number')
+                                    ->label('Inquiry Number')
+                                    ->disabled()
+                                    ->dehydrated(),
 
-                                        Grid::make(2)
-                                            ->schema([
-                                                TextEntry::make('quotation.id')
-                                                    ->label('Contact')
-                                                    ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->contact?->full_name ?? 'No contact')
-                                                    ->icon('heroicon-o-user')
-                                                    ->color('success'),
+                                \Filament\Forms\Components\Textarea::make('inquiry.description')
+                                    ->label('Description')
+                                    ->rows(3),
 
-                                                TextEntry::make('quotation.id')
-                                                    ->label('Requested Currency')
-                                                    ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->requestedCurrency?->name ?? 'Not specified')
-                                                    ->icon('heroicon-o-banknotes')
-                                                    ->color('info'),
-                                            ]),
+                                \Filament\Forms\Components\TextInput::make('inquiry.reference')
+                                    ->label('Reference'),
 
-                                        Grid::make(2)
-                                            ->schema([
-                                                TextEntry::make('quotation.id')
-                                                    ->label('Reference')
-                                                    ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->reference ?? 'No reference')
-                                                    ->icon('heroicon-o-link')
-                                                    ->color('warning'),
+                                Select::make('inquiry_itinerary.date_type')
+                                    ->label('Date Type')
+                                    ->options(\App\Enums\InquiryDateTypeEnum::getOptions())
+                                    ->required(),
 
-                                                TextEntry::make('quotation.id')
-                                                    ->label('Date Type')
-                                                    ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->inquiryItinerary?->date_type?->value ?? 'Not specified')
-                                                    ->icon('heroicon-o-calendar')
-                                                    ->color('primary'),
-                                            ]),
+                                \Filament\Forms\Components\DatePicker::make('inquiry_itinerary.from_date')
+                                    ->label('From Date')
+                                    ->required(),
 
-                                        Grid::make(2)
-                                            ->schema([
-                                                TextEntry::make('quotation.id')
-                                                    ->label('From Date')
-                                                    ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->inquiryItinerary?->from_date?->format('Y-m-d') ?? 'Not specified')
-                                                    ->icon('heroicon-o-calendar-days')
-                                                    ->color('success'),
+                                \Filament\Forms\Components\DatePicker::make('inquiry_itinerary.to_date')
+                                    ->label('To Date')
+                                    ->required(),
+                            ])
+                            ->fillForm(function (QuotationItinerary $record) {
+                                $inquiry = $record->quotation?->inquiry;
+                                $inquiryItinerary = $inquiry?->inquiryItinerary;
 
-                                                TextEntry::make('quotation.id')
-                                                    ->label('To Date')
-                                                    ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->inquiryItinerary?->to_date?->format('Y-m-d') ?? 'Not specified')
-                                                    ->icon('heroicon-o-calendar-days')
-                                                    ->color('warning'),
-                                            ]),
+                                return [
+                                    'inquiry' => $inquiry ? [
+                                        'title' => $inquiry->getTranslation('title', app()->getLocale()),
+                                        'number' => $inquiry->number,
+                                        'description' => $inquiry->getTranslation('description', app()->getLocale()),
+                                        'reference' => $inquiry->reference,
+                                    ] : [],
+                                    'inquiry_itinerary' => $inquiryItinerary ? [
+                                        'date_type' => $inquiryItinerary->date_type?->value,
+                                        'from_date' => $inquiryItinerary->from_date,
+                                        'to_date' => $inquiryItinerary->to_date,
+                                    ] : [],
+                                ];
+                            })
+                            ->action(function (array $data, QuotationItinerary $record) {
+                                $inquiry = $record->quotation?->inquiry;
+                                $inquiryItinerary = $inquiry?->inquiryItinerary;
 
-                                        TextEntry::make('quotation.id')
-                                            ->label('Description')
-                                            ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->getTranslation('description', app()->getLocale()) ?? 'No description')
-                                            ->icon('heroicon-o-document-text')
-                                            ->columnSpanFull(),
-                                    ]),
+                                // Update inquiry data
+                                if ($inquiry && isset($data['inquiry'])) {
+                                    $inquiry->setTranslation('title', app()->getLocale(), $data['inquiry']['title']);
+                                    $inquiry->setTranslation('description', app()->getLocale(), $data['inquiry']['description'] ?? '');
+                                    $inquiry->reference = $data['inquiry']['reference'] ?? null;
+                                    $inquiry->save();
+                                }
 
-                                // Quotation Information
-                                Section::make('Quotation Information')
-                                    ->description('Quotation and pricing details')
-                                    ->icon('heroicon-o-currency-dollar')
-                                    ->headerActions([
-                                        Action::make('edit_quotation')
-                                            ->label('Edit Quotation')
-                                            ->icon('heroicon-m-pencil-square')
-                                            ->color('primary')
-                                            ->schema([
-                                                \Filament\Forms\Components\TextInput::make('quotation.number')
-                                                    ->label('Quotation Number')
-                                                    ->disabled()
-                                                    ->dehydrated(),
-                                                
-                                                \Filament\Forms\Components\TextInput::make('quotation.exchange_rate')
-                                                    ->label('Exchange Rate')
-                                                    ->numeric()
-                                                    ->step(0.0001),
-                                                
-                                                \Filament\Forms\Components\DatePicker::make('quotation.expire_date')
-                                                    ->label('Expiry Date'),
-                                                
-                                                \Filament\Forms\Components\Textarea::make('quotation.description')
-                                                    ->label('Description')
-                                                    ->rows(3),
-                                                
-                                                \Filament\Forms\Components\Textarea::make('quotation.internal_note')
-                                                    ->label('Internal Note')
-                                                    ->rows(3),
-                                                
-                                                \Filament\Forms\Components\Toggle::make('is_foreigner_passengers')
-                                                    ->label('Foreigner Passengers')
-                                                    ->helperText('Enable if passengers are foreigners (affects attraction pricing)'),
-                                            ])
-                                            ->fillForm(function (QuotationItinerary $record) {
-                                                return [
-                                                    'quotation' => $record->quotation ? [
-                                                        'number' => $record->quotation->number,
-                                                        'exchange_rate' => $record->quotation->exchange_rate,
-                                                        'expire_date' => $record->quotation->expire_date,
-                                                        'description' => $record->quotation->description,
-                                                        'internal_note' => $record->quotation->internal_note,
-                                                    ] : [],
-                                                    'is_foreigner_passengers' => $record->is_foreigner_passengers,
-                                                ];
-                                            })
-                                            ->action(function (array $data, QuotationItinerary $record) {
-                                                // Update quotation data
-                                                if ($record->quotation) {
-                                                    $record->quotation->update($data['quotation']);
-                                                }
-                                                
-                                                // Update quotation itinerary data
-                                                $record->update([
-                                                    'is_foreigner_passengers' => $data['is_foreigner_passengers'],
-                                                ]);
-                                                
-                                                // If breakdown exists and passenger type changed, regenerate it
-                                                if ($record->breakdown && isset($data['is_foreigner_passengers'])) {
-                                                    $oldPassengerType = $record->getOriginal('is_foreigner_passengers');
-                                                    if ($oldPassengerType !== $data['is_foreigner_passengers']) {
-                                                        // Passenger type changed, regenerate breakdown to update attraction prices
-                                                        $record->generateBreakdownFromItinerary();
-                                                    }
-                                                }
-                                                
-                                                // Refresh the record to update the UI
-                                                $record->refresh();
-                                                
-                                                Notification::make()
-                                                    ->title('Quotation updated successfully!')
-                                                    ->body($record->breakdown && isset($data['is_foreigner_passengers']) && $record->getOriginal('is_foreigner_passengers') !== $data['is_foreigner_passengers'] 
-                                                        ? 'Passenger type changed. Breakdown has been regenerated with updated attraction prices.' 
-                                                        : 'Quotation information has been updated.')
-                                                    ->success()
-                                                    ->send();
-                                            })
-                                            ->modalHeading('Edit Quotation')
-                                            ->modalSubmitActionLabel('Save Changes')
-                                    ])
-                                    ->schema([
-                                        Grid::make(2)
-                                            ->schema([
-                                                TextEntry::make('quotation.number')
-                                                    ->label('Quotation Number')
-                                                    ->icon('heroicon-o-hashtag')
-                                                    ->color('primary'),
+                                // Update inquiry itinerary data
+                                if ($inquiryItinerary && isset($data['inquiry_itinerary'])) {
+                                    $inquiryItinerary->update([
+                                        'date_type' => $data['inquiry_itinerary']['date_type'],
+                                        'from_date' => $data['inquiry_itinerary']['from_date'],
+                                        'to_date' => $data['inquiry_itinerary']['to_date'],
+                                    ]);
+                                }
 
-                                                TextEntry::make('quotation.exchange_rate')
-                                                    ->label('Exchange Rate')
-                                                    ->formatStateUsing(fn($state) => $state ? number_format($state, 4) : 'Not specified')
-                                                    ->icon('heroicon-o-arrow-path')
-                                                    ->color('info'),
-                                            ]),
+                                // Refresh the record to update the UI
+                                $record->refresh();
 
-                                        TextEntry::make('quotation.expire_date')
-                                            ->label('Expiry Date')
-                                            ->date()
-                                            ->icon('heroicon-o-calendar-days')
-                                            ->color('danger')
-                                            ->columnSpanFull(),
+                                Notification::make()
+                                    ->title('Inquiry updated successfully!')
+                                    ->success()
+                                    ->send();
+                            })
+                            ->modalHeading('Edit Inquiry')
+                            ->modalSubmitActionLabel('Save Changes')
+                    ])
+                    ->schema([
+                        Grid::make(2)
+                            ->schema([
+                                TextEntry::make('quotation.id')
+                                    ->label('Title')
+                                    ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->getTranslation('title', app()->getLocale()) ?? 'No title')
+                                    ->icon('heroicon-o-tag')
+                                    ->color('primary'),
 
-                                        TextEntry::make('quotation.description')
-                                            ->label('Description')
-                                            ->formatStateUsing(fn($state) => $state ?? 'No description')
-                                            ->icon('heroicon-o-document-text')
-                                            ->columnSpanFull(),
+                                TextEntry::make('quotation.id')
+                                    ->label('Inquiry Number')
+                                    ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->number ?? 'No number')
+                                    ->icon('heroicon-o-hashtag')
+                                    ->color('info'),
+                            ]),
 
-                                        TextEntry::make('quotation.internal_note')
-                                            ->label('Internal Note')
-                                            ->formatStateUsing(fn($state) => $state ?? 'No internal note')
-                                            ->icon('heroicon-o-exclamation-triangle')
-                                            ->color('warning')
-                                            ->columnSpanFull(),
+                        Grid::make(2)
+                            ->schema([
+                                TextEntry::make('quotation.id')
+                                    ->label('Contact')
+                                    ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->contact?->full_name ?? 'No contact')
+                                    ->icon('heroicon-o-user')
+                                    ->color('success'),
 
-                                        IconEntry::make('is_foreigner_passengers')
-                                            ->label('Foreigner Passengers')
-                                            ->boolean()
-                                            ->icon(fn($state) => $state ? 'heroicon-o-globe-alt' : 'heroicon-o-home')
-                                            ->color(fn($state) => $state ? 'info' : 'gray')
-                                            ->columnSpanFull(),
-                                    ]),
-                            ]);
+                                TextEntry::make('quotation.id')
+                                    ->label('Requested Currency')
+                                    ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->requestedCurrency?->name ?? 'Not specified')
+                                    ->icon('heroicon-o-banknotes')
+                                    ->color('info'),
+                            ]),
+
+                        Grid::make(2)
+                            ->schema([
+                                TextEntry::make('quotation.id')
+                                    ->label('Reference')
+                                    ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->reference ?? 'No reference')
+                                    ->icon('heroicon-o-link')
+                                    ->color('warning'),
+
+                                TextEntry::make('quotation.id')
+                                    ->label('Date Type')
+                                    ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->inquiryItinerary?->date_type?->value ?? 'Not specified')
+                                    ->icon('heroicon-o-calendar')
+                                    ->color('primary'),
+                            ]),
+
+                        Grid::make(2)
+                            ->schema([
+                                TextEntry::make('quotation.id')
+                                    ->label('From Date')
+                                    ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->inquiryItinerary?->from_date?->format('Y-m-d') ?? 'Not specified')
+                                    ->icon('heroicon-o-calendar-days')
+                                    ->color('success'),
+
+                                TextEntry::make('quotation.id')
+                                    ->label('To Date')
+                                    ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->inquiryItinerary?->to_date?->format('Y-m-d') ?? 'Not specified')
+                                    ->icon('heroicon-o-calendar-days')
+                                    ->color('warning'),
+                            ]),
+
+                        TextEntry::make('quotation.id')
+                            ->label('Description')
+                            ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->getTranslation('description', app()->getLocale()) ?? 'No description')
+                            ->icon('heroicon-o-document-text')
+                            ->columnSpanFull(),
+                    ]),
+
+                // Quotation Information
+                Section::make('Quotation Information')
+                    ->description('Quotation and pricing details')
+                    ->icon('heroicon-o-currency-dollar')
+                    ->headerActions([
+                        Action::make('edit_quotation')
+                            ->label('Edit Quotation')
+                            ->icon('heroicon-m-pencil-square')
+                            ->color('primary')
+                            ->schema([
+                                \Filament\Forms\Components\TextInput::make('quotation.number')
+                                    ->label('Quotation Number')
+                                    ->disabled()
+                                    ->dehydrated(),
+
+                                \Filament\Forms\Components\TextInput::make('quotation.exchange_rate')
+                                    ->label('Exchange Rate')
+                                    ->numeric()
+                                    ->step(0.0001),
+
+                                \Filament\Forms\Components\DatePicker::make('quotation.expire_date')
+                                    ->label('Expiry Date'),
+
+                                \Filament\Forms\Components\Textarea::make('quotation.description')
+                                    ->label('Description')
+                                    ->rows(3),
+
+                                \Filament\Forms\Components\Textarea::make('quotation.internal_note')
+                                    ->label('Internal Note')
+                                    ->rows(3),
+
+                                \Filament\Forms\Components\Toggle::make('is_foreigner_passengers')
+                                    ->label('Foreigner Passengers')
+                                    ->helperText('Enable if passengers are foreigners (affects attraction pricing)'),
+                            ])
+                            ->fillForm(function (QuotationItinerary $record) {
+                                return [
+                                    'quotation' => $record->quotation ? [
+                                        'number' => $record->quotation->number,
+                                        'exchange_rate' => $record->quotation->exchange_rate,
+                                        'expire_date' => $record->quotation->expire_date,
+                                        'description' => $record->quotation->description,
+                                        'internal_note' => $record->quotation->internal_note,
+                                    ] : [],
+                                    'is_foreigner_passengers' => $record->is_foreigner_passengers,
+                                ];
+                            })
+                            ->action(function (array $data, QuotationItinerary $record) {
+                                // Update quotation data
+                                if ($record->quotation) {
+                                    $record->quotation->update($data['quotation']);
+                                }
+
+                                // Update quotation itinerary data
+                                $record->update([
+                                    'is_foreigner_passengers' => $data['is_foreigner_passengers'],
+                                ]);
+
+                                // If breakdown exists and passenger type changed, regenerate it
+                                if ($record->breakdown && isset($data['is_foreigner_passengers'])) {
+                                    $oldPassengerType = $record->getOriginal('is_foreigner_passengers');
+                                    if ($oldPassengerType !== $data['is_foreigner_passengers']) {
+                                        // Passenger type changed, regenerate breakdown to update attraction prices
+                                        $record->generateBreakdownFromItinerary();
+                                    }
+                                }
+
+                                // Refresh the record to update the UI
+                                $record->refresh();
+
+                                Notification::make()
+                                    ->title('Quotation updated successfully!')
+                                    ->body($record->breakdown && isset($data['is_foreigner_passengers']) && $record->getOriginal('is_foreigner_passengers') !== $data['is_foreigner_passengers']
+                                        ? 'Passenger type changed. Breakdown has been regenerated with updated attraction prices.'
+                                        : 'Quotation information has been updated.')
+                                    ->success()
+                                    ->send();
+                            })
+                            ->modalHeading('Edit Quotation')
+                            ->modalSubmitActionLabel('Save Changes')
+                    ])
+                    ->schema([
+                        Grid::make(2)
+                            ->schema([
+                                TextEntry::make('quotation.number')
+                                    ->label('Quotation Number')
+                                    ->icon('heroicon-o-hashtag')
+                                    ->color('primary'),
+
+                                TextEntry::make('quotation.exchange_rate')
+                                    ->label('Exchange Rate')
+                                    ->formatStateUsing(fn($state) => $state ? number_format($state, 4) : 'Not specified')
+                                    ->icon('heroicon-o-arrow-path')
+                                    ->color('info'),
+                            ]),
+
+                        TextEntry::make('quotation.expire_date')
+                            ->label('Expiry Date')
+                            ->date()
+                            ->icon('heroicon-o-calendar-days')
+                            ->color('danger')
+                            ->columnSpanFull(),
+
+                        TextEntry::make('quotation.description')
+                            ->label('Description')
+                            ->formatStateUsing(fn($state) => $state ?? 'No description')
+                            ->icon('heroicon-o-document-text')
+                            ->columnSpanFull(),
+
+                        TextEntry::make('quotation.internal_note')
+                            ->label('Internal Note')
+                            ->formatStateUsing(fn($state) => $state ?? 'No internal note')
+                            ->icon('heroicon-o-exclamation-triangle')
+                            ->color('warning')
+                            ->columnSpanFull(),
+
+                        IconEntry::make('is_foreigner_passengers')
+                            ->label('Foreigner Passengers')
+                            ->boolean()
+                            ->icon(fn($state) => $state ? 'heroicon-o-globe-alt' : 'heroicon-o-home')
+                            ->color(fn($state) => $state ? 'info' : 'gray')
+                            ->columnSpanFull(),
+                    ]),
+            ]);
     }
 
     private static function itineraryTab(): Tab
     {
         return Tab::make('Itinerary')
-                            ->icon('heroicon-o-map')
-                            ->badge(function (QuotationItinerary $record) {
-                                if (!$record->itinerary) {
-                                    return null; // No badge when no itinerary
+            ->icon('heroicon-o-map')
+            ->badge(function (QuotationItinerary $record) {
+                if (!$record->itinerary) {
+                    return null; // No badge when no itinerary
+                }
+
+                if ($record->itinerary->is_complete) {
+                    return '✓'; // Green tick when complete
+                }
+
+                return '⏳'; // Pending symbol when incomplete
+            })
+            ->badgeColor(function (QuotationItinerary $record) {
+                if (!$record->itinerary) {
+                    return 'gray';
+                }
+
+                if ($record->itinerary->is_complete) {
+                    return 'success';
+                }
+
+                return 'gray'; // Gray for pending
+            })
+            ->schema([
+                // Itinerary Summary
+                Section::make('Itinerary Summary')
+                    ->description('Quick overview of your travel plan')
+                    ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->itinerary)
+                    ->headerActions([
+                        Action::make('Edit Itinerary')
+                            ->icon('heroicon-m-pencil-square')
+                            ->color('primary')
+                            ->url(fn(QuotationItinerary $quotationItinerary) => ItineraryResource::getUrl('edit', ['record' => $quotationItinerary->itinerary])),
+
+                        Action::make('Complete')
+                            ->icon('heroicon-m-check-circle')
+                            ->color('success')
+                            ->hidden(function (QuotationItinerary $quotationItinerary) {
+                                // Hide if no itinerary, already complete, or no days
+                                if (!$quotationItinerary->itinerary) {
+                                    return true;
                                 }
 
-                                if ($record->itinerary->is_complete) {
-                                    return '✓'; // Green tick when complete
+                                if ($quotationItinerary->itinerary->is_complete) {
+                                    return true;
                                 }
 
-                                return '⏳'; // Pending symbol when incomplete
+                                if ($quotationItinerary->itinerary->days()->count() === 0) {
+                                    return true;
+                                }
+
+                                return false;
                             })
-                            ->badgeColor(function (QuotationItinerary $record) {
-                                if (!$record->itinerary) {
-                                    return 'gray';
-                                }
+                            ->action(function (QuotationItinerary $quotationItinerary) {
+                                if ($quotationItinerary->itinerary) {
+                                    $quotationItinerary->itinerary->update(['is_complete' => true]);
 
-                                if ($record->itinerary->is_complete) {
-                                    return 'success';
-                                }
+                                    // Generate breakdown automatically when itinerary is completed
+                                    $quotationItinerary->generateBreakdownFromItinerary();
 
-                                return 'gray'; // Gray for pending
+                                    Notification::make()
+                                        ->title('Itinerary completed successfully!')
+                                        ->body('Breakdown has been automatically generated. Redirecting to breakdown form...')
+                                        ->success()
+                                        ->send();
+
+                                    // Redirect to breakdown edit form
+                                    return redirect()->to(\App\Filament\App\Resources\QuotationItineraries\QuotationItineraryResource::getUrl('edit-breakdown', ['record' => $quotationItinerary]));
+                                }
                             })
+                            ->requiresConfirmation()
+                            ->modalHeading('Complete Itinerary')
+                            ->modalDescription('Are you sure you want to mark this itinerary as complete?')
+                            ->modalSubmitActionLabel('Complete')
+                    ])
+                    ->schema([
+                        Grid::make(4)
                             ->schema([
-                                // Itinerary Summary
-                                Section::make('Itinerary Summary')
-                                    ->description('Quick overview of your travel plan')
-                                    ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->itinerary)
-                                    ->headerActions([
-                                        Action::make('Edit Itinerary')
-                                            ->icon('heroicon-m-pencil-square')
-                                            ->color('primary')
-                                            ->url(fn(QuotationItinerary $quotationItinerary) => ItineraryResource::getUrl('edit', ['record' => $quotationItinerary->itinerary])),
+                                TextEntry::make('itinerary.travel_mode')
+                                    ->label('Travel Mode')
+                                    ->formatStateUsing(fn($state) => $state?->value ?? 'Not specified')
+                                    ->icon('heroicon-o-globe-alt')
+                                    ->color('primary'),
 
-                                        Action::make('Complete')
-                                            ->icon('heroicon-m-check-circle')
-                                            ->color('success')
-                                            ->hidden(function (QuotationItinerary $quotationItinerary) {
-                                                // Hide if no itinerary, already complete, or no days
-                                                if (!$quotationItinerary->itinerary) {
-                                                    return true;
-                                                }
+                                TextEntry::make('itinerary.id')
+                                    ->label('Total Days')
+                                    ->formatStateUsing(fn($state, $record) => $record->itinerary?->days?->count() ?? 0)
+                                    ->icon('heroicon-o-calendar')
+                                    ->color('success'),
 
-                                                if ($quotationItinerary->itinerary->is_complete) {
-                                                    return true;
-                                                }
+                                TextEntry::make('itinerary.id')
+                                    ->label('Total Activities')
+                                    ->formatStateUsing(fn($state, $record) => $record->itinerary?->days?->sum(fn($day) => $day->activities?->count() ?? 0) ?? 0)
+                                    ->icon('heroicon-o-map-pin')
+                                    ->color('warning'),
 
-                                                if ($quotationItinerary->itinerary->days()->count() === 0) {
-                                                    return true;
-                                                }
+                                TextEntry::make('itinerary.is_complete')
+                                    ->label('Status')
+                                    ->formatStateUsing(fn($state) => $state ? 'Completed' : 'In Progress')
+                                    ->icon(fn($state) => $state ? 'heroicon-o-check-circle' : 'heroicon-o-clock')
+                                    ->color(fn($state) => $state ? 'success' : 'warning')
+                            ])
+                    ])
+                    ->collapsible(false),
 
-                                                return false;
-                                            })
-                                            ->action(function (QuotationItinerary $quotationItinerary) {
-                                                if ($quotationItinerary->itinerary) {
-                                                    $quotationItinerary->itinerary->update(['is_complete' => true]);
-                                                    
-                                                    // Generate breakdown automatically when itinerary is completed
-                                                    $quotationItinerary->generateBreakdownFromItinerary();
-                                                    
-                                                    Notification::make()
-                                                        ->title('Itinerary completed successfully!')
-                                                        ->body('Breakdown has been automatically generated. Redirecting to breakdown form...')
-                                                        ->success()
-                                                        ->send();
-                                                    
-                                                    // Redirect to breakdown edit form
-                                                    return redirect()->to(\App\Filament\App\Resources\QuotationItineraries\QuotationItineraryResource::getUrl('edit-breakdown', ['record' => $quotationItinerary]));
-                                                }
-                                            })
-                                            ->requiresConfirmation()
-                                            ->modalHeading('Complete Itinerary')
-                                            ->modalDescription('Are you sure you want to mark this itinerary as complete?')
-                                            ->modalSubmitActionLabel('Complete')
-                                    ])
+                // Create Itinerary Section (when no itinerary exists)
+                Section::make('Create Itinerary')
+                    ->description('Start building your travel plan')
+                    ->hidden(fn(QuotationItinerary $quotationItinerary) => $quotationItinerary->itinerary)
+                    ->schema([
+                        Grid::make(1)
+                            ->schema([
+                                Action::make('Create Itinerary')
+                                    ->size(Size::ExtraLarge)
+                                    ->icon('heroicon-m-plus-circle')
+                                    ->color('success')
                                     ->schema([
-                                        Grid::make(4)
-                                            ->schema([
-                                                TextEntry::make('itinerary.travel_mode')
-                                                    ->label('Travel Mode')
-                                                    ->formatStateUsing(fn($state) => $state?->value ?? 'Not specified')
-                                                    ->icon('heroicon-o-globe-alt')
-                                                    ->color('primary'),
-
-                                                TextEntry::make('itinerary.id')
-                                                    ->label('Total Days')
-                                                    ->formatStateUsing(fn($state, $record) => $record->itinerary?->days?->count() ?? 0)
-                                                    ->icon('heroicon-o-calendar')
-                                                    ->color('success'),
-
-                                                TextEntry::make('itinerary.id')
-                                                    ->label('Total Activities')
-                                                    ->formatStateUsing(fn($state, $record) => $record->itinerary?->days?->sum(fn($day) => $day->activities?->count() ?? 0) ?? 0)
-                                                    ->icon('heroicon-o-map-pin')
-                                                    ->color('warning'),
-
-                                                TextEntry::make('itinerary.is_complete')
-                                                    ->label('Status')
-                                                    ->formatStateUsing(fn($state) => $state ? 'Completed' : 'In Progress')
-                                                    ->icon(fn($state) => $state ? 'heroicon-o-check-circle' : 'heroicon-o-clock')
-                                                    ->color(fn($state) => $state ? 'success' : 'warning')
-                                            ])
+                                        Select::make('travel_mode')
+                                            ->options(TravelModeEnum::getOptions())
+                                            ->required()
+                                            ->placeholder('Select travel mode')
                                     ])
-                                    ->collapsible(false),
-
-                                // Create Itinerary Section (when no itinerary exists)
-                                Section::make('Create Itinerary')
-                                    ->description('Start building your travel plan')
-                                    ->hidden(fn(QuotationItinerary $quotationItinerary) => $quotationItinerary->itinerary)
-                                    ->schema([
-                                        Grid::make(1)
-                                            ->schema([
-                                                Action::make('Create Itinerary')
-                                            ->size(Size::ExtraLarge)
-                                                    ->icon('heroicon-m-plus-circle')
-                                            ->color('success')
-                                            ->schema([
-                                                Select::make('travel_mode')
-                                                            ->options(TravelModeEnum::getOptions())
-                                                            ->required()
-                                                            ->placeholder('Select travel mode')
-                                                    ])
-                                                    ->action(function (array $data, QuotationItinerary $quotationItinerary) {
-                                                if (!$quotationItinerary->itinerary) {
-                                                    $quotationItinerary->itinerary()->create([
-                                                        'travel_mode' => $data['travel_mode'],
-                                                        'creator_user_id' => Auth::user()->id,
-                                                    ]);
-                                                }
-                                                    })
-                                                    ->modalHeading('Create New Itinerary')
-                                                    ->modalDescription('Choose the travel mode for your itinerary')
-                                                    ->modalSubmitActionLabel('Create Itinerary')
-                                            ])
-                                            ->extraAttributes(['class' => 'flex justify-center items-center min-h-[200px]'])
-                                    ])
-                                    ->collapsible(false),
-
-                                // Itinerary Days Display
-                                Section::make('Itinerary Days')
-                                    ->description('Your travel plan day by day')
-                                    ->compact()
-                                    ->hidden(function (QuotationItinerary $quotationItinerary) {
-                                        // Hide if no itinerary or no days
+                                    ->action(function (array $data, QuotationItinerary $quotationItinerary) {
                                         if (!$quotationItinerary->itinerary) {
-                                            return true;
+                                            $itinerary = $quotationItinerary->itinerary()->create([
+                                                'travel_mode' => $data['travel_mode'],
+                                                'creator_user_id' => Auth::user()->id,
+                                            ]);
+                                            
+                                            // Redirect to edit itinerary page
+                                            return redirect(ItineraryResource::getUrl('edit', ['record' => $itinerary->id]));
                                         }
-
-                                        if ($quotationItinerary->itinerary->days()->count() === 0) {
-                                            return true;
-                                        }
-
-                                        return false;
+                                        $quotationItinerary->refresh();
                                     })
+                                    ->modalHeading('Create New Itinerary')
+                                    ->modalDescription('Choose the travel mode for your itinerary')
+                                    ->modalSubmitActionLabel('Create Itinerary')
+                            ])
+                            ->extraAttributes(['class' => 'flex justify-center items-center min-h-[200px]'])
+                    ])
+                    ->collapsible(false),
+
+                // Itinerary Days Display
+                Section::make('Itinerary Days')
+                    ->description('Your travel plan day by day')
+                    ->compact()
+                    ->hidden(function (QuotationItinerary $quotationItinerary) {
+                        // Hide if no itinerary or no days
+                        if (!$quotationItinerary->itinerary) {
+                            return true;
+                        }
+
+                        if ($quotationItinerary->itinerary->days()->count() === 0) {
+                            return true;
+                        }
+
+                        return false;
+                    })
+                    ->schema([
+                        RepeatableEntry::make('itinerary.days')
+                            ->hiddenLabel()
+                            ->contained(false)
+                            ->label('')
+                            ->schema([
+                                // Day Header
+                                Section::make()
+                                    ->heading(fn($record) => "Day {$record->day_number}")
+                                    ->description(function ($record) {
+                                        $items = [];
+                                        $items[] = '📍 ' . ($record->accommodationCity?->name ?? 'Unknown City');
+
+                                        // Add hotel name and star rating
+                                        if ($record->accommodation) {
+                                            $hotelName = $record->accommodation?->getTranslation('name', app()->getLocale()) ?? 'Not specified';
+                                            $items[] = '🏨 ' . $hotelName;
+
+                                            if ($record->accommodation_star_rating) {
+                                                $stars = str_repeat('★', $record->accommodation_star_rating->value);
+                                                $items[] = $stars;
+                                            }
+                                        }
+
+                                        // Add BLD (Breakfast, Lunch, Dinner) status
+                                        $bldItems = [];
+
+                                        // Check for Breakfast
+                                        $breakfastActivity = $record->activities()
+                                            ->whereHas('activityCategory', function ($query) {
+                                                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
+                                            })
+                                            ->whereHas('meal', function ($query) {
+                                                $query->where('meal_part', \App\Enums\MealPartEnum::BREAKFAST->value);
+                                            })
+                                            ->with('meal.mealType')
+                                            ->first();
+
+                                        if ($breakfastActivity?->meal?->mealType?->name) {
+                                            $bldItems[] = 'B';
+                                        }
+
+                                        // Check for Lunch
+                                        $lunchActivity = $record->activities()
+                                            ->whereHas('activityCategory', function ($query) {
+                                                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
+                                            })
+                                            ->whereHas('meal', function ($query) {
+                                                $query->where('meal_part', \App\Enums\MealPartEnum::LUNCH->value);
+                                            })
+                                            ->with('meal.mealType')
+                                            ->first();
+
+                                        if ($lunchActivity?->meal?->mealType?->name) {
+                                            $bldItems[] = 'L';
+                                        }
+
+                                        // Check for Dinner
+                                        $dinnerActivity = $record->activities()
+                                            ->whereHas('activityCategory', function ($query) {
+                                                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
+                                            })
+                                            ->whereHas('meal', function ($query) {
+                                                $query->where('meal_part', \App\Enums\MealPartEnum::DINNER->value);
+                                            })
+                                            ->with('meal.mealType')
+                                            ->first();
+
+                                        if ($dinnerActivity?->meal?->mealType?->name) {
+                                            $bldItems[] = 'D';
+                                        }
+
+                                        if (!empty($bldItems)) {
+                                            $items[] = '🍽️ ' . implode('', $bldItems);
+                                        }
+
+                                        return implode(' | ', $items);
+                                    })
+                                    ->icon('heroicon-o-calendar')
+                                    ->collapsible()
+                                    ->collapsed()
                                     ->schema([
-                                        RepeatableEntry::make('itinerary.days')
-                                            ->hiddenLabel()
-                                            ->contained(false)
-                                            ->label('')
+
+                                        // Meals Section
+                                        Grid::make(3)
                                             ->schema([
-                                                // Day Header
-                                                Section::make()
-                                                    ->heading(fn($record) => "Day {$record->day_number}")
-                                                    ->description(function ($record) {
-                                                        $items = [];
-                                                        $items[] = '📍 ' . ($record->accommodationCity?->name ?? 'Unknown City');
-
-                                                        // Add hotel name and star rating
-                                                        if ($record->accommodation) {
-                                                            $hotelName = $record->accommodation?->getTranslation('name', app()->getLocale()) ?? 'Not specified';
-                                                            $items[] = '🏨 ' . $hotelName;
-
-                                                            if ($record->accommodation_star_rating) {
-                                                                $stars = str_repeat('★', $record->accommodation_star_rating->value);
-                                                                $items[] = $stars;
-                                                            }
-                                                        }
-
-                                                        // Add BLD (Breakfast, Lunch, Dinner) status
-                                                        $bldItems = [];
-
-                                                        // Check for Breakfast
-                                                        $breakfastActivity = $record->activities()
+                                                TextEntry::make('itinerary.id')
+                                                    ->label('🌅 Breakfast')
+                                                    ->formatStateUsing(function ($state, $record) {
+                                                        $mealActivity = $record->activities()
                                                             ->whereHas('activityCategory', function ($query) {
                                                                 $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
                                                             })
@@ -522,12 +587,27 @@ class QuotationItineraryInfolist
                                                             ->with('meal.mealType')
                                                             ->first();
 
-                                                        if ($breakfastActivity?->meal?->mealType?->name) {
-                                                            $bldItems[] = 'B';
-                                                        }
+                                                        return $mealActivity?->meal?->mealType?->name ?? null;
+                                                    })
+                                                    ->color('warning')
+                                                    ->hidden(function ($state, $record) {
+                                                        $mealActivity = $record->activities()
+                                                            ->whereHas('activityCategory', function ($query) {
+                                                                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
+                                                            })
+                                                            ->whereHas('meal', function ($query) {
+                                                                $query->where('meal_part', \App\Enums\MealPartEnum::BREAKFAST->value);
+                                                            })
+                                                            ->with('meal.mealType')
+                                                            ->first();
 
-                                                        // Check for Lunch
-                                                        $lunchActivity = $record->activities()
+                                                        return empty($mealActivity?->meal?->mealType?->name);
+                                                    }),
+
+                                                TextEntry::make('itinerary.id')
+                                                    ->label('☀️ Lunch')
+                                                    ->formatStateUsing(function ($state, $record) {
+                                                        $mealActivity = $record->activities()
                                                             ->whereHas('activityCategory', function ($query) {
                                                                 $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
                                                             })
@@ -537,12 +617,27 @@ class QuotationItineraryInfolist
                                                             ->with('meal.mealType')
                                                             ->first();
 
-                                                        if ($lunchActivity?->meal?->mealType?->name) {
-                                                            $bldItems[] = 'L';
-                                                        }
+                                                        return $mealActivity?->meal?->mealType?->name ?? null;
+                                                    })
+                                                    ->color('success')
+                                                    ->hidden(function ($state, $record) {
+                                                        $mealActivity = $record->activities()
+                                                            ->whereHas('activityCategory', function ($query) {
+                                                                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
+                                                            })
+                                                            ->whereHas('meal', function ($query) {
+                                                                $query->where('meal_part', \App\Enums\MealPartEnum::LUNCH->value);
+                                                            })
+                                                            ->with('meal.mealType')
+                                                            ->first();
 
-                                                        // Check for Dinner
-                                                        $dinnerActivity = $record->activities()
+                                                        return empty($mealActivity?->meal?->mealType?->name);
+                                                    }),
+
+                                                TextEntry::make('itinerary.id')
+                                                    ->label('🌙 Dinner')
+                                                    ->formatStateUsing(function ($state, $record) {
+                                                        $mealActivity = $record->activities()
                                                             ->whereHas('activityCategory', function ($query) {
                                                                 $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
                                                             })
@@ -552,791 +647,700 @@ class QuotationItineraryInfolist
                                                             ->with('meal.mealType')
                                                             ->first();
 
-                                                        if ($dinnerActivity?->meal?->mealType?->name) {
-                                                            $bldItems[] = 'D';
-                                                        }
-
-                                                        if (!empty($bldItems)) {
-                                                            $items[] = '🍽️ ' . implode('', $bldItems);
-                                                        }
-
-                                                        return implode(' | ', $items);
+                                                        return $mealActivity?->meal?->mealType?->name ?? null;
                                                     })
-                                                    ->icon('heroicon-o-calendar')
-                                                    ->collapsible()
-                                                    ->collapsed()
-                                                    ->schema([
-
-                                                        // Meals Section
-                                                        Grid::make(3)
-                                                            ->schema([
-                                                                TextEntry::make('itinerary.id')
-                                                                    ->label('🌅 Breakfast')
-                                                                    ->formatStateUsing(function ($state, $record) {
-                                                                        $mealActivity = $record->activities()
-                                                                            ->whereHas('activityCategory', function ($query) {
-                                                                                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
-                                                                            })
-                                                                            ->whereHas('meal', function ($query) {
-                                                                                $query->where('meal_part', \App\Enums\MealPartEnum::BREAKFAST->value);
-                                                                            })
-                                                                            ->with('meal.mealType')
-                                                                            ->first();
-
-                                                                        return $mealActivity?->meal?->mealType?->name ?? null;
-                                                                    })
-                                                                    ->color('warning')
-                                                                    ->hidden(function ($state, $record) {
-                                                                        $mealActivity = $record->activities()
-                                                                            ->whereHas('activityCategory', function ($query) {
-                                                                                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
-                                                                            })
-                                                                            ->whereHas('meal', function ($query) {
-                                                                                $query->where('meal_part', \App\Enums\MealPartEnum::BREAKFAST->value);
-                                                                            })
-                                                                            ->with('meal.mealType')
-                                                                            ->first();
-
-                                                                        return empty($mealActivity?->meal?->mealType?->name);
-                                                                    }),
-
-                                                                TextEntry::make('itinerary.id')
-                                                                    ->label('☀️ Lunch')
-                                                                    ->formatStateUsing(function ($state, $record) {
-                                                                        $mealActivity = $record->activities()
-                                                                            ->whereHas('activityCategory', function ($query) {
-                                                                                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
-                                                                            })
-                                                                            ->whereHas('meal', function ($query) {
-                                                                                $query->where('meal_part', \App\Enums\MealPartEnum::LUNCH->value);
-                                                                            })
-                                                                            ->with('meal.mealType')
-                                                                            ->first();
-
-                                                                        return $mealActivity?->meal?->mealType?->name ?? null;
-                                                                    })
-                                                                    ->color('success')
-                                                                    ->hidden(function ($state, $record) {
-                                                                        $mealActivity = $record->activities()
-                                                                            ->whereHas('activityCategory', function ($query) {
-                                                                                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
-                                                                            })
-                                                                            ->whereHas('meal', function ($query) {
-                                                                                $query->where('meal_part', \App\Enums\MealPartEnum::LUNCH->value);
-                                                                            })
-                                                                            ->with('meal.mealType')
-                                                                            ->first();
-
-                                                                        return empty($mealActivity?->meal?->mealType?->name);
-                                                                    }),
-
-                                                                TextEntry::make('itinerary.id')
-                                                                    ->label('🌙 Dinner')
-                                                                    ->formatStateUsing(function ($state, $record) {
-                                                                        $mealActivity = $record->activities()
-                                                                            ->whereHas('activityCategory', function ($query) {
-                                                                                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
-                                                                            })
-                                                                            ->whereHas('meal', function ($query) {
-                                                                                $query->where('meal_part', \App\Enums\MealPartEnum::DINNER->value);
-                                                                            })
-                                                                            ->with('meal.mealType')
-                                                                            ->first();
-
-                                                                        return $mealActivity?->meal?->mealType?->name ?? null;
-                                                                    })
-                                                                    ->color('info')
-                                                                    ->hidden(function ($state, $record) {
-                                                                        $mealActivity = $record->activities()
-                                                                            ->whereHas('activityCategory', function ($query) {
-                                                                                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
-                                                                            })
-                                                                            ->whereHas('meal', function ($query) {
-                                                                                $query->where('meal_part', \App\Enums\MealPartEnum::DINNER->value);
-                                                                            })
-                                                                            ->with('meal.mealType')
-                                                                            ->first();
-
-                                                                        return empty($mealActivity?->meal?->mealType?->name);
-                                                                    }),
-                                                            ])
-                                                            ->columnSpanFull(),
-
-                                                        // Tickets Section
-                                                        TextEntry::make('itinerary.id')
-                                                            ->label('🎫 Tickets')
-                                                            ->formatStateUsing(function ($state, $record) {
-                                                                $ticketActivities = $record->activities()
-                                                                    ->whereHas('activityCategory', function ($query) {
-                                                                        $query->where('type', \App\Enums\ActivityCategoryTypeEnum::TICKET->value);
-                                                                    })
-                                                                    ->with('ticket.toCity')
-                                                                    ->get();
-
-                                                                if ($ticketActivities->isEmpty()) {
-                                                                    return 'No tickets';
-                                                                }
-
-                                                                $ticketInfo = [];
-                                                                foreach ($ticketActivities as $activity) {
-                                                                    if ($activity->ticket) {
-                                                                        $fromCity = $activity->city?->name ?? 'Unknown';
-                                                                        $toCity = $activity->ticket->toCity?->name ?? 'Unknown';
-                                                                        $class = $activity->ticket->class?->value ?? 'Unknown';
-                                                                        $transportNumber = $activity->ticket->transport_number ?? 'N/A';
-                                                                        $departureTime = $activity->start_time?->format('H:i') ?? 'N/A';
-                                                                        $transportMode = $activity->ticket->transport_mode ?? null;
-
-                                                                        $icon = match ($transportMode) {
-                                                                            \App\Enums\TransportModeEnum::AIR->value => '✈️',
-                                                                            \App\Enums\TransportModeEnum::TRAIN->value => '🚂',
-                                                                            \App\Enums\TransportModeEnum::LAND->value => '🚗',
-                                                                            default => '🎫'
-                                                                        };
-
-                                                                        $ticketInfo[] = "{$icon} {$fromCity} → {$toCity} ({$class}) - {$transportNumber} at {$departureTime}";
-                                                                    }
-                                                                }
-
-                                                                return implode(' | ', $ticketInfo);
+                                                    ->color('info')
+                                                    ->hidden(function ($state, $record) {
+                                                        $mealActivity = $record->activities()
+                                                            ->whereHas('activityCategory', function ($query) {
+                                                                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
                                                             })
-                                                            ->icon('heroicon-o-ticket')
-                                            ->color('primary')
-                                                            ->columnSpanFull(),
-
-                                                        // Attractions Section
-                                                        TextEntry::make('itinerary.id')
-                                                            ->label('🏛️ Attractions')
-                                                            ->formatStateUsing(function ($state, $record) {
-                                                                $attractionActivities = $record->activities()
-                                                                    ->whereHas('activityCategory', function ($query) {
-                                                                        $query->where('type', \App\Enums\ActivityCategoryTypeEnum::ATTRACTION->value);
-                                                                    })
-                                                                    ->with(['attraction.attraction', 'attraction.subAttractions.subAttraction'])
-                                                                    ->get();
-
-                                                                if ($attractionActivities->isEmpty()) {
-                                                                    return 'No attractions';
-                                                                }
-
-                                                                $attractionInfo = [];
-                                                                foreach ($attractionActivities as $activity) {
-                                                                    if ($activity->attraction) {
-                                                                        $attractionName = $activity->attraction->attraction?->name ?? 'Unknown';
-                                                                        $isOutview = $activity->attraction->is_outview ? ' (Outview)' : '';
-
-                                                                        $subAttractions = $activity->attraction->subAttractions
-                                                                            ->map(fn($sub) => $sub->subAttraction?->name ?? 'Unknown')
-                                                                            ->filter()
-                                                                            ->values();
-
-                                                                        $subInfo = '';
-                                                                        if ($subAttractions->isNotEmpty()) {
-                                                                            $subList = $subAttractions->implode(', ');
-                                                                            $subInfo = " ({$subList})";
-                                                                        }
-
-                                                                        $attractionInfo[] = "🏛️ {$attractionName}{$isOutview}{$subInfo}";
-                                                                    }
-                                                                }
-
-                                                                return implode(' | ', $attractionInfo);
+                                                            ->whereHas('meal', function ($query) {
+                                                                $query->where('meal_part', \App\Enums\MealPartEnum::DINNER->value);
                                                             })
-                                                            ->icon('heroicon-o-building-library')
-                                                            ->color('info')
-                                                            ->columnSpanFull(),
+                                                            ->with('meal.mealType')
+                                                            ->first();
 
-                                                        // Experiences Section
-                                                        TextEntry::make('itinerary.id')
-                                                            ->label('🎭 Experiences')
-                                                            ->formatStateUsing(function ($state, $record) {
-                                                                $experienceActivities = $record->activities()
-                                                                    ->whereHas('activityCategory', function ($query) {
-                                                                        $query->where('type', \App\Enums\ActivityCategoryTypeEnum::EXPERIENCE->value);
-                                                                    })
-                                                                    ->with('experience.experience')
-                                                                    ->get();
-
-                                                                if ($experienceActivities->isEmpty()) {
-                                                                    return 'No experiences';
-                                                                }
-
-                                                                $experienceInfo = [];
-                                                                foreach ($experienceActivities as $activity) {
-                                                                    if ($activity->experience) {
-                                                                        $experienceName = $activity->experience->experience?->name ?? 'Unknown';
-                                                                        $experienceInfo[] = "🎭 {$experienceName}";
-                                                                    }
-                                                                }
-
-                                                                return implode(' | ', $experienceInfo);
-                                                            })
-                                                            ->icon('heroicon-o-sparkles')
-                                                            ->color('warning')
-                                                            ->columnSpanFull(),
-
-                                                        TextEntry::make('description')
-                                                            ->label('Description')
-                                                            ->formatStateUsing(fn($state) => $state ?? 'No description')
-                                                            ->icon('heroicon-o-document-text')
-                                                            ->columnSpanFull(),
-                                                    ])
+                                                        return empty($mealActivity?->meal?->mealType?->name);
+                                                    }),
                                             ])
-                                            ->columns(1)
+                                            ->columnSpanFull(),
+
+                                        // Tickets Section
+                                        TextEntry::make('itinerary.id')
+                                            ->label('🎫 Tickets')
+                                            ->formatStateUsing(function ($state, $record) {
+                                                $ticketActivities = $record->activities()
+                                                    ->whereHas('activityCategory', function ($query) {
+                                                        $query->where('type', \App\Enums\ActivityCategoryTypeEnum::TICKET->value);
+                                                    })
+                                                    ->with('ticket.toCity')
+                                                    ->get();
+
+                                                if ($ticketActivities->isEmpty()) {
+                                                    return 'No tickets';
+                                                }
+
+                                                $ticketInfo = [];
+                                                foreach ($ticketActivities as $activity) {
+                                                    if ($activity->ticket) {
+                                                        $fromCity = $activity->city?->name ?? 'Unknown';
+                                                        $toCity = $activity->ticket->toCity?->name ?? 'Unknown';
+                                                        $class = $activity->ticket->class?->value ?? 'Unknown';
+                                                        $transportNumber = $activity->ticket->transport_number ?? 'N/A';
+                                                        $departureTime = $activity->start_time?->format('H:i') ?? 'N/A';
+                                                        $transportMode = $activity->ticket->transport_mode ?? null;
+
+                                                        $icon = match ($transportMode) {
+                                                            \App\Enums\TransportModeEnum::AIR->value => '✈️',
+                                                            \App\Enums\TransportModeEnum::TRAIN->value => '🚂',
+                                                            \App\Enums\TransportModeEnum::LAND->value => '🚗',
+                                                            default => '🎫'
+                                                        };
+
+                                                        $ticketInfo[] = "{$icon} {$fromCity} → {$toCity} ({$class}) - {$transportNumber} at {$departureTime}";
+                                                    }
+                                                }
+
+                                                return implode(' | ', $ticketInfo);
+                                            })
+                                            ->icon('heroicon-o-ticket')
+                                            ->color('primary')
+                                            ->columnSpanFull(),
+
+                                        // Attractions Section
+                                        TextEntry::make('itinerary.id')
+                                            ->label('🏛️ Attractions')
+                                            ->formatStateUsing(function ($state, $record) {
+                                                $attractionActivities = $record->activities()
+                                                    ->whereHas('activityCategory', function ($query) {
+                                                        $query->where('type', \App\Enums\ActivityCategoryTypeEnum::ATTRACTION->value);
+                                                    })
+                                                    ->with(['attraction.attraction', 'attraction.subAttractions.subAttraction'])
+                                                    ->get();
+
+                                                if ($attractionActivities->isEmpty()) {
+                                                    return 'No attractions';
+                                                }
+
+                                                $attractionInfo = [];
+                                                foreach ($attractionActivities as $activity) {
+                                                    if ($activity->attraction) {
+                                                        $attractionName = $activity->attraction->attraction?->name ?? 'Unknown';
+                                                        $isOutview = $activity->attraction->is_outview ? ' (Outview)' : '';
+
+                                                        $subAttractions = $activity->attraction->subAttractions
+                                                            ->map(fn($sub) => $sub->subAttraction?->name ?? 'Unknown')
+                                                            ->filter()
+                                                            ->values();
+
+                                                        $subInfo = '';
+                                                        if ($subAttractions->isNotEmpty()) {
+                                                            $subList = $subAttractions->implode(', ');
+                                                            $subInfo = " ({$subList})";
+                                                        }
+
+                                                        $attractionInfo[] = "🏛️ {$attractionName}{$isOutview}{$subInfo}";
+                                                    }
+                                                }
+
+                                                return implode(' | ', $attractionInfo);
+                                            })
+                                            ->icon('heroicon-o-building-library')
+                                            ->color('info')
+                                            ->columnSpanFull(),
+
+                                        // Experiences Section
+                                        TextEntry::make('itinerary.id')
+                                            ->label('🎭 Experiences')
+                                            ->formatStateUsing(function ($state, $record) {
+                                                $experienceActivities = $record->activities()
+                                                    ->whereHas('activityCategory', function ($query) {
+                                                        $query->where('type', \App\Enums\ActivityCategoryTypeEnum::EXPERIENCE->value);
+                                                    })
+                                                    ->with('experience.experience')
+                                                    ->get();
+
+                                                if ($experienceActivities->isEmpty()) {
+                                                    return 'No experiences';
+                                                }
+
+                                                $experienceInfo = [];
+                                                foreach ($experienceActivities as $activity) {
+                                                    if ($activity->experience) {
+                                                        $experienceName = $activity->experience->experience?->name ?? 'Unknown';
+                                                        $experienceInfo[] = "🎭 {$experienceName}";
+                                                    }
+                                                }
+
+                                                return implode(' | ', $experienceInfo);
+                                            })
+                                            ->icon('heroicon-o-sparkles')
+                                            ->color('warning')
+                                            ->columnSpanFull(),
+
+                                        TextEntry::make('description')
+                                            ->label('Description')
+                                            ->formatStateUsing(fn($state) => $state ?? 'No description')
+                                            ->icon('heroicon-o-document-text')
+                                            ->columnSpanFull(),
                                     ])
+                            ])
+                            ->columns(1)
+                    ])
 
 
-                            ]);
+            ]);
     }
 
     private static function breakdownTab(): Tab
     {
         return Tab::make('Breakdown')
-                            ->icon('heroicon-o-calculator')
-                            ->badge(function (QuotationItinerary $record) {
-                                if (!$record->breakdown) {
-                                    return null; // No badge when no breakdown
-                                }
+            ->icon('heroicon-o-calculator')
+            ->badge(function (QuotationItinerary $record) {
+                if (!$record->breakdown) {
+                    return null; // No badge when no breakdown
+                }
 
-                                if ($record->breakdown->is_completed) {
-                                    return '✓'; // Green tick when complete
-                                }
+                if ($record->breakdown->is_completed) {
+                    return '✓'; // Green tick when complete
+                }
 
-                                return '⏳'; // Pending symbol when incomplete
-                            })
-                            ->badgeColor(function (QuotationItinerary $record) {
-                                if (!$record->breakdown) {
-                                    return 'gray';
-                                }
+                return '⏳'; // Pending symbol when incomplete
+            })
+            ->badgeColor(function (QuotationItinerary $record) {
+                if (!$record->breakdown) {
+                    return 'gray';
+                }
 
-                                if ($record->breakdown->is_completed) {
-                                    return 'success';
-                                }
+                if ($record->breakdown->is_completed) {
+                    return 'success';
+                }
 
-                                return 'gray'; // Gray for pending
-                            })
+                return 'gray'; // Gray for pending
+            })
+            ->schema([
+                // Create Breakdown Section (when no breakdown exists)
+                Section::make('Create Breakdown')
+                    ->description('Start building your cost breakdown')
+                    ->hidden(fn(QuotationItinerary $quotationItinerary) => $quotationItinerary->breakdown)
+                    ->schema([
+                        Grid::make(1)
                             ->schema([
-                                // Create Breakdown Section (when no breakdown exists)
-                                Section::make('Create Breakdown')
-                                    ->description('Start building your cost breakdown')
-                                    ->hidden(fn(QuotationItinerary $quotationItinerary) => $quotationItinerary->breakdown)
-                                    ->schema([
-                                        Grid::make(1)
-                                            ->schema([
-                                                Action::make('Create Breakdown')
-                                                    ->size(Size::ExtraLarge)
-                                                    ->icon('heroicon-m-plus-circle')
-                                                    ->color('primary')
-                                                    ->action(function (QuotationItinerary $quotationItinerary) {
-                                                        // Check if itinerary is complete
-                                                        if (!$quotationItinerary->itinerary || !$quotationItinerary->itinerary->days->count()) {
-                                                            Notification::make()
-                                                                ->title('Incomplete Itinerary')
-                                                                ->body('Please complete the itinerary first before generating breakdown.')
-                                                                ->warning()
-                                                                ->send();
-                                                            return;
-                                                        }
+                                Action::make('Create Breakdown')
+                                    ->size(Size::ExtraLarge)
+                                    ->icon('heroicon-m-plus-circle')
+                                    ->color('primary')
+                                    ->action(function (QuotationItinerary $quotationItinerary) {
+                                        // Check if itinerary is complete
+                                        if (!$quotationItinerary->itinerary || !$quotationItinerary->itinerary->days->count()) {
+                                            Notification::make()
+                                                ->title('Incomplete Itinerary')
+                                                ->body('Please complete the itinerary first before generating breakdown.')
+                                                ->warning()
+                                                ->send();
+                                            return;
+                                        }
 
-                                                        // Generate breakdown from itinerary
-                                                        $quotationItinerary->generateBreakdownFromItinerary();
-                                                        
-                                                        // Refresh the record to update the UI
-                                                        $quotationItinerary->refresh();
-                                                        
-                                                        Notification::make()
-                                                            ->title('Breakdown Generated')
-                                                            ->body('Cost breakdown has been successfully generated. Redirecting to breakdown form...')
-                                                            ->success()
-                                                            ->send();
-                                                        
-                                                        // Redirect to breakdown edit form
-                                                        return redirect()->to(\App\Filament\App\Resources\QuotationItineraries\QuotationItineraryResource::getUrl('edit-breakdown', ['record' => $quotationItinerary]));
-                                                    })
-                                                    ->modalHeading('Create New Breakdown')
-                                                    ->modalDescription('Create a detailed cost breakdown for this quotation itinerary')
-                                                    ->modalSubmitActionLabel('Create Breakdown')
-                                            ])
-                                            ->extraAttributes(['class' => 'flex justify-center items-center min-h-[200px]'])
-                                    ])
-                                    ->collapsible(false),
+                                        // Generate breakdown from itinerary
+                                        $quotationItinerary->generateBreakdownFromItinerary();
 
-                                // Breakdown Overview (when breakdown exists)
-                                Section::make('Breakdown Overview')
-                                    ->description('Cost breakdown summary and details')
-                                    ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
-                                    ->headerActions([
-                                        Action::make('regenerate_breakdown')
-                                            ->label('Regenerate')
-                                            ->icon('heroicon-m-arrow-path')
-                                            ->color('primary')
-                                            ->action(function (QuotationItinerary $quotationItinerary) {
-                                                if ($quotationItinerary->breakdown && $quotationItinerary->itinerary) {
-                                                    // Regenerate breakdown from itinerary
-                                                    $quotationItinerary->generateBreakdownFromItinerary();
-                                                    
-                                                    Notification::make()
-                                                        ->title('Breakdown regenerated successfully!')
-                                                        ->body('The breakdown has been updated based on the current itinerary.')
-                                                        ->success()
-                                                        ->send();
-                                                }
-                                            })
-                                            ->requiresConfirmation()
-                                            ->modalHeading('Regenerate Breakdown')
-                                            ->modalDescription('This will update the breakdown based on the current itinerary. Are you sure?')
-                                            ->modalSubmitActionLabel('Regenerate'),
-                                        Action::make('complete_breakdown')
-                                            ->label('Complete')
-                                            ->icon('heroicon-m-check-circle')
-                                            ->color('success')
-                                            ->hidden(function (QuotationItinerary $quotationItinerary) {
-                                                return !$quotationItinerary->breakdown || $quotationItinerary->breakdown->is_completed;
-                                            })
-                                            ->action(function (QuotationItinerary $quotationItinerary) {
-                                                // Check if itinerary is complete first
-                                                if (!$quotationItinerary->itinerary || !$quotationItinerary->itinerary->is_complete) {
-                                                    Notification::make()
-                                                        ->title('Cannot Complete Breakdown')
-                                                        ->body('Please complete the itinerary first before marking the breakdown as complete.')
-                                                        ->warning()
-                                                        ->send();
-                                                    return;
-                                                }
-                                                
-                                                if ($quotationItinerary->breakdown) {
-                                                    $quotationItinerary->breakdown->update(['is_completed' => true]);
-                                                    Notification::make()
-                                                        ->title('Breakdown completed successfully!')
-                                                        ->success()
-                                                        ->send();
-                                                }
-                                            })
-                                            ->requiresConfirmation()
-                                            ->modalHeading('Complete Breakdown')
-                                            ->modalDescription(function (QuotationItinerary $quotationItinerary) {
-                                                if (!$quotationItinerary->itinerary || !$quotationItinerary->itinerary->is_complete) {
-                                                    return 'Please complete the itinerary first before marking the breakdown as complete.';
-                                                }
-                                                return 'Are you sure you want to mark this breakdown as complete?';
-                                            })
-                                            ->modalSubmitActionLabel('Complete'),
-                                        Action::make('edit_breakdown')
-                                            ->label('Edit')
-                                            ->icon('heroicon-m-pencil-square')
-                                            ->color('gray')
-                                            ->url(fn(QuotationItinerary $quotationItinerary) => \App\Filament\App\Resources\QuotationItineraries\QuotationItineraryResource::getUrl('edit-breakdown', ['record' => $quotationItinerary])),
-                                        Action::make('delete_breakdown')
-                                            ->label('Delete')
-                                            ->icon('heroicon-m-trash')
-                                            ->color('danger')
-                                            ->requiresConfirmation()
-                                            ->modalHeading('Delete Breakdown')
-                                            ->modalDescription('Are you sure you want to delete this breakdown? This action cannot be undone.')
-                                            ->modalSubmitActionLabel('Delete')
-                                            ->action(function (QuotationItinerary $quotationItinerary) {
-                                                if ($quotationItinerary->breakdown) {
-                                                    $quotationItinerary->breakdown->delete();
-                                                    
-                                                    // Refresh the record to update the UI
-                                                    $quotationItinerary->refresh();
-                                                    
-                                                    Notification::make()
-                                                        ->title('Breakdown deleted successfully!')
-                                                        ->success()
-                                                        ->send();
-                                                }
-                                            }),
-                                    ])
-                                    ->schema([
-                                        Grid::make(4)
-                                            ->schema([
-                                                TextEntry::make('breakdown.is_completed')
-                                                    ->label('Status')
-                                                    ->formatStateUsing(fn($state) => $state ? 'Completed' : 'In Progress')
-                                                    ->icon(fn($state) => $state ? 'heroicon-o-check-circle' : 'heroicon-o-clock')
-                                                    ->color(fn($state) => $state ? 'success' : 'warning')
-                                                    ->columnStart(1),
-                                            ]),
+                                        // Refresh the record to update the UI
+                                        $quotationItinerary->refresh();
 
-                                        Grid::make(4)
+                                        Notification::make()
+                                            ->title('Breakdown Generated')
+                                            ->body('Cost breakdown has been successfully generated. Redirecting to breakdown form...')
+                                            ->success()
+                                            ->send();
+
+                                        // Redirect to breakdown edit form
+                                        return redirect()->to(\App\Filament\App\Resources\QuotationItineraries\QuotationItineraryResource::getUrl('edit-breakdown', ['record' => $quotationItinerary]));
+                                    })
+                                    ->modalHeading('Create New Breakdown')
+                                    ->modalDescription('Create a detailed cost breakdown for this quotation itinerary')
+                                    ->modalSubmitActionLabel('Create Breakdown')
+                            ])
+                            ->extraAttributes(['class' => 'flex justify-center items-center min-h-[200px]'])
+                    ])
+                    ->collapsible(false),
+
+                // Breakdown Overview (when breakdown exists)
+                Section::make('Breakdown Overview')
+                    ->description('Cost breakdown summary and details')
+                    ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
+                    ->headerActions([
+                        Action::make('regenerate_breakdown')
+                            ->label('Regenerate')
+                            ->icon('heroicon-m-arrow-path')
+                            ->color('primary')
+                            ->action(function (QuotationItinerary $quotationItinerary) {
+                                if ($quotationItinerary->breakdown && $quotationItinerary->itinerary) {
+                                    // Regenerate breakdown from itinerary
+                                    $quotationItinerary->generateBreakdownFromItinerary();
+
+                                    Notification::make()
+                                        ->title('Breakdown regenerated successfully!')
+                                        ->body('The breakdown has been updated based on the current itinerary.')
+                                        ->success()
+                                        ->send();
+                                }
+                            })
+                            ->requiresConfirmation()
+                            ->modalHeading('Regenerate Breakdown')
+                            ->modalDescription('This will update the breakdown based on the current itinerary. Are you sure?')
+                            ->modalSubmitActionLabel('Regenerate'),
+                        Action::make('complete_breakdown')
+                            ->label('Complete')
+                            ->icon('heroicon-m-check-circle')
+                            ->color('success')
+                            ->hidden(function (QuotationItinerary $quotationItinerary) {
+                                return !$quotationItinerary->breakdown || $quotationItinerary->breakdown->is_completed;
+                            })
+                            ->action(function (QuotationItinerary $quotationItinerary) {
+                                // Check if itinerary is complete first
+                                if (!$quotationItinerary->itinerary || !$quotationItinerary->itinerary->is_complete) {
+                                    Notification::make()
+                                        ->title('Cannot Complete Breakdown')
+                                        ->body('Please complete the itinerary first before marking the breakdown as complete.')
+                                        ->warning()
+                                        ->send();
+                                    return;
+                                }
+
+                                if ($quotationItinerary->breakdown) {
+                                    $quotationItinerary->breakdown->update(['is_completed' => true]);
+                                    Notification::make()
+                                        ->title('Breakdown completed successfully!')
+                                        ->success()
+                                        ->send();
+                                }
+                            })
+                            ->requiresConfirmation()
+                            ->modalHeading('Complete Breakdown')
+                            ->modalDescription(function (QuotationItinerary $quotationItinerary) {
+                                if (!$quotationItinerary->itinerary || !$quotationItinerary->itinerary->is_complete) {
+                                    return 'Please complete the itinerary first before marking the breakdown as complete.';
+                                }
+                                return 'Are you sure you want to mark this breakdown as complete?';
+                            })
+                            ->modalSubmitActionLabel('Complete'),
+                        Action::make('edit_breakdown')
+                            ->label('Edit')
+                            ->icon('heroicon-m-pencil-square')
+                            ->color('gray')
+                            ->url(fn(QuotationItinerary $quotationItinerary) => \App\Filament\App\Resources\QuotationItineraries\QuotationItineraryResource::getUrl('edit-breakdown', ['record' => $quotationItinerary])),
+                        Action::make('delete_breakdown')
+                            ->label('Delete')
+                            ->icon('heroicon-m-trash')
+                            ->color('danger')
+                            ->requiresConfirmation()
+                            ->modalHeading('Delete Breakdown')
+                            ->modalDescription('Are you sure you want to delete this breakdown? This action cannot be undone.')
+                            ->modalSubmitActionLabel('Delete')
+                            ->action(function (QuotationItinerary $quotationItinerary) {
+                                if ($quotationItinerary->breakdown) {
+                                    $quotationItinerary->breakdown->delete();
+
+                                    // Refresh the record to update the UI
+                                    $quotationItinerary->refresh();
+
+                                    Notification::make()
+                                        ->title('Breakdown deleted successfully!')
+                                        ->success()
+                                        ->send();
+                                }
+                            }),
+                    ])
+                    ->schema([
+                        Grid::make(4)
                             ->schema([
-                                                TextEntry::make('breakdown.vehicle_days_qty')
-                                                    ->label('Vehicle Days')
-                                                    ->numeric()
-                                                    ->icon('heroicon-o-truck')
-                                                    ->color('primary'),
+                                TextEntry::make('breakdown.is_completed')
+                                    ->label('Status')
+                                    ->formatStateUsing(fn($state) => $state ? 'Completed' : 'In Progress')
+                                    ->icon(fn($state) => $state ? 'heroicon-o-check-circle' : 'heroicon-o-clock')
+                                    ->color(fn($state) => $state ? 'success' : 'warning')
+                                    ->columnStart(1),
+                            ]),
 
-                                                TextEntry::make('breakdown.vehicle_half_days_qty')
-                                                    ->label('Half Days')
-                                                    ->numeric()
-                                                    ->icon('heroicon-o-clock')
-                                                    ->color('warning'),
+                        Grid::make(4)
+                            ->schema([
+                                TextEntry::make('breakdown.vehicle_days_qty')
+                                    ->label('Vehicle Days')
+                                    ->numeric()
+                                    ->icon('heroicon-o-truck')
+                                    ->color('primary'),
 
-                                                TextEntry::make('breakdown.vehicle_hours_qty')
-                                                    ->label('Vehicle Hours')
-                                                    ->numeric()
-                                                    ->icon('heroicon-o-clock')
-                                                    ->color('info'),
+                                TextEntry::make('breakdown.vehicle_half_days_qty')
+                                    ->label('Half Days')
+                                    ->numeric()
+                                    ->icon('heroicon-o-clock')
+                                    ->color('warning'),
 
-                                                TextEntry::make('breakdown.currency.name')
-                                                    ->label('Currency')
-                                                    ->icon('heroicon-o-banknotes')
-                                                    ->color('success'),
-                                            ]),
+                                TextEntry::make('breakdown.vehicle_hours_qty')
+                                    ->label('Vehicle Hours')
+                                    ->numeric()
+                                    ->icon('heroicon-o-clock')
+                                    ->color('info'),
 
+                                TextEntry::make('breakdown.currency.name')
+                                    ->label('Currency')
+                                    ->icon('heroicon-o-banknotes')
+                                    ->color('success'),
+                            ]),
+
+                        Grid::make(2)
+                            ->schema([
+                                TextEntry::make('breakdown.driver_base_meal_budget')
+                                    ->label('Driver Meal Budget')
+                                    ->money('CNY')
+                                    ->icon('heroicon-o-currency-dollar')
+                                    ->color('success'),
+
+                                TextEntry::make('breakdown.driver_base_accommodation_budget')
+                                    ->label('Driver Accommodation Budget')
+                                    ->money('CNY')
+                                    ->icon('heroicon-o-home')
+                                    ->color('primary'),
+
+                                TextEntry::make('breakdown.companion_base_meal_budget')
+                                    ->label('Companion Meal Budget')
+                                    ->money('CNY')
+                                    ->icon('heroicon-o-currency-dollar')
+                                    ->color('warning'),
+
+                                TextEntry::make('breakdown.companion_base_accommodation_budget')
+                                    ->label('Companion Accommodation Budget')
+                                    ->money('CNY')
+                                    ->icon('heroicon-o-home')
+                                    ->color('info'),
+                            ]),
+                    ])
+                    ->collapsible(false),
+
+                // Vehicle Types Section
+                Section::make('Vehicle Types')
+                    ->description('Vehicle pricing and details')
+                    ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
+                    ->schema([
+                        RepeatableEntry::make('breakdown.vehicleTypes')
+                            ->hiddenLabel()
+                            ->contained(false)
+                            ->schema([
+                                Grid::make(4)
+                                    ->schema([
+                                        TextEntry::make('vehicleType.name')
+                                            ->label('Vehicle Type')
+                                            ->icon('heroicon-o-truck')
+                                            ->color('primary'),
+
+                                        TextEntry::make('per_day_price')
+                                            ->label('Per Day Price')
+                                            ->money('CNY')
+                                            ->icon('heroicon-o-currency-dollar')
+                                            ->color('success'),
+
+                                        TextEntry::make('half_day_price')
+                                            ->label('Half Day Price')
+                                            ->money('CNY')
+                                            ->icon('heroicon-o-clock')
+                                            ->color('warning'),
+
+                                        TextEntry::make('extra_hour_price')
+                                            ->label('Extra Hour Price')
+                                            ->money('CNY')
+                                            ->icon('heroicon-o-clock')
+                                            ->color('info'),
+                                    ])
+                            ])
+                    ])
+                    ->collapsible(),
+
+                // Tickets Section
+                Section::make('Tickets')
+                    ->description('Transportation tickets and pricing')
+                    ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
+                    ->schema([
+                        RepeatableEntry::make('breakdown.tickets')
+                            ->hiddenLabel()
+                            ->contained(false)
+                            ->schema([
+                                Grid::make(4)
+                                    ->schema([
+                                        TextEntry::make('transport_mode')
+                                            ->label('Transport Mode')
+                                            ->badge()
+                                            ->color('primary'),
+
+                                        TextEntry::make('fromCity.name')
+                                            ->label('From City')
+                                            ->icon('heroicon-o-map-pin')
+                                            ->color('success'),
+
+                                        TextEntry::make('toCity.name')
+                                            ->label('To City')
+                                            ->icon('heroicon-o-map-pin')
+                                            ->color('warning'),
+
+                                        TextEntry::make('class')
+                                            ->label('Class')
+                                            ->badge()
+                                            ->color('info'),
+                                    ]),
+
+                                TextEntry::make('price')
+                                    ->label('Price')
+                                    ->money('CNY')
+                                    ->icon('heroicon-o-currency-dollar')
+                                    ->color('success')
+                                    ->columnSpanFull(),
+                            ])
+                    ])
+                    ->collapsible(),
+
+                // Meals Section
+                Section::make('Meals')
+                    ->description('Meal types and quantities')
+                    ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
+                    ->schema([
+                        RepeatableEntry::make('breakdown.meals')
+                            ->hiddenLabel()
+                            ->contained(false)
+                            ->schema([
+                                Grid::make(3)
+                                    ->schema([
+                                        TextEntry::make('mealType.name')
+                                            ->label('Meal Type')
+                                            ->icon('heroicon-o-cake')
+                                            ->color('primary'),
+
+                                        TextEntry::make('qty')
+                                            ->label('Quantity')
+                                            ->numeric()
+                                            ->icon('heroicon-o-hashtag')
+                                            ->color('success'),
+
+                                        TextEntry::make('price')
+                                            ->label('Price')
+                                            ->money('CNY')
+                                            ->icon('heroicon-o-currency-dollar')
+                                            ->color('warning'),
+                                    ])
+                            ])
+                    ])
+                    ->collapsible(),
+
+                // Experiences Section
+                Section::make('Experiences')
+                    ->description('Experience activities and pricing')
+                    ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
+                    ->schema([
+                        RepeatableEntry::make('breakdown.experiences')
+                            ->hiddenLabel()
+                            ->contained(false)
+                            ->schema([
+                                Grid::make(3)
+                                    ->schema([
+                                        TextEntry::make('experience.name')
+                                            ->label('Experience')
+                                            ->icon('heroicon-o-sparkles')
+                                            ->color('primary'),
+
+                                        TextEntry::make('price')
+                                            ->label('Price')
+                                            ->money('CNY')
+                                            ->icon('heroicon-o-currency-dollar')
+                                            ->color('success'),
+
+                                        TextEntry::make('charge_mode')
+                                            ->label('Charge Mode')
+                                            ->badge()
+                                            ->color('info'),
+                                    ])
+                            ])
+                    ])
+                    ->collapsible(),
+
+                // Accommodations Section
+                Section::make('Accommodations')
+                    ->description('Hotel accommodations and room details')
+                    ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
+                    ->schema([
+                        RepeatableEntry::make('breakdown.accommodations')
+                            ->hiddenLabel()
+                            ->contained(false)
+                            ->schema([
+                                Grid::make(3)
+                                    ->schema([
+                                        TextEntry::make('accommodation.name')
+                                            ->label('Accommodation')
+                                            ->icon('heroicon-o-home')
+                                            ->color('primary'),
+
+                                        TextEntry::make('city.name')
+                                            ->label('City')
+                                            ->icon('heroicon-o-map-pin')
+                                            ->color('success'),
+
+                                        TextEntry::make('nights_qty')
+                                            ->label('Nights')
+                                            ->numeric()
+                                            ->icon('heroicon-o-moon')
+                                            ->color('warning'),
+                                    ]),
+
+                                // Room Categories
+                                RepeatableEntry::make('rooms')
+                                    ->label('Room Categories')
+                                    ->hiddenLabel()
+                                    ->contained(false)
+                                    ->schema([
                                         Grid::make(2)
-                            ->schema([
-                                                TextEntry::make('breakdown.driver_base_meal_budget')
-                                                    ->label('Driver Meal Budget')
-                                                    ->money('CNY')
-                                                    ->icon('heroicon-o-currency-dollar')
-                                                    ->color('success'),
-
-                                                TextEntry::make('breakdown.driver_base_accommodation_budget')
-                                                    ->label('Driver Accommodation Budget')
-                                                    ->money('CNY')
+                                            ->schema([
+                                                TextEntry::make('roomCategory.name')
+                                                    ->label('Room Type')
                                                     ->icon('heroicon-o-home')
                                                     ->color('primary'),
-
-                                                TextEntry::make('breakdown.companion_base_meal_budget')
-                                                    ->label('Companion Meal Budget')
-                                                    ->money('CNY')
-                                                    ->icon('heroicon-o-currency-dollar')
-                                                    ->color('warning'),
-
-                                                TextEntry::make('breakdown.companion_base_accommodation_budget')
-                                                    ->label('Companion Accommodation Budget')
-                                                    ->money('CNY')
-                                                    ->icon('heroicon-o-home')
-                                                    ->color('info'),
-                                            ]),
-                                    ])
-                                    ->collapsible(false),
-
-                                // Vehicle Types Section
-                                Section::make('Vehicle Types')
-                                    ->description('Vehicle pricing and details')
-                                    ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
-                                    ->schema([
-                                        RepeatableEntry::make('breakdown.vehicleTypes')
-                                            ->hiddenLabel()
-                                            ->contained(false)
-                                            ->schema([
-                                                Grid::make(4)
-                                                    ->schema([
-                                                        TextEntry::make('vehicleType.name')
-                                                            ->label('Vehicle Type')
-                                                            ->icon('heroicon-o-truck')
-                                                            ->color('primary'),
-
-                                                        TextEntry::make('per_day_price')
-                                                            ->label('Per Day Price')
-                                                            ->money('CNY')
-                                                            ->icon('heroicon-o-currency-dollar')
-                                                            ->color('success'),
-
-                                                        TextEntry::make('half_day_price')
-                                                            ->label('Half Day Price')
-                                                            ->money('CNY')
-                                                            ->icon('heroicon-o-clock')
-                                                            ->color('warning'),
-
-                                                        TextEntry::make('extra_hour_price')
-                                                            ->label('Extra Hour Price')
-                                                            ->money('CNY')
-                                                            ->icon('heroicon-o-clock')
-                                                            ->color('info'),
-                                                    ])
-                                            ])
-                                    ])
-                                    ->collapsible(),
-
-                                // Tickets Section
-                                Section::make('Tickets')
-                                    ->description('Transportation tickets and pricing')
-                                    ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
-                                    ->schema([
-                                        RepeatableEntry::make('breakdown.tickets')
-                                            ->hiddenLabel()
-                                            ->contained(false)
-                                            ->schema([
-                                                Grid::make(4)
-                                                    ->schema([
-                                                        TextEntry::make('transport_mode')
-                                                            ->label('Transport Mode')
-                                                            ->badge()
-                                                            ->color('primary'),
-
-                                                        TextEntry::make('fromCity.name')
-                                                            ->label('From City')
-                                                            ->icon('heroicon-o-map-pin')
-                                                            ->color('success'),
-
-                                                        TextEntry::make('toCity.name')
-                                                            ->label('To City')
-                                                            ->icon('heroicon-o-map-pin')
-                                                            ->color('warning'),
-
-                                                        TextEntry::make('class')
-                                                            ->label('Class')
-                                                            ->badge()
-                                                            ->color('info'),
-                                                    ]),
 
                                                 TextEntry::make('price')
                                                     ->label('Price')
                                                     ->money('CNY')
                                                     ->icon('heroicon-o-currency-dollar')
-                                                    ->color('success')
-                                                    ->columnSpanFull(),
+                                                    ->color('success'),
                                             ])
                                     ])
-                                    ->collapsible(),
+                            ])
+                    ])
+                    ->collapsible(),
 
-                                // Meals Section
-                                Section::make('Meals')
-                                    ->description('Meal types and quantities')
-                                    ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
+                // Attractions Section
+                Section::make('Attractions')
+                    ->description('Tourist attractions and entry fees')
+                    ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
+                    ->schema([
+                        RepeatableEntry::make('breakdown.attractions')
+                            ->hiddenLabel()
+                            ->contained(false)
+                            ->schema([
+                                Grid::make(3)
                                     ->schema([
-                                        RepeatableEntry::make('breakdown.meals')
-                                            ->hiddenLabel()
-                                            ->contained(false)
-                                            ->schema([
-                                                Grid::make(3)
-                                                    ->schema([
-                                                        TextEntry::make('mealType.name')
-                                                            ->label('Meal Type')
-                                                            ->icon('heroicon-o-cake')
-                                                            ->color('primary'),
+                                        TextEntry::make('attraction.name')
+                                            ->label('Attraction')
+                                            ->icon('heroicon-o-building-library')
+                                            ->color('primary'),
 
-                                                        TextEntry::make('qty')
-                                                            ->label('Quantity')
-                                                            ->numeric()
-                                                            ->icon('heroicon-o-hashtag')
-                                                            ->color('success'),
+                                        TextEntry::make('city.name')
+                                            ->label('City')
+                                            ->icon('heroicon-o-map-pin')
+                                            ->color('success'),
 
-                                                        TextEntry::make('price')
-                                                            ->label('Price')
-                                                            ->money('CNY')
-                                                            ->icon('heroicon-o-currency-dollar')
-                                                            ->color('warning'),
-                                                    ])
-                                            ])
-                                    ])
-                                    ->collapsible(),
+                                        TextEntry::make('entry_price')
+                                            ->label('Entry Price')
+                                            ->money('CNY')
+                                            ->icon('heroicon-o-currency-dollar')
+                                            ->color('warning'),
+                                    ]),
 
-                                // Experiences Section
-                                Section::make('Experiences')
-                                    ->description('Experience activities and pricing')
-                                    ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
+                                TextEntry::make('is_outview')
+                                    ->label('Outview')
+                                    ->formatStateUsing(fn($state) => $state ? 'Yes' : 'No')
+                                    ->badge()
+                                    ->color(fn($state) => $state ? 'warning' : 'success'),
+
+                                // Sub Attractions
+                                RepeatableEntry::make('subAttractions')
+                                    ->label('Sub Attractions')
+                                    ->hiddenLabel()
+                                    ->contained(false)
                                     ->schema([
-                                        RepeatableEntry::make('breakdown.experiences')
-                                            ->hiddenLabel()
-                                            ->contained(false)
+                                        Grid::make(2)
                                             ->schema([
-                                                Grid::make(3)
-                                                    ->schema([
-                                                        TextEntry::make('experience.name')
-                                                            ->label('Experience')
-                                                            ->icon('heroicon-o-sparkles')
-                                                            ->color('primary'),
+                                                TextEntry::make('subAttraction.name')
+                                                    ->label('Sub Attraction')
+                                                    ->icon('heroicon-o-building-office')
+                                                    ->color('primary'),
 
-                                                        TextEntry::make('price')
-                                                            ->label('Price')
-                                                            ->money('CNY')
-                                                            ->icon('heroicon-o-currency-dollar')
-                                                            ->color('success'),
-
-                                                        TextEntry::make('charge_mode')
-                                                            ->label('Charge Mode')
-                                                            ->badge()
-                                                            ->color('info'),
-                                                    ])
+                                                TextEntry::make('price')
+                                                    ->label('Price')
+                                                    ->money('CNY')
+                                                    ->icon('heroicon-o-currency-dollar')
+                                                    ->color('success'),
                                             ])
                                     ])
-                                    ->collapsible(),
+                            ])
+                    ])
+                    ->collapsible(),
 
-                                // Accommodations Section
-                                Section::make('Accommodations')
-                                    ->description('Hotel accommodations and room details')
-                                    ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
+                // Companions Section
+                Section::make('Companions')
+                    ->description('Tour guides and companion services')
+                    ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
+                    ->schema([
+                        RepeatableEntry::make('breakdown.companions')
+                            ->hiddenLabel()
+                            ->contained(false)
+                            ->schema([
+                                Grid::make(4)
                                     ->schema([
-                                        RepeatableEntry::make('breakdown.accommodations')
-                                            ->hiddenLabel()
-                                            ->contained(false)
-                                            ->schema([
-                                                Grid::make(3)
-                                                    ->schema([
-                                                        TextEntry::make('accommodation.name')
-                                                            ->label('Accommodation')
-                                                            ->icon('heroicon-o-home')
-                                                            ->color('primary'),
+                                        TextEntry::make('companionType.name')
+                                            ->label('Companion Type')
+                                            ->icon('heroicon-o-user')
+                                            ->color('primary'),
 
-                                                        TextEntry::make('city.name')
-                                                            ->label('City')
-                                                            ->icon('heroicon-o-map-pin')
-                                                            ->color('success'),
+                                        TextEntry::make('per_day_price')
+                                            ->label('Per Day Price')
+                                            ->money('CNY')
+                                            ->icon('heroicon-o-currency-dollar')
+                                            ->color('success'),
 
-                                                        TextEntry::make('nights_qty')
-                                                            ->label('Nights')
-                                                            ->numeric()
-                                                            ->icon('heroicon-o-moon')
-                                                            ->color('warning'),
-                                                    ]),
+                                        TextEntry::make('half_day_price')
+                                            ->label('Half Day Price')
+                                            ->money('CNY')
+                                            ->icon('heroicon-o-clock')
+                                            ->color('warning'),
 
-                                                // Room Categories
-                                                RepeatableEntry::make('rooms')
-                                                    ->label('Room Categories')
-                                                    ->hiddenLabel()
-                                                    ->contained(false)
-                                                    ->schema([
-                                                        Grid::make(2)
-                                                            ->schema([
-                                                                TextEntry::make('roomCategory.name')
-                                                                    ->label('Room Type')
-                                                                    ->icon('heroicon-o-home')
-                                                                    ->color('primary'),
-
-                                                                TextEntry::make('price')
-                                                                    ->label('Price')
-                                                                    ->money('CNY')
-                                                                    ->icon('heroicon-o-currency-dollar')
-                                                                    ->color('success'),
-                                                            ])
-                                                    ])
-                                            ])
+                                        TextEntry::make('per_hour_price')
+                                            ->label('Per Hour Price')
+                                            ->money('CNY')
+                                            ->icon('heroicon-o-clock')
+                                            ->color('gray'),
                                     ])
-                                    ->collapsible(),
+                            ])
+                    ])
+                    ->collapsible(),
 
-                                // Attractions Section
-                                Section::make('Attractions')
-                                    ->description('Tourist attractions and entry fees')
-                                    ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
+                // Expenses Section
+                Section::make('Additional Expenses')
+                    ->description('Miscellaneous expenses and costs')
+                    ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
+                    ->schema([
+                        RepeatableEntry::make('breakdown.expenses')
+                            ->hiddenLabel()
+                            ->contained(false)
+                            ->schema([
+                                Grid::make(3)
                                     ->schema([
-                                        RepeatableEntry::make('breakdown.attractions')
-                                            ->hiddenLabel()
-                                            ->contained(false)
-                                            ->schema([
-                                                Grid::make(3)
-                                                    ->schema([
-                                                        TextEntry::make('attraction.name')
-                                                            ->label('Attraction')
-                                                            ->icon('heroicon-o-building-library')
-                                                            ->color('primary'),
+                                        TextEntry::make('description')
+                                            ->label('Description')
+                                            ->icon('heroicon-o-document-text')
+                                            ->color('primary'),
 
-                                                        TextEntry::make('city.name')
-                                                            ->label('City')
-                                                            ->icon('heroicon-o-map-pin')
-                                                            ->color('success'),
+                                        TextEntry::make('price')
+                                            ->label('Price')
+                                            ->money('CNY')
+                                            ->icon('heroicon-o-currency-dollar')
+                                            ->color('success'),
 
-                                                        TextEntry::make('entry_price')
-                                                            ->label('Entry Price')
-                                                            ->money('CNY')
-                                                            ->icon('heroicon-o-currency-dollar')
-                                                            ->color('warning'),
-                                                    ]),
-
-                                                TextEntry::make('is_outview')
-                                                    ->label('Outview')
-                                                    ->formatStateUsing(fn($state) => $state ? 'Yes' : 'No')
-                                                    ->badge()
-                                                    ->color(fn($state) => $state ? 'warning' : 'success'),
-
-                                                // Sub Attractions
-                                                RepeatableEntry::make('subAttractions')
-                                                    ->label('Sub Attractions')
-                                                    ->hiddenLabel()
-                                                    ->contained(false)
-                                                    ->schema([
-                                                        Grid::make(2)
-                                                            ->schema([
-                                                                TextEntry::make('subAttraction.name')
-                                                                    ->label('Sub Attraction')
-                                                                    ->icon('heroicon-o-building-office')
-                                                                    ->color('primary'),
-
-                                                                TextEntry::make('price')
-                                                                    ->label('Price')
-                                                                    ->money('CNY')
-                                                                    ->icon('heroicon-o-currency-dollar')
-                                                                    ->color('success'),
-                                                            ])
-                                                    ])
-                                            ])
+                                        TextEntry::make('charge_mode')
+                                            ->label('Charge Mode')
+                                            ->badge()
+                                            ->color('info'),
                                     ])
-                                    ->collapsible(),
+                            ])
+                    ])
+                    ->collapsible(),
 
-                                // Companions Section
-                                Section::make('Companions')
-                                    ->description('Tour guides and companion services')
-                                    ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
-                                    ->schema([
-                                        RepeatableEntry::make('breakdown.companions')
-                                            ->hiddenLabel()
-                                            ->contained(false)
-                                            ->schema([
-                                                Grid::make(4)
-                                                    ->schema([
-                                                        TextEntry::make('companionType.name')
-                                                            ->label('Companion Type')
-                                                            ->icon('heroicon-o-user')
-                                                            ->color('primary'),
-
-                                                        TextEntry::make('per_day_price')
-                                                            ->label('Per Day Price')
-                                                            ->money('CNY')
-                                                            ->icon('heroicon-o-currency-dollar')
-                                                            ->color('success'),
-
-                                                        TextEntry::make('half_day_price')
-                                                            ->label('Half Day Price')
-                                                            ->money('CNY')
-                                                            ->icon('heroicon-o-clock')
-                                                            ->color('warning'),
-
-                                                        TextEntry::make('per_hour_price')
-                                                            ->label('Per Hour Price')
-                                                            ->money('CNY')
-                                                            ->icon('heroicon-o-clock')
-                                                            ->color('gray'),
-                                                    ])
-                                            ])
-                                    ])
-                                    ->collapsible(),
-
-                                // Expenses Section
-                                Section::make('Additional Expenses')
-                                    ->description('Miscellaneous expenses and costs')
-                                    ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
-                                    ->schema([
-                                        RepeatableEntry::make('breakdown.expenses')
-                                            ->hiddenLabel()
-                                            ->contained(false)
-                                            ->schema([
-                                                Grid::make(3)
-                                                    ->schema([
-                                                        TextEntry::make('description')
-                                                            ->label('Description')
-                                                            ->icon('heroicon-o-document-text')
-                                                            ->color('primary'),
-
-                                                        TextEntry::make('price')
-                                                            ->label('Price')
-                                                            ->money('CNY')
-                                                            ->icon('heroicon-o-currency-dollar')
-                                                            ->color('success'),
-
-                                                        TextEntry::make('charge_mode')
-                                                            ->label('Charge Mode')
-                                                            ->badge()
-                                                            ->color('info'),
-                                                    ])
-                                            ])
-                                    ])
-                                    ->collapsible(),
-
-                            ]);
+            ]);
     }
 
     private static function offersTab(): Tab

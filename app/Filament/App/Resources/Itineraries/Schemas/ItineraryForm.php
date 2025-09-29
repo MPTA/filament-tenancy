@@ -37,7 +37,38 @@ class ItineraryForm
                     ->label('Days')
                     ->live()
                     ->itemLabel(function (array $state, $component) {
-                        $dayNumber = $component->getStatePath() ? (int) substr($component->getStatePath(), -1) + 1 : 1;
+                        // Get day number using a different approach
+                        $dayNumber = 1;
+                        
+                        // Try to get from state path first
+                        $statePath = $component->getStatePath();
+                        if ($statePath) {
+                            $pathParts = explode('.', $statePath);
+                            if (count($pathParts) >= 2 && is_numeric($pathParts[1])) {
+                                $dayNumber = (int) $pathParts[1] + 1;
+                            }
+                        }
+                        
+                        // Alternative: try to get from container state
+                        if ($dayNumber === 1) {
+                            $container = $component->getContainer();
+                            if ($container) {
+                                $allDays = $container->getState();
+                                if (is_array($allDays)) {
+                                    $currentIndex = array_search($state, $allDays, true);
+                                    if ($currentIndex !== false) {
+                                        $dayNumber = $currentIndex + 1;
+                                    }
+                                }
+                            }
+                        }
+                        
+                        // Fallback: use a static counter
+                        static $counter = 0;
+                        if ($dayNumber === 1) {
+                            $counter++;
+                            $dayNumber = $counter;
+                        }
                         
                         $cityName = '';
                         $hotelName = '';
@@ -116,13 +147,14 @@ class ItineraryForm
                     ->schema([
                         Select::make('current_city_id')
                         ->label('Current City')
-                            ->options(City::getCachedSelectOptions())
-                            ->required()
-                            ->live(),
+                            ->options(City::getCachedSelectOptionsForTenant())
+                            ->live()
+                            ->placeholder('Select a city'),
                         Select::make('accommodation_city_id')
                             ->label('Accommodation City')
-                            ->options(City::getCachedSelectOptions())
+                            ->options(City::getCachedSelectOptionsForTenant())
                             ->live()
+                            ->placeholder('Select accommodation city')
                             ->afterStateUpdated(function ($state, callable $set) {
                                 $set('accommodation_id', null);
                             }),
@@ -174,7 +206,7 @@ class ItineraryForm
                             ->afterStateUpdated(function ($state, callable $set, callable $get) {
                                 if ($state) {
                                     // Set to full_day when has_vehicle is true
-                                    $set('vehicle_usage_mode', \App\Enums\VehicleUsageModeEnum::FULL_DAY->value);
+                                    $set('vehicle_usage_mode', VehicleUsageModeEnum::FULL_DAY->value);
                                     $set('vehicle_hours', 0);
                                 } else {
                                     // Clear vehicle fields when has_vehicle is false
@@ -211,7 +243,7 @@ class ItineraryForm
                                             Select::make('city_id')
                                                 ->required()
                                                 ->label('City')
-                                                ->options(City::getCachedSelectOptions())
+                                                ->options(City::getCachedSelectOptionsForTenant())
                                                 ->reactive()
                                                 ->afterStateUpdated(function ($state, callable $set) {
                                                     $set('attraction_id', null);
@@ -293,8 +325,8 @@ class ItineraryForm
                                                 ->options(TransportModeEnum::class)
                                                 ->required()
                                                 ->label('Mode'),
-                                            Select::make('from_city_id')->options(City::getCachedSelectOptions())->label('From City')->required(),
-                                            Select::make('to_city_id')->options(City::getCachedSelectOptions())->label('To City')->required(),
+                                            Select::make('from_city_id')->options(City::getCachedSelectOptionsForTenant())->label('From City')->required(),
+                                            Select::make('to_city_id')->options(City::getCachedSelectOptionsForTenant())->label('To City')->required(),
                                             TextInput::make('transport_number')->label('Number'),
                                             Select::make('class')->options(TicketClassEnum::class)->label('Class')->required(),
                                             TimePicker::make('departure_time')->label('Departure')->seconds(false),
@@ -324,7 +356,7 @@ class ItineraryForm
                                             Select::make('city_id')
                                             ->required()
                                                 ->label('City')
-                                                ->options(City::getCachedSelectOptions())
+                                                ->options(City::getCachedSelectOptionsForTenant())
                                                 ->reactive()
                                                 ->afterStateUpdated(function ($state, callable $set) {
                                                     $set('experience_id', null);

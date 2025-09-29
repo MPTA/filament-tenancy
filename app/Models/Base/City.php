@@ -73,9 +73,48 @@ class City extends Model
     }
 
     /**
+     * Get cached select options for cities filtered by tenant country.
+     */
+    public static function getCachedSelectOptionsForTenant()
+    {
+        static $cache = null;
+        
+        if ($cache === null) {
+            // Get tenant's country from settings
+            $tenantSetting = \App\Models\TenantSetting::first();
+            $tenantCountryId = $tenantSetting?->country_id;
+            
+            if (!$tenantCountryId) {
+                // If no tenant country set, return all cities
+                return static::getCachedSelectOptions();
+            }
+            
+            $cache = static::query()
+                ->whereHas('province', function ($query) use ($tenantCountryId) {
+                    $query->where('country_id', $tenantCountryId);
+                })
+                ->select('id', 'name')
+                ->orderBy('name')
+                ->get()
+                ->pluck('name', 'id');
+        }
+        
+        return $cache;
+    }
+
+    /**
      * Clear the static cache.
      */
     public static function clearStaticCache()
+    {
+        static $cache = null;
+        $cache = null;
+    }
+
+    /**
+     * Clear the tenant-specific cache.
+     */
+    public static function clearTenantCache()
     {
         static $cache = null;
         $cache = null;
