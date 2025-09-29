@@ -350,7 +350,7 @@ class QuotationItinerary extends Model
         $singleRoomCategory = RoomCategory::where('category', \App\Enums\RoomCategoryEnum::SINGLE->value)->first();
 
         if ($twinRoomCategory) {
-            $price = $existingRooms ? $existingRooms->get($twinRoomCategory->id, 0.00) : 0.00;
+            $price = $this->getRoomCategoryPrice($breakdownAccommodation, $twinRoomCategory, $existingRooms);
             $breakdownAccommodation->rooms()->create([
                 'room_category_id' => $twinRoomCategory->id,
                 'price' => $price,
@@ -358,7 +358,7 @@ class QuotationItinerary extends Model
         }
 
         if ($singleRoomCategory) {
-            $price = $existingRooms ? $existingRooms->get($singleRoomCategory->id, 0.00) : 0.00;
+            $price = $this->getRoomCategoryPrice($breakdownAccommodation, $singleRoomCategory, $existingRooms);
             $breakdownAccommodation->rooms()->create([
                 'room_category_id' => $singleRoomCategory->id,
                 'price' => $price,
@@ -442,6 +442,52 @@ class QuotationItinerary extends Model
                 ]);
             }
         }
+    }
+
+    /**
+     * Get room category price from tenant-specific table first, fallback to central table
+     */
+    private function getRoomCategoryPrice($breakdownAccommodation, $roomCategory, $existingRooms = null)
+    {
+        // Preserve existing price if available
+        $existingPrice = $existingRooms ? $existingRooms->get($roomCategory->id, 0.00) : 0.00;
+        if ($existingPrice > 0) {
+            return $existingPrice;
+        }
+
+        // Try to get price from tenant-specific table first
+        $tenantAccommodationPrice = \App\Models\Tenants\TenantAccommodationPrice::query()->where('accommodation_id', $breakdownAccommodation->accommodation_id)
+            ->where('room_category_id', $roomCategory->id)
+            ->where(function ($query) {
+                $query->where('valid_from', null)
+                    ->orWhere('valid_from', '<=', now());
+            })
+            ->where(function ($query) {
+                $query->where('valid_to', null)
+                    ->orWhere('valid_to', '>=', now());
+            })
+            ->orderBy('valid_from', 'desc')
+            ->first();
+
+        if ($tenantAccommodationPrice) {
+            return $tenantAccommodationPrice->price ?? 0.00;
+        }
+
+        // Fallback to central table
+        $centralAccommodationPrice = \App\Models\Base\AccommodationPrice::query()->where('accommodation_id', $breakdownAccommodation->accommodation_id)
+            ->where('room_category_id', $roomCategory->id)
+            ->where(function ($query) {
+                $query->where('valid_from', null)
+                    ->orWhere('valid_from', '<=', now());
+            })
+            ->where(function ($query) {
+                $query->where('valid_to', null)
+                    ->orWhere('valid_to', '>=', now());
+            })
+            ->orderBy('valid_from', 'desc')
+            ->first();
+
+        return $centralAccommodationPrice?->price ?? 0.00;
     }
 
     /**
