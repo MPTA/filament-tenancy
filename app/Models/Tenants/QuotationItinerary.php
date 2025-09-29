@@ -437,12 +437,13 @@ class QuotationItinerary extends Model
                         ]);
 
                         // Get pricing from tenant-specific tables first, fallback to central tables
-                        $entryPrice = $this->getAttractionEntryPrice($activity->attraction->attraction, $existingData['entry_price']);
+                        $isOutview = $activity->attraction->is_outview ?? false;
+                        $entryPrice = $isOutview ? 0.00 : $this->getAttractionEntryPrice($activity->attraction->attraction, $existingData['entry_price']);
 
                         $breakdownAttraction = $breakdown->attractions()->create([
                             'attraction_id' => $activity->attraction->attraction->id,
                             'city_id' => $activity->city_id,
-                            'is_outview' => $activity->attraction->is_outview ?? false,
+                            'is_outview' => $isOutview,
                             'entry_price' => $entryPrice,
                         ]);
 
