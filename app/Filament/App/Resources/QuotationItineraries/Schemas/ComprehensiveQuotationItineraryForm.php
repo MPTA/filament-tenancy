@@ -7,6 +7,8 @@ use App\Enums\InquiryTypeEnum;
 use App\Enums\QuotationTypeEnum;
 use App\Models\Base\Currency;
 use App\Models\Tenants\TenantContact;
+use App\Models\TenantSetting;
+use App\Models\Tenants\ExchangeRate;
 use Filament\Forms\Components\DatePicker;
 use Filament\Schemas\Components\Grid;
 use Filament\Forms\Components\Hidden;
@@ -58,7 +60,14 @@ class ComprehensiveQuotationItineraryForm
                                     ->options(fn () => Currency::pluck('name', 'id')->toArray())
                                     ->searchable()
                                     ->preload()
-                                    ->required(),
+                                    ->required()
+                                    ->reactive()
+                                    ->afterStateUpdated(function ($state, $set) {
+                                        if ($state) {
+                                            $exchangeRate = self::calculateExchangeRate($state);
+                                            $set('exchange_rate', $exchangeRate);
+                                        }
+                                    }),
                             ]),
                     ]),
                 
@@ -115,10 +124,35 @@ class ComprehensiveQuotationItineraryForm
                             ->schema([
                                 TextInput::make('exchange_rate')
                                     ->label('Exchange Rate')
+                                    ->helperText(function ($get) {
+                                        $requestedCurrencyId = $get('inquiry_requested_currency_id');
+                                        $exchangeRate = $get('exchange_rate');
+                                        
+                                        if ($requestedCurrencyId) {
+                                            $requestedCurrency = Currency::find($requestedCurrencyId);
+                                            $tenantSetting = TenantSetting::first();
+                                            $tenantCurrency = $tenantSetting?->currency;
+                                            
+                                            if ($requestedCurrency && $tenantCurrency) {
+                                                if ($exchangeRate && $exchangeRate > 0) {
+                                                    return "1 {$requestedCurrency->code} = {$exchangeRate} {$tenantCurrency->code}";
+                                                } else {
+                                                    return "1 {$requestedCurrency->code} = ... {$tenantCurrency->code}";
+                                                }
+                                            }
+                                        }
+                                        
+                                        if ($exchangeRate && $exchangeRate > 0) {
+                                            return "1 Quotation Currency = {$exchangeRate} Your Setting Currency";
+                                        }
+                                        
+                                        return "1 Quotation Currency = ... Your Currency";
+                                    })
                                     ->numeric()
                                     ->step(0.0001)
                                     ->default(1.0000)
-                                    ->required(),
+                                    ->required()
+                                    ->reactive(),
                                 
                                 DatePicker::make('expire_date')
                                     ->label('Expire Date')
@@ -148,5 +182,58 @@ class ComprehensiveQuotationItineraryForm
                     ]),
                 
             ]);
+    }
+
+    /**
+     * Calculate exchange rate based on tenant currency and requested currency.
+     * 
+     * Logic:
+     * - If tenant has CNY and wants USD, we need rate from CNY to USD
+     * - If tenant has USD and wants CNY, we need rate from USD to CNY
+     * - Rate should be: 1 tenant_currency = X requested_currency
+     */
+    private static function calculateExchangeRate($requestedCurrencyId)
+    {
+        try {
+            // Get tenant's currency from settings (BelongsToTenant handles tenant_id automatically)
+            $tenantSetting = TenantSetting::first();
+            $tenantCurrencyId = $tenantSetting?->currency_id;
+            
+            // If no tenant currency or same as requested, return 1
+            if ($tenantCurrencyId === $requestedCurrencyId) {
+                return 1.0000;
+            }
+
+            // Try to find exchange rate from tenant currency to requested currency
+            // Example: If tenant has CNY and wants USD, look for CNY->USD rate
+            $exchangeRate = ExchangeRate::where('from_currency_id', $tenantCurrencyId)
+                ->where('to_currency_id', $requestedCurrencyId)
+                ->first();
+
+            if ($exchangeRate) {
+                // Direct rate found: 1 tenant_currency = X requested_currency
+                return (float) $exchangeRate->rate;
+            }
+
+            // If no direct rate found, try reverse rate
+            // Example: If tenant has CNY and wants USD, but only USD->CNY rate exists
+            $reverseRate = ExchangeRate::where('from_currency_id', $requestedCurrencyId)
+                ->where('to_currency_id', $tenantCurrencyId)
+                ->first();
+
+            if ($reverseRate) {
+                // Reverse rate found: 1 requested_currency = X tenant_currency
+                // For display purposes, we want to show the rate as is
+                // So if USD->CNY is 7, we show 7 (meaning 1 USD = 7 CNY)
+                return (float) $reverseRate->rate;
+            }
+
+            // If no exchange rate found, return null
+            return null;
+
+        } catch (\Exception $e) {
+            // If any error occurs, return null
+            return null;
+        }
     }
 }
