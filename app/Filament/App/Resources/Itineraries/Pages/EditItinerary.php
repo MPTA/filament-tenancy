@@ -32,11 +32,7 @@ class EditItinerary extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
-            \Filament\Actions\Action::make('save')
-                ->label('Store')
-                ->submit('save')
-                ->color('success')
-                ->icon('heroicon-o-check'),
+            $this->getSaveAction(),
             $this->getSaveAndCloseAction(),
             $this->getViewQuotationAction(),
             // DeleteAction::make()
@@ -49,16 +45,114 @@ class EditItinerary extends EditRecord
         return [];
     }
 
+    /**
+     * Save record without redirect
+     */
+    protected function saveRecord(): void
+    {
+        $data = $this->form->getState();
+        
+        // Handle days manually (same as mutateFormDataBeforeSave)
+        if (isset($data['days'])) {
+            $days = $data['days'];
+            unset($data['days']); // Remove from main data
+            
+            // Use database transaction to ensure data consistency
+            \Illuminate\Support\Facades\DB::transaction(function () use ($days) {
+                $itinerary = $this->getRecord();
+                
+                // Delete all existing days (cascade will handle related data)
+                $itinerary->days()->delete();
+                
+                // Process each day
+                foreach ($days as $index => $dayData) {
+                    // Add day_number automatically based on index
+                    $dayData['day_number'] = $index + 1;
+                    
+                    // Handle vehicle fields conversion
+                    $vehicleUsageMode = null;
+                    $vehicleHours = null;
+                    
+                    // If has_vehicle is true, set to FULL_DAY with 0 hours
+                    if (isset($dayData['has_vehicle']) && $dayData['has_vehicle']) {
+                        $vehicleUsageMode = VehicleUsageModeEnum::FULL_DAY->value;
+                        $vehicleHours = 0;
+                    }
+                    
+                    // Create ItineraryDay
+                    $itineraryDay = \App\Models\Tenants\Itinerary::find($itinerary->id)->days()->create([
+                        'day_number' => $dayData['day_number'],
+                        'current_city_id' => $dayData['current_city_id'],
+                        'accommodation_city_id' => $dayData['accommodation_city_id'],
+                        'accommodation_id' => $dayData['accommodation_id'] ?? null,
+                        'accommodation_star_rating' => $dayData['accommodation_star_rating'] ?? null,
+                        'vehicle_usage_mode' => $vehicleUsageMode,
+                        'vehicle_hours' => $vehicleHours,
+                        'description' => $dayData['description'] ?? null,
+                        'creator_user_id' => \Illuminate\Support\Facades\Auth::user()->id,
+                    ]);
+                    
+                    // Create tour guide companion if has_tour_guide is true
+                    if (isset($dayData['has_tour_guide']) && $dayData['has_tour_guide']) {
+                        $this->createTourGuideCompanion($itineraryDay);
+                    }
+                    
+                    // Process meals
+                    $this->processMeals($itineraryDay, $dayData);
+                    
+                    // Process attractions
+                    $this->processAttractions($itineraryDay, $dayData);
+                    
+                    // Process tickets
+                    $this->processTickets($itineraryDay, $dayData);
+                    
+                    // Process experiences
+                    $this->processExperiences($itineraryDay, $dayData);
+                }
+            });
+        }
+        
+        // Save the main record (only if there are other fields to save)
+        if (!empty($data)) {
+            $this->record->update($data);
+        }
+        
+        // Refresh the form data using the same method as mutateFormDataBeforeFill
+        $this->form->fill($this->mutateFormDataBeforeFill($this->record->toArray()));
+    }
+
+    protected function getSaveAction(): \Filament\Actions\Action
+    {
+        return \Filament\Actions\Action::make('save')
+            ->label('Save')
+            ->color('success')
+            ->icon('heroicon-o-check')
+            ->action(function () {
+                // Save without redirect
+                $this->saveRecord();
+                \Filament\Notifications\Notification::make()
+                    ->title('Itinerary saved successfully!')
+                    ->success()
+                    ->send();
+            })
+            ->close(false);
+    }
+
     protected function getSaveAndCloseAction(): \Filament\Actions\Action
     {
         return \Filament\Actions\Action::make('saveAndClose')
             ->label('Save and Close')
-            ->submit('save')
             ->color('primary')
             ->icon('heroicon-o-check-circle')
             ->action(function () {
                 // Save the record first
                 $this->save();
+                
+                // Show success notification
+                \Filament\Notifications\Notification::make()
+                    ->title('Itinerary saved successfully!')
+                    ->success()
+                    ->send();
                 
                 // Then redirect
                 $redirectUrl = $this->getRedirectUrl();

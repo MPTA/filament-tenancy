@@ -408,12 +408,8 @@ class QuotationItinerary extends Model
                             'sub_attractions' => collect(),
                         ]);
 
-                        // Preserve existing price if available, otherwise use passenger type based price
-                        $entryPrice = $existingData['entry_price'] > 0 ? $existingData['entry_price'] : (
-                            $this->is_foreigner_passengers 
-                                ? ($activity->attraction->attraction->foreigner_price ?? $activity->attraction->attraction->entry_price ?? 0.00)
-                                : ($activity->attraction->attraction->local_price ?? $activity->attraction->attraction->entry_price ?? 0.00)
-                        );
+                        // Get pricing from tenant-specific tables first, fallback to central tables
+                        $entryPrice = $this->getAttractionEntryPrice($activity->attraction->attraction, $existingData['entry_price']);
 
                         $breakdownAttraction = $breakdown->attractions()->create([
                             'attraction_id' => $activity->attraction->attraction->id,
@@ -437,19 +433,79 @@ class QuotationItinerary extends Model
         // Only create sub-attractions if the attraction is NOT outview
         if (!$breakdownAttraction->is_outview && $attraction->subAttractions) {
             foreach ($attraction->subAttractions as $subAttraction) {
-                // Preserve existing price if available, otherwise use passenger type based price
-                $existingPrice = $existingSubAttractions ? $existingSubAttractions->get($subAttraction->id, 0.00) : 0.00;
-                $subAttractionPrice = $existingPrice > 0 ? $existingPrice : (
-                    $this->is_foreigner_passengers 
-                        ? ($subAttraction->foreigner_price ?? $subAttraction->price ?? 0.00)
-                        : ($subAttraction->local_price ?? $subAttraction->price ?? 0.00)
-                );
+                // Get pricing from tenant-specific tables first, fallback to central tables
+                $subAttractionPrice = $this->getSubAttractionPrice($attraction, $subAttraction, $existingSubAttractions);
 
                 $breakdownAttraction->subAttractions()->create([
                     'sub_attraction_id' => $subAttraction->id,
                     'price' => $subAttractionPrice,
                 ]);
             }
+        }
+    }
+
+    /**
+     * Get attraction entry price from tenant-specific table first, fallback to central table
+     */
+    private function getAttractionEntryPrice($attraction, $existingPrice = 0.00)
+    {
+        // Preserve existing price if available
+        if ($existingPrice > 0) {
+            return $existingPrice;
+        }
+
+        // Try to get price from tenant-specific table first
+        $tenantAttraction = \App\Models\Tenants\TenantAttraction::where('attraction_id', $attraction->id)->first();
+        
+        if ($tenantAttraction) {
+            if ($this->is_foreigner_passengers) {
+                return $tenantAttraction->foreigner_price ?? 0.00;
+            } else {
+                return $tenantAttraction->local_price ?? 0.00;
+            }
+        }
+
+        // Fallback to central table
+        if ($this->is_foreigner_passengers) {
+            return $attraction->foreigner_price ?? $attraction->entry_price ?? 0.00;
+        } else {
+            return $attraction->local_price ?? $attraction->entry_price ?? 0.00;
+        }
+    }
+
+    /**
+     * Get sub-attraction price from tenant-specific table first, fallback to central table
+     */
+    private function getSubAttractionPrice($attraction, $subAttraction, $existingSubAttractions = null)
+    {
+        // Preserve existing price if available
+        $existingPrice = $existingSubAttractions ? $existingSubAttractions->get($subAttraction->id, 0.00) : 0.00;
+        if ($existingPrice > 0) {
+            return $existingPrice;
+        }
+
+        // Try to get price from tenant-specific table first
+        $tenantAttraction = \App\Models\Tenants\TenantAttraction::where('attraction_id', $attraction->id)->first();
+        
+        if ($tenantAttraction) {
+            $tenantSubAttraction = \App\Models\Tenants\TenantSubAttraction::where('tenant_attraction_id', $tenantAttraction->id)
+                ->where('sub_attraction_id', $subAttraction->id)
+                ->first();
+            
+            if ($tenantSubAttraction) {
+                if ($this->is_foreigner_passengers) {
+                    return $tenantSubAttraction->foreigner_price ?? 0.00;
+                } else {
+                    return $tenantSubAttraction->local_price ?? 0.00;
+                }
+            }
+        }
+
+        // Fallback to central table
+        if ($this->is_foreigner_passengers) {
+            return $subAttraction->foreigner_price ?? $subAttraction->price ?? 0.00;
+        } else {
+            return $subAttraction->local_price ?? $subAttraction->price ?? 0.00;
         }
     }
 
