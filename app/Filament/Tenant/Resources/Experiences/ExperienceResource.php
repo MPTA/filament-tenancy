@@ -9,6 +9,7 @@ use App\Filament\Tenant\Resources\Experiences\Pages\ViewExperience;
 use App\Filament\Tenant\Resources\Experiences\Schemas\ExperienceForm;
 use App\Filament\Tenant\Resources\Experiences\Schemas\ExperienceInfolist;
 use App\Filament\Tenant\Resources\Experiences\Tables\ExperiencesTable;
+use LaraZeus\SpatieTranslatable\Resources\Concerns\Translatable;
 use App\Models\Tenants\Experience;
 use BackedEnum;
 use Filament\Resources\Resource;
@@ -19,6 +20,7 @@ use UnitEnum;
 
 class ExperienceResource extends Resource
 {
+    use Translatable;
     protected static ?string $model = Experience::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedSparkles;
