@@ -153,4 +153,19 @@ class InquiryItinerary extends Model
 
         return str_repeat('★', $this->accommodation_stars) . ' (' . $this->accommodation_stars . ' stars)';
     }
+
+    /**
+     * Boot method to handle cascade deletes.
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($inquiryItinerary) {
+            // Delete itinerary and its related data
+            if ($inquiryItinerary->itinerary) {
+                $inquiryItinerary->itinerary->delete();
+            }
+        });
+    }
 }

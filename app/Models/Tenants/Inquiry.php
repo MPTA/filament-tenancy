@@ -180,7 +180,7 @@ class Inquiry extends Model
     }
 
     /**
-     * Boot method to generate inquiry number.
+     * Boot method to generate inquiry number and handle cascade deletes.
      */
     protected static function boot()
     {

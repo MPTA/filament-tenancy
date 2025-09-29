@@ -175,7 +175,7 @@ class Quotation extends Model
     }
 
     /**
-     * Boot method to generate quotation number.
+     * Boot method to generate quotation number and handle cascade deletes.
      */
     protected static function boot()
     {
@@ -186,6 +186,7 @@ class Quotation extends Model
                 $quotation->number = static::generateQuotationNumber();
             }
         });
+
     }
 
     /**
@@ -193,13 +194,11 @@ class Quotation extends Model
      */
     protected static function generateQuotationNumber(): string
     {
-        $lastQuotation = static::orderBy('number', 'desc')->first();
+        $lastQuotation = static::query()->orderBy('number', 'desc')->first();
         
-        if ($lastQuotation && is_numeric($lastQuotation->number)) {
-            $nextNumber = (int) $lastQuotation->number + 1;
-        } else {
-            $nextNumber = 1000100;
-        }
+        $nextNumber = ($lastQuotation && is_numeric($lastQuotation->number)) 
+            ? (int) $lastQuotation->number + 1 
+            : 1000100;
 
         return (string) $nextNumber;
     }

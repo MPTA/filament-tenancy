@@ -55,6 +55,25 @@ class QuotationItinerary extends Model
     }
 
     /**
+     * Boot method to handle cascade deletes.
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($quotationItinerary) {
+            // Clear cache for quotation itinerary
+            $cacheKey = "itinerary_summary_{$quotationItinerary->id}";
+            cache()->forget($cacheKey);
+            
+            // Delete itinerary and its related data
+            if ($quotationItinerary->itinerary) {
+                $quotationItinerary->itinerary->delete();
+            }
+        });
+    }
+
+    /**
      * Generate breakdown from itinerary data
      */
     public function generateBreakdownFromItinerary()
