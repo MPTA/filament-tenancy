@@ -5,7 +5,6 @@ namespace App\Filament\App\Resources\QuotationItineraries\Tables;
 use Filament\Actions\ActionGroup;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
-use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\BadgeColumn;
@@ -117,7 +116,6 @@ class QuotationItinerariesTable
             ->recordActions([
                 ActionGroup::make([
                     ViewAction::make(),
-                    EditAction::make(),
                 ]),
             ])
             ->defaultSort('created_at', 'desc')
