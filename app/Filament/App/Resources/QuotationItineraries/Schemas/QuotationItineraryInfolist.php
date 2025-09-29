@@ -70,7 +70,7 @@ class QuotationItineraryInfolist
                                                 \Filament\Forms\Components\TextInput::make('inquiry.reference')
                                                     ->label('Reference'),
                                                 
-                                                \Filament\Forms\Components\Select::make('inquiry_itinerary.date_type')
+                                                Select::make('inquiry_itinerary.date_type')
                                                     ->label('Date Type')
                                                     ->options(\App\Enums\InquiryDateTypeEnum::getOptions())
                                                     ->required(),
