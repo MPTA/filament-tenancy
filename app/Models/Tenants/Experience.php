@@ -10,6 +10,7 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Facades\Auth;
 use Spatie\Translatable\HasTranslations;
 use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 
@@ -147,5 +148,19 @@ class Experience extends Model
 
         $currency = $this->currency ? $this->currency->code : 'USD';
         return number_format((float) $this->price, 2) . ' ' . $currency;
+    }
+
+    /**
+     * Boot method to automatically set creator_user_id.
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($experience) {
+            if (empty($experience->creator_user_id)) {
+                $experience->creator_user_id = Auth::id();
+            }
+        });
     }
 }
