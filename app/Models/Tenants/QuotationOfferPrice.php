@@ -6,6 +6,7 @@ use App\Models\Base\RoomCategory;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 
 class QuotationOfferPrice extends Model
@@ -37,6 +38,14 @@ class QuotationOfferPrice extends Model
     public function roomCategory(): BelongsTo
     {
         return $this->belongsTo(RoomCategory::class);
+    }
+
+    /**
+     * Get the quotation offer price accommodations for this price (one-to-many relationship).
+     */
+    public function quotationOfferPriceAccommodations(): HasMany
+    {
+        return $this->hasMany(QuotationOfferPriceAccommodation::class);
     }
 
     /**
