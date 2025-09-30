@@ -1937,8 +1937,6 @@ class QuotationItineraryInfolist
                             ->icon(fn($state) => 'heroicon-o-check-circle')
                             ->color(fn($state) => $state ? 'success' : 'gray'),
 
-
-
                         TextEntry::make('roomCategory.name')
                             ->label('Room Type')
                             ->formatStateUsing(fn($state) => $state ?? 'N/A')
