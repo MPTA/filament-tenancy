@@ -68,6 +68,14 @@ class QuotationOfferGroup extends Model
     }
 
     /**
+     * Get the quotation offer group meals for this offer group (one-to-many relationship).
+     */
+    public function quotationOfferGroupMeals(): HasMany
+    {
+        return $this->hasMany(QuotationOfferGroupMeal::class);
+    }
+
+    /**
      * Scope a query to filter by quotation itinerary.
      */
     public function scopeByQuotationItinerary($query, $quotationItineraryId)
