@@ -21,8 +21,6 @@ class QuotationOffer extends Model
         'pax_qty',
         'drivers_qty',
         'markup',
-        'driver_meal_cost',
-        'driver_accommodation_cost',
         'tenant_id',
     ];
 
@@ -31,8 +29,6 @@ class QuotationOffer extends Model
         'pax_qty' => 'integer',
         'drivers_qty' => 'integer',
         'markup' => 'decimal:2',
-        'driver_meal_cost' => 'decimal:2',
-        'driver_accommodation_cost' => 'decimal:2',
     ];
 
     /**
@@ -123,29 +119,6 @@ class QuotationOffer extends Model
         return $query->whereBetween('markup', [$minMarkup, $maxMarkup]);
     }
 
-    /**
-     * Scope a query to filter by driver meal cost range.
-     */
-    public function scopeByDriverMealCostRange($query, $minCost, $maxCost)
-    {
-        return $query->whereBetween('driver_meal_cost', [$minCost, $maxCost]);
-    }
-
-    /**
-     * Scope a query to filter by driver accommodation cost range.
-     */
-    public function scopeByDriverAccommodationCostRange($query, $minCost, $maxCost)
-    {
-        return $query->whereBetween('driver_accommodation_cost', [$minCost, $maxCost]);
-    }
-
-    /**
-     * Scope a query to filter by total driver cost range.
-     */
-    public function scopeByTotalDriverCostRange($query, $minCost, $maxCost)
-    {
-        return $query->whereRaw('(driver_meal_cost + driver_accommodation_cost) BETWEEN ? AND ?', [$minCost, $maxCost]);
-    }
 
     /**
      * Scope a query to filter by minimum capacity.
@@ -264,56 +237,5 @@ class QuotationOffer extends Model
         return number_format($this->capacity_utilization, 1) . '%';
     }
 
-    /**
-     * Get the total driver cost (meal + accommodation).
-     */
-    public function getTotalDriverCostAttribute(): float
-    {
-        return (float) $this->driver_meal_cost + (float) $this->driver_accommodation_cost;
-    }
-
-    /**
-     * Get the formatted total driver cost.
-     */
-    public function getFormattedTotalDriverCostAttribute(): string
-    {
-        return number_format($this->total_driver_cost, 2);
-    }
-
-    /**
-     * Get the formatted driver meal cost.
-     */
-    public function getFormattedDriverMealCostAttribute(): string
-    {
-        return number_format((float) $this->driver_meal_cost, 2);
-    }
-
-    /**
-     * Get the formatted driver accommodation cost.
-     */
-    public function getFormattedDriverAccommodationCostAttribute(): string
-    {
-        return number_format((float) $this->driver_accommodation_cost, 2);
-    }
-
-    /**
-     * Check if this offer has driver costs.
-     */
-    public function getHasDriverCostsAttribute(): bool
-    {
-        return $this->total_driver_cost > 0;
-    }
-
-    /**
-     * Get driver cost breakdown as array.
-     */
-    public function getDriverCostBreakdownAttribute(): array
-    {
-        return [
-            'meal_cost' => (float) $this->driver_meal_cost,
-            'accommodation_cost' => (float) $this->driver_accommodation_cost,
-            'total_cost' => $this->total_driver_cost,
-        ];
-    }
 }
 

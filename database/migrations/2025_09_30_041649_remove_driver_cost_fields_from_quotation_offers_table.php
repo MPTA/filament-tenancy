@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('quotation_offer_groups', function (Blueprint $table) {
+        Schema::table('quotation_offers', function (Blueprint $table) {
             $table->dropColumn(['driver_meal_cost', 'driver_accommodation_cost']);
         });
     }
@@ -21,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('quotation_offer_groups', function (Blueprint $table) {
-            $table->decimal('driver_meal_cost', 20, 2)->default(0)->after('driver_room_category_id');
+        Schema::table('quotation_offers', function (Blueprint $table) {
+            $table->decimal('driver_meal_cost', 20, 2)->default(0)->after('markup');
             $table->decimal('driver_accommodation_cost', 20, 2)->default(0)->after('driver_meal_cost');
         });
     }
