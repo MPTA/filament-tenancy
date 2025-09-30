@@ -21,6 +21,12 @@ class QuotationOffer extends Model
         'pax_qty',
         'drivers_qty',
         'markup',
+        'vehicle_days_qty',
+        'vehicle_half_days_qty',
+        'vehicle_airport_transfers_qty',
+        'vehicle_day_price',
+        'vehicle_half_day_price',
+        'vehicle_airport_transfer_price',
         'tenant_id',
     ];
 
@@ -29,6 +35,12 @@ class QuotationOffer extends Model
         'pax_qty' => 'integer',
         'drivers_qty' => 'integer',
         'markup' => 'decimal:2',
+        'vehicle_days_qty' => 'integer',
+        'vehicle_half_days_qty' => 'integer',
+        'vehicle_airport_transfers_qty' => 'integer',
+        'vehicle_day_price' => 'decimal:2',
+        'vehicle_half_day_price' => 'decimal:2',
+        'vehicle_airport_transfer_price' => 'decimal:2',
     ];
 
     /**
@@ -237,5 +249,112 @@ class QuotationOffer extends Model
         return number_format($this->capacity_utilization, 1) . '%';
     }
 
+    /**
+     * Get total vehicle days (full days + half days).
+     */
+    public function getTotalVehicleDaysAttribute(): float
+    {
+        return $this->vehicle_days_qty + ($this->vehicle_half_days_qty * 0.5);
+    }
+
+    /**
+     * Get total vehicle cost.
+     */
+    public function getTotalVehicleCostAttribute(): float
+    {
+        return ($this->vehicle_days_qty * (float) $this->vehicle_day_price) +
+               ($this->vehicle_half_days_qty * (float) $this->vehicle_half_day_price) +
+               ($this->vehicle_airport_transfers_qty * (float) $this->vehicle_airport_transfer_price);
+    }
+
+    /**
+     * Get formatted total vehicle cost.
+     */
+    public function getFormattedTotalVehicleCostAttribute(): string
+    {
+        return number_format($this->total_vehicle_cost, 2);
+    }
+
+    /**
+     * Get formatted vehicle day price.
+     */
+    public function getFormattedVehicleDayPriceAttribute(): string
+    {
+        return number_format((float) $this->vehicle_day_price, 2);
+    }
+
+    /**
+     * Get formatted vehicle half day price.
+     */
+    public function getFormattedVehicleHalfDayPriceAttribute(): string
+    {
+        return number_format((float) $this->vehicle_half_day_price, 2);
+    }
+
+    /**
+     * Get formatted vehicle airport transfer price.
+     */
+    public function getFormattedVehicleAirportTransferPriceAttribute(): string
+    {
+        return number_format((float) $this->vehicle_airport_transfer_price, 2);
+    }
+
+    /**
+     * Get vehicle pricing breakdown.
+     */
+    public function getVehiclePricingBreakdownAttribute(): array
+    {
+        return [
+            'days' => [
+                'qty' => $this->vehicle_days_qty,
+                'price' => (float) $this->vehicle_day_price,
+                'total' => $this->vehicle_days_qty * (float) $this->vehicle_day_price,
+            ],
+            'half_days' => [
+                'qty' => $this->vehicle_half_days_qty,
+                'price' => (float) $this->vehicle_half_day_price,
+                'total' => $this->vehicle_half_days_qty * (float) $this->vehicle_half_day_price,
+            ],
+            'airport_transfers' => [
+                'qty' => $this->vehicle_airport_transfers_qty,
+                'price' => (float) $this->vehicle_airport_transfer_price,
+                'total' => $this->vehicle_airport_transfers_qty * (float) $this->vehicle_airport_transfer_price,
+            ],
+            'total_cost' => $this->total_vehicle_cost,
+            'total_days' => $this->total_vehicle_days,
+        ];
+    }
+
+    /**
+     * Scope a query to filter by vehicle days quantity range.
+     */
+    public function scopeByVehicleDaysQtyRange($query, $minQty, $maxQty)
+    {
+        return $query->whereBetween('vehicle_days_qty', [$minQty, $maxQty]);
+    }
+
+    /**
+     * Scope a query to filter by vehicle half days quantity range.
+     */
+    public function scopeByVehicleHalfDaysQtyRange($query, $minQty, $maxQty)
+    {
+        return $query->whereBetween('vehicle_half_days_qty', [$minQty, $maxQty]);
+    }
+
+    /**
+     * Scope a query to filter by vehicle airport transfers quantity range.
+     */
+    public function scopeByVehicleAirportTransfersQtyRange($query, $minQty, $maxQty)
+    {
+        return $query->whereBetween('vehicle_airport_transfers_qty', [$minQty, $maxQty]);
+    }
+
+    /**
+     * Check if this offer has vehicle costs.
+     */
+    public function getHasVehicleCostsAttribute(): bool
+    {
+        return $this->total_vehicle_cost > 0;
+    }
 }
 
