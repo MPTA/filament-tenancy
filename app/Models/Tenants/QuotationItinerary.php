@@ -421,7 +421,7 @@ class QuotationItinerary extends Model
                 ->whereHas('activityCategory', function ($query) {
                     $query->where('type', \App\Enums\ActivityCategoryTypeEnum::ATTRACTION->value);
                 })
-                ->with(['attraction.attraction.subAttractions'])
+                ->with(['attraction.attraction.subAttractions', 'attraction'])
                 ->get();
 
             foreach ($attractionActivities as $activity) {
@@ -430,14 +430,16 @@ class QuotationItinerary extends Model
                     $attractionExists = \App\Models\Base\Attraction::where('id', $activity->attraction->attraction->id)->exists();
                     
                     if ($attractionExists) {
-                        $key = "{$activity->attraction->attraction->id}_{$activity->city_id}_{$activity->attraction->is_outview}";
+                        // Get is_outview from the itinerary_day_activity_attractions table
+                        $isOutview = (bool) ($activity->attraction->is_outview ?? false);
+                        
+                        $key = "{$activity->attraction->attraction->id}_{$activity->city_id}_{$isOutview}";
                         $existingData = $existingAttractions->get($key, [
                             'entry_price' => 0.00,
                             'sub_attractions' => collect(),
                         ]);
 
                         // Get pricing from tenant-specific tables first, fallback to central tables
-                        $isOutview = $activity->attraction->is_outview ?? false;
                         $entryPrice = $isOutview ? 0.00 : $this->getAttractionEntryPrice($activity->attraction->attraction, $existingData['entry_price']);
 
                         $breakdownAttraction = $breakdown->attractions()->create([

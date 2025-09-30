@@ -452,12 +452,18 @@ class BreakdownForm
                                             ->validationMessages([
                                                 'numeric' => 'Value must be a valid number',
                                                 'min' => 'Value cannot be negative',
-                                            ]),
+                                            ])
+                                            ->disabled(fn($get) => $get('is_outview') == true),
                                         Toggle::make('is_outview')
                                             ->label('Outview')
-                                            ->disabled(),
+                                            ->disabled()
+                                            ->reactive(),
                                         Repeater::make('subAttractions')
+                                            ->addable(false)
+                                            ->deletable(false)
+                                            ->reorderable(false)
                                             ->label('Sub Attractions')
+                                            ->hidden(fn($get) => $get('is_outview') == true)
                                             ->table([
                                                 TableColumn::make('Sub Attraction')->width('60%'),
                                                 TableColumn::make('Price')->width('40%'),
