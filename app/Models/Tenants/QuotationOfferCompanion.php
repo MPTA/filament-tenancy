@@ -18,6 +18,9 @@ class QuotationOfferCompanion extends Model
         'companion_type_id',
         'half_days_qty',
         'full_days_qty',
+        'hours_qty',
+        'day_price',
+        'half_day_price',
         'is_stay_same_hotel',
         'is_same_meal',
         'room_category_id',
@@ -34,6 +37,9 @@ class QuotationOfferCompanion extends Model
     protected $casts = [
         'half_days_qty' => 'integer',
         'full_days_qty' => 'integer',
+        'hours_qty' => 'integer',
+        'day_price' => 'decimal:2',
+        'half_day_price' => 'decimal:2',
         'is_stay_same_hotel' => 'boolean',
         'is_same_meal' => 'boolean',
         'accommodation_cost' => 'decimal:2',
@@ -145,6 +151,33 @@ class QuotationOfferCompanion extends Model
             return $query->where('full_days_qty', '>=', $minQty);
         }
         return $query->whereBetween('full_days_qty', [$minQty, $maxQty]);
+    }
+
+    /**
+     * Scope a query to filter by hours quantity.
+     */
+    public function scopeByHoursQty($query, $minQty = 0, $maxQty = null)
+    {
+        if ($maxQty === null) {
+            return $query->where('hours_qty', '>=', $minQty);
+        }
+        return $query->whereBetween('hours_qty', [$minQty, $maxQty]);
+    }
+
+    /**
+     * Scope a query to filter by day price range.
+     */
+    public function scopeByDayPriceRange($query, $minPrice, $maxPrice)
+    {
+        return $query->whereBetween('day_price', [$minPrice, $maxPrice]);
+    }
+
+    /**
+     * Scope a query to filter by half day price range.
+     */
+    public function scopeByHalfDayPriceRange($query, $minPrice, $maxPrice)
+    {
+        return $query->whereBetween('half_day_price', [$minPrice, $maxPrice]);
     }
 
     /**
@@ -296,9 +329,43 @@ class QuotationOfferCompanion extends Model
         return [
             'half_days' => $this->half_days_qty,
             'full_days' => $this->full_days_qty,
+            'hours' => $this->hours_qty,
             'total_quantity' => $this->total_quantity,
             'total_days' => $this->total_days,
         ];
+    }
+
+    /**
+     * Get formatted day price.
+     */
+    public function getFormattedDayPriceAttribute(): string
+    {
+        return number_format((float) $this->day_price, 2);
+    }
+
+    /**
+     * Get formatted half day price.
+     */
+    public function getFormattedHalfDayPriceAttribute(): string
+    {
+        return number_format((float) $this->half_day_price, 2);
+    }
+
+    /**
+     * Get calculated cost based on quantities and prices.
+     */
+    public function getCalculatedPriceAttribute(): float
+    {
+        return ($this->full_days_qty * (float) $this->day_price) + 
+               ($this->half_days_qty * (float) $this->half_day_price);
+    }
+
+    /**
+     * Get formatted calculated price.
+     */
+    public function getFormattedCalculatedPriceAttribute(): string
+    {
+        return number_format($this->calculated_price, 2);
     }
 
     /**
