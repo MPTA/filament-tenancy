@@ -1391,7 +1391,7 @@ class QuotationItineraryInfolist
                     if (isset($data['companions']) && is_array($data['companions'])) {
                         foreach ($data['companions'] as $companionData) {
                             if (!empty($companionData['companion_type_id'])) {
-                                $offerGroup->quotationOfferCompanions()->create([
+                                $offerGroup->quotationOfferGroupCompanions()->create([
                                     'companion_type_id' => $companionData['companion_type_id'],
                                     'is_stay_same_hotel' => $companionData['is_stay_same_hotel'] ?? false,
                                     'is_same_meal' => $companionData['is_same_meal'] ?? false,
@@ -1626,7 +1626,7 @@ class QuotationItineraryInfolist
                 if (empty($info)) {
                     $info[] = 'No driver costs';
                 }
-                $info[] = $record->quotationOfferCompanions->count() . ' companion(s)';
+                $info[] = $record->quotationOfferGroupCompanions->count() . ' companion(s)';
                 return implode(' • ', $info);
             })
             ->icon('heroicon-o-cog-6-tooth')
@@ -1811,7 +1811,7 @@ class QuotationItineraryInfolist
                     'is_driver_stay_same_hotel' => $record->is_driver_stay_same_hotel,
                     'is_driver_same_meal' => $record->is_driver_same_meal,
                     'driver_room_category_id' => $record->driver_room_category_id,
-                    'companions' => $record->quotationOfferCompanions->map(function ($companion) {
+                    'companions' => $record->quotationOfferGroupCompanions->map(function ($companion) {
                         return [
                             'companion_type_id' => $companion->companion_type_id,
                             'is_same_meal' => $companion->is_same_meal,
@@ -1834,12 +1834,12 @@ class QuotationItineraryInfolist
                 // Update companions
                 if (isset($data['companions']) && is_array($data['companions'])) {
                     // Delete existing companions
-                    $record->quotationOfferCompanions()->delete();
+                    $record->quotationOfferGroupCompanions()->delete();
                     
                     // Create new companions
                     foreach ($data['companions'] as $companionData) {
                         if (!empty($companionData['companion_type_id'])) {
-                            $record->quotationOfferCompanions()->create([
+                            $record->quotationOfferGroupCompanions()->create([
                                 'companion_type_id' => $companionData['companion_type_id'],
                                 'is_stay_same_hotel' => $companionData['is_stay_same_hotel'] ?? false,
                                 'is_same_meal' => $companionData['is_same_meal'] ?? false,
@@ -1916,7 +1916,7 @@ class QuotationItineraryInfolist
 
     private static function companionsTable(): RepeatableEntry
     {
-        return RepeatableEntry::make('quotationOfferCompanions')
+        return RepeatableEntry::make('quotationOfferGroupCompanions')
             ->label('Companions')
             ->schema([
                 Grid::make(5)

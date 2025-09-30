@@ -9,9 +9,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 
-class QuotationOfferCompanion extends Model
+class QuotationOfferGroupCompanion extends Model
 {
     use HasUuids, BelongsToTenant;
+
+    protected $table = 'quotation_offer_group_companions';
 
     protected $fillable = [
         'quotation_offer_group_id',

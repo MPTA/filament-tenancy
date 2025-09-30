@@ -52,11 +52,11 @@ class QuotationOfferGroup extends Model
     }
 
     /**
-     * Get the quotation offer companions for this offer group (one-to-many relationship).
+     * Get the quotation offer group companions for this offer group (one-to-many relationship).
      */
-    public function quotationOfferCompanions(): HasMany
+    public function quotationOfferGroupCompanions(): HasMany
     {
-        return $this->hasMany(QuotationOfferCompanion::class);
+        return $this->hasMany(QuotationOfferGroupCompanion::class);
     }
 
     /**
