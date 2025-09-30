@@ -20,8 +20,6 @@ class QuotationOfferGroup extends Model
         'is_driver_stay_same_hotel',
         'is_driver_same_meal',
         'driver_room_category_id',
-        'driver_meal_cost',
-        'driver_accommodation_cost',
         'tenant_id',
     ];
 
@@ -30,8 +28,6 @@ class QuotationOfferGroup extends Model
         'is_include_driver_hotel' => 'boolean',
         'is_driver_stay_same_hotel' => 'boolean',
         'is_driver_same_meal' => 'boolean',
-        'driver_meal_cost' => 'decimal:2',
-        'driver_accommodation_cost' => 'decimal:2',
     ];
 
     /**
@@ -181,65 +177,5 @@ class QuotationOfferGroup extends Model
     public function getDriverRoomCategoryNameAttribute(): ?string
     {
         return $this->driverRoomCategory?->name;
-    }
-
-    /**
-     * Get formatted driver meal cost.
-     */
-    public function getFormattedDriverMealCostAttribute(): string
-    {
-        return number_format((float) $this->driver_meal_cost, 2);
-    }
-
-    /**
-     * Get formatted driver accommodation cost.
-     */
-    public function getFormattedDriverAccommodationCostAttribute(): string
-    {
-        return number_format((float) $this->driver_accommodation_cost, 2);
-    }
-
-    /**
-     * Get total driver cost.
-     */
-    public function getTotalDriverCostAttribute(): float
-    {
-        return (float) $this->driver_meal_cost + (float) $this->driver_accommodation_cost;
-    }
-
-    /**
-     * Get formatted total driver cost.
-     */
-    public function getFormattedTotalDriverCostAttribute(): string
-    {
-        return number_format($this->total_driver_cost, 2);
-    }
-
-    /**
-     * Scope a query to filter by driver meal cost range.
-     */
-    public function scopeByDriverMealCostRange($query, $minCost, $maxCost)
-    {
-        return $query->whereBetween('driver_meal_cost', [$minCost, $maxCost]);
-    }
-
-    /**
-     * Scope a query to filter by driver accommodation cost range.
-     */
-    public function scopeByDriverAccommodationCostRange($query, $minCost, $maxCost)
-    {
-        return $query->whereBetween('driver_accommodation_cost', [$minCost, $maxCost]);
-    }
-
-    /**
-     * Get driver cost breakdown as array.
-     */
-    public function getDriverCostBreakdownAttribute(): array
-    {
-        return [
-            'meal' => (float) $this->driver_meal_cost,
-            'accommodation' => (float) $this->driver_accommodation_cost,
-            'total' => $this->total_driver_cost,
-        ];
     }
 }
