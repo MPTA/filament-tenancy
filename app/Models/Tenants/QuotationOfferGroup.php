@@ -15,7 +15,8 @@ class QuotationOfferGroup extends Model
 
     protected $fillable = [
         'quotation_itinerary_id',
-        'is_include_driver_cost',
+        'is_include_driver_meal',
+        'is_include_driver_hotel',
         'is_driver_stay_same_hotel',
         'is_driver_same_meal',
         'driver_room_category_id',
@@ -23,7 +24,8 @@ class QuotationOfferGroup extends Model
     ];
 
     protected $casts = [
-        'is_include_driver_cost' => 'boolean',
+        'is_include_driver_meal' => 'boolean',
+        'is_include_driver_hotel' => 'boolean',
         'is_driver_stay_same_hotel' => 'boolean',
         'is_driver_same_meal' => 'boolean',
     ];
@@ -71,11 +73,19 @@ class QuotationOfferGroup extends Model
 
 
     /**
-     * Scope a query to filter by include driver cost.
+     * Scope a query to filter by include driver meal.
      */
-    public function scopeIncludeDriverCost($query, $value = true)
+    public function scopeIncludeDriverMeal($query, $value = true)
     {
-        return $query->where('is_include_driver_cost', $value);
+        return $query->where('is_include_driver_meal', $value);
+    }
+
+    /**
+     * Scope a query to filter by include driver hotel.
+     */
+    public function scopeIncludeDriverHotel($query, $value = true)
+    {
+        return $query->where('is_include_driver_hotel', $value);
     }
 
     /**
@@ -105,11 +115,19 @@ class QuotationOfferGroup extends Model
 
 
     /**
-     * Check if driver cost is included.
+     * Check if driver meal is included.
      */
-    public function getDriverCostIncludedAttribute(): bool
+    public function getDriverMealIncludedAttribute(): bool
     {
-        return $this->is_include_driver_cost;
+        return $this->is_include_driver_meal;
+    }
+
+    /**
+     * Check if driver hotel is included.
+     */
+    public function getDriverHotelIncludedAttribute(): bool
+    {
+        return $this->is_include_driver_hotel;
     }
 
     /**
