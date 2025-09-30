@@ -16,7 +16,6 @@ class QuotationOfferCompanion extends Model
     protected $fillable = [
         'quotation_offer_group_id',
         'companion_type_id',
-        'pickups_qty',
         'half_days_qty',
         'full_days_qty',
         'is_stay_same_hotel',
@@ -33,7 +32,6 @@ class QuotationOfferCompanion extends Model
     ];
 
     protected $casts = [
-        'pickups_qty' => 'integer',
         'half_days_qty' => 'integer',
         'full_days_qty' => 'integer',
         'is_stay_same_hotel' => 'boolean',
@@ -126,16 +124,6 @@ class QuotationOfferCompanion extends Model
         return $query->where('living_city_id', $cityId);
     }
 
-    /**
-     * Scope a query to filter by pickup quantity.
-     */
-    public function scopeByPickupQty($query, $minQty = 0, $maxQty = null)
-    {
-        if ($maxQty === null) {
-            return $query->where('pickups_qty', '>=', $minQty);
-        }
-        return $query->whereBetween('pickups_qty', [$minQty, $maxQty]);
-    }
 
     /**
      * Scope a query to filter by half days quantity.
@@ -285,11 +273,11 @@ class QuotationOfferCompanion extends Model
     }
 
     /**
-     * Get total quantity (pickups + half days + full days).
+     * Get total quantity (half days + full days).
      */
     public function getTotalQuantityAttribute(): int
     {
-        return $this->pickups_qty + $this->half_days_qty + $this->full_days_qty;
+        return $this->half_days_qty + $this->full_days_qty;
     }
 
     /**
@@ -306,7 +294,6 @@ class QuotationOfferCompanion extends Model
     public function getQuantityBreakdownAttribute(): array
     {
         return [
-            'pickups' => $this->pickups_qty,
             'half_days' => $this->half_days_qty,
             'full_days' => $this->full_days_qty,
             'total_quantity' => $this->total_quantity,
