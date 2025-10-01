@@ -79,6 +79,16 @@ class EditItinerary extends EditRecord
                         $vehicleHours = 0;
                     }
                     
+                    // Handle companion fields conversion
+                    $companionHireMode = null;
+                    $companionHours = null;
+                    
+                    // If has_companion is true, set to DAILY
+                    if (isset($dayData['has_companion']) && $dayData['has_companion']) {
+                        $companionHireMode = 'daily';
+                        $companionHours = null;
+                    }
+                    
                     // Create ItineraryDay
                     $itineraryDay = \App\Models\Tenants\Itinerary::find($itinerary->id)->days()->create([
                         'day_number' => $dayData['day_number'],
@@ -88,14 +98,11 @@ class EditItinerary extends EditRecord
                         'accommodation_star_rating' => $dayData['accommodation_star_rating'] ?? null,
                         'vehicle_usage_mode' => $vehicleUsageMode,
                         'vehicle_hours' => $vehicleHours,
+                        'companion_hire_mode' => $companionHireMode,
+                        'companion_hours' => $companionHours,
                         'description' => $dayData['description'] ?? null,
                         'creator_user_id' => \Illuminate\Support\Facades\Auth::user()->id,
                     ]);
-                    
-                    // Create tour guide companion if has_tour_guide is true
-                    if (isset($dayData['has_tour_guide']) && $dayData['has_tour_guide']) {
-                        $this->createTourGuideCompanion($itineraryDay);
-                    }
                     
                     // Process meals
                     $this->processMeals($itineraryDay, $dayData);
@@ -203,6 +210,16 @@ class EditItinerary extends EditRecord
                         $vehicleHours = 0;
                     }
                     
+                    // Handle companion fields conversion
+                    $companionHireMode = null;
+                    $companionHours = null;
+                    
+                    // If has_companion is true, set to DAILY
+                    if (isset($dayData['has_companion']) && $dayData['has_companion']) {
+                        $companionHireMode = 'daily';
+                        $companionHours = null;
+                    }
+                    
                     // Create ItineraryDay
                     $itineraryDay = \App\Models\Tenants\Itinerary::find($itinerary->id)->days()->create([
                         'day_number' => $dayData['day_number'],
@@ -212,14 +229,11 @@ class EditItinerary extends EditRecord
                         'accommodation_star_rating' => $dayData['accommodation_star_rating'] ?? null,
                         'vehicle_usage_mode' => $vehicleUsageMode,
                         'vehicle_hours' => $vehicleHours,
+                        'companion_hire_mode' => $companionHireMode,
+                        'companion_hours' => $companionHours,
                         'description' => $dayData['description'] ?? null,
                         'creator_user_id' => \Illuminate\Support\Facades\Auth::user()->id,
                     ]);
-                    
-                    // Create tour guide companion if has_tour_guide is true
-                    if (isset($dayData['has_tour_guide']) && $dayData['has_tour_guide']) {
-                        $this->createTourGuideCompanion($itineraryDay);
-                    }
                     
                     // Process meals
                     $this->processMeals($itineraryDay, $dayData);
@@ -342,21 +356,6 @@ class EditItinerary extends EditRecord
         };
     }
     
-    private function createTourGuideCompanion($itineraryDay)
-    {
-      
-        // Create tour guide companion
-        // Because we have a tour guide companion category in the enum we choose tourguide type from the enum, then find 
-        // companion category id from type of enum and use it to create the tour guide companion
-        $tourGuideCategory = \App\Enums\CompanionCategoryEnum::TOUR_GUIDE;
-        $itineraryDay->companions()->create([
-            'companion_category_id' => CompanionCategory::where('category_type', $tourGuideCategory)->first()->id,
-            'hire_mode' => \App\Enums\HireModeEnum::DAILY,
-            'quantity' => 1,
-            'description' => 'Professional tour guide for the day',
-            'creator_user_id' => \Illuminate\Support\Facades\Auth::user()->id,
-        ]);
-    }
 
     protected function getViewQuotationAction(): \Filament\Actions\Action
     {

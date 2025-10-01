@@ -100,6 +100,55 @@ class QuotationOfferGroup extends Model
     }
 
     /**
+     * Calculate and update companion costs from breakdown.
+     */
+    public function calculateCompanionCostsFromBreakdown(): void
+    {
+        $breakdown = $this->quotationItinerary->breakdown;
+        
+        if (!$breakdown) {
+            return;
+        }
+
+        // Get itinerary to calculate quantities
+        $itinerary = $this->quotationItinerary->itinerary;
+        if (!$itinerary) {
+            return;
+        }
+
+        // Calculate companion quantities from itinerary days
+        $fullDays = $itinerary->days()
+            ->where('companion_hire_mode', 'daily')
+            ->count();
+        
+        $halfDays = $itinerary->days()
+            ->where('companion_hire_mode', 'half_day')
+            ->count();
+        
+        $hours = $itinerary->days()
+            ->where('companion_hire_mode', 'hourly')
+            ->sum('companion_hours');
+
+        // Update each companion in this offer group
+        foreach ($this->quotationOfferGroupCompanions as $companion) {
+            // Find matching breakdown companion
+            $breakdownCompanion = $breakdown->companions()
+                ->where('companion_type_id', $companion->companion_type_id)
+                ->first();
+
+            if ($breakdownCompanion) {
+                $companion->update([
+                    'full_days_qty' => $fullDays,
+                    'half_days_qty' => $halfDays,
+                    'hours_qty' => $hours,
+                    'day_price' => $breakdownCompanion->per_day_price,
+                    'half_day_price' => $breakdownCompanion->half_day_price,
+                ]);
+            }
+        }
+    }
+
+    /**
      * Scope a query to filter by quotation itinerary.
      */
     public function scopeByQuotationItinerary($query, $quotationItineraryId)

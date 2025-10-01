@@ -134,8 +134,7 @@ class Itinerary extends Model
                 'activities.ticket.toCity',
                 'activities.attraction.attraction',
                 'activities.attraction.subAttractions.subAttraction',
-                'activities.experience.experience',
-                'companions.companionCategory'
+                'activities.experience.experience'
             ])
             ->orderBy('day_number');
     }
@@ -159,8 +158,7 @@ class Itinerary extends Model
                             'attraction.subAttractions.subAttraction',
                             'experience.experience'
                         ]);
-                    },
-                    'companions.companionCategory'
+                    }
                 ])->orderBy('day_number');
             }
         ]);

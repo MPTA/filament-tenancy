@@ -2,6 +2,7 @@
 
 namespace App\Filament\App\Resources\Itineraries\Schemas;
 
+use App\Enums\HireModeEnum;
 use App\Enums\StarRatingEnum;
 use App\Enums\TicketClassEnum;
 use App\Enums\TransportModeEnum;
@@ -119,8 +120,8 @@ class ItineraryForm
                             $label .= " 🚗";
                         }
                         
-                        // Add tour guide icon
-                        if (!empty($state['has_tour_guide']) && $state['has_tour_guide']) {
+                        // Add companion icon
+                        if (!empty($state['has_companion']) && $state['has_companion']) {
                             $label .= " 👨";
                         }
                         
@@ -215,7 +216,18 @@ class ItineraryForm
                                 }
                             })
                             ->live(),
-                        Toggle::make('has_tour_guide')->label('Has Tour Guide'),
+                        Toggle::make('has_companion')
+                            ->label('Has Companion')
+                            ->default(false)
+                            ->afterStateUpdated(function ($state, callable $set) {
+                                if ($state) {
+                                    $set('companion_hire_mode', 'daily');
+                                } else {
+                                    $set('companion_hire_mode', null);
+                                    $set('companion_hours', null);
+                                }
+                            })
+                            ->live(),
                         Select::make('breakfast')->options(MealType::getCachedSelectOptions())->columnStart(1),
                         Select::make('lunch')->options(MealType::getCachedSelectOptions()),
                         Select::make('dinner')->options(MealType::getCachedSelectOptions()),
@@ -251,7 +263,6 @@ class ItineraryForm
                                                 }),
 
                                             Select::make('attraction_id')
-                                                ->required()
                                                 ->label('Main Attraction')
                                                 ->options(function (callable $get) {
                                                     $cityId = $get('city_id');
@@ -266,7 +277,8 @@ class ItineraryForm
                                                 ->reactive()
                                                 ->afterStateUpdated(function ($state, callable $set) {
                                                     $set('sub_attractions', []);
-                                                }),
+                                                })
+                                                ->rules(['required_with:city_id']),
                                             Toggle::make('is_outview')
                                                 ->label('Outview')
                                                 ->reactive()
@@ -323,12 +335,24 @@ class ItineraryForm
                                         ->schema([
                                             Select::make('transport_mode')
                                                 ->options(TransportModeEnum::class)
-                                                ->required()
-                                                ->label('Mode'),
-                                            Select::make('from_city_id')->options(City::getCachedSelectOptionsForTenant())->label('From City')->required(),
-                                            Select::make('to_city_id')->options(City::getCachedSelectOptionsForTenant())->label('To City')->required(),
+                                                ->label('Mode')
+                                                ->rules(['required_with:from_city_id']),
+                                            Select::make('from_city_id')
+                                                ->options(City::getCachedSelectOptionsForTenant())
+                                                ->label('From City')
+                                                ->reactive()
+                                                ->afterStateUpdated(function ($state, callable $set) {
+                                                    $set('to_city_id', null);
+                                                }),
+                                            Select::make('to_city_id')
+                                                ->options(City::getCachedSelectOptionsForTenant())
+                                                ->label('To City')
+                                                ->rules(['required_with:from_city_id']),
                                             TextInput::make('transport_number')->label('Number'),
-                                            Select::make('class')->options(TicketClassEnum::class)->label('Class')->required(),
+                                            Select::make('class')
+                                                ->options(TicketClassEnum::class)
+                                                ->label('Class')
+                                                ->rules(['required_with:from_city_id']),
                                             TimePicker::make('departure_time')->label('Departure')->seconds(false),
                                             TimePicker::make('arrival_time')->label('Arrival')->seconds(false),
                                         ])
@@ -362,8 +386,9 @@ class ItineraryForm
                                                     $set('experience_id', null);
                                                 }),
 
-                                            Select::make('experience_id')->required()
+                                            Select::make('experience_id')
                                                 ->label('Experience')
+                                                ->rules(['required_with:city_id'])
                                                 ->options(function (callable $get) {
                                                     $cityId = $get('city_id');
                                                     if (!$cityId) {

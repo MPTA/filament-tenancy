@@ -2,6 +2,7 @@
 
 namespace App\Models\Tenants;
 
+use App\Enums\HireModeEnum;
 use App\Enums\StarRatingEnum;
 use App\Enums\VehicleUsageModeEnum;
 use App\Models\Base\City;
@@ -28,6 +29,8 @@ class ItineraryDay extends Model
         'accommodation_star_rating',
         'vehicle_usage_mode',
         'vehicle_hours',
+        'companion_hire_mode',
+        'companion_hours',
         'creator_user_id',
     ];
 
@@ -35,6 +38,8 @@ class ItineraryDay extends Model
         'description' => 'array',
         'vehicle_usage_mode' => VehicleUsageModeEnum::class,
         'vehicle_hours' => 'integer',
+        'companion_hire_mode' => HireModeEnum::class,
+        'companion_hours' => 'integer',
         'accommodation_star_rating' => StarRatingEnum::class,
         'day_number' => 'integer',
     ];
@@ -116,7 +121,6 @@ class ItineraryDay extends Model
 
     protected $appends = [
         'formatted_data',
-        'has_tour_guide',
         'meals_data',
         'attractions_data', 
         'tickets_data',
@@ -171,13 +175,6 @@ class ItineraryDay extends Model
         return $this->hasMany(ItineraryDayActivity::class);
     }
 
-    /**
-     * Get the companions for this day.
-     */
-    public function companions(): HasMany
-    {
-        return $this->hasMany(ItineraryDayCompanion::class);
-    }
 
     /**
      * Get formatted data for form editing.
@@ -191,7 +188,9 @@ class ItineraryDay extends Model
             'accommodation_star_rating' => $this->accommodation_star_rating?->value,
             'vehicle_usage_mode' => $this->vehicle_usage_mode?->value,
             'vehicle_hours' => $this->vehicle_hours,
-            'has_tour_guide' => $this->has_tour_guide,
+            'has_companion' => $this->companion_hire_mode?->value === 'daily',
+            'companion_hire_mode' => $this->companion_hire_mode?->value,
+            'companion_hours' => $this->companion_hours,
             'description' => $this->description,
             'breakfast' => $this->meals_data['breakfast'] ?? null,
             'lunch' => $this->meals_data['lunch'] ?? null,
@@ -202,17 +201,6 @@ class ItineraryDay extends Model
         ];
     }
 
-    /**
-     * Check if this day has a tour guide.
-     */
-    public function getHasTourGuideAttribute(): bool
-    {
-        return $this->companions()
-            ->whereHas('companionCategory', function ($query) {
-                $query->where('category_type', \App\Enums\CompanionCategoryEnum::TOUR_GUIDE->value);
-            })
-            ->exists();
-    }
 
     /**
      * Get meals data formatted for form.
@@ -341,8 +329,7 @@ class ItineraryDay extends Model
                     'attraction.subAttractions.subAttraction',
                     'experience.experience'
                 ]);
-            },
-            'companions.companionCategory'
+            }
         ]);
 
         return $this->formatted_data;
