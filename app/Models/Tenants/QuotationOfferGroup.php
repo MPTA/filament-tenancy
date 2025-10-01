@@ -127,7 +127,7 @@ class QuotationOfferGroup extends Model
         
         $hours = $itinerary->days()
             ->where('companion_hire_mode', 'hourly')
-            ->sum('companion_hours');
+            ->sum('companion_hours') ?? 0;
 
         // Update each companion in this offer group
         foreach ($this->quotationOfferGroupCompanions as $companion) {
@@ -138,9 +138,9 @@ class QuotationOfferGroup extends Model
 
             if ($breakdownCompanion) {
                 $companion->update([
-                    'full_days_qty' => $fullDays,
-                    'half_days_qty' => $halfDays,
-                    'hours_qty' => $hours,
+                    'full_days_qty' => (int) $fullDays,
+                    'half_days_qty' => (int) $halfDays,
+                    'hours_qty' => (int) $hours,
                     'day_price' => $breakdownCompanion->per_day_price,
                     'half_day_price' => $breakdownCompanion->half_day_price,
                 ]);

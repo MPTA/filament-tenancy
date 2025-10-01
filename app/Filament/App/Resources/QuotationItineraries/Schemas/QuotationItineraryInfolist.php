@@ -1402,6 +1402,9 @@ class QuotationItineraryInfolist
                         }
                     }
 
+                    // Calculate companion costs from breakdown
+                    $offerGroup->calculateCompanionCostsFromBreakdown();
+
                     $record->refresh();
 
                     Notification::make()
