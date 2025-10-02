@@ -169,12 +169,16 @@ class QuotationOfferGroup extends Model
             // Calculate expense cost for per_person expenses
             $expenseCost = $this->calculateExpenseCost($breakdown);
             
+            // Calculate accommodation cost
+            $accommodationCost = $this->calculateAccommodationCost($companion, $breakdown, $itinerary);
+            
             $companion->update([
                 'meal_cost' => $mealCost,
                 'ticket_cost' => $ticketCost,
                 'experience_cost' => $experienceCost,
                 'attraction_cost' => $attractionCost,
                 'expense_cost' => $expenseCost,
+                'accommodation_cost' => $accommodationCost,
             ]);
         }
     }
@@ -321,6 +325,123 @@ class QuotationOfferGroup extends Model
         }
         
         return $totalExpenseCost;
+    }
+
+    /**
+     * Calculate accommodation cost for companion
+     */
+    private function calculateAccommodationCost($companion, $breakdown, $itinerary): float
+    {
+        // Calculate number of nights companion needs accommodation
+        $accommodationNights = $this->calculateAccommodationNights($companion, $itinerary);
+        
+        if ($accommodationNights <= 0) {
+            return 0;
+        }
+        
+        // If companion stays in same hotel as group
+        if ($companion->is_stay_same_hotel) {
+            return $this->calculateSameHotelAccommodationCost($companion, $breakdown, $itinerary);
+        } else {
+            // Use base accommodation budget
+            return $accommodationNights * ($breakdown->companion_base_accommodation_budget ?? 0);
+        }
+    }
+
+    /**
+     * Calculate number of nights companion needs accommodation
+     */
+    private function calculateAccommodationNights($companion, $itinerary): int
+    {
+        $nights = 0;
+        $livingCityId = $companion->living_city_id;
+        $days = $itinerary->days->sortBy('day_number');
+        
+        foreach ($days as $index => $day) {
+            // Skip if companion is not present on this day
+            if (!$day->companion_hire_mode) {
+                continue;
+            }
+            
+            // Skip if companion lives in the same city as accommodation
+            if ($livingCityId && $day->accommodation_city_id == $livingCityId) {
+                continue;
+            }
+            
+            // Check if companion needs accommodation for this night
+            // Companion needs accommodation if:
+            // 1. They are present on this day AND
+            // 2. They are also present on the next day (so they need to stay overnight)
+            $nextDay = $days->get($index + 1);
+            if ($nextDay && $nextDay->companion_hire_mode) {
+                // Companion is present on both current day and next day
+                // So they need accommodation for this night
+                $nights++;
+            }
+        }
+        
+        return $nights;
+    }
+
+    /**
+     * Calculate accommodation cost when staying in same hotel
+     */
+    private function calculateSameHotelAccommodationCost($companion, $breakdown, $itinerary): float
+    {
+        if (!$companion->room_category_id) {
+            return 0;
+        }
+        
+        $totalCost = 0;
+        $livingCityId = $companion->living_city_id;
+        $days = $itinerary->days->sortBy('day_number');
+        
+        // Calculate cost for each night based on the hotel for that specific day
+        foreach ($days as $index => $day) {
+            // Skip if companion is not present on this day
+            if (!$day->companion_hire_mode) {
+                continue;
+            }
+            
+            // Skip if companion lives in the same city as accommodation
+            if ($livingCityId && $day->accommodation_city_id == $livingCityId) {
+                continue;
+            }
+            
+            // Check if companion needs accommodation for this night
+            // Companion needs accommodation if they are also present on the next day
+            $nextDay = $days->get($index + 1);
+            if (!$nextDay || !$nextDay->companion_hire_mode) {
+                // Companion is not present on next day, so they don't need accommodation for this night
+                continue;
+            }
+            
+            // Find breakdown accommodation for this specific day's hotel
+            $breakdownAccommodation = $breakdown->accommodations()
+                ->where('accommodation_id', $day->accommodation_id)
+                ->first();
+            
+            if (!$breakdownAccommodation) {
+                continue;
+            }
+            
+            // Find room pricing for this accommodation and room category
+            $room = $breakdownAccommodation->rooms()
+                ->where('room_category_id', $companion->room_category_id)
+                ->with('roomCategory')
+                ->first();
+            
+            if ($room) {
+                // Get room category capacity
+                $capacity = $room->roomCategory ? $room->roomCategory->capacity : 1;
+                
+                // Calculate cost per person (divide by capacity)
+                $costPerPerson = ($room->price ?? 0) / max($capacity, 1);
+                $totalCost += $costPerPerson;
+            }
+        }
+        
+        return $totalCost;
     }
 
     /**
