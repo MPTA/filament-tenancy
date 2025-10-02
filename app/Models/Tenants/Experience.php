@@ -30,6 +30,8 @@ class Experience extends Model
         'city_id',
         'district_id',
         'is_active',
+        'is_free_for_guide',
+        'is_free_for_other_companions',
         'creator_user_id',
     ];
 
@@ -40,6 +42,8 @@ class Experience extends Model
         'price' => 'decimal:2',
         'charge_mode' => ChargeModeEnum::class,
         'is_active' => 'boolean',
+        'is_free_for_guide' => 'boolean',
+        'is_free_for_other_companions' => 'boolean',
     ];
 
     protected $translatable = [
@@ -62,6 +66,8 @@ class Experience extends Model
             'price' => 'nullable|numeric|min:0',
             'charge_mode' => 'required|string',
             'is_active' => 'required|boolean',
+            'is_free_for_guide' => 'boolean',
+            'is_free_for_other_companions' => 'boolean',
             'address' => 'nullable|string|max:500',
             'description' => 'nullable|array',
             'content' => 'nullable|array',

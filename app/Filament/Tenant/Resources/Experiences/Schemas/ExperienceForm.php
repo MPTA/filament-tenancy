@@ -108,6 +108,22 @@ class ExperienceForm
                             ->required()
                             ->default(true)
                             ->helperText('Whether this experience is available for booking'),
+                        
+                        Toggle::make('is_free_for_guide')
+                            ->label('Free for Guide')
+                            ->default(false)
+                            ->helperText('Whether this experience is free for tour guides'),
+                        
+                        Toggle::make('is_free_for_other_companions')
+                            ->label('Free for Other Companions')
+                            ->default(false)
+                            ->live()
+                            ->afterStateUpdated(function ($state, $set) {
+                                if ($state) {
+                                    $set('is_free_for_guide', true);
+                                }
+                            })
+                            ->helperText('Whether this experience is free for other companions (automatically enables free for guide)'),
                     ])
                     ->columns(2),
                 

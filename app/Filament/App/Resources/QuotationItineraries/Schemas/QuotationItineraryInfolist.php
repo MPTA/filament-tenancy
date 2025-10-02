@@ -1109,18 +1109,12 @@ class QuotationItineraryInfolist
                             ->hiddenLabel()
                             ->contained(false)
                             ->schema([
-                                Grid::make(3)
+                                Grid::make(2)
                                     ->schema([
                                         TextEntry::make('mealType.name')
                                             ->label('Meal Type')
                                             ->icon('heroicon-o-cake')
                                             ->color('primary'),
-
-                                        TextEntry::make('qty')
-                                            ->label('Quantity')
-                                            ->numeric()
-                                            ->icon('heroicon-o-hashtag')
-                                            ->color('success'),
 
                                         TextEntry::make('price')
                                             ->label('Price')

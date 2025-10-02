@@ -18,6 +18,8 @@ class BreakdownExperience extends Model
         'experience_id',
         'price',
         'charge_mode',
+        'is_free_for_guide',
+        'is_free_for_other_companions',
     ];
 
     protected function casts(): array
@@ -25,6 +27,8 @@ class BreakdownExperience extends Model
         return [
             'price' => 'decimal:2',
             'charge_mode' => ChargeModeEnum::class,
+            'is_free_for_guide' => 'boolean',
+            'is_free_for_other_companions' => 'boolean',
         ];
     }
 

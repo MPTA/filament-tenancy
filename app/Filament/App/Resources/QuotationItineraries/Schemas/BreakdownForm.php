@@ -269,7 +269,6 @@ class BreakdownForm
                             ->hiddenLabel()
                             ->table([
                                 TableColumn::make('Meal Type'),
-                                TableColumn::make('Quantity'),
                                 TableColumn::make('Price'),
                             ])
                             ->schema([
@@ -279,12 +278,6 @@ class BreakdownForm
                                     ->options(\App\Models\Tenants\MealType::pluck('name', 'id'))
                                     ->searchable()
                                     ->required()
-                                    ->dehydrated(),
-                                TextInput::make('qty')
-                                    ->disabled()
-                                    ->label('Quantity')
-                                    ->numeric()
-                                    ->default(1)
                                     ->dehydrated(),
                                 TextInput::make('price')
                                     ->label('Price')
@@ -309,10 +302,11 @@ class BreakdownForm
                             ->deletable(false)
                             ->reorderable(false)
                             ->table([
-                                TableColumn::make('Accommodation')->width('25%'),
-                                TableColumn::make('City')->width('20%'),
-                                TableColumn::make('Nights')->width('15%'),
-                                TableColumn::make('Room Categories')->width('40%'),
+                                TableColumn::make('Accommodation')->width('22%'),
+                                TableColumn::make('City')->width('18%'),
+                                TableColumn::make('Nights')->width('12%'),
+                                TableColumn::make('Breakfast')->width('12%'),
+                                TableColumn::make('Room Categories')->width('36%'),
                             ])
                             ->schema([
                                 Select::make('accommodation_id')
@@ -335,6 +329,9 @@ class BreakdownForm
                                     ->disabled()
                                     ->default(1)
                                     ->dehydrated(),
+                                Toggle::make('has_breakfast')
+                                    ->label('Has Breakfast')
+                                    ->default(true),
                                 Repeater::make('rooms')
                                     ->label('Room Categories')
                                     ->addable(false)
@@ -384,7 +381,10 @@ class BreakdownForm
                                     ->table([
                                         TableColumn::make('Experience'),
                                         TableColumn::make('Charge Mode'),
+                                        TableColumn::make('Free for Guide'),
+                                        TableColumn::make('Free for Companions'),
                                         TableColumn::make('Price'),
+
                                     ])
                                     ->schema([
                                         Select::make('experience_id')
@@ -404,7 +404,20 @@ class BreakdownForm
                                             ])
                                             ->required()
                                             ->dehydrated(),
-                                        TextInput::make('price')
+
+                                        Toggle::make('is_free_for_guide')
+                                            ->label('Free for Guide')
+                                            ->dehydrated(),
+                                        Toggle::make('is_free_for_other_companions')
+                                            ->label('Free for Companions')
+                                            ->live()
+                                            ->afterStateUpdated(function ($state, $set) {
+                                                if ($state) {
+                                                    $set('is_free_for_guide', true);
+                                                }
+                                            })
+                                            ->dehydrated(),
+                                            TextInput::make('price')
                                         
                                             ->label('Price')
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)

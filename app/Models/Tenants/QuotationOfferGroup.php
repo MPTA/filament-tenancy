@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\Log;
 use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 
 class QuotationOfferGroup extends Model
@@ -145,7 +146,181 @@ class QuotationOfferGroup extends Model
                     'half_day_price' => $breakdownCompanion->half_day_price,
                 ]);
             }
+
+            // Calculate meal cost
+            if (!$companion->is_same_meal) {
+                // Use base meal budget for different meals
+                $totalMeals = $fullDays * 2 + $halfDays * 1; // 2 meals for full day, 1 meal for half day
+                $mealCost = $totalMeals * ($breakdown->companion_base_meal_budget ?? 0);
+            } else {
+                // Calculate based on actual meal types from itinerary
+                $mealCost = $this->calculateMealCostFromItinerary($companion, $itinerary, $breakdown);
+            }
+            
+            // Calculate ticket cost (sum of all breakdown tickets)
+            $ticketCost = $breakdown->tickets->sum('price') ?? 0;
+            
+            // Calculate experience cost based on companion category
+            $experienceCost = $this->calculateExperienceCost($companion, $breakdown);
+            
+            // Calculate attraction cost based on companion category
+            $attractionCost = $this->calculateAttractionCost($companion, $breakdown);
+            
+            // Calculate expense cost for per_person expenses
+            $expenseCost = $this->calculateExpenseCost($breakdown);
+            
+            $companion->update([
+                'meal_cost' => $mealCost,
+                'ticket_cost' => $ticketCost,
+                'experience_cost' => $experienceCost,
+                'attraction_cost' => $attractionCost,
+                'expense_cost' => $expenseCost,
+            ]);
         }
+    }
+
+    /**
+     * Calculate meal cost from itinerary for companions with same meal
+     */
+    private function calculateMealCostFromItinerary($companion, $itinerary, $breakdown): float
+    {
+        $totalMealCost = 0;
+        
+        foreach ($itinerary->days as $day) {
+            // Check if companion is present on this day (only check hire mode, not type)
+            if (!$day->companion_hire_mode) {
+                continue;
+            }
+            
+            $companionHireMode = $day->companion_hire_mode->value;
+            
+            // Get meal activities for this day
+            $mealActivities = $day->activities()
+                ->whereHas('activityCategory', function ($query) {
+                    $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
+                })
+                ->with('meal.mealType')
+                ->get();
+            
+            foreach ($mealActivities as $activity) {
+                if ($activity->meal?->mealType) {
+                    $mealTypeId = $activity->meal->meal_type_id;
+                    $mealPart = $activity->meal->meal_part?->value ?? $activity->meal->meal_part;
+                    
+                    // Determine which meals to include based on companion hire mode
+                    $shouldIncludeMeal = false;
+                    
+                    if ($companionHireMode === 'daily') {
+                        // Full day: include lunch and dinner
+                        $shouldIncludeMeal = in_array($mealPart, ['lunch', 'dinner']);
+                    } elseif ($companionHireMode === 'half_day') {
+                        // Half day: include only lunch
+                        $shouldIncludeMeal = $mealPart === 'lunch';
+                    }
+                    
+                    if ($shouldIncludeMeal) {
+                        // Find meal price in breakdown
+                        $breakdownMeal = $breakdown->meals()
+                            ->where('meal_type_id', $mealTypeId)
+                            ->first();
+                        
+                        if ($breakdownMeal) {
+                            $mealPrice = $breakdownMeal->price ?? 0;
+                            $totalMealCost += $mealPrice;
+                        }
+                    }
+                }
+            }
+        }
+        
+        return $totalMealCost;
+    }
+
+    /**
+     * Calculate experience cost based on companion category from breakdown experiences
+     */
+    private function calculateExperienceCost($companion, $breakdown): float
+    {
+        $totalExperienceCost = 0;
+        
+        // Get companion type and its category
+        $companionType = $companion->companionType;
+        if (!$companionType || !$companionType->companionCategory) {
+            return 0;
+        }
+        
+        $categoryType = $companionType->companionCategory->category_type;
+        
+        // Get all breakdown experiences
+        foreach ($breakdown->experiences as $breakdownExperience) {
+            $shouldIncludeExperience = false;
+            
+            // Check if experience should be included based on companion category
+            if ($categoryType === \App\Enums\CompanionCategoryEnum::TOUR_GUIDE) {
+                // For tour guides, check if breakdown experience is free for guide
+                $shouldIncludeExperience = !$breakdownExperience->is_free_for_guide;
+            } else {
+                // For other companions, check if breakdown experience is free for other companions
+                $shouldIncludeExperience = !$breakdownExperience->is_free_for_other_companions;
+            }
+            
+            if ($shouldIncludeExperience) {
+                $totalExperienceCost += $breakdownExperience->price ?? 0;
+            }
+        }
+        
+        return $totalExperienceCost;
+    }
+
+    /**
+     * Calculate attraction cost based on companion category
+     */
+    private function calculateAttractionCost($companion, $breakdown): float
+    {
+        // Get companion type and its category
+        $companionType = $companion->companionType;
+        if (!$companionType || !$companionType->companionCategory) {
+            return 0;
+        }
+        
+        $categoryType = $companionType->companionCategory->category_type;
+        
+        // If companion is tour guide, attractions are free
+        if ($categoryType === \App\Enums\CompanionCategoryEnum::TOUR_GUIDE) {
+            return 0;
+        }
+        
+        // For other companions, calculate total attraction cost from breakdown
+        $totalAttractionCost = 0;
+        
+        foreach ($breakdown->attractions as $breakdownAttraction) {
+            // Add main attraction entry price
+            $totalAttractionCost += $breakdownAttraction->entry_price ?? 0;
+            
+            // Add sub-attraction prices
+            foreach ($breakdownAttraction->subAttractions as $subAttraction) {
+                $totalAttractionCost += $subAttraction->price ?? 0;
+            }
+        }
+        
+        return $totalAttractionCost;
+    }
+
+    /**
+     * Calculate expense cost for per_person expenses
+     */
+    private function calculateExpenseCost($breakdown): float
+    {
+        $totalExpenseCost = 0;
+        
+        // Get all breakdown expenses that are per_person
+        foreach ($breakdown->expenses as $breakdownExpense) {
+            if ($breakdownExpense->charge_mode === \App\Enums\ChargeModeEnum::PER_PERSON) {
+                $totalExpenseCost += $breakdownExpense->price ?? 0;
+            }
+        }
+        
+        return $totalExpenseCost;
     }
 
     /**

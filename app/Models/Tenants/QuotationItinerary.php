@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Support\Facades\Schema;
 use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 
 class QuotationItinerary extends Model
@@ -252,7 +253,6 @@ class QuotationItinerary extends Model
             
             $breakdown->meals()->create([
                 'meal_type_id' => $mealTypeId,
-                'qty' => $qty,
                 'price' => $price,
             ]);
         }
@@ -309,6 +309,8 @@ class QuotationItinerary extends Model
                                 'experience_id' => $experienceId,
                                 'price' => $price,
                                 'charge_mode' => $existingData['charge_mode'] ?? ($activity->experience->experience->charge_mode ?? \App\Enums\ChargeModeEnum::PER_PERSON),
+                                'is_free_for_guide' => $activity->experience->experience->is_free_for_guide ?? false,
+                                'is_free_for_other_companions' => $activity->experience->experience->is_free_for_other_companions ?? false,
                             ]);
 
                             $processedExperiences[$experienceId] = true;
@@ -359,26 +361,31 @@ class QuotationItinerary extends Model
             $key = "{$accommodationData['accommodation_id']}_{$accommodationData['city_id']}";
             $existingRooms = $existingAccommodations->get($key, collect());
 
+            // Check if accommodation has breakfast
+            $accommodation = \App\Models\Base\Accommodation::find($accommodationData['accommodation_id']);
+            $hasBreakfast = $accommodation?->has_breakfast ?? true; // Default to true
+
             $breakdownAccommodation = $breakdown->accommodations()->create([
                 'accommodation_id' => $accommodationData['accommodation_id'],
                 'city_id' => $accommodationData['city_id'],
                 'nights_qty' => $accommodationData['nights'],
+                'has_breakfast' => $hasBreakfast,
             ]);
 
-            $this->createDefaultRoomCategories($breakdownAccommodation, $existingRooms);
+            $this->createDefaultRoomCategories($breakdownAccommodation, $existingRooms, $hasBreakfast);
         }
     }
 
     /**
      * Create default room categories for accommodation
      */
-    private function createDefaultRoomCategories($breakdownAccommodation, $existingRooms = null)
+    private function createDefaultRoomCategories($breakdownAccommodation, $existingRooms = null, $hasBreakfast = true)
     {
         $twinRoomCategory = RoomCategory::where('category', \App\Enums\RoomCategoryEnum::TWIN->value)->first();
         $singleRoomCategory = RoomCategory::where('category', \App\Enums\RoomCategoryEnum::SINGLE->value)->first();
 
         if ($twinRoomCategory) {
-            $price = $this->getRoomCategoryPrice($breakdownAccommodation, $twinRoomCategory, $existingRooms);
+            $price = $this->getRoomCategoryPrice($breakdownAccommodation, $twinRoomCategory, $existingRooms, $breakdownAccommodation->has_breakfast);
             $breakdownAccommodation->rooms()->create([
                 'room_category_id' => $twinRoomCategory->id,
                 'price' => $price,
@@ -386,7 +393,7 @@ class QuotationItinerary extends Model
         }
 
         if ($singleRoomCategory) {
-            $price = $this->getRoomCategoryPrice($breakdownAccommodation, $singleRoomCategory, $existingRooms);
+            $price = $this->getRoomCategoryPrice($breakdownAccommodation, $singleRoomCategory, $existingRooms, $breakdownAccommodation->has_breakfast);
             $breakdownAccommodation->rooms()->create([
                 'room_category_id' => $singleRoomCategory->id,
                 'price' => $price,
@@ -478,7 +485,7 @@ class QuotationItinerary extends Model
     /**
      * Get room category price from tenant-specific table first, fallback to central table
      */
-    private function getRoomCategoryPrice($breakdownAccommodation, $roomCategory, $existingRooms = null)
+    private function getRoomCategoryPrice($breakdownAccommodation, $roomCategory, $existingRooms = null, $hasBreakfast = true)
     {
         // Preserve existing price if available
         $existingPrice = $existingRooms ? $existingRooms->get($roomCategory->id, 0.00) : 0.00;
@@ -486,9 +493,22 @@ class QuotationItinerary extends Model
             return $existingPrice;
         }
 
+        // Only get prices for rooms with breakfast if hasBreakfast is true
+        if (!$hasBreakfast) {
+            // If no breakfast, set price to 0 and show notification
+            \Filament\Notifications\Notification::make()
+                ->warning()
+                ->title('Breakfast Alert')
+                ->body("Hotel '{$breakdownAccommodation->accommodation->name}' room prices are set to 0 because the hotel doesn't include breakfast. Please check the prices manually.")
+                ->persistent()
+                ->send();
+            return 0.00;
+        }
+
         // Try to get price from tenant-specific table first
         $tenantAccommodationPrice = \App\Models\Tenants\TenantAccommodationPrice::query()->where('accommodation_id', $breakdownAccommodation->accommodation_id)
             ->where('room_category_id', $roomCategory->id)
+            ->where('is_include_breakfast', $hasBreakfast) // Filter by breakfast status
             ->where(function ($query) {
                 $query->where('valid_from', null)
                     ->orWhere('valid_from', '<=', now());
@@ -504,9 +524,15 @@ class QuotationItinerary extends Model
             return $tenantAccommodationPrice->price ?? 0.00;
         }
 
-        // Fallback to central table
+        // Fallback to central table (if it has is_include_breakfast field)
         $centralAccommodationPrice = \App\Models\Base\AccommodationPrice::query()->where('accommodation_id', $breakdownAccommodation->accommodation_id)
             ->where('room_category_id', $roomCategory->id)
+            ->where(function ($query) use ($hasBreakfast) {
+                // Check if central table has is_include_breakfast field
+                if (\Illuminate\Support\Facades\Schema::hasColumn('accommodation_prices', 'is_include_breakfast')) {
+                    $query->where('is_include_breakfast', $hasBreakfast);
+                }
+            })
             ->where(function ($query) {
                 $query->where('valid_from', null)
                     ->orWhere('valid_from', '<=', now());

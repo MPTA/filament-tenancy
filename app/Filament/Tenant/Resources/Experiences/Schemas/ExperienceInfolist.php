@@ -40,6 +40,22 @@ class ExperienceInfolist
                             ->falseIcon('heroicon-o-x-circle')
                             ->trueColor('success')
                             ->falseColor('danger'),
+                        
+                        IconEntry::make('is_free_for_guide')
+                            ->label('Free for Guide')
+                            ->boolean()
+                            ->trueIcon('heroicon-o-gift')
+                            ->falseIcon('heroicon-o-currency-dollar')
+                            ->trueColor('success')
+                            ->falseColor('gray'),
+                        
+                        IconEntry::make('is_free_for_other_companions')
+                            ->label('Free for Companions')
+                            ->boolean()
+                            ->trueIcon('heroicon-o-gift')
+                            ->falseIcon('heroicon-o-currency-dollar')
+                            ->trueColor('success')
+                            ->falseColor('gray'),
                     ])
                     ->columns(2),
                 

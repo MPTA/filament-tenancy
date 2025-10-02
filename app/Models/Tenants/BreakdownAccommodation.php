@@ -18,12 +18,14 @@ class BreakdownAccommodation extends Model
         'accommodation_id',
         'city_id',
         'nights_qty',
+        'has_breakfast',
     ];
 
     protected function casts(): array
     {
         return [
             'nights_qty' => 'integer',
+            'has_breakfast' => 'boolean',
         ];
     }
 

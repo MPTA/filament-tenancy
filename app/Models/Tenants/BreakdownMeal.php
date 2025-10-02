@@ -15,14 +15,12 @@ class BreakdownMeal extends Model
         'breakdown_id',
         'tenant_id',
         'meal_type_id',
-        'qty',
         'price',
     ];
 
     protected function casts(): array
     {
         return [
-            'qty' => 'integer',
             'price' => 'decimal:2',
         ];
     }
