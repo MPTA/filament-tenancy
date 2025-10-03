@@ -2,7 +2,7 @@
 
 namespace App\Models\Tenants;
 
-use App\Models\Tenants\SubAttraction;
+use App\Models\Base\SubAttraction;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;

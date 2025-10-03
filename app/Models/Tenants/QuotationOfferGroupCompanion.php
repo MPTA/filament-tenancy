@@ -498,6 +498,14 @@ class QuotationOfferGroupCompanion extends Model
     }
 
     /**
+     * Get total companion salary.
+     */
+    public function getTotalCompanionSalaryAttribute(): float
+    {
+        return ($this->full_days_qty * $this->day_price) + ($this->half_days_qty * $this->half_day_price);
+    }
+
+    /**
      * Get cost breakdown as array.
      */
     public function getCostBreakdownAttribute(): array
