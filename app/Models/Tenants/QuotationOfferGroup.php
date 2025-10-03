@@ -101,6 +101,14 @@ class QuotationOfferGroup extends Model
     }
 
     /**
+     * Get the quotation offer group experiences for this offer group (one-to-many relationship).
+     */
+    public function quotationOfferGroupExperiences(): HasMany
+    {
+        return $this->hasMany(QuotationOfferGroupExperience::class);
+    }
+
+    /**
      * Calculate and update companion costs from breakdown.
      */
     public function calculateCompanionCostsFromBreakdown(): void
@@ -167,6 +175,21 @@ class QuotationOfferGroup extends Model
             
             // No need to update ticket_cost as it's now calculated dynamically
         }
+        
+        // Calculate and create offer group meals from breakdown
+        $this->calculateAndCreateOfferGroupMeals($breakdown);
+        
+        // Calculate and create offer group expenses from breakdown
+        $this->calculateAndCreateOfferGroupExpenses($breakdown);
+        
+        // Calculate and create offer group attractions from breakdown
+        $this->calculateAndCreateOfferGroupAttractions($breakdown);
+        
+        // Calculate and create offer group tickets from breakdown
+        $this->calculateAndCreateOfferGroupTickets($breakdown);
+        
+        // Calculate and create offer group experiences from breakdown
+        $this->calculateAndCreateOfferGroupExperiences($breakdown);
     }
 
     /**
@@ -463,6 +486,221 @@ class QuotationOfferGroup extends Model
     }
 
     /**
+     * Calculate and create offer group meals from breakdown
+     */
+    private function calculateAndCreateOfferGroupMeals($breakdown): void
+    {
+        // Clear existing offer group meal records
+        $this->quotationOfferGroupMeals()->delete();
+        
+        $itinerary = $this->quotationItinerary->itinerary;
+        if (!$itinerary) {
+            return;
+        }
+        
+        $mealCounts = [];
+        $days = $itinerary->days->sortBy('day_number');
+        
+        foreach ($days as $index => $day) {
+            // Get meal activities for this day
+            $mealActivities = $day->activities()
+                ->whereHas('activityCategory', function ($query) {
+                    $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
+                })
+                ->with('meal.mealType')
+                ->get();
+            
+            foreach ($mealActivities as $activity) {
+                if (!$activity->meal?->mealType) {
+                    continue;
+                }
+                
+                $mealTypeId = $activity->meal->meal_type_id;
+                $mealPart = $activity->meal->meal_part?->value ?? $activity->meal->meal_part;
+                
+                // Check if this meal should be counted
+                $shouldCountMeal = $this->shouldCountMeal($day, $mealPart, $index, $days, $breakdown);
+                
+                if ($shouldCountMeal) {
+                    if (!isset($mealCounts[$mealTypeId])) {
+                        $mealCounts[$mealTypeId] = 0;
+                    }
+                    $mealCounts[$mealTypeId]++;
+                }
+            }
+        }
+        
+        // Create meal records for each meal type
+        foreach ($mealCounts as $mealTypeId => $qty) {
+            $breakdownMeal = $breakdown->meals()
+                ->where('meal_type_id', $mealTypeId)
+                ->first();
+            
+            if ($breakdownMeal && $qty > 0) {
+                $this->quotationOfferGroupMeals()->create([
+                    'meal_type_id' => $mealTypeId,
+                    'qty' => $qty,
+                    'price' => $breakdownMeal->price ?? 0,
+                ]);
+            }
+        }
+    }
+    
+    /**
+     * Check if a meal should be counted based on accommodation and breakfast logic
+     */
+    private function shouldCountMeal($currentDay, $mealPart, $dayIndex, $days, $breakdown): bool
+    {
+        // For lunch and dinner, always count them
+        if (in_array($mealPart, ['lunch', 'dinner'])) {
+            return true;
+        }
+        
+        // For breakfast, check accommodation logic
+        if ($mealPart === 'breakfast') {
+            // If it's the first day, count breakfast (no previous night accommodation)
+            if ($dayIndex === 0) {
+                return true;
+            }
+            
+            // Check if there was accommodation the previous night
+            $previousDay = $days->get($dayIndex - 1);
+            if (!$previousDay || !$previousDay->accommodation_id) {
+                // No accommodation previous night, count breakfast
+                return true;
+            }
+            
+            // Check if the accommodation includes breakfast
+            $breakdownAccommodation = $breakdown->accommodations()
+                ->where('accommodation_id', $previousDay->accommodation_id)
+                ->first();
+            
+            if (!$breakdownAccommodation) {
+                // No breakdown accommodation found, count breakfast
+                return true;
+            }
+            
+            // Check if accommodation includes breakfast
+            // This would need to be determined based on your business logic
+            // For now, we'll assume if accommodation exists, breakfast is included
+            // You might need to add a field to track this in your accommodation model
+            $accommodationIncludesBreakfast = $this->checkAccommodationIncludesBreakfast($breakdownAccommodation);
+            
+            if ($accommodationIncludesBreakfast) {
+                // Breakfast is included in accommodation, don't count it
+                return false;
+            } else {
+                // Breakfast is not included in accommodation, count it
+                return true;
+            }
+        }
+        
+        return true;
+    }
+    
+    /**
+     * Check if accommodation includes breakfast
+     */
+    private function checkAccommodationIncludesBreakfast($breakdownAccommodation): bool
+    {
+        // Check the has_breakfast field in breakdown_accommodations table
+        return (bool) ($breakdownAccommodation->has_breakfast ?? false);
+    }
+
+    /**
+     * Calculate and create offer group expenses from breakdown
+     */
+    private function calculateAndCreateOfferGroupExpenses($breakdown): void
+    {
+        // Clear existing offer group expense records
+        $this->quotationOfferGroupExpenses()->delete();
+        
+        // Get all breakdown expenses
+        foreach ($breakdown->expenses as $breakdownExpense) {
+            if (($breakdownExpense->price ?? 0) > 0) {
+                $this->quotationOfferGroupExpenses()->create([
+                    'description' => $breakdownExpense->description ?? 'Expense',
+                    'price' => $breakdownExpense->price ?? 0,
+                    'charge_mode' => $breakdownExpense->charge_mode ?? \App\Enums\ChargeModeEnum::PER_GROUP->value,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * Calculate and create offer group attractions from breakdown
+     */
+    private function calculateAndCreateOfferGroupAttractions($breakdown): void
+    {
+        // Clear existing offer group attraction records
+        $this->quotationOfferGroupAttractions()->delete();
+        
+        // Get all breakdown attractions (including free ones)
+        foreach ($breakdown->attractions()->get() as $breakdownAttraction) {
+            $offerGroupAttraction = $this->quotationOfferGroupAttractions()->create([
+                'attraction_id' => $breakdownAttraction->attraction_id,
+                'price' => $breakdownAttraction->entry_price ?? 0,
+                'is_outview' => $breakdownAttraction->is_outview ?? false,
+            ]);
+            
+            // Create sub-attraction records for this attraction
+            $this->createOfferGroupSubAttractions($offerGroupAttraction, $breakdownAttraction);
+        }
+    }
+
+    /**
+     * Create offer group sub-attractions for a given attraction
+     */
+    private function createOfferGroupSubAttractions($offerGroupAttraction, $breakdownAttraction): void
+    {
+        // Get sub-attractions from breakdown for this attraction (including free ones)
+        $breakdownSubAttractions = $breakdownAttraction->subAttractions()->get();
+        
+        foreach ($breakdownSubAttractions as $breakdownSubAttraction) {
+            $offerGroupAttraction->quotationOfferGroupSubAttractions()->create([
+                'sub_attraction_id' => $breakdownSubAttraction->sub_attraction_id,
+                'price' => $breakdownSubAttraction->price ?? 0,
+            ]);
+        }
+    }
+
+    /**
+     * Calculate and create offer group tickets from breakdown
+     */
+    private function calculateAndCreateOfferGroupTickets($breakdown): void
+    {
+        // Clear existing offer group ticket records
+        $this->quotationOfferGroupTickets()->delete();
+        
+        // Get all breakdown tickets (including free ones)
+        foreach ($breakdown->tickets()->get() as $breakdownTicket) {
+            $this->quotationOfferGroupTickets()->create([
+                'from_city_id' => $breakdownTicket->from_city_id,
+                'to_city_id' => $breakdownTicket->to_city_id,
+                'class' => $breakdownTicket->class ?? \App\Enums\TicketClassEnum::ECONOMY->value,
+                'price' => $breakdownTicket->price ?? 0,
+            ]);
+        }
+    }
+
+    /**
+     * Calculate and create offer group experiences from breakdown
+     */
+    private function calculateAndCreateOfferGroupExperiences($breakdown): void
+    {
+        // Clear existing offer group experience records
+        $this->quotationOfferGroupExperiences()->delete();
+        
+        // Get all breakdown experiences (including free ones)
+        foreach ($breakdown->experiences()->get() as $breakdownExperience) {
+            $this->quotationOfferGroupExperiences()->create([
+                'experience_id' => $breakdownExperience->experience_id,
+                'price' => $breakdownExperience->price ?? 0,
+            ]);
+        }
+    }
+
+    /**
      * Calculate accommodation cost when staying in same hotel
      */
     private function createSameHotelAccommodationRecords($companion, $breakdown, $itinerary): void
@@ -689,5 +927,255 @@ class QuotationOfferGroup extends Model
             'accommodation' => (float) $this->driver_accommodation_cost,
             'total' => $this->total_driver_cost,
         ];
+    }
+
+    /**
+     * Get total offer group meal cost (per person).
+     */
+    public function getTotalOfferGroupMealCostAttribute(): float
+    {
+        $total = 0;
+        foreach ($this->quotationOfferGroupMeals as $meal) {
+            $total += ($meal->qty ?? 1) * ($meal->price ?? 0);
+        }
+        return (float) $total;
+    }
+
+    /**
+     * Get formatted total offer group meal cost.
+     */
+    public function getFormattedTotalOfferGroupMealCostAttribute(): string
+    {
+        return number_format($this->total_offer_group_meal_cost, 2);
+    }
+
+    /**
+     * Get offer group meal breakdown as array.
+     */
+    public function getOfferGroupMealBreakdownAttribute(): array
+    {
+        $breakdown = [];
+        foreach ($this->quotationOfferGroupMeals as $meal) {
+            $breakdown[] = [
+                'meal_type' => $meal->mealType?->name ?? 'Unknown',
+                'qty' => $meal->qty ?? 1,
+                'price' => (float) ($meal->price ?? 0),
+                'total' => ($meal->qty ?? 1) * ($meal->price ?? 0),
+            ];
+        }
+        return $breakdown;
+    }
+
+    /**
+     * Get total individual expenses (per person).
+     */
+    public function getTotalIndividualExpensesAttribute(): float
+    {
+        $total = 0;
+        foreach ($this->quotationOfferGroupExpenses as $expense) {
+            if ($expense->charge_mode === \App\Enums\ChargeModeEnum::PER_PERSON->value) {
+                $total += (float) ($expense->price ?? 0);
+            }
+        }
+        return $total;
+    }
+
+    /**
+     * Get total group expenses (one time).
+     */
+    public function getTotalGroupExpensesAttribute(): float
+    {
+        $total = 0;
+        foreach ($this->quotationOfferGroupExpenses as $expense) {
+            if ($expense->charge_mode === \App\Enums\ChargeModeEnum::PER_GROUP->value) {
+                $total += (float) ($expense->price ?? 0);
+            }
+        }
+        return $total;
+    }
+
+    /**
+     * Get formatted total individual expenses.
+     */
+    public function getFormattedTotalIndividualExpensesAttribute(): string
+    {
+        return number_format($this->total_individual_expenses, 2);
+    }
+
+    /**
+     * Get formatted total group expenses.
+     */
+    public function getFormattedTotalGroupExpensesAttribute(): string
+    {
+        return number_format($this->total_group_expenses, 2);
+    }
+
+    /**
+     * Get offer group expense breakdown as array.
+     */
+    public function getOfferGroupExpenseBreakdownAttribute(): array
+    {
+        $breakdown = [
+            'individual' => [],
+            'group' => [],
+            'total_individual' => 0,
+            'total_group' => 0,
+        ];
+
+        foreach ($this->quotationOfferGroupExpenses as $expense) {
+            $expenseData = [
+                'description' => $expense->description ?? 'Expense',
+                'price' => (float) ($expense->price ?? 0),
+                'charge_mode' => $expense->charge_mode,
+            ];
+
+            if ($expense->charge_mode === \App\Enums\ChargeModeEnum::PER_PERSON->value) {
+                $breakdown['individual'][] = $expenseData;
+                $breakdown['total_individual'] += $expenseData['price'];
+            } else {
+                $breakdown['group'][] = $expenseData;
+                $breakdown['total_group'] += $expenseData['price'];
+            }
+        }
+
+        return $breakdown;
+    }
+
+    /**
+     * Get total attraction cost (per person).
+     */
+    public function getTotalAttractionCostAttribute(): float
+    {
+        $total = 0;
+        
+        // Add main attraction costs
+        foreach ($this->quotationOfferGroupAttractions as $attraction) {
+            $total += (float) ($attraction->price ?? 0);
+        }
+        
+        // Add sub-attraction costs
+        foreach ($this->quotationOfferGroupAttractions as $attraction) {
+            foreach ($attraction->quotationOfferGroupSubAttractions as $subAttraction) {
+                $total += (float) ($subAttraction->price ?? 0);
+            }
+        }
+        
+        return $total;
+    }
+
+    /**
+     * Get formatted total attraction cost.
+     */
+    public function getFormattedTotalAttractionCostAttribute(): string
+    {
+        return number_format($this->total_attraction_cost, 2);
+    }
+
+    /**
+     * Get offer group attraction breakdown as array.
+     */
+    public function getOfferGroupAttractionBreakdownAttribute(): array
+    {
+        $breakdown = [];
+        
+        foreach ($this->quotationOfferGroupAttractions as $attraction) {
+            $attractionData = [
+                'attraction_name' => $attraction->attraction?->name ?? 'Unknown',
+                'attraction_price' => (float) ($attraction->price ?? 0),
+                'sub_attractions' => [],
+                'total_price' => (float) ($attraction->price ?? 0),
+            ];
+            
+            // Add sub-attractions
+            foreach ($attraction->quotationOfferGroupSubAttractions as $subAttraction) {
+                $subAttractionData = [
+                    'sub_attraction_name' => $subAttraction->subAttraction?->name ?? 'Unknown',
+                    'price' => (float) ($subAttraction->price ?? 0),
+                ];
+                
+                $attractionData['sub_attractions'][] = $subAttractionData;
+                $attractionData['total_price'] += $subAttractionData['price'];
+            }
+            
+            $breakdown[] = $attractionData;
+        }
+        
+        return $breakdown;
+    }
+
+    /**
+     * Get total ticket cost (per person).
+     */
+    public function getTotalTicketCostAttribute(): float
+    {
+        $total = 0;
+        foreach ($this->quotationOfferGroupTickets as $ticket) {
+            $total += (float) ($ticket->price ?? 0);
+        }
+        return $total;
+    }
+
+    /**
+     * Get formatted total ticket cost.
+     */
+    public function getFormattedTotalTicketCostAttribute(): string
+    {
+        return number_format($this->total_ticket_cost, 2);
+    }
+
+    /**
+     * Get offer group ticket breakdown as array.
+     */
+    public function getOfferGroupTicketBreakdownAttribute(): array
+    {
+        $breakdown = [];
+        
+        foreach ($this->quotationOfferGroupTickets as $ticket) {
+            $breakdown[] = [
+                'from_city' => $ticket->fromCity?->name ?? 'Unknown',
+                'to_city' => $ticket->toCity?->name ?? 'Unknown',
+                'class' => $ticket->class,
+                'price' => (float) ($ticket->price ?? 0),
+            ];
+        }
+        
+        return $breakdown;
+    }
+
+    /**
+     * Get total experience cost (per person).
+     */
+    public function getTotalExperienceCostAttribute(): float
+    {
+        $total = 0;
+        foreach ($this->quotationOfferGroupExperiences as $experience) {
+            $total += (float) ($experience->price ?? 0);
+        }
+        return $total;
+    }
+
+    /**
+     * Get formatted total experience cost.
+     */
+    public function getFormattedTotalExperienceCostAttribute(): string
+    {
+        return number_format($this->total_experience_cost, 2);
+    }
+
+    /**
+     * Get offer group experience breakdown as array.
+     */
+    public function getOfferGroupExperienceBreakdownAttribute(): array
+    {
+        $breakdown = [];
+        
+        foreach ($this->quotationOfferGroupExperiences as $experience) {
+            $breakdown[] = [
+                'experience_name' => $experience->experience?->name ?? 'Unknown',
+                'price' => (float) ($experience->price ?? 0),
+            ];
+        }
+        
+        return $breakdown;
     }
 }
