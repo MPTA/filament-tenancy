@@ -7,6 +7,7 @@ use Filament\Actions\Action;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Components\IconEntry;
@@ -22,21 +23,21 @@ class OffersTab
         return Tab::make('Offers')
             ->icon('heroicon-o-ticket')
             ->schema([
-                self::offerGroupsSection(),
+                self::addNewOfferSection(),
+                self::noOffersMessage(),
+                self::offerGroupsList(),
             ]);
     }
 
-    private static function offerGroupsSection(): Section
+    private static function addNewOfferSection(): Section
     {
         return Section::make('Offer Groups')
-            ->description('Manage offer groups and general settings')
+            ->description('Manage offer groups and create new ones')
             ->icon('heroicon-o-cog-6-tooth')
+            ->schema([])
+            ->contained(false)
             ->headerActions([
                 self::addNewOfferAction(),
-            ])
-            ->schema([
-                self::noOffersMessage(),
-                self::offerGroupsList(),
             ]);
     }
 
@@ -310,9 +311,13 @@ class OffersTab
                 self::editOfferGroupAction(),
                 self::deleteOfferGroupAction(),
             ])
+            ->footerActions([
+                self::createOfferAction(),
+            ])
             ->schema([
                 self::driverInfoGrid(),
                 self::companionsTable(),
+                self::offersList(),
             ]);
     }
 
@@ -640,5 +645,215 @@ class OffersTab
                     ])
             ])
             ->columns(1);
+    }
+
+    private static function offersList(): Section
+    {
+        return Section::make('Offers')
+            ->description('Manage offers for this offer group')
+            ->icon('heroicon-o-ticket')
+            ->schema([
+                self::noOffersMessageForOffers(),
+                self::offersTable(),
+            ])
+            ->collapsible()
+            ->collapsed(false);
+    }
+
+    private static function noOffersMessageForOffers(): TextEntry
+    {
+        return TextEntry::make('id')
+            ->label('')
+            ->formatStateUsing(fn() => 'No offers have been created yet.')
+            ->icon('heroicon-o-information-circle')
+            ->color('gray')
+            ->hidden(fn($record) => $record->quotationOffers()->count() > 0);
+    }
+
+    private static function offersTable(): RepeatableEntry
+    {
+        return RepeatableEntry::make('quotationOffers')
+            ->contained(false)
+            ->hiddenLabel()
+            ->label('')
+            ->hidden(fn($record) => $record->quotationOffers()->count() === 0)
+            ->schema([
+                self::offerDetailsGrid(),
+            ])
+            ->columns(1);
+    }
+
+    private static function offerDetailsGrid(): Grid
+    {
+        return Grid::make(1)
+            ->schema([
+                Grid::make(6)
+                    ->schema([
+                        TextEntry::make('vehicleType.name')
+                            ->label('Vehicle Type')
+                            ->icon('heroicon-o-truck')
+                            ->color('primary')
+                            ->formatStateUsing(fn($state) => $state ?? 'N/A'),
+
+                        TextEntry::make('pax_qty')
+                            ->label('PAX Qty')
+                            ->icon('heroicon-o-users')
+                            ->color('success')
+                            ->formatStateUsing(fn($state) => $state ?? 0),
+
+                        TextEntry::make('leaders_qty')
+                            ->label('Leaders Qty')
+                            ->icon('heroicon-o-user-group')
+                            ->color('warning')
+                            ->formatStateUsing(fn($state) => $state ?? 0),
+
+                        TextEntry::make('drivers_qty')
+                            ->label('Drivers Qty')
+                            ->icon('heroicon-o-user')
+                            ->color('info')
+                            ->formatStateUsing(fn($state) => $state ?? 0),
+
+                        TextEntry::make('markup')
+                            ->label('Markup')
+                            ->formatStateUsing(fn($state) => ($state ?? 0) . '%')
+                            ->icon('heroicon-o-calculator')
+                            ->color('warning'),
+
+                        TextEntry::make('id')
+                            ->label('Actions')
+                            ->formatStateUsing(fn() => '')
+                            ->icon('heroicon-m-pencil-square')
+                            ->color('primary')
+                            ->action(self::editOfferAction()),
+                    ])
+                    ->columnSpanFull(),
+            ]);
+    }
+
+    private static function editOfferAction(): Action
+    {
+        return Action::make('edit_offer')
+            ->label('Edit')
+            ->icon('heroicon-m-pencil-square')
+            ->color('primary')
+            ->size('sm')
+            ->action(function ($record) {
+                // TODO: Implement edit offer logic
+                Notification::make()
+                    ->title('Edit Offer')
+                    ->body('Edit offer functionality will be implemented soon.')
+                    ->info()
+                    ->send();
+            });
+    }
+
+    private static function createOfferAction(): Action
+    {
+        return Action::make('create_offer')
+            ->label('Create Offer')
+            ->icon('heroicon-o-plus-circle')
+            ->color('success')
+            ->size('sm')
+            ->schema([
+                Section::make('Offer Details')
+                    ->description('Create a new offer for this offer group')
+                    ->icon('heroicon-o-ticket')
+                    ->schema([
+                        Select::make('vehicle_type_id')
+                            ->label('Vehicle Type')
+                            ->options(function () {
+                                return \App\Models\Tenants\VehicleType::all()->pluck('name', 'id');
+                            })
+                            ->searchable()
+                            ->preload()
+                            ->required()
+                            ->columnSpan(1),
+
+                        TextInput::make('leaders_qty')
+                            ->label('Leaders Quantity')
+                            ->numeric()
+                            ->default(0)
+                            ->minValue(0)
+                            ->columnSpan(1),
+
+                        Select::make('leader_room_category_id')
+                            ->label('Leader Room Category')
+                            ->options(function ($record) {
+                                $quotationItinerary = $record->quotationItinerary;
+                                if (!$quotationItinerary || !$quotationItinerary->breakdown) return [];
+                                
+                                $roomCategoryIds = $quotationItinerary->breakdown
+                                    ->accommodations()
+                                    ->with('rooms')
+                                    ->get()
+                                    ->pluck('rooms')
+                                    ->flatten()
+                                    ->pluck('room_category_id')
+                                    ->unique()
+                                    ->filter();
+                                return \App\Models\Base\RoomCategory::whereIn('id', $roomCategoryIds)
+                                    ->pluck('name', 'id');
+                            })
+                            ->searchable()
+                            ->preload()
+                            ->columnSpan(1),
+
+                        TextInput::make('pax_qty')
+                            ->label('PAX Quantity')
+                            ->numeric()
+                            ->default(1)
+                            ->minValue(1)
+                            ->required()
+                            ->columnSpan(1),
+
+                        TextInput::make('drivers_qty')
+                            ->label('Drivers Quantity')
+                            ->numeric()
+                            ->default(1)
+                            ->minValue(1)
+                            ->required()
+                            ->columnSpan(1),
+
+                        TextInput::make('markup')
+                            ->label('Markup (%)')
+                            ->numeric()
+                            ->default(0)
+                            ->minValue(0)
+                            ->maxValue(100)
+                            ->step(0.01)
+                            ->suffix('%')
+                            ->columnSpan(1),
+                    ])
+                    ->columns(2)
+                    ->collapsible()
+                    ->collapsed(false),
+            ])
+            ->action(function (array $data, $record) {
+                try {
+                    $record->quotationOffers()->create([
+                        'vehicle_type_id' => $data['vehicle_type_id'],
+                        'leaders_qty' => $data['leaders_qty'] ?? 0,
+                        'leader_room_category_id' => $data['leader_room_category_id'] ?? null,
+                        'pax_qty' => $data['pax_qty'] ?? 1,
+                        'drivers_qty' => $data['drivers_qty'] ?? 1,
+                        'markup' => $data['markup'] ?? 0,
+                    ]);
+
+                    Notification::make()
+                        ->title('Offer Created Successfully!')
+                        ->body('The offer has been created for this offer group.')
+                        ->success()
+                        ->send();
+
+                } catch (\Exception $e) {
+                    Notification::make()
+                        ->title('Error Creating Offer')
+                        ->body('An error occurred while creating the offer: ' . $e->getMessage())
+                        ->danger()
+                        ->send();
+                }
+            })
+            ->modalHeading('Create New Offer')
+            ->modalSubmitActionLabel('Create Offer');
     }
 }
