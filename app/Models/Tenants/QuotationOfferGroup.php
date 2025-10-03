@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 
@@ -109,15 +110,27 @@ class QuotationOfferGroup extends Model
     }
 
     /**
-     * Calculate and update companion costs from breakdown.
+     * Calculate all costs from breakdown and create detailed records.
      */
-    public function calculateCompanionCostsFromBreakdown(): void
+    public function calculateAllCostsFromBreakdown(): void
     {
         $breakdown = $this->quotationItinerary->breakdown;
         
         if (!$breakdown) {
             return;
         }
+
+        // Use database transaction to ensure all operations succeed or none
+        DB::transaction(function () use ($breakdown) {
+            $this->performCostCalculations($breakdown);
+        });
+    }
+
+    /**
+     * Perform all cost calculations within transaction
+     */
+    private function performCostCalculations($breakdown): void
+    {
 
         // Get itinerary to calculate quantities
         $itinerary = $this->quotationItinerary->itinerary;
@@ -156,26 +169,35 @@ class QuotationOfferGroup extends Model
             }
 
             // Calculate meal cost and create meal records
-            $this->calculateAndCreateMealRecords($companion, $itinerary, $breakdown);
+            $this->calculateAndCreateCompanionMealRecords($companion, $itinerary, $breakdown);
             
             // Calculate ticket cost and create ticket records
-            $this->calculateAndCreateTicketRecords($companion, $breakdown);
+            $this->calculateAndCreateCompanionTicketRecords($companion, $breakdown);
             
             // Calculate experience cost and create experience records
-            $this->calculateAndCreateExperienceRecords($companion, $breakdown);
+            $this->calculateAndCreateCompanionExperienceRecords($companion, $breakdown);
             
             // Calculate attraction cost and create attraction records
-            $this->calculateAndCreateAttractionRecords($companion, $breakdown);
+            $this->calculateAndCreateCompanionAttractionRecords($companion, $breakdown);
             
             // Calculate expense cost and create expense records
-            $this->calculateAndCreateExpenseRecords($companion, $breakdown);
+            $this->calculateAndCreateCompanionExpenseRecords($companion, $breakdown);
             
             // Calculate accommodation cost and create accommodation records
-            $this->calculateAndCreateAccommodationRecords($companion, $breakdown, $itinerary);
+            $this->calculateAndCreateCompanionAccommodationRecords($companion, $breakdown, $itinerary);
             
             // No need to update ticket_cost as it's now calculated dynamically
         }
         
+        // Calculate and create offer group records from breakdown
+        $this->calculateAndCreateOfferGroupRecords($breakdown);
+    }
+
+    /**
+     * Calculate and create offer group records from breakdown
+     */
+    private function calculateAndCreateOfferGroupRecords($breakdown): void
+    {
         // Calculate and create offer group meals from breakdown
         $this->calculateAndCreateOfferGroupMeals($breakdown);
         
@@ -195,7 +217,7 @@ class QuotationOfferGroup extends Model
     /**
      * Calculate ticket cost and create ticket records
      */
-    private function calculateAndCreateTicketRecords($companion, $breakdown): void
+    private function calculateAndCreateCompanionTicketRecords($companion, $breakdown): void
     {
         // Clear existing ticket records for this companion
         $companion->tickets()->delete();
@@ -216,7 +238,7 @@ class QuotationOfferGroup extends Model
     /**
      * Calculate meal cost from itinerary for companions with same meal
      */
-    private function calculateAndCreateMealRecords($companion, $itinerary, $breakdown): void
+    private function calculateAndCreateCompanionMealRecords($companion, $itinerary, $breakdown): void
     {
         // Clear existing meal records for this companion
         $companion->meals()->delete();
@@ -317,7 +339,7 @@ class QuotationOfferGroup extends Model
     /**
      * Calculate experience cost and create experience records
      */
-    private function calculateAndCreateExperienceRecords($companion, $breakdown): void
+    private function calculateAndCreateCompanionExperienceRecords($companion, $breakdown): void
     {
         // Clear existing experience records for this companion
         $companion->experiences()->delete();
@@ -355,7 +377,7 @@ class QuotationOfferGroup extends Model
     /**
      * Calculate attraction cost and create attraction records
      */
-    private function calculateAndCreateAttractionRecords($companion, $breakdown): void
+    private function calculateAndCreateCompanionAttractionRecords($companion, $breakdown): void
     {
         // Clear existing attraction records for this companion
         $companion->attractions()->delete();
@@ -397,7 +419,7 @@ class QuotationOfferGroup extends Model
     /**
      * Calculate expense cost and create expense records
      */
-    private function calculateAndCreateExpenseRecords($companion, $breakdown): void
+    private function calculateAndCreateCompanionExpenseRecords($companion, $breakdown): void
     {
         // Clear existing expense records for this companion
         $companion->expenses()->delete();
@@ -416,7 +438,7 @@ class QuotationOfferGroup extends Model
     /**
      * Calculate accommodation cost and create accommodation records
      */
-    private function calculateAndCreateAccommodationRecords($companion, $breakdown, $itinerary): void
+    private function calculateAndCreateCompanionAccommodationRecords($companion, $breakdown, $itinerary): void
     {
         // Clear existing accommodation records for this companion
         $companion->accommodations()->delete();

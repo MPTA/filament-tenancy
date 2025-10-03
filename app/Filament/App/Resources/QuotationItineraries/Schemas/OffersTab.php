@@ -74,8 +74,8 @@ class OffersTab
                         }
                     }
 
-                    // Calculate companion costs from breakdown
-                    $offerGroup->calculateCompanionCostsFromBreakdown();
+                    // Calculate all costs from breakdown
+                    $offerGroup->calculateAllCostsFromBreakdown();
 
                     $record->refresh();
 
