@@ -76,6 +76,70 @@ class QuotationOffer extends Model
     }
 
     /**
+     * Get the quotation offer leader meals for this offer (one-to-many relationship).
+     */
+    public function quotationOfferLeaderMeals(): HasMany
+    {
+        return $this->hasMany(QuotationOfferLeaderMeal::class);
+    }
+
+    /**
+     * Get the quotation offer leader tickets for this offer (one-to-many relationship).
+     */
+    public function quotationOfferLeaderTickets(): HasMany
+    {
+        return $this->hasMany(QuotationOfferLeaderTicket::class);
+    }
+
+    /**
+     * Get the quotation offer leader attractions for this offer (one-to-many relationship).
+     */
+    public function quotationOfferLeaderAttractions(): HasMany
+    {
+        return $this->hasMany(QuotationOfferLeaderAttraction::class);
+    }
+
+    /**
+     * Get the quotation offer leader expenses for this offer (one-to-many relationship).
+     */
+    public function quotationOfferLeaderExpenses(): HasMany
+    {
+        return $this->hasMany(QuotationOfferLeaderExpense::class);
+    }
+
+    /**
+     * Get the quotation offer leader experiences for this offer (one-to-many relationship).
+     */
+    public function quotationOfferLeaderExperiences(): HasMany
+    {
+        return $this->hasMany(QuotationOfferLeaderExperience::class);
+    }
+
+    /**
+     * Get the quotation offer leader accommodations for this offer (one-to-many relationship).
+     */
+    public function quotationOfferLeaderAccommodations(): HasMany
+    {
+        return $this->hasMany(QuotationOfferLeaderAccommodation::class);
+    }
+
+    /**
+     * Get the quotation offer driver meals for this offer (one-to-many relationship).
+     */
+    public function quotationOfferDriverMeals(): HasMany
+    {
+        return $this->hasMany(QuotationOfferDriverMeal::class);
+    }
+
+    /**
+     * Get the quotation offer driver accommodations for this offer (one-to-many relationship).
+     */
+    public function quotationOfferDriverAccommodations(): HasMany
+    {
+        return $this->hasMany(QuotationOfferDriverAccommodation::class);
+    }
+
+    /**
      * Scope a query to filter by quotation offer group.
      */
     public function scopeByQuotationOfferGroup($query, $quotationOfferGroupId)
@@ -355,6 +419,142 @@ class QuotationOffer extends Model
     public function getHasVehicleCostsAttribute(): bool
     {
         return $this->total_vehicle_cost > 0;
+    }
+
+    /**
+     * Get total leader meal cost.
+     */
+    public function getTotalLeaderMealCostAttribute(): float
+    {
+        return $this->quotationOfferLeaderMeals()->sum('price');
+    }
+
+    /**
+     * Get total leader ticket cost.
+     */
+    public function getTotalLeaderTicketCostAttribute(): float
+    {
+        return $this->quotationOfferLeaderTickets()->sum('price');
+    }
+
+    /**
+     * Get total leader attraction cost.
+     */
+    public function getTotalLeaderAttractionCostAttribute(): float
+    {
+        $attractionsTotal = $this->quotationOfferLeaderAttractions()->sum('price');
+        $subAttractionsTotal = $this->quotationOfferLeaderAttractions()
+            ->with('subAttractions')
+            ->get()
+            ->sum(function ($attraction) {
+                return $attraction->subAttractions->sum('price');
+            });
+        return $attractionsTotal + $subAttractionsTotal;
+    }
+
+    /**
+     * Get total leader expense cost.
+     */
+    public function getTotalLeaderExpenseCostAttribute(): float
+    {
+        return $this->quotationOfferLeaderExpenses()->sum('price');
+    }
+
+    /**
+     * Get total leader experience cost.
+     */
+    public function getTotalLeaderExperienceCostAttribute(): float
+    {
+        return $this->quotationOfferLeaderExperiences()->sum('price');
+    }
+
+    /**
+     * Get total leader accommodation cost.
+     */
+    public function getTotalLeaderAccommodationCostAttribute(): float
+    {
+        return $this->quotationOfferLeaderAccommodations()
+            ->get()
+            ->sum(function ($accommodation) {
+                return $accommodation->nights * $accommodation->night_price;
+            });
+    }
+
+    /**
+     * Get total leader cost (all categories).
+     */
+    public function getTotalLeaderCostAttribute(): float
+    {
+        return $this->total_leader_meal_cost +
+               $this->total_leader_ticket_cost +
+               $this->total_leader_attraction_cost +
+               $this->total_leader_expense_cost +
+               $this->total_leader_experience_cost +
+               $this->total_leader_accommodation_cost;
+    }
+
+    /**
+     * Get formatted total leader cost.
+     */
+    public function getFormattedTotalLeaderCostAttribute(): string
+    {
+        return number_format($this->total_leader_cost, 2);
+    }
+
+    /**
+     * Get total driver meal cost.
+     */
+    public function getTotalDriverMealCostAttribute(): float
+    {
+        return $this->quotationOfferDriverMeals()
+            ->get()
+            ->sum(function ($meal) {
+                return $meal->qty * $meal->price;
+            });
+    }
+
+    /**
+     * Get total driver accommodation cost.
+     */
+    public function getTotalDriverAccommodationCostAttribute(): float
+    {
+        return $this->quotationOfferDriverAccommodations()
+            ->get()
+            ->sum(function ($accommodation) {
+                return $accommodation->nights * $accommodation->night_price;
+            });
+    }
+
+    /**
+     * Get total driver cost (all categories).
+     */
+    public function getTotalDriverCostAttribute(): float
+    {
+        return $this->total_driver_meal_cost + $this->total_driver_accommodation_cost;
+    }
+
+    /**
+     * Get formatted total driver cost.
+     */
+    public function getFormattedTotalDriverCostAttribute(): string
+    {
+        return number_format($this->total_driver_cost, 2);
+    }
+
+    /**
+     * Get formatted total driver meal cost.
+     */
+    public function getFormattedTotalDriverMealCostAttribute(): string
+    {
+        return number_format($this->total_driver_meal_cost, 2);
+    }
+
+    /**
+     * Get formatted total driver accommodation cost.
+     */
+    public function getFormattedTotalDriverAccommodationCostAttribute(): string
+    {
+        return number_format($this->total_driver_accommodation_cost, 2);
     }
 }
 
