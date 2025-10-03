@@ -147,49 +147,91 @@ class QuotationOfferGroup extends Model
                 ]);
             }
 
-            // Calculate meal cost
-            if (!$companion->is_same_meal) {
-                // Use base meal budget for different meals
-                $totalMeals = $fullDays * 2 + $halfDays * 1; // 2 meals for full day, 1 meal for half day
-                $mealCost = $totalMeals * ($breakdown->companion_base_meal_budget ?? 0);
-            } else {
-                // Calculate based on actual meal types from itinerary
-                $mealCost = $this->calculateMealCostFromItinerary($companion, $itinerary, $breakdown);
+            // Calculate meal cost and create meal records
+            $this->calculateAndCreateMealRecords($companion, $itinerary, $breakdown);
+            
+            // Calculate ticket cost and create ticket records
+            $this->calculateAndCreateTicketRecords($companion, $breakdown);
+            
+            // Calculate experience cost and create experience records
+            $this->calculateAndCreateExperienceRecords($companion, $breakdown);
+            
+            // Calculate attraction cost and create attraction records
+            $this->calculateAndCreateAttractionRecords($companion, $breakdown);
+            
+            // Calculate expense cost and create expense records
+            $this->calculateAndCreateExpenseRecords($companion, $breakdown);
+            
+            // Calculate accommodation cost and create accommodation records
+            $this->calculateAndCreateAccommodationRecords($companion, $breakdown, $itinerary);
+            
+            // No need to update ticket_cost as it's now calculated dynamically
+        }
+    }
+
+    /**
+     * Calculate ticket cost and create ticket records
+     */
+    private function calculateAndCreateTicketRecords($companion, $breakdown): void
+    {
+        // Clear existing ticket records for this companion
+        $companion->tickets()->delete();
+        
+        // Get all breakdown tickets
+        foreach ($breakdown->tickets as $breakdownTicket) {
+            if (($breakdownTicket->price ?? 0) > 0) {
+                $companion->tickets()->create([
+                    'from_city_id' => $breakdownTicket->from_city_id,
+                    'to_city_id' => $breakdownTicket->to_city_id,
+                    'class' => $breakdownTicket->class ?? 'economy',
+                    'price' => $breakdownTicket->price ?? 0,
+                ]);
             }
-            
-            // Calculate ticket cost (sum of all breakdown tickets)
-            $ticketCost = $breakdown->tickets->sum('price') ?? 0;
-            
-            // Calculate experience cost based on companion category
-            $experienceCost = $this->calculateExperienceCost($companion, $breakdown);
-            
-            // Calculate attraction cost based on companion category
-            $attractionCost = $this->calculateAttractionCost($companion, $breakdown);
-            
-            // Calculate expense cost for per_person expenses
-            $expenseCost = $this->calculateExpenseCost($breakdown);
-            
-            // Calculate accommodation cost
-            $accommodationCost = $this->calculateAccommodationCost($companion, $breakdown, $itinerary);
-            
-            $companion->update([
-                'meal_cost' => $mealCost,
-                'ticket_cost' => $ticketCost,
-                'experience_cost' => $experienceCost,
-                'attraction_cost' => $attractionCost,
-                'expense_cost' => $expenseCost,
-                'accommodation_cost' => $accommodationCost,
-            ]);
         }
     }
 
     /**
      * Calculate meal cost from itinerary for companions with same meal
      */
-    private function calculateMealCostFromItinerary($companion, $itinerary, $breakdown): float
+    private function calculateAndCreateMealRecords($companion, $itinerary, $breakdown): void
     {
-        $totalMealCost = 0;
-        
+        // Clear existing meal records for this companion
+        $companion->meals()->delete();
+
+        $fullDays = $itinerary->days()
+            ->where('companion_hire_mode', 'daily')
+            ->count();
+
+        $halfDays = $itinerary->days()
+            ->where('companion_hire_mode', 'half_day')
+            ->count();
+
+        if (!$companion->is_same_meal) {
+            // Use base meal budget for different meals
+            $totalMeals = $fullDays * 2 + $halfDays * 1; // 2 meals for full day, 1 meal for half day
+            $baseBudget = $breakdown->companion_base_meal_budget ?? 0;
+            
+            if ($totalMeals > 0 && $baseBudget > 0) {
+                $companion->meals()->create([
+                    'meal_type_id' => null, // null for base budget
+                    'qty' => $totalMeals,
+                    'price' => $baseBudget,
+                    'is_base_budget' => true,
+                ]);
+            }
+        } else {
+            // Calculate based on actual meal types from itinerary
+            $this->createSpecificMealRecords($companion, $itinerary, $breakdown);
+        }
+    }
+
+    /**
+     * Create specific meal records based on itinerary
+     */
+    private function createSpecificMealRecords($companion, $itinerary, $breakdown): void
+    {
+        $mealCounts = [];
+
         foreach ($itinerary->days as $day) {
             // Check if companion is present on this day (only check hire mode, not type)
             if (!$day->companion_hire_mode) {
@@ -223,34 +265,44 @@ class QuotationOfferGroup extends Model
                     }
                     
                     if ($shouldIncludeMeal) {
-                        // Find meal price in breakdown
-                        $breakdownMeal = $breakdown->meals()
-                            ->where('meal_type_id', $mealTypeId)
-                            ->first();
-                        
-                        if ($breakdownMeal) {
-                            $mealPrice = $breakdownMeal->price ?? 0;
-                            $totalMealCost += $mealPrice;
+                        if (!isset($mealCounts[$mealTypeId])) {
+                            $mealCounts[$mealTypeId] = 0;
                         }
+                        $mealCounts[$mealTypeId]++;
                     }
                 }
             }
         }
-        
-        return $totalMealCost;
+
+        // Create meal records for each meal type
+        foreach ($mealCounts as $mealTypeId => $qty) {
+            $breakdownMeal = $breakdown->meals()
+                ->where('meal_type_id', $mealTypeId)
+                ->first();
+
+            if ($breakdownMeal && $qty > 0) {
+                $companion->meals()->create([
+                    'meal_type_id' => $mealTypeId,
+                    'qty' => $qty,
+                    'price' => $breakdownMeal->price ?? 0,
+                    'is_base_budget' => false,
+                ]);
+            }
+        }
     }
 
     /**
-     * Calculate experience cost based on companion category from breakdown experiences
+     * Calculate experience cost and create experience records
      */
-    private function calculateExperienceCost($companion, $breakdown): float
+    private function calculateAndCreateExperienceRecords($companion, $breakdown): void
     {
-        $totalExperienceCost = 0;
+        // Clear existing experience records for this companion
+        $companion->experiences()->delete();
         
         // Get companion type and its category
         $companionType = $companion->companionType;
         if (!$companionType || !$companionType->companionCategory) {
-            return 0;
+            return;
         }
         
         $categoryType = $companionType->companionCategory->category_type;
@@ -268,83 +320,110 @@ class QuotationOfferGroup extends Model
                 $shouldIncludeExperience = !$breakdownExperience->is_free_for_other_companions;
             }
             
-            if ($shouldIncludeExperience) {
-                $totalExperienceCost += $breakdownExperience->price ?? 0;
+            if ($shouldIncludeExperience && ($breakdownExperience->price ?? 0) > 0) {
+                $companion->experiences()->create([
+                    'experience_id' => $breakdownExperience->experience_id,
+                    'price' => $breakdownExperience->price ?? 0,
+                ]);
             }
         }
-        
-        return $totalExperienceCost;
     }
 
     /**
-     * Calculate attraction cost based on companion category
+     * Calculate attraction cost and create attraction records
      */
-    private function calculateAttractionCost($companion, $breakdown): float
+    private function calculateAndCreateAttractionRecords($companion, $breakdown): void
     {
+        // Clear existing attraction records for this companion
+        $companion->attractions()->delete();
+        
         // Get companion type and its category
         $companionType = $companion->companionType;
         if (!$companionType || !$companionType->companionCategory) {
-            return 0;
+            return;
         }
         
         $categoryType = $companionType->companionCategory->category_type;
         
         // If companion is tour guide, attractions are free
         if ($categoryType === \App\Enums\CompanionCategoryEnum::TOUR_GUIDE) {
-            return 0;
+            return;
         }
         
-        // For other companions, calculate total attraction cost from breakdown
-        $totalAttractionCost = 0;
-        
+        // For other companions, create attraction records
         foreach ($breakdown->attractions as $breakdownAttraction) {
-            // Add main attraction entry price
-            $totalAttractionCost += $breakdownAttraction->entry_price ?? 0;
-            
-            // Add sub-attraction prices
-            foreach ($breakdownAttraction->subAttractions as $subAttraction) {
-                $totalAttractionCost += $subAttraction->price ?? 0;
+            if (($breakdownAttraction->entry_price ?? 0) > 0) {
+                $attractionRecord = $companion->attractions()->create([
+                    'attraction_id' => $breakdownAttraction->attraction_id,
+                    'price' => $breakdownAttraction->entry_price ?? 0,
+                ]);
+                
+                // Create sub-attraction records
+                foreach ($breakdownAttraction->subAttractions as $subAttraction) {
+                    if (($subAttraction->price ?? 0) > 0) {
+                        $attractionRecord->subAttractions()->create([
+                            'sub_attraction_id' => $subAttraction->sub_attraction_id,
+                            'price' => $subAttraction->price ?? 0,
+                        ]);
+                    }
+                }
             }
         }
-        
-        return $totalAttractionCost;
     }
 
     /**
-     * Calculate expense cost for per_person expenses
+     * Calculate expense cost and create expense records
      */
-    private function calculateExpenseCost($breakdown): float
+    private function calculateAndCreateExpenseRecords($companion, $breakdown): void
     {
-        $totalExpenseCost = 0;
+        // Clear existing expense records for this companion
+        $companion->expenses()->delete();
         
         // Get all breakdown expenses that are per_person
         foreach ($breakdown->expenses as $breakdownExpense) {
-            if ($breakdownExpense->charge_mode === \App\Enums\ChargeModeEnum::PER_PERSON) {
-                $totalExpenseCost += $breakdownExpense->price ?? 0;
+            if ($breakdownExpense->charge_mode === \App\Enums\ChargeModeEnum::PER_PERSON && ($breakdownExpense->price ?? 0) > 0) {
+                $companion->expenses()->create([
+                    'description' => $breakdownExpense->description ?? 'Expense',
+                    'price' => $breakdownExpense->price ?? 0,
+                ]);
             }
         }
-        
-        return $totalExpenseCost;
     }
 
     /**
-     * Calculate accommodation cost for companion
+     * Calculate accommodation cost and create accommodation records
      */
-    private function calculateAccommodationCost($companion, $breakdown, $itinerary): float
+    private function calculateAndCreateAccommodationRecords($companion, $breakdown, $itinerary): void
     {
+        // Clear existing accommodation records for this companion
+        $companion->accommodations()->delete();
+        
         // Calculate number of nights companion needs accommodation
         $accommodationNights = $this->calculateAccommodationNights($companion, $itinerary);
         
         if ($accommodationNights <= 0) {
-            return 0;
+            return;
         }
         
         // If companion stays in same hotel as group
         if ($companion->is_stay_same_hotel) {
-            return $this->calculateSameHotelAccommodationCost($companion, $breakdown, $itinerary);
+            $this->createSameHotelAccommodationRecords($companion, $breakdown, $itinerary);
         } else {
             // Use base accommodation budget
-            return $accommodationNights * ($breakdown->companion_base_accommodation_budget ?? 0);
+            $baseBudget = $breakdown->companion_base_accommodation_budget ?? 0;
+            if ($baseBudget > 0) {
+                // Get the first city from itinerary for base budget accommodation
+                $firstCityId = $itinerary->days->whereNotNull('accommodation_city_id')->first()?->accommodation_city_id;
+                
+                $companion->accommodations()->create([
+                    'accommodation_id' => null,
+                    'room_category_id' => null,
+                    'city_id' => $firstCityId, // Use first city from itinerary
+                    'nights' => $accommodationNights,
+                    'night_price' => $baseBudget,
+                    'is_base_budget' => true,
+                ]);
+            }
         }
     }
 
@@ -386,17 +465,17 @@ class QuotationOfferGroup extends Model
     /**
      * Calculate accommodation cost when staying in same hotel
      */
-    private function calculateSameHotelAccommodationCost($companion, $breakdown, $itinerary): float
+    private function createSameHotelAccommodationRecords($companion, $breakdown, $itinerary): void
     {
         if (!$companion->room_category_id) {
-            return 0;
+            return;
         }
         
-        $totalCost = 0;
         $livingCityId = $companion->living_city_id;
         $days = $itinerary->days->sortBy('day_number');
+        $accommodationRecords = [];
         
-        // Calculate cost for each night based on the hotel for that specific day
+        // Group nights by accommodation and city
         foreach ($days as $index => $day) {
             // Skip if companion is not present on this day
             if (!$day->companion_hire_mode) {
@@ -437,11 +516,27 @@ class QuotationOfferGroup extends Model
                 
                 // Calculate cost per person (divide by capacity)
                 $costPerPerson = ($room->price ?? 0) / max($capacity, 1);
-                $totalCost += $costPerPerson;
+                
+                // Group by accommodation and city
+                $key = $day->accommodation_id . '_' . $day->accommodation_city_id;
+                if (!isset($accommodationRecords[$key])) {
+                    $accommodationRecords[$key] = [
+                        'accommodation_id' => $day->accommodation_id,
+                        'room_category_id' => $companion->room_category_id,
+                        'city_id' => $day->accommodation_city_id,
+                        'nights' => 0,
+                        'night_price' => $costPerPerson,
+                        'is_base_budget' => false,
+                    ];
+                }
+                $accommodationRecords[$key]['nights']++;
             }
         }
         
-        return $totalCost;
+        // Create accommodation records
+        foreach ($accommodationRecords as $record) {
+            $companion->accommodations()->create($record);
+        }
     }
 
     /**
