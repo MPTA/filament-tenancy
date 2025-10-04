@@ -84,7 +84,7 @@ class QuotationOfferLeaderAccommodation extends Model
      */
     public function getFormattedNightPriceAttribute(): string
     {
-        return number_format($this->night_price, 2);
+        return number_format((float) $this->night_price, 2);
     }
 
     /**
