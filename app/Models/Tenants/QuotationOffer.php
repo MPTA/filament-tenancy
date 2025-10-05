@@ -595,6 +595,315 @@ class QuotationOffer extends Model
     }
 
     /**
+     * Calculate and create driver accommodation costs based on offer group settings.
+     */
+    public function calculateDriverAccommodationCosts(): void
+    {
+        $offerGroup = $this->quotationOfferGroup;
+        
+        // Check if driver accommodation should be included
+        if (!$offerGroup || !$offerGroup->is_include_driver_hotel) {
+            \Illuminate\Support\Facades\Log::info('Driver accommodation not included or offer group not found');
+            return;
+        }
+
+        // Check if drivers quantity is at least 1
+        if ($this->drivers_qty < 1) {
+            \Illuminate\Support\Facades\Log::info('Drivers quantity is less than 1', ['drivers_qty' => $this->drivers_qty]);
+            return;
+        }
+
+        // Get breakdown for base accommodation budget
+        $breakdown = $offerGroup->quotationItinerary->breakdown;
+        if (!$breakdown) {
+            \Illuminate\Support\Facades\Log::info('No breakdown found');
+            return;
+        }
+
+        // Check if driver stay same hotel is false (case 1: base budget calculation)
+        if (!$offerGroup->is_driver_stay_same_hotel) {
+            // Case 1: Base budget calculation
+            if (!$breakdown->driver_base_accommodation_budget) {
+                \Illuminate\Support\Facades\Log::info('No driver base accommodation budget found');
+                return;
+            }
+            $this->calculateDriverAccommodationCostsCase1($breakdown);
+        } else {
+            // Case 2: Same accommodation as passengers (from itinerary accommodations)
+            $this->calculateDriverAccommodationCostsCase2($breakdown);
+        }
+    }
+
+    /**
+     * Case 1: Calculate driver accommodation costs using base budget.
+     */
+    private function calculateDriverAccommodationCostsCase1($breakdown): void
+    {
+        $offerGroup = $this->quotationOfferGroup;
+        
+        // Get itinerary to access vehicle usage data
+        $itinerary = $offerGroup->quotationItinerary->itinerary;
+        if (!$itinerary) {
+            \Illuminate\Support\Facades\Log::info('No itinerary found for accommodation calculation');
+            return;
+        }
+
+        // Get itinerary days with vehicle usage
+        $itineraryDays = $itinerary->days()
+            ->whereIn('vehicle_usage_mode', [
+                \App\Enums\VehicleUsageModeEnum::FULL_DAY,
+                \App\Enums\VehicleUsageModeEnum::HALF_DAY
+            ])
+            ->orderBy('day_number')
+            ->get();
+
+        if ($itineraryDays->isEmpty()) {
+            \Illuminate\Support\Facades\Log::info('No itinerary days with vehicle usage found for accommodation');
+            return;
+        }
+
+        \Illuminate\Support\Facades\Log::info('Found ' . $itineraryDays->count() . ' days with vehicle usage for accommodation calculation');
+
+        // Calculate nights needed for driver accommodation
+        $nightsNeeded = $this->calculateDriverNightsNeeded($itineraryDays);
+        
+        if ($nightsNeeded <= 0) {
+            \Illuminate\Support\Facades\Log::info('No nights needed for driver accommodation');
+            return;
+        }
+
+        \Illuminate\Support\Facades\Log::info('Driver needs ' . $nightsNeeded . ' nights accommodation');
+
+        // Create driver accommodation record
+        $this->quotationOfferDriverAccommodations()->create([
+            'accommodation_id' => null, // null for base budget accommodation
+            'room_category_id' => null, // null for base budget accommodation
+            'city_id' => null, // null for base budget accommodation
+            'nights' => $nightsNeeded * $this->drivers_qty,
+            'night_price' => $breakdown->driver_base_accommodation_budget,
+            'is_base_budget' => true,
+            'tenant_id' => $this->tenant_id,
+        ]);
+
+        \Illuminate\Support\Facades\Log::info('Driver accommodation record created successfully', [
+            'nights' => $nightsNeeded * $this->drivers_qty,
+            'night_price' => $breakdown->driver_base_accommodation_budget,
+            'drivers_qty' => $this->drivers_qty
+        ]);
+    }
+
+    /**
+     * Case 2: Calculate driver accommodation costs using same accommodation as passengers.
+     * Logic: For each hotel where driver stays, create a separate record based on itinerary accommodations.
+     */
+    private function calculateDriverAccommodationCostsCase2($breakdown): void
+    {
+        $offerGroup = $this->quotationOfferGroup;
+        
+        // Check if driver_room_category_id is set
+        if (!$offerGroup->driver_room_category_id) {
+            \Illuminate\Support\Facades\Log::info('No driver room category ID found in offer group');
+            return;
+        }
+
+        // Get itinerary to access accommodation data
+        $itinerary = $offerGroup->quotationItinerary->itinerary;
+        if (!$itinerary) {
+            \Illuminate\Support\Facades\Log::info('No itinerary found for accommodation calculation');
+            return;
+        }
+
+        // Get itinerary days with vehicle usage
+        $itineraryDays = $itinerary->days()
+            ->whereIn('vehicle_usage_mode', [
+                \App\Enums\VehicleUsageModeEnum::FULL_DAY,
+                \App\Enums\VehicleUsageModeEnum::HALF_DAY
+            ])
+            ->with(['accommodation', 'accommodationCity'])
+            ->orderBy('day_number')
+            ->get();
+
+        if ($itineraryDays->isEmpty()) {
+            \Illuminate\Support\Facades\Log::info('No itinerary days with vehicle usage found for accommodation');
+            return;
+        }
+
+        \Illuminate\Support\Facades\Log::info('Found ' . $itineraryDays->count() . ' days with vehicle usage for accommodation calculation');
+
+        // Get driver accommodation nights by hotel
+        $driverAccommodationsByHotel = $this->calculateDriverAccommodationsByHotel($itineraryDays);
+        
+        if (empty($driverAccommodationsByHotel)) {
+            \Illuminate\Support\Facades\Log::info('No driver accommodations needed');
+            return;
+        }
+
+        \Illuminate\Support\Facades\Log::info('Driver accommodations by hotel: ' . json_encode($driverAccommodationsByHotel));
+
+        // Create driver accommodation records for each hotel
+        foreach ($driverAccommodationsByHotel as $hotelData) {
+            $accommodationId = $hotelData['accommodation_id'];
+            $cityId = $hotelData['city_id'];
+            $nights = $hotelData['nights'];
+
+            // Find the price for the driver room category from breakdown accommodations
+            $driverRoomPrice = $this->findDriverRoomPriceForAccommodation($breakdown, $offerGroup->driver_room_category_id, $accommodationId);
+            
+            if (!$driverRoomPrice) {
+                \Illuminate\Support\Facades\Log::warning('No price found for driver room category in accommodation: ' . $accommodationId);
+                continue;
+            }
+
+            \Illuminate\Support\Facades\Log::info('Found driver room price for accommodation ' . $accommodationId . ': ' . $driverRoomPrice);
+
+            // Create driver accommodation record
+            $this->quotationOfferDriverAccommodations()->create([
+                'accommodation_id' => $accommodationId,
+                'room_category_id' => $offerGroup->driver_room_category_id,
+                'city_id' => $cityId,
+                'nights' => $nights * $this->drivers_qty,
+                'night_price' => $driverRoomPrice,
+                'is_base_budget' => false,
+                'tenant_id' => $this->tenant_id,
+            ]);
+
+            \Illuminate\Support\Facades\Log::info('Driver accommodation record created successfully', [
+                'accommodation_id' => $accommodationId,
+                'city_id' => $cityId,
+                'nights' => $nights * $this->drivers_qty,
+                'night_price' => $driverRoomPrice,
+                'room_category_id' => $offerGroup->driver_room_category_id,
+                'drivers_qty' => $this->drivers_qty
+            ]);
+        }
+    }
+
+    /**
+     * Calculate driver accommodations by hotel based on itinerary days.
+     * Logic: For each night where driver needs accommodation, determine which hotel and city.
+     */
+    private function calculateDriverAccommodationsByHotel($itineraryDays): array
+    {
+        $accommodationsByHotel = [];
+        $days = $itineraryDays->sortBy('day_number');
+        
+        for ($i = 0; $i < $days->count() - 1; $i++) {
+            $currentDay = $days->values()[$i];
+            $nextDay = $days->values()[$i + 1];
+            
+            // Check if current day and next day are consecutive
+            if ($nextDay->day_number === $currentDay->day_number + 1) {
+                // Driver needs accommodation for the night between these days
+                // Use the accommodation from the current day (where driver will stay)
+                $accommodation = $currentDay->accommodation;
+                
+                if ($accommodation) {
+                    $accommodationId = $accommodation->id;
+                    $cityId = $currentDay->accommodation_city_id;
+                    
+                    // Group by accommodation and city
+                    $key = $accommodationId . '_' . $cityId;
+                    
+                    if (!isset($accommodationsByHotel[$key])) {
+                        $accommodationsByHotel[$key] = [
+                            'accommodation_id' => $accommodationId,
+                            'city_id' => $cityId,
+                            'nights' => 0
+                        ];
+                    }
+                    
+                    $accommodationsByHotel[$key]['nights']++;
+                    
+                    \Illuminate\Support\Facades\Log::info('Driver needs accommodation for night between day ' . $currentDay->day_number . ' and day ' . $nextDay->day_number . ' at accommodation: ' . $accommodationId . ', city: ' . $cityId);
+                }
+            }
+        }
+        
+        return array_values($accommodationsByHotel);
+    }
+
+    /**
+     * Find the price for driver room category from specific breakdown accommodation.
+     * Price is divided by room capacity to get per-person price.
+     */
+    private function findDriverRoomPriceForAccommodation($breakdown, $driverRoomCategoryId, $accommodationId): ?float
+    {
+        // Get the specific breakdown accommodation with its rooms
+        $breakdownAccommodation = $breakdown->accommodations()
+            ->where('accommodation_id', $accommodationId)
+            ->with('rooms')
+            ->first();
+
+        if (!$breakdownAccommodation) {
+            \Illuminate\Support\Facades\Log::warning('No breakdown accommodation found for accommodation: ' . $accommodationId);
+            return null;
+        }
+
+        foreach ($breakdownAccommodation->rooms as $room) {
+            if ($room->room_category_id === $driverRoomCategoryId) {
+                // Get room category to access capacity
+                $roomCategory = RoomCategory::find($driverRoomCategoryId);
+                $capacity = $roomCategory ? $roomCategory->capacity : 1;
+                
+                // Calculate per-person price by dividing room price by capacity
+                $perPersonPrice = (float) $room->price / $capacity;
+                
+                \Illuminate\Support\Facades\Log::info('Found driver room price in accommodation: ' . $accommodationId . ', room: ' . $room->id . ', room price: ' . $room->price . ', capacity: ' . $capacity . ', per-person price: ' . $perPersonPrice);
+                return $perPersonPrice;
+            }
+        }
+
+        \Illuminate\Support\Facades\Log::warning('No room found for driver room category: ' . $driverRoomCategoryId . ' in accommodation: ' . $accommodationId);
+        return null;
+    }
+
+    /**
+     * Find the price for driver room category from breakdown accommodations (legacy method for Case 1).
+     */
+    private function findDriverRoomPrice($breakdown, $driverRoomCategoryId): ?float
+    {
+        // Get all breakdown accommodations with their rooms
+        $breakdownAccommodations = $breakdown->accommodations()
+            ->with('rooms')
+            ->get();
+
+        foreach ($breakdownAccommodations as $accommodation) {
+            foreach ($accommodation->rooms as $room) {
+                if ($room->room_category_id === $driverRoomCategoryId) {
+                    \Illuminate\Support\Facades\Log::info('Found driver room price in accommodation: ' . $accommodation->id . ', room: ' . $room->id . ', price: ' . $room->price);
+                    return (float) $room->price;
+                }
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Calculate the number of nights needed for driver accommodation.
+     * Logic: If vehicle is used on day N and also on day N+1, driver needs accommodation for night N.
+     */
+    private function calculateDriverNightsNeeded($itineraryDays): int
+    {
+        $nightsNeeded = 0;
+        $days = $itineraryDays->sortBy('day_number');
+        
+        for ($i = 0; $i < $days->count() - 1; $i++) {
+            $currentDay = $days->values()[$i];
+            $nextDay = $days->values()[$i + 1];
+            
+            // Check if current day and next day are consecutive
+            if ($nextDay->day_number === $currentDay->day_number + 1) {
+                // Driver needs accommodation for the night between these days
+                $nightsNeeded++;
+                \Illuminate\Support\Facades\Log::info('Driver needs accommodation for night between day ' . $currentDay->day_number . ' and day ' . $nextDay->day_number);
+            }
+        }
+        
+        return $nightsNeeded;
+    }
+
+    /**
      * Case 1: Calculate driver meal costs using base budget.
      */
     private function calculateDriverMealCostsCase1($breakdown): void
@@ -736,6 +1045,15 @@ class QuotationOffer extends Model
     {
         \Illuminate\Support\Facades\Log::info('Manually triggering driver meal calculation');
         $this->calculateDriverMealCosts();
+    }
+
+    /**
+     * Manually trigger driver accommodation cost calculation (for testing purposes).
+     */
+    public function triggerDriverAccommodationCalculation(): void
+    {
+        \Illuminate\Support\Facades\Log::info('Manually triggering driver accommodation calculation');
+        $this->calculateDriverAccommodationCosts();
     }
 
     /**

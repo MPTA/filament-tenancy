@@ -843,11 +843,14 @@ class OffersTab
 
                         // Calculate driver meal costs
                         $offer->calculateDriverMealCosts();
+                        
+                        // Calculate driver accommodation costs
+                        $offer->calculateDriverAccommodationCosts();
                     });
 
                     Notification::make()
                         ->title('Offer Created Successfully!')
-                        ->body('The offer and driver meal costs have been calculated.')
+                        ->body('The offer, driver meal costs, and driver accommodation costs have been calculated.')
                         ->success()
                         ->send();
 
