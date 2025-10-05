@@ -830,18 +830,24 @@ class OffersTab
             ])
             ->action(function (array $data, $record) {
                 try {
-                    $record->quotationOffers()->create([
-                        'vehicle_type_id' => $data['vehicle_type_id'],
-                        'leaders_qty' => $data['leaders_qty'] ?? 0,
-                        'leader_room_category_id' => $data['leader_room_category_id'] ?? null,
-                        'pax_qty' => $data['pax_qty'] ?? 1,
-                        'drivers_qty' => $data['drivers_qty'] ?? 1,
-                        'markup' => $data['markup'] ?? 0,
-                    ]);
+                    \Illuminate\Support\Facades\DB::transaction(function () use ($data, $record) {
+                        // Create the offer
+                        $offer = $record->quotationOffers()->create([
+                            'vehicle_type_id' => $data['vehicle_type_id'],
+                            'leaders_qty' => $data['leaders_qty'] ?? 0,
+                            'leader_room_category_id' => $data['leader_room_category_id'] ?? null,
+                            'pax_qty' => $data['pax_qty'] ?? 1,
+                            'drivers_qty' => $data['drivers_qty'] ?? 1,
+                            'markup' => $data['markup'] ?? 0,
+                        ]);
+
+                        // Calculate driver meal costs
+                        $offer->calculateDriverMealCosts();
+                    });
 
                     Notification::make()
                         ->title('Offer Created Successfully!')
-                        ->body('The offer has been created for this offer group.')
+                        ->body('The offer and driver meal costs have been calculated.')
                         ->success()
                         ->send();
 

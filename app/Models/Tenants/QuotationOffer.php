@@ -556,5 +556,241 @@ class QuotationOffer extends Model
     {
         return number_format($this->total_driver_accommodation_cost, 2);
     }
+
+
+    /**
+     * Calculate and create driver meal costs based on offer group settings.
+     */
+    public function calculateDriverMealCosts(): void
+    {
+        $offerGroup = $this->quotationOfferGroup;
+        
+        // Check if driver meal should be included
+        if (!$offerGroup || !$offerGroup->is_include_driver_meal) {
+            return;
+        }
+
+        // Check if drivers quantity is at least 1
+        if ($this->drivers_qty < 1) {
+            return;
+        }
+
+        // Get breakdown for base meal budget
+        $breakdown = $offerGroup->quotationItinerary->breakdown;
+        if (!$breakdown) {
+            return;
+        }
+
+        // Check if driver same meal is false (case 1: base budget calculation)
+        if (!$offerGroup->is_driver_same_meal) {
+            // Case 1: Base budget calculation
+            if (!$breakdown->driver_base_meal_budget) {
+                return;
+            }
+            $this->calculateDriverMealCostsCase1($breakdown);
+        } else {
+            // Case 2: Same meal as passengers (from itinerary meals)
+            $this->calculateDriverMealCostsCase2($breakdown);
+        }
+    }
+
+    /**
+     * Case 1: Calculate driver meal costs using base budget.
+     */
+    private function calculateDriverMealCostsCase1($breakdown): void
+    {
+        // Calculate meal quantities based on vehicle days from breakdown
+        $mealQuantities = $this->calculateMealQuantities($breakdown);
+        
+        if (empty($mealQuantities)) {
+            return;
+        }
+
+        // Create driver meal records
+        $this->createDriverMealRecords($mealQuantities, $breakdown->driver_base_meal_budget);
+    }
+
+    /**
+     * Case 2: Calculate driver meal costs using same meals as passengers.
+     * Logic: For each day with vehicle usage, check meal types and count them properly.
+     */
+    private function calculateDriverMealCostsCase2($breakdown): void
+    {
+        $offerGroup = $this->quotationOfferGroup;
+        
+        // Get itinerary to access meal data
+        $itinerary = $offerGroup->quotationItinerary->itinerary;
+        if (!$itinerary) {
+            \Illuminate\Support\Facades\Log::info('No itinerary found for offer group');
+            return;
+        }
+
+        // Get itinerary days with vehicle usage
+        $itineraryDays = $itinerary->days()
+            ->whereIn('vehicle_usage_mode', [
+                \App\Enums\VehicleUsageModeEnum::FULL_DAY,
+                \App\Enums\VehicleUsageModeEnum::HALF_DAY
+            ])
+            ->with(['activities.meal.mealType'])
+            ->orderBy('day_number')
+            ->get();
+
+        if ($itineraryDays->isEmpty()) {
+            \Illuminate\Support\Facades\Log::info('No itinerary days with vehicle usage found');
+            return;
+        }
+
+        \Illuminate\Support\Facades\Log::info('Found ' . $itineraryDays->count() . ' days with vehicle usage');
+
+        // Get breakdown meals for pricing
+        $breakdownMeals = $breakdown->meals()->get()->keyBy('meal_type_id');
+        \Illuminate\Support\Facades\Log::info('Found ' . $breakdownMeals->count() . ' breakdown meals');
+
+        // Step 1: Collect meal types day by day
+        $dailyMealTypes = [];
+        
+        foreach ($itineraryDays as $day) {
+            $dayNumber = $day->day_number;
+            $vehicleMode = $day->vehicle_usage_mode;
+            
+            // Determine meal parts based on vehicle usage
+            $mealParts = [];
+            if ($vehicleMode === \App\Enums\VehicleUsageModeEnum::FULL_DAY) {
+                $mealParts = [\App\Enums\MealPartEnum::LUNCH, \App\Enums\MealPartEnum::DINNER];
+            } elseif ($vehicleMode === \App\Enums\VehicleUsageModeEnum::HALF_DAY) {
+                $mealParts = [\App\Enums\MealPartEnum::LUNCH];
+            }
+            
+            \Illuminate\Support\Facades\Log::info("Day {$dayNumber}: Vehicle mode = " . $vehicleMode->value . ", Meal parts = " . implode(', ', array_map(fn($part) => $part->value, $mealParts)));
+            
+            // Get activities for this day with meals
+            $activities = $day->activities()
+                ->whereHas('meal')
+                ->with(['meal.mealType'])
+                ->get();
+            
+            $dayMealTypes = [];
+            foreach ($activities as $activity) {
+                if ($activity->meal && $activity->meal->mealType) {
+                    $mealTypeId = $activity->meal->mealType->id;
+                    $mealPart = $activity->meal->meal_part;
+                    
+                    // Only include if meal part matches vehicle usage
+                    if (in_array($mealPart, $mealParts)) {
+                        if (!isset($dayMealTypes[$mealTypeId])) {
+                            $dayMealTypes[$mealTypeId] = 0;
+                        }
+                        $dayMealTypes[$mealTypeId]++;
+                    }
+                }
+            }
+            
+            $dailyMealTypes[$dayNumber] = $dayMealTypes;
+            \Illuminate\Support\Facades\Log::info("Day {$dayNumber} meal types: " . json_encode($dayMealTypes));
+        }
+        
+        // Step 2: Aggregate all meal types and their total quantities
+        $totalMealTypeQuantities = [];
+        
+        foreach ($dailyMealTypes as $dayNumber => $dayMealTypes) {
+            foreach ($dayMealTypes as $mealTypeId => $count) {
+                if (!isset($totalMealTypeQuantities[$mealTypeId])) {
+                    $totalMealTypeQuantities[$mealTypeId] = 0;
+                }
+                $totalMealTypeQuantities[$mealTypeId] += $count;
+            }
+        }
+        
+        \Illuminate\Support\Facades\Log::info('Total meal type quantities: ' . json_encode($totalMealTypeQuantities));
+        
+        // Step 3: Create driver meal records for each meal type
+        foreach ($totalMealTypeQuantities as $mealTypeId => $mealsCount) {
+            $breakdownMeal = $breakdownMeals->get($mealTypeId);
+            if (!$breakdownMeal) {
+                \Illuminate\Support\Facades\Log::warning("No breakdown meal found for meal type: {$mealTypeId}");
+                continue;
+            }
+
+            // Calculate quantity: meals count × number of drivers
+            $qty = $mealsCount * $this->drivers_qty;
+            
+            \Illuminate\Support\Facades\Log::info("Creating driver meal record: Meal Type {$mealTypeId}, Count {$mealsCount}, Drivers {$this->drivers_qty}, Total Qty {$qty}, Price {$breakdownMeal->price}");
+
+            // Create driver meal record
+            $this->quotationOfferDriverMeals()->create([
+                'meal_type_id' => $mealTypeId,
+                'qty' => $qty,
+                'price' => $breakdownMeal->price,
+                'is_base_budget' => false,
+                'tenant_id' => $this->tenant_id,
+            ]);
+        }
+        
+        \Illuminate\Support\Facades\Log::info('Case 2 calculation completed. Created ' . count($totalMealTypeQuantities) . ' driver meal records');
+    }
+
+    /**
+     * Manually trigger driver meal cost calculation (for testing purposes).
+     */
+    public function triggerDriverMealCalculation(): void
+    {
+        \Illuminate\Support\Facades\Log::info('Manually triggering driver meal calculation');
+        $this->calculateDriverMealCosts();
+    }
+
+    /**
+     * Calculate meal quantities based on vehicle days from breakdown.
+     * Half day = 1 meal, Full day = 2 meals
+     */
+    private function calculateMealQuantities($breakdown): array
+    {
+        $quantities = [];
+
+        // Use breakdown values if available, otherwise use offer values
+        $vehicleHalfDays = $breakdown->vehicle_half_days_qty ?? $this->vehicle_half_days_qty ?? 0;
+        $vehicleDays = $breakdown->vehicle_days_qty ?? $this->vehicle_days_qty ?? 0;
+
+        // Half days = 1 meal each
+        if ($vehicleHalfDays > 0) {
+            $quantities['half_day_meals'] = $vehicleHalfDays;
+        }
+
+        // Full days = 2 meals each
+        if ($vehicleDays > 0) {
+            $quantities['full_day_meals'] = $vehicleDays * 2;
+        }
+
+        return $quantities;
+    }
+
+    /**
+     * Create driver meal records in the database.
+     */
+    private function createDriverMealRecords(array $mealQuantities, float $baseMealBudget): void
+    {
+        // Create records for half day meals
+        if (isset($mealQuantities['half_day_meals'])) {
+            $halfDayQty = $mealQuantities['half_day_meals'] * $this->drivers_qty;
+            $this->quotationOfferDriverMeals()->create([
+                'meal_type_id' => null, // null for base budget meals
+                'qty' => $halfDayQty,
+                'price' => $baseMealBudget,
+                'is_base_budget' => true,
+                'tenant_id' => $this->tenant_id,
+            ]);
+        }
+
+        // Create records for full day meals
+        if (isset($mealQuantities['full_day_meals'])) {
+            $fullDayQty = $mealQuantities['full_day_meals'] * $this->drivers_qty;
+            $this->quotationOfferDriverMeals()->create([
+                'meal_type_id' => null, // null for base budget meals
+                'qty' => $fullDayQty,
+                'price' => $baseMealBudget,
+                'is_base_budget' => true,
+                'tenant_id' => $this->tenant_id,
+            ]);
+        }
+    }
 }
 
