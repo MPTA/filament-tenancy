@@ -663,6 +663,7 @@ class OffersTab
     private static function noOffersMessageForOffers(): TextEntry
     {
         return TextEntry::make('id')
+            ->hiddenLabel()
             ->label('')
             ->formatStateUsing(fn() => 'No offers have been created yet.')
             ->icon('heroicon-o-information-circle')
@@ -687,7 +688,7 @@ class OffersTab
     {
         return Grid::make(1)
             ->schema([
-                Grid::make(6)
+                Grid::make(7)
                     ->schema([
                         TextEntry::make('vehicleType.name')
                             ->label('Vehicle Type')
@@ -720,11 +721,18 @@ class OffersTab
                             ->color('warning'),
 
                         TextEntry::make('id')
-                            ->label('Actions')
+                            ->label('Edit')
                             ->formatStateUsing(fn() => '')
                             ->icon('heroicon-m-pencil-square')
                             ->color('primary')
                             ->action(self::editOfferAction()),
+
+                        TextEntry::make('id')
+                            ->label('Delete')
+                            ->formatStateUsing(fn() => '')
+                            ->icon('heroicon-m-trash')
+                            ->color('danger')
+                            ->action(self::deleteOfferAction()),
                     ])
                     ->columnSpanFull(),
             ]);
@@ -744,6 +752,38 @@ class OffersTab
                     ->body('Edit offer functionality will be implemented soon.')
                     ->info()
                     ->send();
+            });
+    }
+
+    private static function deleteOfferAction(): Action
+    {
+        return Action::make('delete_offer')
+            ->label('Delete')
+            ->icon('heroicon-m-trash')
+            ->color('danger')
+            ->size('sm')
+            ->requiresConfirmation()
+            ->modalHeading('Delete Offer')
+            ->modalDescription('Are you sure you want to delete this offer? This action cannot be undone.')
+            ->modalSubmitActionLabel('Yes, Delete')
+            ->action(function ($record) {
+                try {
+                    // Delete the offer - all related records will be automatically deleted due to CASCADE constraints
+                    $record->delete();
+                    $record->refresh();
+                    Notification::make()
+                        ->title('Offer Deleted Successfully!')
+                        ->body('The offer and all related records have been automatically deleted.')
+                        ->success()
+                        ->send();
+
+                } catch (\Exception $e) {
+                    Notification::make()
+                        ->title('Error Deleting Offer')
+                        ->body('An error occurred while deleting the offer: ' . $e->getMessage())
+                        ->danger()
+                        ->send();
+                }
             });
     }
 
