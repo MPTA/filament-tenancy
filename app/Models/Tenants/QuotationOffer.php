@@ -1323,7 +1323,7 @@ class QuotationOffer extends Model
             // Create leader attraction record (even if price is 0)
             $leaderAttraction = $this->quotationOfferLeaderAttractions()->create([
                 'attraction_id' => $attractionId,
-                'price' => $entryPrice * $this->leaders_qty,
+                'price' => $entryPrice, // Price per leader
             ]);
 
             // Create sub-attraction records for all breakdown sub-attractions
@@ -1331,10 +1331,10 @@ class QuotationOffer extends Model
                 $subAttractionId = $breakdownSubAttraction->sub_attraction_id;
                 $subAttractionPrice = $breakdownSubAttraction->price;
 
-                $leaderAttraction->subAttractions()->create([
-                    'sub_attraction_id' => $subAttractionId,
-                    'price' => $subAttractionPrice * $this->leaders_qty,
-                ]);
+                    $leaderAttraction->subAttractions()->create([
+                        'sub_attraction_id' => $subAttractionId,
+                        'price' => $subAttractionPrice, // Price per leader
+                    ]);
             }
         }
     }
@@ -1367,7 +1367,7 @@ class QuotationOffer extends Model
         foreach ($breakdownExpenses as $breakdownExpense) {
             $this->quotationOfferLeaderExpenses()->create([
                 'description' => $breakdownExpense->description,
-                'price' => $breakdownExpense->price * $this->leaders_qty,
+                'price' => $breakdownExpense->price, // Price per leader
             ]);
         }
     }
@@ -1412,7 +1412,7 @@ class QuotationOffer extends Model
             // Create leader experience record (even if price is 0)
             $this->quotationOfferLeaderExperiences()->create([
                 'experience_id' => $experienceId,
-                'price' => $price * $this->leaders_qty,
+                'price' => $price, // Price per leader
             ]);
         }
     }
@@ -1465,11 +1465,54 @@ class QuotationOffer extends Model
     }
 
     /**
+     * Calculate leader tickets costs based on breakdown.
+     */
+    public function calculateLeaderTicketsCosts(): void
+    {
+        if ($this->leaders_qty < 1) {
+            return;
+        }
+
+        $offerGroup = $this->quotationOfferGroup;
+        $breakdown = $offerGroup->quotationItinerary->breakdown;
+        if (!$breakdown) {
+            return;
+        }
+
+        // Get all breakdown tickets
+        $breakdownTickets = $breakdown->tickets()
+            ->with(['fromCity', 'toCity'])
+            ->get();
+
+        if ($breakdownTickets->isEmpty()) {
+            return;
+        }
+
+        // Create leader ticket records for all breakdown tickets
+        foreach ($breakdownTickets as $breakdownTicket) {
+            $this->quotationOfferLeaderTickets()->create([
+                'from_city_id' => $breakdownTicket->from_city_id,
+                'to_city_id' => $breakdownTicket->to_city_id,
+                'class' => $breakdownTicket->class,
+                'price' => $breakdownTicket->price, // Price per leader
+            ]);
+        }
+    }
+
+    /**
      * Trigger leader meals calculation manually for testing.
      */
     public function triggerLeaderMealsCalculation(): void
     {
         $this->calculateLeaderMealsCosts();
+    }
+
+    /**
+     * Trigger leader tickets calculation manually for testing.
+     */
+    public function triggerLeaderTicketsCalculation(): void
+    {
+        $this->calculateLeaderTicketsCosts();
     }
 }
 
