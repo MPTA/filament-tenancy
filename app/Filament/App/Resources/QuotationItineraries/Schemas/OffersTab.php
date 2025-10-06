@@ -892,11 +892,14 @@ class OffersTab
                         
                         // Calculate leader attractions costs
                         $offer->calculateLeaderAttractionsCosts();
+                        
+                        // Calculate leader expenses costs
+                        $offer->calculateLeaderExpensesCosts();
                     });
 
                     Notification::make()
                         ->title('Offer Created Successfully!')
-                        ->body('The offer, driver meal costs, driver accommodation costs, leader accommodation costs, and leader attractions costs have been calculated.')
+                        ->body('The offer, driver meal costs, driver accommodation costs, leader accommodation costs, leader attractions costs, and leader expenses costs have been calculated.')
                         ->success()
                         ->send();
 

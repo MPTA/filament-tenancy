@@ -1348,11 +1348,53 @@ class QuotationOffer extends Model
     }
 
     /**
+     * Calculate leader expenses costs based on breakdown per person expenses.
+     */
+    public function calculateLeaderExpensesCosts(): void
+    {
+        if ($this->leaders_qty < 1) {
+            return;
+        }
+
+        $offerGroup = $this->quotationOfferGroup;
+        $breakdown = $offerGroup->quotationItinerary->breakdown;
+        if (!$breakdown) {
+            return;
+        }
+
+        // Get all breakdown expenses that are per person
+        $breakdownExpenses = $breakdown->expenses()
+            ->where('charge_mode', \App\Enums\ChargeModeEnum::PER_PERSON)
+            ->get();
+
+        if ($breakdownExpenses->isEmpty()) {
+            return;
+        }
+
+        // Create leader expense records for all per person expenses
+        foreach ($breakdownExpenses as $breakdownExpense) {
+            $this->quotationOfferLeaderExpenses()->create([
+                'description' => $breakdownExpense->description,
+                'price' => $breakdownExpense->price * $this->leaders_qty,
+                'tenant_id' => $this->tenant_id,
+            ]);
+        }
+    }
+
+    /**
      * Trigger leader attractions calculation manually for testing.
      */
     public function triggerLeaderAttractionsCalculation(): void
     {
         $this->calculateLeaderAttractionsCosts();
+    }
+
+    /**
+     * Trigger leader expenses calculation manually for testing.
+     */
+    public function triggerLeaderExpensesCalculation(): void
+    {
+        $this->calculateLeaderExpensesCosts();
     }
 }
 
