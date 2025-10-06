@@ -611,20 +611,17 @@ class QuotationOffer extends Model
         
         // Check if driver accommodation should be included
         if (!$offerGroup || !$offerGroup->is_include_driver_hotel) {
-            \Illuminate\Support\Facades\Log::info('Driver accommodation not included or offer group not found');
             return;
         }
 
         // Check if drivers quantity is at least 1
         if ($this->drivers_qty < 1) {
-            \Illuminate\Support\Facades\Log::info('Drivers quantity is less than 1', ['drivers_qty' => $this->drivers_qty]);
             return;
         }
 
         // Get breakdown for base accommodation budget
         $breakdown = $offerGroup->quotationItinerary->breakdown;
         if (!$breakdown) {
-            \Illuminate\Support\Facades\Log::info('No breakdown found');
             return;
         }
 
@@ -632,7 +629,6 @@ class QuotationOffer extends Model
         if (!$offerGroup->is_driver_stay_same_hotel) {
             // Case 1: Base budget calculation
             if (!$breakdown->driver_base_accommodation_budget) {
-                \Illuminate\Support\Facades\Log::info('No driver base accommodation budget found');
                 return;
             }
             $this->calculateDriverAccommodationCostsCase1($breakdown);
@@ -652,7 +648,6 @@ class QuotationOffer extends Model
         // Get itinerary to access vehicle usage data
         $itinerary = $offerGroup->quotationItinerary->itinerary;
         if (!$itinerary) {
-            \Illuminate\Support\Facades\Log::info('No itinerary found for accommodation calculation');
             return;
         }
 
@@ -666,21 +661,17 @@ class QuotationOffer extends Model
             ->get();
 
         if ($itineraryDays->isEmpty()) {
-            \Illuminate\Support\Facades\Log::info('No itinerary days with vehicle usage found for accommodation');
             return;
         }
 
-        \Illuminate\Support\Facades\Log::info('Found ' . $itineraryDays->count() . ' days with vehicle usage for accommodation calculation');
 
         // Calculate nights needed for driver accommodation
         $nightsNeeded = $this->calculateDriverNightsNeeded($itineraryDays);
         
         if ($nightsNeeded <= 0) {
-            \Illuminate\Support\Facades\Log::info('No nights needed for driver accommodation');
             return;
         }
 
-        \Illuminate\Support\Facades\Log::info('Driver needs ' . $nightsNeeded . ' nights accommodation');
 
         // Create driver accommodation record
         $this->quotationOfferDriverAccommodations()->create([
@@ -692,11 +683,6 @@ class QuotationOffer extends Model
             'is_base_budget' => true,
         ]);
 
-        \Illuminate\Support\Facades\Log::info('Driver accommodation record created successfully', [
-            'nights' => $nightsNeeded * $this->drivers_qty,
-            'night_price' => $breakdown->driver_base_accommodation_budget,
-            'drivers_qty' => $this->drivers_qty
-        ]);
     }
 
     /**
@@ -709,14 +695,12 @@ class QuotationOffer extends Model
         
         // Check if driver_room_category_id is set
         if (!$offerGroup->driver_room_category_id) {
-            \Illuminate\Support\Facades\Log::info('No driver room category ID found in offer group');
             return;
         }
 
         // Get itinerary to access accommodation data
         $itinerary = $offerGroup->quotationItinerary->itinerary;
         if (!$itinerary) {
-            \Illuminate\Support\Facades\Log::info('No itinerary found for accommodation calculation');
             return;
         }
 
@@ -731,21 +715,17 @@ class QuotationOffer extends Model
             ->get();
 
         if ($itineraryDays->isEmpty()) {
-            \Illuminate\Support\Facades\Log::info('No itinerary days with vehicle usage found for accommodation');
             return;
         }
 
-        \Illuminate\Support\Facades\Log::info('Found ' . $itineraryDays->count() . ' days with vehicle usage for accommodation calculation');
 
         // Get driver accommodation nights by hotel
         $driverAccommodationsByHotel = $this->calculateDriverAccommodationsByHotel($itineraryDays);
         
         if (empty($driverAccommodationsByHotel)) {
-            \Illuminate\Support\Facades\Log::info('No driver accommodations needed');
             return;
         }
 
-        \Illuminate\Support\Facades\Log::info('Driver accommodations by hotel: ' . json_encode($driverAccommodationsByHotel));
 
         // Create driver accommodation records for each hotel
         foreach ($driverAccommodationsByHotel as $hotelData) {
@@ -757,11 +737,9 @@ class QuotationOffer extends Model
             $driverRoomPrice = $this->findDriverRoomPriceForAccommodation($breakdown, $offerGroup->driver_room_category_id, $accommodationId);
             
             if (!$driverRoomPrice) {
-                \Illuminate\Support\Facades\Log::warning('No price found for driver room category in accommodation: ' . $accommodationId);
                 continue;
             }
 
-            \Illuminate\Support\Facades\Log::info('Found driver room price for accommodation ' . $accommodationId . ': ' . $driverRoomPrice);
 
             // Create driver accommodation record
             $this->quotationOfferDriverAccommodations()->create([
@@ -773,14 +751,6 @@ class QuotationOffer extends Model
                 'is_base_budget' => false,
             ]);
 
-            \Illuminate\Support\Facades\Log::info('Driver accommodation record created successfully', [
-                'accommodation_id' => $accommodationId,
-                'city_id' => $cityId,
-                'nights' => $nights * $this->drivers_qty,
-                'night_price' => $driverRoomPrice,
-                'room_category_id' => $offerGroup->driver_room_category_id,
-                'drivers_qty' => $this->drivers_qty
-            ]);
         }
     }
 
@@ -820,7 +790,6 @@ class QuotationOffer extends Model
                     
                     $accommodationsByHotel[$key]['nights']++;
                     
-                    \Illuminate\Support\Facades\Log::info('Driver needs accommodation for night between day ' . $currentDay->day_number . ' and day ' . $nextDay->day_number . ' at accommodation: ' . $accommodationId . ', city: ' . $cityId);
                 }
             }
         }
@@ -841,7 +810,6 @@ class QuotationOffer extends Model
             ->first();
 
         if (!$breakdownAccommodation) {
-            \Illuminate\Support\Facades\Log::warning('No breakdown accommodation found for accommodation: ' . $accommodationId);
             return null;
         }
 
@@ -854,12 +822,10 @@ class QuotationOffer extends Model
                 // Calculate per-person price by dividing room price by capacity
                 $perPersonPrice = (float) $room->price / $capacity;
                 
-                \Illuminate\Support\Facades\Log::info('Found driver room price in accommodation: ' . $accommodationId . ', room: ' . $room->id . ', room price: ' . $room->price . ', capacity: ' . $capacity . ', per-person price: ' . $perPersonPrice);
                 return $perPersonPrice;
             }
         }
 
-        \Illuminate\Support\Facades\Log::warning('No room found for driver room category: ' . $driverRoomCategoryId . ' in accommodation: ' . $accommodationId);
         return null;
     }
 
@@ -876,7 +842,6 @@ class QuotationOffer extends Model
         foreach ($breakdownAccommodations as $accommodation) {
             foreach ($accommodation->rooms as $room) {
                 if ($room->room_category_id === $driverRoomCategoryId) {
-                    \Illuminate\Support\Facades\Log::info('Found driver room price in accommodation: ' . $accommodation->id . ', room: ' . $room->id . ', price: ' . $room->price);
                     return (float) $room->price;
                 }
             }
@@ -902,7 +867,6 @@ class QuotationOffer extends Model
             if ($nextDay->day_number === $currentDay->day_number + 1) {
                 // Driver needs accommodation for the night between these days
                 $nightsNeeded++;
-                \Illuminate\Support\Facades\Log::info('Driver needs accommodation for night between day ' . $currentDay->day_number . ' and day ' . $nextDay->day_number);
             }
         }
         
@@ -936,7 +900,6 @@ class QuotationOffer extends Model
         // Get itinerary to access meal data
         $itinerary = $offerGroup->quotationItinerary->itinerary;
         if (!$itinerary) {
-            \Illuminate\Support\Facades\Log::info('No itinerary found for offer group');
             return;
         }
 
@@ -951,15 +914,12 @@ class QuotationOffer extends Model
             ->get();
 
         if ($itineraryDays->isEmpty()) {
-            \Illuminate\Support\Facades\Log::info('No itinerary days with vehicle usage found');
             return;
         }
 
-        \Illuminate\Support\Facades\Log::info('Found ' . $itineraryDays->count() . ' days with vehicle usage');
 
         // Get breakdown meals for pricing
         $breakdownMeals = $breakdown->meals()->get()->keyBy('meal_type_id');
-        \Illuminate\Support\Facades\Log::info('Found ' . $breakdownMeals->count() . ' breakdown meals');
 
         // Step 1: Collect meal types day by day
         $dailyMealTypes = [];
@@ -976,7 +936,6 @@ class QuotationOffer extends Model
                 $mealParts = [\App\Enums\MealPartEnum::LUNCH];
             }
             
-            \Illuminate\Support\Facades\Log::info("Day {$dayNumber}: Vehicle mode = " . $vehicleMode->value . ", Meal parts = " . implode(', ', array_map(fn($part) => $part->value, $mealParts)));
             
             // Get activities for this day with meals
             $activities = $day->activities()
@@ -1001,7 +960,6 @@ class QuotationOffer extends Model
             }
             
             $dailyMealTypes[$dayNumber] = $dayMealTypes;
-            \Illuminate\Support\Facades\Log::info("Day {$dayNumber} meal types: " . json_encode($dayMealTypes));
         }
         
         // Step 2: Aggregate all meal types and their total quantities
@@ -1016,20 +974,17 @@ class QuotationOffer extends Model
             }
         }
         
-        \Illuminate\Support\Facades\Log::info('Total meal type quantities: ' . json_encode($totalMealTypeQuantities));
         
         // Step 3: Create driver meal records for each meal type
         foreach ($totalMealTypeQuantities as $mealTypeId => $mealsCount) {
             $breakdownMeal = $breakdownMeals->get($mealTypeId);
             if (!$breakdownMeal) {
-                \Illuminate\Support\Facades\Log::warning("No breakdown meal found for meal type: {$mealTypeId}");
                 continue;
             }
 
             // Calculate quantity: meals count × number of drivers
             $qty = $mealsCount * $this->drivers_qty;
             
-            \Illuminate\Support\Facades\Log::info("Creating driver meal record: Meal Type {$mealTypeId}, Count {$mealsCount}, Drivers {$this->drivers_qty}, Total Qty {$qty}, Price {$breakdownMeal->price}");
 
             // Create driver meal record
             $this->quotationOfferDriverMeals()->create([
@@ -1040,7 +995,6 @@ class QuotationOffer extends Model
             ]);
         }
         
-        \Illuminate\Support\Facades\Log::info('Case 2 calculation completed. Created ' . count($totalMealTypeQuantities) . ' driver meal records');
     }
 
     /**
@@ -1048,7 +1002,6 @@ class QuotationOffer extends Model
      */
     public function triggerDriverMealCalculation(): void
     {
-        \Illuminate\Support\Facades\Log::info('Manually triggering driver meal calculation');
         $this->calculateDriverMealCosts();
     }
 
@@ -1057,7 +1010,6 @@ class QuotationOffer extends Model
      */
     public function triggerDriverAccommodationCalculation(): void
     {
-        \Illuminate\Support\Facades\Log::info('Manually triggering driver accommodation calculation');
         $this->calculateDriverAccommodationCosts();
     }
 
@@ -1068,13 +1020,11 @@ class QuotationOffer extends Model
     {
         // Check if leaders quantity is at least 1
         if ($this->leaders_qty < 1) {
-            \Illuminate\Support\Facades\Log::info('Leaders quantity is less than 1', ['leaders_qty' => $this->leaders_qty]);
             return;
         }
 
         // Check if leader_room_category_id is set
         if (!$this->leader_room_category_id) {
-            \Illuminate\Support\Facades\Log::info('No leader room category ID found in offer');
             return;
         }
 
@@ -1082,14 +1032,12 @@ class QuotationOffer extends Model
         $offerGroup = $this->quotationOfferGroup;
         $breakdown = $offerGroup->quotationItinerary->breakdown;
         if (!$breakdown) {
-            \Illuminate\Support\Facades\Log::info('No breakdown found for leader accommodation calculation');
             return;
         }
 
         // Get itinerary to access accommodation data
         $itinerary = $offerGroup->quotationItinerary->itinerary;
         if (!$itinerary) {
-            \Illuminate\Support\Facades\Log::info('No itinerary found for leader accommodation calculation');
             return;
         }
 
@@ -1101,21 +1049,17 @@ class QuotationOffer extends Model
             ->get();
 
         if ($itineraryDays->isEmpty()) {
-            \Illuminate\Support\Facades\Log::info('No itinerary days with accommodations found');
             return;
         }
 
-        \Illuminate\Support\Facades\Log::info('Found ' . $itineraryDays->count() . ' days with accommodations for leader calculation');
 
         // Get leader accommodations by hotel
         $leaderAccommodationsByHotel = $this->calculateLeaderAccommodationsByHotel($itineraryDays);
         
         if (empty($leaderAccommodationsByHotel)) {
-            \Illuminate\Support\Facades\Log::info('No leader accommodations needed');
             return;
         }
 
-        \Illuminate\Support\Facades\Log::info('Leader accommodations by hotel: ' . json_encode($leaderAccommodationsByHotel));
 
         // Create leader accommodation records for each hotel
         foreach ($leaderAccommodationsByHotel as $hotelData) {
@@ -1127,11 +1071,9 @@ class QuotationOffer extends Model
             $leaderRoomPrice = $this->findLeaderRoomPriceForAccommodation($breakdown, $this->leader_room_category_id, $accommodationId);
             
             if (!$leaderRoomPrice) {
-                \Illuminate\Support\Facades\Log::warning('No price found for leader room category in accommodation: ' . $accommodationId);
                 continue;
             }
 
-            \Illuminate\Support\Facades\Log::info('Found leader room price for accommodation ' . $accommodationId . ': ' . $leaderRoomPrice);
 
             // Create leader accommodation record
             $this->quotationOfferLeaderAccommodations()->create([
@@ -1142,14 +1084,6 @@ class QuotationOffer extends Model
                 'night_price' => $leaderRoomPrice,
             ]);
 
-            \Illuminate\Support\Facades\Log::info('Leader accommodation record created successfully', [
-                'accommodation_id' => $accommodationId,
-                'city_id' => $cityId,
-                'nights' => $nights * $this->leaders_qty,
-                'night_price' => $leaderRoomPrice,
-                'room_category_id' => $this->leader_room_category_id,
-                'leaders_qty' => $this->leaders_qty
-            ]);
         }
     }
 
@@ -1158,7 +1092,6 @@ class QuotationOffer extends Model
      */
     public function triggerLeaderAccommodationCalculation(): void
     {
-        \Illuminate\Support\Facades\Log::info('Manually triggering leader accommodation calculation');
         $this->calculateLeaderAccommodationCosts();
     }
 
@@ -1191,7 +1124,6 @@ class QuotationOffer extends Model
                 
                 $accommodationsByHotel[$key]['nights']++;
                 
-                \Illuminate\Support\Facades\Log::info('Leader needs accommodation for day ' . $day->day_number . ' at accommodation: ' . $accommodationId . ', city: ' . $cityId);
             }
         }
         
@@ -1211,7 +1143,6 @@ class QuotationOffer extends Model
             ->first();
 
         if (!$breakdownAccommodation) {
-            \Illuminate\Support\Facades\Log::warning('No breakdown accommodation found for accommodation: ' . $accommodationId);
             return null;
         }
 
@@ -1224,12 +1155,10 @@ class QuotationOffer extends Model
                 // Calculate per-person price by dividing room price by capacity
                 $perPersonPrice = (float) $room->price / $capacity;
                 
-                \Illuminate\Support\Facades\Log::info('Found leader room price in accommodation: ' . $accommodationId . ', room: ' . $room->id . ', room price: ' . $room->price . ', capacity: ' . $capacity . ', per-person price: ' . $perPersonPrice);
                 return $perPersonPrice;
             }
         }
 
-        \Illuminate\Support\Facades\Log::warning('No room found for leader room category: ' . $leaderRoomCategoryId . ' in accommodation: ' . $accommodationId);
         return null;
     }
 
