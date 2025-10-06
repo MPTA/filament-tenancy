@@ -690,7 +690,6 @@ class QuotationOffer extends Model
             'nights' => $nightsNeeded * $this->drivers_qty,
             'night_price' => $breakdown->driver_base_accommodation_budget,
             'is_base_budget' => true,
-            'tenant_id' => $this->tenant_id,
         ]);
 
         \Illuminate\Support\Facades\Log::info('Driver accommodation record created successfully', [
@@ -772,7 +771,6 @@ class QuotationOffer extends Model
                 'nights' => $nights * $this->drivers_qty,
                 'night_price' => $driverRoomPrice,
                 'is_base_budget' => false,
-                'tenant_id' => $this->tenant_id,
             ]);
 
             \Illuminate\Support\Facades\Log::info('Driver accommodation record created successfully', [
@@ -1039,7 +1037,6 @@ class QuotationOffer extends Model
                 'qty' => $qty,
                 'price' => $breakdownMeal->price,
                 'is_base_budget' => false,
-                'tenant_id' => $this->tenant_id,
             ]);
         }
         
@@ -1143,7 +1140,6 @@ class QuotationOffer extends Model
                 'city_id' => $cityId,
                 'nights' => $nights * $this->leaders_qty,
                 'night_price' => $leaderRoomPrice,
-                'tenant_id' => $this->tenant_id,
             ]);
 
             \Illuminate\Support\Facades\Log::info('Leader accommodation record created successfully', [
@@ -1275,7 +1271,6 @@ class QuotationOffer extends Model
                 'qty' => $halfDayQty,
                 'price' => $baseMealBudget,
                 'is_base_budget' => true,
-                'tenant_id' => $this->tenant_id,
             ]);
         }
 
@@ -1287,7 +1282,6 @@ class QuotationOffer extends Model
                 'qty' => $fullDayQty,
                 'price' => $baseMealBudget,
                 'is_base_budget' => true,
-                'tenant_id' => $this->tenant_id,
             ]);
         }
     }
@@ -1330,7 +1324,6 @@ class QuotationOffer extends Model
             $leaderAttraction = $this->quotationOfferLeaderAttractions()->create([
                 'attraction_id' => $attractionId,
                 'price' => $entryPrice * $this->leaders_qty,
-                'tenant_id' => $this->tenant_id,
             ]);
 
             // Create sub-attraction records for all breakdown sub-attractions
@@ -1341,7 +1334,6 @@ class QuotationOffer extends Model
                 $leaderAttraction->subAttractions()->create([
                     'sub_attraction_id' => $subAttractionId,
                     'price' => $subAttractionPrice * $this->leaders_qty,
-                    'tenant_id' => $this->tenant_id,
                 ]);
             }
         }
@@ -1376,7 +1368,6 @@ class QuotationOffer extends Model
             $this->quotationOfferLeaderExpenses()->create([
                 'description' => $breakdownExpense->description,
                 'price' => $breakdownExpense->price * $this->leaders_qty,
-                'tenant_id' => $this->tenant_id,
             ]);
         }
     }
@@ -1422,7 +1413,6 @@ class QuotationOffer extends Model
             $this->quotationOfferLeaderExperiences()->create([
                 'experience_id' => $experienceId,
                 'price' => $price * $this->leaders_qty,
-                'tenant_id' => $this->tenant_id,
             ]);
         }
     }
@@ -1436,11 +1426,50 @@ class QuotationOffer extends Model
     }
 
     /**
+     * Calculate leader meals costs based on itinerary meals.
+     */
+    public function calculateLeaderMealsCosts(): void
+    {
+        if ($this->leaders_qty < 1) {
+            return;
+        }
+
+        $offerGroup = $this->quotationOfferGroup;
+        $breakdown = $offerGroup->quotationItinerary->breakdown;
+        if (!$breakdown) {
+            return;
+        }
+
+        $paidMeals = $breakdown->getPaidMealsFromItinerary();
+
+        if (empty($paidMeals)) {
+            return;
+        }
+
+        // Create leader meal records for each paid meal
+        foreach ($paidMeals as $meal) {
+            $this->quotationOfferLeaderMeals()->create([
+                'meal_type_id' => $meal['meal_type_id'],
+                'qty' => $meal['qty'] * $this->leaders_qty,
+                'price' => $meal['price'],
+            ]);
+        }
+    }
+
+    /**
      * Trigger leader experiences calculation manually for testing.
      */
     public function triggerLeaderExperiencesCalculation(): void
     {
         $this->calculateLeaderExperiencesCosts();
+    }
+
+    /**
+     * Trigger leader meals calculation manually for testing.
+     */
+    public function triggerLeaderMealsCalculation(): void
+    {
+        $this->calculateLeaderMealsCosts();
     }
 }
 

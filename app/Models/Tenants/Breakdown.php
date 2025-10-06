@@ -142,4 +142,82 @@ class Breakdown extends Model
     {
         return $this->hasMany(BreakdownAttraction::class);
     }
+
+    /**
+     * Get paid meals from itinerary with quantities and prices.
+     * Returns array of meals that need to be paid for (excluding free breakfasts).
+     */
+    public function getPaidMealsFromItinerary(): array
+    {
+        $itinerary = $this->quotationItinerary->itinerary;
+        if (!$itinerary) {
+            return [];
+        }
+
+        // Get all itinerary days with meals
+        $itineraryDays = $itinerary->days()
+            ->with([
+                'activities.meal.mealType',
+                'accommodation'
+            ])
+            ->orderBy('day_number')
+            ->get();
+
+        if ($itineraryDays->isEmpty()) {
+            return [];
+        }
+
+        // Collect meal quantities by meal type
+        $mealQuantities = collect();
+
+        foreach ($itineraryDays as $day) {
+            // Check if accommodation has breakfast (from breakdown_accommodations)
+            $hasBreakfast = false;
+            if ($day->accommodation) {
+                $breakdownAccommodation = $this->accommodations()
+                    ->where('accommodation_id', $day->accommodation->id)
+                    ->first();
+                
+                if ($breakdownAccommodation) {
+                    $hasBreakfast = $breakdownAccommodation->has_breakfast ?? false;
+                }
+            }
+
+            foreach ($day->activities as $activity) {
+                if ($activity->meal) {
+                    $mealTypeId = $activity->meal->meal_type_id;
+                    $mealPart = $activity->meal->meal_part;
+
+                    // Skip breakfast if accommodation has breakfast (free breakfast)
+                    if ($hasBreakfast && $mealPart === \App\Enums\MealPartEnum::BREAKFAST) {
+                        continue;
+                    }
+
+                    // Count this meal type
+                    if (!$mealQuantities->has($mealTypeId)) {
+                        $mealQuantities->put($mealTypeId, 0);
+                    }
+                    $mealQuantities->put($mealTypeId, $mealQuantities->get($mealTypeId) + 1);
+                }
+            }
+        }
+
+        // Get prices from breakdown and return array
+        $paidMeals = [];
+        foreach ($mealQuantities as $mealTypeId => $qty) {
+            $breakdownMeal = $this->meals()
+                ->where('meal_type_id', $mealTypeId)
+                ->first();
+
+            if ($breakdownMeal) {
+                $paidMeals[] = [
+                    'meal_type_id' => $mealTypeId,
+                    'qty' => $qty,
+                    'price' => $breakdownMeal->price,
+                ];
+            }
+        }
+
+        return $paidMeals;
+    }
 }
