@@ -1057,6 +1057,179 @@ class QuotationOffer extends Model
     }
 
     /**
+     * Calculate and create leader accommodation costs.
+     */
+    public function calculateLeaderAccommodationCosts(): void
+    {
+        // Check if leaders quantity is at least 1
+        if ($this->leaders_qty < 1) {
+            \Illuminate\Support\Facades\Log::info('Leaders quantity is less than 1', ['leaders_qty' => $this->leaders_qty]);
+            return;
+        }
+
+        // Check if leader_room_category_id is set
+        if (!$this->leader_room_category_id) {
+            \Illuminate\Support\Facades\Log::info('No leader room category ID found in offer');
+            return;
+        }
+
+        // Get breakdown for pricing
+        $offerGroup = $this->quotationOfferGroup;
+        $breakdown = $offerGroup->quotationItinerary->breakdown;
+        if (!$breakdown) {
+            \Illuminate\Support\Facades\Log::info('No breakdown found for leader accommodation calculation');
+            return;
+        }
+
+        // Get itinerary to access accommodation data
+        $itinerary = $offerGroup->quotationItinerary->itinerary;
+        if (!$itinerary) {
+            \Illuminate\Support\Facades\Log::info('No itinerary found for leader accommodation calculation');
+            return;
+        }
+
+        // Get itinerary days with accommodations
+        $itineraryDays = $itinerary->days()
+            ->whereNotNull('accommodation_id')
+            ->with(['accommodation', 'accommodationCity'])
+            ->orderBy('day_number')
+            ->get();
+
+        if ($itineraryDays->isEmpty()) {
+            \Illuminate\Support\Facades\Log::info('No itinerary days with accommodations found');
+            return;
+        }
+
+        \Illuminate\Support\Facades\Log::info('Found ' . $itineraryDays->count() . ' days with accommodations for leader calculation');
+
+        // Get leader accommodations by hotel
+        $leaderAccommodationsByHotel = $this->calculateLeaderAccommodationsByHotel($itineraryDays);
+        
+        if (empty($leaderAccommodationsByHotel)) {
+            \Illuminate\Support\Facades\Log::info('No leader accommodations needed');
+            return;
+        }
+
+        \Illuminate\Support\Facades\Log::info('Leader accommodations by hotel: ' . json_encode($leaderAccommodationsByHotel));
+
+        // Create leader accommodation records for each hotel
+        foreach ($leaderAccommodationsByHotel as $hotelData) {
+            $accommodationId = $hotelData['accommodation_id'];
+            $cityId = $hotelData['city_id'];
+            $nights = $hotelData['nights'];
+
+            // Find the price for the leader room category from breakdown accommodations
+            $leaderRoomPrice = $this->findLeaderRoomPriceForAccommodation($breakdown, $this->leader_room_category_id, $accommodationId);
+            
+            if (!$leaderRoomPrice) {
+                \Illuminate\Support\Facades\Log::warning('No price found for leader room category in accommodation: ' . $accommodationId);
+                continue;
+            }
+
+            \Illuminate\Support\Facades\Log::info('Found leader room price for accommodation ' . $accommodationId . ': ' . $leaderRoomPrice);
+
+            // Create leader accommodation record
+            $this->quotationOfferLeaderAccommodations()->create([
+                'accommodation_id' => $accommodationId,
+                'room_category_id' => $this->leader_room_category_id,
+                'city_id' => $cityId,
+                'nights' => $nights * $this->leaders_qty,
+                'night_price' => $leaderRoomPrice,
+                'tenant_id' => $this->tenant_id,
+            ]);
+
+            \Illuminate\Support\Facades\Log::info('Leader accommodation record created successfully', [
+                'accommodation_id' => $accommodationId,
+                'city_id' => $cityId,
+                'nights' => $nights * $this->leaders_qty,
+                'night_price' => $leaderRoomPrice,
+                'room_category_id' => $this->leader_room_category_id,
+                'leaders_qty' => $this->leaders_qty
+            ]);
+        }
+    }
+
+    /**
+     * Manually trigger leader accommodation cost calculation (for testing purposes).
+     */
+    public function triggerLeaderAccommodationCalculation(): void
+    {
+        \Illuminate\Support\Facades\Log::info('Manually triggering leader accommodation calculation');
+        $this->calculateLeaderAccommodationCosts();
+    }
+
+    /**
+     * Calculate leader accommodations by hotel based on itinerary days.
+     * Logic: For each day with accommodation, determine which hotel and city, and count nights.
+     */
+    private function calculateLeaderAccommodationsByHotel($itineraryDays): array
+    {
+        $accommodationsByHotel = [];
+        $days = $itineraryDays->sortBy('day_number');
+        
+        foreach ($days as $day) {
+            $accommodation = $day->accommodation;
+            
+            if ($accommodation) {
+                $accommodationId = $accommodation->id;
+                $cityId = $day->accommodation_city_id;
+                
+                // Group by accommodation and city
+                $key = $accommodationId . '_' . $cityId;
+                
+                if (!isset($accommodationsByHotel[$key])) {
+                    $accommodationsByHotel[$key] = [
+                        'accommodation_id' => $accommodationId,
+                        'city_id' => $cityId,
+                        'nights' => 0
+                    ];
+                }
+                
+                $accommodationsByHotel[$key]['nights']++;
+                
+                \Illuminate\Support\Facades\Log::info('Leader needs accommodation for day ' . $day->day_number . ' at accommodation: ' . $accommodationId . ', city: ' . $cityId);
+            }
+        }
+        
+        return array_values($accommodationsByHotel);
+    }
+
+    /**
+     * Find the price for leader room category from specific breakdown accommodation.
+     * Price is divided by room capacity to get per-person price.
+     */
+    private function findLeaderRoomPriceForAccommodation($breakdown, $leaderRoomCategoryId, $accommodationId): ?float
+    {
+        // Get the specific breakdown accommodation with its rooms
+        $breakdownAccommodation = $breakdown->accommodations()
+            ->where('accommodation_id', $accommodationId)
+            ->with('rooms')
+            ->first();
+
+        if (!$breakdownAccommodation) {
+            \Illuminate\Support\Facades\Log::warning('No breakdown accommodation found for accommodation: ' . $accommodationId);
+            return null;
+        }
+
+        foreach ($breakdownAccommodation->rooms as $room) {
+            if ($room->room_category_id === $leaderRoomCategoryId) {
+                // Get room category to access capacity
+                $roomCategory = RoomCategory::find($leaderRoomCategoryId);
+                $capacity = $roomCategory ? $roomCategory->capacity : 1;
+                
+                // Calculate per-person price by dividing room price by capacity
+                $perPersonPrice = (float) $room->price / $capacity;
+                
+                \Illuminate\Support\Facades\Log::info('Found leader room price in accommodation: ' . $accommodationId . ', room: ' . $room->id . ', room price: ' . $room->price . ', capacity: ' . $capacity . ', per-person price: ' . $perPersonPrice);
+                return $perPersonPrice;
+            }
+        }
+
+        \Illuminate\Support\Facades\Log::warning('No room found for leader room category: ' . $leaderRoomCategoryId . ' in accommodation: ' . $accommodationId);
+        return null;
+    }
+
+    /**
      * Calculate meal quantities based on vehicle days from breakdown.
      * Half day = 1 meal, Full day = 2 meals
      */
