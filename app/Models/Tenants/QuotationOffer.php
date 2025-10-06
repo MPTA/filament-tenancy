@@ -124,6 +124,14 @@ class QuotationOffer extends Model
     }
 
     /**
+     * Get the quotation offer leader sub attractions for this offer (one-to-many relationship).
+     */
+    public function quotationOfferLeaderSubAttractions(): HasMany
+    {
+        return $this->hasMany(QuotationOfferLeaderSubAttraction::class);
+    }
+
+    /**
      * Get the quotation offer driver meals for this offer (one-to-many relationship).
      */
     public function quotationOfferDriverMeals(): HasMany
@@ -1282,6 +1290,69 @@ class QuotationOffer extends Model
                 'tenant_id' => $this->tenant_id,
             ]);
         }
+    }
+
+    /**
+     * Calculate leader attractions costs based on itinerary and breakdown.
+     */
+    public function calculateLeaderAttractionsCosts(): void
+    {
+        if ($this->leaders_qty < 1) {
+            return;
+        }
+
+        $offerGroup = $this->quotationOfferGroup;
+        $breakdown = $offerGroup->quotationItinerary->breakdown;
+        if (!$breakdown) {
+            return;
+        }
+
+        $itinerary = $offerGroup->quotationItinerary->itinerary;
+        if (!$itinerary) {
+            return;
+        }
+
+        // Get all breakdown attractions with their sub-attractions
+        $breakdownAttractions = $breakdown->attractions()
+            ->with('subAttractions')
+            ->get();
+
+        if ($breakdownAttractions->isEmpty()) {
+            return;
+        }
+
+        // Create leader attraction records for all breakdown attractions
+        foreach ($breakdownAttractions as $breakdownAttraction) {
+            $attractionId = $breakdownAttraction->attraction_id;
+            $entryPrice = $breakdownAttraction->entry_price;
+
+            // Create leader attraction record (even if price is 0)
+            $leaderAttraction = $this->quotationOfferLeaderAttractions()->create([
+                'attraction_id' => $attractionId,
+                'price' => $entryPrice * $this->leaders_qty,
+                'tenant_id' => $this->tenant_id,
+            ]);
+
+            // Create sub-attraction records for all breakdown sub-attractions
+            foreach ($breakdownAttraction->subAttractions as $breakdownSubAttraction) {
+                $subAttractionId = $breakdownSubAttraction->sub_attraction_id;
+                $subAttractionPrice = $breakdownSubAttraction->price;
+
+                $leaderAttraction->subAttractions()->create([
+                    'sub_attraction_id' => $subAttractionId,
+                    'price' => $subAttractionPrice * $this->leaders_qty,
+                    'tenant_id' => $this->tenant_id,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * Trigger leader attractions calculation manually for testing.
+     */
+    public function triggerLeaderAttractionsCalculation(): void
+    {
+        $this->calculateLeaderAttractionsCosts();
     }
 }
 
