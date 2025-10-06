@@ -1390,11 +1390,57 @@ class QuotationOffer extends Model
     }
 
     /**
+     * Calculate leader experiences costs based on breakdown.
+     */
+    public function calculateLeaderExperiencesCosts(): void
+    {
+        if ($this->leaders_qty < 1) {
+            return;
+        }
+
+        $offerGroup = $this->quotationOfferGroup;
+        $breakdown = $offerGroup->quotationItinerary->breakdown;
+        if (!$breakdown) {
+            return;
+        }
+
+        // Get all breakdown experiences
+        $breakdownExperiences = $breakdown->experiences()
+            ->with('experience')
+            ->get();
+
+        if ($breakdownExperiences->isEmpty()) {
+            return;
+        }
+
+        // Create leader experience records for all breakdown experiences
+        foreach ($breakdownExperiences as $breakdownExperience) {
+            $experienceId = $breakdownExperience->experience_id;
+            $price = $breakdownExperience->price;
+
+            // Create leader experience record (even if price is 0)
+            $this->quotationOfferLeaderExperiences()->create([
+                'experience_id' => $experienceId,
+                'price' => $price * $this->leaders_qty,
+                'tenant_id' => $this->tenant_id,
+            ]);
+        }
+    }
+
+    /**
      * Trigger leader expenses calculation manually for testing.
      */
     public function triggerLeaderExpensesCalculation(): void
     {
         $this->calculateLeaderExpensesCosts();
+    }
+
+    /**
+     * Trigger leader experiences calculation manually for testing.
+     */
+    public function triggerLeaderExperiencesCalculation(): void
+    {
+        $this->calculateLeaderExperiencesCosts();
     }
 }
 
