@@ -220,4 +220,84 @@ class Breakdown extends Model
 
         return $paidMeals;
     }
+
+    /**
+     * Calculate vehicle usage quantities based on itinerary days.
+     * Returns array with vehicle_days_qty, vehicle_half_days_qty, vehicle_hours_qty.
+     */
+    public function calculateVehicleUsageQuantities(): array
+    {
+        $itinerary = $this->quotationItinerary->itinerary;
+        if (!$itinerary) {
+            return [
+                'vehicle_days_qty' => 0,
+                'vehicle_half_days_qty' => 0,
+                'vehicle_hours_qty' => 0,
+            ];
+        }
+
+        // Get all itinerary days
+        $itineraryDays = $itinerary->days()
+            ->orderBy('day_number')
+            ->get();
+
+        if ($itineraryDays->isEmpty()) {
+            return [
+                'vehicle_days_qty' => 0,
+                'vehicle_half_days_qty' => 0,
+                'vehicle_hours_qty' => 0,
+            ];
+        }
+
+        $fullDays = 0;
+        $halfDays = 0;
+        $hours = 0;
+
+        foreach ($itineraryDays as $day) {
+            // Check vehicle usage mode directly on the day
+            if ($day->vehicle_usage_mode) {
+                switch ($day->vehicle_usage_mode) {
+                    case \App\Enums\VehicleUsageModeEnum::FULL_DAY:
+                        $fullDays++;
+                        break;
+                    case \App\Enums\VehicleUsageModeEnum::HALF_DAY:
+                        $halfDays++;
+                        break;
+                    case \App\Enums\VehicleUsageModeEnum::HOUR:
+                        $hours += $day->vehicle_hours ?? 1; // Use actual hours or default to 1
+                        break;
+                }
+            }
+        }
+
+        return [
+            'vehicle_days_qty' => $fullDays,
+            'vehicle_half_days_qty' => $halfDays,
+            'vehicle_hours_qty' => $hours,
+        ];
+    }
+
+    /**
+     * Get vehicle days quantity attribute (accessor).
+     */
+    public function getCalculatedVehicleDaysQtyAttribute(): int
+    {
+        return $this->calculateVehicleUsageQuantities()['vehicle_days_qty'];
+    }
+
+    /**
+     * Get vehicle half days quantity attribute (accessor).
+     */
+    public function getCalculatedVehicleHalfDaysQtyAttribute(): int
+    {
+        return $this->calculateVehicleUsageQuantities()['vehicle_half_days_qty'];
+    }
+
+    /**
+     * Get vehicle hours quantity attribute (accessor).
+     */
+    public function getCalculatedVehicleHoursQtyAttribute(): int
+    {
+        return $this->calculateVehicleUsageQuantities()['vehicle_hours_qty'];
+    }
 }

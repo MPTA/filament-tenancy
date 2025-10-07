@@ -688,7 +688,7 @@ class OffersTab
     {
         return Grid::make(1)
             ->schema([
-                Grid::make(7)
+                Grid::make(8)
                     ->schema([
                         TextEntry::make('vehicleType.name')
                             ->label('Vehicle Type')
@@ -728,6 +728,13 @@ class OffersTab
                             ->action(self::editOfferAction()),
 
                         TextEntry::make('id')
+                            ->label('Report')
+                            ->formatStateUsing(fn() => '')
+                            ->icon('heroicon-m-document-text')
+                            ->color('success')
+                            ->action(self::viewReportAction()),
+
+                        TextEntry::make('id')
                             ->label('Delete')
                             ->formatStateUsing(fn() => '')
                             ->icon('heroicon-m-trash')
@@ -753,6 +760,62 @@ class OffersTab
                     ->info()
                     ->send();
             });
+    }
+
+    private static function viewReportAction(): Action
+    {
+        return Action::make('view_report')
+            ->label('View Report')
+            ->icon('heroicon-m-document-text')
+            ->color('success')
+            ->modalHeading('Offer Details Report')
+            ->modalWidth('7xl')
+            ->modalContent(function ($record) {
+                // Eager load all necessary relationships
+                $offer = \App\Models\Tenants\QuotationOffer::with([
+                    'vehicleType',
+                    'quotationOfferGroup.quotationOfferGroupAttractions.attraction',
+                    'quotationOfferGroup.quotationOfferGroupAttractions.subAttractions.subAttraction',
+                    'quotationOfferGroup.quotationOfferGroupAttractions.subAttractions.quotationOfferGroupAttraction.attraction',
+                    'quotationOfferGroup.quotationOfferGroupMeals.mealType',
+                    'quotationOfferGroup.quotationOfferGroupTickets.fromCity',
+                    'quotationOfferGroup.quotationOfferGroupTickets.toCity',
+                    'quotationOfferGroup.quotationOfferGroupExpenses',
+                    'quotationOfferGroup.quotationOfferGroupExperiences.experience.city',
+                    'quotationOfferGroup.quotationItinerary.breakdown.attractions.attraction',
+                    'quotationOfferGroup.quotationItinerary.breakdown.attractions.city',
+                    'quotationOfferGroup.quotationItinerary.breakdown.currency',
+                    'quotationOfferGroup.quotationItinerary.quotation.currency',
+                    'quotationOfferDriverMeals.mealType',
+                    'quotationOfferDriverAccommodations.accommodation',
+                    'quotationOfferDriverAccommodations.city',
+                    'quotationOfferLeaderMeals.mealType',
+                    'quotationOfferLeaderAttractions.attraction',
+                    'quotationOfferLeaderAttractions.subAttractions.subAttraction',
+                    'quotationOfferLeaderTickets.fromCity',
+                    'quotationOfferLeaderTickets.toCity',
+                    'quotationOfferLeaderExperiences.experience.city',
+                    'quotationOfferLeaderExpenses',
+                    'quotationOfferLeaderAccommodations.accommodation',
+                    'quotationOfferGroup.quotationOfferGroupCompanions.companionType',
+                    'quotationOfferGroup.quotationOfferGroupCompanions.livingCity',
+                    'quotationOfferGroup.quotationOfferGroupCompanions.meals.mealType',
+                    'quotationOfferGroup.quotationOfferGroupCompanions.accommodations.accommodation',
+                    'quotationOfferGroup.quotationOfferGroupCompanions.accommodations.city',
+                    'quotationOfferGroup.quotationOfferGroupCompanions.attractions.attraction',
+                    'quotationOfferGroup.quotationOfferGroupCompanions.attractions.subAttractions.subAttraction',
+                    'quotationOfferGroup.quotationOfferGroupCompanions.experiences.experience',
+                    'quotationOfferGroup.quotationOfferGroupCompanions.expenses',
+                    'quotationOfferGroup.quotationOfferGroupCompanions.tickets.fromCity',
+                    'quotationOfferGroup.quotationOfferGroupCompanions.tickets.toCity',
+                    'quotationOfferPrices.roomCategory',
+                    'quotationOfferPrices.quotationOfferPriceAccommodations.accommodation',
+                ])->find($record->id);
+                
+                return view('filament.app.pages.offer-report', ['offer' => $offer]);
+            })
+            ->modalSubmitAction(false)
+            ->modalCancelActionLabel('Close');
     }
 
     private static function deleteOfferAction(): Action
@@ -807,6 +870,7 @@ class OffersTab
                             ->searchable()
                             ->preload()
                             ->required()
+                            ->live()
                             ->columnSpan(1),
 
                         TextInput::make('leaders_qty')
@@ -870,6 +934,16 @@ class OffersTab
             ])
             ->action(function (array $data, $record) {
                 try {
+                    // Validate required fields
+                    if (!isset($data['vehicle_type_id']) || empty($data['vehicle_type_id'])) {
+                        Notification::make()
+                            ->title('Validation Error')
+                            ->body('Vehicle Type is required.')
+                            ->danger()
+                            ->send();
+                        return;
+                    }
+
                     \Illuminate\Support\Facades\DB::transaction(function () use ($data, $record) {
                         // Create the offer
                         $offer = $record->quotationOffers()->create([
@@ -880,6 +954,9 @@ class OffersTab
                             'drivers_qty' => $data['drivers_qty'] ?? 1,
                             'markup' => $data['markup'] ?? 0,
                         ]);
+
+                        // Calculate vehicle pricing from breakdown
+                        $offer->calculateVehiclePricing();
 
                         // Calculate driver meal costs
                         $offer->calculateDriverMealCosts();
@@ -904,11 +981,14 @@ class OffersTab
                         
                         // Calculate leader tickets costs
                         $offer->calculateLeaderTicketsCosts();
+                        
+                        // Calculate offer prices for all room categories
+                        $offer->calculateOfferPrices();
                     });
 
                     Notification::make()
                         ->title('Offer Created Successfully!')
-                        ->body('The offer, driver meal costs, driver accommodation costs, leader accommodation costs, leader attractions costs, leader expenses costs, leader experiences costs, leader meals costs, and leader tickets costs have been calculated.')
+                        ->body('The offer has been created successfully. All costs including driver, leader, companions, and final prices for all room categories have been calculated.')
                         ->success()
                         ->send();
 

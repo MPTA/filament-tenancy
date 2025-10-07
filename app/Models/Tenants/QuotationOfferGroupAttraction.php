@@ -51,6 +51,14 @@ class QuotationOfferGroupAttraction extends Model
     }
 
     /**
+     * Alias for quotationOfferGroupSubAttractions.
+     */
+    public function subAttractions(): HasMany
+    {
+        return $this->quotationOfferGroupSubAttractions();
+    }
+
+    /**
      * Scope a query to filter by quotation offer group.
      */
     public function scopeByQuotationOfferGroup($query, $quotationOfferGroupId)

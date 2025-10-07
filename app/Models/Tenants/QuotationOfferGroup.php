@@ -109,6 +109,7 @@ class QuotationOfferGroup extends Model
         return $this->hasMany(QuotationOfferGroupExperience::class);
     }
 
+
     /**
      * Calculate all costs from breakdown and create detailed records.
      */
@@ -352,8 +353,14 @@ class QuotationOfferGroup extends Model
         
         $categoryType = $companionType->companionCategory->category_type;
         
-        // Get all breakdown experiences
+        // Get all breakdown experiences (only PER_PERSON experiences for companions)
         foreach ($breakdown->experiences as $breakdownExperience) {
+            // Skip PER_GROUP experiences - companions should only have PER_PERSON experiences
+            if ($breakdownExperience->experience && 
+                $breakdownExperience->experience->charge_mode !== \App\Enums\ChargeModeEnum::PER_PERSON) {
+                continue;
+            }
+            
             $shouldIncludeExperience = false;
             
             // Check if experience should be included based on companion category

@@ -1324,7 +1324,7 @@ class QuotationOffer extends Model
             return;
         }
 
-        // Get all breakdown experiences
+        // Get all breakdown experiences (only PER_PERSON experiences for leaders)
         $breakdownExperiences = $breakdown->experiences()
             ->with('experience')
             ->get();
@@ -1333,8 +1333,14 @@ class QuotationOffer extends Model
             return;
         }
 
-        // Create leader experience records for all breakdown experiences
+        // Create leader experience records only for PER_PERSON experiences
         foreach ($breakdownExperiences as $breakdownExperience) {
+            // Check if experience has PER_PERSON charge mode
+            if (!$breakdownExperience->experience || 
+                $breakdownExperience->experience->charge_mode !== \App\Enums\ChargeModeEnum::PER_PERSON) {
+                continue; // Skip PER_GROUP experiences
+            }
+
             $experienceId = $breakdownExperience->experience_id;
             $price = $breakdownExperience->price;
 
@@ -1442,6 +1448,558 @@ class QuotationOffer extends Model
     public function triggerLeaderTicketsCalculation(): void
     {
         $this->calculateLeaderTicketsCosts();
+    }
+
+    // ============================================
+    // PRICE CALCULATION ATTRIBUTES & METHODS
+    // ============================================
+
+    /**
+     * Get total vehicle cost.
+     */
+    public function getVehicleCostAttribute(): float
+    {
+        $dayCost = $this->vehicle_days_qty * (float) $this->vehicle_day_price;
+        $halfDayCost = $this->vehicle_half_days_qty * (float) $this->vehicle_half_day_price;
+        $transferCost = $this->vehicle_airport_transfers_qty * (float) $this->vehicle_airport_transfer_price;
+        
+        return $dayCost + $halfDayCost + $transferCost;
+    }
+
+    /**
+     * Get total driver meals cost.
+     */
+    public function getDriverMealsCostAttribute(): float
+    {
+        return $this->quotationOfferDriverMeals->sum(function($meal) {
+            return $meal->qty * (float) $meal->price;
+        });
+    }
+
+    /**
+     * Get total driver accommodations cost.
+     */
+    public function getDriverAccommodationsCostAttribute(): float
+    {
+        return $this->quotationOfferDriverAccommodations->sum(function($accommodation) {
+            return $accommodation->nights * (float) $accommodation->night_price;
+        });
+    }
+
+    /**
+     * Get total leader meals cost.
+     */
+    public function getLeaderMealsCostAttribute(): float
+    {
+        return $this->quotationOfferLeaderMeals->sum(function($meal) {
+            return $meal->qty * (float) $meal->price;
+        });
+    }
+
+    /**
+     * Get total leader attractions cost.
+     */
+    public function getLeaderAttractionsCostAttribute(): float
+    {
+        return $this->quotationOfferLeaderAttractions->sum(function($attraction) {
+            return (float) $attraction->price;
+        }) * $this->leaders_qty;
+    }
+
+    /**
+     * Get total leader sub-attractions cost.
+     */
+    public function getLeaderSubAttractionsCostAttribute(): float
+    {
+        $total = 0;
+        foreach ($this->quotationOfferLeaderAttractions as $attraction) {
+            $total += $attraction->subAttractions->sum(function($subAttraction) {
+                return (float) $subAttraction->price;
+            });
+        }
+        return $total * $this->leaders_qty;
+    }
+
+    /**
+     * Get total leader experiences cost.
+     */
+    public function getLeaderExperiencesCostAttribute(): float
+    {
+        return $this->quotationOfferLeaderExperiences->sum(function($experience) {
+            return (float) $experience->price;
+        }) * $this->leaders_qty;
+    }
+
+    /**
+     * Get total leader tickets cost.
+     */
+    public function getLeaderTicketsCostAttribute(): float
+    {
+        return $this->quotationOfferLeaderTickets->sum(function($ticket) {
+            return (float) $ticket->price;
+        }) * $this->leaders_qty;
+    }
+
+    /**
+     * Get total leader expenses cost.
+     */
+    public function getLeaderExpensesCostAttribute(): float
+    {
+        return $this->quotationOfferLeaderExpenses->sum(function($expense) {
+            return (float) $expense->price;
+        }) * $this->leaders_qty;
+    }
+
+    /**
+     * Get total leader accommodations cost.
+     */
+    public function getLeaderAccommodationsCostAttribute(): float
+    {
+        return $this->quotationOfferLeaderAccommodations->sum(function($accommodation) {
+            return $accommodation->nights * (float) $accommodation->night_price;
+        });
+    }
+
+    /**
+     * Get total companions salaries cost.
+     */
+    public function getCompanionsSalariesCostAttribute(): float
+    {
+        $offerGroup = $this->quotationOfferGroup;
+        if (!$offerGroup) {
+            return 0;
+        }
+
+        return $offerGroup->quotationOfferGroupCompanions->sum(function($companion) {
+            return ($companion->full_days_qty * (float) $companion->day_price) + 
+                   ($companion->half_days_qty * (float) $companion->half_day_price);
+        });
+    }
+
+    /**
+     * Get total companions costs (meals, accommodations, attractions, experiences, expenses, tickets).
+     */
+    public function getCompanionsCostAttribute(): float
+    {
+        $offerGroup = $this->quotationOfferGroup;
+        if (!$offerGroup) {
+            return 0;
+        }
+
+        $total = 0;
+        foreach ($offerGroup->quotationOfferGroupCompanions as $companion) {
+            // Meals
+            $total += $companion->meals->sum(function($meal) {
+                return $meal->qty * (float) $meal->price;
+            });
+
+            // Accommodations
+            $total += $companion->accommodations->sum(function($accommodation) {
+                return $accommodation->nights * (float) $accommodation->night_price;
+            });
+
+            // Attractions
+            $total += $companion->attractions->sum(function($attraction) {
+                return (float) $attraction->price;
+            });
+
+            // Sub-Attractions
+            foreach ($companion->attractions as $attraction) {
+                $total += $attraction->subAttractions->sum(function($subAttraction) {
+                    return (float) $subAttraction->price;
+                });
+            }
+
+            // Experiences
+            $total += $companion->experiences->sum(function($experience) {
+                return (float) $experience->price;
+            });
+
+            // Expenses
+            $total += $companion->expenses->sum(function($expense) {
+                return (float) $expense->price;
+            });
+
+            // Tickets
+            $total += $companion->tickets->sum(function($ticket) {
+                return (float) $ticket->price;
+            });
+        }
+
+        return $total;
+    }
+
+    /**
+     * Get total offer group per person costs (meals, attractions, tickets, experiences per_person, expenses per_person).
+     */
+    public function getOfferGroupPerPersonCostAttribute(): float
+    {
+        $offerGroup = $this->quotationOfferGroup;
+        if (!$offerGroup) {
+            return 0;
+        }
+
+        $total = 0;
+
+        // Meals
+        $total += $offerGroup->quotationOfferGroupMeals->sum(function($meal) {
+            return $meal->qty * (float) $meal->price;
+        });
+
+        // Attractions
+        $total += $offerGroup->quotationOfferGroupAttractions->sum(function($attraction) {
+            return (float) $attraction->price;
+        });
+
+        // Sub-Attractions (through attractions relationship)
+        foreach ($offerGroup->quotationOfferGroupAttractions as $attraction) {
+            $total += $attraction->subAttractions->sum(function($subAttraction) {
+                return (float) $subAttraction->price;
+            });
+        }
+
+        // Tickets
+        $total += $offerGroup->quotationOfferGroupTickets->sum(function($ticket) {
+            return (float) $ticket->price;
+        });
+
+        // Experiences per_person (filter by breakdown)
+        $breakdown = $offerGroup->quotationItinerary->breakdown;
+        if ($breakdown) {
+            $perPersonExperienceIds = $breakdown->experiences()
+                ->where('charge_mode', \App\Enums\ChargeModeEnum::PER_PERSON)
+                ->pluck('experience_id');
+            
+            $total += $offerGroup->quotationOfferGroupExperiences
+                ->whereIn('experience_id', $perPersonExperienceIds)
+                ->sum(function($experience) {
+                    return (float) $experience->price;
+                });
+        }
+
+        // Expenses per_person (filter by charge_mode column in this table)
+        $total += $offerGroup->quotationOfferGroupExpenses
+            ->where('charge_mode', \App\Enums\ChargeModeEnum::PER_PERSON->value)
+            ->sum(function($expense) {
+                return (float) $expense->price;
+            });
+
+        return $total;
+    }
+
+    /**
+     * Get total offer group per group costs (experiences per_group, expenses per_group).
+     */
+    public function getOfferGroupPerGroupCostAttribute(): float
+    {
+        $offerGroup = $this->quotationOfferGroup;
+        if (!$offerGroup) {
+            return 0;
+        }
+
+        $total = 0;
+
+        // Experiences per_group (filter by breakdown)
+        $breakdown = $offerGroup->quotationItinerary->breakdown;
+        if ($breakdown) {
+            $perGroupExperienceIds = $breakdown->experiences()
+                ->where('charge_mode', \App\Enums\ChargeModeEnum::PER_GROUP)
+                ->pluck('experience_id');
+            
+            $total += $offerGroup->quotationOfferGroupExperiences
+                ->whereIn('experience_id', $perGroupExperienceIds)
+                ->sum(function($experience) {
+                    return (float) $experience->price;
+                });
+        }
+
+        // Expenses per_group (filter by charge_mode column in this table)
+        $total += $offerGroup->quotationOfferGroupExpenses
+            ->where('charge_mode', \App\Enums\ChargeModeEnum::PER_GROUP->value)
+            ->sum(function($expense) {
+                return (float) $expense->price;
+            });
+
+        return $total;
+    }
+
+    /**
+     * Get total per group costs.
+     */
+    public function getTotalPerGroupCostAttribute(): float
+    {
+        return $this->vehicle_cost +
+               $this->driver_meals_cost +
+               $this->driver_accommodations_cost +
+               $this->leader_meals_cost +
+               $this->leader_attractions_cost +
+               $this->leader_sub_attractions_cost +
+               $this->leader_experiences_cost +
+               $this->leader_tickets_cost +
+               $this->leader_expenses_cost +
+               $this->leader_accommodations_cost +
+               $this->companions_salaries_cost +
+               $this->companions_cost +
+               $this->offer_group_per_group_cost;
+    }
+
+    /**
+     * Get accommodation cost for a specific room category.
+     */
+    public function getAccommodationCostForRoomCategory($roomCategoryId): float
+    {
+        $offerGroup = $this->quotationOfferGroup;
+        $breakdown = $offerGroup->quotationItinerary->breakdown;
+        
+        if (!$breakdown) {
+            return 0;
+        }
+
+        $itinerary = $offerGroup->quotationItinerary->itinerary;
+        if (!$itinerary) {
+            return 0;
+        }
+
+        // Get all itinerary days with accommodations
+        $itineraryDays = $itinerary->days()
+            ->whereNotNull('accommodation_id')
+            ->with('accommodation')
+            ->orderBy('day_number')
+            ->get();
+
+        if ($itineraryDays->isEmpty()) {
+            return 0;
+        }
+
+        // Calculate total nights by accommodation
+        $accommodationNights = [];
+        
+        foreach ($itineraryDays as $day) {
+            $accommodationId = $day->accommodation_id;
+            
+            if (!isset($accommodationNights[$accommodationId])) {
+                $accommodationNights[$accommodationId] = 0;
+            }
+            
+            $accommodationNights[$accommodationId]++;
+        }
+
+        // Calculate total cost for this room category
+        $totalCost = 0;
+        
+        foreach ($accommodationNights as $accommodationId => $nights) {
+            $breakdownAccommodation = $breakdown->accommodations()
+                ->where('accommodation_id', $accommodationId)
+                ->with('rooms')
+                ->first();
+
+            if (!$breakdownAccommodation) {
+                continue;
+            }
+
+            foreach ($breakdownAccommodation->rooms as $room) {
+                if ($room->room_category_id === $roomCategoryId) {
+                    $roomCategory = RoomCategory::find($roomCategoryId);
+                    $capacity = $roomCategory ? $roomCategory->capacity : 1;
+                    $perPersonPricePerNight = (float) $room->price / $capacity;
+                    $totalCost += $nights * $perPersonPricePerNight;
+                    break;
+                }
+            }
+        }
+
+        return $totalCost;
+    }
+
+    /**
+     * Calculate final price per person for a specific room category.
+     */
+    public function calculateFinalPricePerPerson($roomCategoryId): float
+    {
+        // 1. Per Person Direct Costs
+        $perPersonDirect = $this->offer_group_per_person_cost;
+
+        // 2. Per Group Costs (divided by pax_qty)
+        $perGroupShare = $this->pax_qty > 0 
+            ? $this->total_per_group_cost / $this->pax_qty 
+            : 0;
+
+        // 3. Accommodation Cost for this room category
+        $accommodationCost = $this->getAccommodationCostForRoomCategory($roomCategoryId);
+
+        // 4. Base price (before exchange rate and markup)
+        $basePrice = $perPersonDirect + $perGroupShare + $accommodationCost;
+
+        // 5. Get exchange rate from quotation
+        $offerGroup = $this->quotationOfferGroup;
+        $quotation = $offerGroup->quotationItinerary->quotationItinerary->quotation ?? null;
+        $exchangeRate = $quotation ? (float) $quotation->exchange_rate : 1;
+
+        // 6. Apply exchange rate
+        $priceAfterExchange = $exchangeRate > 0 ? $basePrice / $exchangeRate : $basePrice;
+
+        // 7. Apply markup
+        $markupMultiplier = 1 + ((float) $this->markup / 100);
+        $finalPrice = $priceAfterExchange * $markupMultiplier;
+
+        return $finalPrice;
+    }
+
+    /**
+     * Calculate and create quotation offer prices for all room categories.
+     */
+    public function calculateOfferPrices(): void
+    {
+        $offerGroup = $this->quotationOfferGroup;
+        $breakdown = $offerGroup->quotationItinerary->breakdown;
+        
+        if (!$breakdown) {
+            return;
+        }
+
+        $itinerary = $offerGroup->quotationItinerary->itinerary;
+        if (!$itinerary) {
+            return;
+        }
+
+        // Get all unique room categories from breakdown accommodations
+        $roomCategoryIds = $breakdown->accommodations()
+            ->with('rooms')
+            ->get()
+            ->pluck('rooms')
+            ->flatten()
+            ->pluck('room_category_id')
+            ->unique()
+            ->filter();
+
+        if ($roomCategoryIds->isEmpty()) {
+            return;
+        }
+
+        // Get all itinerary days with accommodations
+        $itineraryDays = $itinerary->days()
+            ->whereNotNull('accommodation_id')
+            ->with('accommodation')
+            ->orderBy('day_number')
+            ->get();
+
+        // Calculate nights by accommodation (will be used for all room categories)
+        $accommodationNights = [];
+        
+        foreach ($itineraryDays as $day) {
+            $accommodationId = $day->accommodation_id;
+            
+            if (!isset($accommodationNights[$accommodationId])) {
+                $accommodationNights[$accommodationId] = 0;
+            }
+            
+            $accommodationNights[$accommodationId]++;
+        }
+
+        // Create offer price record for each room category
+        foreach ($roomCategoryIds as $roomCategoryId) {
+            $finalPrice = $this->calculateFinalPricePerPerson($roomCategoryId);
+
+            $offerPrice = $this->quotationOfferPrices()->create([
+                'room_category_id' => $roomCategoryId,
+                'per_person_price' => $finalPrice,
+            ]);
+
+            // Create accommodation details for this room category
+            $this->createOfferPriceAccommodations($offerPrice, $roomCategoryId, $breakdown, $accommodationNights);
+        }
+    }
+
+    /**
+     * Create quotation offer price accommodations for a specific room category.
+     */
+    private function createOfferPriceAccommodations($offerPrice, $roomCategoryId, $breakdown, $accommodationNights): void
+    {
+        if (empty($accommodationNights)) {
+            return;
+        }
+
+        // Create records for each accommodation
+        foreach ($accommodationNights as $accommodationId => $nights) {
+            $breakdownAccommodation = $breakdown->accommodations()
+                ->where('accommodation_id', $accommodationId)
+                ->with('rooms')
+                ->first();
+
+            if (!$breakdownAccommodation) {
+                continue;
+            }
+
+            // Find room price for this room category
+            $roomPrice = null;
+            foreach ($breakdownAccommodation->rooms as $room) {
+                if ($room->room_category_id === $roomCategoryId) {
+                    $roomCategory = RoomCategory::find($roomCategoryId);
+                    $capacity = $roomCategory ? $roomCategory->capacity : 1;
+                    $roomPrice = (float) $room->price / $capacity;
+                    break;
+                }
+            }
+
+            // If this accommodation doesn't have this room category, skip
+            if ($roomPrice === null) {
+                continue;
+            }
+
+            // Create offer price accommodation record
+            $offerPrice->quotationOfferPriceAccommodations()->create([
+                'accommodation_id' => $accommodationId,
+                'nights' => $nights,
+                'price' => $roomPrice,
+                'is_include_breakfast' => $breakdownAccommodation->has_breakfast ?? false,
+                'is_include_lunch' => false, // Set based on your requirements
+                'is_include_dinner' => false, // Set based on your requirements
+            ]);
+        }
+    }
+
+    /**
+     * Calculate and update vehicle pricing from breakdown.
+     * Fills vehicle_days_qty, vehicle_half_days_qty, vehicle_hours_qty (as airport_transfers_qty),
+     * and vehicle_day_price, vehicle_half_day_price, vehicle_airport_transfer_price.
+     */
+    public function calculateVehiclePricing(): void
+    {
+        $breakdown = $this->quotationOfferGroup->quotationItinerary->breakdown;
+        
+        if (!$breakdown || !$this->vehicle_type_id) {
+            return;
+        }
+
+        // Get vehicle usage quantities from breakdown
+        $quantities = $breakdown->calculateVehicleUsageQuantities();
+        
+        // Get vehicle pricing from breakdown
+        $breakdownVehicle = $breakdown->vehicleTypes()
+            ->where('vehicle_type_id', $this->vehicle_type_id)
+            ->first();
+        
+        if (!$breakdownVehicle) {
+            return;
+        }
+
+        // Update quantities and prices
+        $this->update([
+            'vehicle_days_qty' => $quantities['vehicle_days_qty'],
+            'vehicle_half_days_qty' => $quantities['vehicle_half_days_qty'],
+            'vehicle_airport_transfers_qty' => $quantities['vehicle_hours_qty'],
+            'vehicle_day_price' => $breakdownVehicle->per_day_price ?? 0,
+            'vehicle_half_day_price' => $breakdownVehicle->half_day_price ?? 0,
+            'vehicle_airport_transfer_price' => $breakdownVehicle->airport_transfer_price ?? 0,
+        ]);
+    }
+
+    /**
+     * Trigger offer prices calculation manually for testing.
+     */
+    public function triggerOfferPricesCalculation(): void
+    {
+        $this->calculateOfferPrices();
     }
 }
 
