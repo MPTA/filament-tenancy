@@ -297,18 +297,25 @@ class QuotationItinerary extends Model
                         
                         // Only process if not already processed
                         if (!isset($processedExperiences[$experienceId])) {
-                            $existingData = $existingExperiences->get($experienceId, [
-                                'price' => 0.00,
-                                'charge_mode' => \App\Enums\ChargeModeEnum::PER_PERSON,
-                            ]);
-
-                            // Preserve existing price if available, otherwise use experience default price
-                            $price = $existingData['price'] > 0 ? $existingData['price'] : ($activity->experience->experience->price ?? 0.00);
+                            // Check if experience exists in breakdown
+                            $existingData = $existingExperiences->get($experienceId);
+                            
+                            // For new experiences, use the Experience model's charge_mode
+                            // For existing experiences, preserve their charge_mode
+                            if ($existingData) {
+                                // Existing experience - preserve existing data
+                                $price = $existingData['price'] > 0 ? $existingData['price'] : ($activity->experience->experience->price ?? 0.00);
+                                $chargeMode = $existingData['charge_mode'];
+                            } else {
+                                // New experience - use Experience model defaults
+                                $price = $activity->experience->experience->price ?? 0.00;
+                                $chargeMode = $activity->experience->experience->charge_mode ?? \App\Enums\ChargeModeEnum::PER_PERSON;
+                            }
                             
                             $breakdown->experiences()->create([
                                 'experience_id' => $experienceId,
                                 'price' => $price,
-                                'charge_mode' => $existingData['charge_mode'] ?? ($activity->experience->experience->charge_mode ?? \App\Enums\ChargeModeEnum::PER_PERSON),
+                                'charge_mode' => $chargeMode,
                                 'is_free_for_guide' => $activity->experience->experience->is_free_for_guide ?? false,
                                 'is_free_for_other_companions' => $activity->experience->experience->is_free_for_other_companions ?? false,
                             ]);
