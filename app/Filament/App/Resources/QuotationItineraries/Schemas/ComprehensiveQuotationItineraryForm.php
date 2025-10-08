@@ -5,6 +5,7 @@ namespace App\Filament\App\Resources\QuotationItineraries\Schemas;
 use App\Enums\InquiryDateTypeEnum;
 use App\Enums\InquiryTypeEnum;
 use App\Enums\QuotationTypeEnum;
+use App\Enums\StarRatingEnum;
 use App\Models\Base\Currency;
 use App\Models\Tenants\TenantContact;
 use App\Models\TenantSetting;
@@ -84,28 +85,33 @@ class ComprehensiveQuotationItineraryForm
                                 
                                 Select::make('accommodation_stars')
                                     ->label('Accommodation Stars')
-                                    ->options([
-                                        1 => '1 Star',
-                                        2 => '2 Stars',
-                                        3 => '3 Stars',
-                                        4 => '4 Stars',
-                                        5 => '5 Stars',
-                                    ]),
+                                    ->options(StarRatingEnum::getOptions()),
                             ]),
                         
                         Grid::make(2)
                             ->schema([
                                 DatePicker::make('from_date')
-                                    ->label('From Date')
+                                    ->label(fn ($get) => match($get('inquiry_date_type')) {
+                                        InquiryDateTypeEnum::FIXED_DATE->value => 'Arrival',
+                                        InquiryDateTypeEnum::SERIES->value => 'Start Date',
+                                        InquiryDateTypeEnum::FLEXIBLE_DATE->value => 'From Date',
+                                        default => 'From Date',
+                                    })
                                     ->reactive()
                                     ->required()
                                     ->visible(fn ($get) => in_array($get('inquiry_date_type'), [
                                         InquiryDateTypeEnum::FIXED_DATE->value,
+                                        InquiryDateTypeEnum::SERIES->value,
                                         InquiryDateTypeEnum::FLEXIBLE_DATE->value
                                     ])),
                                 
                                 DatePicker::make('to_date')
-                                    ->label('To Date')
+                                    ->label(fn ($get) => match($get('inquiry_date_type')) {
+                                        InquiryDateTypeEnum::FIXED_DATE->value => 'Departure',
+                                        InquiryDateTypeEnum::SERIES->value => 'End Date',
+                                        InquiryDateTypeEnum::FLEXIBLE_DATE->value => 'To Date',
+                                        default => 'To Date',
+                                    })
                                     ->reactive()
                                     ->required()
                                     ->visible(fn ($get) => in_array($get('inquiry_date_type'), [
