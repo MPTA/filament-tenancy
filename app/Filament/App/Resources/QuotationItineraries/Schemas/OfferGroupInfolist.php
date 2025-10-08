@@ -15,10 +15,12 @@ class OfferGroupInfolist
         return [
             Grid::make(2)
                 ->schema([
-                    TextEntry::make('id')
-                        ->label('Offer Group ID')
+                    TextEntry::make('full_number')
+                        ->label('Offer Group Number')
                         ->icon('heroicon-o-hashtag')
-                        ->color('primary'),
+                        ->color('primary')
+                        ->weight('bold')
+                        ->size('lg'),
 
                     TextEntry::make('created_at')
                         ->label('Created At')
@@ -264,42 +266,41 @@ class OfferGroupInfolist
                                         ->hiddenLabel()
                                         ->contained(false)
                                         ->schema([
-                                            Grid::make(2)
+                                            Grid::make(3)
                                                 ->schema([
                                                     TextEntry::make('attraction.name')
-                                                        ->label('Attraction')
-                                                        ->icon('heroicon-o-building-library')
-                                                        ->color('primary'),
+                                                        ->label('🏛️ Attraction')
+                                                        ->weight('bold')
+                                                        ->color('primary')
+                                                        ->columnSpan(1),
 
                                                     TextEntry::make('price')
-                                                        ->label('Price')
-                                                        ->money('CNY')
-                                                        ->icon('heroicon-o-currency-dollar')
-                                                        ->color('success'),
-                                                ]),
+                                                        ->label('💵 Entry Price')
+                                                        ->formatStateUsing(function ($state) {
+                                                            return 'CNY ' . number_format($state, 2);
+                                                        })
+                                                        ->badge()
+                                                        ->color('warning')
+                                                        ->columnSpan(1),
 
-                                            RepeatableEntry::make('subAttractions')
-                                                ->label('Sub Attractions')
-                                                ->hiddenLabel()
-                                                ->contained(false)
-                                                ->schema([
-                                                    Grid::make(2)
-                                                        ->schema([
-                                                            TextEntry::make('subAttraction.name')
-                                                                ->label('Sub Attraction')
-                                                                ->icon('heroicon-o-building-office')
-                                                                ->color('info'),
-
-                                                            TextEntry::make('price')
-                                                                ->label('Price')
-                                                                ->money('CNY')
-                                                                ->icon('heroicon-o-currency-dollar')
-                                                                ->color('success'),
-                                                        ])
+                                                    TextEntry::make('id')
+                                                        ->label('🎫 Sub-Attractions')
+                                                        ->formatStateUsing(fn($state, $record) => 
+                                                            $record->subAttractions && $record->subAttractions->isNotEmpty()
+                                                                ? nl2br(e(
+                                                                    $record->subAttractions->map(function ($subAttraction) {
+                                                                        $name = $subAttraction->subAttraction?->name ?? 'Unknown';
+                                                                        $price = number_format($subAttraction->price, 2);
+                                                                        return "• {$name}: CNY {$price}";
+                                                                    })->implode("\n")
+                                                                ))
+                                                                : 'No sub-attractions'
+                                                        )
+                                                        ->html()
+                                                        ->color('info')
+                                                        ->columnSpan(1),
                                                 ])
-                                                ->columns(1)
                                         ])
-                                        ->columns(1)
                                 ])
                                 ->collapsible()
                                 ->collapsed(true),
@@ -348,37 +349,43 @@ class OfferGroupInfolist
                                             Grid::make(4)
                                                 ->schema([
                                                     TextEntry::make('accommodation.name')
-                                                        ->label('Accommodation')
-                                                        ->formatStateUsing(fn($state) => $state ?? 'Base Budget')
-                                                        ->icon('heroicon-o-home')
-                                                        ->color('primary'),
-
-                                                    TextEntry::make('city.name')
-                                                        ->label('City')
-                                                        ->icon('heroicon-o-map-pin')
-                                                        ->color('info'),
+                                                        ->label('🏨 Hotel')
+                                                        ->formatStateUsing(fn($state, $record) => 
+                                                            $state 
+                                                                ? $state . ($record->city?->name ? ' (' . $record->city->name . ')' : '')
+                                                                : 'Base Budget'
+                                                        )
+                                                        ->weight('bold')
+                                                        ->color('primary')
+                                                        ->columnSpan(1),
 
                                                     TextEntry::make('nights')
-                                                        ->label('Nights')
+                                                        ->label('🌙 Nights')
                                                         ->numeric()
-                                                        ->icon('heroicon-o-moon')
-                                                        ->color('warning'),
+                                                        ->badge()
+                                                        ->color('warning')
+                                                        ->columnSpan(1),
 
                                                     TextEntry::make('night_price')
-                                                        ->label('Night Price')
-                                                        ->money('CNY')
-                                                        ->icon('heroicon-o-currency-dollar')
-                                                        ->color('success'),
-                                                ]),
+                                                        ->label('💵 Per Night')
+                                                        ->formatStateUsing(function ($state) {
+                                                            return 'CNY ' . number_format($state, 2);
+                                                        })
+                                                        ->badge()
+                                                        ->color('success')
+                                                        ->columnSpan(1),
 
-                                            TextEntry::make('total_cost')
-                                                ->label('Total Accommodation Price')
-                                                ->money('CNY')
-                                                ->icon('heroicon-o-calculator')
-                                                ->color('warning')
-                                                ->columnSpanFull(),
+                                                    TextEntry::make('total_cost')
+                                                        ->label('💰 Total Cost')
+                                                        ->formatStateUsing(function ($state, $record) {
+                                                            $total = $record->nights * $record->night_price;
+                                                            return 'CNY ' . number_format($total, 2);
+                                                        })
+                                                        ->badge()
+                                                        ->color('info')
+                                                        ->columnSpan(1),
+                                                ])
                                         ])
-                                        ->columns(1)
                                 ])
                                 ->collapsible()
                                 ->collapsed(true),

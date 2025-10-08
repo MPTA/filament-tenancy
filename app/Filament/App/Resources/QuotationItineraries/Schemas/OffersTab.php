@@ -317,7 +317,7 @@ class OffersTab
     private static function offerGroupSection(): Section
     {
         return Section::make()
-            ->heading(fn($record) => 'Offer Group #' . $record->id)
+            ->heading(fn($record) => 'Offer Group ' . ($record->full_number ?? $record->id))
             ->description(function ($record) {
                 $info = [];
                 if ($record->is_include_driver_meal) {
@@ -356,7 +356,7 @@ class OffersTab
             ->color('info')
             ->size('sm')
             ->infolist(OfferGroupInfolist::getSchema())
-            ->modalHeading('Offer Group Details')
+            ->modalHeading(fn($record) => 'Offer Group ' . ($record->full_number ?? 'Details'))
             ->modalSubmitAction(false)
             ->modalCancelActionLabel('Close');
     }
