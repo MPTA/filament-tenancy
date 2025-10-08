@@ -324,6 +324,9 @@ class QuotationOfferGroup extends Model
             
             $companionHireMode = $day->companion_hire_mode->value;
             
+            // Check if this day has free hotel breakfast
+            $hasFreeBreakfast = $this->checkIfDayHasFreeBreakfast($day, $breakdown);
+            
             // Get meal activities for this day
             $mealActivities = $day->activities()
                 ->whereHas('activityCategory', function ($query) {
@@ -341,8 +344,12 @@ class QuotationOfferGroup extends Model
                     $shouldIncludeMeal = false;
                     
                     if ($companionHireMode === 'daily') {
-                        // Full day: include lunch and dinner
-                        $shouldIncludeMeal = in_array($mealPart, ['lunch', 'dinner']);
+                        // Full day: include lunch and dinner, plus breakfast if not free
+                        if ($mealPart === 'breakfast') {
+                            $shouldIncludeMeal = !$hasFreeBreakfast;
+                        } else {
+                            $shouldIncludeMeal = in_array($mealPart, ['lunch', 'dinner']);
+                        }
                     } elseif ($companionHireMode === 'half_day') {
                         // Half day: include only lunch
                         $shouldIncludeMeal = $mealPart === 'lunch';
@@ -373,6 +380,25 @@ class QuotationOfferGroup extends Model
                 ]);
             }
         }
+    }
+
+    /**
+     * Check if a day has free breakfast from hotel
+     */
+    private function checkIfDayHasFreeBreakfast($day, $breakdown): bool
+    {
+        // If no accommodation, breakfast is not free (needs to be paid)
+        if (!$day->accommodation_id) {
+            return false;
+        }
+        
+        // Check if this accommodation in breakdown has free breakfast
+        $breakdownAccommodation = $breakdown->accommodations()
+            ->where('accommodation_id', $day->accommodation_id)
+            ->first();
+        
+        // If accommodation found and has_breakfast is true, breakfast is free
+        return $breakdownAccommodation?->has_breakfast ?? false;
     }
 
     /**
