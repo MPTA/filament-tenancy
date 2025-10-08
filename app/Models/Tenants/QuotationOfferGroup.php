@@ -69,6 +69,19 @@ class QuotationOfferGroup extends Model
         return $this->belongsTo(QuotationItinerary::class);
     }
 
+    /**
+     * Get the full formatted offer group number (e.g., 100013-2)
+     */
+    public function getFullNumberAttribute(): string
+    {
+        $quotationNumber = $this->quotationItinerary
+            ?->quotation
+            ?->number ?? 'N/A';
+        
+        $groupNumber = $this->number ?? 'N/A';
+        
+        return "{$quotationNumber}-{$groupNumber}";
+    }
 
     /**
      * Get the driver room category for this offer group.
