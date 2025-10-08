@@ -215,7 +215,7 @@
         }
         
         .accordion-content.open {
-            max-height: 2000px;
+            max-height: none;
             transition: max-height 0.5s ease-in;
         }
         
@@ -1050,7 +1050,7 @@
                                 <!-- Companion Header -->
                                 <div style="display: flex; justify-content: space-between; align-items: center; background: #fff7ed; padding: 12px; border-radius: 6px; margin-bottom: 16px; border-left: 3px solid #f59e0b;">
                                     <div style="font-weight: 700; color: #ea580c; font-size: 15px;">
-                                        👤 {{ $companion->companionType->title ?? 'Companion' }}
+                                        👤 Companion {{ $loop->iteration }}: {{ $companion->companionType->name ?? 'Unknown' }}
                                         @if($companion->livingCity)
                                             <span style="font-weight: 400; color: #a16207; font-size: 13px; margin-left: 8px;">
                                                 (📍 {{ $companion->livingCity->name }})
