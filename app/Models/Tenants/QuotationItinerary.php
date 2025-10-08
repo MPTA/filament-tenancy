@@ -536,7 +536,7 @@ class QuotationItinerary extends Model
             ->where('room_category_id', $roomCategory->id)
             ->where(function ($query) use ($hasBreakfast) {
                 // Check if central table has is_include_breakfast field
-                if (\Illuminate\Support\Facades\Schema::hasColumn('accommodation_prices', 'is_include_breakfast')) {
+                if (Schema::hasColumn('accommodation_prices', 'is_include_breakfast')) {
                     $query->where('is_include_breakfast', $hasBreakfast);
                 }
             })

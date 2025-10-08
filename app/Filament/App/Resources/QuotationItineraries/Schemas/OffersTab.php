@@ -15,6 +15,7 @@ use Filament\Infolists\Components\RepeatableEntry;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Tabs\Tab;
+use Filament\Support\Exceptions\Halt;
 
 class OffersTab
 {
@@ -44,9 +45,34 @@ class OffersTab
     private static function addNewOfferAction(): Action
     {
         return Action::make('add_new_offer_group')
-            ->label('Add new Offer group')
+            ->label(function (QuotationItinerary $record) {
+                if (!$record->breakdown) {
+                    return 'Create Breakdown First';
+                }
+                if (!$record->breakdown->is_completed) {
+                    return 'Complete Breakdown to Create Offer';
+                }
+                return 'Add new Offer group';
+            })
             ->icon('heroicon-o-plus')
-            ->color('primary')
+            ->color(function (QuotationItinerary $record) {
+                if (!$record->breakdown || !$record->breakdown->is_completed) {
+                    return 'gray';
+                }
+                return 'primary';
+            })
+            ->disabled(function (QuotationItinerary $record) {
+                return !$record->breakdown || !$record->breakdown->is_completed;
+            })
+            ->tooltip(function (QuotationItinerary $record) {
+                if (!$record->breakdown) {
+                    return 'Please create a breakdown before creating an offer group.';
+                }
+                if (!$record->breakdown->is_completed) {
+                    return 'Please complete the breakdown before creating an offer group.';
+                }
+                return null;
+            })
             ->schema([
                 self::driverSettingsSection(),
                 self::companionsSection(),
@@ -269,6 +295,7 @@ class OffersTab
     {
         return TextEntry::make('id')
             ->label('')
+            ->hiddenLabel()
             ->formatStateUsing(fn() => 'No offers have been registered yet.')
             ->icon('heroicon-o-information-circle')
             ->color('gray')
