@@ -272,8 +272,13 @@ class InformationTab
 
                 TextInput::make('quotation.exchange_rate')
                     ->label('Exchange Rate')
-                    ->numeric()
-                    ->step(0.0001),
+                    ->required()
+                    ->rules(['required', 'regex:/^\d+(\.\d{1,4})?$/'])
+                    ->helperText('Enter a valid number with up to 4 decimal places')
+                    ->placeholder('e.g., 42500.5000')
+                    ->validationMessages([
+                        'regex' => 'Please enter a valid number with up to 4 decimal places.',
+                    ]),
 
                 DatePicker::make('quotation.expire_date')
                     ->label('Expiry Date'),
