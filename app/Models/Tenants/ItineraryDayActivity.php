@@ -69,42 +69,6 @@ class ItineraryDayActivity extends Model
                 $activity->itineraryDay->itinerary->breakdown->update(['is_completed' => false]);
             }
         });
-
-        // Regenerate breakdown after activity changes
-        static::updated(function ($activity) {
-            if ($activity->wasChanged()) {
-                // Regenerate breakdown if it exists
-                if ($activity->itineraryDay->itinerary->breakdown && $activity->itineraryDay->itinerary->itineraryable instanceof QuotationItinerary) {
-                    try {
-                        $activity->itineraryDay->itinerary->itineraryable->generateBreakdownFromItinerary();
-                    } catch (\Exception $e) {
-                        \Illuminate\Support\Facades\Log::error('Failed to regenerate breakdown after activity update: ' . $e->getMessage());
-                    }
-                }
-            }
-        });
-
-        static::created(function ($activity) {
-            // Regenerate breakdown if it exists
-            if ($activity->itineraryDay->itinerary->breakdown && $activity->itineraryDay->itinerary->itineraryable instanceof QuotationItinerary) {
-                try {
-                    $activity->itineraryDay->itinerary->itineraryable->generateBreakdownFromItinerary();
-                } catch (\Exception $e) {
-                        \Illuminate\Support\Facades\Log::error('Failed to regenerate breakdown after activity creation: ' . $e->getMessage());
-                }
-            }
-        });
-
-        static::deleted(function ($activity) {
-            // Regenerate breakdown if it exists
-            if ($activity->itineraryDay && $activity->itineraryDay->itinerary && $activity->itineraryDay->itinerary->breakdown && $activity->itineraryDay->itinerary->itineraryable instanceof QuotationItinerary) {
-                try {
-                    $activity->itineraryDay->itinerary->itineraryable->generateBreakdownFromItinerary();
-                } catch (\Exception $e) {
-                        \Illuminate\Support\Facades\Log::error('Failed to regenerate breakdown after activity deletion: ' . $e->getMessage());
-                }
-            }
-        });
     }
 
     /**

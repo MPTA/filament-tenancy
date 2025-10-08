@@ -3,6 +3,7 @@
 namespace App\Models\Tenants;
 
 use App\Enums\TicketClassEnum;
+use App\Enums\TransportModeEnum;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -27,6 +28,7 @@ class BreakdownTicket extends Model
         return [
             'price' => 'decimal:2',
             'class' => TicketClassEnum::class,
+            'transport_mode' => TransportModeEnum::class,
         ];
     }
 

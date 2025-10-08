@@ -57,42 +57,6 @@ class ItineraryDayActivityAttraction extends Model
                 $attraction->itineraryDayActivity->itineraryDay->itinerary->breakdown->update(['is_completed' => false]);
             }
         });
-
-        // Regenerate breakdown after attraction changes
-        static::updated(function ($attraction) {
-            if ($attraction->wasChanged()) {
-                // Regenerate breakdown if it exists
-                if ($attraction->itineraryDayActivity->itineraryDay->itinerary->breakdown && $attraction->itineraryDayActivity->itineraryDay->itinerary->itineraryable instanceof QuotationItinerary) {
-                    try {
-                        $attraction->itineraryDayActivity->itineraryDay->itinerary->itineraryable->generateBreakdownFromItinerary();
-                    } catch (\Exception $e) {
-                        \Illuminate\Support\Facades\Log::error('Failed to regenerate breakdown after attraction update: ' . $e->getMessage());
-                    }
-                }
-            }
-        });
-
-        static::created(function ($attraction) {
-            // Regenerate breakdown if it exists
-            if ($attraction->itineraryDayActivity->itineraryDay->itinerary->breakdown && $attraction->itineraryDayActivity->itineraryDay->itinerary->itineraryable instanceof QuotationItinerary) {
-                try {
-                    $attraction->itineraryDayActivity->itineraryDay->itinerary->itineraryable->generateBreakdownFromItinerary();
-                } catch (\Exception $e) {
-                        \Illuminate\Support\Facades\Log::error('Failed to regenerate breakdown after attraction creation: ' . $e->getMessage());
-                }
-            }
-        });
-
-        static::deleted(function ($attraction) {
-            // Regenerate breakdown if it exists
-            if ($attraction->itineraryDayActivity && $attraction->itineraryDayActivity->itineraryDay && $attraction->itineraryDayActivity->itineraryDay->itinerary && $attraction->itineraryDayActivity->itineraryDay->itinerary->breakdown && $attraction->itineraryDayActivity->itineraryDay->itinerary->itineraryable instanceof QuotationItinerary) {
-                try {
-                    $attraction->itineraryDayActivity->itineraryDay->itinerary->itineraryable->generateBreakdownFromItinerary();
-                } catch (\Exception $e) {
-                        \Illuminate\Support\Facades\Log::error('Failed to regenerate breakdown after attraction deletion: ' . $e->getMessage());
-                }
-            }
-        });
     }
 
     /**

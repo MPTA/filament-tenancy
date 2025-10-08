@@ -16,6 +16,9 @@ use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 class QuotationItinerary extends Model
 {
     use HasUuids, BelongsToTenant;
+    
+    // Flag to prevent multiple simultaneous breakdown regenerations
+    private static $regeneratingBreakdowns = [];
 
     protected $fillable = [
         'quotation_id',
@@ -88,19 +91,32 @@ class QuotationItinerary extends Model
      */
     public function generateBreakdownFromItinerary()
     {
-        $breakdown = $this->createOrUpdateBreakdown();
+        // Prevent multiple simultaneous regenerations for the same itinerary
+        if (isset(self::$regeneratingBreakdowns[$this->id])) {
+            return $this->breakdown;
+        }
         
-        // Mark breakdown as incomplete when regenerating
-        $breakdown->update(['is_completed' => false]);
+        // Mark this itinerary as being regenerated
+        self::$regeneratingBreakdowns[$this->id] = true;
         
-        $this->updateVehicleData($breakdown);
-        $this->createBreakdownTickets($breakdown);
-        $this->createBreakdownMeals($breakdown);
-        $this->createBreakdownExperiences($breakdown);
-        $this->createBreakdownAccommodations($breakdown);
-        $this->createBreakdownAttractions($breakdown);
+        try {
+            $breakdown = $this->createOrUpdateBreakdown();
+            
+            // Mark breakdown as incomplete when regenerating
+            $breakdown->update(['is_completed' => false]);
+            
+            $this->updateVehicleData($breakdown);
+            $this->createBreakdownTickets($breakdown);
+            $this->createBreakdownMeals($breakdown);
+            $this->createBreakdownExperiences($breakdown);
+            $this->createBreakdownAccommodations($breakdown);
+            $this->createBreakdownAttractions($breakdown);
 
-        return $breakdown;
+            return $breakdown;
+        } finally {
+            // Always remove the flag, even if an exception occurs
+            unset(self::$regeneratingBreakdowns[$this->id]);
+        }
     }
 
     /**
@@ -171,11 +187,11 @@ class QuotationItinerary extends Model
 
         // Get existing tickets with their prices before deleting
         $existingTickets = $breakdown->tickets->mapWithKeys(function ($ticket) {
-            $classValue = $ticket->class;
-            if ($classValue instanceof \App\Enums\TicketClassEnum) {
-                $classValue = $classValue->value;
-            }
-            $key = $ticket->transport_mode . '_' . $ticket->from_city_id . '_' . $ticket->to_city_id . '_' . ($classValue ?? 'null');
+            // Get enum values (they're always enums now due to casting)
+            $transportModeValue = $ticket->transport_mode?->value ?? $ticket->transport_mode;
+            $classValue = $ticket->class?->value ?? $ticket->class;
+            
+            $key = $transportModeValue . '_' . $ticket->from_city_id . '_' . $ticket->to_city_id . '_' . ($classValue ?? 'null');
             return [$key => $ticket->price];
         });
 
@@ -194,7 +210,11 @@ class QuotationItinerary extends Model
 
             foreach ($ticketActivities as $activity) {
                 if ($activity->ticket) {
-                    $key = $activity->ticket->transport_mode . '_' . $activity->city_id . '_' . $activity->ticket->to_city_id . '_' . ($activity->ticket->class?->value ?? 'null');
+                    // Get enum values (they're always enums now due to casting)
+                    $transportModeValue = $activity->ticket->transport_mode?->value ?? $activity->ticket->transport_mode;
+                    $classValue = $activity->ticket->class?->value ?? $activity->ticket->class;
+                    
+                    $key = $transportModeValue . '_' . $activity->city_id . '_' . $activity->ticket->to_city_id . '_' . ($classValue ?? 'null');
                     
                     // Only process if not already processed
                     if (!isset($processedTickets[$key])) {
@@ -202,10 +222,10 @@ class QuotationItinerary extends Model
                         $price = $existingTickets->get($key, null);
                         
                         $breakdown->tickets()->create([
-                            'transport_mode' => $activity->ticket->transport_mode,
+                            'transport_mode' => $transportModeValue,
                             'from_city_id' => $activity->city_id,
                             'to_city_id' => $activity->ticket->to_city_id,
-                            'class' => $activity->ticket->class?->value,
+                            'class' => $classValue,
                             'price' => $price,
                         ]);
 

@@ -53,15 +53,6 @@ class Itinerary extends Model
         // When itinerary is updated, regenerate breakdown if it exists
         static::updated(function ($itinerary) {
             if ($itinerary->wasChanged(['travel_mode', 'is_advanced', 'is_vip'])) {
-                // Regenerate breakdown if it exists
-                if ($itinerary->breakdown && $itinerary->itineraryable instanceof QuotationItinerary) {
-                    try {
-                        $itinerary->itineraryable->generateBreakdownFromItinerary();
-                    } catch (\Exception $e) {
-                        // Log error but don't break the flow
-                        \Illuminate\Support\Facades\Log::error('Failed to regenerate breakdown after itinerary update: ' . $e->getMessage());
-                    }
-                }
             }
         });
 

@@ -81,42 +81,6 @@ class ItineraryDay extends Model
                 $itineraryDay->itinerary->breakdown->update(['is_completed' => false]);
             }
         });
-
-        // Regenerate breakdown after itinerary day changes
-        static::updated(function ($itineraryDay) {
-            if ($itineraryDay->wasChanged()) {
-                // Regenerate breakdown if it exists
-                if ($itineraryDay->itinerary->breakdown && $itineraryDay->itinerary->itineraryable instanceof QuotationItinerary) {
-                    try {
-                        $itineraryDay->itinerary->itineraryable->generateBreakdownFromItinerary();
-                    } catch (\Exception $e) {
-                        \Illuminate\Support\Facades\Log::error('Failed to regenerate breakdown after itinerary day update: ' . $e->getMessage());
-                    }
-                }
-            }
-        });
-
-        static::created(function ($itineraryDay) {
-            // Regenerate breakdown if it exists
-            if ($itineraryDay->itinerary->breakdown && $itineraryDay->itinerary->itineraryable instanceof QuotationItinerary) {
-                try {
-                    $itineraryDay->itinerary->itineraryable->generateBreakdownFromItinerary();
-                } catch (\Exception $e) {
-                        \Illuminate\Support\Facades\Log::error('Failed to regenerate breakdown after itinerary day creation: ' . $e->getMessage());
-                }
-            }
-        });
-
-        static::deleted(function ($itineraryDay) {
-            // Regenerate breakdown if it exists
-            if ($itineraryDay->itinerary && $itineraryDay->itinerary->breakdown && $itineraryDay->itinerary->itineraryable instanceof QuotationItinerary) {
-                try {
-                    $itineraryDay->itinerary->itineraryable->generateBreakdownFromItinerary();
-                } catch (\Exception $e) {
-                        \Illuminate\Support\Facades\Log::error('Failed to regenerate breakdown after itinerary day deletion: ' . $e->getMessage());
-                }
-            }
-        });
     }
 
     protected $appends = [
