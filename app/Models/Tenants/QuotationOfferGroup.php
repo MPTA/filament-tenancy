@@ -17,6 +17,7 @@ class QuotationOfferGroup extends Model
 
     protected $fillable = [
         'quotation_itinerary_id',
+        'number',
         'is_include_driver_meal',
         'is_include_driver_hotel',
         'is_driver_stay_same_hotel',
@@ -28,6 +29,7 @@ class QuotationOfferGroup extends Model
     ];
 
     protected $casts = [
+        'number' => 'integer',
         'is_include_driver_meal' => 'boolean',
         'is_include_driver_hotel' => 'boolean',
         'is_driver_stay_same_hotel' => 'boolean',
@@ -35,6 +37,29 @@ class QuotationOfferGroup extends Model
         'driver_meal_cost' => 'decimal:2',
         'driver_accommodation_cost' => 'decimal:2',
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+        
+        static::creating(function ($offerGroup) {
+            if (empty($offerGroup->number)) {
+                $offerGroup->number = static::generateNextNumber($offerGroup->quotation_itinerary_id);
+            }
+        });
+    }
+
+    /**
+     * Generate next offer group number for a quotation itinerary
+     */
+    protected static function generateNextNumber($quotationItineraryId): int
+    {
+        $lastGroup = static::where('quotation_itinerary_id', $quotationItineraryId)
+            ->orderBy('number', 'desc')
+            ->first();
+        
+        return $lastGroup ? $lastGroup->number + 1 : 1;
+    }
 
     /**
      * Get the quotation itinerary for this offer group.

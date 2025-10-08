@@ -15,6 +15,7 @@ class QuotationOffer extends Model
 
     protected $fillable = [
         'quotation_offer_group_id',
+        'number',
         'vehicle_type_id',
         'leaders_qty',
         'leader_room_category_id',
@@ -31,6 +32,7 @@ class QuotationOffer extends Model
     ];
 
     protected $casts = [
+        'number' => 'integer',
         'leaders_qty' => 'integer',
         'pax_qty' => 'integer',
         'drivers_qty' => 'integer',
@@ -43,12 +45,51 @@ class QuotationOffer extends Model
         'vehicle_airport_transfer_price' => 'decimal:2',
     ];
 
+    protected static function boot()
+    {
+        parent::boot();
+        
+        static::creating(function ($offer) {
+            if (empty($offer->number)) {
+                $offer->number = static::generateNextNumber($offer->quotation_offer_group_id);
+            }
+        });
+    }
+
+    /**
+     * Generate next offer number for an offer group
+     */
+    protected static function generateNextNumber($quotationOfferGroupId): int
+    {
+        $lastOffer = static::where('quotation_offer_group_id', $quotationOfferGroupId)
+            ->orderBy('number', 'desc')
+            ->first();
+        
+        return $lastOffer ? $lastOffer->number + 1 : 1;
+    }
+
     /**
      * Get the quotation offer group for this offer.
      */
     public function quotationOfferGroup(): BelongsTo
     {
         return $this->belongsTo(QuotationOfferGroup::class);
+    }
+
+    /**
+     * Get the full formatted offer number (e.g., 100013-2-1)
+     */
+    public function getFullNumberAttribute(): string
+    {
+        $quotationNumber = $this->quotationOfferGroup
+            ?->quotationItinerary
+            ?->quotation
+            ?->number ?? 'N/A';
+        
+        $groupNumber = $this->quotationOfferGroup?->number ?? 'N/A';
+        $offerNumber = $this->number ?? 'N/A';
+        
+        return "{$quotationNumber}-{$groupNumber}-{$offerNumber}";
     }
 
     /**
