@@ -64,11 +64,25 @@ class BreakdownForm
                                         TextInput::make('driver_base_meal_budget')
                                             ->label('Driver Meal Budget')
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
-                                            ->default(50),
+                                            ->default(50)
+                                            ->required()
+                                            ->rules(['required', 'numeric', 'min:0'])
+                                            ->validationMessages([
+                                                'required' => 'Driver meal budget is required',
+                                                'numeric' => 'Value must be a number',
+                                                'min' => 'Value cannot be negative',
+                                            ]),
                                         TextInput::make('driver_base_accommodation_budget')
                                             ->label('Driver Accommodation Budget')
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
-                                            ->default(100),
+                                            ->default(100)
+                                            ->required()
+                                            ->rules(['required', 'numeric', 'min:0'])
+                                            ->validationMessages([
+                                                'required' => 'Driver accommodation budget is required',
+                                                'numeric' => 'Value must be a number',
+                                                'min' => 'Value cannot be negative',
+                                            ]),
                                     ]),
                             ]),
                         Section::make('Vehicle Types')
@@ -100,7 +114,6 @@ class BreakdownForm
                                         TableColumn::make('Vehicle Type'),
                                         TableColumn::make('Per Day Price'),
                                         TableColumn::make('Half Day Price'),
-                                        TableColumn::make('Extra Hour Price'),
                                     ])
                                     ->schema([
                                         Select::make('vehicle_type_id')
@@ -115,13 +128,11 @@ class BreakdownForm
                                                     if ($vehicleType) {
                                                         $set('per_day_price', $vehicleType->per_day_price ?? 0);
                                                         $set('half_day_price', $vehicleType->half_day_price ?? 0);
-                                                        $set('extra_hour_price', $vehicleType->extra_hour_price ?? 0);
                                                     }
                                                 } else {
                                                     // Clear prices when vehicle type is removed
                                                     $set('per_day_price', null);
                                                     $set('half_day_price', null);
-                                                    $set('extra_hour_price', null);
                                                 }
                                             }),
                                         TextInput::make('per_day_price')
@@ -129,9 +140,11 @@ class BreakdownForm
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
                                             ->formatStateUsing(fn($state) => $state == 0 ? null : $state)
                                             ->dehydrateStateUsing(fn($state) => $state ?: 0)
-                                            ->default(0)
-                                            ->rules(['numeric', 'min:0'])
+                                            ->required()
+                                            ->placeholder('Enter price')
+                                            ->rules(['required', 'numeric', 'min:0'])
                                             ->validationMessages([
+                                                'required' => 'Per day price is required',
                                                 'numeric' => 'Price must be a valid number',
                                                 'min' => 'Price cannot be negative',
                                             ]),
@@ -140,20 +153,11 @@ class BreakdownForm
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
                                             ->formatStateUsing(fn($state) => $state == 0 ? null : $state)
                                             ->dehydrateStateUsing(fn($state) => $state ?: 0)
-                                            ->default(0)
-                                            ->rules(['numeric', 'min:0'])
+                                            ->required()
+                                            ->placeholder('Enter price')
+                                            ->rules(['required', 'numeric', 'min:0'])
                                             ->validationMessages([
-                                                'numeric' => 'Price must be a valid number',
-                                                'min' => 'Price cannot be negative',
-                                            ]),
-                                        TextInput::make('extra_hour_price')
-                                            ->label('Extra Hour Price')
-                                            ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
-                                            ->formatStateUsing(fn($state) => $state == 0 ? null : $state)
-                                            ->dehydrateStateUsing(fn($state) => $state ?: 0)
-                                            ->default(0)
-                                            ->rules(['numeric', 'min:0'])
-                                            ->validationMessages([
+                                                'required' => 'Half day price is required',
                                                 'numeric' => 'Price must be a valid number',
                                                 'min' => 'Price cannot be negative',
                                             ]),
@@ -282,9 +286,10 @@ class BreakdownForm
                                 TextInput::make('price')
                                     ->label('Price')
                                     ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
-                                    ->default(0)
-                                    ->rules(['numeric', 'min:0'])
+                                    ->required()
+                                    ->rules(['required', 'numeric', 'min:0'])
                                     ->validationMessages([
+                                        'required' => 'Price is required',
                                         'numeric' => 'Price must be a valid number',
                                         'min' => 'Price cannot be negative',
                                     ]),
@@ -354,12 +359,14 @@ class BreakdownForm
                                                 TextInput::make('price')
                                                     ->label('Price')
                                                     ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
-                                                    ->default(0)
-                                            ->rules(['numeric', 'min:0'])
-                                            ->validationMessages([
-                                                'numeric' => 'Value must be a valid number',
-                                                'min' => 'Value cannot be negative',
-                                            ]),
+                                                    ->required()
+                                                    ->placeholder('Enter room price')
+                                                    ->rules(['required', 'numeric', 'min:0'])
+                                                    ->validationMessages([
+                                                        'required' => 'Room price is required',
+                                                        'numeric' => 'Value must be a valid number',
+                                                        'min' => 'Value cannot be negative',
+                                                    ]),
                                             ])
                                     ])
                                     ->columnSpanFull(),
@@ -422,8 +429,10 @@ class BreakdownForm
                                             ->label('Price')
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
                                             ->default(0)
-                                            ->rules(['numeric', 'min:0'])
+                                            ->required()
+                                            ->rules(['required', 'numeric', 'min:0'])
                                             ->validationMessages([
+                                                'required' => 'Price is required',
                                                 'numeric' => 'Value must be a valid number',
                                                 'min' => 'Value cannot be negative',
                                             ]),
@@ -461,8 +470,10 @@ class BreakdownForm
                                             ->label('Entry Price')
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
                                             ->default(0)
-                                            ->rules(['numeric', 'min:0'])
+                                            ->required()
+                                            ->rules(['required', 'numeric', 'min:0'])
                                             ->validationMessages([
+                                                'required' => 'Entry price is required',
                                                 'numeric' => 'Value must be a valid number',
                                                 'min' => 'Value cannot be negative',
                                             ])
@@ -494,12 +505,14 @@ class BreakdownForm
                                                         TextInput::make('price')
                                                             ->label('Price')
                                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
-                                                            ->default(0)
-                                            ->rules(['numeric', 'min:0'])
-                                            ->validationMessages([
-                                                'numeric' => 'Value must be a valid number',
-                                                'min' => 'Value cannot be negative',
-                                            ]),
+                                                            ->required()
+                                                            ->placeholder('Enter price')
+                                                            ->rules(['required', 'numeric', 'min:0'])
+                                                            ->validationMessages([
+                                                                'required' => 'Price is required',
+                                                                'numeric' => 'Value must be a valid number',
+                                                                'min' => 'Value cannot be negative',
+                                                            ]),
                                                     ])
                                             ])->addable(false)->deletable(false)
                                             ->columnSpanFull(),
@@ -517,11 +530,25 @@ class BreakdownForm
                                         TextInput::make('companion_base_meal_budget')
                                             ->label('Companion Meal Budget')
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
-                                            ->default(50),
+                                            ->default(50)
+                                            ->required()
+                                            ->rules(['required', 'numeric', 'min:0'])
+                                            ->validationMessages([
+                                                'required' => 'Companion meal budget is required',
+                                                'numeric' => 'Value must be a number',
+                                                'min' => 'Value cannot be negative',
+                                            ]),
                                         TextInput::make('companion_base_accommodation_budget')
                                             ->label('Companion Accommodation Budget')
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
-                                            ->default(100),
+                                            ->default(100)
+                                            ->required()
+                                            ->rules(['required', 'numeric', 'min:0'])
+                                            ->validationMessages([
+                                                'required' => 'Companion accommodation budget is required',
+                                                'numeric' => 'Value must be a number',
+                                                'min' => 'Value cannot be negative',
+                                            ]),
                                     ]),
                             ]),
                         Section::make('Companions')
@@ -582,9 +609,11 @@ class BreakdownForm
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
                                             ->formatStateUsing(fn($state) => $state == 0 ? null : $state)
                                             ->dehydrateStateUsing(fn($state) => $state ?: 0)
-                                            ->default(0)
-                                            ->rules(['numeric', 'min:0'])
+                                            ->required()
+                                            ->placeholder('Enter price')
+                                            ->rules(['required', 'numeric', 'min:0'])
                                             ->validationMessages([
+                                                'required' => 'Per day price is required',
                                                 'numeric' => 'Price must be a valid number',
                                                 'min' => 'Price cannot be negative',
                                             ]),
@@ -593,9 +622,11 @@ class BreakdownForm
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
                                             ->formatStateUsing(fn($state) => $state == 0 ? null : $state)
                                             ->dehydrateStateUsing(fn($state) => $state ?: 0)
-                                            ->default(0)
-                                            ->rules(['numeric', 'min:0'])
+                                            ->required()
+                                            ->placeholder('Enter price')
+                                            ->rules(['required', 'numeric', 'min:0'])
                                             ->validationMessages([
+                                                'required' => 'Half day price is required',
                                                 'numeric' => 'Price must be a valid number',
                                                 'min' => 'Price cannot be negative',
                                             ]),
@@ -604,9 +635,11 @@ class BreakdownForm
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
                                             ->formatStateUsing(fn($state) => $state == 0 ? null : $state)
                                             ->dehydrateStateUsing(fn($state) => $state ?: 0)
-                                            ->default(0)
-                                            ->rules(['numeric', 'min:0'])
+                                            ->required()
+                                            ->placeholder('Enter price')
+                                            ->rules(['required', 'numeric', 'min:0'])
                                             ->validationMessages([
+                                                'required' => 'Per hour price is required',
                                                 'numeric' => 'Price must be a valid number',
                                                 'min' => 'Price cannot be negative',
                                             ]),
@@ -638,9 +671,10 @@ class BreakdownForm
                                 TextInput::make('price')
                                     ->label('Price')
                                     ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
-                                    ->default(0)
-                                    ->rules(['numeric', 'min:0'])
+                                    ->required()
+                                    ->rules(['required', 'numeric', 'min:0'])
                                     ->validationMessages([
+                                        'required' => 'Price is required',
                                         'numeric' => 'Price must be a valid number',
                                         'min' => 'Price cannot be negative',
                                     ]),

@@ -518,15 +518,17 @@ class QuotationItinerary extends Model
         }
 
         // Try to get price from tenant-specific table first
-        $tenantAccommodationPrice = \App\Models\Tenants\TenantAccommodationPrice::query()->where('accommodation_id', $breakdownAccommodation->accommodation_id)
+        // Priority 1: Try with is_include_breakfast filter
+        $tenantAccommodationPrice = \App\Models\Tenants\TenantAccommodationPrice::query()
+            ->where('accommodation_id', $breakdownAccommodation->accommodation_id)
             ->where('room_category_id', $roomCategory->id)
-            ->where('is_include_breakfast', $hasBreakfast) // Filter by breakfast status
+            ->where('is_include_breakfast', $hasBreakfast)
             ->where(function ($query) {
-                $query->where('valid_from', null)
+                $query->whereNull('valid_from')
                     ->orWhere('valid_from', '<=', now());
             })
             ->where(function ($query) {
-                $query->where('valid_to', null)
+                $query->whereNull('valid_to')
                     ->orWhere('valid_to', '>=', now());
             })
             ->orderBy('valid_from', 'desc')
@@ -534,6 +536,25 @@ class QuotationItinerary extends Model
 
         if ($tenantAccommodationPrice) {
             return $tenantAccommodationPrice->price ?? 0.00;
+        }
+        
+        // Priority 2: Try without breakfast filter (any breakfast status)
+        $tenantAccommodationPriceAny = \App\Models\Tenants\TenantAccommodationPrice::query()
+            ->where('accommodation_id', $breakdownAccommodation->accommodation_id)
+            ->where('room_category_id', $roomCategory->id)
+            ->where(function ($query) {
+                $query->whereNull('valid_from')
+                    ->orWhere('valid_from', '<=', now());
+            })
+            ->where(function ($query) {
+                $query->whereNull('valid_to')
+                    ->orWhere('valid_to', '>=', now());
+            })
+            ->orderBy('valid_from', 'desc')
+            ->first();
+
+        if ($tenantAccommodationPriceAny) {
+            return $tenantAccommodationPriceAny->price ?? 0.00;
         }
 
         // Fallback to central table (if it has is_include_breakfast field)

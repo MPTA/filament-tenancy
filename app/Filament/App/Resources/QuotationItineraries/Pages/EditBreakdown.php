@@ -105,7 +105,14 @@ class EditBreakdown extends EditRecord
             $breakdownData['experiences'] = $this->record->breakdown->experiences->toArray();
             $breakdownData['accommodations'] = $this->record->breakdown->accommodations->map(function($accommodation) {
                 $data = $accommodation->toArray();
-                $data['rooms'] = $accommodation->rooms->toArray();
+                $data['rooms'] = $accommodation->rooms->map(function($room) {
+                    $roomData = $room->toArray();
+                    // Convert price 0 to null for form display
+                    if ($roomData['price'] == 0 || $roomData['price'] == 0.00) {
+                        $roomData['price'] = null;
+                    }
+                    return $roomData;
+                })->toArray();
                 return $data;
             })->toArray();
             $breakdownData['attractions'] = $this->record->breakdown->attractions->map(function($attraction) {
@@ -190,6 +197,10 @@ class EditBreakdown extends EditRecord
                     $accommodation = $breakdown->accommodations()->create($accommodationData);
                     
                     foreach ($roomsData as $roomData) {
+                        // Convert null price back to 0 for database storage
+                        if (!isset($roomData['price']) || $roomData['price'] === null) {
+                            $roomData['price'] = 0.00;
+                        }
                         $accommodation->rooms()->create($roomData);
                     }
                 }

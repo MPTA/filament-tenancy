@@ -222,12 +222,6 @@ class BreakdownTab
                                     ->money('CNY')
                                     ->icon('heroicon-o-clock')
                                     ->color('warning'),
-
-                                TextEntry::make('extra_hour_price')
-                                    ->label('Extra Hour Price')
-                                    ->money('CNY')
-                                    ->icon('heroicon-o-clock')
-                                    ->color('info'),
                             ])
                     ])
             ])
@@ -331,6 +325,7 @@ class BreakdownTab
 
                                 TextEntry::make('charge_mode')
                                     ->label('Charge Mode')
+                                    ->formatStateUsing(fn($state) => $state?->label() ?? $state)
                                     ->badge()
                                     ->color('info'),
                             ])
@@ -342,51 +337,58 @@ class BreakdownTab
     private static function accommodationsSection(): Section
     {
         return Section::make('Accommodations')
-            ->description('Hotel accommodations and room details')
+            ->description('Hotel accommodations and room pricing')
             ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
             ->schema([
                 RepeatableEntry::make('breakdown.accommodations')
                     ->hiddenLabel()
                     ->contained(false)
                     ->schema([
-                        Grid::make(3)
+                        Grid::make(5)
                             ->schema([
                                 TextEntry::make('accommodation.name')
-                                    ->label('Accommodation')
-                                    ->icon('heroicon-o-home')
-                                    ->color('primary'),
+                                    ->label('🏨 Hotel')
+                                    ->weight('bold')
+                                    ->color('primary')
+                                    ->columnSpan(1),
 
                                 TextEntry::make('city.name')
-                                    ->label('City')
-                                    ->icon('heroicon-o-map-pin')
-                                    ->color('success'),
+                                    ->label('📍 City')
+                                    ->badge()
+                                    ->color('success')
+                                    ->columnSpan(1),
 
                                 TextEntry::make('nights_qty')
-                                    ->label('Nights')
-                                    ->numeric()
-                                    ->icon('heroicon-o-moon')
-                                    ->color('warning'),
-                            ]),
+                                    ->label('🌙 Nights')
+                                    ->badge()
+                                    ->color('warning')
+                                    ->columnSpan(1),
 
-                        // Room Categories
-                        RepeatableEntry::make('rooms')
-                            ->label('Room Categories')
-                            ->hiddenLabel()
-                            ->contained(false)
-                            ->schema([
-                                Grid::make(2)
-                                    ->schema([
-                                        TextEntry::make('roomCategory.name')
-                                            ->label('Room Type')
-                                            ->icon('heroicon-o-home')
-                                            ->color('primary'),
+                                TextEntry::make('has_breakfast')
+                                    ->label('🍳 Breakfast')
+                                    ->formatStateUsing(fn($state) => $state ? 'Yes' : 'No')
+                                    ->badge()
+                                    ->color(fn($state) => $state ? 'success' : 'gray')
+                                    ->columnSpan(1),
 
-                                        TextEntry::make('price')
-                                            ->label('Price')
-                                            ->money('CNY')
-                                            ->icon('heroicon-o-currency-dollar')
-                                            ->color('success'),
-                                    ])
+                                TextEntry::make('id')
+                                    ->label('💰 Room Prices')
+                                    ->formatStateUsing(fn($state, $record) => 
+                                        $record->rooms && $record->rooms->isNotEmpty()
+                                            ? nl2br(e(
+                                                $record->rooms->map(function ($room) use ($record) {
+                                                    $currency = $record->breakdown?->currency;
+                                                    $symbol = $currency?->symbol ?? $currency?->code ?? '';
+                                                    $roomName = $room->roomCategory?->name ?? 'Unknown';
+                                                    $price = number_format($room->price, 2);
+                                                    return "• {$roomName}: {$symbol}{$price}";
+                                                })->implode("\n")
+                                            ))
+                                            : 'No rooms'
+                                    )
+                                    ->html()
+                                    ->color('info')
+                                    ->columnSpan(1),
                             ])
                     ])
             ])
@@ -403,50 +405,56 @@ class BreakdownTab
                     ->hiddenLabel()
                     ->contained(false)
                     ->schema([
-                        Grid::make(3)
+                        Grid::make(5)
                             ->schema([
                                 TextEntry::make('attraction.name')
-                                    ->label('Attraction')
-                                    ->icon('heroicon-o-building-library')
-                                    ->color('primary'),
+                                    ->label('🏛️ Attraction')
+                                    ->weight('bold')
+                                    ->color('primary')
+                                    ->columnSpan(1),
 
                                 TextEntry::make('city.name')
-                                    ->label('City')
-                                    ->icon('heroicon-o-map-pin')
-                                    ->color('success'),
+                                    ->label('📍 City')
+                                    ->badge()
+                                    ->color('success')
+                                    ->columnSpan(1),
+
+                                TextEntry::make('is_outview')
+                                    ->label('👁️ Outview')
+                                    ->formatStateUsing(fn($state) => $state ? 'Yes' : 'No')
+                                    ->badge()
+                                    ->color(fn($state) => $state ? 'warning' : 'success')
+                                    ->columnSpan(1),
 
                                 TextEntry::make('entry_price')
-                                    ->label('Entry Price')
-                                    ->money('CNY')
-                                    ->icon('heroicon-o-currency-dollar')
-                                    ->color('warning'),
-                            ]),
+                                    ->label('💵 Entry Price')
+                                    ->formatStateUsing(function ($state, $record) {
+                                        $currency = $record->breakdown?->currency;
+                                        $symbol = $currency?->symbol ?? $currency?->code ?? '';
+                                        return $symbol . number_format($state, 2);
+                                    })
+                                    ->badge()
+                                    ->color('warning')
+                                    ->columnSpan(1),
 
-                        TextEntry::make('is_outview')
-                            ->label('Outview')
-                            ->formatStateUsing(fn($state) => $state ? 'Yes' : 'No')
-                            ->badge()
-                            ->color(fn($state) => $state ? 'warning' : 'success'),
-
-                        // Sub Attractions
-                        RepeatableEntry::make('subAttractions')
-                            ->label('Sub Attractions')
-                            ->hiddenLabel()
-                            ->contained(false)
-                            ->schema([
-                                Grid::make(2)
-                                    ->schema([
-                                        TextEntry::make('subAttraction.name')
-                                            ->label('Sub Attraction')
-                                            ->icon('heroicon-o-building-office')
-                                            ->color('primary'),
-
-                                        TextEntry::make('price')
-                                            ->label('Price')
-                                            ->money('CNY')
-                                            ->icon('heroicon-o-currency-dollar')
-                                            ->color('success'),
-                                    ])
+                                TextEntry::make('id')
+                                    ->label('🎫 Sub-Attractions')
+                                    ->formatStateUsing(fn($state, $record) => 
+                                        $record->subAttractions && $record->subAttractions->isNotEmpty()
+                                            ? nl2br(e(
+                                                $record->subAttractions->map(function ($subAttraction) use ($record) {
+                                                    $currency = $record->breakdown?->currency;
+                                                    $symbol = $currency?->symbol ?? $currency?->code ?? '';
+                                                    $name = $subAttraction->subAttraction?->name ?? 'Unknown';
+                                                    $price = number_format($subAttraction->price, 2);
+                                                    return "• {$name}: {$symbol}{$price}";
+                                                })->implode("\n")
+                                            ))
+                                            : 'No sub-attractions'
+                                    )
+                                    ->html()
+                                    ->color('info')
+                                    ->columnSpan(1),
                             ])
                     ])
             ])
@@ -518,6 +526,7 @@ class BreakdownTab
 
                                 TextEntry::make('charge_mode')
                                     ->label('Charge Mode')
+                                    ->formatStateUsing(fn($state) => $state?->label() ?? $state)
                                     ->badge()
                                     ->color('info'),
                             ])
@@ -531,16 +540,35 @@ class BreakdownTab
         return Action::make('regenerate_breakdown')
             ->label('Regenerate')
             ->icon('heroicon-m-arrow-path')
-            ->color('primary')
+            ->color(fn(QuotationItinerary $quotationItinerary) => 
+                $quotationItinerary->itinerary?->is_complete ? 'primary' : 'gray'
+            )
+            ->disabled(fn(QuotationItinerary $quotationItinerary) => 
+                !$quotationItinerary->itinerary?->is_complete
+            )
+            ->tooltip(fn(QuotationItinerary $quotationItinerary) => 
+                !$quotationItinerary->itinerary?->is_complete 
+                    ? 'Please complete the itinerary before regenerating breakdown' 
+                    : null
+            )
             ->action(function (QuotationItinerary $quotationItinerary) {
-                if ($quotationItinerary->breakdown && $quotationItinerary->itinerary) {
+                if ($quotationItinerary->breakdown && $quotationItinerary->itinerary && $quotationItinerary->itinerary->is_complete) {
                     // Regenerate breakdown from itinerary
                     $quotationItinerary->generateBreakdownFromItinerary();
 
                     Notification::make()
                         ->title('Breakdown regenerated successfully!')
-                        ->body('The breakdown has been updated based on the current itinerary.')
+                        ->body('The breakdown has been updated. Redirecting to breakdown editor...')
                         ->success()
+                        ->send();
+                    
+                    // Redirect to breakdown edit form
+                    return redirect()->to(\App\Filament\App\Resources\QuotationItineraries\QuotationItineraryResource::getUrl('edit-breakdown', ['record' => $quotationItinerary]));
+                } else {
+                    Notification::make()
+                        ->title('Cannot Regenerate')
+                        ->body('Please complete the itinerary first before regenerating breakdown.')
+                        ->warning()
                         ->send();
                 }
             })
@@ -594,7 +622,7 @@ class BreakdownTab
         return Action::make('edit_breakdown')
             ->label('Edit')
             ->icon('heroicon-m-pencil-square')
-            ->color('gray')
+            ->color('primary')
             ->url(fn(QuotationItinerary $quotationItinerary) => \App\Filament\App\Resources\QuotationItineraries\QuotationItineraryResource::getUrl('edit-breakdown', ['record' => $quotationItinerary]));
     }
 
