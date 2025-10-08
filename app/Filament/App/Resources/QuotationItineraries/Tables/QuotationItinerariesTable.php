@@ -4,6 +4,7 @@ namespace App\Filament\App\Resources\QuotationItineraries\Tables;
 
 use Filament\Actions\ActionGroup;
 use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
@@ -116,6 +117,11 @@ class QuotationItinerariesTable
             ->recordActions([
                 ActionGroup::make([
                     ViewAction::make(),
+                    DeleteAction::make()
+                        ->requiresConfirmation()
+                        ->modalHeading(fn ($record) => 'Delete Quotation ' . ($record->quotation?->number ?? 'N/A'))
+                        ->modalDescription(fn ($record) => 'Are you sure you want to delete quotation itinerary "' . ($record->quotation?->number ?? 'N/A') . '"? This action cannot be undone and will permanently remove all associated data.')
+                        ->modalSubmitActionLabel('Yes, delete it'),
                 ]),
             ])
             ->defaultSort('created_at', 'desc')
