@@ -16,6 +16,32 @@ class EditItinerary extends EditRecord
 {
     protected static string $resource = ItineraryResource::class;
 
+    public function getTitle(): string|\Illuminate\Contracts\Support\Htmlable
+    {
+        $itineraryable = $this->record->itineraryable;
+        
+        if ($itineraryable instanceof QuotationItinerary) {
+            return 'Edit Itinerary - Quotation ' . ($itineraryable->quotation?->number ?? 'N/A');
+        } elseif ($itineraryable instanceof \App\Models\Tenants\Inquiry) {
+            return 'Edit Itinerary - Inquiry ' . ($itineraryable->number ?? $itineraryable->id);
+        }
+        
+        return 'Edit Itinerary';
+    }
+
+    public function getRecordTitle(): string|\Illuminate\Contracts\Support\Htmlable
+    {
+        $itineraryable = $this->record->itineraryable;
+        
+        if ($itineraryable instanceof QuotationItinerary) {
+            return 'Quotation ' . ($itineraryable->quotation?->number ?? 'N/A');
+        } elseif ($itineraryable instanceof \App\Models\Tenants\Inquiry) {
+            return 'Inquiry ' . ($itineraryable->number ?? $itineraryable->id);
+        }
+        
+        return 'Itinerary';
+    }
+
     protected function mutateFormDataBeforeFill(array $data): array
     {
         // Load itinerary with optimized relationships using static method

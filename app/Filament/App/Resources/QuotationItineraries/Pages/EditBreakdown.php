@@ -18,6 +18,16 @@ class EditBreakdown extends EditRecord
 
     public ?Breakdown $breakdown = null;
 
+    public function getTitle(): string|\Illuminate\Contracts\Support\Htmlable
+    {
+        return 'Edit Breakdown - Quotation ' . ($this->record->quotation?->number ?? 'N/A');
+    }
+
+    public function getRecordTitle(): string|\Illuminate\Contracts\Support\Htmlable
+    {
+        return $this->record->quotation?->number ?? 'N/A';
+    }
+
     public function mount(int|string $record): void
     {
         parent::mount($record);
@@ -82,11 +92,6 @@ class EditBreakdown extends EditRecord
                 ->icon('heroicon-o-eye')
                 ->color('gray'),
         ];
-    }
-
-    public function getTitle(): string
-    {
-        return 'Edit Breakdown - ' . ($this->record->quotation->title ?? 'Quotation Itinerary');
     }
 
     public function form(Schema $schema): Schema

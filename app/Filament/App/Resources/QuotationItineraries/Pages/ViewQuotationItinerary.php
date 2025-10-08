@@ -10,6 +10,16 @@ class ViewQuotationItinerary extends ViewRecord
 {
     protected static string $resource = QuotationItineraryResource::class;
 
+    public function getTitle(): string|\Illuminate\Contracts\Support\Htmlable
+    {
+        return 'Quotation ' . ($this->record->quotation?->number ?? 'N/A');
+    }
+
+    public function getRecordTitle(): string|\Illuminate\Contracts\Support\Htmlable
+    {
+        return $this->record->quotation?->number ?? 'N/A';
+    }
+
     protected function getHeaderActions(): array
     {
         return [
