@@ -41,9 +41,9 @@ class CreateQuotationItinerary extends CreateRecord
             'inquiry_date_type' => 'required|string',
             'accommodation_stars' => 'nullable|integer|min:1|max:5',
             'from_date' => 'required|date',
-            'to_date' => 'required|date|after_or_equal:from_date',
+            'to_date' => 'required|date|after:from_date',
             'quotation_type' => 'required|string',
-            'exchange_rate' => 'required|numeric|min:0',
+            'exchange_rate' => 'required|numeric|gt:0',
             'expire_date' => 'required|date|after:today',
             'quotation_description' => 'nullable|string',
             'internal_note' => 'nullable|string',
@@ -100,6 +100,6 @@ class CreateQuotationItinerary extends CreateRecord
 
     protected function getRedirectUrl(): string
     {
-        return $this->getResource()::getUrl('edit', ['record' => $this->record]);
+        return $this->getResource()::getUrl('view', ['record' => $this->record]);
     }
 }

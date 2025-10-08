@@ -103,7 +103,14 @@ class ComprehensiveQuotationItineraryForm
                                         InquiryDateTypeEnum::FIXED_DATE->value,
                                         InquiryDateTypeEnum::SERIES->value,
                                         InquiryDateTypeEnum::FLEXIBLE_DATE->value
-                                    ])),
+                                    ]))
+                                    ->afterStateUpdated(function ($state, $set, $get) {
+                                        // Clear to_date if it's before or equal to from_date
+                                        $toDate = $get('to_date');
+                                        if ($toDate && $state && $toDate <= $state) {
+                                            $set('to_date', null);
+                                        }
+                                    }),
                                 
                                 DatePicker::make('to_date')
                                     ->label(fn ($get) => match($get('inquiry_date_type')) {
@@ -119,7 +126,29 @@ class ComprehensiveQuotationItineraryForm
                                         InquiryDateTypeEnum::FLEXIBLE_DATE->value,
                                         InquiryDateTypeEnum::SERIES->value,
                                     ]))
-                                    ->after('from_date'),
+                                    ->minDate(fn ($get) => $get('from_date') 
+                                        ? \Carbon\Carbon::parse($get('from_date'))->addDay() 
+                                        : null)
+                                    ->disabled(fn ($get) => !$get('from_date'))
+                                    ->helperText(fn ($get) => !$get('from_date') 
+                                        ? 'Please select From Date first' 
+                                        : 'Must be at least 1 day after From Date')
+                                    ->rules([
+                                        'required',
+                                        function ($get) {
+                                            return function (string $attribute, $value, \Closure $fail) use ($get) {
+                                                $fromDate = $get('from_date');
+                                                if ($fromDate && $value) {
+                                                    $from = \Carbon\Carbon::parse($fromDate);
+                                                    $to = \Carbon\Carbon::parse($value);
+                                                    
+                                                    if ($to->lte($from)) {
+                                                        $fail('The end date must be at least 1 day after the start date.');
+                                                    }
+                                                }
+                                            };
+                                        },
+                                    ]),
                             ]),
                     ]),
                 
@@ -152,13 +181,18 @@ class ComprehensiveQuotationItineraryForm
                                             return "1 Quotation Currency = {$exchangeRate} Your Setting Currency";
                                         }
                                         
-                                        return "1 Quotation Currency = ... Your Currency";
+                                        return "Enter a valid number with up to 4 decimal places (e.g., 42500.5000)";
                                     })
-                                    ->numeric()
-                                    ->step(0.0001)
-                                    ->default(1.0000)
+                                    ->placeholder('e.g., 1.0000')
+                                    ->default('1.0000')
                                     ->required()
-                                    ->reactive(),
+                                    ->reactive()
+                                    ->rules(['required', 'regex:/^\d+(\.\d{1,4})?$/', 'numeric', 'gt:0'])
+                                    ->validationMessages([
+                                        'regex' => 'Please enter a valid number with up to 4 decimal places.',
+                                        'numeric' => 'Exchange rate must be a number.',
+                                        'gt' => 'Exchange rate must be greater than 0.',
+                                    ]),
                                 
                                 DatePicker::make('expire_date')
                                     ->label('Expire Date')

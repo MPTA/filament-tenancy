@@ -100,13 +100,13 @@ class InformationTab
                     ->schema([
                         TextEntry::make('quotation.id')
                             ->label('From Date')
-                            ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->inquiryItinerary?->from_date?->format('Y-m-d') ?? 'Not specified')
+                            ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->inquiryItinerary?->from_date?->format('M d, Y') ?? 'Not specified')
                             ->icon('heroicon-o-calendar-days')
                             ->color('success'),
 
                         TextEntry::make('quotation.id')
                             ->label('To Date')
-                            ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->inquiryItinerary?->to_date?->format('Y-m-d') ?? 'Not specified')
+                            ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->inquiryItinerary?->to_date?->format('M d, Y') ?? 'Not specified')
                             ->icon('heroicon-o-calendar-days')
                             ->color('warning'),
                     ]),
