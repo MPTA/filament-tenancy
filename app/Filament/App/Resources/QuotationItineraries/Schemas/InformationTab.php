@@ -79,7 +79,7 @@ class InformationTab
 
                         TextEntry::make('quotation.id')
                             ->label('Date Type')
-                            ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->inquiryItinerary?->date_type?->value ?? 'Not specified')
+                            ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->inquiryItinerary?->date_type?->label() ?? 'Not specified')
                             ->icon('heroicon-o-calendar')
                             ->color('primary'),
                     ]),
