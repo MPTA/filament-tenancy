@@ -261,9 +261,38 @@ class QuotationOfferGroup extends Model
         // Clear existing ticket records for this companion
         $companion->tickets()->delete();
         
-        // Get all breakdown tickets
+        $itinerary = $this->quotationItinerary->itinerary;
+        if (!$itinerary) {
+            return;
+        }
+        
+        // Get all breakdown tickets with their corresponding itinerary days
         foreach ($breakdown->tickets as $breakdownTicket) {
-            if (($breakdownTicket->price ?? 0) > 0) {
+            if (($breakdownTicket->price ?? 0) <= 0) {
+                continue;
+            }
+            
+            // Find the day where this ticket is used
+            $ticketDay = $itinerary->days()
+                ->whereHas('activities.ticket', function ($query) use ($breakdownTicket) {
+                    $query->where('to_city_id', $breakdownTicket->to_city_id)
+                          ->where('transport_mode', $breakdownTicket->transport_mode?->value ?? $breakdownTicket->transport_mode);
+                })
+                ->first();
+            
+            if (!$ticketDay) {
+                continue;
+            }
+            
+            // Check if companion exists on the next day after ticket
+            $nextDay = $itinerary->days()
+                ->where('day_number', $ticketDay->day_number + 1)
+                ->first();
+            
+            // If there's no next day, or companion exists on next day, include the ticket
+            $shouldIncludeTicket = !$nextDay || $nextDay->companion_hire_mode;
+            
+            if ($shouldIncludeTicket) {
                 $companion->tickets()->create([
                     'from_city_id' => $breakdownTicket->from_city_id,
                     'to_city_id' => $breakdownTicket->to_city_id,
