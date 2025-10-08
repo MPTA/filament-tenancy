@@ -65,7 +65,7 @@ class ItineraryTab
                     ->schema([
                         TextEntry::make('itinerary.travel_mode')
                             ->label('Travel Mode')
-                            ->formatStateUsing(fn($state) => $state?->value ?? 'Not specified')
+                            ->formatStateUsing(fn($state) => $state?->getLabel() ?? 'Not specified')
                             ->icon('heroicon-o-globe-alt')
                             ->color('primary'),
 
@@ -155,10 +155,30 @@ class ItineraryTab
                     ->schema([
                         // Day Header
                         Section::make()
-                            ->heading(fn($record) => "Day {$record->day_number}")
+                            ->heading(function ($record) {
+                                $heading = "Day {$record->day_number}";
+                                
+                                $badges = [];
+                                // Check for vehicle
+                                if ($record->vehicle_usage_mode || $record->vehicle_type_id) {
+                                    $badges[] = '🚗';
+                                }
+                                
+                                // Check for companion
+                                if ($record->companion_hire_mode?->value === 'daily') {
+                                    $badges[] = '👤';
+                                }
+                                
+                                if (!empty($badges)) {
+                                    $heading .= ' ' . implode(' ', $badges);
+                                }
+                                
+                                return $heading;
+                            })
                             ->description(function ($record) {
                                 $items = [];
-                                $items[] = '📍 ' . ($record->accommodationCity?->name ?? 'Unknown City');
+                                $cityName = $record->accommodationCity?->name ?? $record->currentCity?->name ?? 'Unknown City';
+                                $items[] = '📍 ' . $cityName;
 
                                 // Add hotel name and star rating
                                 if ($record->accommodation) {
@@ -222,6 +242,24 @@ class ItineraryTab
                                 if (!empty($bldItems)) {
                                     $items[] = '🍽️ ' . implode('', $bldItems);
                                 }
+                                
+                                // Add vehicle info
+                                if ($record->vehicle_usage_mode || $record->vehicle_type_id) {
+                                    $vehicleInfo = '🚗 Vehicle';
+                                    if ($record->vehicleType) {
+                                        $vehicleInfo .= ': ' . $record->vehicleType->name;
+                                    }
+                                    $items[] = $vehicleInfo;
+                                }
+                                
+                                // Add companion info
+                                if ($record->companion_hire_mode?->value === 'daily') {
+                                    $companionInfo = '👤 Companion';
+                                    if ($record->companionCategory) {
+                                        $companionInfo .= ': ' . $record->companionCategory->name;
+                                    }
+                                    $items[] = $companionInfo;
+                                }
 
                                 return implode(' | ', $items);
                             })
@@ -230,6 +268,8 @@ class ItineraryTab
                             ->collapsed()
                             ->schema([
                                 self::mealsSection(),
+                                self::vehicleSection(),
+                                self::companionSection(),
                                 self::ticketsSection(),
                                 self::attractionsSection(),
                                 self::experiencesSection(),
@@ -350,7 +390,7 @@ class ItineraryTab
                     ->get();
 
                 if ($ticketActivities->isEmpty()) {
-                    return 'No tickets';
+                    return null;
                 }
 
                 $ticketInfo = [];
@@ -378,6 +418,14 @@ class ItineraryTab
             })
             ->icon('heroicon-o-ticket')
             ->color('primary')
+            ->hidden(function ($state, $record) {
+                $ticketActivities = $record->activities()
+                    ->whereHas('activityCategory', function ($query) {
+                        $query->where('type', \App\Enums\ActivityCategoryTypeEnum::TICKET->value);
+                    })
+                    ->get();
+                return $ticketActivities->isEmpty();
+            })
             ->columnSpanFull();
     }
 
@@ -394,7 +442,7 @@ class ItineraryTab
                     ->get();
 
                 if ($attractionActivities->isEmpty()) {
-                    return 'No attractions';
+                    return null;
                 }
 
                 $attractionInfo = [];
@@ -422,6 +470,14 @@ class ItineraryTab
             })
             ->icon('heroicon-o-building-library')
             ->color('info')
+            ->hidden(function ($state, $record) {
+                $attractionActivities = $record->activities()
+                    ->whereHas('activityCategory', function ($query) {
+                        $query->where('type', \App\Enums\ActivityCategoryTypeEnum::ATTRACTION->value);
+                    })
+                    ->get();
+                return $attractionActivities->isEmpty();
+            })
             ->columnSpanFull();
     }
 
@@ -438,7 +494,7 @@ class ItineraryTab
                     ->get();
 
                 if ($experienceActivities->isEmpty()) {
-                    return 'No experiences';
+                    return null;
                 }
 
                 $experienceInfo = [];
@@ -453,15 +509,77 @@ class ItineraryTab
             })
             ->icon('heroicon-o-sparkles')
             ->color('warning')
+            ->hidden(function ($state, $record) {
+                $experienceActivities = $record->activities()
+                    ->whereHas('activityCategory', function ($query) {
+                        $query->where('type', \App\Enums\ActivityCategoryTypeEnum::EXPERIENCE->value);
+                    })
+                    ->get();
+                return $experienceActivities->isEmpty();
+            })
             ->columnSpanFull();
     }
 
     private static function descriptionSection(): TextEntry
     {
         return TextEntry::make('description')
-            ->label('Description')
-            ->formatStateUsing(fn($state) => $state ?? 'No description')
+            ->label('📝 Description')
             ->icon('heroicon-o-document-text')
+            ->hidden(fn($state) => empty($state))
+            ->columnSpanFull();
+    }
+
+    private static function vehicleSection(): TextEntry
+    {
+        return TextEntry::make('vehicle_type_id')
+            ->label('🚗 Vehicle')
+            ->formatStateUsing(function ($state, $record) {
+                if (!$record->vehicle_type_id && !$record->vehicle_usage_mode) {
+                    return null;
+                }
+                
+                $vehicleInfo = [];
+                
+                if ($record->vehicleType) {
+                    $vehicleInfo[] = $record->vehicleType->name;
+                }
+                
+                if ($record->vehicle_usage_mode) {
+                    $vehicleInfo[] = "Mode: " . $record->vehicle_usage_mode->label();
+                }
+                
+                return !empty($vehicleInfo) ? implode(' | ', $vehicleInfo) : null;
+            })
+            ->icon('heroicon-o-truck')
+            ->color('primary')
+            ->hidden(fn($state, $record) => !$record->vehicle_type_id && !$record->vehicle_usage_mode)
+            ->columnSpanFull();
+    }
+
+    private static function companionSection(): TextEntry
+    {
+        return TextEntry::make('companion_category_id')
+            ->label('👤 Companion')
+            ->formatStateUsing(function ($state, $record) {
+                if ($record->companion_hire_mode?->value !== 'daily') {
+                    return null;
+                }
+                
+                $companionInfo = [];
+                
+                if ($record->companionCategory) {
+                    $companionInfo[] = $record->companionCategory->name;
+                }
+                
+                if ($record->companion_hire_mode) {
+                    $companionInfo[] = "Mode: " . $record->companion_hire_mode->label();
+                }
+                
+                return !empty($companionInfo) ? implode(' | ', $companionInfo) : null;
+            })
+            ->icon('heroicon-o-user')
+            ->color('success')
+            ->hidden(fn($state, $record) => $record->companion_hire_mode?->value !== 'daily')
             ->columnSpanFull();
     }
 

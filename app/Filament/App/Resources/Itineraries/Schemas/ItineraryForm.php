@@ -188,6 +188,7 @@ class ItineraryForm
                             ->searchable()
                             ->preload()
                             ->reactive()
+                            ->hidden(fn($get) => empty($get('accommodation_city_id')))
                             ->afterStateUpdated(function ($state, callable $set, callable $get) {
                                 // اگر accommodation انتخاب شد و star rating خالی بود
                                 if ($state && !$get('accommodation_star_rating')) {
@@ -199,6 +200,7 @@ class ItineraryForm
                             }),
                         Toggle::make('has_vehicle')->label('Has Car')
                             ->reactive()
+                            ->columnStart(1)
                             ->default(function (callable $get) {
                                 // Set default based on existing vehicle data
                                 $vehicleMode = $get('vehicle_usage_mode');

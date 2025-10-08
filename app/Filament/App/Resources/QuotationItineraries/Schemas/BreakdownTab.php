@@ -65,10 +65,25 @@ class BreakdownTab
                         Action::make('Create Breakdown')
                             ->size(Size::ExtraLarge)
                             ->icon('heroicon-m-plus-circle')
-                            ->color('primary')
+                            ->color(fn(QuotationItinerary $quotationItinerary) => 
+                                $quotationItinerary->itinerary?->is_complete ? 'primary' : 'gray'
+                            )
+                            ->disabled(fn(QuotationItinerary $quotationItinerary) => 
+                                !$quotationItinerary->itinerary?->is_complete
+                            )
+                            ->label(fn(QuotationItinerary $quotationItinerary) => 
+                                $quotationItinerary->itinerary?->is_complete 
+                                    ? 'Create Breakdown' 
+                                    : 'Complete Itinerary First'
+                            )
+                            ->tooltip(fn(QuotationItinerary $quotationItinerary) => 
+                                !$quotationItinerary->itinerary?->is_complete 
+                                    ? 'Please complete the itinerary before creating breakdown' 
+                                    : null
+                            )
                             ->action(function (QuotationItinerary $quotationItinerary) {
                                 // Check if itinerary is complete
-                                if (!$quotationItinerary->itinerary || !$quotationItinerary->itinerary->days->count()) {
+                                if (!$quotationItinerary->itinerary || !$quotationItinerary->itinerary->is_complete) {
                                     Notification::make()
                                         ->title('Incomplete Itinerary')
                                         ->body('Please complete the itinerary first before generating breakdown.')
