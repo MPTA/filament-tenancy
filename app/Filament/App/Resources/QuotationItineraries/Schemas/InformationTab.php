@@ -12,6 +12,7 @@ use Filament\Forms\Components\Toggle;
 use Filament\Notifications\Notification;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Components\IconEntry;
+use Filament\Infolists\Infolist;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Tabs\Tab;
@@ -60,7 +61,18 @@ class InformationTab
                             ->label('Contact')
                             ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->contact?->full_name ?? 'No contact')
                             ->icon('heroicon-o-user')
-                            ->color('success'),
+                            ->color('success')
+                            ->action(
+                                Action::make('viewContact')
+                                    ->label('View Contact Details')
+                                    ->icon('heroicon-o-user-circle')
+                                    ->modalHeading(fn($record) => $record->quotation?->inquiry?->contact?->full_name ?? 'Contact Details')
+                                    ->modalDescription('Complete information about this contact')
+                                    ->modalSubmitAction(false)
+                                    ->modalCancelActionLabel('Close')
+                                    ->infolist(fn($record) => self::getContactInfolist($record->quotation?->inquiry?->contact))
+                                    ->disabled(fn($record) => !$record->quotation?->inquiry?->contact)
+                            ),
 
                         TextEntry::make('quotation.id')
                             ->label('Requested Currency')
@@ -323,5 +335,105 @@ class InformationTab
             })
             ->modalHeading('Edit Quotation')
             ->modalSubmitActionLabel('Save Changes');
+    }
+
+    private static function getContactInfolist($contact): array
+    {
+        if (!$contact) {
+            return [
+                TextEntry::make('no_contact')
+                    ->label('')
+                    ->formatStateUsing(fn() => 'No contact information available')
+                    ->color('gray'),
+            ];
+        }
+
+        return [
+            Section::make('Personal Information')
+                ->icon('heroicon-o-user')
+                ->schema([
+                    Grid::make(2)
+                        ->schema([
+                            TextEntry::make('first_name')
+                                ->label('First Name')
+                                ->default($contact->first_name ?? 'N/A')
+                                ->icon('heroicon-o-user'),
+
+                            TextEntry::make('last_name')
+                                ->label('Last Name')
+                                ->default($contact->last_name ?? 'N/A')
+                                ->icon('heroicon-o-user'),
+                        ]),
+
+                    Grid::make(2)
+                        ->schema([
+                            TextEntry::make('gender')
+                                ->label('Gender')
+                                ->default($contact->gender ?? 'Not specified')
+                                ->icon('heroicon-o-identification')
+                                ->badge()
+                                ->color(fn() => match($contact->gender ?? null) {
+                                    'male' => 'info',
+                                    'female' => 'danger',
+                                    default => 'gray',
+                                }),
+
+                            TextEntry::make('company')
+                                ->label('Company')
+                                ->default($contact->company ?? 'N/A')
+                                ->icon('heroicon-o-building-office'),
+                        ]),
+                ]),
+
+            Section::make('Contact Information')
+                ->icon('heroicon-o-phone')
+                ->schema([
+                    Grid::make(2)
+                        ->schema([
+                            TextEntry::make('email')
+                                ->label('Email')
+                                ->default($contact->email ?? 'N/A')
+                                ->icon('heroicon-o-envelope')
+                                ->copyable()
+                                ->copyMessage('Email copied!')
+                                ->color('primary'),
+
+                            TextEntry::make('phone')
+                                ->label('Phone')
+                                ->default($contact->phone ?? 'N/A')
+                                ->icon('heroicon-o-phone')
+                                ->copyable()
+                                ->copyMessage('Phone copied!'),
+                        ]),
+
+                    TextEntry::make('mobile')
+                        ->label('Mobile')
+                        ->default($contact->mobile ?? 'N/A')
+                        ->icon('heroicon-o-device-phone-mobile')
+                        ->copyable()
+                        ->copyMessage('Mobile copied!')
+                        ->columnSpanFull(),
+
+                    TextEntry::make('postal_address')
+                        ->label('Postal Address')
+                        ->default($contact->postal_address ?? 'N/A')
+                        ->icon('heroicon-o-map-pin')
+                        ->columnSpanFull(),
+                ]),
+
+            Section::make('Account Status')
+                ->icon('heroicon-o-check-badge')
+                ->schema([
+                    IconEntry::make('is_customer')
+                        ->label('Customer Status')
+                        ->default($contact->is_customer ?? false)
+                        ->boolean()
+                        ->trueIcon('heroicon-o-check-circle')
+                        ->falseIcon('heroicon-o-x-circle')
+                        ->trueColor('success')
+                        ->falseColor('gray')
+                        ->label(fn() => $contact->is_customer ? 'Active Customer' : 'Not a Customer'),
+                ]),
+        ];
     }
 }
