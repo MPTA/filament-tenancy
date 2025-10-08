@@ -583,10 +583,20 @@ class BreakdownTab
         return Action::make('complete_breakdown')
             ->label('Complete')
             ->icon('heroicon-m-check-circle')
-            ->color('success')
+            ->color(fn(QuotationItinerary $quotationItinerary) => 
+                $quotationItinerary->itinerary?->is_complete ? 'success' : 'gray'
+            )
             ->hidden(function (QuotationItinerary $quotationItinerary) {
                 return !$quotationItinerary->breakdown || $quotationItinerary->breakdown->is_completed;
             })
+            ->disabled(fn(QuotationItinerary $quotationItinerary) => 
+                !$quotationItinerary->itinerary?->is_complete
+            )
+            ->tooltip(fn(QuotationItinerary $quotationItinerary) => 
+                !$quotationItinerary->itinerary?->is_complete 
+                    ? 'Please complete the itinerary before marking breakdown as complete' 
+                    : null
+            )
             ->action(function (QuotationItinerary $quotationItinerary) {
                 // Check if itinerary is complete first
                 if (!$quotationItinerary->itinerary || !$quotationItinerary->itinerary->is_complete) {
@@ -622,7 +632,17 @@ class BreakdownTab
         return Action::make('edit_breakdown')
             ->label('Edit')
             ->icon('heroicon-m-pencil-square')
-            ->color('primary')
+            ->color(fn(QuotationItinerary $quotationItinerary) => 
+                $quotationItinerary->itinerary?->is_complete ? 'primary' : 'gray'
+            )
+            ->disabled(fn(QuotationItinerary $quotationItinerary) => 
+                !$quotationItinerary->itinerary?->is_complete
+            )
+            ->tooltip(fn(QuotationItinerary $quotationItinerary) => 
+                !$quotationItinerary->itinerary?->is_complete 
+                    ? 'Please complete the itinerary before editing breakdown' 
+                    : null
+            )
             ->url(fn(QuotationItinerary $quotationItinerary) => \App\Filament\App\Resources\QuotationItineraries\QuotationItineraryResource::getUrl('edit-breakdown', ['record' => $quotationItinerary]));
     }
 

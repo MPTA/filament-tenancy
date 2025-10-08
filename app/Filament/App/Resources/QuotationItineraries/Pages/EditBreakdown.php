@@ -22,6 +22,18 @@ class EditBreakdown extends EditRecord
     {
         parent::mount($record);
         $this->breakdown = $this->record->breakdown;
+        
+        // Check if itinerary is complete before allowing edit
+        if (!$this->record->itinerary?->is_complete) {
+            Notification::make()
+                ->title('Cannot Edit Breakdown')
+                ->body('Please complete the itinerary before editing the breakdown.')
+                ->warning()
+                ->send();
+            
+            // Redirect to view page
+            $this->redirect(QuotationItineraryResource::getUrl('view', ['record' => $this->record]));
+        }
     }
 
     protected function getHeaderActions(): array
@@ -130,6 +142,18 @@ class EditBreakdown extends EditRecord
 
     protected function mutateFormDataBeforeSave(array $data): array
     {
+        // Check if itinerary is complete before saving
+        if (!$this->record->itinerary?->is_complete) {
+            Notification::make()
+                ->title('Cannot Save Breakdown')
+                ->body('The itinerary is not complete. Please complete the itinerary first.')
+                ->danger()
+                ->send();
+            
+            // Stop the save process
+            $this->halt();
+        }
+        
         if ($this->record->breakdown) {
             // Update main breakdown fields
             $breakdownData = collect($data)->except([
