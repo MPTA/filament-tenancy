@@ -59,6 +59,7 @@ class ViewQuotationItinerary extends ViewRecord
             'quotationOfferGroups.quotationOfferGroupCompanions.livingCity',
             'quotationOfferGroups.quotationOfferGroupCompanions.roomCategory',
             'quotationOfferGroups.quotationItinerary.breakdown',
+            'quotationOfferGroups.quotationItinerary.quotation.currency',
         ]);
     }
 }

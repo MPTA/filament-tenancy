@@ -809,11 +809,20 @@ class OffersTab
                                     return 'No prices';
                                 }
                                 
+                                // Get quotation exchange rate and currency
+                                $quotation = $record->quotationOfferGroup->quotationItinerary->quotation;
+                                $exchangeRate = $quotation->exchange_rate ?? 1;
+                                $currencyCode = $quotation->currency?->code ?? 'CNY';
+                                
                                 $prices = [];
                                 foreach ($record->quotationOfferPrices as $price) {
                                     $roomName = $price->roomCategory?->name ?? 'Unknown';
-                                    $priceFormatted = number_format($price->per_person_price, 2);
-                                    $prices[] = "<div class='text-xs'><strong>{$roomName}</strong>: {$priceFormatted}</div>";
+                                    // Convert to quotation currency
+                                    // Exchange rate format: 1 Quotation Currency = X Tenant Currency
+                                    // So to convert: Tenant Currency Price ÷ Exchange Rate = Quotation Currency Price
+                                    $priceInQuotationCurrency = $price->per_person_price / $exchangeRate;
+                                    $priceFormatted = number_format($priceInQuotationCurrency, 2);
+                                    $prices[] = "<div class='text-xs'><strong>{$roomName}</strong>: {$priceFormatted} {$currencyCode}</div>";
                                 }
                                 
                                 return new \Illuminate\Support\HtmlString(implode('', $prices));
