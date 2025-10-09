@@ -719,7 +719,7 @@ class QuotationOffer extends Model
             'accommodation_id' => null, // null for base budget accommodation
             'room_category_id' => null, // null for base budget accommodation
             'city_id' => null, // null for base budget accommodation
-            'nights' => $nightsNeeded * $this->drivers_qty,
+            'nights' => $nightsNeeded,
             'night_price' => $breakdown->driver_base_accommodation_budget,
             'is_base_budget' => true,
         ]);
@@ -787,7 +787,7 @@ class QuotationOffer extends Model
                 'accommodation_id' => $accommodationId,
                 'room_category_id' => $offerGroup->driver_room_category_id,
                 'city_id' => $cityId,
-                'nights' => $nights * $this->drivers_qty,
+                'nights' => $nights,
                 'night_price' => $driverRoomPrice,
                 'is_base_budget' => false,
             ]);
@@ -1023,8 +1023,8 @@ class QuotationOffer extends Model
                 continue;
             }
 
-            // Calculate quantity: meals count × number of drivers
-            $qty = $mealsCount * $this->drivers_qty;
+            // Quantity is just the meals count (multiplication by drivers_qty happens in accessor)
+            $qty = $mealsCount;
             
 
             // Create driver meal record
@@ -1121,7 +1121,7 @@ class QuotationOffer extends Model
                 'accommodation_id' => $accommodationId,
                 'room_category_id' => $this->leader_room_category_id,
                 'city_id' => $cityId,
-                'nights' => $nights * $this->leaders_qty,
+                'nights' => $nights,
                 'night_price' => $leaderRoomPrice,
             ]);
 
@@ -1426,7 +1426,7 @@ class QuotationOffer extends Model
         foreach ($paidMeals as $meal) {
             $this->quotationOfferLeaderMeals()->create([
                 'meal_type_id' => $meal['meal_type_id'],
-                'qty' => $meal['qty'] * $this->leaders_qty,
+                'qty' => $meal['qty'],
                 'price' => $meal['price'],
             ]);
         }
@@ -1513,7 +1513,7 @@ class QuotationOffer extends Model
     public function getDriverMealsCostAttribute(): float
     {
         return $this->quotationOfferDriverMeals->sum(function($meal) {
-            return $meal->qty * (float) $meal->price;
+            return $meal->qty * (float) $meal->price * $this->drivers_qty;
         });
     }
 
@@ -1523,7 +1523,7 @@ class QuotationOffer extends Model
     public function getDriverAccommodationsCostAttribute(): float
     {
         return $this->quotationOfferDriverAccommodations->sum(function($accommodation) {
-            return $accommodation->nights * (float) $accommodation->night_price;
+            return $accommodation->nights * (float) $accommodation->night_price * $this->drivers_qty;
         });
     }
 
@@ -1533,7 +1533,7 @@ class QuotationOffer extends Model
     public function getLeaderMealsCostAttribute(): float
     {
         return $this->quotationOfferLeaderMeals->sum(function($meal) {
-            return $meal->qty * (float) $meal->price;
+            return $meal->qty * (float) $meal->price * $this->leaders_qty;
         });
     }
 
@@ -1597,7 +1597,7 @@ class QuotationOffer extends Model
     public function getLeaderAccommodationsCostAttribute(): float
     {
         return $this->quotationOfferLeaderAccommodations->sum(function($accommodation) {
-            return $accommodation->nights * (float) $accommodation->night_price;
+            return $accommodation->nights * (float) $accommodation->night_price * $this->leaders_qty;
         });
     }
 

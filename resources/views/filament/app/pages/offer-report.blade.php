@@ -716,13 +716,14 @@
                                         <div class="detail-name">{{ $meal->mealType?->name ?? 'Base Budget' }}</div>
                                         <div class="detail-qty">{{ $meal->qty }}</div>
                                         <div class="detail-price">{{ $bCurrency }}{{ number_format($meal->price, 2) }}</div>
-                                        <div class="detail-total">{{ $bCurrency }}{{ number_format($meal->qty * $meal->price, 2) }}</div>
+                                        <div class="detail-total">{{ $bCurrency }}{{ number_format($meal->qty * $meal->price * $offer->drivers_qty, 2) }} <span style="font-size: 11px; color: #9ca3af;">({{ $meal->qty }} × {{ $offer->drivers_qty }} drivers)</span></div>
                                     </div>
                                 @endforeach
                                 
                                 <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; padding: 10px 12px; background: #fde68a; margin-top: 8px; border-radius: 4px; font-weight: 700; color: #f59e0b;">
                                     <div style="grid-column: 1 / 4; text-align: right;">👥 Driver Meals Subtotal:</div>
-                                    <div style="text-align: right; font-family: monospace;">{{ $bCurrency }}{{ number_format($offer->driver_meals_cost, 2) }}</div>
+                                    @php $driverMealsPerDriver = $driverMeals->sum(fn($m) => $m->qty * $m->price); @endphp
+                                    <div style="text-align: right; font-family: monospace;">{{ $bCurrency }}{{ number_format($offer->driver_meals_cost, 2) }} <span style="font-size: 11px; color: #d97706;">({{ number_format($driverMealsPerDriver, 2) }} × {{ $offer->drivers_qty }} = {{ number_format($offer->driver_meals_cost, 2) }})</span></div>
                                 </div>
                             </div>
                         @endif
@@ -756,13 +757,14 @@
                                         </div>
                                         <div class="detail-qty">{{ $accommodation->nights }}</div>
                                         <div class="detail-price">{{ $bCurrency }}{{ number_format($accommodation->night_price, 2) }}</div>
-                                        <div class="detail-total">{{ $bCurrency }}{{ number_format($accommodation->nights * $accommodation->night_price, 2) }}</div>
+                                        <div class="detail-total">{{ $bCurrency }}{{ number_format($accommodation->nights * $accommodation->night_price * $offer->drivers_qty, 2) }} <span style="font-size: 11px; color: #9ca3af;">({{ $accommodation->nights }}n × {{ $offer->drivers_qty }} drivers)</span></div>
                                     </div>
                                 @endforeach
                                 
                                 <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; padding: 10px 12px; background: #fbcfe8; margin-top: 8px; border-radius: 4px; font-weight: 700; color: #ec4899;">
                                     <div style="grid-column: 1 / 4; text-align: right;">👥 Driver Accommodations Subtotal:</div>
-                                    <div style="text-align: right; font-family: monospace;">{{ $bCurrency }}{{ number_format($offer->driver_accommodations_cost, 2) }}</div>
+                                    @php $driverAccomPerDriver = $driverAccommodations->sum(fn($a) => $a->nights * $a->night_price); @endphp
+                                    <div style="text-align: right; font-family: monospace;">{{ $bCurrency }}{{ number_format($offer->driver_accommodations_cost, 2) }} <span style="font-size: 11px; color: #db2777;">({{ number_format($driverAccomPerDriver, 2) }} × {{ $offer->drivers_qty }} = {{ number_format($offer->driver_accommodations_cost, 2) }})</span></div>
                                 </div>
                             </div>
                         @endif
@@ -809,13 +811,14 @@
                                         <div class="detail-name">{{ $meal->mealType?->name ?? 'N/A' }}</div>
                                         <div class="detail-qty">{{ $meal->qty }}</div>
                                         <div class="detail-price">{{ $bCurrency }}{{ number_format($meal->price, 2) }}</div>
-                                        <div class="detail-total">{{ $bCurrency }}{{ number_format($meal->qty * $meal->price, 2) }}</div>
+                                        <div class="detail-total">{{ $bCurrency }}{{ number_format($meal->qty * $meal->price * $offer->leaders_qty, 2) }} <span style="font-size: 11px; color: #9ca3af;">({{ $meal->qty }} × {{ $offer->leaders_qty }} leaders)</span></div>
                                     </div>
                                 @endforeach
                                 
                                 <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; padding: 10px 12px; background: #fde68a; margin-top: 8px; border-radius: 4px; font-weight: 700; color: #f59e0b;">
                                     <div style="grid-column: 1 / 4; text-align: right;">👥 Leader Meals Subtotal:</div>
-                                    <div style="text-align: right; font-family: monospace;">{{ $bCurrency }}{{ number_format($offer->leader_meals_cost, 2) }}</div>
+                                    @php $leaderMealsPerLeader = $leaderMeals->sum(fn($m) => $m->qty * $m->price); @endphp
+                                    <div style="text-align: right; font-family: monospace;">{{ $bCurrency }}{{ number_format($offer->leader_meals_cost, 2) }} <span style="font-size: 11px; color: #d97706;">({{ number_format($leaderMealsPerLeader, 2) }} × {{ $offer->leaders_qty }} = {{ number_format($offer->leader_meals_cost, 2) }})</span></div>
                                 </div>
                             </div>
                         @endif
@@ -864,7 +867,8 @@
                                 
                                 <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; padding: 10px 12px; background: #f3e8ff; margin-top: 8px; border-radius: 4px; font-weight: 700; color: #a855f7;">
                                     <div style="grid-column: 1 / 4; text-align: right;">👥 Leader Attractions & Sub-Attractions Subtotal:</div>
-                                    <div style="text-align: right; font-family: monospace;">{{ $bCurrency }}{{ number_format($offer->leader_attractions_cost + $offer->leader_sub_attractions_cost, 2) }}</div>
+                                    @php $leaderAttractionsPerLeader = $leaderAttractions->sum(fn($a) => $a->price + $a->subAttractions->sum("price")); @endphp
+                                    <div style="text-align: right; font-family: monospace;">{{ $bCurrency }}{{ number_format($offer->leader_attractions_cost + $offer->leader_sub_attractions_cost, 2) }} <span style="font-size: 11px; color: #9333ea;">({{ number_format($leaderAttractionsPerLeader, 2) }} × {{ $offer->leaders_qty }} = {{ number_format($offer->leader_attractions_cost + $offer->leader_sub_attractions_cost, 2) }})</span></div>
                                 </div>
                             </div>
                         @endif
@@ -898,7 +902,8 @@
                                 
                                 <div style="display: grid; grid-template-columns: 3fr 1fr 1fr; gap: 12px; padding: 10px 12px; background: #bfdbfe; margin-top: 8px; border-radius: 4px; font-weight: 700; color: #3b82f6;">
                                     <div style="grid-column: 1 / 3; text-align: right;">👥 Leader Tickets Subtotal:</div>
-                                    <div style="text-align: right; font-family: monospace;">{{ $bCurrency }}{{ number_format($offer->leader_tickets_cost, 2) }}</div>
+                                    @php $leaderTicketsPerLeader = $leaderTickets->sum("price"); @endphp
+                                    <div style="text-align: right; font-family: monospace;">{{ $bCurrency }}{{ number_format($offer->leader_tickets_cost, 2) }} <span style="font-size: 11px; color: #2563eb;">({{ number_format($leaderTicketsPerLeader, 2) }} × {{ $offer->leaders_qty }} = {{ number_format($offer->leader_tickets_cost, 2) }})</span></div>
                                 </div>
                             </div>
                         @endif
@@ -932,7 +937,8 @@
                                 
                                 <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; padding: 10px 12px; background: #fbcfe8; margin-top: 8px; border-radius: 4px; font-weight: 700; color: #ec4899;">
                                     <div style="grid-column: 1 / 4; text-align: right;">👥 Leader Experiences Subtotal:</div>
-                                    <div style="text-align: right; font-family: monospace;">{{ $bCurrency }}{{ number_format($offer->leader_experiences_cost, 2) }}</div>
+                                    @php $leaderExperiencesPerLeader = $leaderExperiences->sum("price"); @endphp
+                                    <div style="text-align: right; font-family: monospace;">{{ $bCurrency }}{{ number_format($offer->leader_experiences_cost, 2) }} <span style="font-size: 11px; color: #db2777;">({{ number_format($leaderExperiencesPerLeader, 2) }} × {{ $offer->leaders_qty }} = {{ number_format($offer->leader_experiences_cost, 2) }})</span></div>
                                 </div>
                             </div>
                         @endif
@@ -962,7 +968,8 @@
                                 
                                 <div style="display: grid; grid-template-columns: 3fr 1fr; gap: 12px; padding: 10px 12px; background: #fef08a; margin-top: 8px; border-radius: 4px; font-weight: 700; color: #eab308;">
                                     <div style="text-align: right;">👥 Leader Expenses Subtotal:</div>
-                                    <div style="text-align: right; font-family: monospace;">{{ $bCurrency }}{{ number_format($offer->leader_expenses_cost, 2) }}</div>
+                                    @php $leaderExpensesPerLeader = $leaderExpenses->sum("price"); @endphp
+                                    <div style="text-align: right; font-family: monospace;">{{ $bCurrency }}{{ number_format($offer->leader_expenses_cost, 2) }} <span style="font-size: 11px; color: #ca8a04;">({{ number_format($leaderExpensesPerLeader, 2) }} × {{ $offer->leaders_qty }} = {{ number_format($offer->leader_expenses_cost, 2) }})</span></div>
                                 </div>
                             </div>
                         @endif
@@ -990,13 +997,14 @@
                                         <div class="detail-name">{{ $accommodation->accommodation->name ?? 'N/A' }}</div>
                                         <div class="detail-qty">{{ $accommodation->nights }}</div>
                                         <div class="detail-price">{{ $bCurrency }}{{ number_format($accommodation->night_price, 2) }}</div>
-                                        <div class="detail-total">{{ $bCurrency }}{{ number_format($accommodation->nights * $accommodation->night_price, 2) }}</div>
+                                        <div class="detail-total">{{ $bCurrency }}{{ number_format($accommodation->nights * $accommodation->night_price * $offer->leaders_qty, 2) }} <span style="font-size: 11px; color: #9ca3af;">({{ $accommodation->nights }}n × {{ $offer->leaders_qty }} leaders)</span></div>
                                     </div>
                                 @endforeach
                                 
                                 <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; padding: 10px 12px; background: #bbf7d0; margin-top: 8px; border-radius: 4px; font-weight: 700; color: #22c55e;">
                                     <div style="grid-column: 1 / 4; text-align: right;">👥 Leader Accommodations Subtotal:</div>
-                                    <div style="text-align: right; font-family: monospace;">{{ $bCurrency }}{{ number_format($offer->leader_accommodations_cost, 2) }}</div>
+                                    @php $leaderAccomPerLeader = $leaderAccommodations->sum(fn($a) => $a->nights * $a->night_price); @endphp
+                                    <div style="text-align: right; font-family: monospace;">{{ $bCurrency }}{{ number_format($offer->leader_accommodations_cost, 2) }} <span style="font-size: 11px; color: #16a34a;">({{ number_format($leaderAccomPerLeader, 2) }} × {{ $offer->leaders_qty }} = {{ number_format($offer->leader_accommodations_cost, 2) }})</span></div>
                                 </div>
                             </div>
                         @endif
