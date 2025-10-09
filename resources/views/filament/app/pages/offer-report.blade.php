@@ -716,7 +716,7 @@
                                         <div class="detail-name">{{ $meal->mealType?->name ?? 'Base Budget' }}</div>
                                         <div class="detail-qty">{{ $meal->qty }}</div>
                                         <div class="detail-price">{{ $bCurrency }}{{ number_format($meal->price, 2) }}</div>
-                                        <div class="detail-total">{{ $bCurrency }}{{ number_format($meal->qty * $meal->price * $offer->drivers_qty, 2) }} <span style="font-size: 11px; color: #9ca3af;">({{ $meal->qty }} × {{ $offer->drivers_qty }} drivers)</span></div>
+                                        <div class="detail-total">{{ $bCurrency }}{{ number_format($meal->qty * $meal->price, 2) }}</div>
                                     </div>
                                 @endforeach
                                 
@@ -757,7 +757,7 @@
                                         </div>
                                         <div class="detail-qty">{{ $accommodation->nights }}</div>
                                         <div class="detail-price">{{ $bCurrency }}{{ number_format($accommodation->night_price, 2) }}</div>
-                                        <div class="detail-total">{{ $bCurrency }}{{ number_format($accommodation->nights * $accommodation->night_price * $offer->drivers_qty, 2) }} <span style="font-size: 11px; color: #9ca3af;">({{ $accommodation->nights }}n × {{ $offer->drivers_qty }} drivers)</span></div>
+                                        <div class="detail-total">{{ $bCurrency }}{{ number_format($accommodation->nights * $accommodation->night_price, 2) }}</div>
                                     </div>
                                 @endforeach
                                 
@@ -811,7 +811,7 @@
                                         <div class="detail-name">{{ $meal->mealType?->name ?? 'N/A' }}</div>
                                         <div class="detail-qty">{{ $meal->qty }}</div>
                                         <div class="detail-price">{{ $bCurrency }}{{ number_format($meal->price, 2) }}</div>
-                                        <div class="detail-total">{{ $bCurrency }}{{ number_format($meal->qty * $meal->price * $offer->leaders_qty, 2) }} <span style="font-size: 11px; color: #9ca3af;">({{ $meal->qty }} × {{ $offer->leaders_qty }} leaders)</span></div>
+                                        <div class="detail-total">{{ $bCurrency }}{{ number_format($meal->qty * $meal->price, 2) }}</div>
                                     </div>
                                 @endforeach
                                 
@@ -997,7 +997,7 @@
                                         <div class="detail-name">{{ $accommodation->accommodation->name ?? 'N/A' }}</div>
                                         <div class="detail-qty">{{ $accommodation->nights }}</div>
                                         <div class="detail-price">{{ $bCurrency }}{{ number_format($accommodation->night_price, 2) }}</div>
-                                        <div class="detail-total">{{ $bCurrency }}{{ number_format($accommodation->nights * $accommodation->night_price * $offer->leaders_qty, 2) }} <span style="font-size: 11px; color: #9ca3af;">({{ $accommodation->nights }}n × {{ $offer->leaders_qty }} leaders)</span></div>
+                                        <div class="detail-total">{{ $bCurrency }}{{ number_format($accommodation->nights * $accommodation->night_price, 2) }}</div>
                                     </div>
                                 @endforeach
                                 
@@ -1150,7 +1150,7 @@
                                                         @if($accommodation->accommodation_id)
                                                             {{ $accommodation->accommodation->name ?? 'N/A' }}
                                                         @else
-                                                            {{ $accommodation->city->name ?? 'Base Budget' }}
+                                                            Base Budget
                                                         @endif
                                                     </span>
                                                     <span style="text-align: center; color: #6b7280;">{{ $accommodation->nights }}</span>

@@ -166,6 +166,21 @@ class QuotationOfferGroup extends Model
     }
 
     /**
+     * Calculate all costs from breakdown without wrapping in transaction.
+     * Used when already inside a transaction (e.g., during edit).
+     */
+    public function calculateAllCostsFromBreakdownWithoutTransaction(): void
+    {
+        $breakdown = $this->quotationItinerary->breakdown;
+        
+        if (!$breakdown) {
+            return;
+        }
+
+        $this->performCostCalculations($breakdown);
+    }
+
+    /**
      * Perform all cost calculations within transaction
      */
     private function performCostCalculations($breakdown): void
@@ -1299,5 +1314,27 @@ class QuotationOfferGroup extends Model
         }
         
         return $breakdown;
+    }
+
+    /**
+     * Recalculate all offers in this offer group.
+     * Used when offer group settings or companions change.
+     */
+    public function recalculateAllOffers(): void
+    {
+        foreach ($this->quotationOffers as $offer) {
+            $offer->recalculateAllCosts();
+        }
+    }
+
+    /**
+     * Recalculate all offers without wrapping in transaction.
+     * Used when already inside a transaction (e.g., during edit).
+     */
+    public function recalculateAllOffersWithoutTransaction(): void
+    {
+        foreach ($this->quotationOffers as $offer) {
+            $offer->recalculateAllCostsWithoutTransaction();
+        }
     }
 }

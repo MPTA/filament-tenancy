@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\DB;
 use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 
 class QuotationOffer extends Model
@@ -1235,7 +1236,9 @@ class QuotationOffer extends Model
     {
         // Create records for half day meals
         if (isset($mealQuantities['half_day_meals'])) {
-            $halfDayQty = $mealQuantities['half_day_meals'] * $this->drivers_qty;
+            // Store base quantity without multiplying by drivers_qty
+            // Multiplication happens in accessor
+            $halfDayQty = $mealQuantities['half_day_meals'];
             $this->quotationOfferDriverMeals()->create([
                 'meal_type_id' => null, // null for base budget meals
                 'qty' => $halfDayQty,
@@ -1246,7 +1249,9 @@ class QuotationOffer extends Model
 
         // Create records for full day meals
         if (isset($mealQuantities['full_day_meals'])) {
-            $fullDayQty = $mealQuantities['full_day_meals'] * $this->drivers_qty;
+            // Store base quantity without multiplying by drivers_qty
+            // Multiplication happens in accessor
+            $fullDayQty = $mealQuantities['full_day_meals'];
             $this->quotationOfferDriverMeals()->create([
                 'meal_type_id' => null, // null for base budget meals
                 'qty' => $fullDayQty,
@@ -2040,6 +2045,55 @@ class QuotationOffer extends Model
      */
     public function triggerOfferPricesCalculation(): void
     {
+        $this->calculateOfferPrices();
+    }
+
+    /**
+     * Recalculate all costs and prices for this offer.
+     * Used when offer group settings or companions change.
+     */
+    public function recalculateAllCosts(): void
+    {
+        DB::transaction(function () {
+            $this->performRecalculation();
+        });
+    }
+
+    /**
+     * Recalculate all costs without wrapping in transaction.
+     * Used when already inside a transaction (e.g., during edit).
+     */
+    public function recalculateAllCostsWithoutTransaction(): void
+    {
+        $this->performRecalculation();
+    }
+
+    /**
+     * Perform the actual recalculation logic.
+     */
+    private function performRecalculation(): void
+    {
+        // Delete existing calculated data
+        $this->quotationOfferDriverMeals()->delete();
+        $this->quotationOfferDriverAccommodations()->delete();
+        $this->quotationOfferLeaderMeals()->delete();
+        $this->quotationOfferLeaderAccommodations()->delete();
+        $this->quotationOfferLeaderAttractions()->delete();
+        $this->quotationOfferLeaderTickets()->delete();
+        $this->quotationOfferLeaderExperiences()->delete();
+        $this->quotationOfferLeaderExpenses()->delete();
+        $this->quotationOfferPrices()->delete();
+
+        // Recalculate all costs
+        $this->calculateVehiclePricing();
+        $this->calculateDriverMealCosts();
+        $this->calculateDriverAccommodationCosts();
+        $this->calculateLeaderAccommodationCosts();
+        $this->calculateLeaderAttractionsCosts();
+        $this->calculateLeaderExpensesCosts();
+        $this->calculateLeaderExperiencesCosts();
+        $this->calculateLeaderMealsCosts();
+        $this->calculateLeaderTicketsCosts();
         $this->calculateOfferPrices();
     }
 }

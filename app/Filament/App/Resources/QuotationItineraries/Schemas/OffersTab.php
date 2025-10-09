@@ -252,7 +252,7 @@ class OffersTab
                                     ->pluck('room_category_id')
                                     ->unique()
                                     ->filter();
-                                return \App\Models\Base\RoomCategory::whereIn('id', $roomCategoryIds)
+                                return \App\Models\Base\RoomCategory::query()->whereIn('id', $roomCategoryIds)
                                     ->pluck('name', 'id');
                             })
                             ->searchable()
@@ -420,7 +420,7 @@ class OffersTab
                                     ->pluck('room_category_id')
                                     ->unique()
                                     ->filter();
-                                return \App\Models\Base\RoomCategory::whereIn('id', $roomCategoryIds)
+                                return \App\Models\Base\RoomCategory::query()->whereIn('id', $roomCategoryIds)
                                     ->pluck('name', 'id');
                             })
                             ->searchable()
@@ -544,34 +544,62 @@ class OffersTab
                 ];
             })
             ->action(function (array $data, $record) {
-                $record->update([
-                    'is_include_driver_meal' => $data['is_include_driver_meal'] ?? false,
-                    'is_include_driver_hotel' => $data['is_include_driver_hotel'] ?? false,
-                    'is_driver_stay_same_hotel' => $data['is_driver_stay_same_hotel'] ?? false,
-                    'is_driver_same_meal' => $data['is_driver_same_meal'] ?? false,
-                    'driver_room_category_id' => $data['driver_room_category_id'] ?? null,
-                ]);
+                try {
+                    \Illuminate\Support\Facades\DB::transaction(function () use ($data, $record) {
+                        // Step 1: Update basic settings
+                        $record->update([
+                            'is_include_driver_meal' => $data['is_include_driver_meal'] ?? false,
+                            'is_include_driver_hotel' => $data['is_include_driver_hotel'] ?? false,
+                            'is_driver_stay_same_hotel' => $data['is_driver_stay_same_hotel'] ?? false,
+                            'is_driver_same_meal' => $data['is_driver_same_meal'] ?? false,
+                            'driver_room_category_id' => $data['driver_room_category_id'] ?? null,
+                        ]);
 
-                // Update companions
-                if (isset($data['companions']) && is_array($data['companions'])) {
-                    // Delete existing companions
-                    $record->quotationOfferGroupCompanions()->delete();
-                    
-                    // Create new companions
-                    foreach ($data['companions'] as $companionData) {
-                        if (!empty($companionData['companion_type_id'])) {
-                            $record->quotationOfferGroupCompanions()->create([
-                                'companion_type_id' => $companionData['companion_type_id'],
-                                'is_stay_same_hotel' => $companionData['is_stay_same_hotel'] ?? false,
-                                'is_same_meal' => $companionData['is_same_meal'] ?? false,
-                                'room_category_id' => $companionData['room_category_id'] ?? null,
-                                'living_city_id' => $companionData['living_city_id'] ?? null,
-                            ]);
+                        // Step 2: Update companions
+                        if (isset($data['companions']) && is_array($data['companions'])) {
+                            // Delete existing companions
+                            $record->quotationOfferGroupCompanions()->delete();
+                            
+                            // Create new companions
+                            foreach ($data['companions'] as $companionData) {
+                                if (!empty($companionData['companion_type_id'])) {
+                                    $record->quotationOfferGroupCompanions()->create([
+                                        'companion_type_id' => $companionData['companion_type_id'],
+                                        'is_stay_same_hotel' => $companionData['is_stay_same_hotel'] ?? false,
+                                        'is_same_meal' => $companionData['is_same_meal'] ?? false,
+                                        'room_category_id' => $companionData['room_category_id'] ?? null,
+                                        'living_city_id' => $companionData['living_city_id'] ?? null,
+                                    ]);
+                                }
+                            }
                         }
-                    }
-                }
+                        
+                        // Refresh to load newly created companions
+                        $record->refresh();
 
-                Notification::make()->title('Updated!')->success()->send();
+                        // Step 3: Recalculate all costs from breakdown (without nested transaction)
+                        $record->calculateAllCostsFromBreakdownWithoutTransaction();
+
+                        // Step 4: Recalculate all offers in this group (without nested transaction)
+                        $record->recalculateAllOffersWithoutTransaction();
+                    });
+
+                    $offersCount = $record->quotationOffers()->count();
+                    Notification::make()
+                        ->title('Offer Group Updated!')
+                        ->body("Offer group settings updated and {$offersCount} offer(s) recalculated successfully.")
+                        ->success()
+                        ->send();
+                        
+                } catch (\Exception $e) {
+                    Notification::make()
+                        ->title('Update Failed')
+                        ->body('An error occurred: ' . $e->getMessage())
+                        ->danger()
+                        ->send();
+                    
+                    throw $e;
+                }
             })
             ->modalHeading('Edit Offer Group');
     }
@@ -785,14 +813,127 @@ class OffersTab
             ->icon('heroicon-m-pencil-square')
             ->color('primary')
             ->size('sm')
-            ->action(function ($record) {
-                // TODO: Implement edit offer logic
-                Notification::make()
-                    ->title('Edit Offer')
-                    ->body('Edit offer functionality will be implemented soon.')
-                    ->info()
-                    ->send();
-            });
+            ->schema([
+                Section::make('Offer Details')
+                    ->description('Edit offer settings')
+                    ->icon('heroicon-o-ticket')
+                    ->schema([
+                        Select::make('vehicle_type_id')
+                            ->label('Vehicle Type')
+                            ->options(function () {
+                                return \App\Models\Tenants\VehicleType::all()->pluck('name', 'id');
+                            })
+                            ->searchable()
+                            ->preload()
+                            ->required()
+                            ->columnSpan(1),
+
+                        TextInput::make('leaders_qty')
+                            ->label('Leaders Quantity')
+                            ->numeric()
+                            ->default(0)
+                            ->minValue(0)
+                            ->required()
+                            ->columnSpan(1),
+
+                        Select::make('leader_room_category_id')
+                            ->label('Leader Room Category')
+                            ->options(function ($record) {
+                                $quotationItinerary = $record->quotationOfferGroup->quotationItinerary;
+                                if (!$quotationItinerary || !$quotationItinerary->breakdown) return [];
+                                
+                                $roomCategoryIds = $quotationItinerary->breakdown
+                                    ->accommodations()
+                                    ->with('rooms')
+                                    ->get()
+                                    ->pluck('rooms')
+                                    ->flatten()
+                                    ->pluck('room_category_id')
+                                    ->unique()
+                                    ->filter();
+                                return \App\Models\Base\RoomCategory::query()->whereIn('id', $roomCategoryIds)
+                                    ->pluck('name', 'id');
+                            })
+                            ->searchable()
+                            ->preload()
+                            ->columnSpan(1),
+
+                        TextInput::make('pax_qty')
+                            ->label('PAX Quantity')
+                            ->numeric()
+                            ->default(1)
+                            ->minValue(1)
+                            ->required()
+                            ->columnSpan(1),
+
+                        TextInput::make('drivers_qty')
+                            ->label('Drivers Quantity')
+                            ->numeric()
+                            ->default(1)
+                            ->minValue(1)
+                            ->required()
+                            ->columnSpan(1),
+
+                        TextInput::make('markup')
+                            ->label('Markup (%)')
+                            ->numeric()
+                            ->default(0)
+                            ->minValue(0)
+                            ->maxValue(100)
+                            ->step(0.01)
+                            ->suffix('%')
+                            ->required()
+                            ->columnSpan(1),
+                    ])
+                    ->columns(2)
+                    ->collapsible()
+                    ->collapsed(false),
+            ])
+            ->fillForm(function ($record) {
+                return [
+                    'vehicle_type_id' => $record->vehicle_type_id,
+                    'leaders_qty' => $record->leaders_qty,
+                    'leader_room_category_id' => $record->leader_room_category_id,
+                    'pax_qty' => $record->pax_qty,
+                    'drivers_qty' => $record->drivers_qty,
+                    'markup' => $record->markup,
+                ];
+            })
+            ->action(function (array $data, $record) {
+                try {
+                    \Illuminate\Support\Facades\DB::transaction(function () use ($data, $record) {
+                        // Update basic offer fields
+                        $record->update([
+                            'vehicle_type_id' => $data['vehicle_type_id'],
+                            'leaders_qty' => $data['leaders_qty'] ?? 0,
+                            'leader_room_category_id' => $data['leader_room_category_id'] ?? null,
+                            'pax_qty' => $data['pax_qty'],
+                            'drivers_qty' => $data['drivers_qty'],
+                            'markup' => $data['markup'] ?? 0,
+                        ]);
+
+                        // Recalculate all costs and prices (without nested transaction)
+                        $record->recalculateAllCostsWithoutTransaction();
+                    });
+
+                    Notification::make()
+                        ->title('Offer Updated!')
+                        ->body('All prices and costs have been recalculated successfully.')
+                        ->success()
+                        ->send();
+                        
+                } catch (\Exception $e) {
+                    Notification::make()
+                        ->title('Update Failed')
+                        ->body('An error occurred: ' . $e->getMessage())
+                        ->danger()
+                        ->send();
+                    
+                    throw $e;
+                }
+            })
+            ->modalHeading('Edit Offer')
+            ->modalSubmitActionLabel('Update Offer');
     }
 
     private static function viewReportAction(): Action
@@ -928,7 +1069,7 @@ class OffersTab
                                     ->pluck('room_category_id')
                                     ->unique()
                                     ->filter();
-                                return \App\Models\Base\RoomCategory::whereIn('id', $roomCategoryIds)
+                                return \App\Models\Base\RoomCategory::query()->whereIn('id', $roomCategoryIds)
                                     ->pluck('name', 'id');
                             })
                             ->searchable()
