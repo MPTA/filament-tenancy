@@ -715,8 +715,14 @@ class OffersTab
     {
         return Grid::make(1)
             ->schema([
-                Grid::make(8)
+                Grid::make(9)
                     ->schema([
+                        TextEntry::make('number')
+                            ->label('#')
+                            ->badge()
+                            ->color('primary')
+                            ->weight('bold'),
+
                         TextEntry::make('vehicleType.name')
                             ->label('Vehicle Type')
                             ->icon('heroicon-o-truck')
