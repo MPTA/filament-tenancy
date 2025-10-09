@@ -25,6 +25,11 @@ class QuotationOfferGroup extends Model
         'driver_room_category_id',
         'driver_meal_cost',
         'driver_accommodation_cost',
+        'is_locked',
+        'link_status',
+        'breakdown_snapshot',
+        'itinerary_snapshot',
+        'last_breakdown_sync_at',
         'tenant_id',
     ];
 
@@ -36,6 +41,11 @@ class QuotationOfferGroup extends Model
         'is_driver_same_meal' => 'boolean',
         'driver_meal_cost' => 'decimal:2',
         'driver_accommodation_cost' => 'decimal:2',
+        'is_locked' => 'boolean',
+        'link_status' => \App\Enums\OfferGroupLinkStatusEnum::class,
+        'breakdown_snapshot' => 'array',
+        'itinerary_snapshot' => 'array',
+        'last_breakdown_sync_at' => 'datetime',
     ];
 
     protected static function boot()
@@ -345,6 +355,7 @@ class QuotationOfferGroup extends Model
                     'qty' => $totalMeals,
                     'price' => $baseBudget,
                     'is_base_budget' => true,
+                    'tenant_id' => $companion->tenant_id,
                 ]);
             }
         } else {
@@ -359,12 +370,18 @@ class QuotationOfferGroup extends Model
     private function createSpecificMealRecords($companion, $itinerary, $breakdown): void
     {
         $mealCounts = [];
+        $lastDayNumber = $itinerary->days()->max('day_number');
+        $firstDayNumber = $itinerary->days()->min('day_number');
 
         foreach ($itinerary->days as $day) {
             // Check if companion is present on this day (only check hire mode, not type)
             if (!$day->companion_hire_mode) {
                 continue;
             }
+            
+            // Check if this is the first or last day
+            $isFirstDay = $day->day_number === $firstDayNumber;
+            $isLastDay = $day->day_number === $lastDayNumber;
             
             $companionHireMode = $day->companion_hire_mode->value;
             
@@ -384,13 +401,20 @@ class QuotationOfferGroup extends Model
                     $mealTypeId = $activity->meal->meal_type_id;
                     $mealPart = $activity->meal->meal_part?->value ?? $activity->meal->meal_part;
                     
+                    // Skip breakfast on the last day (companions check out before breakfast)
+                    if ($isLastDay && $mealPart === 'breakfast') {
+                        continue;
+                    }
+                    
                     // Determine which meals to include based on companion hire mode
                     $shouldIncludeMeal = false;
                     
                     if ($companionHireMode === 'daily') {
-                        // Full day: include lunch and dinner, plus breakfast if not free
+                        // Full day: include lunch and dinner, plus breakfast based on conditions
                         if ($mealPart === 'breakfast') {
-                            $shouldIncludeMeal = !$hasFreeBreakfast;
+                            // Count breakfast on first day (check-in is later)
+                            // Skip breakfast on middle days if hotel has free breakfast
+                            $shouldIncludeMeal = $isFirstDay || !$hasFreeBreakfast;
                         } else {
                             $shouldIncludeMeal = in_array($mealPart, ['lunch', 'dinner']);
                         }
@@ -421,6 +445,7 @@ class QuotationOfferGroup extends Model
                     'qty' => $qty,
                     'price' => $breakdownMeal->price ?? 0,
                     'is_base_budget' => false,
+                    'tenant_id' => $companion->tenant_id,
                 ]);
             }
         }

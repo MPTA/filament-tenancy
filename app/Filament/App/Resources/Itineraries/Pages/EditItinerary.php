@@ -60,6 +60,7 @@ class EditItinerary extends EditRecord
         return [
             $this->getSaveAction(),
             $this->getSaveAndCloseAction(),
+            $this->getSaveAndCompleteAction(),
             $this->getViewQuotationAction(),
             // DeleteAction::make()
             //     ->icon('heroicon-o-trash'),
@@ -186,6 +187,55 @@ class EditItinerary extends EditRecord
                     ->send();
             })
             ->close(false);
+    }
+
+    protected function getSaveAndCompleteAction(): \Filament\Actions\Action
+    {
+        return \Filament\Actions\Action::make('saveAndComplete')
+            ->label('Save and Complete')
+            ->color('success')
+            ->icon('heroicon-o-check-badge')
+            ->requiresConfirmation()
+            ->modalHeading('Complete Itinerary')
+            ->modalDescription('Are you sure you want to complete this itinerary? This will save, mark it as complete, and redirect you to edit the breakdown.')
+            ->modalSubmitActionLabel('Yes, Complete')
+            ->action(function () {
+                try {
+                    // Step 1: Save the itinerary with validation
+                    $this->save();
+                    
+                    // Step 2: Mark itinerary as complete
+                    $this->record->refresh();
+                    $this->record->update(['is_complete' => true]);
+                    
+                    // Step 3: Show success notification
+                    \Filament\Notifications\Notification::make()
+                        ->title('Itinerary completed successfully!')
+                        ->body('You can now edit the breakdown.')
+                        ->success()
+                        ->send();
+                    
+                    // Step 4: Redirect to edit breakdown if this is a quotation itinerary
+                    if ($this->record->itineraryable_type === QuotationItinerary::class) {
+                        $quotationItinerary = $this->record->itineraryable;
+                        if ($quotationItinerary && $quotationItinerary->breakdown) {
+                            return redirect(QuotationItineraryResource::getUrl('edit-breakdown', ['record' => $quotationItinerary]));
+                        }
+                    }
+                    
+                    // Default redirect
+                    return redirect($this->getRedirectUrl());
+                } catch (\Exception $e) {
+                    \Filament\Notifications\Notification::make()
+                        ->title('Error completing itinerary')
+                        ->body($e->getMessage())
+                        ->danger()
+                        ->send();
+                    
+                    throw $e;
+                }
+            })
+            ->visible(fn() => $this->record->itineraryable_type === QuotationItinerary::class);
     }
 
     protected function getSaveAndCloseAction(): \Filament\Actions\Action

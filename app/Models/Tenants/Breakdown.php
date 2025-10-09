@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\DB;
 use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 
 class Breakdown extends Model
@@ -51,6 +52,19 @@ class Breakdown extends Model
         static::updating(function ($breakdown) {
             if ($breakdown->isDirty() && !$breakdown->isDirty('is_completed')) {
                 $breakdown->is_completed = false;
+            }
+        });
+
+        // When breakdown completion status changes, manage offer groups
+        static::updated(function ($breakdown) {
+            if ($breakdown->wasChanged('is_completed')) {
+                if ($breakdown->is_completed) {
+                    // Unlock and recalculate all offer groups when completed
+                    $breakdown->syncAllOfferGroups();
+                } else {
+                    // Lock all offer groups when becomes incomplete
+                    $breakdown->lockAllOfferGroups();
+                }
             }
         });
     }
@@ -169,8 +183,14 @@ class Breakdown extends Model
 
         // Collect meal quantities by meal type
         $mealQuantities = collect();
+        $lastDayNumber = $itineraryDays->max('day_number');
+        $firstDayNumber = $itineraryDays->min('day_number');
 
         foreach ($itineraryDays as $day) {
+            // Check if this is the first or last day
+            $isFirstDay = $day->day_number === $firstDayNumber;
+            $isLastDay = $day->day_number === $lastDayNumber;
+            
             // Check if accommodation has breakfast (from breakdown_accommodations)
             $hasBreakfast = false;
             if ($day->accommodation) {
@@ -188,8 +208,14 @@ class Breakdown extends Model
                     $mealTypeId = $activity->meal->meal_type_id;
                     $mealPart = $activity->meal->meal_part;
 
-                    // Skip breakfast if accommodation has breakfast (free breakfast)
-                    if ($hasBreakfast && $mealPart === \App\Enums\MealPartEnum::BREAKFAST) {
+                    // Skip breakfast on the last day (guests check out before breakfast)
+                    if ($isLastDay && $mealPart === \App\Enums\MealPartEnum::BREAKFAST) {
+                        continue;
+                    }
+
+                    // Skip breakfast on middle days if accommodation has free breakfast
+                    // BUT count breakfast on first day (guests check in later, breakfast is before check-in)
+                    if (!$isFirstDay && $hasBreakfast && $mealPart === \App\Enums\MealPartEnum::BREAKFAST) {
                         continue;
                     }
 
@@ -299,5 +325,50 @@ class Breakdown extends Model
     public function getCalculatedVehicleHoursQtyAttribute(): int
     {
         return $this->calculateVehicleUsageQuantities()['vehicle_hours_qty'];
+    }
+
+    /**
+     * Sync all offer groups - unlock and recalculate.
+     * Called when breakdown becomes complete.
+     */
+    public function syncAllOfferGroups(): void
+    {
+        $offerGroups = $this->quotationItinerary->quotationOfferGroups;
+        
+        if ($offerGroups->isEmpty()) {
+            return;
+        }
+
+        // Use transaction to ensure all operations are atomic
+        DB::transaction(function () use ($offerGroups) {
+            foreach ($offerGroups as $group) {
+                // Skip if decoupled (Phase 2 feature)
+                if ($group->link_status === \App\Enums\OfferGroupLinkStatusEnum::DECOUPLED) {
+                    continue;
+                }
+
+                // Unlock and update sync timestamp
+                $group->update([
+                    'is_locked' => false,
+                    'last_breakdown_sync_at' => now(),
+                ]);
+
+                // Recalculate all costs from breakdown (without nested transaction)
+                $group->calculateAllCostsFromBreakdownWithoutTransaction();
+                
+                // Recalculate all offers in this group (without nested transaction)
+                $group->recalculateAllOffersWithoutTransaction();
+            }
+        });
+    }
+
+    /**
+     * Lock all offer groups.
+     * Called when breakdown becomes incomplete (e.g., when itinerary or breakdown is edited).
+     */
+    public function lockAllOfferGroups(): void
+    {
+        $this->quotationItinerary->quotationOfferGroups()
+            ->update(['is_locked' => true]);
     }
 }

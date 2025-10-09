@@ -15,7 +15,6 @@ use Filament\Infolists\Components\RepeatableEntry;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Tabs\Tab;
-use Filament\Support\Exceptions\Halt;
 
 class OffersTab
 {
@@ -23,6 +22,13 @@ class OffersTab
     {
         return Tab::make('Offers')
             ->icon('heroicon-o-ticket')
+            ->badge(function (QuotationItinerary $record) {
+                return $record->quotationOfferGroups()
+                    ->withCount('quotationOffers')
+                    ->get()
+                    ->sum('quotation_offers_count');
+            })
+            ->badgeColor('success')
             ->schema([
                 self::addNewOfferSection(),
                 self::noOffersMessage(),
@@ -317,19 +323,26 @@ class OffersTab
     private static function offerGroupSection(): Section
     {
         return Section::make()
-            ->heading(fn($record) => 'Offer Group ' . ($record->full_number ?? $record->id))
+            ->heading(function ($record) {
+                $status = $record->is_locked ? '🔒 Locked' : '✅ Active';
+                return 'Offer Group ' . ($record->full_number ?? $record->id) . ' - ' . $status;
+            })
             ->description(function ($record) {
                 $info = [];
+                
                 if ($record->is_include_driver_meal) {
                     $info[] = 'Driver meal included';
                 }
                 if ($record->is_include_driver_hotel) {
                     $info[] = 'Driver hotel included';
                 }
-                if (empty($info)) {
-                    $info[] = 'No driver costs';
-                }
                 $info[] = $record->quotationOfferGroupCompanions->count() . ' companion(s)';
+                
+                // Add last sync info
+                if ($record->last_breakdown_sync_at) {
+                    $info[] = 'Last sync: ' . $record->last_breakdown_sync_at->diffForHumans();
+                }
+                
                 return implode(' • ', $info);
             })
             ->icon('heroicon-o-cog-6-tooth')
@@ -368,6 +381,15 @@ class OffersTab
             ->icon('heroicon-m-pencil-square')
             ->color('primary')
             ->size('sm')
+            ->disabled(fn($record) => 
+                $record->is_locked || 
+                !$record->quotationItinerary->breakdown?->is_completed
+            )
+            ->tooltip(fn($record) => 
+                $record->is_locked || !$record->quotationItinerary->breakdown?->is_completed
+                    ? '⚠️ Complete the breakdown first to edit offer group'
+                    : null
+            )
             ->schema([
                 Section::make('Driver Settings')
                     ->schema([
@@ -547,33 +569,33 @@ class OffersTab
                 try {
                     \Illuminate\Support\Facades\DB::transaction(function () use ($data, $record) {
                         // Step 1: Update basic settings
-                        $record->update([
-                            'is_include_driver_meal' => $data['is_include_driver_meal'] ?? false,
-                            'is_include_driver_hotel' => $data['is_include_driver_hotel'] ?? false,
-                            'is_driver_stay_same_hotel' => $data['is_driver_stay_same_hotel'] ?? false,
-                            'is_driver_same_meal' => $data['is_driver_same_meal'] ?? false,
-                            'driver_room_category_id' => $data['driver_room_category_id'] ?? null,
-                        ]);
+                $record->update([
+                    'is_include_driver_meal' => $data['is_include_driver_meal'] ?? false,
+                    'is_include_driver_hotel' => $data['is_include_driver_hotel'] ?? false,
+                    'is_driver_stay_same_hotel' => $data['is_driver_stay_same_hotel'] ?? false,
+                    'is_driver_same_meal' => $data['is_driver_same_meal'] ?? false,
+                    'driver_room_category_id' => $data['driver_room_category_id'] ?? null,
+                ]);
 
                         // Step 2: Update companions
-                        if (isset($data['companions']) && is_array($data['companions'])) {
-                            // Delete existing companions
-                            $record->quotationOfferGroupCompanions()->delete();
-                            
-                            // Create new companions
-                            foreach ($data['companions'] as $companionData) {
-                                if (!empty($companionData['companion_type_id'])) {
-                                    $record->quotationOfferGroupCompanions()->create([
-                                        'companion_type_id' => $companionData['companion_type_id'],
-                                        'is_stay_same_hotel' => $companionData['is_stay_same_hotel'] ?? false,
-                                        'is_same_meal' => $companionData['is_same_meal'] ?? false,
-                                        'room_category_id' => $companionData['room_category_id'] ?? null,
-                                        'living_city_id' => $companionData['living_city_id'] ?? null,
-                                    ]);
-                                }
-                            }
+                if (isset($data['companions']) && is_array($data['companions'])) {
+                    // Delete existing companions
+                    $record->quotationOfferGroupCompanions()->delete();
+                    
+                    // Create new companions
+                    foreach ($data['companions'] as $companionData) {
+                        if (!empty($companionData['companion_type_id'])) {
+                            $record->quotationOfferGroupCompanions()->create([
+                                'companion_type_id' => $companionData['companion_type_id'],
+                                'is_stay_same_hotel' => $companionData['is_stay_same_hotel'] ?? false,
+                                'is_same_meal' => $companionData['is_same_meal'] ?? false,
+                                'room_category_id' => $companionData['room_category_id'] ?? null,
+                                'living_city_id' => $companionData['living_city_id'] ?? null,
+                            ]);
                         }
-                        
+                    }
+                }
+
                         // Refresh to load newly created companions
                         $record->refresh();
 
@@ -743,64 +765,95 @@ class OffersTab
     {
         return Grid::make(1)
             ->schema([
-                Grid::make(9)
+                Grid::make(12)
                     ->schema([
                         TextEntry::make('number')
                             ->label('#')
                             ->badge()
                             ->color('primary')
-                            ->weight('bold'),
+                            ->weight('bold')
+                            ->size('sm')
+                            ->columnSpan(1),
 
                         TextEntry::make('vehicleType.name')
-                            ->label('Vehicle Type')
+                            ->label('Car')
                             ->icon('heroicon-o-truck')
                             ->color('primary')
-                            ->formatStateUsing(fn($state) => $state ?? 'N/A'),
+                            ->formatStateUsing(fn($state) => $state ?? 'N/A')
+                            ->columnSpan(2),
 
                         TextEntry::make('pax_qty')
-                            ->label('PAX Qty')
+                            ->label('PAX')
                             ->icon('heroicon-o-users')
                             ->color('success')
-                            ->formatStateUsing(fn($state) => $state ?? 0),
-
-                        TextEntry::make('leaders_qty')
-                            ->label('Leaders Qty')
-                            ->icon('heroicon-o-user-group')
-                            ->color('warning')
-                            ->formatStateUsing(fn($state) => $state ?? 0),
+                            ->formatStateUsing(fn($state, $record) => ($state ?? 0) . '+' . ($record->leaders_qty ?? 0))
+                            ->columnSpan(1),
 
                         TextEntry::make('drivers_qty')
-                            ->label('Drivers Qty')
+                            ->label('Drivers')
                             ->icon('heroicon-o-user')
                             ->color('info')
-                            ->formatStateUsing(fn($state) => $state ?? 0),
+                            ->formatStateUsing(fn($state) => $state ?? 0)
+                            ->columnSpan(1),
 
                         TextEntry::make('markup')
                             ->label('Markup')
                             ->formatStateUsing(fn($state) => ($state ?? 0) . '%')
-                            ->icon('heroicon-o-calculator')
-                            ->color('warning'),
+                            ->color('warning')
+                            ->columnSpan(1),
+
+                        TextEntry::make('id')
+                            ->label('Room Prices')
+                            ->formatStateUsing(function ($state, $record) {
+                                if (!$record->quotationOfferPrices || $record->quotationOfferPrices->isEmpty()) {
+                                    return 'No prices';
+                                }
+                                
+                                $prices = [];
+                                foreach ($record->quotationOfferPrices as $price) {
+                                    $roomName = $price->roomCategory?->name ?? 'Unknown';
+                                    $priceFormatted = number_format($price->per_person_price, 2);
+                                    $prices[] = "<div class='text-xs'><strong>{$roomName}</strong>: {$priceFormatted}</div>";
+                                }
+                                
+                                return new \Illuminate\Support\HtmlString(implode('', $prices));
+                            })
+                            ->color('success')
+                            ->columnSpan(3),
 
                         TextEntry::make('id')
                             ->label('Edit')
                             ->formatStateUsing(fn() => '')
                             ->icon('heroicon-m-pencil-square')
                             ->color('primary')
-                            ->action(self::editOfferAction()),
+                            ->size('xs')
+                            ->tooltip('Edit')
+                            ->action(self::editOfferAction())
+                            ->columnSpan(1)
+                            ->hidden(fn($record) => 
+                                $record->quotationOfferGroup->is_locked || 
+                                !$record->quotationOfferGroup->quotationItinerary->breakdown?->is_completed
+                            ),
 
                         TextEntry::make('id')
-                            ->label('Report')
+                            ->label('Details')
                             ->formatStateUsing(fn() => '')
                             ->icon('heroicon-m-document-text')
                             ->color('success')
-                            ->action(self::viewReportAction()),
+                            ->size('xs')
+                            ->tooltip('Report')
+                            ->action(self::viewReportAction())
+                            ->columnSpan(1),
 
                         TextEntry::make('id')
                             ->label('Delete')
                             ->formatStateUsing(fn() => '')
                             ->icon('heroicon-m-trash')
                             ->color('danger')
-                            ->action(self::deleteOfferAction()),
+                            ->size('xs')
+                            ->tooltip('Delete')
+                            ->action(self::deleteOfferAction())
+                            ->columnSpan(1),
                     ])
                     ->columnSpanFull(),
             ]);
@@ -830,10 +883,12 @@ class OffersTab
 
                         TextInput::make('leaders_qty')
                             ->label('Leaders Quantity')
-                            ->numeric()
+                            ->integer()
                             ->default(0)
                             ->minValue(0)
+                            ->maxValue(4)
                             ->required()
+                            ->reactive()
                             ->columnSpan(1),
 
                         Select::make('leader_room_category_id')
@@ -856,21 +911,24 @@ class OffersTab
                             })
                             ->searchable()
                             ->preload()
+                            ->required(fn($get) => $get('leaders_qty') > 0)
                             ->columnSpan(1),
 
                         TextInput::make('pax_qty')
                             ->label('PAX Quantity')
-                            ->numeric()
+                            ->integer()
                             ->default(1)
                             ->minValue(1)
+                            ->maxValue(50)
                             ->required()
                             ->columnSpan(1),
 
                         TextInput::make('drivers_qty')
                             ->label('Drivers Quantity')
-                            ->numeric()
+                            ->integer()
                             ->default(1)
                             ->minValue(1)
+                            ->maxValue(2)
                             ->required()
                             ->columnSpan(1),
 
@@ -916,11 +974,11 @@ class OffersTab
                         $record->recalculateAllCostsWithoutTransaction();
                     });
 
-                    Notification::make()
+                Notification::make()
                         ->title('Offer Updated!')
                         ->body('All prices and costs have been recalculated successfully.')
                         ->success()
-                        ->send();
+                    ->send();
                         
                 } catch (\Exception $e) {
                     Notification::make()
@@ -1031,6 +1089,15 @@ class OffersTab
             ->icon('heroicon-o-plus-circle')
             ->color('success')
             ->size('sm')
+            ->disabled(fn($record) => 
+                $record->is_locked || 
+                !$record->quotationItinerary->breakdown?->is_completed
+            )
+            ->tooltip(fn($record) => 
+                $record->is_locked || !$record->quotationItinerary->breakdown?->is_completed
+                    ? '⚠️ Complete the breakdown first to create offer'
+                    : null
+            )
             ->schema([
                 Section::make('Offer Details')
                     ->description('Create a new offer for this offer group')
@@ -1049,9 +1116,12 @@ class OffersTab
 
                         TextInput::make('leaders_qty')
                             ->label('Leaders Quantity')
-                            ->numeric()
+                            ->integer()
+                            ->required()
+                            ->maxValue(4)
                             ->default(0)
                             ->minValue(0)
+                            ->reactive()
                             ->columnSpan(1),
 
                         Select::make('leader_room_category_id')
@@ -1074,21 +1144,24 @@ class OffersTab
                             })
                             ->searchable()
                             ->preload()
+                            ->required(fn($get) => $get('leaders_qty') > 0)
                             ->columnSpan(1),
 
                         TextInput::make('pax_qty')
                             ->label('PAX Quantity')
-                            ->numeric()
+                            ->integer()
                             ->default(1)
                             ->minValue(1)
+                            ->maxValue(50)
                             ->required()
                             ->columnSpan(1),
 
                         TextInput::make('drivers_qty')
                             ->label('Drivers Quantity')
-                            ->numeric()
+                            ->integer()
                             ->default(1)
                             ->minValue(1)
+                            ->maxValue(2)
                             ->required()
                             ->columnSpan(1),
 
@@ -1100,6 +1173,7 @@ class OffersTab
                             ->maxValue(100)
                             ->step(0.01)
                             ->suffix('%')
+                            ->required()
                             ->columnSpan(1),
                     ])
                     ->columns(2)

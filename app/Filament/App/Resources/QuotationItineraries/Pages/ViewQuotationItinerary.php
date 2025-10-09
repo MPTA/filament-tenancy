@@ -52,7 +52,13 @@ class ViewQuotationItinerary extends ViewRecord
             'breakdown.accommodations.rooms.roomCategory',
             'breakdown.attractions.attraction',
             'breakdown.attractions.city',
-            'breakdown.attractions.subAttractions.subAttraction'
+            'breakdown.attractions.subAttractions.subAttraction',
+            'quotationOfferGroups.quotationOffers.vehicleType',
+            'quotationOfferGroups.quotationOffers.quotationOfferPrices.roomCategory',
+            'quotationOfferGroups.quotationOfferGroupCompanions.companionType',
+            'quotationOfferGroups.quotationOfferGroupCompanions.livingCity',
+            'quotationOfferGroups.quotationOfferGroupCompanions.roomCategory',
+            'quotationOfferGroups.quotationItinerary.breakdown',
         ]);
     }
 }

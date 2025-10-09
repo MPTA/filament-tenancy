@@ -86,6 +86,53 @@ class EditBreakdown extends EditRecord
                 ->color('primary')
                 ->icon('heroicon-o-check-circle'),
             
+            Actions\Action::make('save_and_complete')
+                ->label('Save and Complete')
+                ->requiresConfirmation()
+                ->modalHeading('Complete Breakdown')
+                ->modalDescription('Are you sure you want to complete this breakdown? This will save, mark it as complete, and redirect you to the Offers tab.')
+                ->modalSubmitActionLabel('Yes, Complete')
+                ->action(function () {
+                    try {
+                        // Check if itinerary is complete
+                        if (!$this->record->itinerary?->is_complete) {
+                            Notification::make()
+                                ->title('Cannot Complete Breakdown')
+                                ->body('Please complete the itinerary first.')
+                                ->warning()
+                                ->send();
+                            return;
+                        }
+                        
+                        // Step 1: Save the breakdown
+                        $this->save();
+                        
+                        // Step 2: Mark breakdown as complete
+                        $this->breakdown->refresh();
+                        $this->breakdown->update(['is_completed' => true]);
+                        
+                        // Step 3: Show success notification
+                        Notification::make()
+                            ->title('Breakdown completed successfully!')
+                            ->body('You can now create offers.')
+                            ->success()
+                            ->send();
+                        
+                        // Step 4: Redirect to View Quotation Itinerary with Offers tab
+                        return redirect(QuotationItineraryResource::getUrl('view', ['record' => $this->record]) . '?tab=offers%3A%3Atab');
+                    } catch (\Exception $e) {
+                        Notification::make()
+                            ->title('Error completing breakdown')
+                            ->body($e->getMessage())
+                            ->danger()
+                            ->send();
+                        
+                        throw $e;
+                    }
+                })
+                ->color('success')
+                ->icon('heroicon-o-check-badge'),
+            
             Actions\Action::make('view_quotation')
                 ->label('View Quotation')
                 ->url(fn() => route('filament.app.resources.quotation-itineraries.view', $this->record) . '?tab=breakdown%3A%3Atab')
