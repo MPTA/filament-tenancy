@@ -38,22 +38,7 @@ class TenantPricesRelationManager extends RelationManager
     {
         return $schema
             ->components([
-                // First line: Currency only (1 field) - from tenant settings
-                Select::make('currency_id')
-                    ->label('Currency')
-                    ->relationship('currency', 'name')
-                    ->searchable()
-                    ->preload()
-                    ->required()
-                    ->default(function () {
-                        // Get currency from tenant settings
-                        $tenantSettings = \App\Models\TenantSetting::first();
-                        return $tenantSettings?->currency_id;
-                    })
-                    ->disabled() // Make it non-editable
-                    ->dehydrated(), // Still save the value
-                
-                // Second line: Room Category and Price (2 fields)
+                // Room Category and Price (Tenant Default Currency)
                 Select::make('room_category_id')
                     ->label('Room Category')
                     ->relationship('roomCategory', 'name')
@@ -251,9 +236,6 @@ class TenantPricesRelationManager extends RelationManager
                 SelectFilter::make('room_category_id')
                     ->label('Room Category')
                     ->relationship('roomCategory', 'name'),
-                SelectFilter::make('currency_id')
-                    ->label('Currency')
-                    ->relationship('currency', 'name'),
                 Filter::make('active')
                     ->label('Active Prices')
                     ->query(fn(Builder $query) => $query->where('valid_from', '<=', Carbon::now())

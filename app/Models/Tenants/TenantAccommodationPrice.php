@@ -26,7 +26,6 @@ class TenantAccommodationPrice extends Model
         'accommodation_id',
         'room_category_id',
         'price',
-        'currency_id',
         'valid_from',
         'valid_to',
         'creator_user_id',
@@ -81,14 +80,6 @@ class TenantAccommodationPrice extends Model
     public function roomCategory(): BelongsTo
     {
         return $this->belongsTo(\App\Models\Base\RoomCategory::class);
-    }
-
-    /**
-     * Get the currency that owns the price.
-     */
-    public function currency(): BelongsTo
-    {
-        return $this->belongsTo(\App\Models\Base\Currency::class);
     }
 
     /**
