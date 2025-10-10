@@ -52,8 +52,6 @@ class CompanionTypeSeeder extends Seeder
                 'max_hour_per_day' => 8,
                 'max_hour_half_day' => 4,
                 'extra_hour_price' => 50.00,
-                'base_meal_budget' => 100.00,
-                'base_accommodation_budget' => 250.00,
                 'currency_id' => $cny->id,
             ]);
         }
@@ -77,8 +75,6 @@ class CompanionTypeSeeder extends Seeder
                 'max_hour_per_day' => 8,
                 'max_hour_half_day' => 4,
                 'extra_hour_price' => 55.00,
-                'base_meal_budget' => 120.00,
-                'base_accommodation_budget' => 300.00,
                 'currency_id' => $cny->id,
             ]);
         }

@@ -179,23 +179,9 @@ class CompanionTypeForm
                     ])
                     ->columns(2),
                 
-                Section::make('Budget Configuration')
-                    ->description('Set base budgets for meals and accommodation')
+                Section::make('Currency Configuration')
+                    ->description('Set currency for pricing')
                     ->schema([
-                        TextInput::make('base_meal_budget')
-                            ->label('Base Meal Budget')
-                            ->numeric()
-                            ->prefix('$')
-                            ->placeholder('0.00')
-                            ->helperText('Base budget for meals per day'),
-                        
-                        TextInput::make('base_accommodation_budget')
-                            ->label('Base Accommodation Budget')
-                            ->numeric()
-                            ->prefix('$')
-                            ->placeholder('0.00')
-                            ->helperText('Base budget for accommodation per day'),
-                        
                         Select::make('currency_id')
                             ->label('Currency')
                             ->relationship('currency', 'name')
@@ -204,7 +190,7 @@ class CompanionTypeForm
                             ->placeholder('Select currency')
                             ->helperText('Currency for all pricing'),
                     ])
-                    ->columns(3)
+                    ->columns(1)
             ]);
     }
 }

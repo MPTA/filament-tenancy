@@ -94,20 +94,8 @@ class CompanionTypeInfolist
                     ])
                     ->columns(2),
                 
-                Section::make('Budget Configuration')
+                Section::make('Currency Configuration')
                     ->schema([
-                        TextEntry::make('base_meal_budget')
-                            ->label('Base Meal Budget')
-                            ->money('USD')
-                            ->placeholder('Not specified')
-                            ->icon('heroicon-o-cake'),
-                        
-                        TextEntry::make('base_accommodation_budget')
-                            ->label('Base Accommodation Budget')
-                            ->money('USD')
-                            ->placeholder('Not specified')
-                            ->icon('heroicon-o-building-office'),
-                        
                         TextEntry::make('currency.name')
                             ->label('Currency')
                             ->badge()

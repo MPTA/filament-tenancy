@@ -30,8 +30,6 @@ class CompanionType extends Model
         'max_hour_half_day',
         'extra_hour_price',
         'currency_id',
-        'base_meal_budget',
-        'base_accommodation_budget',
         'slug',
     ];
 
@@ -43,8 +41,6 @@ class CompanionType extends Model
         'max_hour_per_day' => 'integer',
         'max_hour_half_day' => 'integer',
         'extra_hour_price' => 'decimal:2',
-        'base_meal_budget' => 'decimal:2',
-        'base_accommodation_budget' => 'decimal:2',
     ];
 
     protected $translatable = [
@@ -94,8 +90,6 @@ class CompanionType extends Model
             'max_hour_half_day' => 'nullable|integer|min:1',
             'extra_hour_price' => 'nullable|numeric|min:0',
             'currency_id' => 'nullable|uuid|exists:currencies,id',
-            'base_meal_budget' => 'nullable|numeric|min:0',
-            'base_accommodation_budget' => 'nullable|numeric|min:0',
         ];
     }
 
@@ -232,34 +226,10 @@ class CompanionType extends Model
     }
 
     /**
-     * Get the formatted base meal budget.
+     * Get the quotation offer group companions using this companion type.
      */
-    public function getFormattedBaseMealBudgetAttribute(): string
+    public function quotationOfferGroupCompanions(): HasMany
     {
-        if (!$this->base_meal_budget) {
-            return 'Not specified';
-        }
-        $currency = $this->currency ? $this->currency->code : 'USD';
-        return number_format((float) $this->base_meal_budget, 2) . ' ' . $currency;
-    }
-
-    /**
-     * Get the formatted base accommodation budget.
-     */
-    public function getFormattedBaseAccommodationBudgetAttribute(): string
-    {
-        if (!$this->base_accommodation_budget) {
-            return 'Not specified';
-        }
-        $currency = $this->currency ? $this->currency->code : 'USD';
-        return number_format((float) $this->base_accommodation_budget, 2) . ' ' . $currency;
-    }
-
-    /**
-     * Get the quotation offer companions using this companion type.
-     */
-    public function quotationOfferCompanions(): HasMany
-    {
-        return $this->hasMany(QuotationOfferCompanion::class);
+        return $this->hasMany(QuotationOfferGroupCompanion::class);
     }
 }
