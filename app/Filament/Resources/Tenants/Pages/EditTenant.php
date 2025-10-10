@@ -1,0 +1,65 @@
+<?php
+
+namespace App\Filament\Resources\Tenants\Pages;
+
+use App\Filament\Resources\Tenants\TenantResource;
+use App\Models\TenantSetting;
+use Filament\Actions\DeleteAction;
+use Filament\Resources\Pages\EditRecord;
+
+class EditTenant extends EditRecord
+{
+    protected static string $resource = TenantResource::class;
+
+    protected function mutateFormDataBeforeFill(array $data): array
+    {
+        // بارگذاری داده‌های tenant settings
+        $settings = TenantSetting::where('tenant_id', $this->record->id)->first();
+        
+        if ($settings) {
+            $data['settings'] = [
+                'currency_id' => $settings->currency_id,
+                'language_id' => $settings->language_id,
+                'country_id' => $settings->country_id,
+                'city_id' => $settings->city_id,
+                'mobile_number' => $settings->mobile_number,
+                'address' => $settings->address,
+                'contact_name' => $settings->contact_name,
+                'phone_number' => $settings->phone_number,
+                'company_name' => $settings->company_name,
+                'company_local_name' => $settings->company_local_name,
+            ];
+        }
+        
+        return $data;
+    }
+
+    protected function mutateFormDataBeforeSave(array $data): array
+    {
+        // جدا کردن داده‌های settings از داده‌های tenant
+        $this->settingsData = $data['settings'] ?? [];
+        unset($data['settings']);
+        
+        return $data;
+    }
+
+    protected function afterSave(): void
+    {
+        // ذخیره یا آپدیت tenant settings
+        if (!empty($this->settingsData)) {
+            TenantSetting::updateOrCreate(
+                ['tenant_id' => $this->record->id],
+                $this->settingsData
+            );
+        }
+    }
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            DeleteAction::make(),
+        ];
+    }
+
+    private array $settingsData = [];
+}
