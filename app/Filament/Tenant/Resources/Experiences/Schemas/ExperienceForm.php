@@ -84,15 +84,7 @@ class ExperienceForm
                             ->numeric()
                             ->prefix('$')
                             ->placeholder('0.00')
-                            ->helperText('Price for the experience'),
-                        
-                        Select::make('currency_id')
-                            ->label('Currency')
-                            ->relationship('currency', 'name')
-                            ->searchable()
-                            ->preload()
-                            ->placeholder('Select currency')
-                            ->helperText('Currency for pricing'),
+                            ->helperText('Price for the experience (in default currency)'),
                         
                         Select::make('charge_mode')
                             ->label('Charge Mode')

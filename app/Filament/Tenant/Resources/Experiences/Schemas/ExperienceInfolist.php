@@ -78,18 +78,12 @@ class ExperienceInfolist
                 Section::make('Pricing Information')
                     ->schema([
                         TextEntry::make('price')
-                            ->label('Price')
+                            ->label('Price (Default Currency)')
                             ->money('USD')
                             ->placeholder('Free')
                             ->icon('heroicon-o-currency-dollar'),
-                        
-                        TextEntry::make('currency.name')
-                            ->label('Currency')
-                            ->badge()
-                            ->color('warning')
-                            ->placeholder('Not specified'),
                     ])
-                    ->columns(2),
+                    ->columns(1),
                 
                 Section::make('Location Information')
                     ->schema([

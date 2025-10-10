@@ -4,7 +4,6 @@ namespace App\Models\Tenants;
 
 use App\Enums\ChargeModeEnum;
 use App\Models\Base\City;
-use App\Models\Base\Currency;
 use App\Models\Base\District;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
@@ -25,7 +24,6 @@ class Experience extends Model
         'slug',
         'price',
         'charge_mode',
-        'currency_id',
         'address',
         'city_id',
         'district_id',
@@ -62,7 +60,6 @@ class Experience extends Model
             'slug' => 'required|string|unique:experiences,slug,' . $id,
             'city_id' => 'required|uuid|exists:cities,id',
             'district_id' => 'nullable|uuid|exists:districts,id',
-            'currency_id' => 'nullable|uuid|exists:currencies,id',
             'price' => 'nullable|numeric|min:0',
             'charge_mode' => 'required|string',
             'is_active' => 'required|boolean',
@@ -97,14 +94,6 @@ class Experience extends Model
     public function district(): BelongsTo
     {
         return $this->belongsTo(District::class);
-    }
-
-    /**
-     * Get the currency that owns the experience.
-     */
-    public function currency(): BelongsTo
-    {
-        return $this->belongsTo(Currency::class);
     }
 
     /**

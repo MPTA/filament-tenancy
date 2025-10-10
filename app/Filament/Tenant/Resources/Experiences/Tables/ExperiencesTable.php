@@ -45,14 +45,6 @@ class ExperiencesTable
                     ->placeholder('Free')
                     ->alignCenter(),
                 
-                TextColumn::make('currency.name')
-                    ->label('Currency')
-                    ->searchable()
-                    ->sortable()
-                    ->badge()
-                    ->color('warning')
-                    ->placeholder('Not set'),
-                
                 TextColumn::make('charge_mode')
                     ->label('Charge Mode')
                     ->badge()
@@ -116,12 +108,6 @@ class ExperiencesTable
                         'fixed' => 'Fixed Price',
                     ])
                     ->searchable(),
-                
-                SelectFilter::make('currency_id')
-                    ->label('Currency')
-                    ->relationship('currency', 'name')
-                    ->searchable()
-                    ->preload(),
                 
                 SelectFilter::make('city_id')
                     ->label('City')

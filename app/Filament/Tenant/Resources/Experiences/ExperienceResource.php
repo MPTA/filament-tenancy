@@ -75,7 +75,7 @@ class ExperienceResource extends Resource
     public static function getEloquentQuery(): \Illuminate\Database\Eloquent\Builder
     {
         return parent::getEloquentQuery()
-            ->with(['city', 'district', 'currency', 'creator']);
+            ->with(['city', 'district', 'creator']);
     }
 
     public static function form(Schema $schema): Schema

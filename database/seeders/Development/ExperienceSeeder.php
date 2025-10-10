@@ -150,7 +150,6 @@ class ExperienceSeeder extends Seeder
             if (!Experience::query()->where('slug', $experienceData['slug'])->exists()) {
                 Experience::create([
                     'tenant_id' => $tenant->id,
-                    'currency_id' => $cny->id,
                     'creator_user_id' => $user->id,
                     'is_active' => true,
                     ...$experienceData,
