@@ -119,21 +119,11 @@ class TenantSettings extends Page
                                         ->preload(),
                                 ]),
                             
-                            Grid::make(2)
-                                ->schema([
-                                    Select::make('currency_id')
-                                        ->label('Currency')
-                                        ->options(Currency::all()->pluck('name', 'id'))
-                                        ->searchable()
-                                        ->disabled()
-                                        ->preload(),
-                                        
-                                    Select::make('language_id')
-                                        ->label('Language')
-                                        ->options(Language::all()->pluck('name', 'id'))
-                                        ->searchable()
-                                        ->preload(),
-                                ]),
+                            Select::make('language_id')
+                                ->label('Language')
+                                ->options(Language::all()->pluck('name', 'id'))
+                                ->searchable()
+                                ->preload(),
                         ])
                         ->collapsible(),
 
@@ -202,7 +192,7 @@ class TenantSettings extends Page
             $data = $this->form->getState();
             
             // بررسی اینکه آیا فیلدهای ID در داده‌ها وجود دارند
-            $idFields = ['country_id', 'city_id', 'currency_id', 'language_id'];
+            $idFields = ['country_id', 'city_id', 'language_id'];
             foreach ($idFields as $field) {
                 if (!isset($data[$field]) || $data[$field] === '') {
                     $data[$field] = null;

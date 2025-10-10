@@ -23,10 +23,9 @@ class TenantSeeder extends Seeder
         // Get required data
         $china = Country::where('code', 'CN')->first();
         $beijing = City::where('code', 'BJ')->first();
-        $cny = Currency::where('code', 'CNY')->first();
         $english = Language::where('code', 'en')->first();
 
-        if (!$china || !$beijing || !$cny || !$english) {
+        if (!$china || !$beijing || !$english) {
             $this->command->warn('Required data not found. Please run other seeders first.');
             return;
         }
@@ -55,7 +54,6 @@ class TenantSeeder extends Seeder
         // ایجاد Tenant Settings
         TenantSetting::create([
             'tenant_id' => $tenant->id,
-            'currency_id' => $cny->id,
             'language_id' => $english->id,
             'country_id' => $china->id,
             'city_id' => $beijing->id,

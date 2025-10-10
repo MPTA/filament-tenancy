@@ -24,7 +24,6 @@ class EditTenant extends EditRecord
             $data['name'] = $settings->contact_name;
             
             $data['settings'] = [
-                'currency_id' => $settings->currency_id,
                 'language_id' => $settings->language_id,
                 'country_id' => $settings->country_id,
                 'city_id' => $settings->city_id,

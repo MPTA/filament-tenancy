@@ -36,27 +36,17 @@ class PricesRelationManager extends RelationManager
     {
         return $schema
             ->components([
-                // First line: Currency only (1 field)
-                Select::make('currency_id')
-                    ->label('Currency')
-                    ->relationship('currency', 'name')
+                Select::make('room_category_id')
+                    ->label('Room Category')
+                    ->relationship('roomCategory', 'name')
                     ->searchable()
                     ->preload()
                     ->required(),
                 
-                // Second line: Room Category and Price (2 fields)
-                
-                        Select::make('room_category_id')
-                            ->label('Room Category')
-                            ->relationship('roomCategory', 'name')
-                            ->searchable()
-                            ->preload()
-                            ->columnStart(1)
-                            ->required(),
-                        TextInput::make('price')
-                            ->label('Price')
-                            ->required()
-                            ->numeric()
+                TextInput::make('price')
+                    ->label('Price')
+                    ->required()
+                    ->numeric()
                             ->prefix(fn($record) => $record?->currency?->symbol ?? '$')
                             ->rules(['required', 'numeric', 'min:0'])
                             ->validationMessages([
@@ -224,9 +214,6 @@ class PricesRelationManager extends RelationManager
                 SelectFilter::make('room_category_id')
                     ->label('Room Category')
                     ->relationship('roomCategory', 'name'),
-                SelectFilter::make('currency_id')
-                    ->label('Currency')
-                    ->relationship('currency', 'name'),
                 Filter::make('active')
                     ->label('Active Prices')
                     ->query(fn(Builder $query) => $query->where('valid_from', '<=', Carbon::now())

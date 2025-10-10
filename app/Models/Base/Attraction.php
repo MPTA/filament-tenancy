@@ -18,13 +18,14 @@ class Attraction extends Model
     protected $table = 'attractions';
     public $translatable = ['name', 'description'];
 
+    protected $with = ['country.currency'];
+
     protected $fillable = [
         'name',
         'description',
         'type',
         'local_price',
         'foreigner_price',
-        'currency_id',
         'address',
         'latitude',
         'longitude',
@@ -82,11 +83,11 @@ class Attraction extends Model
     }
 
     /**
-     * Get the currency for this attraction.
+     * Get the currency_id attribute from the country.
      */
-    public function currency(): BelongsTo
+    public function getCurrencyIdAttribute()
     {
-        return $this->belongsTo(Currency::class);
+        return $this->country?->currency_id;
     }
 
     /**

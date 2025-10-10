@@ -16,6 +16,8 @@ class AccommodationPrice extends Model
      */
     protected $table = 'accommodation_prices';
 
+    protected $with = ['accommodation.country.currency'];
+
     /**
      * The attributes that are mass assignable.
      */
@@ -24,7 +26,6 @@ class AccommodationPrice extends Model
         'room_category_id',
         'accommodation_id',
         'price',
-        'currency_id',
         'valid_from',
         'valid_to',
         'is_include_breakfast',
@@ -46,6 +47,14 @@ class AccommodationPrice extends Model
 
 
     /**
+     * Get the currency_id attribute from the accommodation's country.
+     */
+    public function getCurrencyIdAttribute()
+    {
+        return $this->accommodation?->country?->currency_id;
+    }
+
+    /**
      * Get the accommodation that owns the price.
      */
     public function accommodation(): BelongsTo
@@ -59,14 +68,6 @@ class AccommodationPrice extends Model
     public function roomCategory(): BelongsTo
     {
         return $this->belongsTo(RoomCategory::class);
-    }
-
-    /**
-     * Get the currency that owns the price.
-     */
-    public function currency(): BelongsTo
-    {
-        return $this->belongsTo(Currency::class);
     }
 
     /**

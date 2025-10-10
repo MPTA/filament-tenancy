@@ -157,7 +157,6 @@ class AccommodationSeeder extends Seeder
                 'country_id' => $city->province->country_id,
                 'province_id' => $city->province_id,
                 'city_id' => $city->id,
-                'currency_id' => $currency->id,
                 'is_active' => true,
             ]
         );
@@ -171,7 +170,6 @@ class AccommodationSeeder extends Seeder
                 ],
                 [
                     'price' => $roomPrice['price'],
-                    'currency_id' => $currency->id,
                     'valid_from' => now()->startOfYear(),
                     'valid_to' => now()->endOfYear(),
                 ]

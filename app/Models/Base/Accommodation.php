@@ -16,6 +16,8 @@ class Accommodation extends Model
     protected $table = 'accommodations';
     public $translatable = ['name', 'content'];
 
+    protected $with = ['country.currency'];
+
     protected $fillable = [
         'name',
         'content',
@@ -29,7 +31,6 @@ class Accommodation extends Model
         'district_id',
         'external_id',
         'is_active',
-        'currency_id',
     ];
 
     protected $casts = [
@@ -40,6 +41,14 @@ class Accommodation extends Model
         'star_rating' => 'integer',
         'is_active' => 'boolean',
     ];
+
+    /**
+     * Get the currency_id attribute from the country.
+     */
+    public function getCurrencyIdAttribute()
+    {
+        return $this->country?->currency_id;
+    }
 
     /**
      * Get the country that owns the accommodation.
@@ -71,14 +80,6 @@ class Accommodation extends Model
     public function district(): BelongsTo
     {
         return $this->belongsTo(District::class);
-    }
-
-    /**
-     * Get the currency that owns the accommodation.
-     */
-    public function currency(): BelongsTo
-    {
-        return $this->belongsTo(Currency::class);
     }
 
     /**

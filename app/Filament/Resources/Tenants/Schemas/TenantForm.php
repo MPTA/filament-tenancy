@@ -93,25 +93,16 @@ class TenantForm
                     ]),
 
                 Section::make('Company & Settings')
-                    ->columns(3)
+                    ->columns(2)
                     ->schema([
                         TextInput::make('settings.company_name')
                             ->label('Company Name')
                             ->maxLength(255)
-                            ->columnSpan(2),
+                            ->columnSpan(1),
                         
                         TextInput::make('settings.company_local_name')
                             ->label('Local Name')
                             ->maxLength(255)
-                            ->columnSpan(1),
-                        
-                        Select::make('settings.currency_id')
-                            ->label('Default Currency')
-                            ->options(fn () => Currency::all()->mapWithKeys(fn ($currency) => [$currency->id => $currency->code]))
-                            ->searchable()
-                            ->preload()
-                            ->required()
-                            ->disabled(fn ($context) => $context === 'edit')
                             ->columnSpan(1),
                         
                         Select::make('settings.language_id')

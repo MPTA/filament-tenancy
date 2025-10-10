@@ -10,9 +10,10 @@ class TenantSetting extends Model
 {
     use BelongsToTenant;
 
+    protected $with = ['country.currency'];
+
     protected $fillable = [
         'tenant_id',
-        'currency_id',
         'language_id',
         'country_id',
         'city_id',
@@ -44,11 +45,12 @@ class TenantSetting extends Model
     }
 
     /**
-     * Get the currency for this setting.
+     * Get the currency_id attribute from the country.
+     * This accessor allows existing code to continue using $tenantSettings->currency_id
      */
-    public function currency(): BelongsTo
+    public function getCurrencyIdAttribute()
     {
-        return $this->belongsTo(\App\Models\Base\Currency::class);
+        return $this->country?->currency_id;
     }
 
     /**

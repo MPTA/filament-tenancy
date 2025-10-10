@@ -127,15 +127,13 @@ class QuotationItinerary extends Model
         $breakdown = $this->breakdown;
         
         if (!$breakdown) {
-            // Get currency from tenant setting instead of hard-coded CNY
-            $tenantSetting = \App\Models\TenantSetting::first();
-            $currencyId = $tenantSetting?->currency_id 
-                ?? Currency::where('code', 'CNY')->first()->id;
+            // Get currency from tenant setting (via country accessor)
+            $tenantSetting = \App\Models\TenantSetting::firstOrFail();
             
             $breakdown = \App\Models\Tenants\Breakdown::create([
                 'quotation_itinerary_id' => $this->id,
                 'creator_user_id' => \Illuminate\Support\Facades\Auth::id(),
-                'currency_id' => $currencyId,
+                'currency_id' => $tenantSetting->currency_id,
             ]);
         }
         
