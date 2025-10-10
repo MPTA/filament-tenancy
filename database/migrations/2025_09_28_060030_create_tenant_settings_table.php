@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('tenant_id');
             $table->uuid('currency_id')->nullable();
             $table->uuid('language_id')->nullable();
-            $table->uuid('country_id')->nullable();
+            $table->uuid('country_id');
             $table->uuid('city_id')->nullable();
             $table->string('mobile_number')->nullable();
             $table->text('address')->nullable();
@@ -30,7 +30,7 @@ return new class extends Migration
             $table->foreign('tenant_id')->references('id')->on('tenants')->onDelete('cascade');
             $table->foreign('currency_id')->references('id')->on('currencies')->onDelete('set null');
             $table->foreign('language_id')->references('id')->on('languages')->onDelete('set null');
-            $table->foreign('country_id')->references('id')->on('countries')->onDelete('set null');
+            $table->foreign('country_id')->references('id')->on('countries')->onDelete('restrict');
             $table->foreign('city_id')->references('id')->on('cities')->onDelete('set null');
             
             // Unique constraint - هر تننت فقط یک تنظیمات داشته باشد
