@@ -69,11 +69,11 @@ class MealTypeForm
                     ->schema([
                         TextInput::make('price')
                             ->label('Price')
-                            ->numeric()
-                            ->prefix('$')
+                            ->prefix(fn() => tenant()->settings?->country?->currency?->symbol ?? '$')
                             ->placeholder('0.00')
                             ->helperText('Price for this meal type')
-                            ->rules(['min:0']),
+                            ->rules(['nullable', 'numeric', 'min:0'])
+                            ->inputMode('decimal'),
                     ])
                     ->columns(1)
             ]);

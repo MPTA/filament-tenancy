@@ -46,14 +46,14 @@ class PricesRelationManager extends RelationManager
                 TextInput::make('price')
                     ->label('Price')
                     ->required()
-                    ->numeric()
-                            ->prefix(fn($record) => $record?->currency?->symbol ?? '$')
-                            ->rules(['required', 'numeric', 'min:0'])
-                            ->validationMessages([
-                                'required' => 'Price is required',
-                                'numeric' => 'Price must be a number',
-                                'min' => 'Price cannot be negative',
-                            ]),
+                    ->prefix(fn() => $this->getOwnerRecord()?->country?->currency?->symbol ?? '$')
+                    ->rules(['required', 'numeric', 'min:0'])
+                    ->inputMode('decimal')
+                    ->validationMessages([
+                        'required' => 'Price is required',
+                        'numeric' => 'Price must be a number',
+                        'min' => 'Price cannot be negative',
+                    ]),
                  
                 
                 // Third line: Valid From and Valid To (2 fields)

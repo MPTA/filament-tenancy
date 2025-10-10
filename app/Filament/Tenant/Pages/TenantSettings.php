@@ -240,7 +240,7 @@ class TenantSettings extends Page
 
     public function getRecord()
     {
-        return TenantSetting::first();
+        return tenant()->settings;
     }
 
     public static function canAccess(): bool

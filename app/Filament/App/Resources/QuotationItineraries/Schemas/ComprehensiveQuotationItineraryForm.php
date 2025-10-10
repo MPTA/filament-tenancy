@@ -165,7 +165,7 @@ class ComprehensiveQuotationItineraryForm
                                         
                                         if ($requestedCurrencyId) {
                                             $requestedCurrency = Currency::find($requestedCurrencyId);
-                                            $tenantSetting = TenantSetting::first();
+                                            $tenantSetting = tenant()->settings;
                                             $tenantCurrency = $tenantSetting?->currency;
                                             
                                             if ($requestedCurrency && $tenantCurrency) {

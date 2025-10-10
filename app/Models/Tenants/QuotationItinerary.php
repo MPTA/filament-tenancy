@@ -128,12 +128,12 @@ class QuotationItinerary extends Model
         
         if (!$breakdown) {
             // Get currency from tenant setting (via country accessor)
-            $tenantSetting = \App\Models\TenantSetting::firstOrFail();
+            $tenantSettings = tenant()->settings;
             
             $breakdown = \App\Models\Tenants\Breakdown::create([
                 'quotation_itinerary_id' => $this->id,
                 'creator_user_id' => \Illuminate\Support\Facades\Auth::id(),
-                'currency_id' => $tenantSetting->currency_id,
+                'currency_id' => $tenantSettings->currency_id,
             ]);
         }
         
@@ -166,7 +166,7 @@ class QuotationItinerary extends Model
         }
 
         // Get base budgets from tenant settings
-        $tenantSettings = \App\Models\TenantSetting::first();
+        $tenantSettings = tenant()->settings;
         
         $breakdown->update([
             'vehicle_days_qty' => $vehicleDaysQty,

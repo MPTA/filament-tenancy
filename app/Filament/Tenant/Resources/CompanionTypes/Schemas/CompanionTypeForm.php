@@ -132,30 +132,34 @@ class CompanionTypeForm
                     ->schema([
                         TextInput::make('per_day_price')
                             ->label('Per Day Price')
-                            ->numeric()
-                            ->prefix('$')
+                            ->prefix(fn() => tenant()->settings?->country?->currency?->symbol ?? '$')
                             ->placeholder('0.00')
+                            ->rules(['nullable', 'numeric', 'min:0'])
+                            ->inputMode('decimal')
                             ->helperText('Price for full day service'),
                         
                         TextInput::make('half_day_price')
                             ->label('Half Day Price')
-                            ->numeric()
-                            ->prefix('$')
+                            ->prefix(fn() => tenant()->settings?->country?->currency?->symbol ?? '$')
                             ->placeholder('0.00')
+                            ->rules(['nullable', 'numeric', 'min:0'])
+                            ->inputMode('decimal')
                             ->helperText('Price for half day service'),
                         
                         TextInput::make('per_hour_price')
                             ->label('Per Hour Price')
-                            ->numeric()
-                            ->prefix('$')
+                            ->prefix(fn() => tenant()->settings?->country?->currency?->symbol ?? '$')
                             ->placeholder('0.00')
+                            ->rules(['nullable', 'numeric', 'min:0'])
+                            ->inputMode('decimal')
                             ->helperText('Price per hour of service'),
                         
                         TextInput::make('extra_hour_price')
                             ->label('Extra Hour Price')
-                            ->numeric()
-                            ->prefix('$')
+                            ->prefix(fn() => tenant()->settings?->country?->currency?->symbol ?? '$')
                             ->placeholder('0.00')
+                            ->rules(['nullable', 'numeric', 'min:0'])
+                            ->inputMode('decimal')
                             ->helperText('Price for additional hours beyond limit'),
                     ])
                     ->columns(2),
@@ -165,32 +169,21 @@ class CompanionTypeForm
                     ->schema([
                         TextInput::make('max_hour_per_day')
                             ->label('Max Hours Per Day')
-                            ->numeric()
                             ->suffix('hours')
                             ->placeholder('8')
-                            ->helperText('Maximum hours allowed per day'),
+                            ->helperText('Maximum hours allowed per day')
+                            ->rules(['nullable', 'integer', 'min:1'])
+                            ->inputMode('numeric'),
                         
                         TextInput::make('max_hour_half_day')
                             ->label('Max Hours Half Day')
-                            ->numeric()
                             ->suffix('hours')
                             ->placeholder('4')
-                            ->helperText('Maximum hours allowed for half day service'),
+                            ->helperText('Maximum hours allowed for half day service')
+                            ->rules(['nullable', 'integer', 'min:1'])
+                            ->inputMode('numeric'),
                     ])
                     ->columns(2),
-                
-                Section::make('Currency Configuration')
-                    ->description('Set currency for pricing')
-                    ->schema([
-                        Select::make('currency_id')
-                            ->label('Currency')
-                            ->relationship('currency', 'name')
-                            ->searchable()
-                            ->preload()
-                            ->placeholder('Select currency')
-                            ->helperText('Currency for all pricing'),
-                    ])
-                    ->columns(1)
             ]);
     }
 }

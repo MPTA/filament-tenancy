@@ -64,14 +64,6 @@ class CompanionTypesTable
                     ->placeholder('Not set')
                     ->alignCenter(),
                 
-                TextColumn::make('currency.name')
-                    ->label('Currency')
-                    ->searchable()
-                    ->sortable()
-                    ->badge()
-                    ->color('warning')
-                    ->placeholder('Not set'),
-                
                 TextColumn::make('slug')
                     ->label('Slug')
                     ->searchable()
@@ -112,12 +104,6 @@ class CompanionTypesTable
                 SelectFilter::make('speaking_language_id')
                     ->label('Speaking Language')
                     ->relationship('speakingLanguage', 'name')
-                    ->searchable()
-                    ->preload(),
-                
-                SelectFilter::make('currency_id')
-                    ->label('Currency')
-                    ->relationship('currency', 'name')
                     ->searchable()
                     ->preload(),
             ])

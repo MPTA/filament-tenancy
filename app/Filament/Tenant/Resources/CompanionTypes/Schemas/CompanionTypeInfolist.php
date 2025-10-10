@@ -94,16 +94,6 @@ class CompanionTypeInfolist
                     ])
                     ->columns(2),
                 
-                Section::make('Currency Configuration')
-                    ->schema([
-                        TextEntry::make('currency.name')
-                            ->label('Currency')
-                            ->badge()
-                            ->color('warning')
-                            ->placeholder('Not specified'),
-                    ])
-                    ->columns(3),
-                
                 Section::make('System Information')
                     ->schema([
                         TextEntry::make('id')

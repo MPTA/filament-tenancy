@@ -3,7 +3,6 @@
 namespace Database\Seeders\Development;
 
 use App\Models\Base\CompanionCategory;
-use App\Models\Base\Currency;
 use App\Models\Base\Language;
 use App\Models\Tenant;
 use App\Models\Tenants\CompanionType;
@@ -21,11 +20,10 @@ class CompanionTypeSeeder extends Seeder
         $tenant = Tenant::find('balopar');
         $english = Language::where('code', 'en')->first();
         $chinese = Language::where('code', 'zh')->first();
-        $cny = Currency::where('code', 'CNY')->first();
         $tourGuide = CompanionCategory::where('slug', 'tour-guide')->first();
         $translator = CompanionCategory::where('slug', 'translator')->first();
 
-        if (!$tenant || !$english || !$chinese || !$cny || !$tourGuide || !$translator) {
+        if (!$tenant || !$english || !$chinese || !$tourGuide || !$translator) {
             $this->command->warn('Required data not found. Please run other seeders first.');
             return;
         }
@@ -52,7 +50,6 @@ class CompanionTypeSeeder extends Seeder
                 'max_hour_per_day' => 8,
                 'max_hour_half_day' => 4,
                 'extra_hour_price' => 50.00,
-                'currency_id' => $cny->id,
             ]);
         }
 
@@ -75,7 +72,6 @@ class CompanionTypeSeeder extends Seeder
                 'max_hour_per_day' => 8,
                 'max_hour_half_day' => 4,
                 'extra_hour_price' => 55.00,
-                'currency_id' => $cny->id,
             ]);
         }
 

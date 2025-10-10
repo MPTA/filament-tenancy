@@ -3,7 +3,6 @@
 namespace App\Models\Tenants;
 
 use App\Models\Base\CompanionCategory;
-use App\Models\Base\Currency;
 use App\Models\Base\Language;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
@@ -29,7 +28,6 @@ class CompanionType extends Model
         'max_hour_per_day',
         'max_hour_half_day',
         'extra_hour_price',
-        'currency_id',
         'slug',
     ];
 
@@ -89,8 +87,15 @@ class CompanionType extends Model
             'max_hour_per_day' => 'nullable|integer|min:1',
             'max_hour_half_day' => 'nullable|integer|min:1',
             'extra_hour_price' => 'nullable|numeric|min:0',
-            'currency_id' => 'nullable|uuid|exists:currencies,id',
         ];
+    }
+
+    /**
+     * Get the currency_id attribute from tenant settings.
+     */
+    public function getCurrencyIdAttribute()
+    {
+        return tenant()->settings?->currency_id;
     }
 
     /**
@@ -123,14 +128,6 @@ class CompanionType extends Model
     public function companionCategory(): BelongsTo
     {
         return $this->belongsTo(CompanionCategory::class);
-    }
-
-    /**
-     * Get the currency that owns this companion type.
-     */
-    public function currency(): BelongsTo
-    {
-        return $this->belongsTo(Currency::class);
     }
 
     /**
@@ -185,7 +182,7 @@ class CompanionType extends Model
         if (!$this->per_day_price) {
             return 'Not specified';
         }
-        $currency = $this->currency ? $this->currency->code : 'USD';
+        $currency = tenant()->settings?->country?->currency?->code ?? 'USD';
         return number_format((float) $this->per_day_price, 2) . ' ' . $currency;
     }
 
@@ -197,7 +194,7 @@ class CompanionType extends Model
         if (!$this->half_day_price) {
             return 'Not specified';
         }
-        $currency = $this->currency ? $this->currency->code : 'USD';
+        $currency = tenant()->settings?->country?->currency?->code ?? 'USD';
         return number_format((float) $this->half_day_price, 2) . ' ' . $currency;
     }
 
@@ -209,7 +206,7 @@ class CompanionType extends Model
         if (!$this->per_hour_price) {
             return 'Not specified';
         }
-        $currency = $this->currency ? $this->currency->code : 'USD';
+        $currency = tenant()->settings?->country?->currency?->code ?? 'USD';
         return number_format((float) $this->per_hour_price, 2) . ' ' . $currency;
     }
 
@@ -221,7 +218,7 @@ class CompanionType extends Model
         if (!$this->extra_hour_price) {
             return 'Not specified';
         }
-        $currency = $this->currency ? $this->currency->code : 'USD';
+        $currency = tenant()->settings?->country?->currency?->code ?? 'USD';
         return number_format((float) $this->extra_hour_price, 2) . ' ' . $currency;
     }
 

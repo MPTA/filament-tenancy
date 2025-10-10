@@ -75,7 +75,7 @@ class CompanionTypeResource extends Resource
     public static function getEloquentQuery(): \Illuminate\Database\Eloquent\Builder
     {
         return parent::getEloquentQuery()
-            ->with(['companionCategory', 'nativeLanguage', 'speakingLanguage', 'currency']);
+            ->with(['companionCategory', 'nativeLanguage', 'speakingLanguage']);
     }
 
     public static function form(Schema $schema): Schema

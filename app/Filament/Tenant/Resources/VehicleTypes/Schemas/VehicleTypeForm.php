@@ -77,12 +77,11 @@ class VehicleTypeForm
                         TextInput::make('capacity_from')
                             ->label('Minimum Capacity')
                             ->required()
-                            ->numeric()
-                            ->minValue(1)
-                            ->maxValue(100)
+                            ->suffix('passengers')
                             ->placeholder('1')
                             ->helperText('Minimum number of passengers')
-                            ->suffix('passengers')
+                            ->rules(['required', 'integer', 'min:1', 'max:100'])
+                            ->inputMode('numeric')
                             ->live(onBlur: true)
                             ->afterStateUpdated(function ($state, $get, $set) {
                                 $capacityTo = $get('capacity_to');
@@ -94,12 +93,11 @@ class VehicleTypeForm
                         TextInput::make('capacity_to')
                             ->label('Maximum Capacity')
                             ->required()
-                            ->numeric()
-                            ->minValue(1)
-                            ->maxValue(100)
+                            ->suffix('passengers')
                             ->placeholder('4')
                             ->helperText('Maximum number of passengers')
-                            ->suffix('passengers')
+                            ->rules(['required', 'integer', 'min:1', 'max:100'])
+                            ->inputMode('numeric')
                             ->live(onBlur: true)
                             ->afterStateUpdated(function ($state, $get, $set) {
                                 $capacityFrom = $get('capacity_from');
@@ -110,21 +108,19 @@ class VehicleTypeForm
                         
                         TextInput::make('max_hour_per_day')
                             ->label('Max Hours Per Day')
-                            ->numeric()
-                            ->minValue(1)
-                            ->maxValue(24)
+                            ->suffix('hours')
                             ->placeholder('8')
                             ->helperText('Maximum hours allowed per day')
-                            ->suffix('hours'),
+                            ->rules(['nullable', 'integer', 'min:1', 'max:24'])
+                            ->inputMode('numeric'),
                         
                         TextInput::make('max_hour_half_day')
                             ->label('Max Hours Half Day')
-                            ->numeric()
-                            ->minValue(1)
-                            ->maxValue(12)
+                            ->suffix('hours')
                             ->placeholder('4')
                             ->helperText('Maximum hours for half day service')
-                            ->suffix('hours'),
+                            ->rules(['nullable', 'integer', 'min:1', 'max:12'])
+                            ->inputMode('numeric'),
                     ])
                     ->columns(2),
                 
@@ -133,35 +129,35 @@ class VehicleTypeForm
                     ->schema([
                         TextInput::make('per_day_price')
                             ->label('Per Day Price')
-                            ->numeric()
-                            ->minValue(0)
+                            ->prefix(fn() => tenant()->settings?->country?->currency?->symbol ?? '$')
                             ->placeholder('0.00')
                             ->helperText('Price for full day service')
-                            ->prefix('$'),
+                            ->rules(['nullable', 'numeric', 'min:0'])
+                            ->inputMode('decimal'),
                         
                         TextInput::make('half_day_price')
                             ->label('Half Day Price')
-                            ->numeric()
-                            ->minValue(0)
+                            ->prefix(fn() => tenant()->settings?->country?->currency?->symbol ?? '$')
                             ->placeholder('0.00')
                             ->helperText('Price for half day service')
-                            ->prefix('$'),
+                            ->rules(['nullable', 'numeric', 'min:0'])
+                            ->inputMode('decimal'),
                         
                         TextInput::make('extra_hour_price')
                             ->label('Extra Hour Price')
-                            ->numeric()
-                            ->minValue(0)
+                            ->prefix(fn() => tenant()->settings?->country?->currency?->symbol ?? '$')
                             ->placeholder('0.00')
                             ->helperText('Price for each extra hour')
-                            ->prefix('$'),
+                            ->rules(['nullable', 'numeric', 'min:0'])
+                            ->inputMode('decimal'),
                         
                         TextInput::make('airport_transfer_price')
                             ->label('Airport Transfer Price')
-                            ->numeric()
-                            ->minValue(0)
+                            ->prefix(fn() => tenant()->settings?->country?->currency?->symbol ?? '$')
                             ->placeholder('0.00')
                             ->helperText('Price for airport transfer service')
-                            ->prefix('$'),
+                            ->rules(['nullable', 'numeric', 'min:0'])
+                            ->inputMode('decimal'),
                     ])
                     ->columns(2),
                 

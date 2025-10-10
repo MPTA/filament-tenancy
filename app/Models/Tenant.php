@@ -8,6 +8,7 @@ use TomatoPHP\FilamentTenancy\Models\Tenant as BaseTenant;
 
 class Tenant extends BaseTenant
 {
+    use HasDomains;
 
     /**
      * Get the tenant settings.

@@ -99,11 +99,11 @@ class TenantAttractionInfolist
                                         ->schema([
                                             TextInput::make('tenant_local_price')
                                                 ->label('Local Price')
-                                                ->numeric()
                                                 ->prefix(function () {
-                                                    $tenantSettings = \App\Models\TenantSetting::first();
-                                                    return $tenantSettings?->currency?->symbol ?? '$';
+                                                    return tenant()->settings?->country?->currency?->symbol ?? '$';
                                                 })
+                                                ->rules(['nullable', 'numeric', 'min:0'])
+                                                ->inputMode('decimal')
                                                 ->default(function ($record) {
                                                     $price = \App\Models\Tenants\TenantAttraction::where('tenant_id', tenant('id'))
                                                         ->where('attraction_id', $record->id)
@@ -112,11 +112,11 @@ class TenantAttractionInfolist
                                                 }),
                                             TextInput::make('tenant_foreigner_price')
                                                 ->label('Foreigner Price')
-                                                ->numeric()
                                                 ->prefix(function () {
-                                                    $tenantSettings = \App\Models\TenantSetting::first();
-                                                    return $tenantSettings?->currency?->symbol ?? '$';
+                                                    return tenant()->settings?->country?->currency?->symbol ?? '$';
                                                 })
+                                                ->rules(['nullable', 'numeric', 'min:0'])
+                                                ->inputMode('decimal')
                                                 ->default(function ($record) {
                                                     $price = \App\Models\Tenants\TenantAttraction::where('tenant_id', tenant('id'))
                                                         ->where('attraction_id', $record->id)
@@ -173,18 +173,18 @@ class TenantAttractionInfolist
                                                                 ->dehydrated(false),
                                                             TextInput::make('tenant_local_price')
                                                                 ->label('Local Price')
-                                                                ->numeric()
                                                                 ->prefix(function () {
-                                                                    $tenantSettings = \App\Models\TenantSetting::first();
-                                                                    return $tenantSettings?->currency?->symbol ?? '$';
-                                                                }),
+                                                                    return tenant()->settings?->country?->currency?->symbol ?? '$';
+                                                                })
+                                                                ->rules(['nullable', 'numeric', 'min:0'])
+                                                                ->inputMode('decimal'),
                                                             TextInput::make('tenant_foreigner_price')
                                                                 ->label('Foreigner Price')
-                                                                ->numeric()
                                                                 ->prefix(function () {
-                                                                    $tenantSettings = \App\Models\TenantSetting::first();
-                                                                    return $tenantSettings?->currency?->symbol ?? '$';
-                                                                }),
+                                                                    return tenant()->settings?->country?->currency?->symbol ?? '$';
+                                                                })
+                                                                ->rules(['nullable', 'numeric', 'min:0'])
+                                                                ->inputMode('decimal'),
                                                         ]),
                                                     Textarea::make('tenant_additional_content')
                                                         ->label('Additional Content')

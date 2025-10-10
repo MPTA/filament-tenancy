@@ -21,7 +21,7 @@ class ListTenantAccommodations extends ListRecords
     protected function getTableQuery(): Builder
     {
         // Get tenant's country from settings
-        $tenantSettings = TenantSetting::first();
+        $tenantSettings = tenant()->settings;
         $countryId = $tenantSettings?->country_id;
 
         if (!$countryId) {

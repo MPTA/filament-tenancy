@@ -271,7 +271,7 @@ class OffersTab
                         Select::make('living_city_id')
                             ->label('Living City')
                             ->options(function () {
-                                $tenantSetting = \App\Models\TenantSetting::where('tenant_id', tenant('id'))->first();
+                                $tenantSetting = tenant()->settings;
                                 if (!$tenantSetting || !$tenantSetting->country_id) {
                                     return \App\Models\Base\City::all()->pluck('name', 'id');
                                 }
@@ -522,7 +522,7 @@ class OffersTab
                                 Select::make('living_city_id')
                                     ->label('Living City')
                                     ->options(function () {
-                                        $tenantSetting = \App\Models\TenantSetting::where('tenant_id', tenant('id'))->first();
+                                        $tenantSetting = tenant()->settings;
                                         if (!$tenantSetting || !$tenantSetting->country_id) {
                                             return \App\Models\Base\City::all()->pluck('name', 'id');
                                         }

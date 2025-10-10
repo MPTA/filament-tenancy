@@ -35,7 +35,7 @@ class ExchangeRateForm
                                         $record = request()->route('record');
                                         
                                         // Get to_currency_id from tenant settings
-                                        $tenantSetting = TenantSetting::first();
+                                        $tenantSetting = tenant()->settings;
                                         $toCurrencyId = $tenantSetting?->currency_id;
                                         
                                         if (!$toCurrencyId) {

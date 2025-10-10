@@ -81,8 +81,8 @@ class City extends Model
         
         if ($cache === null) {
             // Get tenant's country from settings
-            $tenantSetting = \App\Models\TenantSetting::first();
-            $tenantCountryId = $tenantSetting?->country_id;
+            $tenantSettings = tenant()?->settings;
+            $tenantCountryId = $tenantSettings?->country_id;
             
             if (!$tenantCountryId) {
                 // If no tenant country set, return all cities

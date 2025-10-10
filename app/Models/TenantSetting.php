@@ -41,7 +41,7 @@ class TenantSetting extends Model
      */
     public function tenant(): BelongsTo
     {
-        return $this->belongsTo(\TomatoPHP\FilamentTenancy\Models\Tenant::class);
+        return $this->belongsTo(\App\Models\Tenant::class, 'tenant_id', 'id');
     }
 
     /**

@@ -60,8 +60,7 @@ class TenantPricesRelationManager extends RelationManager
                     ->numeric()
                     ->prefix(function () {
                         // Get currency symbol from tenant settings
-                        $tenantSettings = \App\Models\TenantSetting::first();
-                        return $tenantSettings?->currency?->symbol;
+                        return tenant()->settings?->country?->currency?->symbol ?? '$';
                     })
                     ->rules(['required', 'numeric', 'min:0'])
                     ->validationMessages([
