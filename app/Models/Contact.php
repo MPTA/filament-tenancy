@@ -29,6 +29,7 @@ class Contact extends Model
         'type',
         'gender',
         'postal_address',
+        'country_id',
         'user_id',
         'tenant_id',
     ];
@@ -49,6 +50,14 @@ class Contact extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Get the country that owns the contact.
+     */
+    public function country(): BelongsTo
+    {
+        return $this->belongsTo(\App\Models\Base\Country::class);
     }
 
     /**

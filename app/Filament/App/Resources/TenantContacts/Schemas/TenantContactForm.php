@@ -3,6 +3,7 @@
 namespace App\Filament\App\Resources\TenantContacts\Schemas;
 
 use App\Enums\GenderEnum;
+use App\Models\Base\Country;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
@@ -61,11 +62,19 @@ class TenantContactForm
                             ->options(GenderEnum::class)
                             ->searchable(),
                         
+                        Select::make('country_id')
+                            ->label('Country')
+                            ->required()
+                            ->options(fn () => Country::all()->pluck('name', 'id')->mapWithKeys(fn ($name, $id) => [$id => is_array($name) ? ($name['en'] ?? $name['fa'] ?? current($name)) : $name]))
+                            ->searchable()
+                            ->preload(),
+                        
                         Toggle::make('is_customer')
                             ->label('Mark as Customer')
                             ->helperText('Enable to save this contact as a customer (otherwise saved as lead)')
                             ->default(false)
-                            ->inline(false),
+                            ->inline(false)
+                            ->columnSpanFull(),
                         
                         Textarea::make('postal_address')
                             ->label('Postal Address')

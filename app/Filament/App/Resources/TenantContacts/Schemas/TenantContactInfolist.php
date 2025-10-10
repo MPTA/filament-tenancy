@@ -77,11 +77,11 @@ class TenantContactInfolist
                             ->icon(fn($state) => $state === ContactTypeEnum::CUSTOMER ? 'heroicon-o-check-circle' : 'heroicon-o-x-circle')
                             ->color(fn($state) => $state === ContactTypeEnum::CUSTOMER ? 'success' : 'gray'),
                         
-                        TextEntry::make('tenant_id')
-                            ->label('Tenant ID')
-                            ->placeholder('Not assigned')
+                        TextEntry::make('country.name')
+                            ->label('Country')
+                            ->placeholder('Not specified')
                             ->badge()
-                            ->color('info'),
+                            ->color('primary'),
                         
                         TextEntry::make('country_code')
                             ->label('Country Code')

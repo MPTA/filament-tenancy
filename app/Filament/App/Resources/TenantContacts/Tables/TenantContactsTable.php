@@ -22,15 +22,16 @@ class TenantContactsTable
         return $table
             ->columns([
                 TextColumn::make('type')
-                ->label('Type')
-                ->badge()
-                ->sortable()
-                ->color(fn($state) => match($state) {
-                    ContactTypeEnum::CUSTOMER => 'success',
-                    ContactTypeEnum::LEAD => 'warning',
-                    ContactTypeEnum::USER => 'info',
-                    default => 'gray',
-                }),
+                    ->label('Type')
+                    ->badge()
+                    ->sortable()
+                    ->color(fn($state) => match($state) {
+                        ContactTypeEnum::CUSTOMER => 'success',
+                        ContactTypeEnum::LEAD => 'warning',
+                        ContactTypeEnum::USER => 'info',
+                        default => 'gray',
+                    }),
+                
                 TextColumn::make('first_name')
                     ->label('First Name')
                     ->searchable()
@@ -68,7 +69,14 @@ class TenantContactsTable
                     ->placeholder('No company')
                     ->icon('heroicon-o-building-office'),
                 
-
+                TextColumn::make('country.name')
+                    ->label('Country')
+                    ->searchable()
+                    ->sortable()
+                    ->placeholder('Not specified')
+                    ->badge()
+                    ->color('primary')
+                    ->toggleable(isToggledHiddenByDefault: true),
                 
                 TextColumn::make('user.name')
                     ->label('User')
