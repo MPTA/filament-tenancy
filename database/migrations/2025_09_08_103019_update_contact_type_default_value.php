@@ -12,6 +12,11 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // Check if table exists before attempting to modify
+        if (!Schema::hasTable('contacts')) {
+            return;
+        }
+        
         // Update existing records to use lowercase values
         DB::table('contacts')->where('type', 'Lead')->update(['type' => 'lead']);
         DB::table('contacts')->where('type', 'User')->update(['type' => 'user']);

@@ -16,24 +16,28 @@ class CompanionCategorySeeder extends Seeder
         $companionCategories = [
             [
                 'slug' => 'tour-guide',
+                'category_type' => 'tour_guide',
                 'name' => ['en' => 'Tour Guide'],
                 'description' => ['en' => 'Local guide in destination'],
                 'is_active' => true,
             ],
             [
                 'slug' => 'tour-leader',
+                'category_type' => 'driver',
                 'name' => ['en' => 'Tour Leader'],
                 'description' => ['en' => 'Escort from origin'],
                 'is_active' => true,
             ],
             [
                 'slug' => 'translator',
+                'category_type' => 'translator',
                 'name' => ['en' => 'Translator'],
                 'description' => ['en' => 'Interpreter for the group'],
                 'is_active' => true,
             ],
             [
                 'slug' => 'staff',
+                'category_type' => 'staff',
                 'name' => ['en' => 'Staff'],
                 'description' => ['en' => 'General companion or internal manager'],
                 'is_active' => true,

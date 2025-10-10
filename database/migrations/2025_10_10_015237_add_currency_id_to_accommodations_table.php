@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('attractions', function (Blueprint $table) {
-            $table->uuid('currency_id')->after('foreigner_price');
+        Schema::table('accommodations', function (Blueprint $table) {
+            $table->uuid('currency_id')->after('star_rating');
             $table->foreign('currency_id')->references('id')->on('currencies')->restrictOnDelete();
         });
     }
@@ -22,7 +22,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('attractions', function (Blueprint $table) {
+        Schema::table('accommodations', function (Blueprint $table) {
             $table->dropForeign(['currency_id']);
             $table->dropColumn('currency_id');
         });

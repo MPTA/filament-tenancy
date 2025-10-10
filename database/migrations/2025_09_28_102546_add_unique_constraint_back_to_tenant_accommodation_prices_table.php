@@ -12,8 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('tenant_accommodation_prices', function (Blueprint $table) {
-            // Add unique constraint back
-            $table->unique(['tenant_id', 'accommodation_id', 'room_category_id', 'valid_from'], 'unique_tenant_accommodation_room_date');
+            // Add unique constraint back only if it doesn't exist
+            if (!Schema::hasIndex('tenant_accommodation_prices', 'unique_tenant_accommodation_room_date')) {
+                $table->unique(['tenant_id', 'accommodation_id', 'room_category_id', 'valid_from'], 'unique_tenant_accommodation_room_date');
+            }
         });
     }
 

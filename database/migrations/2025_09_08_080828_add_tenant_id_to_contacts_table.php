@@ -11,18 +11,25 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // Check if table exists before attempting to modify
+        if (!Schema::hasTable('contacts')) {
+            return;
+        }
+        
         Schema::table('contacts', function (Blueprint $table) {
-            // Add tenant_id field
-            $table->string('tenant_id')->nullable()->after('user_id');
-            
-            // Add foreign key constraint
-            $table->foreign('tenant_id')->references('id')->on('tenants')->onUpdate('cascade')->onDelete('cascade');
-            
-            // Add index for performance
-            $table->index('tenant_id');
-            
-            // Add composite index for tenant + user queries
-            $table->index(['tenant_id', 'user_id']);
+            // Add tenant_id field only if it doesn't exist
+            if (!Schema::hasColumn('contacts', 'tenant_id')) {
+                $table->string('tenant_id')->nullable()->after('user_id');
+                
+                // Add foreign key constraint
+                $table->foreign('tenant_id')->references('id')->on('tenants')->onUpdate('cascade')->onDelete('cascade');
+                
+                // Add index for performance
+                $table->index('tenant_id');
+                
+                // Add composite index for tenant + user queries
+                $table->index(['tenant_id', 'user_id']);
+            }
         });
     }
 

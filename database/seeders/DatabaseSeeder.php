@@ -10,30 +10,32 @@ class DatabaseSeeder extends Seeder
 {
     /**
      * Seed the application's database.
+     * 
+     * این seeders برای همه محیط‌ها (production و development) اجرا می‌شوند.
+     * برای دیتای تستی، از DevelopmentSeeder استفاده کنید.
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        $this->command->info('🌱 Seeding essential data...');
+        
+        // Seedهای ضروری برای همه محیط‌ها
+        $this->call([
+            LanguageSeeder::class,
+            ActivityCategorySeeder::class,
+            MealCategorySeeder::class,
+            CompanionCategorySeeder::class,
+            RoomCategorySeeder::class,
+            VehicleCategorySeeder::class,
+        ]);
 
-        // Create admin user for tenant
-        if (tenancy()->initialized) {
-            $tenant = tenant();
-            // Check if user already exists
-            if (!User::where('email', $tenant->email)->exists()) {
-                User::factory()->create([
-                    'name' => 'Admin',
-                    'email' => $tenant->email,
-                    'password' => bcrypt('password'),
-                ]);
-            }
-        } else {
-            // For central database
-            if (!User::where('email', 'test@example.com')->exists()) {
-                User::factory()->create([
-                    'name' => 'Test User',
-                    'email' => 'test@example.com',
-                ]);
-            }
+        $this->command->newLine();
+        $this->command->info('✅ Essential data seeded successfully!');
+        
+        // نمایش راهنما برای seedهای development
+        if (app()->environment(['local', 'development'])) {
+            $this->command->newLine();
+            $this->command->line('💡 <fg=yellow>Tip:</> Run development seeders with:');
+            $this->command->line('   <fg=green>php artisan db:seed --class=DevelopmentSeeder</>');
         }
     }
 }

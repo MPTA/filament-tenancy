@@ -12,6 +12,11 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // Check if table exists before attempting to modify
+        if (!Schema::hasTable('itineraries')) {
+            return;
+        }
+        
         // Use raw SQL to handle the index drop safely
         DB::statement('DROP INDEX IF EXISTS itineraries_polymorphic_index');
         

@@ -11,6 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // Check if table exists before attempting to modify
+        if (!Schema::hasTable('contacts')) {
+            return;
+        }
+        
         Schema::table('contacts', function (Blueprint $table) {
             // Add index for type field for better query performance
             if (!Schema::hasIndex('contacts', 'contacts_type_index')) {

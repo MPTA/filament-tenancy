@@ -29,6 +29,7 @@ class Accommodation extends Model
         'district_id',
         'external_id',
         'is_active',
+        'currency_id',
     ];
 
     protected $casts = [
@@ -70,6 +71,14 @@ class Accommodation extends Model
     public function district(): BelongsTo
     {
         return $this->belongsTo(District::class);
+    }
+
+    /**
+     * Get the currency that owns the accommodation.
+     */
+    public function currency(): BelongsTo
+    {
+        return $this->belongsTo(Currency::class);
     }
 
     /**
