@@ -13,6 +13,22 @@ class Contact extends Model
 {
     use HasUuids, CentralConnection;
     protected $table = 'contacts';
+    
+    /**
+     * Boot the model.
+     */
+    protected static function boot()
+    {
+        parent::boot();
+        
+        // جلوگیری از حذف کانتکتی که به یوزر متصل است
+        static::deleting(function ($contact) {
+            if ($contact->user_id) {
+                throw new \Exception('Cannot delete contact that is associated with a user. Please delete the user first.');
+            }
+        });
+    }
+    
     /**
      * The attributes that are mass assignable.
      *

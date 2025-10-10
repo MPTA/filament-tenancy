@@ -13,10 +13,16 @@ class EditTenant extends EditRecord
 
     protected function mutateFormDataBeforeFill(array $data): array
     {
+        // تبدیل name به tenant_name برای نمایش
+        $data['tenant_name'] = $data['name'];
+        
         // بارگذاری داده‌های tenant settings
         $settings = TenantSetting::where('tenant_id', $this->record->id)->first();
         
         if ($settings) {
+            // بارگذاری contact_name به name برای نمایش در فرم
+            $data['name'] = $settings->contact_name;
+            
             $data['settings'] = [
                 'currency_id' => $settings->currency_id,
                 'language_id' => $settings->language_id,
@@ -24,14 +30,9 @@ class EditTenant extends EditRecord
                 'city_id' => $settings->city_id,
                 'mobile_number' => $settings->mobile_number,
                 'address' => $settings->address,
-                'contact_name' => $settings->contact_name,
                 'phone_number' => $settings->phone_number,
                 'company_name' => $settings->company_name,
                 'company_local_name' => $settings->company_local_name,
-                'driver_meal_base_budget' => $settings->driver_meal_base_budget,
-                'driver_accommodation_base_budget' => $settings->driver_accommodation_base_budget,
-                'companion_meal_base_budget' => $settings->companion_meal_base_budget,
-                'companion_accommodation_base_budget' => $settings->companion_accommodation_base_budget,
             ];
         }
         
@@ -42,6 +43,16 @@ class EditTenant extends EditRecord
     {
         // جدا کردن داده‌های settings از داده‌های tenant
         $this->settingsData = $data['settings'] ?? [];
+        
+        // ذخیره contact_name برای استفاده در settings
+        $this->contactPersonName = $data['name'] ?? null;
+        
+        // تبدیل tenant_name به name برای ذخیره در جدول tenants
+        if (isset($data['tenant_name'])) {
+            $data['name'] = $data['tenant_name'];
+            unset($data['tenant_name']);
+        }
+        
         unset($data['settings']);
         
         return $data;
@@ -53,7 +64,10 @@ class EditTenant extends EditRecord
         if (!empty($this->settingsData)) {
             TenantSetting::updateOrCreate(
                 ['tenant_id' => $this->record->id],
-                $this->settingsData
+                [
+                    'contact_name' => $this->contactPersonName,
+                    ...$this->settingsData,
+                ]
             );
         }
     }
@@ -66,4 +80,5 @@ class EditTenant extends EditRecord
     }
 
     private array $settingsData = [];
+    private ?string $contactPersonName = null;
 }

@@ -26,14 +26,16 @@ class TenantForm
                 Section::make('Basic Information')
                     ->columns(3)
                     ->schema([
-                        TextInput::make('name')
+                        TextInput::make('tenant_name')
                             ->label('Tenant Name')
                             ->required()
-                            ->unique(table: 'tenants', ignoreRecord: true)
+                            ->unique(table: 'tenants', column: 'name', ignoreRecord: true)
                             ->live(onBlur: true)
-                            ->afterStateUpdated(function (Set $set, $state) {
-                                $set('id', Str::slug($state, '_'));
-                                $set('domain', Str::slug($state));
+                            ->afterStateUpdated(function (Set $set, $state, $context) {
+                                if ($context === 'create') {
+                                    $set('id', Str::slug($state, '_'));
+                                    $set('domain', Str::slug($state));
+                                }
                             })
                             ->columnSpan(3),
                         
@@ -46,21 +48,17 @@ class TenantForm
                             ->suffix('.' . request()->getHost())
                             ->columnSpan(3),
                         
+                        TextInput::make('name')
+                            ->label('Contact Person Name')
+                            ->helperText(fn ($context) => $context === 'edit' ? 'This is the contact person name, not related to user profile.' : null)
+                            ->required()
+                            ->columnSpan(3),
+                        
                         TextInput::make('email')
-                            ->label('Email')
+                            ->label(fn ($context) => $context === 'edit' ? 'Tenant Email' : 'Email')
+                            ->helperText(fn ($context) => $context === 'edit' ? 'This email belongs to the tenant profile, not the user.' : null)
                             ->required()
                             ->email()
-                            ->columnSpan(2),
-                        
-                        TextInput::make('phone')
-                            ->label('Phone')
-                            ->tel()
-                            ->columnSpan(1),
-                        
-                        Toggle::make('is_active')
-                            ->label('Active')
-                            ->default(true)
-                            ->inline(false)
                             ->columnSpan(3),
                     ]),
 
@@ -86,6 +84,12 @@ class TenantForm
                             ->revealable()
                             ->dehydrated(false)
                             ->required(fn ($context) => $context === 'create'),
+                        
+                        Toggle::make('is_active')
+                            ->label('Active')
+                            ->default(true)
+                            ->inline(false)
+                            ->columnSpan(2),
                     ]),
 
                 Section::make('Company & Settings')
@@ -107,6 +111,7 @@ class TenantForm
                             ->searchable()
                             ->preload()
                             ->required()
+                            ->disabled(fn ($context) => $context === 'edit')
                             ->columnSpan(1),
                         
                         Select::make('settings.language_id')
@@ -122,6 +127,7 @@ class TenantForm
                     ->schema([
                         Select::make('settings.country_id')
                             ->label('Country')
+                            ->required()
                             ->options(fn () => Country::all()->pluck('name', 'id')->mapWithKeys(fn ($name, $id) => [$id => is_array($name) ? ($name['en'] ?? $name['fa'] ?? current($name)) : $name]))
                             ->searchable()
                             ->preload()
@@ -131,6 +137,7 @@ class TenantForm
                         
                         Select::make('settings.city_id')
                             ->label('City')
+                            ->required()
                             ->options(fn (Get $get) => 
                                 City::query()
                                     ->when($get('settings.country_id'), fn ($query, $countryId) => 
@@ -144,11 +151,6 @@ class TenantForm
                             ->preload()
                             ->disabled(fn (Get $get) => empty($get('settings.country_id')))
                             ->columnSpan(2),
-                        
-                        TextInput::make('settings.contact_name')
-                            ->label('Contact Person')
-                            ->maxLength(255)
-                            ->columnSpan(1),
                         
                         TextInput::make('settings.phone_number')
                             ->label('Phone')
@@ -166,43 +168,6 @@ class TenantForm
                             ->label('Address')
                             ->rows(2)
                             ->columnSpan(3),
-                    ]),
-
-                Section::make('Base Budget Configuration')
-                    ->description('Set base budgets for drivers and companions (in tenant default currency)')
-                    ->columns(2)
-                    ->schema([
-                        TextInput::make('settings.driver_meal_base_budget')
-                            ->label('Driver Meal Budget')
-                            ->numeric()
-                            ->prefix('$')
-                            ->placeholder('50.00')
-                            ->default(50.00)
-                            ->helperText('Base budget per day'),
-                        
-                        TextInput::make('settings.driver_accommodation_base_budget')
-                            ->label('Driver Accommodation Budget')
-                            ->numeric()
-                            ->prefix('$')
-                            ->placeholder('100.00')
-                            ->default(100.00)
-                            ->helperText('Base budget per night'),
-                        
-                        TextInput::make('settings.companion_meal_base_budget')
-                            ->label('Companion Meal Budget')
-                            ->numeric()
-                            ->prefix('$')
-                            ->placeholder('50.00')
-                            ->default(50.00)
-                            ->helperText('Base budget per day'),
-                        
-                        TextInput::make('settings.companion_accommodation_base_budget')
-                            ->label('Companion Accommodation Budget')
-                            ->numeric()
-                            ->prefix('$')
-                            ->placeholder('100.00')
-                            ->default(100.00)
-                            ->helperText('Base budget per night'),
                     ]),
             ]);
     }
