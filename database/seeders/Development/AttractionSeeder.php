@@ -4,6 +4,7 @@ namespace Database\Seeders\Development;
 
 use App\Enums\AttractionTypeEnum;
 use App\Models\Base\Attraction;
+use App\Models\Base\SubAttraction;
 use App\Models\Base\City;
 use App\Models\Base\Currency;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -33,7 +34,7 @@ class AttractionSeeder extends Seeder
         }
 
         // Beijing Attractions
-        $this->createAttraction(
+        $forbiddenCity = $this->createAttraction(
             'Forbidden City',
             '故宫',
             'کاخ ممنوعه',
@@ -47,8 +48,12 @@ class AttractionSeeder extends Seeder
             60,
             4.8
         );
+        
+        // Forbidden City Sub-Attractions
+        $this->createSubAttraction($forbiddenCity, 'Hall of Supreme Harmony', '太和殿', 'تالار هماهنگی عالی', 'Main throne hall', 'تالار اصلی تخت', '主要宝座厅', 10, 15);
+        $this->createSubAttraction($forbiddenCity, 'Imperial Garden', '御花园', 'باغ امپراتوری', 'Beautiful royal garden', 'باغ سلطنتی زیبا', '美丽的皇家花园', 0, 0);
 
-        $this->createAttraction(
+        $greatWall = $this->createAttraction(
             'Great Wall of China',
             '长城',
             'دیوار بزرگ چین',
@@ -62,6 +67,10 @@ class AttractionSeeder extends Seeder
             70,
             4.9
         );
+        
+        // Great Wall Sub-Attractions
+        $this->createSubAttraction($greatWall, 'Mutianyu Section', '慕田峪段', 'بخش موتیانیو', 'Well-preserved section with cable car', 'بخش خوب حفظ شده با تله‌کابین', '保存完好的部分，配有缆车', 15, 20);
+        $this->createSubAttraction($greatWall, 'Badaling Section', '八达岭段', 'بخش بادالینگ', 'Most visited section', 'بخش پربازدید', '参观人数最多的部分', 10, 15);
 
         $this->createAttraction(
             'Temple of Heaven',
@@ -125,7 +134,7 @@ class AttractionSeeder extends Seeder
         );
 
         // Shenzhen Attractions
-        $this->createAttraction(
+        $windowOfWorld = $this->createAttraction(
             'Window of the World',
             '世界之窗',
             'پنجره دنیا',
@@ -139,6 +148,11 @@ class AttractionSeeder extends Seeder
             200,
             4.5
         );
+        
+        // Window of the World Sub-Attractions
+        $this->createSubAttraction($windowOfWorld, 'Eiffel Tower Replica', '埃菲尔铁塔复制品', 'نسخه کوچک برج ایفل', 'Scale replica of Paris landmark', 'نمونه مقیاس‌بندی شده از نماد پاریس', '巴黎地标的比例复制品', 0, 0);
+        $this->createSubAttraction($windowOfWorld, 'Egyptian Pyramids Area', '埃及金字塔区', 'منطقه اهرام مصر', 'Egyptian themed section', 'بخش با تم مصری', '埃及主题区', 0, 0);
+        $this->createSubAttraction($windowOfWorld, 'Taj Mahal Replica', '泰姬陵复制品', 'نسخه کوچک تاج محل', 'Miniature of India monument', 'نسخه مینیاتوری بنای یادبود هند', '印度纪念碑的微缩模型', 0, 0);
 
         $this->createAttraction(
             'Splendid China Folk Village',
@@ -189,8 +203,8 @@ class AttractionSeeder extends Seeder
         float $localPrice,
         float $foreignerPrice,
         float $rating
-    ): void {
-        Attraction::updateOrCreate(
+    ): Attraction {
+        return Attraction::updateOrCreate(
             [
                 'city_id' => $city->id,
                 'name->en' => $nameEn,
@@ -215,6 +229,42 @@ class AttractionSeeder extends Seeder
                 'city_id' => $city->id,
                 'rating' => $rating,
                 'is_active' => true,
+            ]
+        );
+    }
+
+    /**
+     * Create sub-attraction
+     */
+    private function createSubAttraction(
+        Attraction $attraction,
+        string $nameEn,
+        string $nameZh,
+        string $nameFa,
+        string $descEn,
+        string $descFa,
+        string $descZh,
+        float $localPrice,
+        float $foreignerPrice
+    ): SubAttraction {
+        return SubAttraction::updateOrCreate(
+            [
+                'attraction_id' => $attraction->id,
+                'name->en' => $nameEn,
+            ],
+            [
+                'name' => [
+                    'en' => $nameEn,
+                    'zh' => $nameZh,
+                    'fa' => $nameFa,
+                ],
+                'description' => [
+                    'en' => $descEn,
+                    'fa' => $descFa,
+                    'zh' => $descZh,
+                ],
+                'local_price' => $localPrice,
+                'foreigner_price' => $foreignerPrice,
             ]
         );
     }
