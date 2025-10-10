@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Enums\ContactTypeEnum;
+use App\Enums\GenderEnum;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -20,14 +22,15 @@ class Contact extends Model
         'first_name',
         'last_name',
         'email',
-        'company',
-        'gender',
-        'postal_address',
         'phone',
         'mobile',
+        'country_code',
+        'company',
+        'type',
+        'gender',
+        'postal_address',
         'user_id',
         'tenant_id',
-        'is_customer',
     ];
 
     /**
@@ -36,7 +39,8 @@ class Contact extends Model
      * @var array<string, string>
      */
     protected $casts = [
-        'is_customer' => 'boolean',
+        'type' => ContactTypeEnum::class,
+        'gender' => GenderEnum::class,
     ];
 
     /**

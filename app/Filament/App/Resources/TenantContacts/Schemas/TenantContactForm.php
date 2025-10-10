@@ -2,6 +2,7 @@
 
 namespace App\Filament\App\Resources\TenantContacts\Schemas;
 
+use App\Enums\GenderEnum;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
@@ -55,24 +56,16 @@ class TenantContactForm
                 
                 Section::make('Additional Information')
                     ->schema([
-                        Select::make('user_id')
-                            ->label('User')
-                            ->relationship('user', 'name')
-                            ->searchable()
-                            ->preload(),
-                        
-                        
-                        TextInput::make('gender')
+                        Select::make('gender')
                             ->label('Gender')
-                            ->maxLength(20),
+                            ->options(GenderEnum::class)
+                            ->searchable(),
                         
                         Toggle::make('is_customer')
-                            ->label('Is Customer')
-                            ->required(),
-                        
-                        TextInput::make('tenant_id')
-                            ->label('Tenant ID')
-                            ->maxLength(255),
+                            ->label('Mark as Customer')
+                            ->helperText('Enable to save this contact as a customer (otherwise saved as lead)')
+                            ->default(false)
+                            ->inline(false),
                         
                         Textarea::make('postal_address')
                             ->label('Postal Address')

@@ -2,6 +2,8 @@
 
 namespace App\Filament\App\Resources\TenantContacts\Schemas;
 
+use App\Enums\ContactTypeEnum;
+use App\Enums\GenderEnum;
 use Filament\Infolists\Components\IconEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Section;
@@ -64,15 +66,16 @@ class TenantContactInfolist
                             ->label('Gender')
                             ->placeholder('Not specified')
                             ->badge()
-                            ->color('gray'),
+                            ->color(fn($state) => match($state) {
+                                GenderEnum::MALE => 'info',
+                                GenderEnum::FEMALE => 'danger',
+                                default => 'gray',
+                            }),
                         
-                        IconEntry::make('is_customer')
+                        IconEntry::make('type')
                             ->label('Is Customer')
-                            ->boolean()
-                            ->trueIcon('heroicon-o-check-circle')
-                            ->falseIcon('heroicon-o-x-circle')
-                            ->trueColor('success')
-                            ->falseColor('danger'),
+                            ->icon(fn($state) => $state === ContactTypeEnum::CUSTOMER ? 'heroicon-o-check-circle' : 'heroicon-o-x-circle')
+                            ->color(fn($state) => $state === ContactTypeEnum::CUSTOMER ? 'success' : 'gray'),
                         
                         TextEntry::make('tenant_id')
                             ->label('Tenant ID')

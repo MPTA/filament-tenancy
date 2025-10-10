@@ -2,6 +2,7 @@
 
 namespace App\Filament\App\Resources\TenantContacts\Tables;
 
+use App\Enums\ContactTypeEnum;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
@@ -20,6 +21,16 @@ class TenantContactsTable
     {
         return $table
             ->columns([
+                TextColumn::make('type')
+                ->label('Type')
+                ->badge()
+                ->sortable()
+                ->color(fn($state) => match($state) {
+                    ContactTypeEnum::CUSTOMER => 'success',
+                    ContactTypeEnum::LEAD => 'warning',
+                    ContactTypeEnum::USER => 'info',
+                    default => 'gray',
+                }),
                 TextColumn::make('first_name')
                     ->label('First Name')
                     ->searchable()
@@ -57,15 +68,7 @@ class TenantContactsTable
                     ->placeholder('No company')
                     ->icon('heroicon-o-building-office'),
                 
-                
-                IconColumn::make('is_customer')
-                    ->label('Customer')
-                    ->boolean()
-                    ->trueIcon('heroicon-o-check-circle')
-                    ->falseIcon('heroicon-o-x-circle')
-                    ->trueColor('success')
-                    ->falseColor('danger')
-                    ->sortable(),
+
                 
                 TextColumn::make('user.name')
                     ->label('User')
@@ -93,7 +96,12 @@ class TenantContactsTable
                     ->label('Customer Status')
                     ->placeholder('All contacts')
                     ->trueLabel('Customers only')
-                    ->falseLabel('Non-customers only'),
+                    ->falseLabel('Leads only')
+                    ->queries(
+                        true: fn($query) => $query->where('type', ContactTypeEnum::CUSTOMER->value),
+                        false: fn($query) => $query->where('type', ContactTypeEnum::LEAD->value),
+                        blank: fn($query) => $query,
+                    ),
                 
                 SelectFilter::make('user_id')
                     ->label('Assigned User')

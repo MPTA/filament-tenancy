@@ -2,6 +2,8 @@
 
 namespace App\Filament\App\Resources\QuotationItineraries\Schemas;
 
+use App\Enums\ContactTypeEnum;
+use App\Enums\GenderEnum;
 use App\Models\Tenants\QuotationItinerary;
 use Filament\Actions\Action;
 use Filament\Forms\Components\Select;
@@ -10,8 +12,8 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Toggle;
 use Filament\Notifications\Notification;
-use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Components\IconEntry;
+use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
@@ -378,8 +380,8 @@ class InformationTab
                                 ->icon('heroicon-o-identification')
                                 ->badge()
                                 ->color(fn() => match($contact->gender ?? null) {
-                                    'male' => 'info',
-                                    'female' => 'danger',
+                                    GenderEnum::MALE => 'info',
+                                    GenderEnum::FEMALE => 'danger',
                                     default => 'gray',
                                 }),
 
@@ -426,18 +428,14 @@ class InformationTab
                         ->columnSpanFull(),
                 ]),
 
-            Section::make('Account Status')
+            Section::make('Customer Status')
                 ->icon('heroicon-o-check-badge')
                 ->schema([
-                    IconEntry::make('is_customer')
-                        ->label('Customer Status')
-                        ->default($contact->is_customer ?? false)
-                        ->boolean()
-                        ->trueIcon('heroicon-o-check-circle')
-                        ->falseIcon('heroicon-o-x-circle')
-                        ->trueColor('success')
-                        ->falseColor('gray')
-                        ->label(fn() => $contact->is_customer ? 'Active Customer' : 'Not a Customer'),
+                    IconEntry::make('type')
+                        ->label('Is Customer')
+                        ->icon(fn() => ($contact->type ?? ContactTypeEnum::LEAD) === ContactTypeEnum::CUSTOMER ? 'heroicon-o-check-circle' : 'heroicon-o-x-circle')
+                        ->color(fn() => ($contact->type ?? ContactTypeEnum::LEAD) === ContactTypeEnum::CUSTOMER ? 'success' : 'gray')
+                        ->label(fn() => ($contact->type ?? ContactTypeEnum::LEAD) === ContactTypeEnum::CUSTOMER ? 'Active Customer' : 'Lead Contact'),
                 ]),
         ];
     }
