@@ -14,7 +14,6 @@ class TenantAttraction extends Model
 
     protected $fillable = [
         'attraction_id',
-        'currency_id',
         'local_price',
         'foreigner_price',
         'additional_content',
@@ -40,11 +39,6 @@ class TenantAttraction extends Model
     public function attraction(): BelongsTo
     {
         return $this->belongsTo(\App\Models\Base\Attraction::class);
-    }
-
-    public function currency(): BelongsTo
-    {
-        return $this->belongsTo(\App\Models\Base\Currency::class);
     }
 
     public function tenantSubAttractions(): \Illuminate\Database\Eloquent\Relations\HasMany

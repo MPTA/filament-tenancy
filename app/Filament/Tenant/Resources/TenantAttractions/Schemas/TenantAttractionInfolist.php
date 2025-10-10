@@ -93,22 +93,8 @@ class TenantAttractionInfolist
                                 ->color('primary')
                                 ->icon('heroicon-o-pencil')
                                 ->modal()
-                                ->modalHeading('Edit Attraction Pricing')
+                                ->modalHeading('Edit Attraction Pricing (Tenant Default Currency)')
                                 ->schema([
-                                    Select::make('currency_id')
-                                        ->label('Currency')
-                                        ->options(function () {
-                                            return Currency::pluck('name', 'id')->toArray();
-                                        })
-                                        ->searchable()
-                                        ->preload()
-                                        ->default(function ($record) {
-                                            $price = \App\Models\Tenants\TenantAttraction::where('tenant_id', tenant('id'))
-                                                ->where('attraction_id', $record->id)
-                                                ->first();
-                                            return $price?->currency_id;
-                                        })
-                                        ->columnSpanFull(),
                                     Grid::make(2)
                                         ->schema([
                                             TextInput::make('tenant_local_price')
@@ -220,7 +206,6 @@ class TenantAttractionInfolist
                                     ]);
 
                                     $priceRecord->fill([
-                                        'currency_id' => $data['currency_id'] ?? null,
                                         'local_price' => $data['tenant_local_price'] ?? null,
                                         'foreigner_price' => $data['tenant_foreigner_price'] ?? null,
                                         'additional_content' => isset($data['tenant_additional_content']) && $data['tenant_additional_content'] ? json_decode($data['tenant_additional_content'], true) : null,

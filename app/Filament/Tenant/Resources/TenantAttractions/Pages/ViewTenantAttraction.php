@@ -39,7 +39,6 @@ class ViewTenantAttraction extends ViewRecord
             ]);
 
             $priceRecord->fill([
-                'currency_id' => $data['currency_id'] ?? null,
                 'local_price' => $data['tenant_local_price'] ?? null,
                 'foreigner_price' => $data['tenant_foreigner_price'] ?? null,
                 'additional_content' => isset($data['tenant_additional_content']) && $data['tenant_additional_content'] ? json_decode($data['tenant_additional_content'], true) : null,
