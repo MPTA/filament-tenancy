@@ -3,6 +3,7 @@
 namespace Database\Seeders\Development;
 
 use App\Models\Base\Country;
+use App\Models\Base\Currency;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -13,6 +14,9 @@ class CountrySeeder extends Seeder
      */
     public function run(): void
     {
+        // Get CNY currency
+        $cny = Currency::where('code', 'CNY')->first();
+        
         $countries = [
             [
                 'code' => 'CN',
@@ -21,6 +25,7 @@ class CountrySeeder extends Seeder
                     'fa' => 'چین',
                     'zh' => '中国',
                 ],
+                'currency_id' => $cny?->id,
             ],
         ];
 

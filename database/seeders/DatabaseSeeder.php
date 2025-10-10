@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             CompanionCategorySeeder::class,
             RoomCategorySeeder::class,
             VehicleCategorySeeder::class,
+            AdminUserSeeder::class,
         ]);
 
         $this->command->newLine();

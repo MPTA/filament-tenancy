@@ -4,6 +4,7 @@ namespace App\Models\Base;
 
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Spatie\Translatable\HasTranslations;
@@ -16,11 +17,19 @@ class Country extends Model
     protected $table = 'countries';
     public $translatable = ['name'];
 
-    protected $fillable = ['name', 'code'];
+    protected $fillable = ['name', 'code', 'currency_id'];
 
     protected $casts = [
         'name' => 'array',
     ];
+
+    /**
+     * Get the currency for the country.
+     */
+    public function currency(): BelongsTo
+    {
+        return $this->belongsTo(Currency::class);
+    }
 
     /**
      * Get the provinces for the country.

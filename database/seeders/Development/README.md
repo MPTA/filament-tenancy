@@ -10,7 +10,6 @@
 
 | Seeder | توضیحات | دیتا |
 |--------|---------|------|
-| `AdminUserSeeder` | کاربر ادمین تستی | admin@masihparvaz@gmail.com (password: password) |
 | `CurrencySeeder` | کارنسی‌های تستی | USD, CNY |
 | `CountrySeeder` | کشورهای تستی | China |
 | `ProvinceSeeder` | استان‌های تستی | Beijing, Shanghai, Guangdong |

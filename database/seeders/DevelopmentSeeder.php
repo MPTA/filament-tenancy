@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use Database\Seeders\Development\AccommodationSeeder;
-use Database\Seeders\Development\AdminUserSeeder;
 use Database\Seeders\Development\AttractionSeeder;
 use Database\Seeders\Development\CitySeeder;
 use Database\Seeders\Development\CompanionTypeSeeder;
@@ -37,7 +36,6 @@ class DevelopmentSeeder extends Seeder
         $this->command->info('🔧 Running Development Seeders...');
         
         $this->call([
-            AdminUserSeeder::class,
             CurrencySeeder::class,
             CountrySeeder::class,
             ProvinceSeeder::class,
