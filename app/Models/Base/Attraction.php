@@ -3,6 +3,7 @@
 namespace App\Models\Base;
 
 use App\Enums\AttractionTypeEnum;
+use App\Models\Tenants\TenantAttraction;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -23,6 +24,7 @@ class Attraction extends Model
         'type',
         'local_price',
         'foreigner_price',
+        'currency_id',
         'address',
         'latitude',
         'longitude',
@@ -80,6 +82,14 @@ class Attraction extends Model
     }
 
     /**
+     * Get the currency for this attraction.
+     */
+    public function currency(): BelongsTo
+    {
+        return $this->belongsTo(Currency::class);
+    }
+
+    /**
      * Get the sub attractions for the attraction.
      */
     public function subAttractions(): HasMany
@@ -92,15 +102,7 @@ class Attraction extends Model
      */
     public function tenantAttractions(): HasMany
     {
-        return $this->hasMany(\App\Models\Tenants\TenantAttraction::class);
-    }
-
-    /**
-     * Get the tenant attraction prices for this attraction.
-     */
-    public function tenantPrices(): HasMany
-    {
-        return $this->hasMany(\App\Models\Tenants\TenantAttractionPrice::class);
+        return $this->hasMany(TenantAttraction::class);
     }
 
     /**
