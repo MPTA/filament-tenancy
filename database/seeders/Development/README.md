@@ -10,10 +10,16 @@
 
 | Seeder | توضیحات | دیتا |
 |--------|---------|------|
+| `AdminUserSeeder` | کاربر ادمین تستی | admin@masihparvaz@gmail.com (password: password) |
 | `CurrencySeeder` | کارنسی‌های تستی | USD, CNY |
 | `CountrySeeder` | کشورهای تستی | China |
 | `ProvinceSeeder` | استان‌های تستی | Beijing, Shanghai, Guangdong |
 | `CitySeeder` | شهرهای تستی | Beijing, Shanghai, Shenzhen |
+| `TenantSeeder` | Tenant تستی | balopar (CNY, English, Beijing) |
+| `CompanionTypeSeeder` | انواع همراهان برای balopar | English Guide, English Translator |
+| `MealTypeSeeder` | انواع غذا برای balopar | Chinese Standard, Hotpot, Buffet Breakfast, Turkish Standard |
+| `VehicleTypeSeeder` | انواع خودرو برای balopar | SUV, Mini Bus, Bus |
+| `ExperienceSeeder` | تجربه‌ها برای balopar | 6 تجربه (2 در هر شهر): Peking Duck, Kung Fu, River Cruise, Acrobatic, Tea, Calligraphy |
 | `AccommodationSeeder` | هتل‌ها و قیمت‌های تستی | 6 هتل (2 در هر شهر: 4★ و 5★) با قیمت Single/Twin |
 | `AttractionSeeder` | جاذبه‌های گردشگری | 9 جاذبه (3 در هر شهر) با قیمت Local/Foreigner |
 
