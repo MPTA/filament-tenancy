@@ -17,6 +17,9 @@ class CreateTenantUser extends CreateRecord
         $this->contactData = $data['contact'] ?? [];
         unset($data['contact']);
         
+        // Auto-verify email for users created from panel
+        $data['email_verified_at'] = now();
+        
         return $data;
     }
 

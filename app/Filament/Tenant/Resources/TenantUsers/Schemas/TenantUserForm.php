@@ -25,7 +25,12 @@ class TenantUserForm
                             ->label('Full Name')
                             ->required()
                             ->maxLength(255)
-                            ->columnSpan(2),
+                            ->columnSpan(1),
+                        
+                        Select::make('contact.gender')
+                            ->label('Gender')
+                            ->options(GenderEnum::class)
+                            ->columnSpan(1),
                         
                         TextInput::make('email')
                             ->label('Email Address')
@@ -59,7 +64,7 @@ class TenantUserForm
 
                 Section::make('Contact Information')
                     ->description('Contact details for this user')
-                    ->columns(3)
+                    ->columns(2)
                     ->schema([
                         TextInput::make('contact.phone')
                             ->label('Phone')
@@ -79,20 +84,10 @@ class TenantUserForm
                             ->searchable()
                             ->preload()
                             ->columnSpan(1),
-                    ]),
-
-                Section::make('Additional Information')
-                    ->description('Optional information about the user')
-                    ->columns(2)
-                    ->schema([
+                        
                         TextInput::make('contact.company')
                             ->label('Company')
                             ->maxLength(255)
-                            ->columnSpan(1),
-                        
-                        Select::make('contact.gender')
-                            ->label('Gender')
-                            ->options(GenderEnum::class)
                             ->columnSpan(1),
                         
                         Textarea::make('contact.postal_address')

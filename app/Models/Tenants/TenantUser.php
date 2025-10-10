@@ -17,6 +17,6 @@ class TenantUser extends User
      */
     public function contact(): HasOne
     {
-        return $this->hasOne(TenantContact::class);
+        return $this->hasOne(TenantContact::class, 'user_id');
     }
 }

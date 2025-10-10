@@ -18,7 +18,7 @@ class TenantUserResource extends Resource
 {
     protected static ?string $model = TenantUser::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedUserGroup;
 
     protected static ?string $recordTitleAttribute = 'name';
 
@@ -32,6 +32,11 @@ class TenantUserResource extends Resource
         return TenantUsersTable::configure($table);
     }
 
+    public static function getEloquentQuery(): \Illuminate\Database\Eloquent\Builder
+    {
+        return parent::getEloquentQuery()->with(['contact', 'contact.country']);
+    }
+
     public static function getRelations(): array
     {
         return [
@@ -43,8 +48,18 @@ class TenantUserResource extends Resource
     {
         return [
             'index' => ListTenantUsers::route('/'),
-            'create' => CreateTenantUser::route('/create'),
+            // 'create' => CreateTenantUser::route('/create'), // Temporarily disabled
             'edit' => EditTenantUser::route('/{record}/edit'),
         ];
+    }
+    
+    public static function canCreate(): bool
+    {
+        return false; // Temporarily disabled
+    }
+    
+    public static function canDelete($record): bool
+    {
+        return false; // Temporarily disabled
     }
 }

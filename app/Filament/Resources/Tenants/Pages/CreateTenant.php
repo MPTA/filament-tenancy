@@ -62,6 +62,7 @@ class CreateTenant extends CreateRecord
                 'email' => $this->record->email,
                 'password' => $this->record->password,
                 'tenant_id' => $this->record->id,
+                'email_verified_at' => now(),
                 'created_at' => now(),
                 'updated_at' => now(),
             ];
