@@ -21,7 +21,13 @@ class QuotationItineraryResource extends Resource
 {
     protected static ?string $model = QuotationItinerary::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedDocumentText;
+
+    protected static string|\UnitEnum|null $navigationGroup = 'Quotations';
+
+    protected static ?int $navigationSort = 1;
+
+    protected static ?string $navigationLabel = 'Quotation Itineraries';
 
     protected static ?string $recordTitleAttribute = 'quotation_id';
 

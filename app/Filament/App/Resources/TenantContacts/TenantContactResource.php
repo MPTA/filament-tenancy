@@ -21,17 +21,17 @@ class TenantContactResource extends Resource
 {
     protected static ?string $model = TenantContact::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedUserGroup;
 
     protected static ?string $recordTitleAttribute = 'first_name';
 
-    protected static ?string $navigationLabel = 'Tenant Contacts';
+    protected static ?string $navigationLabel = 'Contacts';
 
-    protected static ?string $modelLabel = 'Tenant Contact';
+    protected static ?string $modelLabel = 'Contact';
 
-    protected static ?string $pluralModelLabel = 'Tenant Contacts';
+    protected static ?string $pluralModelLabel = 'Contacts';
 
-    protected static string | UnitEnum | null $navigationGroup = 'Tenant Management';
+    protected static string|\UnitEnum|null $navigationGroup = 'CRM';
 
     protected static ?int $navigationSort = 1;
 

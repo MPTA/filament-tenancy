@@ -125,6 +125,7 @@ class TenantSettings extends Page
                                         ->label('Currency')
                                         ->options(Currency::all()->pluck('name', 'id'))
                                         ->searchable()
+                                        ->disabled()
                                         ->preload(),
                                         
                                     Select::make('language_id')

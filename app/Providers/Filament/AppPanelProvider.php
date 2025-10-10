@@ -6,6 +6,7 @@ use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Navigation\NavigationGroup;
 use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -53,6 +54,14 @@ class AppPanelProvider extends PanelProvider
                 DispatchServingFilamentEvent::class,
             ])
             ->plugin(FilamentTenancyAppPlugin::make())
+            ->navigationGroups([
+                NavigationGroup::make('Quotations')
+                    ->collapsed(false),
+                NavigationGroup::make('Itineraries')
+                    ->collapsed(false),
+                NavigationGroup::make('CRM')
+                    ->collapsed(true),
+            ])
             ->viteTheme('resources/css/filament/tenant-admin/theme.css')
             ->authMiddleware([
                 Authenticate::class,
