@@ -68,29 +68,6 @@ class AttractionForm
                     ])
                     ->columns(2),
 
-                Section::make('Coordinates & Rating')
-                    ->schema([
-                        TextInput::make('latitude')
-                            ->numeric()
-                            ->step(0.000001)
-                            ->minValue(-90)
-                            ->maxValue(90)
-                            ->suffix('°'),
-                        TextInput::make('longitude')
-                            ->numeric()
-                            ->step(0.000001)
-                            ->minValue(-180)
-                            ->maxValue(180)
-                            ->suffix('°'),
-                        TextInput::make('rating')
-                            ->numeric()
-                            ->step(0.1)
-                            ->minValue(0)
-                            ->maxValue(5)
-                            ->suffix('/5'),
-                    ])
-                    ->columns(3),
-
                 Section::make('Pricing Information')
                     ->schema([
                         TextInput::make('local_price')
@@ -107,14 +84,6 @@ class AttractionForm
                             ->suffix('USD'),
                     ])
                     ->columns(2),
-
-                Section::make('External Integration')
-                    ->schema([
-                        TextInput::make('external_id')
-                            ->label('External ID')
-                            ->helperText('External system identifier'),
-                    ])
-                    ->collapsible(),
             ]);
     }
 }

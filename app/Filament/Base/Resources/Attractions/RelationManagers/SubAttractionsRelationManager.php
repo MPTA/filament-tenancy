@@ -43,25 +43,7 @@ class SubAttractionsRelationManager extends RelationManager
                     ])
                     ->columns(2),
 
-                FormSection::make('Location Coordinates')
-                    ->schema([
-                        TextInput::make('latitude')
-                            ->numeric()
-                            ->step(0.000001)
-                            ->minValue(-90)
-                            ->maxValue(90)
-                            ->suffix('°'),
-                        TextInput::make('longitude')
-                            ->numeric()
-                            ->step(0.000001)
-                            ->minValue(-180)
-                            ->maxValue(180)
-                            ->suffix('°'),
-                    ])
-                    ->columns(2),
-
                 FormSection::make('Pricing Information')
-                    ->columnSpanFull()
                     ->schema([
                         TextInput::make('local_price')
                             ->numeric()
@@ -78,7 +60,7 @@ class SubAttractionsRelationManager extends RelationManager
                             ->suffix('USD')
                             ->helperText('Price for foreign visitors'),
                     ])
-                    ->columns(3),
+                    ->columns(2),
             ]);
     }
 
@@ -94,19 +76,6 @@ class SubAttractionsRelationManager extends RelationManager
                         TextEntry::make('description')
                             ->placeholder('No description provided')
                             ->columnSpanFull(),
-                    ])
-                    ->columns(2),
-
-                Section::make('Location Coordinates')
-                    ->schema([
-                        TextEntry::make('latitude')
-                            ->numeric()
-                            ->placeholder('Not specified')
-                            ->suffix('°'),
-                        TextEntry::make('longitude')
-                            ->numeric()
-                            ->placeholder('Not specified')
-                            ->suffix('°'),
                     ])
                     ->columns(2),
 
@@ -171,15 +140,6 @@ class SubAttractionsRelationManager extends RelationManager
                     ->money('USD')
                     ->sortable()
                     ->placeholder('Free')
-                    ->toggleable(),
-                TextColumn::make('coordinates')
-                    ->getStateUsing(function ($record) {
-                        if ($record->latitude && $record->longitude) {
-                            return number_format($record->latitude, 6) . ', ' . number_format($record->longitude, 6);
-                        }
-                        return 'Not specified';
-                    })
-                    ->label('Coordinates')
                     ->toggleable(),
                 TextColumn::make('created_at')
                     ->dateTime()
