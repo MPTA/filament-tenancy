@@ -8,6 +8,7 @@ use App\Models\Base\Language;
 use App\Models\Base\Country;
 use App\Models\Base\City;
 use Filament\Actions\Action;
+use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Select;
@@ -124,6 +125,18 @@ class TenantSettings extends Page
                                 ->options(Language::all()->pluck('name', 'id'))
                                 ->searchable()
                                 ->preload(),
+                            
+                            Placeholder::make('currency_display')
+                                ->label('Default Currency')
+                                ->content(function () {
+                                    $record = $this->getRecord();
+                                    $currency = $record?->country?->currency;
+                                    if ($currency) {
+                                        return $currency->code . ' (' . $currency->symbol . ')';
+                                    }
+                                    return '—';
+                                })
+                                ->helperText('Currency is automatically determined by the selected country'),
                         ])
                         ->collapsible(),
 
