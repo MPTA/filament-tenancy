@@ -136,6 +136,50 @@ class TenantSettings extends Page
                                 ]),
                         ])
                         ->collapsible(),
+
+                    Section::make('Base Budget Configuration')
+                        ->description('Set base budgets for drivers and companions')
+                        ->icon('heroicon-o-banknotes')
+                        ->schema([
+                            Grid::make(2)
+                                ->schema([
+                                    TextInput::make('driver_meal_base_budget')
+                                        ->label('Driver Meal Base Budget')
+                                        ->numeric()
+                                        ->prefix('$')
+                                        ->placeholder('50.00')
+                                        ->default(50.00)
+                                        ->helperText('Base budget for driver meals per day'),
+                                        
+                                    TextInput::make('driver_accommodation_base_budget')
+                                        ->label('Driver Accommodation Base Budget')
+                                        ->numeric()
+                                        ->prefix('$')
+                                        ->placeholder('100.00')
+                                        ->default(100.00)
+                                        ->helperText('Base budget for driver accommodation per night'),
+                                ]),
+                            
+                            Grid::make(2)
+                                ->schema([
+                                    TextInput::make('companion_meal_base_budget')
+                                        ->label('Companion Meal Base Budget')
+                                        ->numeric()
+                                        ->prefix('$')
+                                        ->placeholder('50.00')
+                                        ->default(50.00)
+                                        ->helperText('Base budget for companion meals per day'),
+                                        
+                                    TextInput::make('companion_accommodation_base_budget')
+                                        ->label('Companion Accommodation Base Budget')
+                                        ->numeric()
+                                        ->prefix('$')
+                                        ->placeholder('100.00')
+                                        ->default(100.00)
+                                        ->helperText('Base budget for companion accommodation per night'),
+                                ]),
+                        ])
+                        ->collapsible(),
                 ])
                     ->livewireSubmitHandler('save')
                     ->footer([

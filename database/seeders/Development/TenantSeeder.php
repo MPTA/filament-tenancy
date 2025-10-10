@@ -61,6 +61,10 @@ class TenantSeeder extends Seeder
             'city_id' => $beijing->id,
             'company_name' => 'Balopar Travel Agency',
             'company_local_name' => 'بالوپار',
+            'driver_meal_base_budget' => 50.00,
+            'driver_accommodation_base_budget' => 100.00,
+            'companion_meal_base_budget' => 50.00,
+            'companion_accommodation_base_budget' => 100.00,
         ]);
 
         // ایجاد User برای Tenant (در single database mode)

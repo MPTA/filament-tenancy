@@ -167,6 +167,43 @@ class TenantForm
                             ->rows(2)
                             ->columnSpan(3),
                     ]),
+
+                Section::make('Base Budget Configuration')
+                    ->description('Set base budgets for drivers and companions (in tenant default currency)')
+                    ->columns(2)
+                    ->schema([
+                        TextInput::make('settings.driver_meal_base_budget')
+                            ->label('Driver Meal Budget')
+                            ->numeric()
+                            ->prefix('$')
+                            ->placeholder('50.00')
+                            ->default(50.00)
+                            ->helperText('Base budget per day'),
+                        
+                        TextInput::make('settings.driver_accommodation_base_budget')
+                            ->label('Driver Accommodation Budget')
+                            ->numeric()
+                            ->prefix('$')
+                            ->placeholder('100.00')
+                            ->default(100.00)
+                            ->helperText('Base budget per night'),
+                        
+                        TextInput::make('settings.companion_meal_base_budget')
+                            ->label('Companion Meal Budget')
+                            ->numeric()
+                            ->prefix('$')
+                            ->placeholder('50.00')
+                            ->default(50.00)
+                            ->helperText('Base budget per day'),
+                        
+                        TextInput::make('settings.companion_accommodation_base_budget')
+                            ->label('Companion Accommodation Budget')
+                            ->numeric()
+                            ->prefix('$')
+                            ->placeholder('100.00')
+                            ->default(100.00)
+                            ->helperText('Base budget per night'),
+                    ]),
             ]);
     }
 }

@@ -22,6 +22,17 @@ class TenantSetting extends Model
         'phone_number',
         'company_name',
         'company_local_name',
+        'driver_meal_base_budget',
+        'driver_accommodation_base_budget',
+        'companion_meal_base_budget',
+        'companion_accommodation_base_budget',
+    ];
+
+    protected $casts = [
+        'driver_meal_base_budget' => 'decimal:2',
+        'driver_accommodation_base_budget' => 'decimal:2',
+        'companion_meal_base_budget' => 'decimal:2',
+        'companion_accommodation_base_budget' => 'decimal:2',
     ];
 
     /**

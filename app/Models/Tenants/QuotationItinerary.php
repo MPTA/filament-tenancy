@@ -167,14 +167,17 @@ class QuotationItinerary extends Model
             }
         }
 
+        // Get base budgets from tenant settings
+        $tenantSettings = \App\Models\TenantSetting::first();
+        
         $breakdown->update([
             'vehicle_days_qty' => $vehicleDaysQty,
             'vehicle_half_days_qty' => $vehicleHalfDaysQty,
             'vehicle_hours_qty' => $vehicleHoursQty,
-            'driver_base_meal_budget' => 50.00,
-            'driver_base_accommodation_budget' => 100.00,
-            'companion_base_meal_budget' => 50.00,
-            'companion_base_accommodation_budget' => 100.00,
+            'driver_base_meal_budget' => ($tenantSettings?->driver_meal_base_budget > 0) ? $tenantSettings->driver_meal_base_budget : 50.00,
+            'driver_base_accommodation_budget' => ($tenantSettings?->driver_accommodation_base_budget > 0) ? $tenantSettings->driver_accommodation_base_budget : 100.00,
+            'companion_base_meal_budget' => ($tenantSettings?->companion_meal_base_budget > 0) ? $tenantSettings->companion_meal_base_budget : 50.00,
+            'companion_base_accommodation_budget' => ($tenantSettings?->companion_accommodation_base_budget > 0) ? $tenantSettings->companion_accommodation_base_budget : 100.00,
         ]);
     }
 
