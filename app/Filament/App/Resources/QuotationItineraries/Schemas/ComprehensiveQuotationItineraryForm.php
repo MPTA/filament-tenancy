@@ -10,6 +10,9 @@ use App\Models\Base\Currency;
 use App\Models\Tenants\TenantContact;
 use App\Models\TenantSetting;
 use App\Models\Tenants\ExchangeRate;
+use App\Models\Contact;
+use App\Enums\ContactTypeEnum;
+use Filament\Actions\Action;
 use Filament\Forms\Components\DatePicker;
 use Filament\Schemas\Components\Grid;
 use Filament\Forms\Components\Hidden;
@@ -19,6 +22,8 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
+use Filament\Notifications\Notification;
+use Filament\Schemas\Components\Utilities\Set;
 use Illuminate\Support\Facades\Auth;
 
 class ComprehensiveQuotationItineraryForm
@@ -49,12 +54,74 @@ class ComprehensiveQuotationItineraryForm
                                 Select::make('inquiry_contact_id')
                                     ->label('Contact')
                                     ->options(fn () => TenantContact::query()
+                                        ->orderBy('first_name')
+                                        ->orderBy('last_name')
                                         ->get()
                                         ->mapWithKeys(fn ($contact) => [$contact->id => $contact->full_name])
                                         ->toArray())
+                                    ->getOptionLabelUsing(fn ($value) => TenantContact::find($value)?->full_name)
                                     ->searchable()
                                     ->preload()
-                                    ->required(),
+                                    ->required()
+                                    ->suffixActions([
+                                        Action::make('quick_add_contact')
+                                            ->label('Quick add')
+                                            ->icon('heroicon-o-user-plus')
+                                            ->modalHeading('Quick Add Contact')
+                                            ->form([
+                                                Grid::make(2)->schema([
+                                                    TextInput::make('contact.first_name')
+                                                        ->label('First name')
+                                                        ->required()
+                                                        ->maxLength(100),
+                                                    TextInput::make('contact.last_name')
+                                                        ->label('Last name')
+                                                        ->maxLength(100),
+                                                ]),
+                                                Grid::make(2)->schema([
+                                                    TextInput::make('contact.email')
+                                                        ->label('Email')
+                                                        ->email()
+                                                        ->required()
+                                                        ->maxLength(191),
+                                                    TextInput::make('contact.mobile')
+                                                        ->label('Mobile')
+                                                        ->tel()
+                                                        ->maxLength(50),
+                                                ]),
+                                                TextInput::make('contact.company')
+                                                    ->label('Company')
+                                                    ->maxLength(191),
+                                            ])
+                                            ->action(function (array $data, Set $set) {
+                                                $payload = $data['contact'] ?? [];
+                                                if (empty($payload['first_name']) || empty($payload['email'])) {
+                                                    Notification::make()
+                                                        ->title('First name and email are required')
+                                                        ->danger()
+                                                        ->send();
+                                                    return;
+                                                }
+
+                                                $contact = Contact::create([
+                                                    'first_name' => $payload['first_name'],
+                                                    'last_name' => $payload['last_name'] ?? null,
+                                                    'email' => $payload['email'],
+                                                    'mobile' => $payload['mobile'] ?? null,
+                                                    'company' => $payload['company'] ?? null,
+                                                    'type' => ContactTypeEnum::LEAD,
+                                                    'tenant_id' => tenant('id'),
+                                                ]);
+
+                                                $set('inquiry_contact_id', $contact->id);
+
+                                                Notification::make()
+                                                    ->title('Contact added')
+                                                    ->body('The contact has been created and selected.')
+                                                    ->success()
+                                                    ->send();
+                                            })
+                                    ]),
                                 
                                 Select::make('inquiry_requested_currency_id')
                                     ->label('Requested Currency')

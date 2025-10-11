@@ -81,6 +81,23 @@ class Contact extends Model
      */
     public function getFullNameAttribute(): string
     {
-        return trim("{$this->first_name} {$this->last_name}");
+        $firstName = trim((string) ($this->first_name ?? ''));
+        $lastName = trim((string) ($this->last_name ?? ''));
+        $company = trim((string) ($this->company ?? ''));
+
+        // Combine first and last name (skip empty parts)
+        $nameParts = array_values(array_filter([$firstName, $lastName], fn ($v) => $v !== ''));
+        $name = implode(' ', $nameParts);
+
+        // Build display with optional company, separated cleanly
+        $displayParts = array_values(array_filter([$name, $company], fn ($v) => $v !== ''));
+        $display = implode(' - ', $displayParts);
+
+        // Fallbacks if everything is empty
+        if ($display === '') {
+            return $this->email ?: 'Unknown Contact';
+        }
+
+        return $display;
     }
 }
