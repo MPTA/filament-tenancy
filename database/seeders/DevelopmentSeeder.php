@@ -6,6 +6,7 @@ use Database\Seeders\Development\AccommodationSeeder;
 use Database\Seeders\Development\AttractionSeeder;
 use Database\Seeders\Development\CitySeeder;
 use Database\Seeders\Development\CompanionTypeSeeder;
+use Database\Seeders\Development\ContactSeeder;
 use Database\Seeders\Development\ExperienceSeeder;
 use Database\Seeders\Development\CountrySeeder;
 use Database\Seeders\Development\CurrencySeeder;
@@ -41,6 +42,7 @@ class DevelopmentSeeder extends Seeder
             ProvinceSeeder::class,
             CitySeeder::class,
             TenantSeeder::class,
+            ContactSeeder::class,
             CompanionTypeSeeder::class,
             MealTypeSeeder::class,
             VehicleTypeSeeder::class,
