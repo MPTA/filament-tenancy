@@ -165,6 +165,26 @@ class InformationTab
                     ->color('danger')
                     ->columnSpanFull(),
 
+                TextEntry::make('roomCategoriesDisplay')
+                    ->label('Room Categories')
+                    ->state(function ($record) {
+                        if (empty($record->room_category_ids)) {
+                            return 'Default (Twin, Single)';
+                        }
+                        
+                        $uniqueIds = array_values(array_unique($record->room_category_ids));
+                        
+                        $names = \App\Models\Base\RoomCategory::whereIn('id', $uniqueIds)
+                            ->pluck('category')
+                            ->map(fn($cat) => $cat->getDisplayName())
+                            ->toArray();
+                        
+                        return implode(', ', array_unique($names));
+                    })
+                    ->icon('heroicon-o-squares-2x2')
+                    ->color('primary')
+                    ->columnSpanFull(),
+
                 TextEntry::make('quotation.description')
                     ->label('Description')
                     ->formatStateUsing(fn($state) => $state ?? 'No description')
@@ -341,6 +361,19 @@ class InformationTab
                     ->label('Internal Note')
                     ->rows(3),
 
+                Select::make('room_category_ids')
+                    ->label('Room Categories')
+                    ->required()
+                    ->multiple()
+                    ->maxItems(3)
+                    ->options(\App\Models\Base\RoomCategory::where('is_active', true)
+                        ->get()
+                        ->mapWithKeys(fn($cat) => [$cat->id => $cat->category->getDisplayName()])
+                    )
+                    ->searchable()
+                    ->preload()
+                    ->helperText('Select up to 3 room types (required). Changing this will regenerate the breakdown.'),
+
                 Toggle::make('is_foreigner_passengers')
                     ->label('Foreigner Passengers')
                     ->helperText('Enable if passengers are foreigners (affects attraction pricing)'),
@@ -355,10 +388,14 @@ class InformationTab
                         'description' => $record->quotation->description,
                         'internal_note' => $record->quotation->internal_note,
                     ] : [],
+                    'room_category_ids' => $record->room_category_ids ?? [],
                     'is_foreigner_passengers' => $record->is_foreigner_passengers,
                 ];
             })
             ->action(function (array $data, QuotationItinerary $record) {
+                $needsBreakdownRegeneration = false;
+                $regenerationReason = '';
+
                 // Update quotation data
                 if ($record->quotation) {
                     $record->quotation->update($data['quotation']);
@@ -371,18 +408,37 @@ class InformationTab
                     }
                 }
 
+                // Check if room categories changed
+                if (isset($data['room_category_ids'])) {
+                    $oldRoomCategories = $record->room_category_ids ?? [];
+                    $newRoomCategories = $data['room_category_ids'];
+                    
+                    if (json_encode($oldRoomCategories) !== json_encode($newRoomCategories)) {
+                        $needsBreakdownRegeneration = true;
+                        $regenerationReason = 'Room categories changed.';
+                    }
+                }
+
+                // Check if passenger type changed
+                if (isset($data['is_foreigner_passengers'])) {
+                    $oldPassengerType = $record->getOriginal('is_foreigner_passengers');
+                    if ($oldPassengerType !== $data['is_foreigner_passengers']) {
+                        $needsBreakdownRegeneration = true;
+                        $regenerationReason = $regenerationReason 
+                            ? $regenerationReason . ' Passenger type changed.' 
+                            : 'Passenger type changed.';
+                    }
+                }
+
                 // Update quotation itinerary data
                 $record->update([
                     'is_foreigner_passengers' => $data['is_foreigner_passengers'],
+                    'room_category_ids' => $data['room_category_ids'] ?? [],
                 ]);
 
-                // If breakdown exists and passenger type changed, regenerate it
-                if ($record->breakdown && isset($data['is_foreigner_passengers'])) {
-                    $oldPassengerType = $record->getOriginal('is_foreigner_passengers');
-                    if ($oldPassengerType !== $data['is_foreigner_passengers']) {
-                        // Passenger type changed, regenerate breakdown to update attraction prices
-                        $record->generateBreakdownFromItinerary();
-                    }
+                // Regenerate breakdown if needed
+                if ($record->breakdown && $needsBreakdownRegeneration) {
+                    $record->generateBreakdownFromItinerary();
                 }
 
                 // Refresh the record to update the UI
@@ -390,8 +446,8 @@ class InformationTab
 
                 Notification::make()
                     ->title('Quotation updated successfully!')
-                    ->body($record->breakdown && isset($data['is_foreigner_passengers']) && $record->getOriginal('is_foreigner_passengers') !== $data['is_foreigner_passengers']
-                        ? 'Passenger type changed. Breakdown has been regenerated with updated attraction prices.'
+                    ->body($needsBreakdownRegeneration && $record->breakdown
+                        ? $regenerationReason . ' Breakdown has been regenerated.'
                         : 'Quotation information has been updated.')
                     ->success()
                     ->send();

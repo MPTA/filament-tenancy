@@ -24,10 +24,12 @@ class QuotationItinerary extends Model
         'quotation_id',
         'tenant_id',
         'is_foreigner_passengers',
+        'room_category_ids',
     ];
 
     protected $casts = [
         'is_foreigner_passengers' => 'boolean',
+        'room_category_ids' => 'array',
     ];
 
     /**
@@ -56,6 +58,31 @@ class QuotationItinerary extends Model
     public function breakdown(): HasOne
     {
         return $this->hasOne(Breakdown::class);
+    }
+
+    /**
+     * Get the selected room categories for this quotation itinerary.
+     */
+    public function roomCategories()
+    {
+        if (empty($this->room_category_ids)) {
+            return RoomCategory::whereIn('category', ['twin', 'single']);
+        }
+        
+        return RoomCategory::whereIn('id', $this->room_category_ids);
+    }
+
+    /**
+     * Get selected room categories as collection (with fallback to Twin & Single).
+     */
+    public function getSelectedRoomCategories()
+    {
+        if (empty($this->room_category_ids)) {
+            // Fallback to Twin and Single
+            return RoomCategory::whereIn('category', ['twin', 'single'])->get();
+        }
+        
+        return RoomCategory::whereIn('id', $this->room_category_ids)->get();
     }
 
     /**
@@ -436,34 +463,22 @@ class QuotationItinerary extends Model
      */
     private function createDefaultRoomCategories($breakdownAccommodation, $existingRooms = null, $hasBreakfast = true, &$missingPrices = [])
     {
-        $twinRoomCategory = RoomCategory::where('category', \App\Enums\RoomCategoryEnum::TWIN->value)->first();
-        $singleRoomCategory = RoomCategory::where('category', \App\Enums\RoomCategoryEnum::SINGLE->value)->first();
-
+        // Get selected room categories from quotation itinerary
+        $selectedRoomCategories = $this->getSelectedRoomCategories();
+        
         $hotelName = $breakdownAccommodation->accommodation->name;
         $missingRooms = [];
 
-        if ($twinRoomCategory) {
-            $price = $this->getRoomCategoryPrice($breakdownAccommodation, $twinRoomCategory, $existingRooms, $breakdownAccommodation->has_breakfast);
+        // Loop through each selected room category
+        foreach ($selectedRoomCategories as $roomCategory) {
+            $price = $this->getRoomCategoryPrice($breakdownAccommodation, $roomCategory, $existingRooms, $breakdownAccommodation->has_breakfast);
             
             if ($price == 0) {
-                $missingRooms[] = 'Twin';
+                $missingRooms[] = $roomCategory->category->getDisplayName();
             }
             
             $breakdownAccommodation->rooms()->create([
-                'room_category_id' => $twinRoomCategory->id,
-                'price' => $price,
-            ]);
-        }
-
-        if ($singleRoomCategory) {
-            $price = $this->getRoomCategoryPrice($breakdownAccommodation, $singleRoomCategory, $existingRooms, $breakdownAccommodation->has_breakfast);
-            
-            if ($price == 0) {
-                $missingRooms[] = 'Single';
-            }
-            
-            $breakdownAccommodation->rooms()->create([
-                'room_category_id' => $singleRoomCategory->id,
+                'room_category_id' => $roomCategory->id,
                 'price' => $price,
             ]);
         }

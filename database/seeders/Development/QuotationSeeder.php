@@ -55,6 +55,15 @@ class QuotationSeeder extends Seeder
             return;
         }
 
+        // Get room categories (Twin and Single)
+        $twinRoom = \App\Models\Base\RoomCategory::where('category', 'twin')->first();
+        $singleRoom = \App\Models\Base\RoomCategory::where('category', 'single')->first();
+        
+        if (!$twinRoom || !$singleRoom) {
+            $this->command->warn('Twin or Single room category not found. Please run RoomCategorySeeder first.');
+            return;
+        }
+
         // Get cities
         $beijing = City::where('code', 'BJ')->first();
         $shanghai = City::where('code', 'SH')->first();
@@ -83,9 +92,11 @@ class QuotationSeeder extends Seeder
         $leisureLake = $windowOfWorld ? SubAttraction::where('attraction_id', $windowOfWorld->id)->where('name->en', 'Leisure Lake')->first() : null;
 
         // Get experiences
-        $hutongTour = Experience::where('tenant_id', $tenant->id)->where('city_id', $beijing->id)->where('name->en', 'like', '%Hutong%')->first();
-        $shanghaiNightCruise = Experience::where('tenant_id', $tenant->id)->where('city_id', $shanghai->id)->where('name->en', 'like', '%Night Cruise%')->first();
-        $shenzhenTechTour = Experience::where('tenant_id', $tenant->id)->where('city_id', $shenzhen->id)->where('name->en', 'like', '%Tech%')->first();
+        $beijingKungFu = Experience::where('tenant_id', $tenant->id)->where('city_id', $beijing->id)->where('name->en', 'like', '%Kung Fu%')->first();
+        $shanghaiNightCruise = Experience::where('tenant_id', $tenant->id)->where('city_id', $shanghai->id)->where('name->en', 'like', '%Cruise%')->first();
+        $shanghaiAcrobatic = Experience::where('tenant_id', $tenant->id)->where('city_id', $shanghai->id)->where('name->en', 'like', '%Acrobatic%')->first();
+        $shenzhenTeaCeremony = Experience::where('tenant_id', $tenant->id)->where('city_id', $shenzhen->id)->where('name->en', 'like', '%Tea%')->first();
+        $shenzhenCalligraphy = Experience::where('tenant_id', $tenant->id)->where('city_id', $shenzhen->id)->where('name->en', 'like', '%Calligraphy%')->first();
 
         // Get activity categories
         $mealCategory = ActivityCategory::where('type', ActivityCategoryTypeEnum::MEAL->value)->first();
@@ -108,6 +119,8 @@ class QuotationSeeder extends Seeder
             $tenant,
             $contact,
             $usd,
+            $twinRoom,
+            $singleRoom,
             $beijing,
             $shanghai,
             $shenzhen,
@@ -125,9 +138,11 @@ class QuotationSeeder extends Seeder
             $hallOfSupremeHarmony,
             $imperialGarden,
             $leisureLake,
-            $hutongTour,
+            $beijingKungFu,
             $shanghaiNightCruise,
-            $shenzhenTechTour,
+            $shanghaiAcrobatic,
+            $shenzhenTeaCeremony,
+            $shenzhenCalligraphy,
             $mealCategory,
             $attractionCategory,
             $ticketCategory,
@@ -169,6 +184,7 @@ class QuotationSeeder extends Seeder
             $quotationItinerary = QuotationItinerary::create([
                 'quotation_id' => $quotation->id,
                 'is_foreigner_passengers' => true,
+                'room_category_ids' => [$twinRoom->id, $singleRoom->id],
                 'tenant_id' => $tenant->id,
             ]);
 
@@ -205,9 +221,9 @@ class QuotationSeeder extends Seeder
                 $this->createAttraction($day1, $beijing, $forbiddenCity, false, [$hallOfSupremeHarmony, $imperialGarden], $attractionCategory, $adminUser);
             }
 
-            // Day 1 Experience (Hutong Tour)
-            if ($hutongTour) {
-                $this->createExperience($day1, $beijing, $hutongTour, $experienceCategory, $adminUser);
+            // Day 1 Experience (Kung Fu Show)
+            if ($beijingKungFu) {
+                $this->createExperience($day1, $beijing, $beijingKungFu, $experienceCategory, $adminUser);
             }
 
             // Day 2: Beijing → Shanghai - The Bund + Night Cruise
@@ -267,9 +283,9 @@ class QuotationSeeder extends Seeder
                 $this->createAttraction($day3, $shanghai, $westLake, false, [], $attractionCategory, $adminUser);
             }
 
-            // Day 3 Experience (West Lake Tour)
-            if ($shenzhenTechTour) {
-                $this->createExperience($day3, $shanghai, $shenzhenTechTour, $experienceCategory, $adminUser);
+            // Day 3 Experience (Acrobatic Show)
+            if ($shanghaiAcrobatic) {
+                $this->createExperience($day3, $shanghai, $shanghaiAcrobatic, $experienceCategory, $adminUser);
             }
 
             // Day 4: Shanghai → Shenzhen - Window of the World
@@ -295,6 +311,11 @@ class QuotationSeeder extends Seeder
                 $this->createAttraction($day4, $shenzhen, $windowOfWorld, false, [$leisureLake], $attractionCategory, $adminUser);
             }
 
+            // Day 4 Experience (Chinese Tea Ceremony)
+            if ($shenzhenTeaCeremony) {
+                $this->createExperience($day4, $shenzhen, $shenzhenTeaCeremony, $experienceCategory, $adminUser);
+            }
+
             // Day 5: Shenzhen - SPLC Museum + Departure
             $day5 = $itinerary->days()->create([
                 'day_number' => 5,
@@ -318,9 +339,9 @@ class QuotationSeeder extends Seeder
                 $this->createAttraction($day5, $shenzhen, $splcMuseum, false, [], $attractionCategory, $adminUser);
             }
 
-            // Day 5 Experience (Shenzhen Tech Tour)
-            if ($shenzhenTechTour) {
-                $this->createExperience($day5, $shenzhen, $shenzhenTechTour, $experienceCategory, $adminUser);
+            // Day 5 Experience (Calligraphy Workshop)
+            if ($shenzhenCalligraphy) {
+                $this->createExperience($day5, $shenzhen, $shenzhenCalligraphy, $experienceCategory, $adminUser);
             }
 
             // 6. Generate Breakdown automatically
