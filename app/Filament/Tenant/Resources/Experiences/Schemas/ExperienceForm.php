@@ -81,10 +81,11 @@ class ExperienceForm
                     ->schema([
                         TextInput::make('price')
                             ->label('Price')
-                            ->numeric()
-                            ->prefix('$')
+                            ->prefix(fn() => tenant()->settings?->country?->currency?->symbol ?? '$')
                             ->placeholder('0.00')
-                            ->helperText('Price for the experience (in default currency)'),
+                            ->helperText('Price for the experience (in default currency)')
+                            ->rules(['nullable', 'numeric', 'min:0'])
+                            ->inputMode('decimal'),
                         
                         Select::make('charge_mode')
                             ->label('Charge Mode')
@@ -94,12 +95,6 @@ class ExperienceForm
                             ->searchable()
                             ->placeholder('Select charge mode')
                             ->helperText('How the experience is charged'),
-                        
-                        Toggle::make('is_active')
-                            ->label('Active')
-                            ->required()
-                            ->default(true)
-                            ->helperText('Whether this experience is available for booking'),
                         
                         Toggle::make('is_free_for_guide')
                             ->label('Free for Guide')

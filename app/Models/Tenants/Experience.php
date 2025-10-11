@@ -17,6 +17,9 @@ class Experience extends Model
 {
     use HasUuids, BelongsToTenant, HasTranslations;
 
+    // Eager load only what's needed to avoid too many joins
+    protected $with = ['city'];
+
     protected $fillable = [
         'name',
         'description',
@@ -70,6 +73,14 @@ class Experience extends Model
             'content' => 'nullable|array',
             'creator_user_id' => 'required|uuid|exists:users,id',
         ];
+    }
+
+    /**
+     * Get the currency_id attribute from tenant settings.
+     */
+    public function getCurrencyIdAttribute()
+    {
+        return tenant()->settings?->currency_id;
     }
 
     /**
