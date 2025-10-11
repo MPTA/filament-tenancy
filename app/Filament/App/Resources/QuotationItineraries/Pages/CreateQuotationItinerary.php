@@ -48,6 +48,8 @@ class CreateQuotationItinerary extends CreateRecord
             'quotation_description' => 'nullable|string',
             'internal_note' => 'nullable|string',
             'is_foreigner_passengers' => 'nullable|boolean',
+            'room_category_ids' => 'required|array|min:1|max:3',
+            'room_category_ids.*' => 'uuid|exists:room_categories,id',
         ];
     }
 
@@ -92,6 +94,7 @@ class CreateQuotationItinerary extends CreateRecord
             $quotationItinerary = QuotationItinerary::create([
                 'quotation_id' => $quotation->id,
                 'is_foreigner_passengers' => $data['is_foreigner_passengers'] ?? false,
+                'room_category_ids' => $data['room_category_ids'],
             ]);
 
             return $quotationItinerary;

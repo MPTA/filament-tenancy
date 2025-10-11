@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Spatie\Translatable\HasTranslations;
 use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
+use Stancl\Tenancy\Database\TenantScope;
 
 class Inquiry extends Model
 {
@@ -194,11 +195,16 @@ class Inquiry extends Model
     }
 
     /**
-     * Generate a unique inquiry number starting from 1000100.
+     * Generate a unique inquiry number starting from 2500100.
+     * Numbers are globally unique across all tenants.
      */
     protected static function generateInquiryNumber(): string
     {
-        $lastInquiry = static::query()->orderBy('number', 'desc')->first();
+        // Query without tenant scope to get the highest number across all tenants
+        $lastInquiry = static::query()
+            ->withoutGlobalScope(TenantScope::class)
+            ->orderBy('number', 'desc')
+            ->first();
         
         if ($lastInquiry && is_numeric($lastInquiry->number)) {
             $nextNumber = (int) $lastInquiry->number + 1;

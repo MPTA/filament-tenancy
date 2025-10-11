@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Spatie\Translatable\HasTranslations;
 use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
+use Stancl\Tenancy\Database\TenantScope;
 
 class Quotation extends Model
 {
@@ -191,10 +192,15 @@ class Quotation extends Model
 
     /**
      * Generate a unique quotation number starting from 1000100.
+     * Numbers are globally unique across all tenants.
      */
     protected static function generateQuotationNumber(): string
     {
-        $lastQuotation = static::query()->orderBy('number', 'desc')->first();
+        // Query without tenant scope to get the highest number across all tenants
+        $lastQuotation = static::query()
+            ->withoutGlobalScope(TenantScope::class)
+            ->orderBy('number', 'desc')
+            ->first();
         
         $nextNumber = ($lastQuotation && is_numeric($lastQuotation->number)) 
             ? (int) $lastQuotation->number + 1 

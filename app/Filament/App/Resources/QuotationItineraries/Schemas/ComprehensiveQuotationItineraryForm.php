@@ -7,6 +7,7 @@ use App\Enums\InquiryTypeEnum;
 use App\Enums\QuotationTypeEnum;
 use App\Enums\StarRatingEnum;
 use App\Models\Base\Currency;
+use App\Models\Base\RoomCategory;
 use App\Models\Tenants\TenantContact;
 use App\Models\TenantSetting;
 use App\Models\Tenants\ExchangeRate;
@@ -54,6 +55,7 @@ class ComprehensiveQuotationItineraryForm
                                 Select::make('inquiry_contact_id')
                                     ->label('Contact')
                                     ->options(fn () => TenantContact::query()
+                                        ->whereIn('type', [ContactTypeEnum::LEAD, ContactTypeEnum::CUSTOMER])
                                         ->orderBy('first_name')
                                         ->orderBy('last_name')
                                         ->get()
@@ -267,6 +269,26 @@ class ComprehensiveQuotationItineraryForm
                                     ->after('today'),
                             ]),
                         
+                        // Room categories selection (required)
+                        Select::make('room_category_ids')
+                            ->label('Room Categories')
+                            ->required()
+                            ->multiple()
+                            ->maxItems(3)
+                            ->options(fn () => RoomCategory::where('is_active', true)
+                                ->get()
+                                ->mapWithKeys(fn ($cat) => [$cat->id => $cat->category->getDisplayName()])
+                                ->toArray()
+                            )
+                            ->default(function () {
+                                $twin = RoomCategory::where('category', 'twin')->value('id');
+                                $single = RoomCategory::where('category', 'single')->value('id');
+                                return array_values(array_filter([$twin, $single]));
+                            })
+                            ->searchable()
+                            ->preload()
+                            ->helperText('Select up to 3 room types (required).'),
+
                         Grid::make(2)
                             ->schema([
                                 Toggle::make('is_foreigner_passengers')
