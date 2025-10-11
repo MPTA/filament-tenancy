@@ -174,8 +174,12 @@ class ItineraryDay extends Model
         // Use already loaded activities if available, otherwise query
         if ($this->relationLoaded('activities')) {
             $mealActivities = $this->activities->filter(function ($activity) {
-                return $activity->relationLoaded('activityCategory') 
-                    && $activity->activityCategory?->type === \App\Enums\ActivityCategoryTypeEnum::MEAL;
+                // Check if activityCategory is loaded, if not try to access it anyway
+                if ($activity->relationLoaded('activityCategory')) {
+                    return $activity->activityCategory?->type === \App\Enums\ActivityCategoryTypeEnum::MEAL;
+                }
+                // Fallback: check if meal relationship exists
+                return $activity->relationLoaded('meal') && $activity->meal !== null;
             });
         } else {
             $mealActivities = $this->activities()
@@ -207,8 +211,12 @@ class ItineraryDay extends Model
         // Use already loaded activities if available, otherwise query
         if ($this->relationLoaded('activities')) {
             $attractionActivities = $this->activities->filter(function ($activity) {
-                return $activity->relationLoaded('activityCategory') 
-                    && $activity->activityCategory?->type === \App\Enums\ActivityCategoryTypeEnum::ATTRACTION;
+                // Check if activityCategory is loaded, if not try to access it anyway
+                if ($activity->relationLoaded('activityCategory')) {
+                    return $activity->activityCategory?->type === \App\Enums\ActivityCategoryTypeEnum::ATTRACTION;
+                }
+                // Fallback: check if attraction relationship exists
+                return $activity->relationLoaded('attraction') && $activity->attraction !== null;
             });
         } else {
             $attractionActivities = $this->activities()
@@ -244,8 +252,12 @@ class ItineraryDay extends Model
         // Use already loaded activities if available, otherwise query
         if ($this->relationLoaded('activities')) {
             $ticketActivities = $this->activities->filter(function ($activity) {
-                return $activity->relationLoaded('activityCategory') 
-                    && $activity->activityCategory?->type === \App\Enums\ActivityCategoryTypeEnum::TICKET;
+                // Check if activityCategory is loaded, if not try to access it anyway
+                if ($activity->relationLoaded('activityCategory')) {
+                    return $activity->activityCategory?->type === \App\Enums\ActivityCategoryTypeEnum::TICKET;
+                }
+                // Fallback: check if ticket relationship exists
+                return $activity->relationLoaded('ticket') && $activity->ticket !== null;
             });
         } else {
             $ticketActivities = $this->activities()
@@ -284,8 +296,12 @@ class ItineraryDay extends Model
         // Use already loaded activities if available, otherwise query
         if ($this->relationLoaded('activities')) {
             $experienceActivities = $this->activities->filter(function ($activity) {
-                return $activity->relationLoaded('activityCategory') 
-                    && $activity->activityCategory?->type === \App\Enums\ActivityCategoryTypeEnum::EXPERIENCE;
+                // Check if activityCategory is loaded, if not try to access it anyway
+                if ($activity->relationLoaded('activityCategory')) {
+                    return $activity->activityCategory?->type === \App\Enums\ActivityCategoryTypeEnum::EXPERIENCE;
+                }
+                // Fallback: check if experience relationship exists
+                return $activity->relationLoaded('experience') && $activity->experience !== null;
             });
         } else {
             $experienceActivities = $this->activities()

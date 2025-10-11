@@ -151,6 +151,8 @@ class Itinerary extends Model
                     'accommodation',
                     'activities' => function ($query) {
                         $query->with([
+                            'activityCategory',  // Added for accessor methods
+                            'city',  // Added for form display
                             'meal.mealType',
                             'ticket.toCity',
                             'attraction.attraction',

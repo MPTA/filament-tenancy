@@ -1038,6 +1038,8 @@ class OffersTab
                 // Eager load all necessary relationships
                 $offer = \App\Models\Tenants\QuotationOffer::with([
                     'vehicleType',
+                    'leaderRoomCategory',
+                    'quotationOfferGroup.driverRoomCategory',
                     'quotationOfferGroup.quotationOfferGroupAttractions.attraction',
                     'quotationOfferGroup.quotationOfferGroupAttractions.subAttractions.subAttraction',
                     'quotationOfferGroup.quotationOfferGroupAttractions.subAttractions.quotationOfferGroupAttraction.attraction',
@@ -1063,6 +1065,7 @@ class OffersTab
                     'quotationOfferLeaderAccommodations.accommodation',
                     'quotationOfferGroup.quotationOfferGroupCompanions.companionType',
                     'quotationOfferGroup.quotationOfferGroupCompanions.livingCity',
+                    'quotationOfferGroup.quotationOfferGroupCompanions.roomCategory',
                     'quotationOfferGroup.quotationOfferGroupCompanions.meals.mealType',
                     'quotationOfferGroup.quotationOfferGroupCompanions.accommodations.accommodation',
                     'quotationOfferGroup.quotationOfferGroupCompanions.accommodations.city',

@@ -737,6 +737,9 @@
                             <div style="margin-bottom: 20px; padding: 12px; background: #fce7f3; border-radius: 6px; border-left: 3px solid #ec4899;">
                                 <div style="font-weight: 700; color: #ec4899; margin-bottom: 12px; font-size: 14px;">
                                     🏨 Driver Accommodations ({{ $offer->drivers_qty }} driver{{ $offer->drivers_qty > 1 ? 's' : '' }})
+                                    @if($offer->quotationOfferGroup->is_driver_stay_same_hotel && $offer->quotationOfferGroup->driverRoomCategory && $driverAccommodations->first()?->accommodation_id)
+                                        <span style="font-size: 13px; color: #db2777; font-weight: 600;">({{ $offer->quotationOfferGroup->driverRoomCategory->category->getDisplayName() }})</span>
+                                    @endif
                                 </div>
                                 
                                 <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; padding: 8px 12px; font-size: 12px; font-weight: 700; color: #6b7280; text-transform: uppercase; border-bottom: 2px solid #fbcfe8; margin-bottom: 8px;">
@@ -982,7 +985,7 @@
                         @if($leaderAccommodations->count() > 0)
                             <div style="margin-bottom: 20px; padding: 12px; background: #f0fdf4; border-radius: 6px; border-left: 3px solid #22c55e;">
                                 <div style="font-weight: 700; color: #22c55e; margin-bottom: 12px; font-size: 14px;">
-                                    🏨 Leader Accommodations
+                                    🏨 Leader Accommodations @if($offer->leaderRoomCategory) <span style="font-size: 13px; color: #16a34a; font-weight: 600;">({{ $offer->leaderRoomCategory->category->getDisplayName() }})</span>@endif
                                 </div>
                                 
                                 <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; padding: 8px 12px; font-size: 12px; font-weight: 700; color: #6b7280; text-transform: uppercase; border-bottom: 2px solid #bbf7d0; margin-bottom: 8px;">
@@ -1135,7 +1138,12 @@
                                     <!-- Accommodations Details -->
                                     @if($companion->accommodations && $companion->accommodations->count() > 0)
                                         <div style="background: white; padding: 12px; border-radius: 6px; margin-bottom: 20px; border-left: 3px solid #f472b6;">
-                                            <div style="font-weight: 600; color: #db2777; margin-bottom: 12px; font-size: 14px;">🏨 Accommodations</div>
+                                            <div style="font-weight: 600; color: #db2777; margin-bottom: 12px; font-size: 14px;">
+                                                🏨 Accommodations
+                                                @if($companion->is_stay_same_hotel && $companion->roomCategory && $companion->accommodations->first()?->accommodation_id)
+                                                    <span style="font-size: 13px; color: #ec4899; font-weight: 600;">({{ $companion->roomCategory->category->getDisplayName() }})</span>
+                                                @endif
+                                            </div>
                                             
                                             <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; padding: 8px 12px; font-size: 12px; font-weight: 700; color: #6b7280; text-transform: uppercase; border-bottom: 2px solid #fce7f3; margin-bottom: 8px;">
                                                 <div>Hotel/City</div>
