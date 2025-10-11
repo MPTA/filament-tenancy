@@ -894,8 +894,19 @@ class OffersTab
                     ->schema([
                         Select::make('vehicle_type_id')
                             ->label('Vehicle Type')
-                            ->options(function () {
-                                return \App\Models\Tenants\VehicleType::all()->pluck('name', 'id');
+                            ->options(function ($record) {
+                                // Get breakdown vehicle types only
+                                $quotationItinerary = $record->quotationOfferGroup->quotationItinerary ?? null;
+                                if (!$quotationItinerary || !$quotationItinerary->breakdown) {
+                                    return [];
+                                }
+                                
+                                // Get vehicle types that exist in breakdown
+                                return $quotationItinerary->breakdown->vehicleTypes()
+                                    ->with('vehicleType')
+                                    ->get()
+                                    ->pluck('vehicleType.name', 'vehicle_type_id')
+                                    ->filter();
                             })
                             ->searchable()
                             ->preload()
@@ -1126,8 +1137,20 @@ class OffersTab
                     ->schema([
                         Select::make('vehicle_type_id')
                             ->label('Vehicle Type')
-                            ->options(function () {
-                                return \App\Models\Tenants\VehicleType::all()->pluck('name', 'id');
+                            ->options(function ($record, $livewire) {
+                                // Get breakdown vehicle types only
+                                // $record in create action context is the QuotationOfferGroup
+                                $quotationItinerary = $record?->quotationItinerary ?? $livewire->record ?? null;
+                                if (!$quotationItinerary || !$quotationItinerary->breakdown) {
+                                    return [];
+                                }
+                                
+                                // Get vehicle types that exist in breakdown
+                                return $quotationItinerary->breakdown->vehicleTypes()
+                                    ->with('vehicleType')
+                                    ->get()
+                                    ->pluck('vehicleType.name', 'vehicle_type_id')
+                                    ->filter();
                             })
                             ->searchable()
                             ->preload()
