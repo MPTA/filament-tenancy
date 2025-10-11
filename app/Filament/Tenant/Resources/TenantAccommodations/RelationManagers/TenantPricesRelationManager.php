@@ -100,7 +100,7 @@ class TenantPricesRelationManager extends RelationManager
                             ->schema([
                                 Toggle::make('is_include_breakfast')
                                     ->label('Breakfast')
-                                    ->default(false)
+                                    ->default(true)
                                     ->inline(false),
                                 Toggle::make('is_include_lunch')
                                     ->label('Lunch')

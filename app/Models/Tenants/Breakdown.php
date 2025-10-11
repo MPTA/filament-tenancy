@@ -67,6 +67,13 @@ class Breakdown extends Model
                 }
             }
         });
+
+        // Prevent deletion if there are offer groups
+        static::deleting(function ($breakdown) {
+            if ($breakdown->quotationItinerary && $breakdown->quotationItinerary->quotationOfferGroups()->exists()) {
+                throw new \Exception('Cannot delete breakdown because it has associated offer groups or offers. Please delete the offers first.');
+            }
+        });
     }
 
     /**

@@ -58,6 +58,14 @@ class Itinerary extends Model
 
         // When itinerary is deleted, delete the breakdown as well
         static::deleting(function ($itinerary) {
+            // Check if itineraryable is QuotationItinerary and has offer groups
+            if ($itinerary->itineraryable_type === QuotationItinerary::class) {
+                $quotationItinerary = $itinerary->itineraryable;
+                if ($quotationItinerary && $quotationItinerary->quotationOfferGroups()->exists()) {
+                    throw new \Exception('Cannot delete itinerary because it has associated offer groups or offers. Please delete the offers first.');
+                }
+            }
+            
             if ($itinerary->breakdown) {
                 try {
                     $itinerary->breakdown->delete();

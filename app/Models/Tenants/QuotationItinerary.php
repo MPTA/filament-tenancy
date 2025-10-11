@@ -101,6 +101,10 @@ class QuotationItinerary extends Model
                 // Ignore cache errors
             }
             
+            // First, delete all offer groups (cascade will delete offers)
+            // This allows Breakdown and Itinerary to be deleted without errors
+            $quotationItinerary->quotationOfferGroups()->delete();
+            
             // Delete itinerary and its related data
             if ($quotationItinerary->itinerary) {
                 $quotationItinerary->itinerary->delete();
