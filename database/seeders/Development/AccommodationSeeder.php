@@ -63,8 +63,8 @@ class AccommodationSeeder extends Seeder
             $beijing,
             $cny,
             [
-                ['room' => $single, 'price' => 1200],
-                ['room' => $twin, 'price' => 950],
+                ['room' => $single, 'price' => 1200,'is_include_breakfast'=>true],
+                ['room' => $twin, 'price' => 950,'is_include_breakfast'=>true],
             ]
         );
 
@@ -90,8 +90,8 @@ class AccommodationSeeder extends Seeder
             $shanghai,
             $cny,
             [
-                ['room' => $single, 'price' => 1300],
-                ['room' => $twin, 'price' => 1000],
+                ['room' => $single, 'price' => 1300,'is_include_breakfast'=>true],
+                ['room' => $twin, 'price' => 1000,'is_include_breakfast'=>true],
             ]
         );
 
@@ -117,8 +117,8 @@ class AccommodationSeeder extends Seeder
             $shenzhen,
             $cny,
             [
-                ['room' => $single, 'price' => 1100],
-                ['room' => $twin, 'price' => 900],
+                ['room' => $single, 'price' => 1100,'is_include_breakfast'=>true],
+                ['room' => $twin, 'price' => 900,'is_include_breakfast'=>true],
             ]
         );
 
