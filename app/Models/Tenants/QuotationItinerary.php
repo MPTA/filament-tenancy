@@ -130,9 +130,15 @@ class QuotationItinerary extends Model
             // Get currency from tenant setting (via country accessor)
             $tenantSettings = tenant()->settings;
             
+            // Get creator_user_id from auth or from itinerary
+            $creatorUserId = \Illuminate\Support\Facades\Auth::id();
+            if (!$creatorUserId && $this->itinerary) {
+                $creatorUserId = $this->itinerary->creator_user_id;
+            }
+            
             $breakdown = \App\Models\Tenants\Breakdown::create([
                 'quotation_itinerary_id' => $this->id,
-                'creator_user_id' => \Illuminate\Support\Facades\Auth::id(),
+                'creator_user_id' => $creatorUserId,
                 'currency_id' => $tenantSettings->currency_id,
             ]);
         }

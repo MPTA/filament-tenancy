@@ -78,7 +78,11 @@ class InformationTab
 
                         TextEntry::make('quotation.id')
                             ->label('Requested Currency')
-                            ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->requestedCurrency?->name ?? 'Not specified')
+                            ->formatStateUsing(fn($state, $record) => 
+                                $record->quotation?->inquiry?->requestedCurrency 
+                                    ? "{$record->quotation->inquiry->requestedCurrency->code} ({$record->quotation->inquiry->requestedCurrency->symbol})"
+                                    : 'Not specified'
+                            )
                             ->icon('heroicon-o-banknotes')
                             ->color('info'),
                     ]),
@@ -130,12 +134,22 @@ class InformationTab
                 self::editQuotationAction(),
             ])
             ->schema([
-                Grid::make(2)
+                Grid::make(3)
                     ->schema([
                         TextEntry::make('quotation.number')
                             ->label('Quotation Number')
                             ->icon('heroicon-o-hashtag')
                             ->color('primary'),
+
+                        TextEntry::make('quotation.currency.code')
+                            ->label('Currency')
+                            ->formatStateUsing(fn($state, $record) => 
+                                $record->quotation?->currency 
+                                    ? "{$record->quotation->currency->code} ({$record->quotation->currency->symbol})"
+                                    : 'Not specified'
+                            )
+                            ->icon('heroicon-o-currency-dollar')
+                            ->color('success'),
 
                         TextEntry::make('quotation.exchange_rate')
                             ->label('Exchange Rate')
@@ -189,6 +203,16 @@ class InformationTab
                     ->disabled()
                     ->dehydrated(),
 
+                Select::make('inquiry.requested_currency_id')
+                    ->label('Currency')
+                    ->required()
+                    ->options(\App\Models\Base\Currency::all()->pluck('code', 'id')->mapWithKeys(fn($code, $id) => [
+                        $id => \App\Models\Base\Currency::find($id)->code . ' (' . \App\Models\Base\Currency::find($id)->symbol . ')'
+                    ]))
+                    ->searchable()
+                    ->preload()
+                    ->helperText('Changing currency will update both Inquiry and Quotation'),
+
                 Textarea::make('inquiry.description')
                     ->label('Description')
                     ->rows(3),
@@ -217,6 +241,7 @@ class InformationTab
                     'inquiry' => $inquiry ? [
                         'title' => $inquiry->getTranslation('title', app()->getLocale()),
                         'number' => $inquiry->number,
+                        'requested_currency_id' => $inquiry->requested_currency_id,
                         'description' => $inquiry->getTranslation('description', app()->getLocale()),
                         'reference' => $inquiry->reference,
                     ] : [],
@@ -236,7 +261,20 @@ class InformationTab
                     $inquiry->setTranslation('title', app()->getLocale(), $data['inquiry']['title']);
                     $inquiry->setTranslation('description', app()->getLocale(), $data['inquiry']['description'] ?? '');
                     $inquiry->reference = $data['inquiry']['reference'] ?? null;
+                    
+                    // Update requested_currency_id if provided
+                    if (isset($data['inquiry']['requested_currency_id'])) {
+                        $inquiry->requested_currency_id = $data['inquiry']['requested_currency_id'];
+                    }
+                    
                     $inquiry->save();
+                    
+                    // Also update quotation currency_id to keep them in sync
+                    if ($record->quotation && isset($data['inquiry']['requested_currency_id'])) {
+                        $record->quotation->update([
+                            'currency_id' => $data['inquiry']['requested_currency_id'],
+                        ]);
+                    }
                 }
 
                 // Update inquiry itinerary data
@@ -272,6 +310,16 @@ class InformationTab
                     ->disabled()
                     ->dehydrated(),
 
+                Select::make('quotation.currency_id')
+                    ->label('Currency')
+                    ->required()
+                    ->options(\App\Models\Base\Currency::all()->pluck('code', 'id')->mapWithKeys(fn($code, $id) => [
+                        $id => \App\Models\Base\Currency::find($id)->code . ' (' . \App\Models\Base\Currency::find($id)->symbol . ')'
+                    ]))
+                    ->searchable()
+                    ->preload()
+                    ->helperText('Changing currency will update both Quotation and Inquiry'),
+
                 TextInput::make('quotation.exchange_rate')
                     ->label('Exchange Rate')
                     ->required()
@@ -301,6 +349,7 @@ class InformationTab
                 return [
                     'quotation' => $record->quotation ? [
                         'number' => $record->quotation->number,
+                        'currency_id' => $record->quotation->currency_id,
                         'exchange_rate' => $record->quotation->exchange_rate,
                         'expire_date' => $record->quotation->expire_date,
                         'description' => $record->quotation->description,
@@ -313,6 +362,13 @@ class InformationTab
                 // Update quotation data
                 if ($record->quotation) {
                     $record->quotation->update($data['quotation']);
+                    
+                    // Also update inquiry requested_currency_id if currency changed
+                    if ($record->quotation->inquiry && isset($data['quotation']['currency_id'])) {
+                        $record->quotation->inquiry->update([
+                            'requested_currency_id' => $data['quotation']['currency_id'],
+                        ]);
+                    }
                 }
 
                 // Update quotation itinerary data

@@ -12,6 +12,7 @@ use Database\Seeders\Development\CountrySeeder;
 use Database\Seeders\Development\CurrencySeeder;
 use Database\Seeders\Development\MealTypeSeeder;
 use Database\Seeders\Development\ProvinceSeeder;
+use Database\Seeders\Development\QuotationSeeder;
 use Database\Seeders\Development\TenantSeeder;
 use Database\Seeders\Development\VehicleTypeSeeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -49,6 +50,7 @@ class DevelopmentSeeder extends Seeder
             ExperienceSeeder::class,
             AccommodationSeeder::class,
             AttractionSeeder::class,
+            QuotationSeeder::class,
         ]);
 
         $this->command->info('✅ Development data seeded successfully!');
