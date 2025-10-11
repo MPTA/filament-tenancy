@@ -58,19 +58,29 @@ class OffersTab
                 if (!$record->breakdown->is_completed) {
                     return 'Complete Breakdown to Create Offer';
                 }
+                $maxOfferGroups = config('central.quotation.max_offer_groups', 4);
+                if ($record->quotationOfferGroups()->count() >= $maxOfferGroups) {
+                    return 'Maximum Offer Groups Reached';
+                }
                 return 'Add new Offer group';
             })
             ->icon('heroicon-o-plus')
             ->color(function (QuotationItinerary $record) {
-                if (!$record->breakdown || !$record->breakdown->is_completed) {
+                $maxOfferGroups = config('central.quotation.max_offer_groups', 4);
+                if (!$record->breakdown || !$record->breakdown->is_completed || $record->quotationOfferGroups()->count() >= $maxOfferGroups) {
                     return 'gray';
                 }
                 return 'primary';
             })
             ->disabled(function (QuotationItinerary $record) {
-                return !$record->breakdown || !$record->breakdown->is_completed;
+                $maxOfferGroups = config('central.quotation.max_offer_groups', 4);
+                return !$record->breakdown || !$record->breakdown->is_completed || $record->quotationOfferGroups()->count() >= $maxOfferGroups;
             })
             ->tooltip(function (QuotationItinerary $record) {
+                $maxOfferGroups = config('central.quotation.max_offer_groups', 4);
+                if ($record->quotationOfferGroups()->count() >= $maxOfferGroups) {
+                    return "Maximum {$maxOfferGroups} offer groups allowed per quotation.";
+                }
                 if (!$record->breakdown) {
                     return 'Please create a breakdown before creating an offer group.';
                 }
@@ -85,6 +95,18 @@ class OffersTab
             ])
             ->action(function (array $data, QuotationItinerary $record) {
                 try {
+                    // Check maximum offer groups limit
+                    $maxOfferGroups = config('central.quotation.max_offer_groups', 4);
+                    $currentCount = $record->quotationOfferGroups()->count();
+                    if ($currentCount >= $maxOfferGroups) {
+                        Notification::make()
+                            ->title('Maximum offer groups reached')
+                            ->body("You can create a maximum of {$maxOfferGroups} offer groups per quotation.")
+                            ->warning()
+                            ->send();
+                        return;
+                    }
+                    
                     $offerGroup = $record->quotationOfferGroups()->create([
                         'is_include_driver_meal' => $data['is_include_driver_meal'] ?? false,
                         'is_include_driver_hotel' => $data['is_include_driver_hotel'] ?? false,
@@ -1126,13 +1148,17 @@ class OffersTab
             ->size('sm')
             ->disabled(fn($record) => 
                 $record->is_locked || 
-                !$record->quotationItinerary->breakdown?->is_completed
+                !$record->quotationItinerary->breakdown?->is_completed ||
+                $record->quotationOffers()->count() >= config('central.quotation.max_offers_per_group', 6)
             )
-            ->tooltip(fn($record) => 
-                $record->is_locked || !$record->quotationItinerary->breakdown?->is_completed
-                    ? '⚠️ Complete the breakdown first to create offer'
-                    : null
-            )
+            ->tooltip(function ($record) {
+                $maxOffersPerGroup = config('central.quotation.max_offers_per_group', 6);
+                return $record->quotationOffers()->count() >= $maxOffersPerGroup
+                    ? "⚠️ Maximum {$maxOffersPerGroup} offers per group reached"
+                    : ($record->is_locked || !$record->quotationItinerary->breakdown?->is_completed
+                        ? '⚠️ Complete the breakdown first to create offer'
+                        : null);
+            })
             ->schema([
                 Section::make('Offer Details')
                     ->description('Create a new offer for this offer group')
@@ -1229,6 +1255,18 @@ class OffersTab
             ])
             ->action(function (array $data, $record) {
                 try {
+                    // Check maximum offers limit per group
+                    $maxOffersPerGroup = config('central.quotation.max_offers_per_group', 6);
+                    $currentOffersCount = $record->quotationOffers()->count();
+                    if ($currentOffersCount >= $maxOffersPerGroup) {
+                        Notification::make()
+                            ->title('Maximum offers reached')
+                            ->body("You can create a maximum of {$maxOffersPerGroup} offers per offer group.")
+                            ->warning()
+                            ->send();
+                        return;
+                    }
+                    
                     // Validate required fields
                     if (!isset($data['vehicle_type_id']) || empty($data['vehicle_type_id'])) {
                         Notification::make()
