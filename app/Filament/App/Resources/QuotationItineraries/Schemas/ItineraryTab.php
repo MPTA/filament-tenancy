@@ -141,7 +141,10 @@ class ItineraryTab
                     return true;
                 }
 
-                if ($quotationItinerary->itinerary->days()->count() === 0) {
+                // Use loaded relationship instead of query
+                if ($quotationItinerary->itinerary->relationLoaded('days') && $quotationItinerary->itinerary->days->count() === 0) {
+                    return true;
+                } elseif (!$quotationItinerary->itinerary->relationLoaded('days') && $quotationItinerary->itinerary->days()->count() === 0) {
                     return true;
                 }
 
@@ -194,47 +197,20 @@ class ItineraryTab
                                 // Add BLD (Breakfast, Lunch, Dinner) status
                                 $bldItems = [];
 
-                                // Check for Breakfast
-                                $breakfastActivity = $record->activities()
-                                    ->whereHas('activityCategory', function ($query) {
-                                        $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
-                                    })
-                                    ->whereHas('meal', function ($query) {
-                                        $query->where('meal_part', \App\Enums\MealPartEnum::BREAKFAST->value);
-                                    })
-                                    ->with('meal.mealType')
-                                    ->first();
-
+                                // Check for Breakfast using helper method
+                                $breakfastActivity = self::getMealActivity($record, \App\Enums\MealPartEnum::BREAKFAST);
                                 if ($breakfastActivity?->meal?->mealType?->name) {
                                     $bldItems[] = 'B';
                                 }
 
-                                // Check for Lunch
-                                $lunchActivity = $record->activities()
-                                    ->whereHas('activityCategory', function ($query) {
-                                        $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
-                                    })
-                                    ->whereHas('meal', function ($query) {
-                                        $query->where('meal_part', \App\Enums\MealPartEnum::LUNCH->value);
-                                    })
-                                    ->with('meal.mealType')
-                                    ->first();
-
+                                // Check for Lunch using helper method
+                                $lunchActivity = self::getMealActivity($record, \App\Enums\MealPartEnum::LUNCH);
                                 if ($lunchActivity?->meal?->mealType?->name) {
                                     $bldItems[] = 'L';
                                 }
 
-                                // Check for Dinner
-                                $dinnerActivity = $record->activities()
-                                    ->whereHas('activityCategory', function ($query) {
-                                        $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
-                                    })
-                                    ->whereHas('meal', function ($query) {
-                                        $query->where('meal_part', \App\Enums\MealPartEnum::DINNER->value);
-                                    })
-                                    ->with('meal.mealType')
-                                    ->first();
-
+                                // Check for Dinner using helper method
+                                $dinnerActivity = self::getMealActivity($record, \App\Enums\MealPartEnum::DINNER);
                                 if ($dinnerActivity?->meal?->mealType?->name) {
                                     $bldItems[] = 'D';
                                 }
@@ -280,97 +256,69 @@ class ItineraryTab
             ]);
     }
 
+    /**
+     * Helper method to get meal activity by part using loaded relationships
+     */
+    private static function getMealActivity($record, $mealPart)
+    {
+        if ($record->relationLoaded('activities')) {
+            return $record->activities->first(function ($activity) use ($mealPart) {
+                return $activity->relationLoaded('activityCategory') 
+                    && $activity->activityCategory?->type === \App\Enums\ActivityCategoryTypeEnum::MEAL
+                    && $activity->relationLoaded('meal')
+                    && $activity->meal?->meal_part === $mealPart;
+            });
+        }
+
+        // Fallback to query if not loaded
+        return $record->activities()
+            ->whereHas('activityCategory', function ($query) {
+                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
+            })
+            ->whereHas('meal', function ($query) use ($mealPart) {
+                $query->where('meal_part', $mealPart->value);
+            })
+            ->with('meal.mealType')
+            ->first();
+    }
+
     private static function mealsSection(): Grid
     {
         return Grid::make(3)
             ->schema([
-                TextEntry::make('itinerary.id')
+                TextEntry::make('id')
                     ->label('🌅 Breakfast')
                     ->formatStateUsing(function ($state, $record) {
-                        $mealActivity = $record->activities()
-                            ->whereHas('activityCategory', function ($query) {
-                                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
-                            })
-                            ->whereHas('meal', function ($query) {
-                                $query->where('meal_part', \App\Enums\MealPartEnum::BREAKFAST->value);
-                            })
-                            ->with('meal.mealType')
-                            ->first();
-
+                        $mealActivity = self::getMealActivity($record, \App\Enums\MealPartEnum::BREAKFAST);
                         return $mealActivity?->meal?->mealType?->name ?? null;
                     })
                     ->color('warning')
                     ->hidden(function ($state, $record) {
-                        $mealActivity = $record->activities()
-                            ->whereHas('activityCategory', function ($query) {
-                                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
-                            })
-                            ->whereHas('meal', function ($query) {
-                                $query->where('meal_part', \App\Enums\MealPartEnum::BREAKFAST->value);
-                            })
-                            ->with('meal.mealType')
-                            ->first();
-
+                        $mealActivity = self::getMealActivity($record, \App\Enums\MealPartEnum::BREAKFAST);
                         return empty($mealActivity?->meal?->mealType?->name);
                     }),
 
-                TextEntry::make('itinerary.id')
+                TextEntry::make('id')
                     ->label('☀️ Lunch')
                     ->formatStateUsing(function ($state, $record) {
-                        $mealActivity = $record->activities()
-                            ->whereHas('activityCategory', function ($query) {
-                                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
-                            })
-                            ->whereHas('meal', function ($query) {
-                                $query->where('meal_part', \App\Enums\MealPartEnum::LUNCH->value);
-                            })
-                            ->with('meal.mealType')
-                            ->first();
-
+                        $mealActivity = self::getMealActivity($record, \App\Enums\MealPartEnum::LUNCH);
                         return $mealActivity?->meal?->mealType?->name ?? null;
                     })
                     ->color('success')
                     ->hidden(function ($state, $record) {
-                        $mealActivity = $record->activities()
-                            ->whereHas('activityCategory', function ($query) {
-                                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
-                            })
-                            ->whereHas('meal', function ($query) {
-                                $query->where('meal_part', \App\Enums\MealPartEnum::LUNCH->value);
-                            })
-                            ->with('meal.mealType')
-                            ->first();
-
+                        $mealActivity = self::getMealActivity($record, \App\Enums\MealPartEnum::LUNCH);
                         return empty($mealActivity?->meal?->mealType?->name);
                     }),
 
-                TextEntry::make('itinerary.id')
+                TextEntry::make('id')
                     ->label('🌙 Dinner')
                     ->formatStateUsing(function ($state, $record) {
-                        $mealActivity = $record->activities()
-                            ->whereHas('activityCategory', function ($query) {
-                                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
-                            })
-                            ->whereHas('meal', function ($query) {
-                                $query->where('meal_part', \App\Enums\MealPartEnum::DINNER->value);
-                            })
-                            ->with('meal.mealType')
-                            ->first();
-
+                        $mealActivity = self::getMealActivity($record, \App\Enums\MealPartEnum::DINNER);
                         return $mealActivity?->meal?->mealType?->name ?? null;
                     })
                     ->color('info')
                     ->hidden(function ($state, $record) {
-                        $mealActivity = $record->activities()
-                            ->whereHas('activityCategory', function ($query) {
-                                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
-                            })
-                            ->whereHas('meal', function ($query) {
-                                $query->where('meal_part', \App\Enums\MealPartEnum::DINNER->value);
-                            })
-                            ->with('meal.mealType')
-                            ->first();
-
+                        $mealActivity = self::getMealActivity($record, \App\Enums\MealPartEnum::DINNER);
                         return empty($mealActivity?->meal?->mealType?->name);
                     }),
             ])
@@ -379,15 +327,23 @@ class ItineraryTab
 
     private static function ticketsSection(): TextEntry
     {
-        return TextEntry::make('itinerary.id')
+        return TextEntry::make('id')
             ->label('🎫 Tickets')
             ->formatStateUsing(function ($state, $record) {
-                $ticketActivities = $record->activities()
-                    ->whereHas('activityCategory', function ($query) {
-                        $query->where('type', \App\Enums\ActivityCategoryTypeEnum::TICKET->value);
-                    })
-                    ->with('ticket.toCity')
-                    ->get();
+                // Use loaded activities if available
+                if ($record->relationLoaded('activities')) {
+                    $ticketActivities = $record->activities->filter(function ($activity) {
+                        return $activity->relationLoaded('activityCategory') 
+                            && $activity->activityCategory?->type === \App\Enums\ActivityCategoryTypeEnum::TICKET;
+                    });
+                } else {
+                    $ticketActivities = $record->activities()
+                        ->whereHas('activityCategory', function ($query) {
+                            $query->where('type', \App\Enums\ActivityCategoryTypeEnum::TICKET->value);
+                        })
+                        ->with('ticket.toCity')
+                        ->get();
+                }
 
                 if ($ticketActivities->isEmpty()) {
                     return null;
@@ -419,11 +375,19 @@ class ItineraryTab
             ->icon('heroicon-o-ticket')
             ->color('primary')
             ->hidden(function ($state, $record) {
-                $ticketActivities = $record->activities()
-                    ->whereHas('activityCategory', function ($query) {
-                        $query->where('type', \App\Enums\ActivityCategoryTypeEnum::TICKET->value);
-                    })
-                    ->get();
+                // Use loaded activities if available
+                if ($record->relationLoaded('activities')) {
+                    $ticketActivities = $record->activities->filter(function ($activity) {
+                        return $activity->relationLoaded('activityCategory') 
+                            && $activity->activityCategory?->type === \App\Enums\ActivityCategoryTypeEnum::TICKET;
+                    });
+                } else {
+                    $ticketActivities = $record->activities()
+                        ->whereHas('activityCategory', function ($query) {
+                            $query->where('type', \App\Enums\ActivityCategoryTypeEnum::TICKET->value);
+                        })
+                        ->get();
+                }
                 return $ticketActivities->isEmpty();
             })
             ->columnSpanFull();
@@ -431,15 +395,23 @@ class ItineraryTab
 
     private static function attractionsSection(): TextEntry
     {
-        return TextEntry::make('itinerary.id')
+        return TextEntry::make('id')
             ->label('🏛️ Attractions')
             ->formatStateUsing(function ($state, $record) {
-                $attractionActivities = $record->activities()
-                    ->whereHas('activityCategory', function ($query) {
-                        $query->where('type', \App\Enums\ActivityCategoryTypeEnum::ATTRACTION->value);
-                    })
-                    ->with(['attraction.attraction', 'attraction.subAttractions.subAttraction'])
-                    ->get();
+                // Use loaded activities if available
+                if ($record->relationLoaded('activities')) {
+                    $attractionActivities = $record->activities->filter(function ($activity) {
+                        return $activity->relationLoaded('activityCategory') 
+                            && $activity->activityCategory?->type === \App\Enums\ActivityCategoryTypeEnum::ATTRACTION;
+                    });
+                } else {
+                    $attractionActivities = $record->activities()
+                        ->whereHas('activityCategory', function ($query) {
+                            $query->where('type', \App\Enums\ActivityCategoryTypeEnum::ATTRACTION->value);
+                        })
+                        ->with(['attraction.attraction', 'attraction.subAttractions.subAttraction'])
+                        ->get();
+                }
 
                 if ($attractionActivities->isEmpty()) {
                     return null;
@@ -471,11 +443,19 @@ class ItineraryTab
             ->icon('heroicon-o-building-library')
             ->color('info')
             ->hidden(function ($state, $record) {
-                $attractionActivities = $record->activities()
-                    ->whereHas('activityCategory', function ($query) {
-                        $query->where('type', \App\Enums\ActivityCategoryTypeEnum::ATTRACTION->value);
-                    })
-                    ->get();
+                // Use loaded activities if available
+                if ($record->relationLoaded('activities')) {
+                    $attractionActivities = $record->activities->filter(function ($activity) {
+                        return $activity->relationLoaded('activityCategory') 
+                            && $activity->activityCategory?->type === \App\Enums\ActivityCategoryTypeEnum::ATTRACTION;
+                    });
+                } else {
+                    $attractionActivities = $record->activities()
+                        ->whereHas('activityCategory', function ($query) {
+                            $query->where('type', \App\Enums\ActivityCategoryTypeEnum::ATTRACTION->value);
+                        })
+                        ->get();
+                }
                 return $attractionActivities->isEmpty();
             })
             ->columnSpanFull();
@@ -483,15 +463,23 @@ class ItineraryTab
 
     private static function experiencesSection(): TextEntry
     {
-        return TextEntry::make('itinerary.id')
+        return TextEntry::make('id')
             ->label('🎭 Experiences')
             ->formatStateUsing(function ($state, $record) {
-                $experienceActivities = $record->activities()
-                    ->whereHas('activityCategory', function ($query) {
-                        $query->where('type', \App\Enums\ActivityCategoryTypeEnum::EXPERIENCE->value);
-                    })
-                    ->with('experience.experience')
-                    ->get();
+                // Use loaded activities if available
+                if ($record->relationLoaded('activities')) {
+                    $experienceActivities = $record->activities->filter(function ($activity) {
+                        return $activity->relationLoaded('activityCategory') 
+                            && $activity->activityCategory?->type === \App\Enums\ActivityCategoryTypeEnum::EXPERIENCE;
+                    });
+                } else {
+                    $experienceActivities = $record->activities()
+                        ->whereHas('activityCategory', function ($query) {
+                            $query->where('type', \App\Enums\ActivityCategoryTypeEnum::EXPERIENCE->value);
+                        })
+                        ->with('experience.experience')
+                        ->get();
+                }
 
                 if ($experienceActivities->isEmpty()) {
                     return null;
@@ -510,11 +498,19 @@ class ItineraryTab
             ->icon('heroicon-o-sparkles')
             ->color('warning')
             ->hidden(function ($state, $record) {
-                $experienceActivities = $record->activities()
-                    ->whereHas('activityCategory', function ($query) {
-                        $query->where('type', \App\Enums\ActivityCategoryTypeEnum::EXPERIENCE->value);
-                    })
-                    ->get();
+                // Use loaded activities if available
+                if ($record->relationLoaded('activities')) {
+                    $experienceActivities = $record->activities->filter(function ($activity) {
+                        return $activity->relationLoaded('activityCategory') 
+                            && $activity->activityCategory?->type === \App\Enums\ActivityCategoryTypeEnum::EXPERIENCE;
+                    });
+                } else {
+                    $experienceActivities = $record->activities()
+                        ->whereHas('activityCategory', function ($query) {
+                            $query->where('type', \App\Enums\ActivityCategoryTypeEnum::EXPERIENCE->value);
+                        })
+                        ->get();
+                }
                 return $experienceActivities->isEmpty();
             })
             ->columnSpanFull();
@@ -606,7 +602,12 @@ class ItineraryTab
                     return true;
                 }
 
-                if ($quotationItinerary->itinerary->days()->count() === 0) {
+                // Use loaded relationship instead of query
+                $daysCount = $quotationItinerary->itinerary->relationLoaded('days') 
+                    ? $quotationItinerary->itinerary->days->count() 
+                    : $quotationItinerary->itinerary->days()->count();
+                    
+                if ($daysCount === 0) {
                     return true;
                 }
 

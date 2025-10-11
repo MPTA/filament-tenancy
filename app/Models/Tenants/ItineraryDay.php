@@ -83,13 +83,10 @@ class ItineraryDay extends Model
         });
     }
 
-    protected $appends = [
-        'formatted_data',
-        'meals_data',
-        'attractions_data', 
-        'tickets_data',
-        'experiences_data'
-    ];
+    // Removed appended attributes to prevent N+1 queries
+    // These can still be accessed when needed: $day->formatted_data, etc.
+    // But they won't be automatically calculated during serialization
+    protected $appends = [];
 
     /**
      * Get the itinerary that owns the day.
@@ -168,17 +165,26 @@ class ItineraryDay extends Model
 
     /**
      * Get meals data formatted for form.
+     * Uses already loaded activities relationship if available.
      */
     public function getMealsDataAttribute(): array
     {
         $meals = ['breakfast' => null, 'lunch' => null, 'dinner' => null];
         
-        $mealActivities = $this->activities()
-            ->whereHas('activityCategory', function ($query) {
-                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
-            })
-            ->with('meal.mealType')
-            ->get();
+        // Use already loaded activities if available, otherwise query
+        if ($this->relationLoaded('activities')) {
+            $mealActivities = $this->activities->filter(function ($activity) {
+                return $activity->relationLoaded('activityCategory') 
+                    && $activity->activityCategory?->type === \App\Enums\ActivityCategoryTypeEnum::MEAL;
+            });
+        } else {
+            $mealActivities = $this->activities()
+                ->whereHas('activityCategory', function ($query) {
+                    $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
+                })
+                ->with('meal.mealType')
+                ->get();
+        }
 
         foreach ($mealActivities as $activity) {
             if ($activity->meal) {
@@ -192,17 +198,26 @@ class ItineraryDay extends Model
 
     /**
      * Get attractions data formatted for form.
+     * Uses already loaded activities relationship if available.
      */
     public function getAttractionsDataAttribute(): array
     {
         $attractions = [];
         
-        $attractionActivities = $this->activities()
-            ->whereHas('activityCategory', function ($query) {
-                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::ATTRACTION->value);
-            })
-            ->with(['attraction.attraction', 'attraction.subAttractions.subAttraction'])
-            ->get();
+        // Use already loaded activities if available, otherwise query
+        if ($this->relationLoaded('activities')) {
+            $attractionActivities = $this->activities->filter(function ($activity) {
+                return $activity->relationLoaded('activityCategory') 
+                    && $activity->activityCategory?->type === \App\Enums\ActivityCategoryTypeEnum::ATTRACTION;
+            });
+        } else {
+            $attractionActivities = $this->activities()
+                ->whereHas('activityCategory', function ($query) {
+                    $query->where('type', \App\Enums\ActivityCategoryTypeEnum::ATTRACTION->value);
+                })
+                ->with(['attraction.attraction', 'attraction.subAttractions.subAttraction'])
+                ->get();
+        }
 
         foreach ($attractionActivities as $activity) {
             if ($activity->attraction) {
@@ -220,17 +235,26 @@ class ItineraryDay extends Model
 
     /**
      * Get tickets data formatted for form.
+     * Uses already loaded activities relationship if available.
      */
     public function getTicketsDataAttribute(): array
     {
         $tickets = [];
         
-        $ticketActivities = $this->activities()
-            ->whereHas('activityCategory', function ($query) {
-                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::TICKET->value);
-            })
-            ->with('ticket.toCity')
-            ->get();
+        // Use already loaded activities if available, otherwise query
+        if ($this->relationLoaded('activities')) {
+            $ticketActivities = $this->activities->filter(function ($activity) {
+                return $activity->relationLoaded('activityCategory') 
+                    && $activity->activityCategory?->type === \App\Enums\ActivityCategoryTypeEnum::TICKET;
+            });
+        } else {
+            $ticketActivities = $this->activities()
+                ->whereHas('activityCategory', function ($query) {
+                    $query->where('type', \App\Enums\ActivityCategoryTypeEnum::TICKET->value);
+                })
+                ->with('ticket.toCity')
+                ->get();
+        }
 
         foreach ($ticketActivities as $activity) {
             if ($activity->ticket) {
@@ -251,17 +275,26 @@ class ItineraryDay extends Model
 
     /**
      * Get experiences data formatted for form.
+     * Uses already loaded activities relationship if available.
      */
     public function getExperiencesDataAttribute(): array
     {
         $experiences = [];
         
-        $experienceActivities = $this->activities()
-            ->whereHas('activityCategory', function ($query) {
-                $query->where('type', \App\Enums\ActivityCategoryTypeEnum::EXPERIENCE->value);
-            })
-            ->with('experience.experience')
-            ->get();
+        // Use already loaded activities if available, otherwise query
+        if ($this->relationLoaded('activities')) {
+            $experienceActivities = $this->activities->filter(function ($activity) {
+                return $activity->relationLoaded('activityCategory') 
+                    && $activity->activityCategory?->type === \App\Enums\ActivityCategoryTypeEnum::EXPERIENCE;
+            });
+        } else {
+            $experienceActivities = $this->activities()
+                ->whereHas('activityCategory', function ($query) {
+                    $query->where('type', \App\Enums\ActivityCategoryTypeEnum::EXPERIENCE->value);
+                })
+                ->with('experience.experience')
+                ->get();
+        }
 
         foreach ($experienceActivities as $activity) {
             if ($activity->experience) {

@@ -35,11 +35,31 @@ class ViewQuotationItinerary extends ViewRecord
             'itinerary_exists' => $record->itinerary ? 'yes' : 'no',
             'itinerary_id' => $record->itinerary?->id
         ]);
+        
         return $record->load([
-            'itinerary.days.activities.ticket.toCity',
+            // Itinerary and days with all activity relationships
+            'itinerary.days.currentCity',
+            'itinerary.days.accommodationCity',
+            'itinerary.days.accommodation',
             'itinerary.days.activities.activityCategory',
+            'itinerary.days.activities.city',
+            // Meal activities
+            'itinerary.days.activities.meal.mealType',
+            // Attraction activities with nested relationships
+            // Note: Attraction model auto-loads 'country.currency' via $with property
+            'itinerary.days.activities.attraction.attraction',
+            'itinerary.days.activities.attraction.subAttractions.subAttraction',
+            // Ticket activities
+            'itinerary.days.activities.ticket.toCity',
+            // Experience activities
+            'itinerary.days.activities.experience.experience.city',
+            // Quotation relationships
             'quotation.currency',
             'quotation.creator',
+            'quotation.inquiry.contact',
+            'quotation.inquiry.requestedCurrency',
+            'quotation.inquiry.inquiryItinerary',
+            // Breakdown relationships
             'breakdown.currency',
             'breakdown.companions.companionType',
             'breakdown.vehicleTypes.vehicleType',
@@ -50,9 +70,11 @@ class ViewQuotationItinerary extends ViewRecord
             'breakdown.accommodations.accommodation',
             'breakdown.accommodations.city',
             'breakdown.accommodations.rooms.roomCategory',
+            // Note: Attraction model auto-loads 'country.currency' via $with property
             'breakdown.attractions.attraction',
             'breakdown.attractions.city',
             'breakdown.attractions.subAttractions.subAttraction',
+            // Quotation offer groups
             'quotationOfferGroups.quotationOffers.vehicleType',
             'quotationOfferGroups.quotationOffers.quotationOfferPrices.roomCategory',
             'quotationOfferGroups.quotationOfferGroupCompanions.companionType',

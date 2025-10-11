@@ -373,19 +373,23 @@ class BreakdownTab
 
                                 TextEntry::make('id')
                                     ->label('💰 Room Prices')
-                                    ->formatStateUsing(fn($state, $record) => 
-                                        $record->rooms && $record->rooms->isNotEmpty()
-                                            ? nl2br(e(
-                                                $record->rooms->map(function ($room) use ($record) {
-                                                    $currency = $record->breakdown?->currency;
-                                                    $symbol = $currency?->symbol ?? $currency?->code ?? '';
-                                                    $roomName = $room->roomCategory?->name ?? 'Unknown';
-                                                    $price = number_format($room->price, 2);
-                                                    return "• {$roomName}: {$symbol}{$price}";
-                                                })->implode("\n")
-                                            ))
-                                            : 'No rooms'
-                                    )
+                                    ->formatStateUsing(function ($state, $record, $livewire) {
+                                        if (!$record->rooms || $record->rooms->isEmpty()) {
+                                            return 'No rooms';
+                                        }
+                                        
+                                        // Get currency from parent QuotationItinerary to avoid N+1
+                                        $currency = $livewire->record->breakdown?->currency;
+                                        $symbol = $currency?->symbol ?? $currency?->code ?? '';
+                                        
+                                        return nl2br(e(
+                                            $record->rooms->map(function ($room) use ($symbol) {
+                                                $roomName = $room->roomCategory?->name ?? 'Unknown';
+                                                $price = number_format($room->price, 2);
+                                                return "• {$roomName}: {$symbol}{$price}";
+                                            })->implode("\n")
+                                        ));
+                                    })
                                     ->html()
                                     ->color('info')
                                     ->columnSpan(1),
@@ -428,8 +432,9 @@ class BreakdownTab
 
                                 TextEntry::make('entry_price')
                                     ->label('💵 Entry Price')
-                                    ->formatStateUsing(function ($state, $record) {
-                                        $currency = $record->breakdown?->currency;
+                                    ->formatStateUsing(function ($state, $record, $livewire) {
+                                        // Get currency from parent QuotationItinerary to avoid N+1
+                                        $currency = $livewire->record->breakdown?->currency;
                                         $symbol = $currency?->symbol ?? $currency?->code ?? '';
                                         return $symbol . number_format($state, 2);
                                     })
@@ -439,19 +444,23 @@ class BreakdownTab
 
                                 TextEntry::make('id')
                                     ->label('🎫 Sub-Attractions')
-                                    ->formatStateUsing(fn($state, $record) => 
-                                        $record->subAttractions && $record->subAttractions->isNotEmpty()
-                                            ? nl2br(e(
-                                                $record->subAttractions->map(function ($subAttraction) use ($record) {
-                                                    $currency = $record->breakdown?->currency;
-                                                    $symbol = $currency?->symbol ?? $currency?->code ?? '';
-                                                    $name = $subAttraction->subAttraction?->name ?? 'Unknown';
-                                                    $price = number_format($subAttraction->price, 2);
-                                                    return "• {$name}: {$symbol}{$price}";
-                                                })->implode("\n")
-                                            ))
-                                            : 'No sub-attractions'
-                                    )
+                                    ->formatStateUsing(function ($state, $record, $livewire) {
+                                        if (!$record->subAttractions || $record->subAttractions->isEmpty()) {
+                                            return 'No sub-attractions';
+                                        }
+                                        
+                                        // Get currency from parent QuotationItinerary to avoid N+1
+                                        $currency = $livewire->record->breakdown?->currency;
+                                        $symbol = $currency?->symbol ?? $currency?->code ?? '';
+                                        
+                                        return nl2br(e(
+                                            $record->subAttractions->map(function ($subAttraction) use ($symbol) {
+                                                $name = $subAttraction->subAttraction?->name ?? 'Unknown';
+                                                $price = number_format($subAttraction->price, 2);
+                                                return "• {$name}: {$symbol}{$price}";
+                                            })->implode("\n")
+                                        ));
+                                    })
                                     ->html()
                                     ->color('info')
                                     ->columnSpan(1),

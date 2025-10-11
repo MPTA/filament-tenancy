@@ -226,9 +226,13 @@ class InformationTab
                 Select::make('inquiry.requested_currency_id')
                     ->label('Currency')
                     ->required()
-                    ->options(\App\Models\Base\Currency::all()->pluck('code', 'id')->mapWithKeys(fn($code, $id) => [
-                        $id => \App\Models\Base\Currency::find($id)->code . ' (' . \App\Models\Base\Currency::find($id)->symbol . ')'
-                    ]))
+                    ->options(function () {
+                        // Load currencies once and format them
+                        return \App\Models\Base\Currency::all()
+                            ->mapWithKeys(fn($currency) => [
+                                $currency->id => $currency->code . ' (' . $currency->symbol . ')'
+                            ]);
+                    })
                     ->searchable()
                     ->preload()
                     ->helperText('Changing currency will update both Inquiry and Quotation'),
@@ -333,9 +337,13 @@ class InformationTab
                 Select::make('quotation.currency_id')
                     ->label('Currency')
                     ->required()
-                    ->options(\App\Models\Base\Currency::all()->pluck('code', 'id')->mapWithKeys(fn($code, $id) => [
-                        $id => \App\Models\Base\Currency::find($id)->code . ' (' . \App\Models\Base\Currency::find($id)->symbol . ')'
-                    ]))
+                    ->options(function () {
+                        // Load currencies once and format them
+                        return \App\Models\Base\Currency::all()
+                            ->mapWithKeys(fn($currency) => [
+                                $currency->id => $currency->code . ' (' . $currency->symbol . ')'
+                            ]);
+                    })
                     ->searchable()
                     ->preload()
                     ->helperText('Changing currency will update both Quotation and Inquiry'),

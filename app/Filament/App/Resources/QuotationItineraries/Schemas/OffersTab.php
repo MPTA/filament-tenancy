@@ -305,7 +305,13 @@ class OffersTab
             ->formatStateUsing(fn() => 'No offers have been registered yet.')
             ->icon('heroicon-o-information-circle')
             ->color('gray')
-            ->hidden(fn(QuotationItinerary $record) => $record->quotationOfferGroups()->count() > 0);
+            ->hidden(function (QuotationItinerary $record) {
+                // Use loaded relationship instead of query
+                $count = $record->relationLoaded('quotationOfferGroups') 
+                    ? $record->quotationOfferGroups->count() 
+                    : $record->quotationOfferGroups()->count();
+                return $count > 0;
+            });
     }
 
     private static function offerGroupsList(): RepeatableEntry
@@ -313,7 +319,13 @@ class OffersTab
         return RepeatableEntry::make('quotationOfferGroups')
             ->contained(false)
             ->label('')
-            ->hidden(fn(QuotationItinerary $record) => $record->quotationOfferGroups()->count() === 0)
+            ->hidden(function (QuotationItinerary $record) {
+                // Use loaded relationship instead of query
+                $count = $record->relationLoaded('quotationOfferGroups') 
+                    ? $record->quotationOfferGroups->count() 
+                    : $record->quotationOfferGroups()->count();
+                return $count === 0;
+            })
             ->schema([
                 self::offerGroupSection(),
             ])

@@ -131,6 +131,16 @@ class QuotationItinerary extends Model
         self::$regeneratingBreakdowns[$this->id] = true;
         
         try {
+            // Eager load all necessary relationships to prevent N+1 queries
+            // Note: Attraction model auto-loads 'country.currency' via $with property
+            $this->load([
+                'itinerary.days.activities.activityCategory',
+                'itinerary.days.activities.meal.mealType',
+                'itinerary.days.activities.ticket.toCity',
+                'itinerary.days.activities.attraction.attraction.subAttractions',
+                'itinerary.days.activities.experience.experience',
+            ]);
+            
             $breakdown = $this->createOrUpdateBreakdown();
             
             // Mark breakdown as incomplete when regenerating
@@ -179,6 +189,7 @@ class QuotationItinerary extends Model
 
     /**
      * Update vehicle data and default budgets
+     * Uses already loaded itinerary.days relationship if available
      */
     private function updateVehicleData($breakdown)
     {
@@ -186,7 +197,7 @@ class QuotationItinerary extends Model
         $vehicleHalfDaysQty = 0;
         $vehicleHoursQty = 0;
 
-        if ($this->itinerary) {
+        if ($this->itinerary && $this->relationLoaded('itinerary')) {
             foreach ($this->itinerary->days as $day) {
                 switch ($day->vehicle_usage_mode) {
                     case \App\Enums\VehicleUsageModeEnum::FULL_DAY:
@@ -218,6 +229,7 @@ class QuotationItinerary extends Model
 
     /**
      * Create breakdown tickets from itinerary
+     * Uses already loaded relationships to prevent N+1 queries
      */
     private function createBreakdownTickets($breakdown)
     {
@@ -239,12 +251,20 @@ class QuotationItinerary extends Model
         $processedTickets = [];
 
         foreach ($this->itinerary->days as $day) {
-            $ticketActivities = $day->activities()
-                ->whereHas('activityCategory', function ($query) {
-                    $query->where('type', \App\Enums\ActivityCategoryTypeEnum::TICKET->value);
-                })
-                ->with('ticket.toCity')
-                ->get();
+            // Use already loaded activities if available
+            if ($day->relationLoaded('activities')) {
+                $ticketActivities = $day->activities->filter(function ($activity) {
+                    return $activity->relationLoaded('activityCategory') 
+                        && $activity->activityCategory?->type === \App\Enums\ActivityCategoryTypeEnum::TICKET;
+                });
+            } else {
+                $ticketActivities = $day->activities()
+                    ->whereHas('activityCategory', function ($query) {
+                        $query->where('type', \App\Enums\ActivityCategoryTypeEnum::TICKET->value);
+                    })
+                    ->with('ticket.toCity')
+                    ->get();
+            }
 
             foreach ($ticketActivities as $activity) {
                 if ($activity->ticket) {
@@ -276,6 +296,7 @@ class QuotationItinerary extends Model
 
     /**
      * Create breakdown meals from itinerary
+     * Uses already loaded relationships to prevent N+1 queries
      */
     private function createBreakdownMeals($breakdown)
     {
@@ -293,12 +314,20 @@ class QuotationItinerary extends Model
         $mealCounts = [];
         
         foreach ($this->itinerary->days as $day) {
-            $mealActivities = $day->activities()
-                ->whereHas('activityCategory', function ($query) {
-                    $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
-                })
-                ->with('meal.mealType')
-                ->get();
+            // Use already loaded activities if available
+            if ($day->relationLoaded('activities')) {
+                $mealActivities = $day->activities->filter(function ($activity) {
+                    return $activity->relationLoaded('activityCategory') 
+                        && $activity->activityCategory?->type === \App\Enums\ActivityCategoryTypeEnum::MEAL;
+                });
+            } else {
+                $mealActivities = $day->activities()
+                    ->whereHas('activityCategory', function ($query) {
+                        $query->where('type', \App\Enums\ActivityCategoryTypeEnum::MEAL->value);
+                    })
+                    ->with('meal.mealType')
+                    ->get();
+            }
 
             foreach ($mealActivities as $activity) {
                 if ($activity->meal?->mealType) {
@@ -323,6 +352,7 @@ class QuotationItinerary extends Model
 
     /**
      * Create breakdown experiences from itinerary
+     * Uses already loaded relationships to prevent N+1 queries
      */
     private function createBreakdownExperiences($breakdown)
     {
@@ -343,12 +373,20 @@ class QuotationItinerary extends Model
         $processedExperiences = [];
 
         foreach ($this->itinerary->days as $day) {
-            $experienceActivities = $day->activities()
-                ->whereHas('activityCategory', function ($query) {
-                    $query->where('type', \App\Enums\ActivityCategoryTypeEnum::EXPERIENCE->value);
-                })
-                ->with('experience.experience')
-                ->get();
+            // Use already loaded activities if available
+            if ($day->relationLoaded('activities')) {
+                $experienceActivities = $day->activities->filter(function ($activity) {
+                    return $activity->relationLoaded('activityCategory') 
+                        && $activity->activityCategory?->type === \App\Enums\ActivityCategoryTypeEnum::EXPERIENCE;
+                });
+            } else {
+                $experienceActivities = $day->activities()
+                    ->whereHas('activityCategory', function ($query) {
+                        $query->where('type', \App\Enums\ActivityCategoryTypeEnum::EXPERIENCE->value);
+                    })
+                    ->with('experience.experience')
+                    ->get();
+            }
 
             foreach ($experienceActivities as $activity) {
                 if ($activity->experience?->experience?->exists) {
@@ -498,6 +536,7 @@ class QuotationItinerary extends Model
 
     /**
      * Create breakdown attractions from itinerary
+     * Uses already loaded relationships to prevent N+1 queries
      */
     private function createBreakdownAttractions($breakdown)
     {
@@ -519,12 +558,20 @@ class QuotationItinerary extends Model
         $breakdown->attractions()->delete();
 
         foreach ($this->itinerary->days as $day) {
-            $attractionActivities = $day->activities()
-                ->whereHas('activityCategory', function ($query) {
-                    $query->where('type', \App\Enums\ActivityCategoryTypeEnum::ATTRACTION->value);
-                })
-                ->with(['attraction.attraction.subAttractions', 'attraction'])
-                ->get();
+            // Use already loaded activities if available
+            if ($day->relationLoaded('activities')) {
+                $attractionActivities = $day->activities->filter(function ($activity) {
+                    return $activity->relationLoaded('activityCategory') 
+                        && $activity->activityCategory?->type === \App\Enums\ActivityCategoryTypeEnum::ATTRACTION;
+                });
+            } else {
+                $attractionActivities = $day->activities()
+                    ->whereHas('activityCategory', function ($query) {
+                        $query->where('type', \App\Enums\ActivityCategoryTypeEnum::ATTRACTION->value);
+                    })
+                    ->with(['attraction.attraction.subAttractions', 'attraction'])
+                    ->get();
+            }
 
             foreach ($attractionActivities as $activity) {
                 if ($activity->attraction?->attraction?->exists) {
