@@ -361,6 +361,9 @@ class QuotationItinerary extends Model
     {
         if (!$this->itinerary) return;
 
+        // Array to collect hotels with missing prices
+        $missingPrices = [];
+
         // Get existing accommodations with their room prices before deleting
         $existingAccommodations = $breakdown->accommodations->mapWithKeys(function ($accommodation) {
             $key = "{$accommodation->accommodation_id}_{$accommodation->city_id}";
@@ -394,9 +397,8 @@ class QuotationItinerary extends Model
             $key = "{$accommodationData['accommodation_id']}_{$accommodationData['city_id']}";
             $existingRooms = $existingAccommodations->get($key, collect());
 
-            // Check if accommodation has breakfast
-            $accommodation = \App\Models\Base\Accommodation::find($accommodationData['accommodation_id']);
-            $hasBreakfast = $accommodation?->has_breakfast ?? true; // Default to true
+            // Always search for prices with breakfast (hasBreakfast = true)
+            $hasBreakfast = true;
 
             $breakdownAccommodation = $breakdown->accommodations()->create([
                 'accommodation_id' => $accommodationData['accommodation_id'],
@@ -405,20 +407,42 @@ class QuotationItinerary extends Model
                 'has_breakfast' => $hasBreakfast,
             ]);
 
-            $this->createDefaultRoomCategories($breakdownAccommodation, $existingRooms, $hasBreakfast);
+            $this->createDefaultRoomCategories($breakdownAccommodation, $existingRooms, $hasBreakfast, $missingPrices);
+        }
+
+        // Send a single notification if there are missing prices
+        if (!empty($missingPrices)) {
+            $hotelList = collect($missingPrices)->map(function ($item) {
+                return "• {$item['hotel']} - {$item['rooms']}";
+            })->join("\n");
+
+            \Filament\Notifications\Notification::make()
+                ->warning()
+                ->title('Hotel Prices Missing')
+                ->body("The following hotels are missing room prices with breakfast. Please enter the prices manually:\n\n{$hotelList}")
+                ->persistent()
+                ->send();
         }
     }
 
     /**
      * Create default room categories for accommodation
      */
-    private function createDefaultRoomCategories($breakdownAccommodation, $existingRooms = null, $hasBreakfast = true)
+    private function createDefaultRoomCategories($breakdownAccommodation, $existingRooms = null, $hasBreakfast = true, &$missingPrices = [])
     {
         $twinRoomCategory = RoomCategory::where('category', \App\Enums\RoomCategoryEnum::TWIN->value)->first();
         $singleRoomCategory = RoomCategory::where('category', \App\Enums\RoomCategoryEnum::SINGLE->value)->first();
 
+        $hotelName = $breakdownAccommodation->accommodation->name;
+        $missingRooms = [];
+
         if ($twinRoomCategory) {
             $price = $this->getRoomCategoryPrice($breakdownAccommodation, $twinRoomCategory, $existingRooms, $breakdownAccommodation->has_breakfast);
+            
+            if ($price == 0) {
+                $missingRooms[] = 'Twin';
+            }
+            
             $breakdownAccommodation->rooms()->create([
                 'room_category_id' => $twinRoomCategory->id,
                 'price' => $price,
@@ -427,10 +451,23 @@ class QuotationItinerary extends Model
 
         if ($singleRoomCategory) {
             $price = $this->getRoomCategoryPrice($breakdownAccommodation, $singleRoomCategory, $existingRooms, $breakdownAccommodation->has_breakfast);
+            
+            if ($price == 0) {
+                $missingRooms[] = 'Single';
+            }
+            
             $breakdownAccommodation->rooms()->create([
                 'room_category_id' => $singleRoomCategory->id,
                 'price' => $price,
             ]);
+        }
+
+        // Add to missing prices list if any room has missing price
+        if (!empty($missingRooms)) {
+            $missingPrices[] = [
+                'hotel' => $hotelName,
+                'rooms' => implode(', ', $missingRooms),
+            ];
         }
     }
 
@@ -526,18 +563,6 @@ class QuotationItinerary extends Model
             return $existingPrice;
         }
 
-        // Only get prices for rooms with breakfast if hasBreakfast is true
-        if (!$hasBreakfast) {
-            // If no breakfast, set price to 0 and show notification
-            \Filament\Notifications\Notification::make()
-                ->warning()
-                ->title('Breakfast Alert')
-                ->body("Hotel '{$breakdownAccommodation->accommodation->name}' room prices are set to 0 because the hotel doesn't include breakfast. Please check the prices manually.")
-                ->persistent()
-                ->send();
-            return 0.00;
-        }
-
         // Try to get price from tenant-specific table first
         // Priority 1: Try with is_include_breakfast filter
         $tenantAccommodationPrice = \App\Models\Tenants\TenantAccommodationPrice::query()
@@ -588,17 +613,22 @@ class QuotationItinerary extends Model
                 }
             })
             ->where(function ($query) {
-                $query->where('valid_from', null)
+                $query->whereNull('valid_from')
                     ->orWhere('valid_from', '<=', now());
             })
             ->where(function ($query) {
-                $query->where('valid_to', null)
+                $query->whereNull('valid_to')
                     ->orWhere('valid_to', '>=', now());
             })
             ->orderBy('valid_from', 'desc')
             ->first();
 
-        return $centralAccommodationPrice?->price ?? 0.00;
+        if ($centralAccommodationPrice) {
+            return $centralAccommodationPrice->price ?? 0.00;
+        }
+
+        // If no price found, return 0 (will be collected and shown in a single notification)
+        return 0.00;
     }
 
     /**

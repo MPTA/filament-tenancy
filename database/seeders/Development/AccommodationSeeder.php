@@ -170,6 +170,7 @@ class AccommodationSeeder extends Seeder
                 ],
                 [
                     'price' => $roomPrice['price'],
+                    'is_include_breakfast' => $roomPrice['is_include_breakfast'] ?? false,
                     'valid_from' => now()->startOfYear(),
                     'valid_to' => now()->endOfYear(),
                 ]

@@ -168,6 +168,14 @@ class EditItinerary extends EditRecord
             $this->record->update($data);
         }
         
+        // Regenerate breakdown if this itinerary belongs to a QuotationItinerary
+        if ($this->record->itineraryable_type === QuotationItinerary::class) {
+            $quotationItinerary = $this->record->itineraryable;
+            if ($quotationItinerary) {
+                $quotationItinerary->generateBreakdownFromItinerary();
+            }
+        }
+        
         // Refresh the form data using the same method as mutateFormDataBeforeFill
         $this->form->fill($this->mutateFormDataBeforeFill($this->record->toArray()));
     }
@@ -358,6 +366,14 @@ class EditItinerary extends EditRecord
                     $this->processExperiences($itineraryDay, $dayData);
                 }
             });
+            
+            // Regenerate breakdown if this itinerary belongs to a QuotationItinerary
+            if ($this->record->itineraryable_type === QuotationItinerary::class) {
+                $quotationItinerary = $this->record->itineraryable;
+                if ($quotationItinerary) {
+                    $quotationItinerary->generateBreakdownFromItinerary();
+                }
+            }
         }
         
         return $data;
