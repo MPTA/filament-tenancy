@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Facades\Schema;
 use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 
@@ -50,6 +51,14 @@ class QuotationItinerary extends Model
 
     public function itinerary(){
         return $this->morphOne(Itinerary::class, 'itineraryable');
+    }
+
+    /**
+     * Get the transportations for this quotation itinerary.
+     */
+    public function transportations(): MorphMany
+    {
+        return $this->morphMany(Transportation::class, 'transportable');
     }
 
     /**
@@ -104,6 +113,9 @@ class QuotationItinerary extends Model
             // First, delete all offer groups (cascade will delete offers)
             // This allows Breakdown and Itinerary to be deleted without errors
             $quotationItinerary->quotationOfferGroups()->delete();
+            
+            // Delete transportations
+            $quotationItinerary->transportations()->delete();
             
             // Delete itinerary and its related data
             if ($quotationItinerary->itinerary) {

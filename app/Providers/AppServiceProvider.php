@@ -3,8 +3,11 @@
 namespace App\Providers;
 
 use BezhanSalleh\LanguageSwitch\LanguageSwitch;
-use Illuminate\Support\ServiceProvider;
 use BezhanSalleh\PanelSwitch\PanelSwitch;
+use Filament\Notifications\Livewire\Notifications;
+use Filament\Support\Enums\Alignment;
+use Filament\Support\Enums\VerticalAlignment;
+use Illuminate\Support\ServiceProvider;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -20,6 +23,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        // Configure Filament notifications position (bottom-right corner)
+        Notifications::alignment(Alignment::End);
+        Notifications::verticalAlignment(VerticalAlignment::End);
+        
         LanguageSwitch::configureUsing(function (LanguageSwitch $switch) {
             $switch
                 ->locales(['en','zh_CN']) // also accepts a closure

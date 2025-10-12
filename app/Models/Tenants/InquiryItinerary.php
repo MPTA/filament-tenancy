@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 
 class InquiryItinerary extends Model
@@ -46,6 +47,14 @@ class InquiryItinerary extends Model
     }
     public function itinerary(){
         return $this->morphOne(Itinerary::class, 'itineraryable');
+    }
+
+    /**
+     * Get the transportations for this inquiry itinerary.
+     */
+    public function transportations(): MorphMany
+    {
+        return $this->morphMany(Transportation::class, 'transportable');
     }
 
     /**
@@ -162,6 +171,9 @@ class InquiryItinerary extends Model
         parent::boot();
 
         static::deleting(function ($inquiryItinerary) {
+            // Delete transportations
+            $inquiryItinerary->transportations()->delete();
+            
             // Delete itinerary and its related data
             if ($inquiryItinerary->itinerary) {
                 $inquiryItinerary->itinerary->delete();

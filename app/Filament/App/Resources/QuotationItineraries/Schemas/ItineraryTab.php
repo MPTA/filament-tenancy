@@ -2,11 +2,14 @@
 
 namespace App\Filament\App\Resources\QuotationItineraries\Schemas;
 
+use App\Enums\TransportModeEnum;
 use App\Enums\TravelModeEnum;
 use App\Filament\App\Resources\Itineraries\ItineraryResource;
+use App\Filament\Shared\Schemas\TransportationRepeater;
 use App\Models\Tenants\QuotationItinerary;
 use Filament\Actions\Action;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Toggle;
 use Filament\Notifications\Notification;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Components\RepeatableEntry;
@@ -46,8 +49,275 @@ class ItineraryTab
             })
             ->schema([
                 self::itinerarySummarySection(),
+                self::transportationsSection(),
                 self::createItinerarySection(),
                 self::itineraryDaysSection(),
+            ]);
+    }
+
+    private static function transportationsSection(): Section
+    {
+        return Section::make('Group Transportations')
+            ->description('Entry and exit transportation details for the group')
+            ->icon('heroicon-o-paper-airplane')
+            ->collapsible()
+            ->collapsed(false)
+            ->hidden(fn(QuotationItinerary $record) => !$record->itinerary)
+            ->headerActions([
+                // Create Transportation Action (shown when no transportations exist)
+                Action::make('Create Transportation')
+                    ->icon('heroicon-m-plus-circle')
+                    ->color('success')
+                    ->hidden(fn(QuotationItinerary $record) => $record->transportations->isNotEmpty())
+                    ->fillForm(function (QuotationItinerary $quotationItinerary) {
+                        $inquiryItinerary = $quotationItinerary->quotation->inquiry->inquiryItinerary;
+                        
+                        // Pre-fill transportation dates if inquiry has Fixed Date type and dates
+                        if ($inquiryItinerary && 
+                            $inquiryItinerary->date_type === \App\Enums\InquiryDateTypeEnum::FIXED_DATE &&
+                            $inquiryItinerary->from_date && 
+                            $inquiryItinerary->to_date) {
+                            
+                            return [
+                                'transportations' => [
+                                    [
+                                        // Entry: arrival_date = from_date (when arriving to the country)
+                                        'arrival_date' => $inquiryItinerary->from_date->format('Y-m-d'),
+                                    ],
+                                    [
+                                        // Exit: departure_date = to_date (when leaving the country)
+                                        'departure_date' => $inquiryItinerary->to_date->format('Y-m-d'),
+                                    ],
+                                ],
+                            ];
+                        }
+                        
+                        return [];
+                    })
+                    ->form([
+                        TransportationRepeater::make(false)
+                    ])
+                    ->action(function (array $data, QuotationItinerary $quotationItinerary) {
+                        // Create transportations
+                        if (!empty($data['transportations'])) {
+                            foreach ($data['transportations'] as $transportationData) {
+                                // Skip empty transportations
+                                if (!empty($transportationData['transport_mode']) || !empty($transportationData['from_city_id'])) {
+                                    $quotationItinerary->transportations()->create($transportationData);
+                                }
+                            }
+                            
+                            // Update InquiryItinerary dates
+                            // from_date = Entry arrival_date (first item - when arriving)
+                            // to_date = Exit departure_date (second item - when leaving)
+                            $fromDate = $data['transportations'][0]['arrival_date'] ?? null;
+                            $toDate = $data['transportations'][1]['departure_date'] ?? null;
+                            
+                            if ($fromDate || $toDate) {
+                                $quotationItinerary->quotation->inquiry->inquiryItinerary->update(array_filter([
+                                    'from_date' => $fromDate,
+                                    'to_date' => $toDate,
+                                ]));
+                            }
+                        }
+                        
+                        Notification::make()
+                            ->title('Transportation created successfully!')
+                            ->success()
+                            ->send();
+                    })
+                    ->modalHeading('Create Group Transportation')
+                    ->modalDescription('Enter entry and exit transportation details')
+                    ->modalSubmitActionLabel('Create')
+                    ->modalWidth('3xl'),
+                
+                // Edit Transportation Action (shown when transportations exist)
+                Action::make('Edit Transportation')
+                    ->icon('heroicon-m-pencil-square')
+                    ->color('primary')
+                    ->hidden(fn(QuotationItinerary $record) => $record->transportations->isEmpty())
+                    ->fillForm(fn (QuotationItinerary $record) => [
+                        'transportations' => $record->transportations->map(function ($transportation) {
+                            return [
+                                'id' => $transportation->id,
+                                'transport_mode' => $transportation->transport_mode?->value,
+                                'from_city_id' => $transportation->from_city_id,
+                                'to_city_id' => $transportation->to_city_id,
+                                'departure_date' => $transportation->departure_date?->format('Y-m-d'),
+                                'departure_time' => $transportation->departure_time?->format('H:i'),
+                                'arrival_date' => $transportation->arrival_date?->format('Y-m-d'),
+                                'arrival_time' => $transportation->arrival_time?->format('H:i'),
+                                'transport_number' => $transportation->transport_number,
+                                'departure_airport_terminal' => $transportation->departure_airport_terminal,
+                                'arrival_airport_terminal' => $transportation->arrival_airport_terminal,
+                                'entry_border_id' => $transportation->entry_border_id,
+                                'exit_border_id' => $transportation->exit_border_id,
+                            ];
+                        })->toArray()
+                    ])
+                    ->form([
+                        TransportationRepeater::make(false)
+                    ])
+                    ->action(function (array $data, QuotationItinerary $quotationItinerary) {
+                        // Delete existing transportations
+                        $quotationItinerary->transportations()->delete();
+                        
+                        // Create new transportations
+                        if (!empty($data['transportations'])) {
+                            foreach ($data['transportations'] as $transportationData) {
+                                // Skip empty transportations
+                                if (!empty($transportationData['transport_mode']) || !empty($transportationData['from_city_id'])) {
+                                    $quotationItinerary->transportations()->create($transportationData);
+                                }
+                            }
+                            
+                            // Update InquiryItinerary dates
+                            // from_date = Entry arrival_date (first item - when arriving)
+                            // to_date = Exit departure_date (second item - when leaving)
+                            $fromDate = $data['transportations'][0]['arrival_date'] ?? null;
+                            $toDate = $data['transportations'][1]['departure_date'] ?? null;
+                            
+                            if ($fromDate || $toDate) {
+                                $quotationItinerary->quotation->inquiry->inquiryItinerary->update(array_filter([
+                                    'from_date' => $fromDate,
+                                    'to_date' => $toDate,
+                                ]));
+                            }
+                        }
+                        
+                        Notification::make()
+                            ->title('Transportation updated successfully!')
+                            ->success()
+                            ->send();
+                    })
+                    ->modalHeading('Edit Group Transportation')
+                    ->modalDescription('Update entry and exit transportation details')
+                    ->modalSubmitActionLabel('Save')
+                    ->modalWidth('3xl')
+            ])
+            ->schema([
+                // Compact table-like display using Grid
+                Grid::make(['default' => 6])
+                    ->schema([
+                        // Header row
+                        TextEntry::make('header_type')
+                            ->hiddenLabel()
+                            ->formatStateUsing(fn() => 'Type')
+                            ->weight('bold')
+                            ->color('gray'),
+                        
+                        TextEntry::make('header_from')
+                            ->hiddenLabel()
+                            ->formatStateUsing(fn() => 'From')
+                            ->weight('bold')
+                            ->color('gray'),
+                        
+                        TextEntry::make('header_to')
+                            ->hiddenLabel()
+                            ->formatStateUsing(fn() => 'To')
+                            ->weight('bold')
+                            ->color('gray'),
+                        
+                        TextEntry::make('header_departure')
+                            ->hiddenLabel()
+                            ->formatStateUsing(fn() => 'Departure')
+                            ->weight('bold')
+                            ->color('gray'),
+                        
+                        TextEntry::make('header_arrival')
+                            ->hiddenLabel()
+                            ->formatStateUsing(fn() => 'Arrival')
+                            ->weight('bold')
+                            ->color('gray'),
+                        
+                        TextEntry::make('header_number')
+                            ->hiddenLabel()
+                            ->formatStateUsing(fn() => 'Number')
+                            ->weight('bold')
+                            ->color('gray'),
+                    ])
+                    ->extraAttributes(['class' => 'border-b pb-2 mb-2'])
+                    ->hidden(fn(QuotationItinerary $record) => $record->transportations->isEmpty()),
+                
+                // Entry Transportation (index 0)
+                Grid::make(['default' => 6])
+                    ->schema([
+                        TextEntry::make('transportations.0.transport_mode')
+                            ->hiddenLabel()
+                            ->badge()
+                            ->formatStateUsing(fn($state) => $state?->label() ?? '-')
+                            ->color(fn($state) => match($state) {
+                                TransportModeEnum::AIR => 'primary',
+                                TransportModeEnum::TRAIN => 'success',
+                                TransportModeEnum::LAND => 'warning',
+                                default => 'gray'
+                            }),
+
+                        TextEntry::make('transportations.0.fromCity.name')
+                            ->hiddenLabel()
+                            ->default('-'),
+
+                        TextEntry::make('transportations.0.toCity.name')
+                            ->hiddenLabel()
+                            ->default('-'),
+
+                        TextEntry::make('transportations.0.formatted_departure_datetime')
+                            ->hiddenLabel()
+                            ->default('-'),
+
+                        TextEntry::make('transportations.0.formatted_arrival_datetime')
+                            ->hiddenLabel()
+                            ->default('-'),
+
+                        TextEntry::make('transportations.0.transport_number')
+                            ->hiddenLabel()
+                            ->default('-'),
+                    ])
+                    ->extraAttributes(['class' => 'mb-2'])
+                    ->hidden(fn(QuotationItinerary $record) => !isset($record->transportations[0])),
+                
+                // Exit Transportation (index 1)
+                Grid::make(['default' => 6])
+                    ->schema([
+                        TextEntry::make('transportations.1.transport_mode')
+                            ->hiddenLabel()
+                            ->badge()
+                            ->formatStateUsing(fn($state) => $state?->label() ?? '-')
+                            ->color(fn($state) => match($state) {
+                                TransportModeEnum::AIR => 'primary',
+                                TransportModeEnum::TRAIN => 'success',
+                                TransportModeEnum::LAND => 'warning',
+                                default => 'gray'
+                            }),
+
+                        TextEntry::make('transportations.1.fromCity.name')
+                            ->hiddenLabel()
+                            ->default('-'),
+
+                        TextEntry::make('transportations.1.toCity.name')
+                            ->hiddenLabel()
+                            ->default('-'),
+
+                        TextEntry::make('transportations.1.formatted_departure_datetime')
+                            ->hiddenLabel()
+                            ->default('-'),
+
+                        TextEntry::make('transportations.1.formatted_arrival_datetime')
+                            ->hiddenLabel()
+                            ->default('-'),
+
+                        TextEntry::make('transportations.1.transport_number')
+                            ->hiddenLabel()
+                            ->default('-'),
+                    ])
+                    ->hidden(fn(QuotationItinerary $record) => !isset($record->transportations[1])),
+                
+                // Placeholder when no transportations exist
+                \Filament\Infolists\Components\TextEntry::make('no_transportations')
+                    ->hiddenLabel()
+                    ->formatStateUsing(fn () => 'No transportation details available. Click "Create Transportation" to add entry and exit transportation.')
+                    ->color('gray')
+                    ->hidden(fn(QuotationItinerary $record) => $record->transportations->isNotEmpty())
             ]);
     }
 
@@ -57,7 +327,6 @@ class ItineraryTab
             ->description('Quick overview of your travel plan')
             ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->itinerary)
             ->headerActions([
-                self::editItineraryAction(),
                 self::completeItineraryAction(),
             ])
             ->schema([
@@ -103,14 +372,94 @@ class ItineraryTab
                             ->size(Size::ExtraLarge)
                             ->icon('heroicon-m-plus-circle')
                             ->color('success')
+                            ->fillForm(function (QuotationItinerary $quotationItinerary) {
+                                // Don't pre-fill - let toggle control it
+                                return [];
+                            })
                             ->schema([
                                 Select::make('travel_mode')
+                                    ->label('Travel Mode')
                                     ->options(TravelModeEnum::getOptions())
                                     ->required()
-                                    ->placeholder('Select travel mode')
+                                    ->reactive()
+                                    ->placeholder('Select travel mode'),
+                                
+                                Toggle::make('enter_transportation_details')
+                                    ->label('Enter Transportation Details')
+                                    ->helperText('Enable to add entry and exit transportation information')
+                                    ->reactive()
+                                    ->default(false)
+                                    ->afterStateUpdated(function ($state, $set, $get, $livewire) {
+                                        // When toggle is enabled, create transportations with auto-filled data
+                                        if ($state) {
+                                            $quotationItinerary = $livewire->record;
+                                            $inquiryItinerary = $quotationItinerary->quotation->inquiry->inquiryItinerary;
+                                            $travelMode = $get('travel_mode');
+                                            
+                                            // Prepare transport_mode based on travel_mode
+                                            $transportMode = null;
+                                            if ($travelMode) {
+                                                $transportMode = match($travelMode) {
+                                                    'air' => TransportModeEnum::AIR->value,
+                                                    'land' => TransportModeEnum::LAND->value,
+                                                    default => null
+                                                };
+                                            }
+                                            
+                                            // Build transportation items
+                                            $transportations = [
+                                                [
+                                                    'transport_mode' => $transportMode,
+                                                    'arrival_date' => ($inquiryItinerary && 
+                                                                      $inquiryItinerary->date_type === \App\Enums\InquiryDateTypeEnum::FIXED_DATE && 
+                                                                      $inquiryItinerary->from_date) 
+                                                                      ? $inquiryItinerary->from_date->format('Y-m-d') 
+                                                                      : null,
+                                                ],
+                                                [
+                                                    'transport_mode' => $transportMode,
+                                                    'departure_date' => ($inquiryItinerary && 
+                                                                        $inquiryItinerary->date_type === \App\Enums\InquiryDateTypeEnum::FIXED_DATE && 
+                                                                        $inquiryItinerary->to_date) 
+                                                                        ? $inquiryItinerary->to_date->format('Y-m-d') 
+                                                                        : null,
+                                                ],
+                                            ];
+                                            
+                                            $set('transportations', $transportations);
+                                        }
+                                    }),
+                                
+                                TransportationRepeater::make(false)
+                                    ->columnSpanFull()
+                                    ->visible(fn ($get) => $get('enter_transportation_details') === true)
                             ])
                             ->action(function (array $data, QuotationItinerary $quotationItinerary) {
                                 if (!$quotationItinerary->itinerary) {
+                                    // 1. Save transportations if provided and toggle is enabled
+                                    if (!empty($data['enter_transportation_details']) && !empty($data['transportations'])) {
+                                        foreach ($data['transportations'] as $transportationData) {
+                                            // Skip empty transportations
+                                            if (!empty($transportationData['transport_mode']) || !empty($transportationData['from_city_id'])) {
+                                                $quotationItinerary->transportations()->create($transportationData);
+                                            }
+                                        }
+                                        
+                                        // 2. Update InquiryItinerary dates from transportations
+                                        // from_date = Entry arrival_date (first item - when arriving)
+                                        // to_date = Exit departure_date (second item - when leaving)
+                                        $fromDate = $data['transportations'][0]['arrival_date'] ?? null;
+                                        $toDate = $data['transportations'][1]['departure_date'] ?? null;
+                                        
+                                        if ($fromDate || $toDate) {
+                                            $quotationItinerary->quotation->inquiry->inquiryItinerary->update(array_filter([
+                                                'from_date' => $fromDate,
+                                                'to_date' => $toDate,
+                                            ]));
+                                        }
+                                    }
+                                    
+                                    // 3. Create Itinerary
                                     $itinerary = $quotationItinerary->itinerary()->create([
                                         'travel_mode' => $data['travel_mode'],
                                         'creator_user_id' => Auth::user()->id,
@@ -122,8 +471,9 @@ class ItineraryTab
                                 $quotationItinerary->refresh();
                             })
                             ->modalHeading('Create New Itinerary')
-                            ->modalDescription('Choose the travel mode for your itinerary')
+                            ->modalDescription('Enter transportation details and choose travel mode')
                             ->modalSubmitActionLabel('Create Itinerary')
+                            ->modalWidth('3xl')
                     ])
                     ->extraAttributes(['class' => 'flex justify-center items-center min-h-[200px]'])
             ])
@@ -135,6 +485,9 @@ class ItineraryTab
         return Section::make('Itinerary Days')
             ->description('Your travel plan day by day')
             ->compact()
+            ->headerActions([
+                self::editItineraryAction(),
+            ])
             ->hidden(function (QuotationItinerary $quotationItinerary) {
                 // Hide if no itinerary or no days
                 if (!$quotationItinerary->itinerary) {
@@ -581,7 +934,7 @@ class ItineraryTab
 
     private static function editItineraryAction(): Action
     {
-        return Action::make('Edit Itinerary')
+        return Action::make('Edit Itinerary Days')
             ->icon('heroicon-m-pencil-square')
             ->color('primary')
             ->url(fn(QuotationItinerary $quotationItinerary) => ItineraryResource::getUrl('edit', ['record' => $quotationItinerary->itinerary]));

@@ -30,9 +30,10 @@ class ExchangeRateForm
                             ->rules([
                                 'required',
                                 'different:to_currency_id',
-                                function () {
-                                    return function (string $attribute, $value, \Closure $fail) {
-                                        $record = request()->route('record');
+                                function ($get, $livewire) {
+                                    return function (string $attribute, $value, \Closure $fail) use ($get, $livewire) {
+                                        // Get current record if in edit mode
+                                        $record = $livewire->record ?? null;
                                         
                                         // Get to_currency_id from tenant settings
                                         $tenantSetting = tenant()->settings;
@@ -53,7 +54,8 @@ class ExchangeRateForm
                                             ->where('to_currency_id', $toCurrencyId);
                                         
                                         if ($record) {
-                                            $query->where('id', '!=', $record);
+                                            // Exclude current record in edit mode
+                                            $query->where('id', '!=', $record->id);
                                         }
                                         
                                         if ($query->exists()) {
