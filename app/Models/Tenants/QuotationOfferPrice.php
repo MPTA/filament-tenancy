@@ -225,4 +225,58 @@ class QuotationOfferPrice extends Model
             'is_premium' => $this->is_premium,
         ];
     }
+
+    /**
+     * Get the price converted to quotation currency.
+     */
+    public function getQuotationCurrencyPriceAttribute(): float
+    {
+        $quotation = $this->quotationOffer
+            ->quotationOfferGroup
+            ->quotationItinerary
+            ->quotation;
+
+        if (!$quotation || !$quotation->exchange_rate) {
+            return (float) $this->per_person_price;
+        }
+
+        // Convert from breakdown currency (Yuan) to quotation currency (USD)
+        // Exchange rate format: 1 Quotation Currency = X Breakdown Currency
+        // So to convert: Breakdown Currency Price ÷ Exchange Rate = Quotation Currency Price
+        return (float) $this->per_person_price / $quotation->exchange_rate;
+    }
+
+    /**
+     * Get the formatted price in quotation currency.
+     */
+    public function getFormattedQuotationCurrencyPriceAttribute(): string
+    {
+        return number_format($this->quotation_currency_price, 0);
+    }
+
+    /**
+     * Get the quotation currency symbol.
+     */
+    public function getQuotationCurrencySymbolAttribute(): string
+    {
+        $quotation = $this->quotationOffer
+            ->quotationOfferGroup
+            ->quotationItinerary
+            ->quotation;
+
+        return $quotation?->currency?->symbol ?? $quotation?->currency?->code ?? '$';
+    }
+
+    /**
+     * Get the quotation currency code.
+     */
+    public function getQuotationCurrencyCodeAttribute(): string
+    {
+        $quotation = $this->quotationOffer
+            ->quotationOfferGroup
+            ->quotationItinerary
+            ->quotation;
+
+        return $quotation?->currency?->code ?? 'USD';
+    }
 }

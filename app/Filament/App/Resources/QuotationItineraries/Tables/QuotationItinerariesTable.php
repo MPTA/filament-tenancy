@@ -2,10 +2,9 @@
 
 namespace App\Filament\App\Resources\QuotationItineraries\Tables;
 
+use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
-use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
-use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\BadgeColumn;
@@ -115,6 +114,12 @@ class QuotationItinerariesTable
                     }),
             ])
             ->recordActions([
+                Action::make('customerView')
+                    ->label('Customer View')
+                    ->icon('heroicon-o-eye')
+                    ->color('primary')
+                    ->url(fn ($record) => route('filament.app.resources.quotation-itineraries.customer-view', ['record' => $record->id]))
+                    ->openUrlInNewTab(),
                 ActionGroup::make([
                     ViewAction::make(),
                     DeleteAction::make()

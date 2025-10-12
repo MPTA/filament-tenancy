@@ -1,0 +1,585 @@
+/* Iran Tour Quotation Styles - Based on MPTA Design */
+
+.quotation-container {
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #000000 !important;
+}
+
+.quotation-container * {
+    color: #000000 !important;
+}
+
+/* Header Section */
+.quotation-header {
+    margin-bottom: 30px;
+}
+
+.header-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.company-logo {
+    flex: 0 0 auto;
+    width: 200px;
+}
+
+.logo-placeholder {
+    background: linear-gradient(135deg, #dc2626, #000);
+    color: white;
+    padding: 15px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.logo-text {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.logo-subtitle {
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+.quotation-title {
+    flex: 1;
+    text-align: center;
+    margin: 0 20px;
+}
+
+.quotation-title h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #000000 !important;
+    margin: 0;
+}
+
+.quotation-details {
+    flex: 0 0 auto;
+    width: 250px;
+    text-align: right;
+}
+
+.detail-row {
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+
+.detail-row .label {
+    font-weight: bold;
+    color: #000000 !important;
+}
+
+.detail-row .value {
+    color: #000000 !important;
+}
+
+/* Customer Section */
+.customer-section {
+    margin-bottom: 30px;
+    padding: 15px;
+    background: #f9fafb;
+    border-radius: 8px;
+}
+
+.customer-section h2 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000000 !important;
+    margin: 0 0 10px 0;
+}
+
+.customer-section p {
+    margin: 0;
+    color: #000000 !important;
+    font-size: 14px;
+}
+
+/* Itinerary Section */
+.itinerary-section {
+    margin-bottom: 40px;
+}
+
+.itinerary-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #d1d5db;
+    background: white;
+}
+
+.itinerary-table th {
+    background: #f3f4f6;
+    padding: 12px 8px;
+    text-align: left;
+    font-weight: bold;
+    color: #000000 !important;
+    border: 1px solid #d1d5db;
+    font-size: 13px;
+}
+
+.itinerary-table td {
+    padding: 12px 8px;
+    border: 1px solid #d1d5db;
+    vertical-align: top;
+    font-size: 13px;
+}
+
+.itinerary-table tr:nth-child(even) {
+    background: #f9fafb;
+}
+
+/* Day Column */
+.day-cell {
+    width: 120px;
+    text-align: center;
+}
+
+.day-number {
+    font-weight: bold;
+    color: #000000 !important;
+    font-size: 14px;
+}
+
+.day-date {
+    font-size: 11px;
+    color: #000000 !important;
+    margin-top: 2px;
+}
+
+/* City Column */
+.city-cell {
+    width: 150px;
+    font-weight: 500;
+    color: #000000 !important;
+}
+
+/* Activity Column */
+.activity-cell {
+    width: 35%;
+    padding: 8px !important;
+}
+
+.transport-activity,
+.attraction-activity,
+.experience-activity,
+.city-activity {
+    margin-bottom: 8px;
+}
+
+.transport-activity:last-child,
+.attraction-activity:last-child,
+.experience-activity:last-child,
+.city-activity:last-child {
+    margin-bottom: 0;
+}
+
+.transport-icon {
+    margin-right: 5px;
+    font-size: 12px;
+}
+
+.transport-text {
+    font-size: 12px;
+}
+
+.attraction-bracket,
+.sub-bracket {
+    color: #000000 !important;
+}
+
+.outview-text {
+    color: #000000 !important;
+    font-size: 11px;
+    font-style: italic;
+}
+
+.sub-attraction {
+    margin-left: 15px;
+    margin-top: 3px;
+}
+
+.experience-icon {
+    color: #000000 !important;
+    margin-right: 5px;
+    font-size: 12px;
+}
+
+
+/* Meals Column */
+.meals-cell {
+    width: 200px;
+}
+
+.meal-item {
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+
+.meal-type {
+    font-weight: bold;
+    color: #000000 !important;
+    margin-right: 5px;
+}
+
+.no-meals {
+    color: #000000 !important;
+    font-style: italic;
+}
+
+/* Hotel Column */
+.hotel-cell {
+    width: 200px;
+}
+
+.hotel-info {
+    text-align: left;
+}
+
+.hotel-name {
+    font-weight: 500;
+    color: #000000 !important;
+    font-size: 13px;
+}
+
+.hotel-rating {
+    font-size: 11px;
+    color: #000000 !important;
+    margin-top: 2px;
+}
+
+.stars {
+    margin-top: 2px;
+}
+
+.no-hotel {
+    color: #000000 !important;
+    font-style: italic;
+    font-size: 12px;
+}
+
+/* Offers Section */
+.offers-section {
+    margin-top: 40px;
+}
+
+.offers-section h2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000000 !important;
+    margin-bottom: 20px;
+}
+
+.tour-guide {
+    margin-bottom: 20px;
+    padding: 10px;
+    background: #f3f4f6;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* Offer Group Section */
+.offer-group-section {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: 2px solid #dc2626;
+    border-radius: 8px;
+    overflow: hidden;
+    background: white;
+}
+
+.offer-group-section-header {
+    padding: 15px 20px;
+    background: #dc2626;
+    color: white;
+}
+
+.offer-group-section-header .section-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff !important;
+    margin: 0 0 8px 0;
+}
+
+.offer-group-section-header .companions-list {
+    font-size: 14px;
+    color: #ffffff !important;
+    margin-top: 8px;
+}
+
+.offer-group-section-header .companions-list strong {
+    color: #ffffff !important;
+    margin-right: 5px;
+}
+
+.companion-item {
+    color: #ffffff !important;
+}
+
+.companion-category {
+    font-style: italic;
+    color: #ffffff !important;
+    opacity: 0.9;
+}
+
+.offer-group-content {
+    padding: 20px;
+}
+
+/* Offer Features */
+.offer-features {
+    margin: 20px 0;
+    padding: 15px;
+    background: #f9fafb;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+}
+
+.features-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000 !important;
+    margin-bottom: 12px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 8px;
+    background: white;
+    border-radius: 4px;
+    border: 1px solid #e5e7eb;
+}
+
+.feature-item.disabled {
+    opacity: 0.6;
+}
+
+.feature-icon {
+    font-weight: bold;
+    margin-right: 8px;
+    color: #000000 !important;
+    font-size: 16px;
+}
+
+.feature-text {
+    color: #000000 !important;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.feature-detail {
+    display: block;
+    font-size: 12px;
+    color: #000000 !important;
+    margin-top: 2px;
+    font-style: italic;
+}
+
+/* Pricing Table */
+.pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #d1d5db;
+    margin-bottom: 20px;
+}
+
+.pricing-table th {
+    background: #f3f4f6;
+    padding: 12px 8px;
+    text-align: left;
+    font-weight: bold;
+    color: #000000 !important;
+    border: 1px solid #d1d5db;
+    font-size: 13px;
+}
+
+.pricing-table td {
+    padding: 10px 8px;
+    border: 1px solid #d1d5db;
+    font-size: 13px;
+}
+
+.vehicle-info {
+    color: #000000 !important;
+    padding: 8px;
+}
+
+.vehicle-name {
+    font-weight: bold;
+    color: #000000 !important;
+    margin-bottom: 4px;
+}
+
+.drivers-count {
+    font-size: 12px;
+    color: #000000 !important;
+}
+
+.pax-qty {
+    font-weight: 500;
+    color: #000000 !important;
+}
+
+.leader-bed {
+    color: #000000 !important;
+}
+
+.twin-price,
+.single-price,
+.room-price {
+    font-weight: bold;
+    color: #000000 !important;
+    font-family: 'Courier New', monospace;
+    text-align: center;
+    padding: 8px;
+}
+
+/* Print Styles */
+@media print {
+    /* Color adjustment for backgrounds */
+    html,
+    body {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Table borders in print */
+    .itinerary-table,
+    .pricing-table,
+    .itinerary-table th,
+    .itinerary-table td,
+    .pricing-table th,
+    .pricing-table td {
+        border: 1px solid #000 !important;
+        border-collapse: collapse !important;
+    }
+
+    .itinerary-table th,
+    .pricing-table th {
+        background-color: #f0f0f0 !important;
+        color: black !important;
+        font-weight: bold !important;
+    }
+
+    /* Header styling for print */
+    .logo-placeholder {
+        background: #f0f0f0 !important;
+        color: black !important;
+        border: 1px solid #000 !important;
+    }
+
+    .quotation-title h1 {
+        color: black !important;
+    }
+
+    /* Remove shadows for cleaner print */
+    * {
+        box-shadow: none !important;
+    }
+
+
+    /* Preserve colors for headers */
+    .offer-group-section-header {
+        background: #dc2626 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .offer-group-section-header * {
+        color: white !important;
+    }
+
+    .offer-features {
+        background: #f9fafb !important;
+        border: 1px solid #d1d5db !important;
+    }
+
+    /* Font sizes for print */
+    .quotation-title h1 {
+        font-size: 20pt;
+    }
+
+    .offers-section h2 {
+        font-size: 16pt;
+    }
+
+    .customer-section h2 {
+        font-size: 14pt;
+    }
+
+    /* Page breaks */
+    .offers-section {
+        page-break-before: always;
+        break-before: page;
+    }
+
+    .itinerary-table {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+}
+
+/* RTL Support */
+[dir="rtl"] .quotation-container {
+    direction: rtl;
+    text-align: right;
+}
+
+[dir="rtl"] .header-top {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .quotation-details {
+    text-align: left;
+}
+
+[dir="rtl"] .itinerary-table th,
+[dir="rtl"] .itinerary-table td,
+[dir="rtl"] .pricing-table th,
+[dir="rtl"] .pricing-table td {
+    text-align: right;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-top {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .company-logo,
+    .quotation-details {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .quotation-title {
+        margin: 0;
+    }
+
+    .itinerary-table {
+        font-size: 11px;
+    }
+
+    .itinerary-table th,
+    .itinerary-table td {
+        padding: 8px 4px;
+    }
+}

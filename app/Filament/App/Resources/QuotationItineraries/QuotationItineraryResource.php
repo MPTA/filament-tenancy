@@ -3,6 +3,7 @@
 namespace App\Filament\App\Resources\QuotationItineraries;
 
 use App\Filament\App\Resources\QuotationItineraries\Pages\CreateQuotationItinerary;
+use App\Filament\App\Resources\QuotationItineraries\Pages\CustomerView;
 use App\Filament\App\Resources\QuotationItineraries\Pages\EditBreakdown;
 use App\Filament\App\Resources\QuotationItineraries\Pages\ListQuotationItineraries;
 use App\Filament\App\Resources\QuotationItineraries\Pages\ViewQuotationItinerary;
@@ -65,6 +66,7 @@ class QuotationItineraryResource extends Resource
             'create' => CreateQuotationItinerary::route('/create'),
             'view' => ViewQuotationItinerary::route('/{record}'),
             'edit-breakdown' => EditBreakdown::route('/{record}/edit-breakdown'),
+            'customer-view' => CustomerView::route('/{record}/customer-view'),
         ];
     }
 }
