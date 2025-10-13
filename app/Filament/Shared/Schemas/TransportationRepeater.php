@@ -164,9 +164,39 @@ class TransportationRepeater
             ->deletable(false)
             ->reorderable(false)
             ->collapsible(false)
-            ->itemLabel(fn (?array $state = null, ?int $index = null): string => 
-                $index === 0 ? '✈️ Entry Transportation' : '✈️ Exit Transportation'
-            )
+            ->defaultItems(2)
+            ->minItems(2)
+            ->maxItems(2)
+            ->itemLabel(function (array $state, $component) {
+                static $labelCounter = [];
+                static $requestId = null;
+                
+                // Reset counter for new requests
+                $currentRequestId = spl_object_id($component->getLivewire());
+                if ($requestId !== $currentRequestId) {
+                    $labelCounter = [];
+                    $requestId = $currentRequestId;
+                }
+                
+                // Create a unique key for this item
+                $itemKey = json_encode($state);
+                
+                // If we haven't seen this item, assign it the next index
+                if (!isset($labelCounter[$itemKey])) {
+                    $labelCounter[$itemKey] = count($labelCounter);
+                }
+                
+                $index = $labelCounter[$itemKey];
+                
+                // Return label based on index
+                if ($index === 0) {
+                    return '✈️ Entry Transportation (Arrival)';
+                } elseif ($index === 1) {
+                    return '🛫 Exit Transportation (Departure)';
+                }
+                
+                return 'Transportation #' . ($index + 1);
+            })
             ->helperText('Entry and exit transportation for the group');
     }
 }
