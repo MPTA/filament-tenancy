@@ -184,6 +184,60 @@ class CustomerView extends Page
                     // If all validations pass, dispatch browser event to print
                     $this->dispatch('print-page');
                 }),
+            
+            Action::make('exportPdf')
+                ->label('Export PDF')
+                ->icon('heroicon-o-arrow-down-tray')
+                ->color('success')
+                ->tooltip('Download as PDF')
+                ->action(function () {
+                    // Always refresh and validate on each click
+                    $this->record->refresh();
+                    $this->record->load(['itinerary', 'breakdown']);
+                    
+                    if (!$this->record->itinerary) {
+                        \Filament\Notifications\Notification::make()
+                            ->title('Cannot Export PDF')
+                            ->body('The itinerary must be created first.')
+                            ->danger()
+                            ->persistent()
+                            ->send();
+                        return;
+                    }
+                    
+                    if (!$this->record->itinerary->is_complete) {
+                        \Filament\Notifications\Notification::make()
+                            ->title('Cannot Export PDF')
+                            ->body('The itinerary must be completed before exporting.')
+                            ->warning()
+                            ->persistent()
+                            ->send();
+                        return;
+                    }
+                    
+                    if (!$this->record->breakdown) {
+                        \Filament\Notifications\Notification::make()
+                            ->title('Cannot Export PDF')
+                            ->body('The breakdown must be created first.')
+                            ->danger()
+                            ->persistent()
+                            ->send();
+                        return;
+                    }
+                    
+                    if (!$this->record->breakdown->is_completed) {
+                        \Filament\Notifications\Notification::make()
+                            ->title('Cannot Export PDF')
+                            ->body('The breakdown must be completed before exporting.')
+                            ->warning()
+                            ->persistent()
+                            ->send();
+                        return;
+                    }
+                    
+                    // If all validations pass, generate PDF
+                    return $this->generatePdf();
+                }),
         ];
     }
 
@@ -222,6 +276,27 @@ class CustomerView extends Page
             
             $this->redirect(QuotationItineraryResource::getUrl('view', ['record' => $this->record->id]));
         }
+    }
+
+    /**
+     * Generate PDF and download
+     */
+    protected function generatePdf()
+    {
+        $pdf = \Barryvdh\DomPDF\Facade\Pdf::loadView('pdf.quotation-customer', [
+            'record' => $this->record,
+            'itineraryDays' => $this->itineraryDays,
+            'tripStartDate' => $this->tripStartDate,
+            'tripEndDate' => $this->tripEndDate,
+        ]);
+        
+        $pdf->setPaper('a4', 'portrait');
+        
+        $filename = 'Quotation-' . $this->record->quotation->number . '.pdf';
+        
+        return response()->streamDownload(function () use ($pdf) {
+            echo $pdf->output();
+        }, $filename);
     }
 
     /**
