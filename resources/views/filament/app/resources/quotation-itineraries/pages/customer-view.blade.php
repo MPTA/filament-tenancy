@@ -454,7 +454,19 @@
         <div class="signature-section">
             <div class="signature-box">
                 <div class="signature-title">Company Signature & Stamp</div>
-                <div class="signature-space"></div>
+                <div class="signature-space">
+                    @php
+                        $signature = tenant()->settings?->signature;
+                        // If signature is an array, get the first item
+                        if (is_array($signature)) {
+                            $signature = !empty($signature) ? $signature[0] : null;
+                        }
+                    @endphp
+                    
+                    @if($signature)
+                        <img src="{{ asset('storage/' . $signature) }}" alt="Company Signature" class="signature-image">
+                    @endif
+                </div>
                 <div class="signature-line"></div>
                 <div class="signature-label">{{ tenant()->settings?->company_name ?? tenant()->name ?? 'Authorized Signature' }}</div>
             </div>

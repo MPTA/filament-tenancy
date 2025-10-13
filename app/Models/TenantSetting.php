@@ -24,6 +24,7 @@ class TenantSetting extends Model
         'company_name',
         'company_local_name',
         'logo',
+        'signature',
         'driver_meal_base_budget',
         'driver_accommodation_base_budget',
         'companion_meal_base_budget',
@@ -82,6 +83,51 @@ class TenantSetting extends Model
 
         // If it's a string, wrap in array and encode
         $this->attributes['logo'] = json_encode([$value]);
+    }
+
+    /**
+     * Get the signature attribute, ensuring it's always an array for Filament FileUpload.
+     */
+    public function getSignatureAttribute($value)
+    {
+        if (is_null($value)) {
+            return null;
+        }
+
+        $decoded = json_decode($value, true);
+        
+        // If it's already an array, return it
+        if (is_array($decoded)) {
+            return $decoded;
+        }
+        
+        // If it's a string (old data or direct string save), wrap in array
+        if (is_string($decoded)) {
+            return [$decoded];
+        }
+        
+        // If json_decode failed, it's a plain string
+        return [$value];
+    }
+
+    /**
+     * Set the signature attribute, ensuring it's stored as JSON array.
+     */
+    public function setSignatureAttribute($value)
+    {
+        if (is_null($value) || $value === '') {
+            $this->attributes['signature'] = null;
+            return;
+        }
+
+        // If it's already an array, encode it
+        if (is_array($value)) {
+            $this->attributes['signature'] = json_encode($value);
+            return;
+        }
+
+        // If it's a string, wrap in array and encode
+        $this->attributes['signature'] = json_encode([$value]);
     }
 
     /**
@@ -154,6 +200,23 @@ class TenantSetting extends Model
                     // Decode old logo value
                     $oldLogoDecoded = json_decode($oldLogo, true);
                     $oldFiles = is_array($oldLogoDecoded) ? $oldLogoDecoded : [$oldLogoDecoded];
+                    
+                    // Delete old files from storage
+                    foreach ($oldFiles as $file) {
+                        if ($file && \Illuminate\Support\Facades\Storage::disk('public')->exists($file)) {
+                            \Illuminate\Support\Facades\Storage::disk('public')->delete($file);
+                        }
+                    }
+                }
+            }
+
+            // Delete old signature file when signature changes
+            if ($tenantSetting->isDirty('signature')) {
+                $oldSignature = $tenantSetting->getRawOriginal('signature'); // Use raw to get JSON string from DB
+                if ($oldSignature) {
+                    // Decode old signature value
+                    $oldSignatureDecoded = json_decode($oldSignature, true);
+                    $oldFiles = is_array($oldSignatureDecoded) ? $oldSignatureDecoded : [$oldSignatureDecoded];
                     
                     // Delete old files from storage
                     foreach ($oldFiles as $file) {

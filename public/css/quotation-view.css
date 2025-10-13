@@ -525,8 +525,7 @@
 }
 
 .signature-box {
-    width: 300px;
-    margin-left: auto;
+    width: 100%;
     padding: 20px;
     border: 2px solid #d1d5db;
     border-radius: 8px;
@@ -547,6 +546,16 @@
     background: #fafafa;
     border: 1px dashed #d1d5db;
     border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.signature-image {
+    max-width: 150px;
+    max-height: 60px;
+    object-fit: contain;
 }
 
 .signature-line {

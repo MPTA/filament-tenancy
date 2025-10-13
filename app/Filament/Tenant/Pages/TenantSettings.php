@@ -86,6 +86,24 @@ class TenantSettings extends Page
                                 ])
                                 ->helperText('Upload your company logo. Maximum size: 2MB.')
                                 ->columnSpanFull(),
+
+                            FileUpload::make('signature')
+                                ->label('Company Signature')
+                                ->image()
+                                ->disk('public')
+                                ->directory(fn () => TenantSetting::getTenantDirectory('signatures'))
+                                ->visibility('public')
+                                ->maxSize(2048)
+                                ->fetchFileInformation(false)
+                                ->imageEditor()
+                                ->imageEditorAspectRatios([
+                                    null,
+                                    '16:9',
+                                    '4:3',
+                                    '1:1',
+                                ])
+                                ->helperText('Upload your company signature. Maximum size: 2MB.')
+                                ->columnSpanFull(),
                         ])
                         ->collapsible(),
 
