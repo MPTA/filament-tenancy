@@ -28,6 +28,7 @@ class AppPanelProvider extends PanelProvider
         return $panel
             ->id('app')
             ->path('app')
+            ->brandName('App')
             ->colors([
                 'primary' => Color::Pink,
             ])

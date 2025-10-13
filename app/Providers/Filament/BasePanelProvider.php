@@ -27,6 +27,7 @@ class BasePanelProvider extends PanelProvider
         return $panel
             ->id('base')
             ->path('base')
+            ->brandName('Base')
             ->login()
             ->colors([
                 'primary' => Color::Green,
