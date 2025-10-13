@@ -1,6 +1,14 @@
 <x-filament-panels::page>
     <link rel="stylesheet" href="{{ asset('css/quotation-view.css') }}">
     
+    <script>
+        document.addEventListener('livewire:init', () => {
+            Livewire.on('print-page', () => {
+                window.print();
+            });
+        });
+    </script>
+    
     <style>
         @media print {
             /* Force light mode and remove dark overlays */
@@ -95,7 +103,7 @@
         }
     </style>
     
-    <div class="quotation-container">
+    <div class="quotation-container" wire:poll.10s="checkCompletionStatus">
         {{-- Header with Logo and Title --}}
         <div class="quotation-header">
             <div class="header-top">

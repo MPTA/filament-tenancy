@@ -23,6 +23,34 @@ class ViewQuotationItinerary extends ViewRecord
     protected function getHeaderActions(): array
     {
         return [
+            \Filament\Actions\Action::make('customerView')
+                ->label('Customer View')
+                ->icon('heroicon-o-eye')
+                ->color('success')
+                ->disabled(function () {
+                    // Check if itinerary and breakdown are complete
+                    return !$this->record->itinerary || 
+                           !$this->record->itinerary->is_complete || 
+                           !$this->record->breakdown || 
+                           !$this->record->breakdown->is_completed;
+                })
+                ->tooltip(function () {
+                    if (!$this->record->itinerary) {
+                        return 'Itinerary must be created first';
+                    }
+                    if (!$this->record->itinerary->is_complete) {
+                        return 'Itinerary must be completed first';
+                    }
+                    if (!$this->record->breakdown) {
+                        return 'Breakdown must be created first';
+                    }
+                    if (!$this->record->breakdown->is_completed) {
+                        return 'Breakdown must be completed first';
+                    }
+                    return null;
+                })
+                ->url(fn () => route('filament.app.resources.quotation-itineraries.customer-view', ['record' => $this->record->id]))
+                ->openUrlInNewTab(false),
             // EditAction::make(),
         ];
     }

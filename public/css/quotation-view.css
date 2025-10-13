@@ -710,16 +710,136 @@
     }
 
     /* Font sizes for print */
+    .quotation-container {
+        font-size: 9pt !important;
+    }
+
     .quotation-title h1 {
-        font-size: 20pt;
+        font-size: 16pt !important;
+    }
+
+    .quotation-subtitle {
+        font-size: 12pt !important;
     }
 
     .offers-section h2 {
-        font-size: 16pt;
+        font-size: 14pt !important;
     }
 
     .customer-section h2 {
-        font-size: 14pt;
+        font-size: 12pt !important;
+    }
+
+    .detail-row:first-child .value {
+        font-size: 14pt !important;
+    }
+
+    /* Table font sizes */
+    .itinerary-table,
+    .pricing-table {
+        font-size: 8pt !important;
+    }
+
+    .itinerary-table th,
+    .pricing-table th {
+        font-size: 8pt !important;
+        padding: 6px 4px !important;
+    }
+
+    .itinerary-table td,
+    .pricing-table td {
+        font-size: 8pt !important;
+        padding: 6px 4px !important;
+    }
+
+    .day-number {
+        font-size: 9pt !important;
+    }
+
+    .day-date {
+        font-size: 7pt !important;
+    }
+
+    .day-icon {
+        font-size: 10pt !important;
+    }
+
+    .hotel-name,
+    .vehicle-name {
+        font-size: 8pt !important;
+    }
+
+    .hotel-rating,
+    .drivers-count {
+        font-size: 7pt !important;
+    }
+
+    .meal-item {
+        font-size: 7pt !important;
+    }
+
+    .transport-text,
+    .attraction-bracket,
+    .experience-activity {
+        font-size: 7pt !important;
+    }
+
+    .ticket-class,
+    .ticket-time {
+        font-size: 6pt !important;
+    }
+
+    .day-description {
+        font-size: 7pt !important;
+        padding: 4px !important;
+    }
+
+    /* Offer features */
+    .features-title {
+        font-size: 10pt !important;
+    }
+
+    .feature-text {
+        font-size: 8pt !important;
+    }
+
+    .feature-detail {
+        font-size: 7pt !important;
+    }
+
+    .offer-group-section-header .section-title {
+        font-size: 14pt !important;
+    }
+
+    .companions-list {
+        font-size: 9pt !important;
+    }
+
+    /* Description and signature */
+    .description-title {
+        font-size: 12pt !important;
+    }
+
+    .description-content {
+        font-size: 9pt !important;
+    }
+
+    .signature-title {
+        font-size: 10pt !important;
+    }
+
+    .signature-label {
+        font-size: 9pt !important;
+    }
+
+    /* Legend */
+    .itinerary-legend {
+        font-size: 7pt !important;
+        padding: 6px 10px !important;
+    }
+
+    .legend-icon {
+        font-size: 10pt !important;
     }
 
     /* Page breaks */

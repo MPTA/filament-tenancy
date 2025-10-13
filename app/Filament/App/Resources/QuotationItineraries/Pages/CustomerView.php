@@ -29,6 +29,55 @@ class CustomerView extends Page
             $this->record = QuotationItinerary::findOrFail($record);
         }
         
+        // Validate that itinerary and breakdown are complete
+        if (!$this->record->itinerary) {
+            \Filament\Notifications\Notification::make()
+                ->title('Itinerary Not Found')
+                ->body('The itinerary must be created before viewing the customer quotation.')
+                ->danger()
+                ->persistent()
+                ->send();
+            
+            $this->redirect(QuotationItineraryResource::getUrl('view', ['record' => $this->record->id]));
+            return;
+        }
+
+        if (!$this->record->itinerary->is_complete) {
+            \Filament\Notifications\Notification::make()
+                ->title('Itinerary Incomplete')
+                ->body('The itinerary must be completed before viewing the customer quotation.')
+                ->warning()
+                ->persistent()
+                ->send();
+            
+            $this->redirect(QuotationItineraryResource::getUrl('view', ['record' => $this->record->id]));
+            return;
+        }
+
+        if (!$this->record->breakdown) {
+            \Filament\Notifications\Notification::make()
+                ->title('Breakdown Not Found')
+                ->body('The breakdown must be created before viewing the customer quotation.')
+                ->danger()
+                ->persistent()
+                ->send();
+            
+            $this->redirect(QuotationItineraryResource::getUrl('view', ['record' => $this->record->id]));
+            return;
+        }
+
+        if (!$this->record->breakdown->is_completed) {
+            \Filament\Notifications\Notification::make()
+                ->title('Breakdown Incomplete')
+                ->body('The breakdown must be completed before viewing the customer quotation.')
+                ->warning()
+                ->persistent()
+                ->send();
+            
+            $this->redirect(QuotationItineraryResource::getUrl('view', ['record' => $this->record->id]));
+            return;
+        }
+        
         // Eager load all necessary relationships to prevent N+1 queries
         $this->record->load([
             'quotation.currency',
@@ -59,15 +108,120 @@ class CustomerView extends Page
     protected function getHeaderActions(): array
     {
         return [
+            Action::make('viewQuotation')
+                ->label('View Quotation')
+                ->icon('heroicon-o-document-text')
+                ->color('info')
+                ->url(fn () => QuotationItineraryResource::getUrl('view', ['record' => $this->record->id]) . '?tab=offers%3A%3Atab')
+                ->openUrlInNewTab(false),
+            
+            Action::make('refresh')
+                ->label('Refresh')
+                ->icon('heroicon-o-arrow-path')
+                ->color('gray')
+                ->action(function () {
+                    $this->record->refresh();
+                    $this->calculateTripDates();
+                    $this->prepareItineraryDays();
+                    
+                    \Filament\Notifications\Notification::make()
+                        ->title('Refreshed')
+                        ->body('Page data has been refreshed successfully.')
+                        ->success()
+                        ->send();
+                }),
+            
             Action::make('print')
                 ->label('Print')
                 ->icon('heroicon-o-printer')
                 ->color('primary')
-                ->openUrlInNewTab(false)
-                ->extraAttributes([
-                    'onclick' => 'window.print(); return false;',
-                ]),
+                ->tooltip('Print quotation')
+                ->action(function () {
+                    // Always refresh and validate on each click
+                    $this->record->refresh();
+                    $this->record->load(['itinerary', 'breakdown']);
+                    
+                    if (!$this->record->itinerary) {
+                        \Filament\Notifications\Notification::make()
+                            ->title('Cannot Print')
+                            ->body('The itinerary must be created first.')
+                            ->danger()
+                            ->persistent()
+                            ->send();
+                        return;
+                    }
+                    
+                    if (!$this->record->itinerary->is_complete) {
+                        \Filament\Notifications\Notification::make()
+                            ->title('Cannot Print')
+                            ->body('The itinerary must be completed before printing.')
+                            ->warning()
+                            ->persistent()
+                            ->send();
+                        return;
+                    }
+                    
+                    if (!$this->record->breakdown) {
+                        \Filament\Notifications\Notification::make()
+                            ->title('Cannot Print')
+                            ->body('The breakdown must be created first.')
+                            ->danger()
+                            ->persistent()
+                            ->send();
+                        return;
+                    }
+                    
+                    if (!$this->record->breakdown->is_completed) {
+                        \Filament\Notifications\Notification::make()
+                            ->title('Cannot Print')
+                            ->body('The breakdown must be completed before printing.')
+                            ->warning()
+                            ->persistent()
+                            ->send();
+                        return;
+                    }
+                    
+                    // If all validations pass, dispatch browser event to print
+                    $this->dispatch('print-page');
+                }),
         ];
+    }
+
+    /**
+     * Check if itinerary and breakdown are complete
+     */
+    protected function isComplete(): bool
+    {
+        // Refresh to get latest data
+        $this->record->loadMissing(['itinerary', 'breakdown']);
+        
+        return $this->record->itinerary && 
+               $this->record->itinerary->is_complete && 
+               $this->record->breakdown && 
+               $this->record->breakdown->is_completed;
+    }
+
+    /**
+     * Check completion status periodically (called by wire:poll)
+     */
+    public function checkCompletionStatus(): void
+    {
+        $this->record->refresh();
+        $this->record->load(['itinerary', 'breakdown']);
+        
+        if (!$this->record->itinerary || 
+            !$this->record->itinerary->is_complete || 
+            !$this->record->breakdown || 
+            !$this->record->breakdown->is_completed) {
+            
+            \Filament\Notifications\Notification::make()
+                ->title('Data Changed')
+                ->body('The itinerary or breakdown is no longer complete. Redirecting...')
+                ->warning()
+                ->send();
+            
+            $this->redirect(QuotationItineraryResource::getUrl('view', ['record' => $this->record->id]));
+        }
     }
 
     /**

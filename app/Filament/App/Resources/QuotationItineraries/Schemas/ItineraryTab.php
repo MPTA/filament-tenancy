@@ -60,8 +60,6 @@ class ItineraryTab
         return Section::make('Group Transportations')
             ->description('Entry and exit transportation details for the group')
             ->icon('heroicon-o-paper-airplane')
-            ->collapsible()
-            ->collapsed(false)
             ->hidden(fn(QuotationItinerary $record) => !$record->itinerary)
             ->headerActions([
                 // Create Transportation Action (shown when no transportations exist)
