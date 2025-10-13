@@ -195,13 +195,11 @@ class ComprehensiveQuotationItineraryForm
                                         InquiryDateTypeEnum::FLEXIBLE_DATE->value,
                                         InquiryDateTypeEnum::SERIES->value,
                                     ]))
-                                    ->minDate(fn ($get) => $get('from_date') 
-                                        ? \Carbon\Carbon::parse($get('from_date'))->addDay() 
-                                        : null)
+                                    ->minDate(fn ($get) => $get('from_date'))
                                     ->disabled(fn ($get) => !$get('from_date'))
                                     ->helperText(fn ($get) => !$get('from_date') 
                                         ? 'Please select From Date first' 
-                                        : 'Must be at least 1 day after From Date')
+                                        : 'Must be same or after From Date')
                                     ->rules([
                                         'required',
                                         function ($get) {
@@ -211,8 +209,8 @@ class ComprehensiveQuotationItineraryForm
                                                     $from = \Carbon\Carbon::parse($fromDate);
                                                     $to = \Carbon\Carbon::parse($value);
                                                     
-                                                    if ($to->lte($from)) {
-                                                        $fail('The end date must be at least 1 day after the start date.');
+                                                    if ($to->lt($from)) {
+                                                        $fail('The end date must be same or after the start date.');
                                                     }
                                                 }
                                             };
