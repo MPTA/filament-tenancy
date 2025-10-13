@@ -33,8 +33,15 @@
     width: 200px;
 }
 
+.logo-image {
+    max-width: 100%;
+    max-height: 100px;
+    object-fit: contain;
+    display: block;
+}
+
 .logo-placeholder {
-    background: linear-gradient(135deg, #dc2626, #000);
+    background: #dc2626;
     color: white;
     padding: 15px;
     text-align: center;
@@ -62,7 +69,16 @@
     font-size: 28px;
     font-weight: bold;
     color: #000000 !important;
-    margin: 0;
+    margin: 0 0 5px 0;
+    line-height: 1.2;
+}
+
+.quotation-subtitle {
+    font-size: 20px;
+    color: #dc2626 !important;
+    font-weight: 600;
+    margin-top: 8px;
+    letter-spacing: 0.5px;
 }
 
 .quotation-details {
@@ -74,6 +90,31 @@
 .detail-row {
     margin-bottom: 5px;
     font-size: 12px;
+}
+
+.detail-row:first-child {
+    background: #dc2626 !important;
+    padding: 12px 15px !important;
+    border-radius: 8px !important;
+    margin-bottom: 12px !important;
+    display: block !important;
+}
+
+.detail-row:first-child .label {
+    font-weight: bold !important;
+    color: #ffffff !important;
+    margin-right: 8px !important;
+    font-size: 14px !important;
+    display: inline !important;
+}
+
+.detail-row:first-child .value {
+    color: #ffffff !important;
+    font-size: 22px !important;
+    font-weight: bold !important;
+    font-family: 'Courier New', monospace !important;
+    display: inline !important;
+    letter-spacing: 1px !important;
 }
 
 .detail-row .label {
@@ -449,6 +490,76 @@
     font-family: 'Courier New', monospace;
     text-align: center;
     padding: 8px;
+}
+
+/* Quotation Description Section */
+.quotation-description-section {
+    margin: 30px 0;
+    padding: 20px;
+    background: #f9fafb;
+    border: 2px solid #d1d5db;
+    border-radius: 8px;
+}
+
+.description-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000000 !important;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #dc2626;
+}
+
+.description-content {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #000000 !important;
+    white-space: pre-wrap;
+}
+
+/* Signature Section */
+.signature-section {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    page-break-inside: avoid;
+}
+
+.signature-box {
+    width: 300px;
+    margin-left: auto;
+    padding: 20px;
+    border: 2px solid #d1d5db;
+    border-radius: 8px;
+    background: white;
+}
+
+.signature-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #dc2626 !important;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.signature-space {
+    height: 80px;
+    margin-bottom: 10px;
+    background: #fafafa;
+    border: 1px dashed #d1d5db;
+    border-radius: 4px;
+}
+
+.signature-line {
+    height: 2px;
+    background: #000000;
+    margin-bottom: 8px;
+}
+
+.signature-label {
+    font-size: 13px;
+    color: #000000 !important;
+    text-align: center;
+    font-weight: 500;
 }
 
 /* Print Styles */

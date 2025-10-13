@@ -100,13 +100,26 @@
         <div class="quotation-header">
             <div class="header-top">
                 <div class="company-logo">
-                    <div class="logo-placeholder">
-                        <div class="logo-text">{{ tenant()->name ?? 'MPTA' }}</div>
-                        <div class="logo-subtitle">Travel & Tourism</div>
-                    </div>
+                    @php
+                        $logo = tenant()->settings?->logo;
+                        // If logo is an array, get the first item
+                        if (is_array($logo)) {
+                            $logo = !empty($logo) ? $logo[0] : null;
+                        }
+                    @endphp
+                    
+                    @if($logo)
+                        <img src="{{ asset('storage/' . $logo) }}" alt="Company Logo" class="logo-image">
+                    @else
+                        <div class="logo-placeholder">
+                            <div class="logo-text">{{ tenant()->settings?->company_name ?? tenant()->name ?? 'MPTA' }}</div>
+                            <div class="logo-subtitle">Travel & Tourism</div>
+                        </div>
+                    @endif
                 </div>
                 <div class="quotation-title">
-                    <h1>{{ tenant()->name ?? 'Iran' }} Tour Quotation</h1>
+                    <h1>{{ tenant()->settings?->company_name ?? tenant()->name ?? 'Company Name' }}</h1>
+                    <div class="quotation-subtitle">Tour Quotation</div>
                 </div>
                 <div class="quotation-details">
                     <div class="detail-row">
@@ -422,5 +435,29 @@
                 @endforeach
             </div>
         @endif
+
+        {{-- Quotation Description --}}
+        @if($record->quotation->description)
+            <div class="quotation-description-section">
+                <h3 class="description-title">Description & Notes</h3>
+                <div class="description-content">
+                    @if(is_array($record->quotation->description))
+                        {{ $record->quotation->description[app()->getLocale()] ?? $record->quotation->description['en'] ?? '' }}
+                    @else
+                        {{ $record->quotation->description }}
+                    @endif
+                </div>
+            </div>
+        @endif
+
+        {{-- Signature Section --}}
+        <div class="signature-section">
+            <div class="signature-box">
+                <div class="signature-title">Company Signature & Stamp</div>
+                <div class="signature-space"></div>
+                <div class="signature-line"></div>
+                <div class="signature-label">{{ tenant()->settings?->company_name ?? tenant()->name ?? 'Authorized Signature' }}</div>
+            </div>
+        </div>
     </div>
 </x-filament-panels::page>
