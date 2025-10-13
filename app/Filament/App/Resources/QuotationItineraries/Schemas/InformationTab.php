@@ -165,6 +165,13 @@ class InformationTab
                     ->color('danger')
                     ->columnSpanFull(),
 
+                TextEntry::make('entry_date')
+                    ->label('Entry Date (Arrival)')
+                    ->formatStateUsing(fn($state) => $state ? $state->format('M d, Y') : 'Not specified')
+                    ->icon('heroicon-o-calendar-days')
+                    ->color('success')
+                    ->columnSpanFull(),
+
                 TextEntry::make('roomCategoriesDisplay')
                     ->label('Room Categories')
                     ->state(function ($record) {
@@ -243,23 +250,9 @@ class InformationTab
 
                 TextInput::make('inquiry.reference')
                     ->label('Reference'),
-
-                Select::make('inquiry_itinerary.date_type')
-                    ->label('Date Type')
-                    ->options(\App\Enums\InquiryDateTypeEnum::getOptions())
-                    ->required(),
-
-                DatePicker::make('inquiry_itinerary.from_date')
-                    ->label('From Date')
-                    ->required(),
-
-                DatePicker::make('inquiry_itinerary.to_date')
-                    ->label('To Date')
-                    ->required(),
             ])
             ->fillForm(function (QuotationItinerary $record) {
                 $inquiry = $record->quotation?->inquiry;
-                $inquiryItinerary = $inquiry?->inquiryItinerary;
 
                 return [
                     'inquiry' => $inquiry ? [
@@ -269,16 +262,10 @@ class InformationTab
                         'description' => $inquiry->getTranslation('description', app()->getLocale()),
                         'reference' => $inquiry->reference,
                     ] : [],
-                    'inquiry_itinerary' => $inquiryItinerary ? [
-                        'date_type' => $inquiryItinerary->date_type?->value,
-                        'from_date' => $inquiryItinerary->from_date,
-                        'to_date' => $inquiryItinerary->to_date,
-                    ] : [],
                 ];
             })
             ->action(function (array $data, QuotationItinerary $record) {
                 $inquiry = $record->quotation?->inquiry;
-                $inquiryItinerary = $inquiry?->inquiryItinerary;
 
                 // Update inquiry data
                 if ($inquiry && isset($data['inquiry'])) {
@@ -299,15 +286,6 @@ class InformationTab
                             'currency_id' => $data['inquiry']['requested_currency_id'],
                         ]);
                     }
-                }
-
-                // Update inquiry itinerary data
-                if ($inquiryItinerary && isset($data['inquiry_itinerary'])) {
-                    $inquiryItinerary->update([
-                        'date_type' => $data['inquiry_itinerary']['date_type'],
-                        'from_date' => $data['inquiry_itinerary']['from_date'],
-                        'to_date' => $data['inquiry_itinerary']['to_date'],
-                    ]);
                 }
 
                 // Refresh the record to update the UI
@@ -385,6 +363,13 @@ class InformationTab
                 Toggle::make('is_foreigner_passengers')
                     ->label('Foreigner Passengers')
                     ->helperText('Enable if passengers are foreigners (affects attraction pricing)'),
+
+                DatePicker::make('entry_date')
+                    ->label('Entry Date (Arrival)')
+                    ->disabled(fn(QuotationItinerary $record) => $record->transportations()->count() > 0)
+                    ->helperText(fn(QuotationItinerary $record) => $record->transportations()->count() > 0 
+                        ? 'Entry date is controlled by transportation. Remove transportation to edit manually.' 
+                        : 'Entry date for the group arrival'),
             ])
             ->fillForm(function (QuotationItinerary $record) {
                 return [
@@ -398,6 +383,7 @@ class InformationTab
                     ] : [],
                     'room_category_ids' => $record->room_category_ids ?? [],
                     'is_foreigner_passengers' => $record->is_foreigner_passengers,
+                    'entry_date' => $record->entry_date,
                 ];
             })
             ->action(function (array $data, QuotationItinerary $record) {
@@ -442,6 +428,7 @@ class InformationTab
                 $record->update([
                     'is_foreigner_passengers' => $data['is_foreigner_passengers'],
                     'room_category_ids' => $data['room_category_ids'] ?? [],
+                    'entry_date' => $data['entry_date'] ?? null,
                 ]);
 
                 // Regenerate breakdown if needed

@@ -26,11 +26,13 @@ class QuotationItinerary extends Model
         'tenant_id',
         'is_foreigner_passengers',
         'room_category_ids',
+        'entry_date',
     ];
 
     protected $casts = [
         'is_foreigner_passengers' => 'boolean',
         'room_category_ids' => 'array',
+        'entry_date' => 'date',
     ];
 
     /**
@@ -92,6 +94,21 @@ class QuotationItinerary extends Model
         }
         
         return RoomCategory::whereIn('id', $this->room_category_ids)->get();
+    }
+
+    /**
+     * Get the calculated entry date with priority: transportation arrival date, then entry_date field.
+     */
+    public function getCalculatedEntryDateAttribute(): ?\Carbon\Carbon
+    {
+        // Priority 1: Check if transportation exists (arrival date of first transportation)
+        $firstTransport = $this->transportations()->first();
+        if ($firstTransport && $firstTransport->arrival_date) {
+            return $firstTransport->arrival_date;
+        }
+
+        // Priority 2: Use entry_date field
+        return $this->entry_date;
     }
 
     /**

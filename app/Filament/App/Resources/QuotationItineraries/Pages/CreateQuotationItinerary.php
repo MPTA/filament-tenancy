@@ -95,6 +95,9 @@ class CreateQuotationItinerary extends CreateRecord
                 'quotation_id' => $quotation->id,
                 'is_foreigner_passengers' => $data['is_foreigner_passengers'] ?? false,
                 'room_category_ids' => $data['room_category_ids'],
+                'entry_date' => ($data['inquiry_date_type'] === \App\Enums\InquiryDateTypeEnum::FIXED_DATE->value) 
+                    ? ($data['from_date'] ?? null) 
+                    : null,
             ]);
 
             return $quotationItinerary;

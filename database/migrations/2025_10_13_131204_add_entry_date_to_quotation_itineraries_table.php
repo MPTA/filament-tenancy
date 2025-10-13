@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('tenant_settings', function (Blueprint $table) {
-            $table->json('signature')->nullable()->after('logo');
+        Schema::table('quotation_itineraries', function (Blueprint $table) {
+            $table->date('entry_date')->nullable()->after('room_category_ids');
         });
     }
 
@@ -21,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('tenant_settings', function (Blueprint $table) {
-            $table->dropColumn('signature');
+        Schema::table('quotation_itineraries', function (Blueprint $table) {
+            $table->dropColumn('entry_date');
         });
     }
 };

@@ -92,7 +92,7 @@ class ItineraryTab
                         
                         return [];
                     })
-                    ->form([
+                    ->schema([
                         TransportationRepeater::make(false)
                     ])
                     ->action(function (array $data, QuotationItinerary $quotationItinerary) {
@@ -105,17 +105,13 @@ class ItineraryTab
                                 }
                             }
                             
-                            // Update InquiryItinerary dates
-                            // from_date = Entry arrival_date (first item - when arriving)
-                            // to_date = Exit departure_date (second item - when leaving)
-                            $fromDate = $data['transportations'][0]['arrival_date'] ?? null;
-                            $toDate = $data['transportations'][1]['departure_date'] ?? null;
+                            // Update entry_date from first transportation's arrival_date
+                            $entryDate = $data['transportations'][0]['arrival_date'] ?? null;
                             
-                            if ($fromDate || $toDate) {
-                                $quotationItinerary->quotation->inquiry->inquiryItinerary->update(array_filter([
-                                    'from_date' => $fromDate,
-                                    'to_date' => $toDate,
-                                ]));
+                            if ($entryDate) {
+                                $quotationItinerary->update([
+                                    'entry_date' => $entryDate,
+                                ]);
                             }
                         }
                         
@@ -169,17 +165,13 @@ class ItineraryTab
                                 }
                             }
                             
-                            // Update InquiryItinerary dates
-                            // from_date = Entry arrival_date (first item - when arriving)
-                            // to_date = Exit departure_date (second item - when leaving)
-                            $fromDate = $data['transportations'][0]['arrival_date'] ?? null;
-                            $toDate = $data['transportations'][1]['departure_date'] ?? null;
+                            // Update entry_date from first transportation's arrival_date
+                            $entryDate = $data['transportations'][0]['arrival_date'] ?? null;
                             
-                            if ($fromDate || $toDate) {
-                                $quotationItinerary->quotation->inquiry->inquiryItinerary->update(array_filter([
-                                    'from_date' => $fromDate,
-                                    'to_date' => $toDate,
-                                ]));
+                            if ($entryDate) {
+                                $quotationItinerary->update([
+                                    'entry_date' => $entryDate,
+                                ]);
                             }
                         }
                         
