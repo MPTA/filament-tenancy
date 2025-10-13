@@ -46,7 +46,7 @@
             
             /* Page setup */
             @page {
-                margin: 1cm;
+                margin: 0;
                 size: A4;
             }
             
@@ -165,9 +165,17 @@
                                 {{-- Day Column --}}
                                 <td class="day-cell">
                                     <div class="day-number">#{{ $day['day_number'] }}</div>
-                                    @if($day['date'] && $day['has_transport'])
+                                    @if($day['date'])
                                         <div class="day-date">{{ $day['date']->format('d-M-Y') }}</div>
                                     @endif
+                                    <div class="day-icons">
+                                        @if($day['has_vehicle'])
+                                            <span class="day-icon vehicle-icon" title="Vehicle">🚗</span>
+                                        @endif
+                                        @if($day['has_companion'])
+                                            <span class="day-icon companion-icon" title="Guide/Companion">👤</span>
+                                        @endif
+                                    </div>
                                 </td>
 
                                 {{-- City Column --}}
@@ -187,9 +195,36 @@
                                     @if(count($day['tickets']) > 0)
                                         @foreach($day['tickets'] as $ticket)
                                             <div class="transport-activity">
-                                                <span class="transport-icon">🔔</span>
+                                                @php
+                                                    $transportIcon = '🚌'; // Default
+                                                    if ($ticket['transport_mode']) {
+                                                        $transportIcon = match($ticket['transport_mode']) {
+                                                            \App\Enums\TransportModeEnum::AIR => '✈️',
+                                                            \App\Enums\TransportModeEnum::TRAIN => '🚂',
+                                                            \App\Enums\TransportModeEnum::LAND => '🚌',
+                                                            default => '🚌',
+                                                        };
+                                                    }
+                                                @endphp
+                                                <span class="transport-icon">{{ $transportIcon }}</span>
                                                 <span class="transport-text">
-                                                    {{ $ticket['from_city']->name ?? 'N/A' }} - {{ $ticket['to_city']->name ?? 'N/A' }}
+                                                    {{ $ticket['from_city']->name ?? 'N/A' }} → {{ $ticket['to_city']->name ?? 'N/A' }}
+                                                    @if($ticket['class'])
+                                                        <span class="ticket-class">({{ $ticket['class']->label() }})</span>
+                                                    @endif
+                                                    @if($ticket['departure_time'] || $ticket['arrival_time'])
+                                                        <div class="ticket-time">
+                                                            @if($ticket['departure_time'])
+                                                                {{ \Carbon\Carbon::parse($ticket['departure_time'])->format('H:i') }}
+                                                            @endif
+                                                            @if($ticket['departure_time'] && $ticket['arrival_time'])
+                                                                -
+                                                            @endif
+                                                            @if($ticket['arrival_time'])
+                                                                {{ \Carbon\Carbon::parse($ticket['arrival_time'])->format('H:i') }}
+                                                            @endif
+                                                        </div>
+                                                    @endif
                                                 </span>
                                             </div>
                                         @endforeach
@@ -199,6 +234,7 @@
                                     @if(count($day['attractions']) > 0)
                                         @foreach($day['attractions'] as $attraction)
                                             <div class="attraction-activity">
+                                                <span class="attraction-icon">🏛️</span>
                                                 @if($day['accommodation_city'] || $day['current_city'])
                                                     <strong>{{ $day['accommodation_city']->name ?? $day['current_city']->name }}:</strong>
                                                 @endif
@@ -221,7 +257,12 @@
                                     @if(count($day['experiences']) > 0)
                                         @foreach($day['experiences'] as $exp)
                                             <div class="experience-activity">
-                                                <span class="experience-icon">●</span>
+                                                <span class="experience-icon">🎯</span>
+                                                @if($exp->city)
+                                                    <strong>{{ $exp->city->name }}:</strong>
+                                                @elseif($day['accommodation_city'] || $day['current_city'])
+                                                    <strong>{{ $day['accommodation_city']->name ?? $day['current_city']->name }}:</strong>
+                                                @endif
                                                 {{ $exp->name }}
                                             </div>
                                         @endforeach
@@ -229,12 +270,18 @@
 
                                     {{-- If no activities --}}
                                     @if(count($day['tickets']) == 0 && count($day['attractions']) == 0 && count($day['experiences']) == 0)
-                                        @if($day['accommodation_city'] || $day['current_city'])
-                                            <div class="city-activity">
-                                                <span class="transport-icon">🔔</span>
-                                                go to {{ $day['accommodation_city']->name ?? $day['current_city']->name }}
-                                            </div>
-                                        @endif
+                                        <span class="no-activity">-</span>
+                                    @endif
+
+                                    {{-- Day Description --}}
+                                    @if($day['description'])
+                                        <div class="day-description">
+                                            @if(is_array($day['description']))
+                                                {{ $day['description'][app()->getLocale()] ?? $day['description']['en'] ?? '' }}
+                                            @else
+                                                {{ $day['description'] }}
+                                            @endif
+                                        </div>
                                     @endif
                                 </td>
 
@@ -292,6 +339,18 @@
                         @endforeach
                     </tbody>
                 </table>
+                
+                {{-- Legend for Icons --}}
+                <div class="itinerary-legend">
+                    <span class="legend-item">
+                        <span class="legend-icon">🚗</span>
+                        <span class="legend-text">Vehicle included for this day</span>
+                    </span>
+                    <span class="legend-item">
+                        <span class="legend-icon">👤</span>
+                        <span class="legend-text">Tour guide/companion included for this day</span>
+                    </span>
+                </div>
             </div>
         @endif
 

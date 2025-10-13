@@ -33,6 +33,7 @@ class CustomerView extends Page
         $this->record->load([
             'quotation.currency',
             'quotation.inquiry.contact',
+            'quotation.inquiry.inquiryItinerary',
             'quotation.creator',
             'itinerary.days.currentCity',
             'itinerary.days.accommodationCity',
@@ -44,6 +45,7 @@ class CustomerView extends Page
             'itinerary.days.activities.attraction.attraction',
             'itinerary.days.activities.attraction.subAttractions.subAttraction',
             'itinerary.days.activities.experience.experience',
+            'transportations',
             'quotationOfferGroups.quotationOffers.quotationOfferPrices.roomCategory',
             'quotationOfferGroups.quotationOffers.vehicleType',
             'quotationOfferGroups.quotationOffers.leaderRoomCategory',
@@ -69,7 +71,7 @@ class CustomerView extends Page
     }
 
     /**
-     * Calculate trip start date from first ticket
+     * Calculate trip start date from transportations or inquiry dates
      */
     protected function calculateTripDates(): void
     {
@@ -77,30 +79,68 @@ class CustomerView extends Page
             return;
         }
 
-        // Find first day with a ticket to determine trip start date
-        $firstTicketDay = null;
-        $firstTicketActivity = null;
+        // Priority 1: Check if QuotationItinerary has transportations (entry/exit)
+        $entryTransportation = $this->record->transportations()
+            ->whereNotNull('departure_date')
+            ->orderBy('departure_date', 'asc')
+            ->first();
 
+        if ($entryTransportation && $entryTransportation->departure_date) {
+            $this->tripStartDate = Carbon::parse($entryTransportation->departure_date);
+            
+            // Get exit transportation for end date
+            $exitTransportation = $this->record->transportations()
+                ->whereNotNull('departure_date')
+                ->orderBy('departure_date', 'desc')
+                ->first();
+            
+            if ($exitTransportation && $exitTransportation->departure_date) {
+                $this->tripEndDate = Carbon::parse($exitTransportation->departure_date);
+            } else {
+                // Calculate from last day
+                $lastDay = $this->record->itinerary->days->sortByDesc('day_number')->first();
+                if ($lastDay) {
+                    $this->tripEndDate = $this->tripStartDate->copy()->addDays($lastDay->day_number - 1);
+                }
+            }
+            return;
+        }
+
+        // Priority 2: Check InquiryItinerary if date_type is FIXED_DATE
+        $inquiryItinerary = $this->record->quotation->inquiry->inquiryItinerary;
+        if ($inquiryItinerary && 
+            $inquiryItinerary->date_type === \App\Enums\InquiryDateTypeEnum::FIXED_DATE &&
+            $inquiryItinerary->from_date) {
+            
+            $this->tripStartDate = Carbon::parse($inquiryItinerary->from_date);
+            
+            if ($inquiryItinerary->to_date) {
+                $this->tripEndDate = Carbon::parse($inquiryItinerary->to_date);
+            } else {
+                // Calculate from last day
+                $lastDay = $this->record->itinerary->days->sortByDesc('day_number')->first();
+                if ($lastDay) {
+                    $this->tripEndDate = $this->tripStartDate->copy()->addDays($lastDay->day_number - 1);
+                }
+            }
+            return;
+        }
+
+        // Priority 3: Fallback to first ticket in itinerary activities
         foreach ($this->record->itinerary->days as $day) {
             $ticketActivity = $day->activities->first(function ($activity) {
                 return $activity->activityCategory?->type === \App\Enums\ActivityCategoryTypeEnum::TICKET;
             });
 
             if ($ticketActivity && $ticketActivity->start_time) {
-                $firstTicketDay = $day;
-                $firstTicketActivity = $ticketActivity;
+                $this->tripStartDate = Carbon::parse($ticketActivity->start_time);
+                
+                // Calculate trip end date from last day
+                $lastDay = $this->record->itinerary->days->sortByDesc('day_number')->first();
+                if ($lastDay) {
+                    $this->tripEndDate = $this->tripStartDate->copy()->addDays($lastDay->day_number - 1);
+                }
                 break;
-            }
-        }
-
-        if ($firstTicketDay && $firstTicketActivity->start_time) {
-            // Use the ticket's start time as the trip start date
-            $this->tripStartDate = Carbon::parse($firstTicketActivity->start_time);
-            
-            // Calculate trip end date from last day
-            $lastDay = $this->record->itinerary->days->sortByDesc('day_number')->first();
-            if ($lastDay) {
-                $this->tripEndDate = $this->tripStartDate->copy()->addDays($lastDay->day_number - 1);
             }
         }
     }
@@ -129,6 +169,10 @@ class CustomerView extends Page
                 'accommodation_star_rating' => $day->accommodation_star_rating,
                 'description' => $day->description,
                 'has_transport' => false,
+                'has_vehicle' => $day->vehicle_usage_mode !== null,
+                'vehicle_usage_mode' => $day->vehicle_usage_mode,
+                'has_companion' => $day->companion_hire_mode !== null,
+                'companion_hire_mode' => $day->companion_hire_mode,
                 'meals' => [
                     'breakfast' => null,
                     'lunch' => null,
