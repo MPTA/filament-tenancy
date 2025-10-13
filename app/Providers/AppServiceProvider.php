@@ -8,6 +8,8 @@ use Filament\Notifications\Livewire\Notifications;
 use Filament\Support\Enums\Alignment;
 use Filament\Support\Enums\VerticalAlignment;
 use Illuminate\Support\ServiceProvider;
+use Stancl\Tenancy\Controllers\TenantAssetsController;
+use TomatoPHP\FilamentTenancy\FilamentTenancyServiceProvider;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -26,6 +28,25 @@ class AppServiceProvider extends ServiceProvider
         // Configure Filament notifications position (bottom-right corner)
         Notifications::alignment(Alignment::End);
         Notifications::verticalAlignment(VerticalAlignment::End);
+        
+        // Configure TenantAssetsController middleware for tenant file access
+        TenantAssetsController::$tenancyMiddleware = FilamentTenancyServiceProvider::TENANCY_IDENTIFICATION;
+        
+        // Update public disk URL for current tenant subdomain (fix CORS issues)
+        \Illuminate\Support\Facades\Event::listen(
+            \Stancl\Tenancy\Events\TenancyInitialized::class,
+            function () {
+                $appUrl = request()->getSchemeAndHttpHost();
+                
+                // Forget public disk to force rebuild with new URL
+                \Illuminate\Support\Facades\Storage::forgetDisk('public');
+                
+                // Update public disk URL for current tenant subdomain
+                config([
+                    'filesystems.disks.public.url' => "{$appUrl}/storage",
+                ]);
+            }
+        );
         
         LanguageSwitch::configureUsing(function (LanguageSwitch $switch) {
             $switch

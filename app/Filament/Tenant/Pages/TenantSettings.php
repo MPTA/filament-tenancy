@@ -12,6 +12,7 @@ use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\FileUpload;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Grid;
 use Filament\Notifications\Notification;
@@ -67,6 +68,24 @@ class TenantSettings extends Page
                                         ->label('Company Local Name')
                                         ->maxLength(255),
                                 ]),
+                            
+                            FileUpload::make('logo')
+                                ->label('Company Logo')
+                                ->image()
+                                ->disk('public')
+                                ->directory(fn () => TenantSetting::getTenantDirectory('logos'))
+                                ->visibility('public')
+                                ->maxSize(2048)
+                                ->fetchFileInformation(false)
+                                ->imageEditor()
+                                ->imageEditorAspectRatios([
+                                    null,
+                                    '16:9',
+                                    '4:3',
+                                    '1:1',
+                                ])
+                                ->helperText('Upload your company logo. Maximum size: 2MB.')
+                                ->columnSpanFull(),
                         ])
                         ->collapsible(),
 
