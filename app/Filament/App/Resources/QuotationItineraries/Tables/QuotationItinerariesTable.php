@@ -9,7 +9,6 @@ use Filament\Actions\ViewAction;
 use Filament\Forms\Components\Checkbox;
 use Filament\Notifications\Notification;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Columns\BadgeColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\DB;
@@ -60,12 +59,10 @@ class QuotationItinerariesTable
                     ->sortable()
                     ->color(fn ($state) => $state < now() ? 'danger' : ($state < now()->addDays(7) ? 'warning' : 'success')),
                 
-                BadgeColumn::make('quotation.status')
+                TextColumn::make('quotation.status')
                     ->label('Status')
-                    ->colors([
-                        'success' => 'Active',
-                        'danger' => 'Expired',
-                    ]),
+                    ->badge()
+                    ->color(fn ($state) => $state === 'Active' ? 'success' : 'danger'),
                 
                 TextColumn::make('quotation.inquiry.inquiryItinerary.from_date')
                     ->label('Travel From')
