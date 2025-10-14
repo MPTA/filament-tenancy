@@ -20,7 +20,7 @@ class QuotationItinerariesTable
         return $table
             ->columns([
                 TextColumn::make('quotation.number')
-                    ->label('Quotation Number')
+                    ->label('Number')
                     ->searchable()
                     ->sortable()
                     ->copyable()
@@ -43,15 +43,14 @@ class QuotationItinerariesTable
                     ->searchable()
                     ->sortable(),
                 
-                TextColumn::make('quotation.currency.name')
-                    ->label('Currency')
+                TextColumn::make('offers_count')
+                    ->label('Offers')
+                    ->state(function ($record) {
+                        return $record->quotationOfferGroups()->count();
+                    })
                     ->badge()
-                    ->color('info'),
-                
-                TextColumn::make('quotation.exchange_rate')
-                    ->label('Exchange Rate')
-                    ->numeric(decimalPlaces: 4)
-                    ->sortable(),
+                    ->color(fn ($state) => $state > 0 ? 'success' : 'gray')
+                    ->tooltip(fn ($state) => $state > 0 ? $state . ' offer(s) created' : 'No offers yet'),
                 
                 TextColumn::make('quotation.expire_date')
                     ->label('Expires')
@@ -63,18 +62,6 @@ class QuotationItinerariesTable
                     ->label('Status')
                     ->badge()
                     ->color(fn ($state) => $state === 'Active' ? 'success' : 'danger'),
-                
-                TextColumn::make('quotation.inquiry.inquiryItinerary.from_date')
-                    ->label('Travel From')
-                    ->date()
-                    ->sortable()
-                    ->toggleable(),
-                
-                TextColumn::make('quotation.inquiry.inquiryItinerary.to_date')
-                    ->label('Travel To')
-                    ->date()
-                    ->sortable()
-                    ->toggleable(),
                 
                 TextColumn::make('created_at')
                     ->label('Created')
@@ -89,10 +76,6 @@ class QuotationItinerariesTable
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                SelectFilter::make('quotation_currency')
-                    ->label('Currency')
-                    ->relationship('quotation.currency', 'name'),
-                
                 SelectFilter::make('quotation_status')
                     ->label('Status')
                     ->options([
