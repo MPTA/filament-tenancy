@@ -208,22 +208,44 @@ class EditItinerary extends EditRecord
             ->modalDescription('Are you sure you want to complete this itinerary? This will save, mark it as complete, and redirect you to edit the breakdown.')
             ->modalSubmitActionLabel('Yes, Complete')
             ->action(function () {
+                // Step 1: First validate without saving
+                $data = $this->form->getState();
+                
+                // Check if there are days in the form data
+                if (isset($data['days']) && !empty($data['days'])) {
+                    $totalDays = count($data['days']);
+                    $lastDayData = $data['days'][$totalDays - 1];
+                    
+                    // Check if last day has accommodation
+                    if (!empty($lastDayData['accommodation_id']) || !empty($lastDayData['accommodation_city_id'])) {
+                        \Filament\Notifications\Notification::make()
+                            ->title('Cannot Complete Itinerary!')
+                            ->body('The last day (Day ' . $totalDays . ') cannot have accommodation because it is the checkout day. Please edit the itinerary and remove the accommodation and accommodation city from the last day.')
+                            ->danger()
+                            ->persistent()
+                            ->send();
+                        
+                        $this->halt();
+                        return;
+                    }
+                }
+                
                 try {
-                    // Step 1: Save the itinerary with validation
+                    // Step 2: Save the itinerary with validation
                     $this->save();
                     
-                    // Step 2: Mark itinerary as complete
+                    // Step 3: Mark itinerary as complete
                     $this->record->refresh();
                     $this->record->update(['is_complete' => true]);
                     
-                    // Step 3: Show success notification
+                    // Step 4: Show success notification
                     \Filament\Notifications\Notification::make()
                         ->title('Itinerary completed successfully!')
                         ->body('You can now edit the breakdown.')
                         ->success()
                         ->send();
                     
-                    // Step 4: Redirect to edit breakdown if this is a quotation itinerary
+                    // Step 5: Redirect to edit breakdown if this is a quotation itinerary
                     if ($this->record->itineraryable_type === QuotationItinerary::class) {
                         $quotationItinerary = $this->record->itineraryable;
                         if ($quotationItinerary && $quotationItinerary->breakdown) {
@@ -234,11 +256,14 @@ class EditItinerary extends EditRecord
                     // Default redirect
                     return redirect($this->getRedirectUrl());
                 } catch (\Exception $e) {
-                    \Filament\Notifications\Notification::make()
-                        ->title('Error completing itinerary')
-                        ->body($e->getMessage())
-                        ->danger()
-                        ->send();
+                    // Don't show generic error if it's a validation error
+                    if (!($e instanceof \Illuminate\Validation\ValidationException)) {
+                        \Filament\Notifications\Notification::make()
+                            ->title('Error completing itinerary')
+                            ->body($e->getMessage())
+                            ->danger()
+                            ->send();
+                    }
                     
                     throw $e;
                 }

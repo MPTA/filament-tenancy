@@ -958,6 +958,21 @@ class ItineraryTab
             })
             ->action(function (QuotationItinerary $quotationItinerary) {
                 if ($quotationItinerary->itinerary) {
+                    // Validate that last day doesn't have accommodation
+                    $lastDay = $quotationItinerary->itinerary->days()->orderBy('day_number', 'desc')->first();
+                    
+                    if ($lastDay && ($lastDay->accommodation_id || $lastDay->accommodation_city_id)) {
+                        Notification::make()
+                            ->title('Cannot Complete Itinerary!')
+                            ->body('The last day (Day ' . $lastDay->day_number . ') cannot have accommodation because it is the checkout day. Please edit the itinerary and remove the accommodation from the last day.')
+                            ->danger()
+                            ->persistent()
+                            ->send();
+                        
+                        // Don't proceed further
+                        return null;
+                    }
+                    
                     $quotationItinerary->itinerary->update(['is_complete' => true]);
 
                     // Generate breakdown automatically when itinerary is completed
