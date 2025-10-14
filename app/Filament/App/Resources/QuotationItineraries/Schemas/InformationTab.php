@@ -6,6 +6,7 @@ use App\Enums\ContactTypeEnum;
 use App\Enums\GenderEnum;
 use App\Models\Tenants\QuotationItinerary;
 use Filament\Actions\Action;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
@@ -121,6 +122,21 @@ class InformationTab
                     ->label('Description')
                     ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->getTranslation('description', app()->getLocale()) ?? 'No description')
                     ->icon('heroicon-o-document-text')
+                    ->columnSpanFull(),
+
+                TextEntry::make('attachments_list')
+                    ->label('Attachments')
+                    ->state(function ($record) {
+                        $attachments = $record->quotation?->inquiry?->attachments;
+                        if (!$attachments || !is_array($attachments) || empty($attachments)) {
+                            return 'No attachments';
+                        }
+                        return collect($attachments)
+                            ->map(fn($file) => '📎 ' . basename($file))
+                            ->join(' • ');
+                    })
+                    ->icon('heroicon-o-paper-clip')
+                    ->color(fn($record) => !empty($record->quotation?->inquiry?->attachments) ? 'success' : 'gray')
                     ->columnSpanFull(),
             ]);
     }
@@ -250,6 +266,30 @@ class InformationTab
 
                 TextInput::make('inquiry.reference')
                     ->label('Reference'),
+
+                FileUpload::make('inquiry.attachments')
+                    ->label('Attachments')
+                    ->multiple()
+                    ->disk('local')
+                    ->directory(fn () => \App\Models\TenantSetting::getTenantDirectory('inquiries'))
+                    ->visibility('private')
+                    ->downloadable()
+                    ->openable()
+                    ->reorderable()
+                    ->maxFiles(10)
+                    ->maxSize(10240)
+                    ->helperText('You can upload up to 10 files. Max size: 10MB per file.')
+                    ->acceptedFileTypes([
+                        'application/pdf',
+                        'application/msword',
+                        'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                        'application/vnd.ms-excel',
+                        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                        'image/jpeg',
+                        'image/png',
+                        'image/gif',
+                        'image/webp',
+                    ]),
             ])
             ->fillForm(function (QuotationItinerary $record) {
                 $inquiry = $record->quotation?->inquiry;
@@ -261,6 +301,7 @@ class InformationTab
                         'requested_currency_id' => $inquiry->requested_currency_id,
                         'description' => $inquiry->getTranslation('description', app()->getLocale()),
                         'reference' => $inquiry->reference,
+                        'attachments' => $inquiry->attachments ?? [],
                     ] : [],
                 ];
             })
@@ -276,6 +317,11 @@ class InformationTab
                     // Update requested_currency_id if provided
                     if (isset($data['inquiry']['requested_currency_id'])) {
                         $inquiry->requested_currency_id = $data['inquiry']['requested_currency_id'];
+                    }
+                    
+                    // Update attachments if provided
+                    if (isset($data['inquiry']['attachments'])) {
+                        $inquiry->attachments = $data['inquiry']['attachments'];
                     }
                     
                     $inquiry->save();

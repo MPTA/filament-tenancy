@@ -15,6 +15,7 @@ use App\Models\Contact;
 use App\Enums\ContactTypeEnum;
 use Filament\Actions\Action;
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\FileUpload;
 use Filament\Schemas\Components\Grid;
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Select;
@@ -45,6 +46,30 @@ class ComprehensiveQuotationItineraryForm
                         Textarea::make('inquiry_description')
                             ->label('Inquiry Description')
                             ->rows(3),
+                        
+                        FileUpload::make('inquiry_attachments')
+                            ->label('Attachments')
+                            ->multiple()
+                            ->disk('local')
+                            ->directory(fn () => TenantSetting::getTenantDirectory('inquiries'))
+                            ->visibility('private')
+                            ->downloadable()
+                            ->openable()
+                            ->reorderable()
+                            ->maxFiles(10)
+                            ->maxSize(10240) // 10MB
+                            ->helperText('You can upload up to 10 files. Max size: 10MB per file.')
+                            ->acceptedFileTypes([
+                                'application/pdf',
+                                'application/msword',
+                                'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                                'application/vnd.ms-excel',
+                                'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                                'image/jpeg',
+                                'image/png',
+                                'image/gif',
+                                'image/webp',
+                            ]),
                         
                         Grid::make(3)
                             ->schema([

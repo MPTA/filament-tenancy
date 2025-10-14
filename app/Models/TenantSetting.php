@@ -132,9 +132,10 @@ class TenantSetting extends Model
 
     /**
      * Get tenant-specific directory path for file uploads.
+     * Files will be stored in: storage/app/private/tenants/{tenant_id}/{subdirectory}
      * 
-     * @param string $subdirectory Optional subdirectory (e.g., 'logos', 'documents', 'images')
-     * @return string Full path like 'tenants/balopar/logos'
+     * @param string $subdirectory Optional subdirectory (e.g., 'logos', 'inquiries', 'documents')
+     * @return string Relative path like 'tenants/balopar/logos' (will be appended to disk root)
      */
     public static function getTenantDirectory(string $subdirectory = ''): string
     {
