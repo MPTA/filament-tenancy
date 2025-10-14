@@ -37,6 +37,7 @@ class TenantForm
                                     $set('domain', Str::slug($state));
                                 }
                             })
+                            ->disabled(fn ($context) => $context === 'edit')
                             ->columnSpan(3),
                         
                         TextInput::make('domain')

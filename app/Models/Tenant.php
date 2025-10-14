@@ -11,6 +11,22 @@ class Tenant extends BaseTenant
     use HasDomains;
 
     /**
+     * Boot the model.
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        // Prevent tenant name from being changed after creation
+        static::updating(function ($tenant) {
+            if ($tenant->isDirty('name') && $tenant->getOriginal('name') !== null) {
+                // Restore the original name
+                $tenant->name = $tenant->getOriginal('name');
+            }
+        });
+    }
+
+    /**
      * Get the tenant settings.
      */
     public function settings(): HasOne
