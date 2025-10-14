@@ -551,6 +551,13 @@
     color: #000000 !important;
 }
 
+.offer-number {
+    font-weight: bold;
+    color: #000000 !important;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
 .pax-qty {
     font-weight: 500;
     color: #000000 !important;

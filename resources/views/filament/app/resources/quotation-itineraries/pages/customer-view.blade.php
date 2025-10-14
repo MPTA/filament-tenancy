@@ -472,6 +472,7 @@
                                 <table class="pricing-table">
                                     <thead>
                                         <tr>
+                                            <th>Offer #</th>
                                             <th>Pax Qty</th>
                                             <th>Vehicle</th>
                                             <th>Leader Bed</th>
@@ -482,6 +483,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
+                                            <td class="offer-number">{{ $firstOffer->full_number }}</td>
                                             <td class="pax-qty">{{ $firstOffer->pax_qty }} + {{ $firstOffer->leaders_qty }}</td>
                                             <td class="vehicle-info">
                                                 <div class="vehicle-name">{{ $firstOffer->vehicleType->name ?? 'N/A' }}</div>

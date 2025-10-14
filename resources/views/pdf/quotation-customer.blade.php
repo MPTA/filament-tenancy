@@ -441,6 +441,7 @@
                             <table class="data-table">
                                 <thead>
                                     <tr>
+                                        <th>Offer #</th>
                                         <th>Pax Qty</th>
                                         <th>Vehicle</th>
                                         <th>Leader Bed</th>
@@ -451,6 +452,7 @@
                                 </thead>
                                 <tbody>
                                     <tr>
+                                        <td style="font-size: 7pt; font-weight: bold;">{{ $firstOffer->full_number }}</td>
                                         <td>{{ $firstOffer->pax_qty }} + {{ $firstOffer->leaders_qty }}</td>
                                         <td>
                                             <strong>{{ $firstOffer->vehicleType->name ?? 'N/A' }}</strong>
