@@ -118,12 +118,6 @@ class InformationTab
                             ->color('warning'),
                     ]),
 
-                TextEntry::make('quotation.id')
-                    ->label('Description')
-                    ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->getTranslation('description', app()->getLocale()) ?? 'No description')
-                    ->icon('heroicon-o-document-text')
-                    ->columnSpanFull(),
-
                 TextEntry::make('attachments_list')
                     ->label('Attachments')
                     ->state(function ($record) {
@@ -174,39 +168,39 @@ class InformationTab
                             ->color('info'),
                     ]),
 
-                TextEntry::make('quotation.expire_date')
-                    ->label('Expiry Date')
-                    ->date()
-                    ->icon('heroicon-o-calendar-days')
-                    ->color('danger')
-                    ->columnSpanFull(),
+                Grid::make(3)
+                    ->schema([
+                        TextEntry::make('quotation.expire_date')
+                            ->label('Expiry Date')
+                            ->date()
+                            ->icon('heroicon-o-calendar-days')
+                            ->color('danger'),
 
-                TextEntry::make('entry_date')
-                    ->label('Entry Date (Arrival)')
-                    ->formatStateUsing(fn($state) => $state ? $state->format('M d, Y') : 'Not specified')
-                    ->icon('heroicon-o-calendar-days')
-                    ->color('success')
-                    ->columnSpanFull(),
+                        TextEntry::make('entry_date')
+                            ->label('Entry Date (Arrival)')
+                            ->formatStateUsing(fn($state) => $state ? $state->format('M d, Y') : 'Not specified')
+                            ->icon('heroicon-o-calendar-days')
+                            ->color('success'),
 
-                TextEntry::make('roomCategoriesDisplay')
-                    ->label('Room Categories')
-                    ->state(function ($record) {
-                        if (empty($record->room_category_ids)) {
-                            return 'Default (Twin, Single)';
-                        }
-                        
-                        $uniqueIds = array_values(array_unique($record->room_category_ids));
-                        
-                        $names = \App\Models\Base\RoomCategory::whereIn('id', $uniqueIds)
-                            ->pluck('category')
-                            ->map(fn($cat) => $cat->getDisplayName())
-                            ->toArray();
-                        
-                        return implode(', ', array_unique($names));
-                    })
-                    ->icon('heroicon-o-squares-2x2')
-                    ->color('primary')
-                    ->columnSpanFull(),
+                        TextEntry::make('roomCategoriesDisplay')
+                            ->label('Room Categories')
+                            ->state(function ($record) {
+                                if (empty($record->room_category_ids)) {
+                                    return 'Default (Twin, Single)';
+                                }
+                                
+                                $uniqueIds = array_values(array_unique($record->room_category_ids));
+                                
+                                $names = \App\Models\Base\RoomCategory::whereIn('id', $uniqueIds)
+                                    ->pluck('category')
+                                    ->map(fn($cat) => $cat->getDisplayName())
+                                    ->toArray();
+                                
+                                return implode(', ', array_unique($names));
+                            })
+                            ->icon('heroicon-o-squares-2x2')
+                            ->color('primary'),
+                    ]),
 
                 TextEntry::make('quotation.description')
                     ->label('Description')
@@ -260,10 +254,6 @@ class InformationTab
                     ->preload()
                     ->helperText('Changing currency will update both Inquiry and Quotation'),
 
-                Textarea::make('inquiry.description')
-                    ->label('Description')
-                    ->rows(3),
-
                 TextInput::make('inquiry.reference')
                     ->label('Reference'),
 
@@ -300,7 +290,6 @@ class InformationTab
                         'title' => $inquiry->getTranslation('title', app()->getLocale()),
                         'number' => $inquiry->number,
                         'requested_currency_id' => $inquiry->requested_currency_id,
-                        'description' => $inquiry->getTranslation('description', app()->getLocale()),
                         'reference' => $inquiry->reference,
                         'attachments' => $inquiry->attachments ?? [],
                     ] : [],
@@ -312,7 +301,6 @@ class InformationTab
                 // Update inquiry data
                 if ($inquiry && isset($data['inquiry'])) {
                     $inquiry->setTranslation('title', app()->getLocale(), $data['inquiry']['title']);
-                    $inquiry->setTranslation('description', app()->getLocale(), $data['inquiry']['description'] ?? '');
                     $inquiry->reference = $data['inquiry']['reference'] ?? null;
                     
                     // Update requested_currency_id if provided
@@ -388,11 +376,13 @@ class InformationTab
 
                 Textarea::make('quotation.description')
                     ->label('Description')
-                    ->rows(3),
+                    ->rows(3)
+                    ->helperText('This description will be visible to the customer in the quotation view.'),
 
                 Textarea::make('quotation.internal_note')
                     ->label('Internal Note')
-                    ->rows(3),
+                    ->rows(3)
+                    ->helperText('Internal note - NOT visible to the customer. Use this for team notes and reminders.'),
 
                 Select::make('room_category_ids')
                     ->label('Room Categories')

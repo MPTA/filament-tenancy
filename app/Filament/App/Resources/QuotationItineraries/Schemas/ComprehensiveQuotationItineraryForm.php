@@ -43,10 +43,6 @@ class ComprehensiveQuotationItineraryForm
                             ->required()
                             ->maxLength(255),
                         
-                        Textarea::make('inquiry_description')
-                            ->label('Inquiry Description')
-                            ->rows(3),
-                        
                         FileUpload::make('inquiry_attachments')
                             ->label('Attachments')
                             ->multiple()
@@ -320,11 +316,13 @@ class ComprehensiveQuotationItineraryForm
                         
                         Textarea::make('quotation_description')
                             ->label('Description')
-                            ->rows(3),
+                            ->rows(3)
+                            ->helperText('This description will be visible to the customer in the quotation view.'),
                         
                         Textarea::make('internal_note')
                             ->label('Internal Note')
-                            ->rows(2),
+                            ->rows(2)
+                            ->helperText('Internal note - NOT visible to the customer. Use this for team notes and reminders.'),
                     ]),
                 
             ]);

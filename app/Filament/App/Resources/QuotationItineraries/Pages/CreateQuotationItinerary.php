@@ -34,7 +34,6 @@ class CreateQuotationItinerary extends CreateRecord
     {
         return [
             'inquiry_title' => 'required|string|max:255',
-            'inquiry_description' => 'nullable|string',
             'inquiry_reference' => 'nullable|string|max:255',
             'inquiry_contact_id' => 'required|exists:contacts,id',
             'inquiry_requested_currency_id' => 'required|exists:currencies,id',
@@ -62,7 +61,6 @@ class CreateQuotationItinerary extends CreateRecord
             $inquiry = Inquiry::create([
                 'type' => InquiryTypeEnum::ITINERARY,
                 'title' => $data['inquiry_title'],
-                'description' => $data['inquiry_description'] ?? '',
                 'reference' => $data['inquiry_reference'] ?? null,
                 'contact_id' => $data['inquiry_contact_id'] ?? null,
                 'attachments' => $data['inquiry_attachments'] ?? null,
