@@ -6,10 +6,13 @@ use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\ViewAction;
+use Filament\Forms\Components\Checkbox;
+use Filament\Notifications\Notification;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\BadgeColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
+use Illuminate\Support\Facades\DB;
 
 class QuotationItinerariesTable
 {
@@ -125,8 +128,70 @@ class QuotationItinerariesTable
                     DeleteAction::make()
                         ->requiresConfirmation()
                         ->modalHeading(fn ($record) => 'Delete Quotation ' . ($record->quotation?->number ?? 'N/A'))
-                        ->modalDescription(fn ($record) => 'Are you sure you want to delete quotation itinerary "' . ($record->quotation?->number ?? 'N/A') . '"? This action cannot be undone and will permanently remove all associated data.')
-                        ->modalSubmitActionLabel('Yes, delete it'),
+                        ->modalDescription(function ($record) {
+                            $inquiry = $record->quotation?->inquiry;
+                            $quotationsCount = $inquiry?->quotations()->count() ?? 0;
+                            
+                            $description = 'Are you sure you want to delete quotation itinerary "' . ($record->quotation?->number ?? 'N/A') . '"?';
+                            
+                            if ($quotationsCount === 1) {
+                                $description .= "\n\nNote: This is the only quotation for inquiry #" . ($inquiry?->number ?? 'N/A') . '. You can choose to delete the inquiry as well.';
+                            }
+                            
+                            return $description;
+                        })
+                        ->form(function ($record) {
+                            $inquiry = $record->quotation?->inquiry;
+                            $quotationsCount = $inquiry?->quotations()->count() ?? 0;
+                            
+                            // فقط اگر این تنها quotation برای inquiry است، checkbox نمایش بده
+                            if ($quotationsCount === 1) {
+                                return [
+                                    Checkbox::make('delete_inquiry')
+                                        ->label('Also delete the related inquiry (#' . ($inquiry?->number ?? 'N/A') . ') and all its data')
+                                        ->helperText('Warning: This will permanently delete the inquiry, inquiry itinerary, and all related data.')
+                                        ->default(false),
+                                ];
+                            }
+                            
+                            return [];
+                        })
+                        ->action(function ($record, array $data) {
+                            $quotationItinerary = $record;
+                            $quotation = $quotationItinerary->quotation;
+                            $inquiry = $quotation?->inquiry;
+                            $deleteInquiry = $data['delete_inquiry'] ?? false;
+                            
+                            // شروع transaction
+                            DB::transaction(function () use ($quotationItinerary, $quotation, $inquiry, $deleteInquiry) {
+                                // حذف QuotationItinerary (این همه چیزهای مرتبط را cascade می‌کند)
+                                $quotationItinerary->delete();
+                                
+                                // حذف Quotation
+                                if ($quotation) {
+                                    $quotation->delete();
+                                }
+                                
+                                // اگر کاربر خواست inquiry هم حذف شود
+                                if ($deleteInquiry && $inquiry) {
+                                    // حذف InquiryItinerary (اگر وجود دارد)
+                                    $inquiry->inquiryItinerary?->delete();
+                                    
+                                    // حذف Inquiry (باید تمام quotation های مربوطه حذف شده باشند)
+                                    $inquiry->delete();
+                                }
+                            });
+                            
+                            // نمایش پیام موفقیت
+                            Notification::make()
+                                ->success()
+                                ->title('Deleted successfully')
+                                ->body($deleteInquiry 
+                                    ? 'Quotation and inquiry have been deleted.' 
+                                    : 'Quotation has been deleted.')
+                                ->send();
+                        })
+                        ->modalSubmitActionLabel('Delete'),
                 ]),
             ])
             ->defaultSort('created_at', 'desc')
