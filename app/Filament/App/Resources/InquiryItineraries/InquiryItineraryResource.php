@@ -20,7 +20,7 @@ class InquiryItineraryResource extends Resource
 
     protected static ?int $navigationSort = 2;
 
-    protected static ?string $navigationLabel = 'Inquiry Itineraries';
+    protected static ?string $navigationLabel = 'Inquiries';
 
     protected static ?string $recordTitleAttribute = 'date_type';
 
