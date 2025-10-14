@@ -3,7 +3,6 @@
 namespace App\Filament\App\Resources\Itineraries\Pages;
 
 use App\Filament\App\Resources\Itineraries\ItineraryResource;
-use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
 class ListItineraries extends ListRecords
@@ -13,7 +12,7 @@ class ListItineraries extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            CreateAction::make(),
+            // No create action
         ];
     }
 }

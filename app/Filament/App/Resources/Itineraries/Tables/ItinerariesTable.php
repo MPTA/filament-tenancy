@@ -2,11 +2,8 @@
 
 namespace App\Filament\App\Resources\Itineraries\Tables;
 
-use Filament\Actions\BulkActionGroup;
-use Filament\Actions\DeleteBulkAction;
-use Filament\Actions\EditAction;
-use Filament\Actions\ViewAction;
-use Filament\Tables\Columns\IconColumn;
+use App\Models\Tenants\QuotationItinerary;
+use Filament\Actions\Action;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -15,44 +12,104 @@ class ItinerariesTable
     public static function configure(Table $table): Table
     {
         return $table
+            ->modifyQueryUsing(fn ($query) => $query->with([
+                'itineraryable.quotation.inquiry.contact',
+                'days',
+            ]))
             ->columns([
-                TextColumn::make('id')
-                    ->label('ID'),
-                TextColumn::make('tenant.name')
-                    ->searchable(),
-                TextColumn::make('travel_mode')
+                TextColumn::make('quotation_number')
+                    ->label('Quotation Number')
+                    ->weight('bold')
+                    ->state(function ($record) {
+                        if ($record->itineraryable_type === QuotationItinerary::class && $record->itineraryable) {
+                            return $record->itineraryable->quotation?->number ?? '—';
+                        }
+                        return '—';
+                    })
+                    ->searchable()
+                    ->sortable(),
+                
+                TextColumn::make('inquiry_title')
+                    ->label('Inquiry Title')
+                    ->limit(50)
+                    ->state(function ($record) {
+                        if ($record->itineraryable_type === QuotationItinerary::class && $record->itineraryable) {
+                            return $record->itineraryable->quotation?->inquiry?->title ?? '—';
+                        }
+                        return '—';
+                    })
+                    ->searchable()
+                    ->tooltip(function ($record) {
+                        if ($record->itineraryable_type === QuotationItinerary::class && $record->itineraryable) {
+                            $title = $record->itineraryable->quotation?->inquiry?->title ?? '';
+                            if (strlen($title) > 50) {
+                                return $title;
+                            }
+                        }
+                        return null;
+                    }),
+                
+                TextColumn::make('contact')
+                    ->label('Contact')
+                    ->state(function ($record) {
+                        if ($record->itineraryable_type === QuotationItinerary::class && $record->itineraryable) {
+                            return $record->itineraryable->quotation?->inquiry?->contact?->full_name ?? '—';
+                        }
+                        return '—';
+                    })
+                    ->searchable()
+                    ->sortable(),
+                
+                TextColumn::make('days_count')
+                    ->label('Days')
+                    ->state(fn ($record) => $record->days()->count())
                     ->badge()
-                    ->searchable(),
-                IconColumn::make('is_advanced')
-                    ->boolean(),
-                IconColumn::make('is_complete')
-                    ->boolean(),
-                IconColumn::make('is_vip')
-                    ->boolean(),
-                TextColumn::make('creator_user_id'),
+                    ->color('info')
+                    ->alignCenter(),
+                
+                TextColumn::make('travel_mode')
+                    ->label('Travel Mode')
+                    ->badge()
+                    ->toggleable(),
+                
                 TextColumn::make('created_at')
+                    ->label('Created')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('itineraryable_type')
-                    ->searchable(),
-                TextColumn::make('itineraryable_id'),
             ])
             ->filters([
                 //
             ])
+            ->recordUrl(function ($record) {
+                // کلیک روی رکورد → باز کردن QuotationItinerary با تب itinerary
+                if ($record->itineraryable_type === QuotationItinerary::class && $record->itineraryable) {
+                    return route('filament.app.resources.quotation-itineraries.view', [
+                        'record' => $record->itineraryable->id,
+                    ]);
+                }
+                return null;
+            })
             ->recordActions([
-                ViewAction::make(),
-                EditAction::make(),
+                Action::make('view')
+                    ->label('View')
+                    ->icon('heroicon-o-eye')
+                    ->color('primary')
+                    ->url(function ($record) {
+                        if ($record->itineraryable_type === QuotationItinerary::class && $record->itineraryable) {
+                            return route('filament.app.resources.quotation-itineraries.view', [
+                                'record' => $record->itineraryable->id,
+                            ]);
+                        }
+                        return null;
+                    })
+                    ->disabled(fn ($record) => !$record->itineraryable || $record->itineraryable_type !== QuotationItinerary::class),
             ])
             ->toolbarActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                ]),
-            ]);
+                // هیچ toolbar action ای نیست
+            ])
+            ->defaultSort('created_at', 'desc')
+            ->striped()
+            ->paginated([10, 25, 50, 100]);
     }
 }

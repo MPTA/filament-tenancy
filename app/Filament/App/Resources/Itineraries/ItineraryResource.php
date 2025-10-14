@@ -63,9 +63,12 @@ class ItineraryResource extends Resource
     {
         return [
             'index' => ListItineraries::route('/'),
-            'create' => CreateItinerary::route('/create'),
-            'view' => ViewItinerary::route('/{record}'),
             'edit' => EditItinerary::route('/{record}/edit'),
         ];
+    }
+    
+    public static function canCreate(): bool
+    {
+        return false;
     }
 }
