@@ -226,6 +226,10 @@ class ComprehensiveQuotationItineraryForm
                             ->schema([
                                 TextInput::make('exchange_rate')
                                     ->label('Exchange Rate')
+                                    ->placeholder('e.g., 1.0000')
+                                    ->default('1.0000')
+                                    ->required()
+                                    ->live()
                                     ->helperText(function ($get) {
                                         $requestedCurrencyId = $get('inquiry_requested_currency_id');
                                         $exchangeRate = $get('exchange_rate');
@@ -236,24 +240,13 @@ class ComprehensiveQuotationItineraryForm
                                             $tenantCurrency = $tenantSetting?->currency;
                                             
                                             if ($requestedCurrency && $tenantCurrency) {
-                                                if ($exchangeRate && $exchangeRate > 0) {
-                                                    return "1 {$requestedCurrency->code} = {$exchangeRate} {$tenantCurrency->code}";
-                                                } else {
-                                                    return "1 {$requestedCurrency->code} = ... {$tenantCurrency->code}";
-                                                }
+                                                $rateDisplay = ($exchangeRate && $exchangeRate > 0) ? $exchangeRate : '...';
+                                                return "1 {$requestedCurrency->code} = {$rateDisplay} {$tenantCurrency->code}";
                                             }
-                                        }
-                                        
-                                        if ($exchangeRate && $exchangeRate > 0) {
-                                            return "1 Quotation Currency = {$exchangeRate} Your Setting Currency";
                                         }
                                         
                                         return "Enter a valid number with up to 4 decimal places (e.g., 42500.5000)";
                                     })
-                                    ->placeholder('e.g., 1.0000')
-                                    ->default('1.0000')
-                                    ->required()
-                                    ->reactive()
                                     ->rules(['required', 'regex:/^\d+(\.\d{1,4})?$/', 'numeric', 'gt:0'])
                                     ->validationMessages([
                                         'regex' => 'Please enter a valid number with up to 4 decimal places.',

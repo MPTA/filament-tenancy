@@ -162,6 +162,15 @@ class TenantSetting extends Model
     }
 
     /**
+     * Get the currency attribute from the country.
+     * This accessor allows existing code to continue using $tenantSettings->currency
+     */
+    public function getCurrencyAttribute()
+    {
+        return $this->country?->currency;
+    }
+
+    /**
      * Get the language for this setting.
      */
     public function language(): BelongsTo
