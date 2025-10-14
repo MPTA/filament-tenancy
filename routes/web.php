@@ -3,9 +3,14 @@
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+// Central domain routes - Only accessible on central domain(s)
+foreach (config('tenancy.central_domains') as $domain) {
+    Route::middleware('web')
+        ->domain($domain)
+        ->group(function () {
+            Route::get('/', App\Livewire\Homepage::class)->name('home');
+        });
+}
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
