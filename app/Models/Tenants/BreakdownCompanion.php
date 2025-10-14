@@ -66,4 +66,40 @@ class BreakdownCompanion extends Model
     {
         return $this->belongsTo(\App\Models\Tenants\CompanionType::class, 'companion_type_id');
     }
+
+    /**
+     * Check if this companion is used in any offer groups.
+     */
+    public function isUsedInOfferGroups(): bool
+    {
+        $breakdown = $this->breakdown;
+        if (!$breakdown || !$breakdown->quotationItinerary) {
+            return false;
+        }
+        
+        return QuotationOfferGroupCompanion::query()
+            ->whereHas('quotationOfferGroup', function ($query) use ($breakdown) {
+                $query->where('quotation_itinerary_id', $breakdown->quotation_itinerary_id);
+            })
+            ->where('companion_type_id', $this->companion_type_id)
+            ->exists();
+    }
+
+    /**
+     * Get the usage count of this companion in offer groups.
+     */
+    public function getUsageCountInOfferGroups(): int
+    {
+        $breakdown = $this->breakdown;
+        if (!$breakdown || !$breakdown->quotationItinerary) {
+            return 0;
+        }
+        
+        return QuotationOfferGroupCompanion::query()
+            ->whereHas('quotationOfferGroup', function ($query) use ($breakdown) {
+                $query->where('quotation_itinerary_id', $breakdown->quotation_itinerary_id);
+            })
+            ->where('companion_type_id', $this->companion_type_id)
+            ->count();
+    }
 }

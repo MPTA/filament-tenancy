@@ -68,4 +68,40 @@ class BreakdownVehicleType extends Model
     {
         return $this->belongsTo(VehicleType::class);
     }
+
+    /**
+     * Check if this vehicle type is used in any offers.
+     */
+    public function isUsedInOffers(): bool
+    {
+        $breakdown = $this->breakdown;
+        if (!$breakdown || !$breakdown->quotationItinerary) {
+            return false;
+        }
+        
+        return QuotationOffer::query()
+            ->whereHas('quotationOfferGroup', function ($query) use ($breakdown) {
+                $query->where('quotation_itinerary_id', $breakdown->quotation_itinerary_id);
+            })
+            ->where('vehicle_type_id', $this->vehicle_type_id)
+            ->exists();
+    }
+
+    /**
+     * Get the usage count of this vehicle type in offers.
+     */
+    public function getUsageCountInOffers(): int
+    {
+        $breakdown = $this->breakdown;
+        if (!$breakdown || !$breakdown->quotationItinerary) {
+            return 0;
+        }
+        
+        return QuotationOffer::query()
+            ->whereHas('quotationOfferGroup', function ($query) use ($breakdown) {
+                $query->where('quotation_itinerary_id', $breakdown->quotation_itinerary_id);
+            })
+            ->where('vehicle_type_id', $this->vehicle_type_id)
+            ->count();
+    }
 }

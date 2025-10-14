@@ -90,6 +90,55 @@ class BreakdownForm
                             Repeater::make('vehicleTypes')
                                     ->hiddenLabel()
                                     ->reorderable(false)
+                                    ->deleteAction(
+                                        fn (\Filament\Actions\Action $action) => $action
+                                            ->disabled(function (array $arguments, Repeater $component, $record) {
+                                                // Get vehicle type data
+                                                $state = $component->getState();
+                                                $vehicleData = $state[$arguments['item']] ?? null;
+                                                
+                                                if (!$vehicleData || !isset($vehicleData['vehicle_type_id'])) {
+                                                    return false;
+                                                }
+                                                
+                                                // Check usage in offers
+                                                $quotationItinerary = $record;
+                                                $usageCount = \App\Models\Tenants\QuotationOffer::query()
+                                                    ->whereHas('quotationOfferGroup', function ($query) use ($quotationItinerary) {
+                                                        $query->where('quotation_itinerary_id', $quotationItinerary->id);
+                                                    })
+                                                    ->where('vehicle_type_id', $vehicleData['vehicle_type_id'])
+                                                    ->count();
+                                                
+                                                return $usageCount > 0; // Disable if used
+                                            })
+                                            ->tooltip(function (array $arguments, Repeater $component, $record) {
+                                                // Get vehicle type data
+                                                $state = $component->getState();
+                                                $vehicleData = $state[$arguments['item']] ?? null;
+                                                
+                                                if (!$vehicleData || !isset($vehicleData['vehicle_type_id'])) {
+                                                    return null;
+                                                }
+                                                
+                                                // Check usage in offers
+                                                $quotationItinerary = $record;
+                                                $usageCount = \App\Models\Tenants\QuotationOffer::query()
+                                                    ->whereHas('quotationOfferGroup', function ($query) use ($quotationItinerary) {
+                                                        $query->where('quotation_itinerary_id', $quotationItinerary->id);
+                                                    })
+                                                    ->where('vehicle_type_id', $vehicleData['vehicle_type_id'])
+                                                    ->count();
+                                                
+                                                if ($usageCount > 0) {
+                                                    $vehicleType = \App\Models\Tenants\VehicleType::find($vehicleData['vehicle_type_id']);
+                                                    $vehicleName = $vehicleType ? $vehicleType->name : 'This vehicle type';
+                                                    return "{$vehicleName} is used in {$usageCount} offer(s). Please remove it from offers first.";
+                                                }
+                                                
+                                                return null;
+                                            })
+                                    )
                                     ->rules([
                                         function () {
                                             return function (string $attribute, $value, \Closure $fail) {
@@ -556,6 +605,55 @@ class BreakdownForm
                             Repeater::make('companions')
                                     ->hiddenLabel()
                                     ->reorderable(false)
+                                    ->deleteAction(
+                                        fn (\Filament\Actions\Action $action) => $action
+                                            ->disabled(function (array $arguments, Repeater $component, $record) {
+                                                // Get companion data
+                                                $state = $component->getState();
+                                                $companionData = $state[$arguments['item']] ?? null;
+                                                
+                                                if (!$companionData || !isset($companionData['companion_type_id'])) {
+                                                    return false;
+                                                }
+                                                
+                                                // Check usage in offer groups
+                                                $quotationItinerary = $record;
+                                                $usageCount = \App\Models\Tenants\QuotationOfferGroupCompanion::query()
+                                                    ->whereHas('quotationOfferGroup', function ($query) use ($quotationItinerary) {
+                                                        $query->where('quotation_itinerary_id', $quotationItinerary->id);
+                                                    })
+                                                    ->where('companion_type_id', $companionData['companion_type_id'])
+                                                    ->count();
+                                                
+                                                return $usageCount > 0; // Disable if used
+                                            })
+                                            ->tooltip(function (array $arguments, Repeater $component, $record) {
+                                                // Get companion data
+                                                $state = $component->getState();
+                                                $companionData = $state[$arguments['item']] ?? null;
+                                                
+                                                if (!$companionData || !isset($companionData['companion_type_id'])) {
+                                                    return null;
+                                                }
+                                                
+                                                // Check usage in offer groups
+                                                $quotationItinerary = $record;
+                                                $usageCount = \App\Models\Tenants\QuotationOfferGroupCompanion::query()
+                                                    ->whereHas('quotationOfferGroup', function ($query) use ($quotationItinerary) {
+                                                        $query->where('quotation_itinerary_id', $quotationItinerary->id);
+                                                    })
+                                                    ->where('companion_type_id', $companionData['companion_type_id'])
+                                                    ->count();
+                                                
+                                                if ($usageCount > 0) {
+                                                    $companionType = \App\Models\Tenants\CompanionType::find($companionData['companion_type_id']);
+                                                    $companionName = $companionType ? $companionType->name : 'This companion';
+                                                    return "{$companionName} is used in {$usageCount} offer group(s). Please remove it from offer groups first.";
+                                                }
+                                                
+                                                return null;
+                                            })
+                                    )
                                     ->rules([
                                         function () {
                                             return function (string $attribute, $value, \Closure $fail) {
