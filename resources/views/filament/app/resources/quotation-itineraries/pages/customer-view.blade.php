@@ -54,7 +54,7 @@
             
             /* Page setup */
             @page {
-                margin: 0;
+                margin: 15mm 12mm;
                 size: A4;
             }
             

@@ -17,11 +17,21 @@
         }
         
         body {
-            font-family: 'DejaVu Sans', sans-serif;
+            font-family: 'DejaVu Sans', 'Noto Sans', 'Arial', sans-serif;
             font-size: 9pt;
             color: #000000;
             line-height: 1.3;
             padding: 15mm 12mm;
+        }
+        
+        /* Icons using Unicode symbols */
+        .icon {
+            font-weight: bold;
+            font-size: 8pt;
+            padding: 1px 3px;
+            background: #f3f4f6;
+            border-radius: 2px;
+            margin-right: 3px;
         }
         
         /* Header Table Layout */
@@ -306,10 +316,9 @@
                                 <br><span style="font-size: 6pt;">{{ $day['date']->format('d-M-Y') }}</span>
                             @endif
                             @if($day['has_vehicle'] || $day['has_companion'])
-                                <br><span style="font-size: 6pt; background: #f3f4f6; padding: 1px 3px; border-radius: 2px;">
-                                    @if($day['has_vehicle'])[V]@endif
-                                    @if($day['has_companion'])[G]@endif
-                                </span>
+                                <br>
+                                @if($day['has_vehicle'])<span class="icon">⚙</span>@endif
+                                @if($day['has_companion'])<span class="icon">◆</span>@endif
                             @endif
                         </td>
                         <td class="city-cell">
@@ -320,13 +329,13 @@
                                 <div class="activity-line">
                                     @php
                                         $icon = match($ticket['transport_mode'] ?? null) {
-                                            \App\Enums\TransportModeEnum::AIR => '[Flight]',
-                                            \App\Enums\TransportModeEnum::TRAIN => '[Train]',
-                                            \App\Enums\TransportModeEnum::LAND => '[Bus]',
-                                            default => '[Bus]',
+                                            \App\Enums\TransportModeEnum::AIR => '✈',
+                                            \App\Enums\TransportModeEnum::TRAIN => '⚡',
+                                            \App\Enums\TransportModeEnum::LAND => '▶',
+                                            default => '▶',
                                         };
                                     @endphp
-                                    <strong>{{ $icon }}</strong> {{ $ticket['from_city']->name ?? '' }} → {{ $ticket['to_city']->name ?? '' }}
+                                    <span class="icon">{{ $icon }}</span> {{ $ticket['from_city']->name ?? '' }} → {{ $ticket['to_city']->name ?? '' }}
                                     @if($ticket['class'])
                                         ({{ $ticket['class']->label() }})
                                     @endif
@@ -335,13 +344,13 @@
                             
                             @foreach($day['attractions'] as $attraction)
                                 <div class="activity-line">
-                                    <strong>[ATR]</strong> <strong>{{ $day['accommodation_city']->name ?? $day['current_city']->name ?? '' }}:</strong> [ {{ $attraction['attraction']->name }} ]
+                                    <span class="icon">★</span> <strong>{{ $day['accommodation_city']->name ?? $day['current_city']->name ?? '' }}:</strong> [ {{ $attraction['attraction']->name }} ]
                                 </div>
                             @endforeach
                             
                             @foreach($day['experiences'] as $exp)
                                 <div class="activity-line">
-                                    <strong>[EXP]</strong> <strong>{{ $exp->city->name ?? $day['accommodation_city']->name ?? $day['current_city']->name ?? '' }}:</strong> {{ $exp->name }}
+                                    <span class="icon">●</span> <strong>{{ $exp->city->name ?? $day['accommodation_city']->name ?? $day['current_city']->name ?? '' }}:</strong> {{ $exp->name }}
                                 </div>
                             @endforeach
                             
@@ -385,7 +394,7 @@
         </table>
         
         <div class="legend-box">
-            <strong>[V]</strong> Vehicle included | <strong>[G]</strong> Tour guide/companion included
+            <span class="icon">⚙</span> Vehicle included | <span class="icon">◆</span> Tour guide/companion included
         </div>
     @endif
 
@@ -422,9 +431,9 @@
                         <div class="offer-content">
                             <div class="features-box">
                                 <strong style="font-size: 8pt;">Included Companion Costs:</strong><br>
-                                <strong>[Driver]</strong> Meal: {{ $offerGroup->is_include_driver_meal ? 'Included' : 'Not included' }} | Hotel: {{ $offerGroup->is_include_driver_hotel ? 'Included' : 'Not included' }}
+                                <span class="icon">⚙</span> <strong>Driver</strong> - Meal: {{ $offerGroup->is_include_driver_meal ? 'Included' : 'Not included' }} | Hotel: {{ $offerGroup->is_include_driver_hotel ? 'Included' : 'Not included' }}
                                 @foreach($companions as $companion)
-                                    <br><strong>[{{ is_array($companion->companionType->name) ? ($companion->companionType->name[app()->getLocale()] ?? $companion->companionType->name['en']) : $companion->companionType->name }}]</strong> 
+                                    <br><span class="icon">◆</span> <strong>{{ is_array($companion->companionType->name) ? ($companion->companionType->name[app()->getLocale()] ?? $companion->companionType->name['en']) : $companion->companionType->name }}</strong> - 
                                     Meal: {{ $companion->is_same_meal ? 'With group' : 'Separate' }} | Hotel: {{ $companion->is_stay_same_hotel ? 'With group' : 'Separate' }}
                                 @endforeach
                             </div>
