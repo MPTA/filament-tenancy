@@ -188,6 +188,12 @@ class Quotation extends Model
             }
         });
 
+        // حذف QuotationItinerary هنگام حذف Quotation
+        static::deleting(function ($quotation) {
+            if ($quotation->quotationItinerary) {
+                $quotation->quotationItinerary->delete();
+            }
+        });
     }
 
     /**
