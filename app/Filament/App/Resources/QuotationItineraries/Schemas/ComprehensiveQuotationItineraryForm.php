@@ -55,6 +55,7 @@ class ComprehensiveQuotationItineraryForm
                             ->visibility('private')
                             ->downloadable()
                             ->openable()
+                            ->deletable()
                             ->reorderable()
                             ->maxFiles(10)
                             ->maxSize(10240) // 10MB

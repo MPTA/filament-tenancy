@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Support\Facades\Storage;
 use Spatie\Translatable\HasTranslations;
 use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 use Stancl\Tenancy\Database\TenantScope;
@@ -181,7 +182,7 @@ class Inquiry extends Model
     }
 
     /**
-     * Boot method to generate inquiry number and handle cascade deletes.
+     * Boot method to generate inquiry number and handle file cleanup.
      */
     protected static function boot()
     {
@@ -190,6 +191,34 @@ class Inquiry extends Model
         static::creating(function ($inquiry) {
             if (empty($inquiry->number)) {
                 $inquiry->number = static::generateInquiryNumber();
+            }
+        });
+
+        // Clean up removed attachment files when updating
+        static::updating(function ($inquiry) {
+            $oldAttachments = $inquiry->getOriginal('attachments') ?? [];
+            $newAttachments = $inquiry->attachments ?? [];
+            
+            // Find files that were removed
+            $removedFiles = array_diff($oldAttachments, $newAttachments);
+            
+            // Delete removed files from storage
+            foreach ($removedFiles as $file) {
+                if ($file && Storage::disk('local')->exists($file)) {
+                    Storage::disk('local')->delete($file);
+                }
+            }
+        });
+
+        // Clean up all attachment files when deleting inquiry
+        static::deleting(function ($inquiry) {
+            $attachments = $inquiry->attachments ?? [];
+            
+            // Delete all attachment files from storage
+            foreach ($attachments as $file) {
+                if ($file && Storage::disk('local')->exists($file)) {
+                    Storage::disk('local')->delete($file);
+                }
             }
         });
     }
