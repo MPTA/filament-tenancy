@@ -231,6 +231,7 @@ class OffersTab
             ->schema([
                 Repeater::make('companions')
                     ->label('Companions')
+                    ->maxItems(config('central.quotation.max_companions_per_group', 2))
                     ->schema([
                         Select::make('companion_type_id')
                             ->label('Companion Type')
@@ -492,6 +493,7 @@ class OffersTab
                     ->schema([
                         Repeater::make('companions')
                             ->label('Companions')
+                            ->maxItems(config('central.quotation.max_companions_per_group', 2))
                             ->schema([
                                 Select::make('companion_type_id')
                                     ->label('Companion Type')
