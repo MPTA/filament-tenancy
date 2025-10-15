@@ -56,12 +56,6 @@ class TenantContactInfolist
                 
                 Section::make('Additional Information')
                     ->schema([
-                        TextEntry::make('user.name')
-                            ->label('User')
-                            ->placeholder('Not assigned')
-                            ->icon('heroicon-o-user'),
-                        
-                        
                         TextEntry::make('gender')
                             ->label('Gender')
                             ->placeholder('Not specified')

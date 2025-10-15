@@ -31,13 +31,16 @@ class TenantContactResource extends Resource
 
     protected static ?string $pluralModelLabel = 'Contacts';
 
-    protected static string|\UnitEnum|null $navigationGroup = 'CRM';
+    protected static string|UnitEnum|null $navigationGroup = 'CRM';
 
     protected static ?int $navigationSort = 1;
 
     public static function getNavigationBadge(): ?string
     {
-        return static::getModel()::count();
+        return static::getModel()::whereIn('type', [
+            \App\Enums\ContactTypeEnum::CUSTOMER,
+            \App\Enums\ContactTypeEnum::LEAD,
+        ])->count();
     }
 
     public static function getNavigationBadgeColor(): ?string

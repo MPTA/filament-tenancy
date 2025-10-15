@@ -20,6 +20,10 @@ class TenantContactsTable
     public static function configure(Table $table): Table
     {
         return $table
+            ->modifyQueryUsing(fn($query) => $query->whereIn('type', [
+                ContactTypeEnum::CUSTOMER,
+                ContactTypeEnum::LEAD,
+            ]))
             ->columns([
                 TextColumn::make('type')
                     ->label('Type')
@@ -78,13 +82,6 @@ class TenantContactsTable
                     ->color('primary')
                     ->toggleable(isToggledHiddenByDefault: true),
                 
-                TextColumn::make('user.name')
-                    ->label('User')
-                    ->searchable()
-                    ->sortable()
-                    ->placeholder('Not assigned')
-                    ->icon('heroicon-o-user'),
-                
                 TextColumn::make('created_at')
                     ->label('Created')
                     ->dateTime('M j, Y')
@@ -110,12 +107,6 @@ class TenantContactsTable
                         false: fn($query) => $query->where('type', ContactTypeEnum::LEAD->value),
                         blank: fn($query) => $query,
                     ),
-                
-                SelectFilter::make('user_id')
-                    ->label('Assigned User')
-                    ->relationship('user', 'name')
-                    ->searchable()
-                    ->preload(),
             ])
             ->recordActions([
                 ViewAction::make()
