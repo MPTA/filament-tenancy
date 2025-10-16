@@ -61,11 +61,16 @@ class AppServiceProvider extends ServiceProvider
         });
 
         PanelSwitch::configureUsing(function (PanelSwitch $panelSwitch) {
-            $panelSwitch->panels([
-                'app',
-                'tenant-admin',
-                'base'
-            ]);
+            // اگر در tenant context نیستیم (central domain)
+            if (!tenant()) {
+                // فقط پنل‌های مرکزی را نمایش بده
+                $panels = ['base', 'admin'];
+            } else {
+                // در tenant فقط پنل‌های tenant را نمایش بده
+                $panels = ['app', 'tenant-admin'];
+            }
+            
+            $panelSwitch->panels($panels);
         });
     }
 }

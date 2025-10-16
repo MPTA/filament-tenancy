@@ -29,6 +29,7 @@ class BasePanelProvider extends PanelProvider
             ->path('base')
             ->brandName('Base')
             ->login()
+            ->domain(config('filament-tenancy.central_domain'))
             ->colors([
                 'primary' => Color::Green,
             ])

@@ -108,9 +108,9 @@ class User extends Authenticatable implements FilamentUser
             return true;
         }
 
-        // Base panel - both admin and tenant users can access
+        // Base panel - only admin users can access
         if ($panel->getId() === 'base') {
-            return $this->is_admin === true || $this->tenant_id !== null;
+            return $this->is_admin === true;
         }
 
         // App panel - all users can access
