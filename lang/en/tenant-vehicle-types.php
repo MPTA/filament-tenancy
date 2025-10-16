@@ -84,7 +84,7 @@ return [
     
     'helpers' => [
         'name' => 'Full name of the vehicle type',
-        'slug' => 'URL-friendly identifier (auto-generated from name)',
+        'slug' => 'URL-friendly identifier (auto-generated from name). Must enter name in English for automatic slug generation',
         'vehicle_category' => 'Category this vehicle type belongs to',
         'cover_url' => 'URL to the vehicle cover image',
         'description' => 'Short description for listings and previews',

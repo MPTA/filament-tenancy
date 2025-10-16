@@ -84,7 +84,7 @@ return [
     
     'helpers' => [
         'name' => '车辆类型的完整名称',
-        'slug' => 'URL友好标识符（从名称自动生成）',
+        'slug' => 'URL友好标识符（从名称自动生成）。必须用英文输入名称以自动生成slug',
         'vehicle_category' => '此车辆类型所属的类别',
         'cover_url' => '车辆封面图片的URL',
         'description' => '用于列表和预览的简短描述',

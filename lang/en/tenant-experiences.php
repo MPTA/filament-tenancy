@@ -69,7 +69,7 @@ return [
     
     'helpers' => [
         'name' => 'Full name of the experience',
-        'slug' => 'URL-friendly identifier (auto-generated from name)',
+        'slug' => 'URL-friendly identifier (auto-generated from name). Must enter name in English for automatic slug generation',
         'description' => 'Short description for listings and previews',
         'content' => 'Full content with all details about the experience',
         'price' => 'Price for the experience (in default currency)',

@@ -56,7 +56,7 @@ return [
     
     'helpers' => [
         'name' => '陪同类型的完整名称',
-        'slug' => 'URL友好标识符（从名称自动生成）',
+        'slug' => 'URL友好标识符（从名称自动生成）。必须用英文输入名称以自动生成slug',
         'category' => '此陪同类型所属的类别',
         'native_language' => '陪同的主要语言',
         'speaking_language' => '陪同会说的语言',

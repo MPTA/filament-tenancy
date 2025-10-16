@@ -52,7 +52,7 @@ return [
     
     'helpers' => [
         'name' => 'Full name of the meal type',
-        'slug' => 'URL-friendly identifier (auto-generated from name)',
+        'slug' => 'URL-friendly identifier (auto-generated from name). Must enter name in English for automatic slug generation',
         'meal_category' => 'Category this meal type belongs to',
         'description' => 'Short description for listings and previews',
         'price' => 'Price for this meal type',

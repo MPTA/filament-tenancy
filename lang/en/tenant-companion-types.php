@@ -56,7 +56,7 @@ return [
     
     'helpers' => [
         'name' => 'Full name of the companion type',
-        'slug' => 'URL-friendly identifier (auto-generated from name)',
+        'slug' => 'URL-friendly identifier (auto-generated from name). Must enter name in English for automatic slug generation',
         'category' => 'Category this companion type belongs to',
         'native_language' => 'Primary language of the companion',
         'speaking_language' => 'Language the companion can speak',
