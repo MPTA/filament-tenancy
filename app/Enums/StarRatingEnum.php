@@ -2,13 +2,26 @@
 
 namespace App\Enums;
 
+use App\Traits\TranslatableEnum;
+
 enum StarRatingEnum: int
 {
+    use TranslatableEnum;
+
     case ONE_STAR = 1;
     case TWO_STARS = 2;
     case THREE_STARS = 3;
     case FOUR_STARS = 4;
     case FIVE_STARS = 5;
+
+    /**
+     * Get the translation key for this enum.
+     * Override to handle integer-backed enum.
+     */
+    private function getEnumTranslationKey(): string
+    {
+        return 'star_rating';
+    }
 
     public function getLabel(): string
     {
@@ -17,24 +30,12 @@ enum StarRatingEnum: int
 
     public function getFullLabel(): string
     {
-        return match($this) {
-            self::ONE_STAR => '1 Star',
-            self::TWO_STARS => '2 Stars',
-            self::THREE_STARS => '3 Stars',
-            self::FOUR_STARS => '4 Stars',
-            self::FIVE_STARS => '5 Stars',
-        };
+        return $this->label();
     }
 
     public function getDescription(): string
     {
-        return match($this) {
-            self::ONE_STAR => 'Basic accommodation with minimal amenities',
-            self::TWO_STARS => 'Budget-friendly accommodation with basic facilities',
-            self::THREE_STARS => 'Mid-range accommodation with good facilities and services',
-            self::FOUR_STARS => 'High-quality accommodation with excellent facilities and services',
-            self::FIVE_STARS => 'Luxury accommodation with exceptional facilities and services',
-        };
+        return $this->description();
     }
 
     public function getStars(): string
@@ -50,13 +51,6 @@ enum StarRatingEnum: int
     public function getFullDisplay(): string
     {
         return $this->getStars() . $this->getEmptyStars();
-    }
-
-    public static function getOptions(): array
-    {
-        return collect(self::cases())
-            ->mapWithKeys(fn($case) => [$case->value => $case->getFullLabel()])
-            ->toArray();
     }
 
     public static function getOptionsWithStars(): array

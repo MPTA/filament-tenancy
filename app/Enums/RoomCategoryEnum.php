@@ -2,8 +2,12 @@
 
 namespace App\Enums;
 
+use App\Traits\TranslatableEnum;
+
 enum RoomCategoryEnum: string
 {
+    use TranslatableEnum;
+
     case TWIN = 'twin';
     case SINGLE = 'single';
     case DOUBLE_FOR_TWO = 'double_for_two';
@@ -13,19 +17,11 @@ enum RoomCategoryEnum: string
     case SUITE_FOR_TWO = 'suite_for_two';
 
     /**
-     * Get the display name for the enum value.
+     * Backward compatibility alias for getDisplayName()
      */
     public function getDisplayName(): string
     {
-        return match($this) {
-            self::TWIN => 'Twin',
-            self::SINGLE => 'Single',
-            self::DOUBLE_FOR_TWO => 'Double For Two',
-            self::DOUBLE_FOR_ONE => 'Double For One',
-            self::TRIPLE => 'Triple',
-            self::SUITE_FOR_ONE => 'Suite For One',
-            self::SUITE_FOR_TWO => 'Suite For Two',
-        };
+        return $this->label();
     }
 
     /**
@@ -34,16 +30,5 @@ enum RoomCategoryEnum: string
     public static function getValues(): array
     {
         return array_column(self::cases(), 'value');
-    }
-
-    /**
-     * Get all enum values with their display names.
-     */
-    public static function getOptions(): array
-    {
-        return array_map(
-            fn($case) => ['value' => $case->value, 'label' => $case->getDisplayName()],
-            self::cases()
-        );
     }
 }

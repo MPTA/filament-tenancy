@@ -2,8 +2,12 @@
 
 namespace App\Enums;
 
+use App\Traits\TranslatableEnum;
+
 enum InquiryTypeEnum: string
 {
+    use TranslatableEnum;
+
     case ITINERARY = 'itinerary';
 
     /**
@@ -12,50 +16,5 @@ enum InquiryTypeEnum: string
     public static function values(): array
     {
         return array_column(self::cases(), 'value');
-    }
-
-    /**
-     * Get the label for the enum value.
-     */
-    public function label(): string
-    {
-        return match($this) {
-            self::ITINERARY => 'Itinerary',
-        };
-    }
-
-    /**
-     * Get the description for the enum value.
-     */
-    public function description(): string
-    {
-        return match($this) {
-            self::ITINERARY => 'Travel itinerary planning inquiry',
-        };
-    }
-
-    /**
-     * Get options for select inputs.
-     */
-    public static function getOptions(): array
-    {
-        return collect(self::cases())
-            ->mapWithKeys(fn($case) => [$case->value => $case->label()])
-            ->toArray();
-    }
-
-    /**
-     * Get options with descriptions for select inputs.
-     */
-    public static function getOptionsWithDescriptions(): array
-    {
-        return collect(self::cases())
-            ->mapWithKeys(fn($case) => [
-                $case->value => [
-                    'label' => $case->label(),
-                    'description' => $case->description(),
-                ]
-            ])
-            ->toArray();
     }
 }

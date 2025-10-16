@@ -2,26 +2,20 @@
 
 namespace App\Enums;
 
+use App\Traits\TranslatableEnum;
+
 enum QuotationTypeEnum: string
 {
+    use TranslatableEnum;
+
     case GENERAL = 'general';
     case ITINERARY = 'itinerary';
 
+    /**
+     * Backward compatibility alias for getLabel()
+     */
     public function getLabel(): string
     {
-        return match ($this) {
-            self::GENERAL => 'General',
-            self::ITINERARY => 'Itinerary',
-        };
-    }
-
-    /**
-     * Get options for select inputs.
-     */
-    public static function getOptions(): array
-    {
-        return collect(self::cases())
-            ->mapWithKeys(fn($case) => [$case->value => $case->getLabel()])
-            ->toArray();
+        return $this->label();
     }
 }
