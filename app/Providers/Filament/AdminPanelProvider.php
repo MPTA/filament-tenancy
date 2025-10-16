@@ -63,6 +63,7 @@ class AdminPanelProvider extends PanelProvider
                     ->panel('app')
                     ->allowImpersonate()
             )
+            ->plugin(\TomatoPHP\FilamentTranslations\FilamentTranslationsPlugin::make())
             ->authMiddleware([
                 Authenticate::class,
             ]);
