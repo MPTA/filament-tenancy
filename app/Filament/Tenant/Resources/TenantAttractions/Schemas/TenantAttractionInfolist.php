@@ -22,83 +22,83 @@ class TenantAttractionInfolist
     {
         return $schema
             ->components([
-                Section::make('Basic Information')
-                    ->description('Basic attraction details and information')
+                Section::make(__('tenant-attractions.sections.basic_information.title'))
+                    ->description(__('tenant-attractions.sections.basic_information.description'))
                     ->icon('heroicon-o-map-pin')
                     ->schema([
                         InfolistGrid::make(2)
                             ->schema([
                                 TextEntry::make('name')
-                                    ->label('Name')
+                                    ->label(__('common-fields.name'))
                                     ->badge()
                                     ->color('primary'),
                                 TextEntry::make('type')
-                                    ->label('Type')
+                                    ->label(__('common-fields.type'))
                                     ->badge()
                                     ->color('info'),
                             ]),
                         InfolistGrid::make(2)
                             ->schema([
                                 TextEntry::make('city.name')
-                                    ->label('City')
+                                    ->label(__('common-fields.city'))
                                     ->badge()
                                     ->color('success'),
                                 TextEntry::make('district.name')
-                                    ->label('District')
+                                    ->label(__('common-fields.district'))
                                     ->badge()
                                     ->color('secondary'),
                             ]),
                         TextEntry::make('description')
-                            ->label('Description')
+                            ->label(__('common-fields.description'))
                             ->columnSpanFull(),
                     ])
                     ->collapsible(),
 
-                Section::make('Tenant Pricing')
-                    ->description('Manage your custom prices for this attraction')
+                Section::make(__('tenant-attractions.sections.tenant_pricing.title'))
+                    ->description(__('tenant-attractions.sections.tenant_pricing.description'))
                     ->icon('heroicon-o-currency-dollar')
                     ->schema([
                         TextEntry::make('tenant_local_price')
-                            ->label('Local Price')
+                            ->label(__('common-fields.local_price'))
                             ->badge()
                             ->color('success')
                             ->getStateUsing(function ($record) {
                                 $price = \App\Models\Tenants\TenantAttraction::where('tenant_id', tenant('id'))
                                     ->where('attraction_id', $record->id)
                                     ->first();
-                                return $price?->local_price ? number_format((float)$price->local_price, 2) : 'Not set';
+                                return $price?->local_price ? number_format((float)$price->local_price, 2) : __('tenant-attractions.messages.not_set');
                             }),
                         TextEntry::make('tenant_foreigner_price')
-                            ->label('Foreigner Price')
+                            ->label(__('common-fields.foreigner_price'))
                             ->badge()
                             ->color('info')
                             ->getStateUsing(function ($record) {
                                 $price = \App\Models\Tenants\TenantAttraction::where('tenant_id', tenant('id'))
                                     ->where('attraction_id', $record->id)
                                     ->first();
-                                return $price?->foreigner_price ? number_format((float)$price->foreigner_price, 2) : 'Not set';
+                                return $price?->foreigner_price ? number_format((float)$price->foreigner_price, 2) : __('tenant-attractions.messages.not_set');
                             }),
                         TextEntry::make('tenant_additional_content')
-                            ->label('Additional Content')
+                            ->label(__('common-fields.additional_content'))
                             ->getStateUsing(function ($record) {
                                 $price = \App\Models\Tenants\TenantAttraction::where('tenant_id', tenant('id'))
                                     ->where('attraction_id', $record->id)
                                     ->first();
-                                return $price?->additional_content ? json_encode($price->additional_content) : 'No additional content';
+                                return $price?->additional_content ? json_encode($price->additional_content) : __('tenant-attractions.messages.no_additional_content');
                             })
                             ->columnSpanFull(),
                         Actions::make([
                             Action::make('edit_pricing')
-                                ->label('Edit Pricing')
+                                ->label(__('tenant-attractions.actions.edit_pricing'))
                                 ->color('primary')
                                 ->icon('heroicon-o-pencil')
                                 ->modal()
-                                ->modalHeading('Edit Attraction Pricing (Tenant Default Currency)')
+                                ->modalHeading(__('tenant-attractions.modals.edit_pricing_heading'))
                                 ->schema([
                                     Grid::make(2)
                                         ->schema([
                                             TextInput::make('tenant_local_price')
-                                                ->label('Local Price')
+                                                ->label(__('common-fields.local_price'))
                                                 ->prefix(function () {
                                                     return tenant()->settings?->country?->currency?->symbol ?? '$';
                                                 })
@@ -111,7 +111,7 @@ class TenantAttractionInfolist
                                                     return $price?->local_price;
                                                 }),
                                             TextInput::make('tenant_foreigner_price')
-                                                ->label('Foreigner Price')
+                                                ->label(__('common-fields.foreigner_price'))
                                                 ->prefix(function () {
                                                     return tenant()->settings?->country?->currency?->symbol ?? '$';
                                                 })
@@ -125,7 +125,7 @@ class TenantAttractionInfolist
                                                 }),
                                         ]),
                                     Textarea::make('tenant_additional_content')
-                                        ->label('Additional Content')
+                                        ->label(__('common-fields.additional_content'))
                                         ->rows(3)
                                         ->default(function ($record) {
                                             $price = \App\Models\Tenants\TenantAttraction::where('tenant_id', tenant('id'))
@@ -136,11 +136,11 @@ class TenantAttractionInfolist
                                         ->columnSpanFull(),
                                     
                                     // Sub Attractions Section
-                                    Section::make('Sub Attractions Pricing')
-                                        ->description('Manage prices for sub attractions')
+                                    Section::make(__('tenant-attractions.sections.sub_attractions_pricing.title'))
+                                        ->description(__('tenant-attractions.sections.sub_attractions_pricing.description'))
                                         ->schema([
                                             Repeater::make('sub_attractions')
-                                                ->label('Sub Attractions')
+                                                ->label(__('tenant-attractions.repeater.sub_attractions'))
                                                 ->addable(false)
                                                 ->deletable(false)
                                                 ->reorderable(false)
@@ -168,18 +168,18 @@ class TenantAttractionInfolist
                                                     Grid::make(3)
                                                         ->schema([
                                                             TextInput::make('name')
-                                                                ->label('Name')
+                                                                ->label(__('common-fields.name'))
                                                                 ->disabled()
                                                                 ->dehydrated(false),
                                                             TextInput::make('tenant_local_price')
-                                                                ->label('Local Price')
+                                                                ->label(__('common-fields.local_price'))
                                                                 ->prefix(function () {
                                                                     return tenant()->settings?->country?->currency?->symbol ?? '$';
                                                                 })
                                                                 ->rules(['nullable', 'numeric', 'min:0'])
                                                                 ->inputMode('decimal'),
                                                             TextInput::make('tenant_foreigner_price')
-                                                                ->label('Foreigner Price')
+                                                                ->label(__('common-fields.foreigner_price'))
                                                                 ->prefix(function () {
                                                                     return tenant()->settings?->country?->currency?->symbol ?? '$';
                                                                 })
@@ -187,7 +187,7 @@ class TenantAttractionInfolist
                                                                 ->inputMode('decimal'),
                                                         ]),
                                                     Textarea::make('tenant_additional_content')
-                                                        ->label('Additional Content')
+                                                        ->label(__('common-fields.additional_content'))
                                                         ->rows(2)
                                                         ->columnSpanFull(),
                                                 ])
@@ -234,7 +234,7 @@ class TenantAttractionInfolist
                                     }
 
                                     \Filament\Notifications\Notification::make()
-                                        ->title('Pricing updated successfully!')
+                                        ->title(__('tenant-attractions.notifications.pricing_updated'))
                                         ->success()
                                         ->send();
                                 }),

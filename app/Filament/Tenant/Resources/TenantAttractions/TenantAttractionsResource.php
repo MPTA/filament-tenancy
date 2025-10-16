@@ -19,13 +19,22 @@ class TenantAttractionsResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedMapPin;
     
-    protected static ?string $navigationLabel = 'Attractions';
-    
-    protected static ?string $modelLabel = 'Attraction';
-    
-    protected static ?string $pluralModelLabel = 'Attractions';
-    
     protected static ?int $navigationSort = 5;
+    
+    public static function getNavigationLabel(): string
+    {
+        return __('tenant-attractions.navigation_label');
+    }
+    
+    public static function getLabel(): ?string
+    {
+        return __('tenant-attractions.resource_name');
+    }
+    
+    public static function getPluralLabel(): ?string
+    {
+        return __('tenant-attractions.resource_name_plural');
+    }
 
     public static function infolist(Schema $schema): Schema
     {
