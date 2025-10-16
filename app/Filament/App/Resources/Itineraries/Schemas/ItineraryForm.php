@@ -336,7 +336,7 @@ class ItineraryForm
                                         ])
                                         ->schema([
                                             Select::make('transport_mode')
-                                                ->options(TransportModeEnum::class)
+                                                ->options(TransportModeEnum::getOptions())
                                                 ->label(__('app-itineraries.fields.mode'))
                                                 ->rules(['required_with:from_city_id']),
                                             Select::make('from_city_id')
@@ -352,7 +352,7 @@ class ItineraryForm
                                                 ->rules(['required_with:from_city_id']),
                                             TextInput::make('transport_number')->label(__('app-itineraries.fields.transport_number')),
                                             Select::make('class')
-                                                ->options(TicketClassEnum::class)
+                                                ->options(TicketClassEnum::getOptions())
                                                 ->label(__('app-itineraries.fields.class'))
                                                 ->rules(['required_with:from_city_id']),
                                             TimePicker::make('departure_time')->label(__('app-itineraries.fields.departure'))->seconds(false),

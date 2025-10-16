@@ -89,7 +89,7 @@ class ExperienceForm
                         
                         Select::make('charge_mode')
                             ->label(__('common-fields.charge_mode'))
-                            ->options(ChargeModeEnum::class)
+                            ->options(ChargeModeEnum::getOptions())
                             ->default('per_person')
                             ->required()
                             ->searchable()

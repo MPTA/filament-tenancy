@@ -42,7 +42,7 @@ class ActivityCategoryForm
                         
                         Select::make('type')
                             ->label('Category Type')
-                            ->options(ActivityCategoryTypeEnum::class)
+                            ->options(ActivityCategoryTypeEnum::getOptions())
                             ->required()
                             ->placeholder('Select a category type')
                             ->helperText('Type of activity category')

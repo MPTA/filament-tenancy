@@ -59,7 +59,7 @@ class TenantContactForm
                     ->schema([
                         Select::make('gender')
                             ->label(__('common-fields.gender'))
-                            ->options(GenderEnum::class)
+                            ->options(GenderEnum::getOptions())
                             ->searchable(),
                         
                         Select::make('country_id')

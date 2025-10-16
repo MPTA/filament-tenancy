@@ -29,7 +29,7 @@ class TenantUserForm
                         
                         Select::make('contact.gender')
                             ->label(__('common-fields.gender'))
-                            ->options(GenderEnum::class)
+                            ->options(GenderEnum::getOptions())
                             ->columnSpan(1),
                         
                         TextInput::make('email')
