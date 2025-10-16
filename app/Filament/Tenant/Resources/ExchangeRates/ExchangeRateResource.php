@@ -23,15 +23,27 @@ class ExchangeRateResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'rate';
 
-    protected static ?string $navigationLabel = 'Exchange Rates';
-
-    protected static ?string $modelLabel = 'Exchange Rate';
-
-    protected static ?string $pluralModelLabel = 'Exchange Rates';
-
-    protected static string | UnitEnum | null $navigationGroup = 'Financial Management';
-
     protected static ?int $navigationSort = 1;
+    
+    public static function getNavigationLabel(): string
+    {
+        return __('tenant-exchange-rates.navigation_label');
+    }
+    
+    public static function getLabel(): ?string
+    {
+        return __('tenant-exchange-rates.resource_name');
+    }
+    
+    public static function getPluralLabel(): ?string
+    {
+        return __('tenant-exchange-rates.resource_name_plural');
+    }
+    
+    public static function getNavigationGroup(): ?string
+    {
+        return __('tenant-exchange-rates.navigation_group');
+    }
 
     public static function getNavigationBadge(): ?string
     {
@@ -45,15 +57,15 @@ class ExchangeRateResource extends Resource
 
     public static function getGlobalSearchResultTitle($record): string
     {
-        return $record->fromCurrency->name . ' to ' . $record->toCurrency->name . ' (' . $record->rate . ')';
+        return $record->fromCurrency->name . ' ' . __('tenant-exchange-rates.global_search.to') . ' ' . $record->toCurrency->name . ' (' . $record->rate . ')';
     }
 
     public static function getGlobalSearchResultDetails($record): array
     {
         return [
-            'Rate' => $record->rate,
-            'From' => $record->fromCurrency->name ?? 'Unknown',
-            'To' => $record->toCurrency->name ?? 'Unknown',
+            __('tenant-exchange-rates.global_search.rate_label') => $record->rate,
+            __('tenant-exchange-rates.global_search.from') => $record->fromCurrency->name ?? __('tenant-exchange-rates.global_search.unknown'),
+            __('tenant-exchange-rates.global_search.to_label') => $record->toCurrency->name ?? __('tenant-exchange-rates.global_search.unknown'),
         ];
     }
 

@@ -18,7 +18,7 @@ class ExchangeRatesTable
         return $table
             ->columns([
                 TextColumn::make('fromCurrency.name')
-                    ->label('From Currency')
+                    ->label(__('common-fields.from_currency'))
                     ->searchable()
                     ->sortable()
                     ->badge()
@@ -26,7 +26,7 @@ class ExchangeRatesTable
                     ->weight('bold'),
                 
                 TextColumn::make('toCurrency.name')
-                    ->label('To Currency')
+                    ->label(__('common-fields.to_currency'))
                     ->searchable()
                     ->sortable()
                     ->badge()
@@ -34,7 +34,7 @@ class ExchangeRatesTable
                     ->weight('bold'),
                 
                 TextColumn::make('rate')
-                    ->label('Exchange Rate')
+                    ->label(__('common-fields.exchange_rate'))
                     ->searchable()
                     ->sortable()
                     ->numeric(
@@ -46,14 +46,14 @@ class ExchangeRatesTable
                     ->alignCenter(),
                 
                 TextColumn::make('created_at')
-                    ->label('Created')
+                    ->label(__('common-fields.created_at'))
                     ->dateTime('M j, Y g:i A')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->alignCenter(),
                 
                 TextColumn::make('updated_at')
-                    ->label('Updated')
+                    ->label(__('common-fields.updated_at'))
                     ->dateTime('M j, Y g:i A')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true)
@@ -61,13 +61,13 @@ class ExchangeRatesTable
             ])
             ->filters([
                 SelectFilter::make('from_currency_id')
-                    ->label('From Currency')
+                    ->label(__('common-fields.from_currency'))
                     ->relationship('fromCurrency', 'name')
                     ->searchable()
                     ->preload(),
                 
                 SelectFilter::make('to_currency_id')
-                    ->label('To Currency')
+                    ->label(__('common-fields.to_currency'))
                     ->relationship('toCurrency', 'name')
                     ->searchable()
                     ->preload(),
@@ -82,18 +82,20 @@ class ExchangeRatesTable
                         ->requiresConfirmation(),
                     
                     BulkAction::make('export')
-                        ->label('Export Selected')
+                        ->label(__('tenant-exchange-rates.bulk_actions.export'))
                         ->icon('heroicon-o-arrow-down-tray')
                         ->action(function ($records) {
                             // Export logic can be implemented here
                             Notification::make()
-                                ->title('Export Started')
-                                ->body('Selected exchange rates will be exported.')
+                                ->title(__('tenant-exchange-rates.notifications.export_started_title'))
+                                ->body(__('tenant-exchange-rates.notifications.export_started_body'))
                                 ->success()
                                 ->send();
                         }),
                 ]),
             ])
+            ->emptyStateHeading(__('tenant-exchange-rates.empty_state.heading'))
+            ->emptyStateDescription(__('tenant-exchange-rates.empty_state.description'))
             ->defaultSort('created_at', 'desc')
             ->striped()
             ->paginated([10, 25, 50, 100])

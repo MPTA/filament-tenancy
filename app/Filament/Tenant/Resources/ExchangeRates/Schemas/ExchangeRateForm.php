@@ -16,17 +16,17 @@ class ExchangeRateForm
     {
         return $schema
             ->components([
-                Section::make('Exchange Rate Information')
-                    ->description('Enter the exchange rate details')
+                Section::make(__('tenant-exchange-rates.sections.exchange_rate_information.title'))
+                    ->description(__('tenant-exchange-rates.sections.exchange_rate_information.description'))
                     ->schema([
                         Select::make('from_currency_id')
-                            ->label('From Currency')
+                            ->label(__('common-fields.from_currency'))
                             ->options(Currency::all()->pluck('name', 'id'))
                             ->required()
                             ->searchable()
                             ->preload()
                             ->live()
-                            ->placeholder('Select source currency')
+                            ->placeholder(__('tenant-exchange-rates.placeholders.from_currency'))
                             ->rules([
                                 'required',
                                 'different:to_currency_id',
@@ -45,7 +45,7 @@ class ExchangeRateForm
                                         
                                         // Check if from_currency is same as to_currency
                                         if ($value == $toCurrencyId) {
-                                            $fail('From Currency and To Currency cannot be the same.');
+                                            $fail(__('tenant-exchange-rates.validations.same_currency'));
                                             return;
                                         }
                                         
@@ -59,14 +59,14 @@ class ExchangeRateForm
                                         }
                                         
                                         if ($query->exists()) {
-                                            $fail('This exchange rate combination already exists.');
+                                            $fail(__('tenant-exchange-rates.validations.duplicate_combination'));
                                         }
                                     };
                                 },
                             ]),
                         
                         Select::make('to_currency_id')
-                            ->label('To Currency (Tenant Default)')
+                            ->label(__('tenant-exchange-rates.fields.to_currency_tenant_default'))
                             ->options(Currency::all()->pluck('name', 'id'))
                             ->required()
                             ->searchable()
@@ -90,15 +90,15 @@ class ExchangeRateForm
                             })
                             ->disabled()
                             ->dehydrated()
-                            ->helperText('This is automatically set to your tenant\'s default currency'),
+                            ->helperText(__('tenant-exchange-rates.helpers.to_currency_auto')),
                         
                         TextInput::make('rate')
-                            ->label('Exchange Rate')
+                            ->label(__('common-fields.exchange_rate'))
                             ->numeric()
                             ->required()
                             ->step(0.000001)
-                            ->placeholder('e.g., 1.25')
-                            ->helperText('Enter the exchange rate (1 from currency = X to currency)')
+                            ->placeholder(__('tenant-exchange-rates.placeholders.rate'))
+                            ->helperText(__('tenant-exchange-rates.helpers.rate'))
                             ->rules(['min:0.000001']),
                     ])
                     ->columns(2)
