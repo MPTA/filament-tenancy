@@ -20,13 +20,22 @@ class TenantAccommodationResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedBuildingOffice;
     
-    protected static ?string $navigationLabel = 'Accommodations';
-    
-    protected static ?string $modelLabel = 'Accommodation';
-    
-    protected static ?string $pluralModelLabel = 'Accommodations';
-    
     protected static ?int $navigationSort = 4;
+    
+    public static function getNavigationLabel(): string
+    {
+        return __('tenant-accommodations.navigation_label');
+    }
+    
+    public static function getLabel(): ?string
+    {
+        return __('tenant-accommodations.resource_name');
+    }
+    
+    public static function getPluralLabel(): ?string
+    {
+        return __('tenant-accommodations.resource_name_plural');
+    }
 
     public static function infolist(Schema $schema): Schema
     {

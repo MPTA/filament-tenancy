@@ -21,13 +21,17 @@ use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 
 class TenantPricesRelationManager extends RelationManager
 {
     protected static string $relationship = 'tenantPrices';
 
-    protected static ?string $title = 'Tenant Prices';
+    public static function getTitle(Model $ownerRecord, string $pageClass): string
+    {
+        return __('tenant-prices.title');
+    }
 
     public function isReadOnly(): bool
     {
@@ -40,7 +44,7 @@ class TenantPricesRelationManager extends RelationManager
             ->components([
                 // Room Category and Price (Tenant Default Currency)
                 Select::make('room_category_id')
-                    ->label('Room Category')
+                    ->label(__('common-fields.room_category'))
                     ->relationship('roomCategory', 'name')
                     ->searchable()
                     ->preload()
@@ -48,14 +52,14 @@ class TenantPricesRelationManager extends RelationManager
                     ->required()
                     ->rules(['required'])
                     ->validationMessages([
-                        'required' => 'Room category is required.',
+                        'required' => __('tenant-prices.validations.room_category_required'),
                     ])
                     ->live()
                     ->afterStateUpdated(function () {
                         $this->form->validate(['room_category_id']);
                     }),
                 TextInput::make('price')
-                    ->label('Price')
+                    ->label(__('common-fields.price'))
                     ->required()
                     ->numeric()
                     ->prefix(function () {
@@ -64,34 +68,34 @@ class TenantPricesRelationManager extends RelationManager
                     })
                     ->rules(['required', 'numeric', 'min:0'])
                     ->validationMessages([
-                        'required' => 'Price is required',
-                        'numeric' => 'Price must be a number',
-                        'min' => 'Price cannot be negative',
+                        'required' => __('tenant-prices.validations.price_required'),
+                        'numeric' => __('tenant-prices.validations.price_numeric'),
+                        'min' => __('tenant-prices.validations.price_min'),
                     ]),
                 
                 // Third line: Valid From and Valid To (2 fields)
                 DatePicker::make('valid_from')
-                    ->label('Valid From')
+                    ->label(__('common-fields.valid_from'))
                     ->default(Carbon::now())
                     ->required()
                     ->rules(['required', 'date'])
                     ->validationMessages([
-                        'required' => 'Valid from date is required.',
-                        'date' => 'Please enter a valid date.',
+                        'required' => __('tenant-prices.validations.valid_from_required'),
+                        'date' => __('tenant-prices.validations.valid_from_date'),
                     ])
                     ->live()
                     ->afterStateUpdated(function () {
                         $this->form->validate(['valid_from']);
                     }),
                 DatePicker::make('valid_to')
-                    ->label('Valid To')
+                    ->label(__('common-fields.valid_to'))
                     ->after('valid_from')
-                    ->placeholder('Leave empty for indefinite validity'),
+                    ->placeholder(__('tenant-prices.placeholders.valid_to')),
                 
                 
                 // Fourth line: Meal Inclusion section only
-                Section::make('Meal Inclusion')
-                    ->description('Select which meals are included in this price')
+                Section::make(__('tenant-prices.sections.meal_inclusion.title'))
+                    ->description(__('tenant-prices.sections.meal_inclusion.description'))
                     ->icon('heroicon-o-cake')
                     ->compact()
                     ->columnSpanFull()
@@ -99,15 +103,15 @@ class TenantPricesRelationManager extends RelationManager
                         Grid::make(3)
                             ->schema([
                                 Toggle::make('is_include_breakfast')
-                                    ->label('Breakfast')
+                                    ->label(__('common-fields.breakfast'))
                                     ->default(true)
                                     ->inline(false),
                                 Toggle::make('is_include_lunch')
-                                    ->label('Lunch')
+                                    ->label(__('common-fields.lunch'))
                                     ->default(false)
                                     ->inline(false),
                                 Toggle::make('is_include_dinner')
-                                    ->label('Dinner')
+                                    ->label(__('common-fields.dinner'))
                                     ->default(false)
                                     ->inline(false),
                             ]),
@@ -124,10 +128,10 @@ class TenantPricesRelationManager extends RelationManager
                 InfolistGrid::make(2)
                     ->schema([
                         TextEntry::make('roomCategory.name')
-                            ->label('Room Category')
+                            ->label(__('common-fields.room_category'))
                             ->badge(),
                         TextEntry::make('price')
-                            ->label('Price')
+                            ->label(__('common-fields.price'))
                             ->money()
                             ->badge()
                             ->color('success'),
@@ -135,46 +139,46 @@ class TenantPricesRelationManager extends RelationManager
                 InfolistGrid::make(2)
                     ->schema([
                         TextEntry::make('currency.name')
-                            ->label('Currency')
+                            ->label(__('common-fields.currency'))
                             ->badge(),
                         TextEntry::make('valid_from')
-                            ->label('Valid From')
+                            ->label(__('common-fields.valid_from'))
                             ->date()
                             ->badge()
                             ->color('info'),
                     ]),
                 TextEntry::make('valid_to')
-                    ->label('Valid To')
+                    ->label(__('common-fields.valid_to'))
                     ->date()
-                    ->placeholder('Indefinite validity')
+                    ->placeholder(__('tenant-prices.messages.indefinite_validity'))
                     ->badge()
                     ->color('warning'),
                 InfolistGrid::make(3)
                     ->schema([
                         TextEntry::make('is_include_breakfast')
-                            ->label('Breakfast')
+                            ->label(__('common-fields.breakfast'))
                             ->badge()
                             ->color(fn($state) => $state ? 'success' : 'gray')
-                            ->formatStateUsing(fn($state) => $state ? 'Included' : 'Not Included'),
+                            ->formatStateUsing(fn($state) => $state ? __('tenant-prices.messages.included') : __('tenant-prices.messages.not_included')),
                         TextEntry::make('is_include_lunch')
-                            ->label('Lunch')
+                            ->label(__('common-fields.lunch'))
                             ->badge()
                             ->color(fn($state) => $state ? 'success' : 'gray')
-                            ->formatStateUsing(fn($state) => $state ? 'Included' : 'Not Included'),
+                            ->formatStateUsing(fn($state) => $state ? __('tenant-prices.messages.included') : __('tenant-prices.messages.not_included')),
                         TextEntry::make('is_include_dinner')
-                            ->label('Dinner')
+                            ->label(__('common-fields.dinner'))
                             ->badge()
                             ->color(fn($state) => $state ? 'success' : 'gray')
-                            ->formatStateUsing(fn($state) => $state ? 'Included' : 'Not Included'),
+                            ->formatStateUsing(fn($state) => $state ? __('tenant-prices.messages.included') : __('tenant-prices.messages.not_included')),
                     ]),
                 InfolistGrid::make(2)
                     ->schema([
                         TextEntry::make('created_at')
-                            ->label('Created At')
+                            ->label(__('common-fields.created_at'))
                             ->dateTime()
                             ->placeholder('-'),
                         TextEntry::make('updated_at')
-                            ->label('Updated At')
+                            ->label(__('common-fields.updated_at'))
                             ->dateTime()
                             ->placeholder('-'),
                     ]),
@@ -187,78 +191,78 @@ class TenantPricesRelationManager extends RelationManager
             ->recordTitleAttribute('roomCategory.name')
             ->columns([
                 TextColumn::make('roomCategory.name')
-                    ->label('Room Category')
+                    ->label(__('common-fields.room_category'))
                     ->searchable()
                     ->sortable()
                     ->badge(),
                 TextColumn::make('price')
-                    ->label('Price')
+                    ->label(__('common-fields.price'))
                     ->money(fn($record) => $record->currency?->code )
                     ->sortable()
                     ->badge()
                     ->color('success'),
                 TextColumn::make('currency.symbol')
-                    ->label('Currency')
+                    ->label(__('common-fields.currency'))
                     ->searchable()
                     ->badge(),
                 TextColumn::make('valid_from')
-                    ->label('Valid From')
+                    ->label(__('common-fields.valid_from'))
                     ->date()
                     ->sortable()
                     ->badge()
                     ->color('info'),
                 TextColumn::make('valid_to')
-                    ->label('Valid To')
+                    ->label(__('common-fields.valid_to'))
                     ->date()
                     ->sortable()
                     ->badge()
                     ->color('warning')
-                    ->placeholder('Indefinite'),
+                    ->placeholder(__('tenant-prices.messages.indefinite')),
                 TextColumn::make('is_include_breakfast')
-                    ->label('Meals Included')
+                    ->label(__('tenant-prices.columns.meals_included'))
                     ->badge()
                     ->color('info')
                     ->formatStateUsing(function ($record) {
                         $meals = [];
-                        if ($record->is_include_breakfast) $meals[] = 'Breakfast';
-                        if ($record->is_include_lunch) $meals[] = 'Lunch';
-                        if ($record->is_include_dinner) $meals[] = 'Dinner';
-                        return empty($meals) ? 'No meals' : implode(', ', $meals);
+                        if ($record->is_include_breakfast) $meals[] = __('common-fields.breakfast');
+                        if ($record->is_include_lunch) $meals[] = __('common-fields.lunch');
+                        if ($record->is_include_dinner) $meals[] = __('common-fields.dinner');
+                        return empty($meals) ? __('tenant-prices.messages.no_meals') : implode(', ', $meals);
                     }),
                 TextColumn::make('status')
-                    ->label('Status')
+                    ->label(__('common-fields.status'))
                     ->badge()
                     ->color(fn($record) => $record->isValidForDate() ? 'success' : 'danger')
-                    ->formatStateUsing(fn($record) => $record->isValidForDate() ? 'Active' : 'Expired'),
+                    ->formatStateUsing(fn($record) => $record->isValidForDate() ? __('tenant-prices.messages.active') : __('tenant-prices.messages.expired')),
             ])
             ->filters([
                 SelectFilter::make('room_category_id')
-                    ->label('Room Category')
+                    ->label(__('common-fields.room_category'))
                     ->relationship('roomCategory', 'name'),
                 Filter::make('active')
-                    ->label('Active Prices')
+                    ->label(__('tenant-prices.filters.active_prices'))
                     ->query(fn(Builder $query) => $query->where('valid_from', '<=', Carbon::now())
                                                       ->where(function ($q) {
                                                           $q->whereNull('valid_to')
                                                             ->orWhere('valid_to', '>=', Carbon::now());
                                                       })),
                 Filter::make('expired')
-                    ->label('Expired Prices')
+                    ->label(__('tenant-prices.filters.expired_prices'))
                     ->query(fn(Builder $query) => $query->where('valid_to', '<', Carbon::now())),
                 Filter::make('with_breakfast')
-                    ->label('With Breakfast')
+                    ->label(__('tenant-prices.filters.with_breakfast'))
                     ->query(fn(Builder $query) => $query->where('is_include_breakfast', true)),
                 Filter::make('with_lunch')
-                    ->label('With Lunch')
+                    ->label(__('tenant-prices.filters.with_lunch'))
                     ->query(fn(Builder $query) => $query->where('is_include_lunch', true)),
                 Filter::make('with_dinner')
-                    ->label('With Dinner')
+                    ->label(__('tenant-prices.filters.with_dinner'))
                     ->query(fn(Builder $query) => $query->where('is_include_dinner', true)),
             ])
             ->defaultSort('valid_from', 'desc')
             ->headerActions([
                 CreateAction::make()
-                    ->label('Add Price')
+                    ->label(__('tenant-prices.actions.add_price'))
                     ->beforeFormFilled(function () {
                         $this->form->fill(['accommodation_id' => $this->ownerRecord->id]);
                     })
@@ -276,8 +280,8 @@ class TenantPricesRelationManager extends RelationManager
                         
                         if ($exists) {
                             \Filament\Notifications\Notification::make()
-                                ->title('Duplicate Price')
-                                ->body('A price with the same room category, date, and meal inclusion already exists.')
+                                ->title(__('tenant-prices.notifications.duplicate_price_title'))
+                                ->body(__('tenant-prices.notifications.duplicate_price_body'))
                                 ->danger()
                                 ->send();
                             

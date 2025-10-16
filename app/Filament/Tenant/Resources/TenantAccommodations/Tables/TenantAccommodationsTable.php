@@ -15,52 +15,52 @@ class TenantAccommodationsTable
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->label('Name')
+                    ->label(__('common-fields.name'))
                     ->searchable()
                     ->sortable()
                     ->badge()
                     ->color('primary'),
                 TextColumn::make('star_rating')
-                    ->label('Star Rating')
+                    ->label(__('common-fields.star_rating'))
                     ->badge()
                     ->color('warning')
-                    ->formatStateUsing(fn($state) => $state ? str_repeat('★', $state) : 'No rating'),
+                    ->formatStateUsing(fn($state) => $state ? str_repeat('★', $state) : __('tenant-accommodations.messages.no_rating')),
 
                 TextColumn::make('city.name')
-                    ->label('City')
+                    ->label(__('common-fields.city'))
                     ->searchable()
                     ->sortable()
                     ->badge()
                     ->color('success'),
                 TextColumn::make('district.name')
-                    ->label('District')
+                    ->label(__('common-fields.district'))
                     ->searchable()
                     ->sortable()
                     ->badge()
                     ->color('secondary'),
                 TextColumn::make('tenant_prices_count')
-                    ->label('Tenant Prices')
+                    ->label(__('tenant-accommodations.columns.tenant_prices'))
                     ->badge()
                     ->color('primary')
                     ->formatStateUsing(function ($record) {
-                        return ($record->tenant_prices_count ?? 0) . ' prices';
+                        return __('tenant-accommodations.messages.prices_count', ['count' => $record->tenant_prices_count ?? 0]);
                     }),
             ])
             ->filters([
                 SelectFilter::make('city_id')
-                    ->label('City')
+                    ->label(__('common-fields.city'))
                     ->relationship('city', 'name')
                     ->searchable()
                     ->preload()
                     ->multiple(),
                 SelectFilter::make('star_rating')
-                    ->label('Star Rating')
+                    ->label(__('common-fields.star_rating'))
                     ->options([
-                        1 => '1 Star',
-                        2 => '2 Stars', 
-                        3 => '3 Stars',
-                        4 => '4 Stars',
-                        5 => '5 Stars',
+                        1 => __('tenant-accommodations.filters.star_rating.1'),
+                        2 => __('tenant-accommodations.filters.star_rating.2'), 
+                        3 => __('tenant-accommodations.filters.star_rating.3'),
+                        4 => __('tenant-accommodations.filters.star_rating.4'),
+                        5 => __('tenant-accommodations.filters.star_rating.5'),
                     ])
                     ->multiple(),
             ])

@@ -14,28 +14,28 @@ class TenantAccommodationInfolist
     {
         return $schema
             ->schema([
-                Section::make('Basic Information')
-                    ->description('Accommodation basic details')
+                Section::make(__('tenant-accommodations.sections.basic_information.title'))
+                    ->description(__('tenant-accommodations.sections.basic_information.description'))
                     ->icon('heroicon-o-building-office')
                     ->schema([
                         Grid::make(2)
                             ->schema([
                                 TextEntry::make('name')
-                                    ->label('Name')
+                                    ->label(__('common-fields.name'))
                                     ->badge()
                                     ->color('primary'),
                                 TextEntry::make('star_rating')
-                                    ->label('Star Rating')
+                                    ->label(__('common-fields.star_rating'))
                                     ->badge()
                                     ->color('warning')
-                                    ->formatStateUsing(fn($state) => $state ? str_repeat('★', $state) : 'No rating'),
+                                    ->formatStateUsing(fn($state) => $state ? str_repeat('★', $state) : __('tenant-accommodations.messages.no_rating')),
                             ]),
                         TextEntry::make('content')
-                            ->label('Description')
+                            ->label(__('common-fields.description'))
                             ->html()
                             ->columnSpanFull(),
                         IconEntry::make('is_active')
-                            ->label('Active')
+                            ->label(__('common-fields.is_active'))
                             ->boolean()
                             ->trueIcon('heroicon-o-check-circle')
                             ->falseIcon('heroicon-o-x-circle')
@@ -45,32 +45,32 @@ class TenantAccommodationInfolist
                     ])
                     ->collapsible(),
 
-                Section::make('Location Information')
-                    ->description('Accommodation location details')
+                Section::make(__('tenant-accommodations.sections.location_information.title'))
+                    ->description(__('tenant-accommodations.sections.location_information.description'))
                     ->icon('heroicon-o-map-pin')
                     ->schema([
                         Grid::make(2)
                             ->schema([
                                 TextEntry::make('country.name')
-                                    ->label('Country')
+                                    ->label(__('common-fields.country'))
                                     ->badge()
                                     ->color('info'),
                                 TextEntry::make('city.name')
-                                    ->label('City')
+                                    ->label(__('common-fields.city'))
                                     ->badge()
                                     ->color('success'),
                             ]),
                         TextEntry::make('address')
-                            ->label('Address')
+                            ->label(__('common-fields.address'))
                             ->columnSpanFull(),
                         Grid::make(2)
                             ->schema([
                                 TextEntry::make('latitude')
-                                    ->label('Latitude')
+                                    ->label(__('common-fields.latitude'))
                                     ->badge()
                                     ->color('gray'),
                                 TextEntry::make('longitude')
-                                    ->label('Longitude')
+                                    ->label(__('common-fields.longitude'))
                                     ->badge()
                                     ->color('gray'),
                             ]),
