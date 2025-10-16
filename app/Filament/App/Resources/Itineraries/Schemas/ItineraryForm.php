@@ -35,7 +35,7 @@ class ItineraryForm
                 Repeater::make('days')
                     ->columnSpanFull()
                     ->columns(['md' => 2, 'lg' => 4])
-                    ->label('Days')
+                    ->label(__('app-itineraries.fields.days'))
                     ->live()
                     ->itemLabel(function (array $state, $component) {
                         // Get day number using a different approach
@@ -105,7 +105,7 @@ class ItineraryForm
                             }
                         }
                         
-                        $label = "Day {$dayNumber}";
+                        $label = __('app-itineraries.fields.day') . " {$dayNumber}";
                         
                         if ($cityName) {
                             $label .= " - {$cityName}";
@@ -147,27 +147,27 @@ class ItineraryForm
                     ->collapsed()
                     ->schema([
                         Select::make('current_city_id')
-                        ->label('Current City')
+                        ->label(__('app-itineraries.fields.current_city'))
                             ->options(City::getCachedSelectOptionsForTenant())
                             ->live()
-                            ->placeholder('Select a city'),
+                            ->placeholder(__('app-itineraries.placeholders.select_city')),
                         Select::make('accommodation_city_id')
-                            ->label('Accommodation City')
+                            ->label(__('app-itineraries.fields.accommodation_city'))
                             ->options(City::getCachedSelectOptionsForTenant())
                             ->live()
-                            ->placeholder('Select accommodation city')
+                            ->placeholder(__('app-itineraries.placeholders.select_accommodation_city'))
                             ->afterStateUpdated(function ($state, callable $set) {
                                 $set('accommodation_id', null);
                             }),
                         Select::make('accommodation_star_rating')
                             ->options(StarRatingEnum::getOptions())
-                            ->label('Star Rating')
+                            ->label(__('app-itineraries.fields.star_rating'))
                             ->reactive()
                             ->afterStateUpdated(function ($state, callable $set) {
                                 $set('accommodation_id', null);
                             }),
                         Select::make('accommodation_id')
-                            ->label('Accommodation')
+                            ->label(__('app-itineraries.fields.accommodation'))
                             ->options(function (callable $get) {
                                 $accommodationCityId = $get('accommodation_city_id');
                                 $starRating = $get('accommodation_star_rating');
@@ -198,7 +198,7 @@ class ItineraryForm
                                     }
                                 }
                             }),
-                        Toggle::make('has_vehicle')->label('Has Car')
+                        Toggle::make('has_vehicle')->label(__('app-itineraries.fields.has_car'))
                             ->reactive()
                             ->columnStart(1)
                             ->default(function (callable $get) {
@@ -219,7 +219,7 @@ class ItineraryForm
                             })
                             ->live(),
                         Toggle::make('has_companion')
-                            ->label('Has Companion')
+                            ->label(__('app-itineraries.fields.has_companion'))
                             ->default(false)
                             ->afterStateUpdated(function ($state, callable $set) {
                                 if ($state) {
@@ -230,12 +230,12 @@ class ItineraryForm
                                 }
                             })
                             ->live(),
-                        Select::make('breakfast')->options(MealType::getCachedSelectOptions())->columnStart(1),
-                        Select::make('lunch')->options(MealType::getCachedSelectOptions()),
-                        Select::make('dinner')->options(MealType::getCachedSelectOptions()),
+                        Select::make('breakfast')->label(__('common-fields.breakfast'))->options(MealType::getCachedSelectOptions())->columnStart(1),
+                        Select::make('lunch')->label(__('common-fields.lunch'))->options(MealType::getCachedSelectOptions()),
+                        Select::make('dinner')->label(__('common-fields.dinner'))->options(MealType::getCachedSelectOptions()),
 
                         Tabs::make('activities')->tabs([
-                            Tab::make('Attractions')
+                            Tab::make(__('app-itineraries.tabs.attractions'))
                                 ->badge(function (callable $get) {
                                     $attractions = $get('attractions') ?? [];
                                     return count($attractions);
@@ -246,17 +246,17 @@ class ItineraryForm
                                         ->defaultItems(0)
                                         ->columnStart(1)
                                         ->columnSpanFull()
-                                        ->label('Attractions')
+                                        ->label(__('app-itineraries.tabs.attractions'))
                                         ->table([
-                                            TableColumn::make('City'),
-                                            TableColumn::make('Attraction'),
-                                            TableColumn::make('Outview'),
-                                            TableColumn::make('Sub Attractions'),
+                                            TableColumn::make(__('app-itineraries.table_columns.city')),
+                                            TableColumn::make(__('app-itineraries.table_columns.attraction')),
+                                            TableColumn::make(__('app-itineraries.table_columns.outview')),
+                                            TableColumn::make(__('app-itineraries.table_columns.sub_attractions')),
                                         ])
                                         ->schema([
                                             Select::make('city_id')
                                                 ->required()
-                                                ->label('City')
+                                                ->label(__('common-fields.city'))
                                                 ->options(City::getCachedSelectOptionsForTenant())
                                                 ->reactive()
                                                 ->afterStateUpdated(function ($state, callable $set) {
@@ -265,7 +265,7 @@ class ItineraryForm
                                                 }),
 
                                             Select::make('attraction_id')
-                                                ->label('Main Attraction')
+                                                ->label(__('app-itineraries.fields.main_attraction'))
                                                 ->options(function (callable $get) {
                                                     $cityId = $get('city_id');
                                                     if (!$cityId) {
@@ -282,7 +282,7 @@ class ItineraryForm
                                                 })
                                                 ->rules(['required_with:city_id']),
                                             Toggle::make('is_outview')
-                                                ->label('Outview')
+                                                ->label(__('app-itineraries.fields.outview'))
                                                 ->reactive()
                                                 ->afterStateUpdated(function ($state, callable $set) {
                                                     // اگر outview فعال شد، sub_attractions رو پاک کن
@@ -292,7 +292,7 @@ class ItineraryForm
                                                 }),
 
                                             Select::make('sub_attractions')
-                                                ->label('Sub Attractions')
+                                                ->label(__('app-itineraries.fields.sub_attractions'))
                                                 ->multiple()
                                                 ->options(function (callable $get) {
                                                     $attractionId = $get('attraction_id');
@@ -309,11 +309,11 @@ class ItineraryForm
                                                 ->searchable()
                                                 ->preload(),
                                         ])
-                                        ->addActionLabel('Add Attraction')
+                                        ->addActionLabel(__('app-itineraries.actions.add_attraction'))
                                         ->reorderable()
                                         ->collapsible(),
                                 ]),
-                            Tab::make('Tickets')
+                            Tab::make(__('app-itineraries.tabs.tickets'))
                                 ->badge(function (callable $get) {
                                     $tickets = $get('tickets') ?? [];
                                     return count($tickets);
@@ -324,45 +324,45 @@ class ItineraryForm
                                         ->hiddenLabel()
                                         ->columnStart(1)
                                         ->columnSpanFull()
-                                        ->label('Tickets')
+                                        ->label(__('app-itineraries.tabs.tickets'))
                                         ->table([
-                                            TableColumn::make('Mode'),
-                                            TableColumn::make('From City'),
-                                            TableColumn::make('To City'),
-                                            TableColumn::make('Number'),
-                                            TableColumn::make('Class'),
-                                            TableColumn::make('Departure'),
-                                            TableColumn::make('Arrival'),
+                                            TableColumn::make(__('app-itineraries.table_columns.mode')),
+                                            TableColumn::make(__('app-itineraries.table_columns.from_city')),
+                                            TableColumn::make(__('app-itineraries.table_columns.to_city')),
+                                            TableColumn::make(__('app-itineraries.table_columns.number')),
+                                            TableColumn::make(__('app-itineraries.table_columns.class')),
+                                            TableColumn::make(__('app-itineraries.table_columns.departure')),
+                                            TableColumn::make(__('app-itineraries.table_columns.arrival')),
                                         ])
                                         ->schema([
                                             Select::make('transport_mode')
                                                 ->options(TransportModeEnum::class)
-                                                ->label('Mode')
+                                                ->label(__('app-itineraries.fields.mode'))
                                                 ->rules(['required_with:from_city_id']),
                                             Select::make('from_city_id')
                                                 ->options(City::getCachedSelectOptionsForTenant())
-                                                ->label('From City')
+                                                ->label(__('app-itineraries.fields.from_city'))
                                                 ->reactive()
                                                 ->afterStateUpdated(function ($state, callable $set) {
                                                     $set('to_city_id', null);
                                                 }),
                                             Select::make('to_city_id')
                                                 ->options(City::getCachedSelectOptionsForTenant())
-                                                ->label('To City')
+                                                ->label(__('app-itineraries.fields.to_city'))
                                                 ->rules(['required_with:from_city_id']),
-                                            TextInput::make('transport_number')->label('Number'),
+                                            TextInput::make('transport_number')->label(__('app-itineraries.fields.transport_number')),
                                             Select::make('class')
                                                 ->options(TicketClassEnum::class)
-                                                ->label('Class')
+                                                ->label(__('app-itineraries.fields.class'))
                                                 ->rules(['required_with:from_city_id']),
-                                            TimePicker::make('departure_time')->label('Departure')->seconds(false),
-                                            TimePicker::make('arrival_time')->label('Arrival')->seconds(false),
+                                            TimePicker::make('departure_time')->label(__('app-itineraries.fields.departure'))->seconds(false),
+                                            TimePicker::make('arrival_time')->label(__('app-itineraries.fields.arrival'))->seconds(false),
                                         ])
-                                        ->addActionLabel('Add Ticket')
+                                        ->addActionLabel(__('app-itineraries.actions.add_ticket'))
                                         ->reorderable(false)
                                         ->collapsible(),
                                 ]),
-                            Tab::make('Experiences')
+                            Tab::make(__('app-itineraries.tabs.experiences'))
                                 ->badge(function (callable $get) {
                                     $experiences = $get('experiences') ?? [];
                                     return count($experiences);
@@ -373,15 +373,15 @@ class ItineraryForm
                                         ->hiddenLabel()
                                         ->columnStart(1)
                                         ->columnSpanFull()
-                                        ->label('Experiences')
+                                        ->label(__('app-itineraries.tabs.experiences'))
                                         ->table([
-                                            TableColumn::make('City'),
-                                            TableColumn::make('Experience'),
+                                            TableColumn::make(__('app-itineraries.table_columns.city')),
+                                            TableColumn::make(__('app-itineraries.table_columns.experience')),
                                         ])
                                         ->schema([
                                             Select::make('city_id')
                                             ->required()
-                                                ->label('City')
+                                                ->label(__('common-fields.city'))
                                                 ->options(City::getCachedSelectOptionsForTenant())
                                                 ->reactive()
                                                 ->afterStateUpdated(function ($state, callable $set) {
@@ -389,7 +389,7 @@ class ItineraryForm
                                                 }),
 
                                             Select::make('experience_id')
-                                                ->label('Experience')
+                                                ->label(__('app-itineraries.table_columns.experience'))
                                                 ->rules(['required_with:city_id'])
                                                 ->options(function (callable $get) {
                                                     $cityId = $get('city_id');
@@ -405,17 +405,17 @@ class ItineraryForm
                                                 ->searchable()
                                                 ->preload(),
                                         ])
-                                        ->addActionLabel('Add Experience')
+                                        ->addActionLabel(__('app-itineraries.actions.add_experience'))
                                         ->reorderable()
                                         ->collapsible(),
                                             ]),
-                            Tab::make('Description')
+                            Tab::make(__('app-itineraries.tabs.description'))
                                 ->badge(function (callable $get) {
                                     $description = $get('description') ?? '';
                                     return !empty(trim($description)) ? '●' : null;
                                 })
                                 ->schema([
-                                Textarea::make('description')->label('Description'),
+                                Textarea::make('description')->label(__('app-itineraries.fields.description')),
                             ]),
 
                         ])->columnStart(1)->columnSpanFull(),

@@ -22,11 +22,35 @@ class ItineraryResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedMapPin;
 
-    protected static string|\UnitEnum|null $navigationGroup = 'Itineraries';
+    protected static string|\UnitEnum|null $navigationGroup = null;
 
     protected static ?int $navigationSort = 2;
 
-    protected static ?string $navigationLabel = 'All Itineraries';
+    protected static ?string $navigationLabel = null;
+
+    protected static ?string $modelLabel = null;
+
+    protected static ?string $pluralModelLabel = null;
+
+    public static function getNavigationGroup(): ?string
+    {
+        return __('app-itineraries.navigation_group');
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return __('app-itineraries.navigation_label');
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('app-itineraries.resource_name');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('app-itineraries.resource_name_plural');
+    }
 
     public static function getRecordTitle($record): string
     {
