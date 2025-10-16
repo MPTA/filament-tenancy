@@ -19,7 +19,7 @@ class MealTypesTable
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->label('Meal Type')
+                    ->label(__('tenant-meal-types.columns.meal_type'))
                     ->searchable()
                     ->sortable()
                     ->weight('bold')
@@ -27,46 +27,46 @@ class MealTypesTable
                     ->limit(30),
                 
                 TextColumn::make('slug')
-                    ->label('Slug')
+                    ->label(__('common-fields.slug'))
                     ->searchable()
                     ->sortable()
                     ->badge()
                     ->color('primary')
                     ->copyable()
-                    ->copyMessage('Slug copied')
-                    ->placeholder('No slug'),
+                    ->copyMessage(__('tenant-meal-types.messages.slug_copied'))
+                    ->placeholder(__('tenant-meal-types.placeholders.no_slug')),
                 
                 TextColumn::make('mealCategory.name')
-                    ->label('Category')
+                    ->label(__('common-fields.category'))
                     ->searchable()
                     ->sortable()
                     ->badge()
                     ->color('success')
-                    ->placeholder('No category'),
+                    ->placeholder(__('tenant-meal-types.placeholders.no_category')),
                 
                 TextColumn::make('price')
-                    ->label('Price')
+                    ->label(__('common-fields.price'))
                     ->money('USD')
                     ->sortable()
-                    ->placeholder('Not set')
+                    ->placeholder(__('tenant-meal-types.placeholders.not_set'))
                     ->alignCenter(),
                 
                 TextColumn::make('description')
-                    ->label('Description')
+                    ->label(__('common-fields.description'))
                     ->searchable()
                     ->limit(50)
-                    ->placeholder('No description')
+                    ->placeholder(__('tenant-meal-types.placeholders.no_description'))
                     ->wrap(),
                 
                 TextColumn::make('created_at')
-                    ->label('Created')
+                    ->label(__('common-fields.created_at'))
                     ->dateTime('M j, Y')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->alignCenter(),
                 
                 TextColumn::make('updated_at')
-                    ->label('Updated')
+                    ->label(__('common-fields.updated_at'))
                     ->dateTime('M j, Y')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true)
@@ -74,16 +74,16 @@ class MealTypesTable
             ])
             ->filters([
                 SelectFilter::make('meal_category_id')
-                    ->label('Meal Category')
+                    ->label(__('tenant-meal-types.filters.meal_category'))
                     ->relationship('mealCategory', 'name')
                     ->searchable()
                     ->preload(),
                 
                 SelectFilter::make('has_price')
-                    ->label('Has Price')
+                    ->label(__('tenant-meal-types.filters.has_price'))
                     ->options([
-                        'yes' => 'Has Price',
-                        'no' => 'No Price',
+                        'yes' => __('tenant-meal-types.filters.has_price_yes'),
+                        'no' => __('tenant-meal-types.filters.has_price_no'),
                     ])
                     ->query(function ($query, array $data) {
                         if ($data['value'] === 'yes') {
@@ -109,31 +109,31 @@ class MealTypesTable
                         ->requiresConfirmation(),
                     
                     BulkAction::make('export')
-                        ->label('Export Selected')
+                        ->label(__('tenant-meal-types.bulk_actions.export'))
                         ->icon('heroicon-o-arrow-down-tray')
                         ->action(function ($records) {
                             // Export logic can be implemented here
                             Notification::make()
-                                ->title('Export Started')
-                                ->body('Selected meal types will be exported.')
+                                ->title(__('tenant-meal-types.notifications.export_started_title'))
+                                ->body(__('tenant-meal-types.notifications.export_started_body'))
                                 ->success()
                                 ->send();
                         }),
                     
                     BulkAction::make('duplicate')
-                        ->label('Duplicate Selected')
+                        ->label(__('tenant-meal-types.bulk_actions.duplicate'))
                         ->icon('heroicon-o-document-duplicate')
                         ->action(function ($records) {
                             foreach ($records as $record) {
                                 $newRecord = $record->replicate();
-                                $newRecord->name = $record->name . ' (Copy)';
-                                $newRecord->slug = $record->slug . '-copy';
+                                $newRecord->name = $record->name . __('tenant-meal-types.messages.name_copy_suffix');
+                                $newRecord->slug = $record->slug . __('tenant-meal-types.messages.slug_copy_suffix');
                                 $newRecord->save();
                             }
                             
                             Notification::make()
-                                ->title('Duplication Complete')
-                                ->body('Selected meal types have been duplicated.')
+                                ->title(__('tenant-meal-types.notifications.duplication_complete_title'))
+                                ->body(__('tenant-meal-types.notifications.duplication_complete_body'))
                                 ->success()
                                 ->send();
                         }),

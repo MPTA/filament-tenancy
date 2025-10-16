@@ -27,13 +27,33 @@ class MealTypeResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'name';
 
-    protected static ?string $navigationLabel = 'Meal Types';
+    protected static ?string $navigationLabel = null;
 
-    protected static ?string $modelLabel = 'Meal Type';
+    protected static ?string $modelLabel = null;
 
-    protected static ?string $pluralModelLabel = 'Meal Types';
+    protected static ?string $pluralModelLabel = null;
 
-    protected static string | UnitEnum | null $navigationGroup = 'Data Types';
+    protected static string | UnitEnum | null $navigationGroup = null;
+
+    public static function getNavigationLabel(): string
+    {
+        return __('tenant-meal-types.navigation_label');
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('tenant-meal-types.resource_name');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('tenant-meal-types.resource_name_plural');
+    }
+
+    public static function getNavigationGroup(): ?string
+    {
+        return __('tenant-meal-types.navigation_group');
+    }
 
     protected static ?int $navigationSort = 1;
 
@@ -49,15 +69,15 @@ class MealTypeResource extends Resource
 
     public static function getGlobalSearchResultTitle($record): string
     {
-        return $record->name . ' (' . ($record->mealCategory->name ?? 'No Category') . ')';
+        return $record->name . ' (' . ($record->mealCategory->name ?? __('tenant-meal-types.placeholders.no_category')) . ')';
     }
 
     public static function getGlobalSearchResultDetails($record): array
     {
         return [
-            'Category' => $record->mealCategory->name ?? 'No category',
-            'Price' => $record->price ? '$' . number_format($record->price, 2) : 'Not specified',
-            'Description' => $record->description ? substr(strip_tags($record->description), 0, 50) . '...' : 'No description',
+            __('tenant-meal-types.global_search.category') => $record->mealCategory->name ?? __('tenant-meal-types.placeholders.no_category'),
+            __('tenant-meal-types.global_search.price') => $record->price ? '$' . number_format($record->price, 2) : __('tenant-meal-types.placeholders.not_specified'),
+            __('tenant-meal-types.global_search.description') => $record->description ? substr(strip_tags($record->description), 0, 50) . '...' : __('tenant-meal-types.placeholders.no_description'),
         ];
     }
 

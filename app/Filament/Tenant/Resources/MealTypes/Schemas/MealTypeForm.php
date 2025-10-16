@@ -15,15 +15,15 @@ class MealTypeForm
     {
         return $schema
             ->components([
-                Section::make('Meal Type Information')
-                    ->description('Enter the meal type details')
+                Section::make(__('tenant-meal-types.sections.meal_type_information.title'))
+                    ->description(__('tenant-meal-types.sections.meal_type_information.description'))
                     ->schema([
                         TextInput::make('name')
-                            ->label('Meal Type Name')
+                            ->label(__('tenant-meal-types.fields.meal_type_name'))
                             ->required()
                             ->maxLength(255)
-                            ->placeholder('e.g., Breakfast, Lunch, Dinner, Snack')
-                            ->helperText('Full name of the meal type')
+                            ->placeholder(__('tenant-meal-types.placeholders.name'))
+                            ->helperText(__('tenant-meal-types.helpers.name'))
                             ->live(onBlur: true)
                             ->afterStateUpdated(function ($state, $set) {
                                 if ($state) {
@@ -32,22 +32,22 @@ class MealTypeForm
                             }),
                         
                         TextInput::make('slug')
-                            ->label('Slug')
+                            ->label(__('common-fields.slug'))
                             ->required()
                             ->maxLength(255)
                             ->unique(ignoreRecord: true)
-                            ->placeholder('e.g., breakfast, lunch, dinner, snack')
-                            ->helperText('URL-friendly identifier (auto-generated from name)')
+                            ->placeholder(__('tenant-meal-types.placeholders.slug'))
+                            ->helperText(__('tenant-meal-types.helpers.slug'))
                             ->rules(['regex:/^[a-z0-9-]+$/']),
                         
                         Select::make('meal_category_id')
-                            ->label('Meal Category')
+                            ->label(__('tenant-meal-types.fields.meal_category'))
                             ->relationship('mealCategory', 'name')
                             ->required()
                             ->searchable()
                             ->preload()
-                            ->placeholder('Select a meal category')
-                            ->helperText('Category this meal type belongs to')
+                            ->placeholder(__('tenant-meal-types.placeholders.meal_category'))
+                            ->helperText(__('tenant-meal-types.helpers.meal_category'))
                             ->createOptionForm([
                                 TextInput::make('name')
                                     ->required()
@@ -55,23 +55,23 @@ class MealTypeForm
                             ]),
                         
                         Textarea::make('description')
-                            ->label('Description')
+                            ->label(__('common-fields.description'))
                             ->maxLength(1000)
-                            ->placeholder('Brief description of the meal type')
-                            ->helperText('Short description for listings and previews')
+                            ->placeholder(__('tenant-meal-types.placeholders.description'))
+                            ->helperText(__('tenant-meal-types.helpers.description'))
                             ->rows(3)
                             ->columnSpanFull(),
                     ])
                     ->columns(2),
                 
-                Section::make('Pricing Information')
-                    ->description('Set pricing for this meal type')
+                Section::make(__('tenant-meal-types.sections.pricing_information.title'))
+                    ->description(__('tenant-meal-types.sections.pricing_information.description'))
                     ->schema([
                         TextInput::make('price')
-                            ->label('Price')
+                            ->label(__('common-fields.price'))
                             ->prefix(fn() => tenant()->settings?->country?->currency?->symbol ?? '$')
-                            ->placeholder('0.00')
-                            ->helperText('Price for this meal type')
+                            ->placeholder(__('tenant-meal-types.placeholders.price'))
+                            ->helperText(__('tenant-meal-types.helpers.price'))
                             ->rules(['nullable', 'numeric', 'min:0'])
                             ->inputMode('decimal'),
                     ])
