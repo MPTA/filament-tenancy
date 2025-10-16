@@ -335,27 +335,27 @@
         <div class="cost-section">
             <div class="section-title">
                 <span>📋</span>
-                <span>Basic Information</span>
+                <span>{{ __('offer-report.sections.basic_information') }}</span>
             </div>
             <div class="cost-grid">
                 <div class="cost-item">
-                    <span class="cost-label">Vehicle Type</span>
+                    <span class="cost-label">{{ __('offer-report.fields.vehicle_type') }}</span>
                     <span class="cost-value">{{ $offer->vehicleType->name ?? 'N/A' }}</span>
                 </div>
                 <div class="cost-item">
-                    <span class="cost-label">PAX Quantity</span>
+                    <span class="cost-label">{{ __('offer-report.fields.pax_quantity') }}</span>
                     <span class="cost-value">{{ $offer->pax_qty }}</span>
                 </div>
                 <div class="cost-item">
-                    <span class="cost-label">Leaders Quantity</span>
+                    <span class="cost-label">{{ __('offer-report.fields.leaders_quantity') }}</span>
                     <span class="cost-value">{{ $offer->leaders_qty }}</span>
                 </div>
                 <div class="cost-item">
-                    <span class="cost-label">Drivers Quantity</span>
+                    <span class="cost-label">{{ __('offer-report.fields.drivers_quantity') }}</span>
                     <span class="cost-value">{{ $offer->drivers_qty }}</span>
                 </div>
                 <div class="cost-item">
-                    <span class="cost-label">Markup</span>
+                    <span class="cost-label">{{ __('offer-report.fields.markup') }}</span>
                     <span class="cost-value">{{ $offer->markup }}%</span>
                 </div>
             </div>
@@ -365,7 +365,7 @@
         <div class="cost-section">
             <div class="section-title">
                 <span>👤</span>
-                <span>Per Person Direct Costs</span>
+                <span>{{ __('offer-report.sections.per_person_direct_costs') }}</span>
             </div>
             
             @php
@@ -416,7 +416,7 @@
                 <div class="accordion-header" @click="open = !open" style="cursor: pointer;">
                     <div class="accordion-header-left">
                         <span>🎭</span>
-                        <span class="accordion-title">Attractions & Sub-Attractions</span>
+                        <span class="accordion-title">{{ __('offer-report.accordions.attractions_sub_attractions') }}</span>
                         <svg :class="{ 'open': open }" class="accordion-icon" width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
                         </svg>
@@ -459,7 +459,7 @@
                                 </div>
                             @endforeach
                         @else
-                            <div class="empty-state">No attractions</div>
+                            <div class="empty-state">{{ __('offer-report.messages.no_attractions') }}</div>
                         @endif
                     </div>
                 </div>
@@ -471,7 +471,7 @@
                 <div class="accordion-header" @click="open = !open" style="cursor: pointer;">
                     <div class="accordion-header-left">
                         <span>🍽️</span>
-                        <span class="accordion-title">Meals</span>
+                        <span class="accordion-title">{{ __('offer-report.accordions.meals') }}</span>
                         <svg :class="{ 'open': open }" class="accordion-icon" width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
                         </svg>
@@ -482,10 +482,10 @@
                     <div class="accordion-body">
                         @if($meals->count() > 0)
                             <div class="detail-header">
-                                <div>Meal Type</div>
-                                <div>Qty</div>
-                                <div>Unit Price</div>
-                                <div>Total</div>
+                                <div>{{ __('offer-report.fields.meal_type') }}</div>
+                                <div>{{ __('offer-report.fields.qty') }}</div>
+                                <div>{{ __('offer-report.fields.unit_price') }}</div>
+                                <div>{{ __('offer-report.fields.total') }}</div>
                             </div>
                             @foreach($meals as $meal)
                                 <div class="detail-item">
@@ -498,7 +498,7 @@
                                 </div>
                             @endforeach
                         @else
-                            <div class="empty-state">No meals</div>
+                            <div class="empty-state">{{ __('offer-report.messages.no_meals') }}</div>
                         @endif
                     </div>
                 </div>
@@ -509,7 +509,7 @@
                 <div class="accordion-header" @click="open = !open" style="cursor: pointer;">
                     <div class="accordion-header-left">
                         <span>🎫</span>
-                        <span class="accordion-title">Tickets</span>
+                        <span class="accordion-title">{{ __('offer-report.accordions.tickets') }}</span>
                         <svg :class="{ 'open': open }" class="accordion-icon" width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
                         </svg>
@@ -520,10 +520,10 @@
                     <div class="accordion-body">
                         @if($tickets->count() > 0)
                             <div class="detail-header">
-                                <div>Route</div>
-                                <div>Class</div>
+                                <div>{{ __('offer-report.fields.from_city') }} → {{ __('offer-report.fields.to_city') }}</div>
+                                <div>{{ __('offer-report.fields.class') }}</div>
                                 <div>-</div>
-                                <div>Price</div>
+                                <div>{{ __('offer-report.fields.price') }}</div>
                             </div>
                             @foreach($tickets as $ticket)
                                 <div class="detail-item">
@@ -538,7 +538,7 @@
                                 </div>
                             @endforeach
                         @else
-                            <div class="empty-state">No tickets</div>
+                            <div class="empty-state">{{ __('offer-report.messages.no_tickets') }}</div>
                         @endif
                     </div>
                 </div>
@@ -549,7 +549,7 @@
                 <div class="accordion-header" @click="open = !open" style="cursor: pointer;">
                     <div class="accordion-header-left">
                         <span>💰</span>
-                        <span class="accordion-title">Individual Expenses</span>
+                        <span class="accordion-title">{{ __('offer-report.accordions.individual_expenses') }}</span>
                         <svg :class="{ 'open': open }" class="accordion-icon" width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
                         </svg>
@@ -560,21 +560,21 @@
                     <div class="accordion-body">
                         @if($expenses->count() > 0)
                             <div class="detail-header">
-                                <div>Description</div>
-                                <div>Charge Mode</div>
+                                <div>{{ __('offer-report.fields.description') }}</div>
+                                <div>{{ __('offer-report.fields.charge_mode') }}</div>
                                 <div>-</div>
-                                <div>Price</div>
+                                <div>{{ __('offer-report.fields.price') }}</div>
                             </div>
                             @foreach($expenses as $expense)
                                 <div class="detail-item">
                                     <div class="detail-name">{{ $expense->description ?? 'N/A' }}</div>
-                                    <div class="detail-qty">{{ $expense->charge_mode?->label() ?? 'Per Person' }}</div>
+                                    <div class="detail-qty">{{ $expense->charge_mode?->label() ?? __('offer-report.messages.per_person') }}</div>
                                     <div class="detail-price">-</div>
                                     <div class="detail-total">{{ $bCurrency }}{{ number_format($expense->price, 2) }}</div>
                                 </div>
                             @endforeach
                         @else
-                            <div class="empty-state">No individual expenses</div>
+                            <div class="empty-state">{{ __('offer-report.messages.no_expenses') }}</div>
                         @endif
                     </div>
                 </div>
@@ -585,7 +585,7 @@
                 <div class="accordion-header" @click="open = !open" style="cursor: pointer;">
                     <div class="accordion-header-left">
                         <span>✨</span>
-                        <span class="accordion-title">Individual Experiences</span>
+                        <span class="accordion-title">{{ __('offer-report.accordions.individual_experiences') }}</span>
                         <svg :class="{ 'open': open }" class="accordion-icon" width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
                         </svg>
@@ -596,28 +596,28 @@
                     <div class="accordion-body">
                         @if($experiences->count() > 0)
                             <div class="detail-header">
-                                <div>Experience Name</div>
-                                <div>City</div>
-                                <div>Charge Mode</div>
-                                <div>Price</div>
+                                <div>{{ __('offer-report.fields.experience_name') }}</div>
+                                <div>{{ __('offer-report.fields.city') }}</div>
+                                <div>{{ __('offer-report.fields.charge_mode') }}</div>
+                                <div>{{ __('offer-report.fields.price') }}</div>
                             </div>
                             @foreach($experiences as $experience)
                                 <div class="detail-item">
                                     <div class="detail-name">{{ $experience->experience->name ?? 'N/A' }}</div>
                                     <div class="detail-qty">{{ $experience->experience->city->name ?? 'N/A' }}</div>
-                                    <div class="detail-price">{{ $experience->experience->charge_mode?->label() ?? 'Per Person' }}</div>
+                                    <div class="detail-price">{{ $experience->experience->charge_mode?->label() ?? __('offer-report.messages.per_person') }}</div>
                                     <div class="detail-total">{{ $bCurrency }}{{ number_format($experience->price, 2) }}</div>
                                 </div>
                             @endforeach
                         @else
-                            <div class="empty-state">No individual experiences</div>
+                            <div class="empty-state">{{ __('offer-report.messages.no_experiences') }}</div>
                         @endif
                     </div>
                 </div>
             </div>
             
             <div class="subtotal-row" style="margin-top: 16px;">
-                <span>👤 Subtotal (Per Person Direct)</span>
+                <span>👤 {{ __('offer-report.subtotals.per_person_direct') }}</span>
                 <span>{{ $bCurrency }}{{ number_format($perPersonTotal, 2) }}</span>
             </div>
         </div>
@@ -626,7 +626,7 @@
         <div class="cost-section">
             <div class="section-title">
                 <span>👥</span>
-                <span>Per Group Costs (÷ {{ $offer->pax_qty }} PAX)</span>
+                <span>{{ __('offer-report.subtotals.per_group_costs', ['pax' => $offer->pax_qty]) }}</span>
             </div>
             
             <!-- Vehicle & Driver Costs Accordion -->
@@ -634,7 +634,7 @@
                 <div class="accordion-header" @click="open = !open" style="cursor: pointer;">
                     <div class="accordion-header-left">
                         <span>🚗</span>
-                        <span class="accordion-title">Vehicle & Driver Costs ({{ $offer->drivers_qty }} driver{{ $offer->drivers_qty > 1 ? 's' : '' }})</span>
+                        <span class="accordion-title">{{ trans_choice('offer-report.sections.vehicle_driver_costs', $offer->drivers_qty, ['count' => $offer->drivers_qty]) }}</span>
                         <svg :class="{ 'open': open }" class="accordion-icon" width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
                         </svg>
@@ -646,20 +646,20 @@
                         <!-- Vehicle Costs -->
                         <div style="margin-bottom: 20px; padding: 12px; background: #f0f9ff; border-radius: 6px; border-left: 3px solid #0284c7;">
                             <div style="font-weight: 700; color: #0284c7; margin-bottom: 12px; font-size: 14px;">
-                                🚗 Vehicle Costs
+                                🚗 {{ __('offer-report.accordions.vehicle_details') }}
                             </div>
                             
                             @if($offer->vehicle_days_qty > 0 || $offer->vehicle_half_days_qty > 0 || $offer->vehicle_airport_transfers_qty > 0)
                                 <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; padding: 8px 12px; font-size: 12px; font-weight: 700; color: #6b7280; text-transform: uppercase; border-bottom: 2px solid #e0f2fe; margin-bottom: 8px;">
-                                    <div>Type</div>
-                                    <div style="text-align: center;">Qty</div>
-                                    <div style="text-align: right;">Unit Price</div>
-                                    <div style="text-align: right;">Total</div>
+                                    <div>{{ __('offer-report.fields.type') }}</div>
+                                    <div style="text-align: center;">{{ __('offer-report.fields.qty') }}</div>
+                                    <div style="text-align: right;">{{ __('offer-report.fields.unit_price') }}</div>
+                                    <div style="text-align: right;">{{ __('offer-report.fields.total') }}</div>
                                 </div>
                                 
                                 @if($offer->vehicle_days_qty > 0)
                                     <div class="detail-item" style="background: white;">
-                                        <div class="detail-name">Full Day</div>
+                                        <div class="detail-name">{{ __('offer-report.fields.full_day') }}</div>
                                         <div class="detail-qty">{{ $offer->vehicle_days_qty }}</div>
                                         <div class="detail-price">{{ $bCurrency }}{{ number_format($offer->vehicle_day_price, 2) }}</div>
                                         <div class="detail-total">{{ $bCurrency }}{{ number_format($offer->vehicle_days_qty * $offer->vehicle_day_price, 2) }}</div>
@@ -668,7 +668,7 @@
                                 
                                 @if($offer->vehicle_half_days_qty > 0)
                                     <div class="detail-item" style="background: white;">
-                                        <div class="detail-name">Half Day</div>
+                                        <div class="detail-name">{{ __('offer-report.fields.half_day') }}</div>
                                         <div class="detail-qty">{{ $offer->vehicle_half_days_qty }}</div>
                                         <div class="detail-price">{{ $bCurrency }}{{ number_format($offer->vehicle_half_day_price, 2) }}</div>
                                         <div class="detail-total">{{ $bCurrency }}{{ number_format($offer->vehicle_half_days_qty * $offer->vehicle_half_day_price, 2) }}</div>
@@ -677,7 +677,7 @@
                                 
                                 @if($offer->vehicle_airport_transfers_qty > 0)
                                     <div class="detail-item" style="background: white;">
-                                        <div class="detail-name">Airport Transfer / Hours</div>
+                                        <div class="detail-name">{{ __('offer-report.fields.airport_transfer_hours') }}</div>
                                         <div class="detail-qty">{{ $offer->vehicle_airport_transfers_qty }}</div>
                                         <div class="detail-price">{{ $bCurrency }}{{ number_format($offer->vehicle_airport_transfer_price, 2) }}</div>
                                         <div class="detail-total">{{ $bCurrency }}{{ number_format($offer->vehicle_airport_transfers_qty * $offer->vehicle_airport_transfer_price, 2) }}</div>
@@ -685,11 +685,11 @@
                                 @endif
                                 
                                 <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; padding: 10px 12px; background: #dbeafe; margin-top: 8px; border-radius: 4px; font-weight: 700; color: #0284c7;">
-                                    <div style="grid-column: 1 / 4; text-align: right;">👥 Vehicle Subtotal:</div>
+                                    <div style="grid-column: 1 / 4; text-align: right;">👥 {{ __('offer-report.subtotals.vehicle_subtotal') }}:</div>
                                     <div style="text-align: right; font-family: monospace;">{{ $bCurrency }}{{ number_format($offer->vehicle_cost, 2) }}</div>
                                 </div>
                             @else
-                                <div class="empty-state">No vehicle costs</div>
+                                <div class="empty-state">{{ __('offer-report.messages.no_expenses') }}</div>
                             @endif
                         </div>
                         
@@ -701,19 +701,19 @@
                         @if($driverMeals->count() > 0)
                             <div style="margin-bottom: 20px; padding: 12px; background: #fef3c7; border-radius: 6px; border-left: 3px solid #f59e0b;">
                                 <div style="font-weight: 700; color: #f59e0b; margin-bottom: 12px; font-size: 14px;">
-                                    🍽️ Driver Meals ({{ $offer->drivers_qty }} driver{{ $offer->drivers_qty > 1 ? 's' : '' }})
+                                    🍽️ {{ trans_choice('offer-report.accordion_subtitles.driver_meals', $offer->drivers_qty, ['count' => $offer->drivers_qty]) }}
                                 </div>
                                 
                                 <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; padding: 8px 12px; font-size: 12px; font-weight: 700; color: #6b7280; text-transform: uppercase; border-bottom: 2px solid #fde68a; margin-bottom: 8px;">
-                                    <div>Meal Type</div>
-                                    <div style="text-align: center;">Qty</div>
-                                    <div style="text-align: right;">Unit Price</div>
-                                    <div style="text-align: right;">Total</div>
+                                <div>{{ __('offer-report.fields.meal_type') }}</div>
+                                <div style="text-align: center;">{{ __('offer-report.fields.qty') }}</div>
+                                <div style="text-align: right;">{{ __('offer-report.fields.unit_price') }}</div>
+                                <div style="text-align: right;">{{ __('offer-report.fields.total') }}</div>
                                 </div>
                                 
                                 @foreach($driverMeals as $meal)
                                     <div class="detail-item" style="background: white;">
-                                        <div class="detail-name">{{ $meal->mealType?->name ?? 'Base Budget' }}</div>
+                                        <div class="detail-name">{{ $meal->mealType?->name ?? __('offer-report.messages.base_budget') }}</div>
                                         <div class="detail-qty">{{ $meal->qty }}</div>
                                         <div class="detail-price">{{ $bCurrency }}{{ number_format($meal->price, 2) }}</div>
                                         <div class="detail-total">{{ $bCurrency }}{{ number_format($meal->qty * $meal->price, 2) }}</div>
@@ -721,7 +721,7 @@
                                 @endforeach
                                 
                                 <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; padding: 10px 12px; background: #fde68a; margin-top: 8px; border-radius: 4px; font-weight: 700; color: #f59e0b;">
-                                    <div style="grid-column: 1 / 4; text-align: right;">👥 Driver Meals Subtotal:</div>
+                                    <div style="grid-column: 1 / 4; text-align: right;">👥 {{ __('offer-report.subtotals.driver_meals_subtotal') }}:</div>
                                     @php $driverMealsPerDriver = $driverMeals->sum(fn($m) => $m->qty * $m->price); @endphp
                                     <div style="text-align: right; font-family: monospace;">{{ $bCurrency }}{{ number_format($offer->driver_meals_cost, 2) }} <span style="font-size: 11px; color: #d97706;">({{ number_format($driverMealsPerDriver, 2) }} × {{ $offer->drivers_qty }} = {{ number_format($offer->driver_meals_cost, 2) }})</span></div>
                                 </div>
@@ -736,17 +736,17 @@
                         @if($driverAccommodations->count() > 0)
                             <div style="margin-bottom: 20px; padding: 12px; background: #fce7f3; border-radius: 6px; border-left: 3px solid #ec4899;">
                                 <div style="font-weight: 700; color: #ec4899; margin-bottom: 12px; font-size: 14px;">
-                                    🏨 Driver Accommodations ({{ $offer->drivers_qty }} driver{{ $offer->drivers_qty > 1 ? 's' : '' }})
+                                    🏨 {{ trans_choice('offer-report.accordion_subtitles.driver_accommodations', $offer->drivers_qty, ['count' => $offer->drivers_qty]) }}
                                     @if($offer->quotationOfferGroup->is_driver_stay_same_hotel && $offer->quotationOfferGroup->driverRoomCategory && $driverAccommodations->first()?->accommodation_id)
                                         <span style="font-size: 13px; color: #db2777; font-weight: 600;">({{ $offer->quotationOfferGroup->driverRoomCategory->category->getDisplayName() }})</span>
                                     @endif
                                 </div>
                                 
                                 <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; padding: 8px 12px; font-size: 12px; font-weight: 700; color: #6b7280; text-transform: uppercase; border-bottom: 2px solid #fbcfe8; margin-bottom: 8px;">
-                                    <div>Hotel / City</div>
-                                    <div style="text-align: center;">Nights</div>
-                                    <div style="text-align: right;">Night Price</div>
-                                    <div style="text-align: right;">Total</div>
+                                    <div>{{ __('offer-report.fields.hotel_city') }}</div>
+                                    <div style="text-align: center;">{{ __('offer-report.fields.nights') }}</div>
+                                    <div style="text-align: right;">{{ __('offer-report.fields.night_price') }}</div>
+                                    <div style="text-align: right;">{{ __('offer-report.fields.total') }}</div>
                                 </div>
                                 
                                 @foreach($driverAccommodations as $accommodation)
@@ -755,7 +755,7 @@
                                             @if($accommodation->accommodation_id)
                                                 {{ $accommodation->accommodation->name ?? 'N/A' }}
                                             @else
-                                                {{ $accommodation->city->name ?? 'Base Budget' }}
+                                                {{ $accommodation->city->name ?? __('offer-report.messages.base_budget') }}
                                             @endif
                                         </div>
                                         <div class="detail-qty">{{ $accommodation->nights }}</div>
@@ -765,7 +765,7 @@
                                 @endforeach
                                 
                                 <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; padding: 10px 12px; background: #fbcfe8; margin-top: 8px; border-radius: 4px; font-weight: 700; color: #ec4899;">
-                                    <div style="grid-column: 1 / 4; text-align: right;">👥 Driver Accommodations Subtotal:</div>
+                                    <div style="grid-column: 1 / 4; text-align: right;">👥 {{ __('offer-report.subtotals.driver_accommodations_subtotal') }}:</div>
                                     @php $driverAccomPerDriver = $driverAccommodations->sum(fn($a) => $a->nights * $a->night_price); @endphp
                                     <div style="text-align: right; font-family: monospace;">{{ $bCurrency }}{{ number_format($offer->driver_accommodations_cost, 2) }} <span style="font-size: 11px; color: #db2777;">({{ number_format($driverAccomPerDriver, 2) }} × {{ $offer->drivers_qty }} = {{ number_format($offer->driver_accommodations_cost, 2) }})</span></div>
                                 </div>
@@ -782,7 +782,7 @@
                 <div class="accordion-header" @click="open = !open" style="cursor: pointer;">
                     <div class="accordion-header-left">
                         <span>👨‍🏫</span>
-                        <span class="accordion-title">Leader Costs ({{ $offer->leaders_qty }} leader{{ $offer->leaders_qty > 1 ? 's' : '' }})</span>
+                        <span class="accordion-title">{{ trans_choice('offer-report.sections.leader_costs', $offer->leaders_qty, ['count' => $offer->leaders_qty]) }}</span>
                         <svg :class="{ 'open': open }" class="accordion-icon" width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
                         </svg>
@@ -799,14 +799,14 @@
                         @if($leaderMeals->count() > 0)
                             <div style="margin-bottom: 20px; padding: 12px; background: #fef3c7; border-radius: 6px; border-left: 3px solid #f59e0b;">
                                 <div style="font-weight: 700; color: #f59e0b; margin-bottom: 12px; font-size: 14px;">
-                                    🍽️ Leader Meals
+                                    🍽️ {{ __('offer-report.accordions.companion_meals') }}
                                 </div>
                                 
                                 <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; padding: 8px 12px; font-size: 12px; font-weight: 700; color: #6b7280; text-transform: uppercase; border-bottom: 2px solid #fde68a; margin-bottom: 8px;">
-                                    <div>Meal Type</div>
-                                    <div style="text-align: center;">Qty</div>
-                                    <div style="text-align: right;">Unit Price</div>
-                                    <div style="text-align: right;">Total</div>
+                                <div>{{ __('offer-report.fields.meal_type') }}</div>
+                                <div style="text-align: center;">{{ __('offer-report.fields.qty') }}</div>
+                                <div style="text-align: right;">{{ __('offer-report.fields.unit_price') }}</div>
+                                <div style="text-align: right;">{{ __('offer-report.fields.total') }}</div>
                                 </div>
                                 
                                 @foreach($leaderMeals as $meal)
@@ -819,7 +819,7 @@
                                 @endforeach
                                 
                                 <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; padding: 10px 12px; background: #fde68a; margin-top: 8px; border-radius: 4px; font-weight: 700; color: #f59e0b;">
-                                    <div style="grid-column: 1 / 4; text-align: right;">👥 Leader Meals Subtotal:</div>
+                                    <div style="grid-column: 1 / 4; text-align: right;">👥 {{ __('offer-report.subtotals.leader_meals_subtotal') }}:</div>
                                     @php $leaderMealsPerLeader = $leaderMeals->sum(fn($m) => $m->qty * $m->price); @endphp
                                     <div style="text-align: right; font-family: monospace;">{{ $bCurrency }}{{ number_format($offer->leader_meals_cost, 2) }} <span style="font-size: 11px; color: #d97706;">({{ number_format($leaderMealsPerLeader, 2) }} × {{ $offer->leaders_qty }} = {{ number_format($offer->leader_meals_cost, 2) }})</span></div>
                                 </div>
@@ -834,7 +834,7 @@
                         @if($leaderAttractions->count() > 0)
                             <div style="margin-bottom: 20px; padding: 12px; background: #f3e8ff; border-radius: 6px; border-left: 3px solid #a855f7;">
                                 <div style="font-weight: 700; color: #a855f7; margin-bottom: 12px; font-size: 14px;">
-                                    🎭 Leader Attractions & Sub-Attractions
+                                    🎭 {{ __('offer-report.accordion_subtitles.leader_attractions_sub_attractions') }}
                                 </div>
                                 
                                 @foreach($leaderAttractions as $attraction)
@@ -869,7 +869,7 @@
                                 @endforeach
                                 
                                 <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; padding: 10px 12px; background: #f3e8ff; margin-top: 8px; border-radius: 4px; font-weight: 700; color: #a855f7;">
-                                    <div style="grid-column: 1 / 4; text-align: right;">👥 Leader Attractions & Sub-Attractions Subtotal:</div>
+                                    <div style="grid-column: 1 / 4; text-align: right;">👥 {{ __('offer-report.subtotals.leader_attractions_sub_attractions_subtotal') }}:</div>
                                     @php $leaderAttractionsPerLeader = $leaderAttractions->sum(fn($a) => $a->price + $a->subAttractions->sum("price")); @endphp
                                     <div style="text-align: right; font-family: monospace;">{{ $bCurrency }}{{ number_format($offer->leader_attractions_cost + $offer->leader_sub_attractions_cost, 2) }} <span style="font-size: 11px; color: #9333ea;">({{ number_format($leaderAttractionsPerLeader, 2) }} × {{ $offer->leaders_qty }} = {{ number_format($offer->leader_attractions_cost + $offer->leader_sub_attractions_cost, 2) }})</span></div>
                                 </div>
@@ -884,13 +884,13 @@
                         @if($leaderTickets->count() > 0)
                             <div style="margin-bottom: 20px; padding: 12px; background: #dbeafe; border-radius: 6px; border-left: 3px solid #3b82f6;">
                                 <div style="font-weight: 700; color: #3b82f6; margin-bottom: 12px; font-size: 14px;">
-                                    🎫 Leader Tickets
+                                    🎫 {{ __('offer-report.accordions.companion_tickets') }}
                                 </div>
                                 
                                 <div style="display: grid; grid-template-columns: 3fr 1fr 1fr; gap: 12px; padding: 8px 12px; font-size: 12px; font-weight: 700; color: #6b7280; text-transform: uppercase; border-bottom: 2px solid #bfdbfe; margin-bottom: 8px;">
-                                    <div>Route</div>
-                                    <div style="text-align: center;">Class</div>
-                                    <div style="text-align: right;">Price</div>
+                                <div>{{ __('offer-report.fields.route') }}</div>
+                                <div style="text-align: center;">{{ __('offer-report.fields.class') }}</div>
+                                <div style="text-align: right;">{{ __('offer-report.fields.price') }}</div>
                                 </div>
                                 
                                 @foreach($leaderTickets as $ticket)
@@ -919,14 +919,14 @@
                         @if($leaderExperiences->count() > 0)
                             <div style="margin-bottom: 20px; padding: 12px; background: #fce7f3; border-radius: 6px; border-left: 3px solid #ec4899;">
                                 <div style="font-weight: 700; color: #ec4899; margin-bottom: 12px; font-size: 14px;">
-                                    ✨ Leader Experiences
+                                    ✨ {{ __('offer-report.accordions.companion_experiences') }}
                                 </div>
                                 
                                 <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; padding: 8px 12px; font-size: 12px; font-weight: 700; color: #6b7280; text-transform: uppercase; border-bottom: 2px solid #fbcfe8; margin-bottom: 8px;">
-                                    <div>Experience Name</div>
-                                    <div style="text-align: center;">City</div>
-                                    <div style="text-align: center;">Charge Mode</div>
-                                    <div style="text-align: right;">Price</div>
+                                <div>{{ __('offer-report.fields.experience_name') }}</div>
+                                <div style="text-align: center;">{{ __('offer-report.fields.city') }}</div>
+                                <div style="text-align: center;">{{ __('offer-report.fields.charge_mode') }}</div>
+                                <div style="text-align: right;">{{ __('offer-report.fields.price') }}</div>
                                 </div>
                                 
                                 @foreach($leaderExperiences as $experience)
@@ -939,7 +939,7 @@
                                 @endforeach
                                 
                                 <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; padding: 10px 12px; background: #fbcfe8; margin-top: 8px; border-radius: 4px; font-weight: 700; color: #ec4899;">
-                                    <div style="grid-column: 1 / 4; text-align: right;">👥 Leader Experiences Subtotal:</div>
+                                    <div style="grid-column: 1 / 4; text-align: right;">👥 {{ __('offer-report.subtotals.leader_experiences_subtotal') }}:</div>
                                     @php $leaderExperiencesPerLeader = $leaderExperiences->sum("price"); @endphp
                                     <div style="text-align: right; font-family: monospace;">{{ $bCurrency }}{{ number_format($offer->leader_experiences_cost, 2) }} <span style="font-size: 11px; color: #db2777;">({{ number_format($leaderExperiencesPerLeader, 2) }} × {{ $offer->leaders_qty }} = {{ number_format($offer->leader_experiences_cost, 2) }})</span></div>
                                 </div>
@@ -954,12 +954,12 @@
                         @if($leaderExpenses->count() > 0)
                             <div style="margin-bottom: 20px; padding: 12px; background: #fef9c3; border-radius: 6px; border-left: 3px solid #eab308;">
                                 <div style="font-weight: 700; color: #eab308; margin-bottom: 12px; font-size: 14px;">
-                                    💰 Leader Expenses
+                                    💰 {{ __('offer-report.accordions.companion_expenses') }}
                                 </div>
                                 
                                 <div style="display: grid; grid-template-columns: 3fr 1fr; gap: 12px; padding: 8px 12px; font-size: 12px; font-weight: 700; color: #6b7280; text-transform: uppercase; border-bottom: 2px solid #fef08a; margin-bottom: 8px;">
-                                    <div>Description</div>
-                                    <div style="text-align: right;">Price</div>
+                                <div>{{ __('offer-report.fields.description') }}</div>
+                                <div style="text-align: right;">{{ __('offer-report.fields.price') }}</div>
                                 </div>
                                 
                                 @foreach($leaderExpenses as $expense)
@@ -985,14 +985,14 @@
                         @if($leaderAccommodations->count() > 0)
                             <div style="margin-bottom: 20px; padding: 12px; background: #f0fdf4; border-radius: 6px; border-left: 3px solid #22c55e;">
                                 <div style="font-weight: 700; color: #22c55e; margin-bottom: 12px; font-size: 14px;">
-                                    🏨 Leader Accommodations @if($offer->leaderRoomCategory) <span style="font-size: 13px; color: #16a34a; font-weight: 600;">({{ $offer->leaderRoomCategory->category->getDisplayName() }})</span>@endif
+                                    🏨 {{ __('offer-report.accordions.companion_accommodations') }} @if($offer->leaderRoomCategory) <span style="font-size: 13px; color: #16a34a; font-weight: 600;">({{ $offer->leaderRoomCategory->category->getDisplayName() }})</span>@endif
                                 </div>
                                 
                                 <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; padding: 8px 12px; font-size: 12px; font-weight: 700; color: #6b7280; text-transform: uppercase; border-bottom: 2px solid #bbf7d0; margin-bottom: 8px;">
-                                    <div>Hotel</div>
-                                    <div style="text-align: center;">Nights</div>
-                                    <div style="text-align: right;">Night Price</div>
-                                    <div style="text-align: right;">Total</div>
+                                <div>{{ __('offer-report.fields.hotel') }}</div>
+                                <div style="text-align: center;">{{ __('offer-report.fields.nights') }}</div>
+                                <div style="text-align: right;">{{ __('offer-report.fields.night_price') }}</div>
+                                <div style="text-align: right;">{{ __('offer-report.fields.total') }}</div>
                                 </div>
                                 
                                 @foreach($leaderAccommodations as $accommodation)
@@ -1005,7 +1005,7 @@
                                 @endforeach
                                 
                                 <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; padding: 10px 12px; background: #bbf7d0; margin-top: 8px; border-radius: 4px; font-weight: 700; color: #22c55e;">
-                                    <div style="grid-column: 1 / 4; text-align: right;">👥 Leader Accommodations Subtotal:</div>
+                                    <div style="grid-column: 1 / 4; text-align: right;">👥 {{ __('offer-report.subtotals.leader_accommodations_subtotal') }}:</div>
                                     @php $leaderAccomPerLeader = $leaderAccommodations->sum(fn($a) => $a->nights * $a->night_price); @endphp
                                     <div style="text-align: right; font-family: monospace;">{{ $bCurrency }}{{ number_format($offer->leader_accommodations_cost, 2) }} <span style="font-size: 11px; color: #16a34a;">({{ number_format($leaderAccomPerLeader, 2) }} × {{ $offer->leaders_qty }} = {{ number_format($offer->leader_accommodations_cost, 2) }})</span></div>
                                 </div>
@@ -1028,7 +1028,7 @@
                     <div class="accordion-header" @click="open = !open" style="cursor: pointer;">
                         <div class="accordion-header-left">
                             <span>👨‍💼</span>
-                            <span class="accordion-title">Companions (Tour Staff) Costs ({{ $companions->count() }} companion{{ $companions->count() > 1 ? 's' : '' }})</span>
+                            <span class="accordion-title">{{ trans_choice('offer-report.sections.companions_tour_staff_costs', $companions->count(), ['count' => $companions->count()]) }}</span>
                             <svg :class="{ 'open': open }" class="accordion-icon" width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
                             </svg>
@@ -1061,7 +1061,7 @@
                                 <!-- Companion Header -->
                                 <div style="display: flex; justify-content: space-between; align-items: center; background: #fff7ed; padding: 12px; border-radius: 6px; margin-bottom: 16px; border-left: 3px solid #f59e0b;">
                                     <div style="font-weight: 700; color: #ea580c; font-size: 15px;">
-                                        👤 Companion {{ $loop->iteration }}: {{ $companion->companionType->name ?? 'Unknown' }}
+                                        👤 {{ __('offer-report.messages.companion_header', ['number' => $loop->iteration, 'name' => $companion->companionType->name ?? __('offer-report.messages.unknown')]) }}
                                         @if($companion->livingCity)
                                             <span style="font-weight: 400; color: #a16207; font-size: 13px; margin-left: 8px;">
                                                 (📍 {{ $companion->livingCity->name }})
@@ -1076,18 +1076,18 @@
                                     <!-- Salary -->
                                     @if($companionSalary > 0)
                                         <div style="background: white; padding: 12px; border-radius: 6px; margin-bottom: 20px; border-left: 3px solid #84cc16;">
-                                            <div style="font-weight: 600; color: #4d7c0f; margin-bottom: 12px; font-size: 14px;">💼 Salary</div>
+                                            <div style="font-weight: 600; color: #4d7c0f; margin-bottom: 12px; font-size: 14px;">💼 {{ __('offer-report.accordion_subtitles.salary') }}</div>
                                             
                                             <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; padding: 8px 12px; font-size: 12px; font-weight: 700; color: #6b7280; text-transform: uppercase; border-bottom: 2px solid #ecfccb; margin-bottom: 8px;">
-                                                <div>Type</div>
-                                                <div style="text-align: center;">Qty</div>
-                                                <div style="text-align: right;">Unit Price</div>
-                                                <div style="text-align: right;">Total</div>
+                                                <div>{{ __('offer-report.fields.type') }}</div>
+                                                <div style="text-align: center;">{{ __('offer-report.fields.qty') }}</div>
+                                                <div style="text-align: right;">{{ __('offer-report.fields.unit_price') }}</div>
+                                                <div style="text-align: right;">{{ __('offer-report.fields.total') }}</div>
                                             </div>
                                             
                                             @if($companion->full_days_qty > 0)
                                                 <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; padding: 8px 12px; font-size: 12px; border-bottom: 2px solid #f7fee7;">
-                                                    <span style="color: #6b7280;">Full Days</span>
+                                                    <span style="color: #6b7280;">{{ __('offer-report.messages.full_days') }}</span>
                                                     <span style="text-align: center; color: #6b7280;">{{ $companion->full_days_qty }}</span>
                                                     <span style="text-align: right; color: #6b7280; font-family: monospace;">{{ $bCurrency }}{{ number_format($companion->day_price, 2) }}</span>
                                                     <span style="text-align: right; font-weight: 700; font-family: monospace;">{{ $bCurrency }}{{ number_format($companion->full_days_qty * $companion->day_price, 2) }}</span>
@@ -1095,7 +1095,7 @@
                                             @endif
                                             @if($companion->half_days_qty > 0)
                                                 <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; padding: 8px 12px; font-size: 12px;">
-                                                    <span style="color: #6b7280;">Half Days</span>
+                                                    <span style="color: #6b7280;">{{ __('offer-report.messages.half_days') }}</span>
                                                     <span style="text-align: center; color: #6b7280;">{{ $companion->half_days_qty }}</span>
                                                     <span style="text-align: right; color: #6b7280; font-family: monospace;">{{ $bCurrency }}{{ number_format($companion->half_day_price, 2) }}</span>
                                                     <span style="text-align: right; font-weight: 700; font-family: monospace;">{{ $bCurrency }}{{ number_format($companion->half_days_qty * $companion->half_day_price, 2) }}</span>
@@ -1103,7 +1103,7 @@
                                             @endif
                                             
                                             <div style="text-align: right; margin-top: 8px; padding-top: 8px; border-top: 2px solid #ecfccb; font-weight: 700; color: #4d7c0f; font-family: monospace;">
-                                                👥 Salary Total: {{ $bCurrency }}{{ number_format($companionSalary, 2) }}
+                                                👥 {{ __('offer-report.subtotals.salary_total') }}: {{ $bCurrency }}{{ number_format($companionSalary, 2) }}
                                             </div>
                                         </div>
                                     @endif
@@ -1111,18 +1111,18 @@
                                     <!-- Meals Details -->
                                     @if($companion->meals && $companion->meals->count() > 0)
                                         <div style="background: white; padding: 12px; border-radius: 6px; margin-bottom: 20px; border-left: 3px solid #fbbf24;">
-                                            <div style="font-weight: 600; color: #d97706; margin-bottom: 12px; font-size: 14px;">🍽️ Meals</div>
+                                            <div style="font-weight: 600; color: #d97706; margin-bottom: 12px; font-size: 14px;">🍽️ {{ __('offer-report.accordion_subtitles.meals') }}</div>
                                             
                                             <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; padding: 8px 12px; font-size: 12px; font-weight: 700; color: #6b7280; text-transform: uppercase; border-bottom: 2px solid #fef3c7; margin-bottom: 8px;">
-                                                <div>Meal Type</div>
-                                                <div style="text-align: center;">Qty</div>
-                                                <div style="text-align: right;">Unit Price</div>
-                                                <div style="text-align: right;">Total</div>
+                                <div>{{ __('offer-report.fields.meal_type') }}</div>
+                                <div style="text-align: center;">{{ __('offer-report.fields.qty') }}</div>
+                                <div style="text-align: right;">{{ __('offer-report.fields.unit_price') }}</div>
+                                <div style="text-align: right;">{{ __('offer-report.fields.total') }}</div>
                                             </div>
                                             
                                             @foreach($companion->meals as $meal)
                                                 <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; padding: 8px 12px; font-size: 12px; border-bottom: 2px solid #fffbeb;">
-                                                    <span style="color: #6b7280;">{{ $meal->mealType?->name ?? 'Base Budget' }}</span>
+                                                    <span style="color: #6b7280;">{{ $meal->mealType?->name ?? __('offer-report.messages.base_budget') }}</span>
                                                     <span style="text-align: center; color: #6b7280;">{{ $meal->qty }}</span>
                                                     <span style="text-align: right; color: #6b7280; font-family: monospace;">{{ $bCurrency }}{{ number_format($meal->price, 2) }}</span>
                                                     <span style="text-align: right; font-weight: 700; font-family: monospace;">{{ $bCurrency }}{{ number_format($meal->qty * $meal->price, 2) }}</span>
@@ -1130,7 +1130,7 @@
                                             @endforeach
                                             
                                             <div style="text-align: right; margin-top: 8px; padding-top: 8px; border-top: 2px solid #fef3c7; font-weight: 700; color: #d97706; font-family: monospace;">
-                                                👥 Meals Total: {{ $bCurrency }}{{ number_format($companionMealsCost, 2) }}
+                                                👥 {{ __('offer-report.subtotals.meals_total') }}: {{ $bCurrency }}{{ number_format($companionMealsCost, 2) }}
                                             </div>
                                         </div>
                                     @endif
@@ -1139,17 +1139,17 @@
                                     @if($companion->accommodations && $companion->accommodations->count() > 0)
                                         <div style="background: white; padding: 12px; border-radius: 6px; margin-bottom: 20px; border-left: 3px solid #f472b6;">
                                             <div style="font-weight: 600; color: #db2777; margin-bottom: 12px; font-size: 14px;">
-                                                🏨 Accommodations
+                                                🏨 {{ __('offer-report.accordion_subtitles.accommodations') }}
                                                 @if($companion->is_stay_same_hotel && $companion->roomCategory && $companion->accommodations->first()?->accommodation_id)
                                                     <span style="font-size: 13px; color: #ec4899; font-weight: 600;">({{ $companion->roomCategory->category->getDisplayName() }})</span>
                                                 @endif
                                             </div>
                                             
                                             <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; padding: 8px 12px; font-size: 12px; font-weight: 700; color: #6b7280; text-transform: uppercase; border-bottom: 2px solid #fce7f3; margin-bottom: 8px;">
-                                                <div>Hotel/City</div>
-                                                <div style="text-align: center;">Nights</div>
-                                                <div style="text-align: right;">Night Price</div>
-                                                <div style="text-align: right;">Total</div>
+                                                <div>{{ __('offer-report.messages.hotel_city') }}</div>
+                                                <div style="text-align: center;">{{ __('offer-report.fields.nights') }}</div>
+                                                <div style="text-align: right;">{{ __('offer-report.fields.night_price') }}</div>
+                                                <div style="text-align: right;">{{ __('offer-report.fields.total') }}</div>
                                             </div>
                                             
                                             @foreach($companion->accommodations as $accommodation)
@@ -1158,7 +1158,7 @@
                                                         @if($accommodation->accommodation_id)
                                                             {{ $accommodation->accommodation->name ?? 'N/A' }}
                                                         @else
-                                                            Base Budget
+                                                            {{ __('offer-report.messages.base_budget') }}
                                                         @endif
                                                     </span>
                                                     <span style="text-align: center; color: #6b7280;">{{ $accommodation->nights }}</span>
@@ -1168,7 +1168,7 @@
                                             @endforeach
                                             
                                             <div style="text-align: right; margin-top: 8px; padding-top: 8px; border-top: 2px solid #fce7f3; font-weight: 700; color: #db2777; font-family: monospace;">
-                                                👥 Accommodations Total: {{ $bCurrency }}{{ number_format($companionAccommodationsCost, 2) }}
+                                                👥 {{ __('offer-report.subtotals.accommodations_total') }}: {{ $bCurrency }}{{ number_format($companionAccommodationsCost, 2) }}
                                             </div>
                                         </div>
                                     @endif
@@ -1176,7 +1176,7 @@
                                     <!-- Attractions Details -->
                                     @if($companion->attractions && $companion->attractions->count() > 0)
                                         <div style="background: white; padding: 12px; border-radius: 6px; margin-bottom: 20px; border-left: 3px solid #a78bfa;">
-                                            <div style="font-weight: 600; color: #7c3aed; margin-bottom: 12px; font-size: 14px;">🎭 Attractions & Sub-Attractions</div>
+                                            <div style="font-weight: 600; color: #7c3aed; margin-bottom: 12px; font-size: 14px;">🎭 {{ __('offer-report.accordion_subtitles.attractions_sub_attractions') }}</div>
                                             
                                             @foreach($companion->attractions as $attraction)
                                                 <!-- Main Attraction -->
@@ -1209,7 +1209,7 @@
                                             @endforeach
                                             
                                             <div style="text-align: right; margin-top: 8px; padding-top: 8px; border-top: 2px solid #f3e8ff; font-weight: 700; color: #7c3aed; font-family: monospace;">
-                                                👥 Attractions Total: {{ $bCurrency }}{{ number_format($companionAttractionsCost + $companionSubAttractionsCost, 2) }}
+                                                👥 {{ __('offer-report.subtotals.attractions_total') }}: {{ $bCurrency }}{{ number_format($companionAttractionsCost + $companionSubAttractionsCost, 2) }}
                                             </div>
                                         </div>
                                     @endif
@@ -1217,12 +1217,12 @@
                                     <!-- Tickets Details -->
                                     @if($companion->tickets && $companion->tickets->count() > 0)
                                         <div style="background: white; padding: 12px; border-radius: 6px; margin-bottom: 20px; border-left: 3px solid #60a5fa;">
-                                            <div style="font-weight: 600; color: #2563eb; margin-bottom: 12px; font-size: 14px;">🎫 Tickets</div>
+                                            <div style="font-weight: 600; color: #2563eb; margin-bottom: 12px; font-size: 14px;">🎫 {{ __('offer-report.accordion_subtitles.tickets') }}</div>
                                             
                                             <div style="display: grid; grid-template-columns: 3fr 1fr 1fr; gap: 12px; padding: 8px 12px; font-size: 12px; font-weight: 700; color: #6b7280; text-transform: uppercase; border-bottom: 2px solid #dbeafe; margin-bottom: 8px;">
-                                                <div>Route</div>
-                                                <div style="text-align: center;">Class</div>
-                                                <div style="text-align: right;">Price</div>
+                                <div>{{ __('offer-report.fields.route') }}</div>
+                                <div style="text-align: center;">{{ __('offer-report.fields.class') }}</div>
+                                <div style="text-align: right;">{{ __('offer-report.fields.price') }}</div>
                                             </div>
                                             
                                             @foreach($companion->tickets as $ticket)
@@ -1234,7 +1234,7 @@
                                             @endforeach
                                             
                                             <div style="text-align: right; margin-top: 8px; padding-top: 8px; border-top: 2px solid #dbeafe; font-weight: 700; color: #2563eb; font-family: monospace;">
-                                                👥 Tickets Total: {{ $bCurrency }}{{ number_format($companionTicketsCost, 2) }}
+                                                👥 {{ __('offer-report.subtotals.tickets_total') }}: {{ $bCurrency }}{{ number_format($companionTicketsCost, 2) }}
                                             </div>
                                         </div>
                                     @endif
@@ -1242,13 +1242,13 @@
                                     <!-- Experiences Details -->
                                     @if($companion->experiences && $companion->experiences->count() > 0)
                                         <div style="background: white; padding: 12px; border-radius: 6px; margin-bottom: 20px; border-left: 3px solid #fb923c;">
-                                            <div style="font-weight: 600; color: #ea580c; margin-bottom: 12px; font-size: 14px;">✨ Experiences</div>
+                                            <div style="font-weight: 600; color: #ea580c; margin-bottom: 12px; font-size: 14px;">✨ {{ __('offer-report.accordion_subtitles.experiences') }}</div>
                                             
                                             <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; padding: 8px 12px; font-size: 12px; font-weight: 700; color: #6b7280; text-transform: uppercase; border-bottom: 2px solid #ffedd5; margin-bottom: 8px;">
-                                                <div>Experience Name</div>
-                                                <div style="text-align: center;">City</div>
-                                                <div style="text-align: center;">Charge Mode</div>
-                                                <div style="text-align: right;">Price</div>
+                                <div>{{ __('offer-report.fields.experience_name') }}</div>
+                                <div style="text-align: center;">{{ __('offer-report.fields.city') }}</div>
+                                <div style="text-align: center;">{{ __('offer-report.fields.charge_mode') }}</div>
+                                <div style="text-align: right;">{{ __('offer-report.fields.price') }}</div>
                                             </div>
                                             
                                             @foreach($companion->experiences as $experience)
@@ -1261,7 +1261,7 @@
                                             @endforeach
                                             
                                             <div style="text-align: right; margin-top: 8px; padding-top: 8px; border-top: 2px solid #ffedd5; font-weight: 700; color: #ea580c; font-family: monospace;">
-                                                👥 Experiences Total: {{ $bCurrency }}{{ number_format($companionExperiencesCost, 2) }}
+                                                👥 {{ __('offer-report.subtotals.experiences_total_companion') }}: {{ $bCurrency }}{{ number_format($companionExperiencesCost, 2) }}
                                             </div>
                                         </div>
                                     @endif
@@ -1269,11 +1269,11 @@
                                     <!-- Expenses Details -->
                                     @if($companion->expenses && $companion->expenses->count() > 0)
                                         <div style="background: white; padding: 12px; border-radius: 6px; margin-bottom: 20px; border-left: 3px solid #34d399;">
-                                            <div style="font-weight: 600; color: #059669; margin-bottom: 12px; font-size: 14px;">💰 Expenses</div>
+                                            <div style="font-weight: 600; color: #059669; margin-bottom: 12px; font-size: 14px;">💰 {{ __('offer-report.accordion_subtitles.expenses') }}</div>
                                             
                                             <div style="display: grid; grid-template-columns: 3fr 1fr; gap: 12px; padding: 8px 12px; font-size: 12px; font-weight: 700; color: #6b7280; text-transform: uppercase; border-bottom: 2px solid #d1fae5; margin-bottom: 8px;">
-                                                <div>Description</div>
-                                                <div style="text-align: right;">Price</div>
+                                <div>{{ __('offer-report.fields.description') }}</div>
+                                <div style="text-align: right;">{{ __('offer-report.fields.price') }}</div>
                                             </div>
                                             
                                             @foreach($companion->expenses as $expense)
@@ -1284,7 +1284,7 @@
                                             @endforeach
                                             
                                             <div style="text-align: right; margin-top: 8px; padding-top: 8px; border-top: 2px solid #d1fae5; font-weight: 700; color: #059669; font-family: monospace;">
-                                                👥 Expenses Total: {{ $bCurrency }}{{ number_format($companionExpensesCost, 2) }}
+                                                👥 {{ __('offer-report.subtotals.expenses_total_companion') }}: {{ $bCurrency }}{{ number_format($companionExpensesCost, 2) }}
                                             </div>
                                         </div>
                                     @endif
@@ -1318,7 +1318,7 @@
                         <div class="accordion-header" @click="open = !open" style="cursor: pointer;">
                             <div class="accordion-header-left">
                                 <span>📦</span>
-                                <span class="accordion-title">Group Experiences & Expenses</span>
+                                <span class="accordion-title">{{ __('offer-report.accordions.group_experiences_expenses') }}</span>
                                 <svg :class="{ 'open': open }" class="accordion-icon" width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
                                 </svg>
@@ -1330,26 +1330,26 @@
                                 <!-- Group Experiences -->
                                 @if($groupExperiences->count() > 0)
                                     <div style="background: white; padding: 12px; border-radius: 6px; margin-bottom: 20px; border-left: 3px solid #8b5cf6;">
-                                        <div style="font-weight: 600; color: #7c3aed; margin-bottom: 12px; font-size: 14px;">✨ Group Experiences</div>
+                                        <div style="font-weight: 600; color: #7c3aed; margin-bottom: 12px; font-size: 14px;">✨ {{ __('offer-report.accordions.group_experiences') }}</div>
                                         
                                         <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; padding: 8px 12px; font-size: 11px; font-weight: 700; color: #6b7280; text-transform: uppercase; border-bottom: 2px solid #f3e8ff; margin-bottom: 8px;">
-                                            <div>Experience Name</div>
-                                            <div style="text-align: center;">City</div>
-                                            <div style="text-align: center;">Charge Mode</div>
-                                            <div style="text-align: right;">Price</div>
+                                <div>{{ __('offer-report.fields.experience_name') }}</div>
+                                <div style="text-align: center;">{{ __('offer-report.fields.city') }}</div>
+                                <div style="text-align: center;">{{ __('offer-report.fields.charge_mode') }}</div>
+                                <div style="text-align: right;">{{ __('offer-report.fields.price') }}</div>
                                         </div>
                                         
                                         @foreach($groupExperiences as $experience)
                                             <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; padding: 8px 12px; font-size: 12px; background: #faf5ff; margin-bottom: 8px; border-radius: 4px;">
                                                 <span style="color: #374151; font-weight: 500;">{{ $experience->experience->name ?? 'N/A' }}</span>
                                                 <span style="text-align: center; color: #6b7280; font-size: 11px;">{{ $experience->experience->city->name ?? 'N/A' }}</span>
-                                                <span style="text-align: center; color: #6b7280; font-size: 11px;">Per Group</span>
+                                                <span style="text-align: center; color: #6b7280; font-size: 11px;">{{ __('offer-report.messages.per_group') }}</span>
                                                 <span style="text-align: right; font-weight: 700; color: #1f2937; font-family: monospace; font-size: 13px;">{{ $bCurrency }}{{ number_format($experience->price ?? 0, 2) }}</span>
                                             </div>
                                         @endforeach
                                         
                                         <div style="text-align: right; margin-top: 8px; padding-top: 8px; border-top: 2px solid #f3e8ff; font-weight: 700; color: #7c3aed; font-family: monospace;">
-                                            👥 Experiences Total: {{ $bCurrency }}{{ number_format($groupExperiences->sum('price'), 2) }}
+                                            👥 {{ __('offer-report.subtotals.experiences_total') }}: {{ $bCurrency }}{{ number_format($groupExperiences->sum('price'), 2) }}
                                         </div>
                                     </div>
                                 @endif
@@ -1357,7 +1357,7 @@
                                 <!-- Group Expenses -->
                                 @if($groupExpenses->count() > 0)
                                     <div style="background: white; padding: 12px; border-radius: 6px; margin-bottom: 20px; border-left: 3px solid #06b6d4;">
-                                        <div style="font-weight: 600; color: #0891b2; margin-bottom: 12px; font-size: 14px;">💼 Group Expenses</div>
+                                        <div style="font-weight: 600; color: #0891b2; margin-bottom: 12px; font-size: 14px;">💼 {{ __('offer-report.accordions.group_expenses') }}</div>
                                         
                                         <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 12px; padding: 8px 12px; font-size: 11px; font-weight: 700; color: #6b7280; text-transform: uppercase; border-bottom: 2px solid #cffafe; margin-bottom: 8px;">
                                             <div>Description</div>
@@ -1368,13 +1368,13 @@
                                         @foreach($groupExpenses as $expense)
                                             <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 12px; padding: 8px 12px; font-size: 12px; background: #ecfeff; margin-bottom: 8px; border-radius: 4px;">
                                                 <span style="color: #374151; font-weight: 500;">{{ $expense->description ?? 'N/A' }}</span>
-                                                <span style="text-align: center; color: #6b7280; font-size: 11px;">Per Group</span>
+                                                <span style="text-align: center; color: #6b7280; font-size: 11px;">{{ __('offer-report.messages.per_group') }}</span>
                                                 <span style="text-align: right; font-weight: 700; color: #1f2937; font-family: monospace; font-size: 13px;">{{ $bCurrency }}{{ number_format($expense->price ?? 0, 2) }}</span>
                                             </div>
                                         @endforeach
                                         
                                         <div style="text-align: right; margin-top: 8px; padding-top: 8px; border-top: 2px solid #cffafe; font-weight: 700; color: #0891b2; font-family: monospace;">
-                                            👥 Expenses Total: {{ $bCurrency }}{{ number_format($groupExpenses->sum('price'), 2) }}
+                                            👥 {{ __('offer-report.subtotals.expenses_total') }}: {{ $bCurrency }}{{ number_format($groupExpenses->sum('price'), 2) }}
                                         </div>
                                     </div>
                                 @endif
@@ -1384,7 +1384,7 @@
                 @else
                     <div class="cost-grid">
                         <div class="cost-item">
-                            <span class="cost-label">📦 Group Exp. & Expenses</span>
+                            <span class="cost-label">📦 {{ __('offer-report.subtotals.group_expenses') }}</span>
                             <span class="cost-value">{{ $bCurrency }}{{ number_format($offer->offer_group_per_group_cost, 2) }}</span>
                         </div>
                     </div>
@@ -1392,7 +1392,7 @@
          
             <div class="cost-grid">
                 <div class="subtotal-row">
-                    <span>👥 Subtotal (Per Group)</span>
+                    <span>👥 {{ __('offer-report.subtotals.subtotal_per_group') }}</span>
                     <span>{{ $bCurrency }}{{ number_format($offer->total_per_group_cost, 2) }}</span>
                 </div>
             </div>
@@ -1424,37 +1424,37 @@
                 
                 <div class="calculation-box">
                     <div class="calc-step">
-                        <span class="calc-label">👤 Per Person Direct</span>
+                        <span class="calc-label">👤 {{ __('offer-report.final.per_person_direct_calc') }}</span>
                         <span class="calc-value">{{ $bCurrency }}{{ number_format($perPersonTotal, 2) }}</span>
                     </div>
                     <div class="calc-step">
-                        <span class="calc-label">👤 Per Group Share (÷ {{ $offer->pax_qty }})</span>
+                        <span class="calc-label">👤 {{ __('offer-report.final.per_group_share', ['pax' => $offer->pax_qty]) }}</span>
                         <span class="calc-value">{{ $bCurrency }}{{ number_format($perGroupPerPerson, 2) }}</span>
                     </div>
                     <div class="calc-step">
-                        <span class="calc-label">+ Accommodation</span>
+                        <span class="calc-label">+ {{ __('offer-report.final.accommodation_add') }}</span>
                         <span class="calc-value">{{ $bCurrency }}{{ number_format($accommodationCost, 2) }}</span>
                     </div>
                     <div class="calc-step" style="background: #e0e7ff;">
-                        <span class="calc-label" style="font-weight: 700;">= Base Price</span>
+                        <span class="calc-label" style="font-weight: 700;">= {{ __('offer-report.final.base_price') }}</span>
                         <span class="calc-value">{{ $bCurrency }}{{ number_format($basePrice, 2) }}</span>
                     </div>
                     <div class="calc-step">
-                        <span class="calc-label">÷ Exchange Rate: 1 {{ $qCurrency }} = {{ number_format($exchangeRate, 4) }} {{ $bCurrency }}</span>
+                        <span class="calc-label">÷ {{ __('offer-report.final.exchange_rate', ['quotation_currency' => $qCurrency, 'rate' => number_format($exchangeRate, 4), 'breakdown_currency' => $bCurrency]) }}</span>
                         <span class="calc-value">{{ number_format($exchangeRate, 4) }}</span>
                     </div>
                     <div class="calc-step" style="background: #fef3c7;">
-                        <span class="calc-label" style="font-weight: 700;">= Base Fare</span>
+                        <span class="calc-label" style="font-weight: 700;">= {{ __('offer-report.final.base_fare') }}</span>
                         <span class="calc-value">{{ $qCurrency }}{{ number_format($priceAfterExchange, 2) }}</span>
                     </div>
                     <div class="calc-step">
-                        <span class="calc-label">+ Markup ({{ $offer->markup }}%)</span>
+                        <span class="calc-label">+ {{ __('offer-report.final.markup_add', ['percent' => $offer->markup]) }}</span>
                         <span class="calc-value">{{ $qCurrency }}{{ number_format($markupAmount, 2) }}</span>
                     </div>
                 </div>
                 
                 <div class="final-price-box">
-                    <div class="final-price-label">💎 Final Price Per Person</div>
+                    <div class="final-price-label">💎 {{ __('offer-report.final.final_price_per_person') }}</div>
                     <div class="final-price-value">{{ $qCurrency }}{{ number_format($finalPrice, 2) }}</div>
                 </div>
                 
@@ -1462,14 +1462,14 @@
                 @if($offerPrice->quotationOfferPriceAccommodations->count() > 0)
                     <div class="hotel-details">
                         <div style="font-weight: 700; margin-bottom: 10px; color: #4f46e5; font-size: 14px;">
-                            🏨 Hotel Breakdown:
+                            🏨 {{ __('offer-report.final.hotel_breakdown') }}
                         </div>
                         @foreach($offerPrice->quotationOfferPriceAccommodations as $accommodation)
                             <div class="hotel-item">
                                 <span class="hotel-name">
-                                    {{ $accommodation->accommodation->name ?? 'Hotel' }}
+                                    {{ $accommodation->accommodation->name ?? __('offer-report.fields.hotel') }}
                                     @if($accommodation->is_include_breakfast)
-                                        <span style="color: #10b981; font-size: 11px; margin-left: 6px;">✓ Breakfast</span>
+                                        <span style="color: #10b981; font-size: 11px; margin-left: 6px;">✓ {{ __('offer-report.final.breakfast') }}</span>
                                     @endif
                                 </span>
                                 <span class="hotel-cost">
@@ -1484,7 +1484,7 @@
         @endforeach
     @else
         <div style="text-align: center; padding: 40px; color: #9ca3af;">
-            Offer not found.
+            {{ __('offer-report.final.offer_not_found') }}
         </div>
     @endif
 </div>

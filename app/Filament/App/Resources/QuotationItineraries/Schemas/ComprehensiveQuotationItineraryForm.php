@@ -35,16 +35,16 @@ class ComprehensiveQuotationItineraryForm
         return $schema
             ->columns(1)
             ->components([
-                Section::make('Inquiry Information')
-                    ->description('Basic inquiry details')
+                Section::make(__('app-quotation-itineraries.sections.inquiry_information.title'))
+                    ->description(__('app-quotation-itineraries.sections.inquiry_information.description'))
                     ->schema([
                         TextInput::make('inquiry_title')
-                            ->label('Inquiry Title')
+                            ->label(__('app-quotation-itineraries.fields.inquiry_title'))
                             ->required()
                             ->maxLength(255),
                         
                         FileUpload::make('inquiry_attachments')
-                            ->label('Attachments')
+                            ->label(__('app-quotation-itineraries.fields.attachments'))
                             ->multiple()
                             ->disk('local')
                             ->directory(fn () => TenantSetting::getTenantDirectory('inquiries'))
@@ -55,7 +55,7 @@ class ComprehensiveQuotationItineraryForm
                             ->reorderable()
                             ->maxFiles(10)
                             ->maxSize(10240) // 10MB
-                            ->helperText('You can upload up to 10 files. Max size: 10MB per file.')
+                            ->helperText(__('app-quotation-itineraries.helpers.attachments'))
                             ->acceptedFileTypes([
                                 'application/pdf',
                                 'application/msword',
@@ -71,11 +71,11 @@ class ComprehensiveQuotationItineraryForm
                         Grid::make(3)
                             ->schema([
                                 TextInput::make('inquiry_reference')
-                                    ->label('Reference')
+                                    ->label(__('app-quotation-itineraries.fields.reference'))
                                     ->maxLength(255),
                                 
                                 Select::make('inquiry_contact_id')
-                                    ->label('Contact')
+                                    ->label(__('app-quotation-itineraries.fields.contact'))
                                     ->options(fn () => TenantContact::query()
                                         ->whereIn('type', [ContactTypeEnum::LEAD, ContactTypeEnum::CUSTOMER])
                                         ->orderBy('first_name')
@@ -89,39 +89,39 @@ class ComprehensiveQuotationItineraryForm
                                     ->required()
                                     ->suffixActions([
                                         Action::make('quick_add_contact')
-                                            ->label('Quick add')
+                                            ->label(__('app-quotation-itineraries.actions.quick_add'))
                                             ->icon('heroicon-o-user-plus')
-                                            ->modalHeading('Quick Add Contact')
-                                            ->form([
+                                            ->modalHeading(__('app-quotation-itineraries.actions.quick_add_contact'))
+                                            ->schema([
                                                 Grid::make(2)->schema([
                                                     TextInput::make('contact.first_name')
-                                                        ->label('First name')
+                                                        ->label(__('app-quotation-itineraries.fields.first_name'))
                                                         ->required()
                                                         ->maxLength(100),
                                                     TextInput::make('contact.last_name')
-                                                        ->label('Last name')
+                                                        ->label(__('app-quotation-itineraries.fields.last_name'))
                                                         ->maxLength(100),
                                                 ]),
                                                 Grid::make(2)->schema([
                                                     TextInput::make('contact.email')
-                                                        ->label('Email')
+                                                        ->label(__('common-fields.email'))
                                                         ->email()
                                                         ->required()
                                                         ->maxLength(191),
                                                     TextInput::make('contact.mobile')
-                                                        ->label('Mobile')
+                                                        ->label(__('app-quotation-itineraries.fields.mobile'))
                                                         ->tel()
                                                         ->maxLength(50),
                                                 ]),
                                                 TextInput::make('contact.company')
-                                                    ->label('Company')
+                                                    ->label(__('common-fields.company'))
                                                     ->maxLength(191),
                                             ])
                                             ->action(function (array $data, Set $set) {
                                                 $payload = $data['contact'] ?? [];
                                                 if (empty($payload['first_name']) || empty($payload['email'])) {
                                                     Notification::make()
-                                                        ->title('First name and email are required')
+                                                        ->title(__('app-quotation-itineraries.notifications.contact_required_fields'))
                                                         ->danger()
                                                         ->send();
                                                     return;
@@ -140,15 +140,15 @@ class ComprehensiveQuotationItineraryForm
                                                 $set('inquiry_contact_id', $contact->id);
 
                                                 Notification::make()
-                                                    ->title('Contact added')
-                                                    ->body('The contact has been created and selected.')
+                                                    ->title(__('app-quotation-itineraries.notifications.contact_added_title'))
+                                                    ->body(__('app-quotation-itineraries.notifications.contact_added_body'))
                                                     ->success()
                                                     ->send();
                                             })
                                     ]),
                                 
                                 Select::make('inquiry_requested_currency_id')
-                                    ->label('Requested Currency')
+                                    ->label(__('app-quotation-itineraries.fields.requested_currency'))
                                     ->options(fn () => Currency::pluck('name', 'id')->toArray())
                                     ->searchable()
                                     ->preload()
@@ -163,19 +163,19 @@ class ComprehensiveQuotationItineraryForm
                             ]),
                     ]),
                 
-                Section::make('Inquiry Itinerary Details')
-                    ->description('Travel itinerary information')
+                Section::make(__('app-quotation-itineraries.sections.inquiry_itinerary_details.title'))
+                    ->description(__('app-quotation-itineraries.sections.inquiry_itinerary_details.description'))
                     ->schema([
                         Grid::make(2)
                             ->schema([
                                 Select::make('inquiry_date_type')
-                                    ->label('Date Type')
+                                    ->label(__('app-quotation-itineraries.fields.date_type'))
                                     ->options(InquiryDateTypeEnum::getOptions())
                                     ->required()
                                     ->reactive(),
                                 
                                 Select::make('accommodation_stars')
-                                    ->label('Accommodation Stars')
+                                    ->label(__('app-quotation-itineraries.fields.accommodation_stars'))
                                     ->options(StarRatingEnum::getOptions()),
                             ]),
                         
@@ -183,10 +183,10 @@ class ComprehensiveQuotationItineraryForm
                             ->schema([
                                 DatePicker::make('from_date')
                                     ->label(fn ($get) => match($get('inquiry_date_type')) {
-                                        InquiryDateTypeEnum::FIXED_DATE->value => 'Arrival',
-                                        InquiryDateTypeEnum::SERIES->value => 'Start Date',
-                                        InquiryDateTypeEnum::FLEXIBLE_DATE->value => 'From Date',
-                                        default => 'From Date',
+                                        InquiryDateTypeEnum::FIXED_DATE->value => __('app-quotation-itineraries.fields.arrival'),
+                                        InquiryDateTypeEnum::SERIES->value => __('app-quotation-itineraries.fields.start_date'),
+                                        InquiryDateTypeEnum::FLEXIBLE_DATE->value => __('app-quotation-itineraries.fields.from_date'),
+                                        default => __('app-quotation-itineraries.fields.from_date'),
                                     })
                                     ->reactive()
                                     ->required()
@@ -205,10 +205,10 @@ class ComprehensiveQuotationItineraryForm
                                 
                                 DatePicker::make('to_date')
                                     ->label(fn ($get) => match($get('inquiry_date_type')) {
-                                        InquiryDateTypeEnum::FIXED_DATE->value => 'Departure',
-                                        InquiryDateTypeEnum::SERIES->value => 'End Date',
-                                        InquiryDateTypeEnum::FLEXIBLE_DATE->value => 'To Date',
-                                        default => 'To Date',
+                                        InquiryDateTypeEnum::FIXED_DATE->value => __('app-quotation-itineraries.fields.departure'),
+                                        InquiryDateTypeEnum::SERIES->value => __('app-quotation-itineraries.fields.end_date'),
+                                        InquiryDateTypeEnum::FLEXIBLE_DATE->value => __('app-quotation-itineraries.fields.to_date'),
+                                        default => __('app-quotation-itineraries.fields.to_date'),
                                     })
                                     ->reactive()
                                     ->required()
@@ -220,8 +220,8 @@ class ComprehensiveQuotationItineraryForm
                                     ->minDate(fn ($get) => $get('from_date'))
                                     ->disabled(fn ($get) => !$get('from_date'))
                                     ->helperText(fn ($get) => !$get('from_date') 
-                                        ? 'Please select From Date first' 
-                                        : 'Must be same or after From Date')
+                                        ? __('app-quotation-itineraries.helpers.from_date_required')
+                                        : __('app-quotation-itineraries.helpers.to_date_after_from'))
                                     ->rules([
                                         'required',
                                         function ($get) {
@@ -232,7 +232,7 @@ class ComprehensiveQuotationItineraryForm
                                                     $to = \Carbon\Carbon::parse($value);
                                                     
                                                     if ($to->lt($from)) {
-                                                        $fail('The end date must be same or after the start date.');
+                                                        $fail(__('app-quotation-itineraries.validations.to_date_after_from_date'));
                                                     }
                                                 }
                                             };
@@ -241,14 +241,14 @@ class ComprehensiveQuotationItineraryForm
                             ]),
                     ]),
                 
-                Section::make('Quotation Information')
-                    ->description('Quotation details')
+                Section::make(__('app-quotation-itineraries.sections.quotation_information.title'))
+                    ->description(__('app-quotation-itineraries.sections.quotation_information.description'))
                     ->schema([
                         Grid::make(2)
                             ->schema([
                                 TextInput::make('exchange_rate')
-                                    ->label('Exchange Rate')
-                                    ->placeholder('e.g., 1.0000')
+                                    ->label(__('app-quotation-itineraries.fields.exchange_rate'))
+                                    ->placeholder(__('app-quotation-itineraries.placeholders.exchange_rate'))
                                     ->default('1.0000')
                                     ->required()
                                     ->live()
@@ -263,28 +263,32 @@ class ComprehensiveQuotationItineraryForm
                                             
                                             if ($requestedCurrency && $tenantCurrency) {
                                                 $rateDisplay = ($exchangeRate && $exchangeRate > 0) ? $exchangeRate : '...';
-                                                return "1 {$requestedCurrency->code} = {$rateDisplay} {$tenantCurrency->code}";
+                                                return __('app-quotation-itineraries.helpers.exchange_rate_display', [
+                                                    'from' => $requestedCurrency->code,
+                                                    'rate' => $rateDisplay,
+                                                    'to' => $tenantCurrency->code
+                                                ]);
                                             }
                                         }
                                         
-                                        return "Enter a valid number with up to 4 decimal places (e.g., 42500.5000)";
+                                        return __('app-quotation-itineraries.helpers.exchange_rate_format');
                                     })
                                     ->rules(['required', 'regex:/^\d+(\.\d{1,4})?$/', 'numeric', 'gt:0'])
                                     ->validationMessages([
-                                        'regex' => 'Please enter a valid number with up to 4 decimal places.',
-                                        'numeric' => 'Exchange rate must be a number.',
-                                        'gt' => 'Exchange rate must be greater than 0.',
+                                        'regex' => __('app-quotation-itineraries.validations.exchange_rate_regex'),
+                                        'numeric' => __('app-quotation-itineraries.validations.exchange_rate_numeric'),
+                                        'gt' => __('app-quotation-itineraries.validations.exchange_rate_gt'),
                                     ]),
                                 
                                 DatePicker::make('expire_date')
-                                    ->label('Expire Date')
+                                    ->label(__('app-quotation-itineraries.fields.expire_date'))
                                     ->required()
                                     ->after('today'),
                             ]),
                         
                         // Room categories selection (required)
                         Select::make('room_category_ids')
-                            ->label('Room Categories')
+                            ->label(__('app-quotation-itineraries.fields.room_categories'))
                             ->required()
                             ->multiple()
                             ->maxItems(3)
@@ -300,13 +304,13 @@ class ComprehensiveQuotationItineraryForm
                             })
                             ->searchable()
                             ->preload()
-                            ->helperText('Select up to 3 room types (required).'),
+                            ->helperText(__('app-quotation-itineraries.helpers.room_categories')),
 
                         Grid::make(2)
                             ->schema([
                                 Toggle::make('is_foreigner_passengers')
-                                    ->label('Foreigner Passengers')
-                                    ->helperText('Check if this quotation is for foreign passengers')
+                                    ->label(__('app-quotation-itineraries.fields.foreigner_passengers'))
+                                    ->helperText(__('app-quotation-itineraries.helpers.foreigner_passengers'))
                                     ->default(false),
                                 
                                 // Placeholder for future fields
@@ -315,14 +319,14 @@ class ComprehensiveQuotationItineraryForm
                             ]),
                         
                         Textarea::make('quotation_description')
-                            ->label('Description')
+                            ->label(__('app-quotation-itineraries.fields.description'))
                             ->rows(3)
-                            ->helperText('This description will be visible to the customer in the quotation view.'),
+                            ->helperText(__('app-quotation-itineraries.helpers.description_visible')),
                         
                         Textarea::make('internal_note')
-                            ->label('Internal Note')
+                            ->label(__('app-quotation-itineraries.fields.internal_note'))
                             ->rows(2)
-                            ->helperText('Internal note - NOT visible to the customer. Use this for team notes and reminders.'),
+                            ->helperText(__('app-quotation-itineraries.helpers.internal_note_private')),
                     ]),
                 
             ]);

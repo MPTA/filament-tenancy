@@ -20,7 +20,7 @@ class OffersTab
 {
     public static function getTab(): Tab
     {
-        return Tab::make('Offers')
+        return Tab::make(__('app-quotation-itineraries.tabs.offers'))
             ->icon('heroicon-o-ticket')
             ->badge(function (QuotationItinerary $record) {
                 return $record->quotationOfferGroups()
@@ -38,8 +38,8 @@ class OffersTab
 
     private static function addNewOfferSection(): Section
     {
-        return Section::make('Offer Groups')
-            ->description('Manage offer groups and create new ones')
+        return Section::make(__('app-quotation-itineraries.sections.offer_groups.title'))
+            ->description(__('app-quotation-itineraries.sections.offer_groups.description'))
             ->icon('heroicon-o-cog-6-tooth')
             ->schema([])
             ->contained(false)
@@ -53,16 +53,16 @@ class OffersTab
         return Action::make('add_new_offer_group')
             ->label(function (QuotationItinerary $record) {
                 if (!$record->breakdown) {
-                    return 'Create Breakdown First';
+                    return __('app-quotation-itineraries.actions.create_breakdown_first');
                 }
                 if (!$record->breakdown->is_completed) {
-                    return 'Complete Breakdown to Create Offer';
+                    return __('app-quotation-itineraries.actions.complete_breakdown_to_create_offer');
                 }
                 $maxOfferGroups = config('central.quotation.max_offer_groups', 4);
                 if ($record->quotationOfferGroups()->count() >= $maxOfferGroups) {
-                    return 'Maximum Offer Groups Reached';
+                    return __('app-quotation-itineraries.actions.maximum_offer_groups_reached');
                 }
-                return 'Add new Offer group';
+                return __('app-quotation-itineraries.actions.add_new_offer_group');
             })
             ->icon('heroicon-o-plus')
             ->color(function (QuotationItinerary $record) {
@@ -79,13 +79,13 @@ class OffersTab
             ->tooltip(function (QuotationItinerary $record) {
                 $maxOfferGroups = config('central.quotation.max_offer_groups', 4);
                 if ($record->quotationOfferGroups()->count() >= $maxOfferGroups) {
-                    return "Maximum {$maxOfferGroups} offer groups allowed per quotation.";
+                    return __('app-quotation-itineraries.tooltips_offers.max_offer_groups', ['max' => $maxOfferGroups]);
                 }
                 if (!$record->breakdown) {
-                    return 'Please create a breakdown before creating an offer group.';
+                    return __('app-quotation-itineraries.tooltips_offers.create_breakdown_before_offer');
                 }
                 if (!$record->breakdown->is_completed) {
-                    return 'Please complete the breakdown before creating an offer group.';
+                    return __('app-quotation-itineraries.tooltips_offers.complete_breakdown_before_offer');
                 }
                 return null;
             })
@@ -100,8 +100,8 @@ class OffersTab
                     $currentCount = $record->quotationOfferGroups()->count();
                     if ($currentCount >= $maxOfferGroups) {
                         Notification::make()
-                            ->title('Maximum offer groups reached')
-                            ->body("You can create a maximum of {$maxOfferGroups} offer groups per quotation.")
+                            ->title(__('app-quotation-itineraries.notifications_offers.max_offer_groups_title'))
+                            ->body(__('app-quotation-itineraries.notifications_offers.max_offer_groups_body', ['max' => $maxOfferGroups]))
                             ->warning()
                             ->send();
                         return;
@@ -135,15 +135,15 @@ class OffersTab
                     $record->refresh();
 
                     Notification::make()
-                        ->title('Offer Group Created Successfully!')
-                        ->body('The offer group and companions have been saved.')
+                        ->title(__('app-quotation-itineraries.notifications_offers.offer_group_created_title'))
+                        ->body(__('app-quotation-itineraries.notifications_offers.offer_group_created_body'))
                         ->success()
                         ->send();
 
                 } catch (\Exception $e) {
                     Notification::make()
-                        ->title('Error Creating Offer Group')
-                        ->body('An error occurred while saving the offer group: ' . $e->getMessage())
+                        ->title(__('app-quotation-itineraries.notifications_offers.error_creating_offer_group_title'))
+                        ->body(__('app-quotation-itineraries.notifications_offers.error_creating_offer_group_body', ['error' => $e->getMessage()]))
                         ->danger()
                         ->send();
                 }
@@ -152,14 +152,14 @@ class OffersTab
 
     private static function driverSettingsSection(): Section
     {
-        return Section::make('Driver Settings')
-            ->description('Configure driver-related costs and accommodations')
+        return Section::make(__('app-quotation-itineraries.sections.driver_settings.title'))
+            ->description(__('app-quotation-itineraries.sections.driver_settings.description'))
             ->icon('heroicon-o-user')
             ->schema([
                 // 1. Include Driver Meal
                 Checkbox::make('is_include_driver_meal')
-                    ->label('Include Driver Meal')
-                    ->helperText('Should driver meal cost be included in calculations?')
+                    ->label(__('app-quotation-itineraries.fields.include_driver_meal'))
+                    ->helperText(__('app-quotation-itineraries.helpers.include_driver_meal_helper'))
                     ->default(false)
                     ->reactive()
                     ->afterStateUpdated(function ($state, $set) {
@@ -170,15 +170,15 @@ class OffersTab
 
                 // 2. Driver Same Meal
                 Checkbox::make('is_driver_same_meal')
-                    ->label('Driver Same Meal')
-                    ->helperText('Does the driver have the same meals as passengers?')
+                    ->label(__('app-quotation-itineraries.fields.driver_same_meal'))
+                    ->helperText(__('app-quotation-itineraries.helpers.driver_same_meal_helper'))
                     ->default(false)
                     ->visible(fn ($get) => $get('is_include_driver_meal')),
 
                 // 3. Include Driver Hotel
                 Checkbox::make('is_include_driver_hotel')
-                    ->label('Include Driver Hotel')
-                    ->helperText('Should driver hotel cost be included in calculations?')
+                    ->label(__('app-quotation-itineraries.fields.include_driver_hotel'))
+                    ->helperText(__('app-quotation-itineraries.helpers.include_driver_hotel_helper'))
                     ->default(false)
                     ->reactive()
                     ->afterStateUpdated(function ($state, $set) {
@@ -190,15 +190,15 @@ class OffersTab
 
                 // 4. Driver Stays Same Hotel
                 Checkbox::make('is_driver_stay_same_hotel')
-                    ->label('Driver Stays Same Hotel')
-                    ->helperText('Does the driver stay in the same hotel as passengers?')
+                    ->label(__('app-quotation-itineraries.fields.driver_stays_same_hotel'))
+                    ->helperText(__('app-quotation-itineraries.helpers.driver_stays_same_hotel_helper'))
                     ->default(false)
                     ->visible(fn ($get) => $get('is_include_driver_hotel'))
                     ->reactive(),
 
                 // 5. Driver Room Type
                 Select::make('driver_room_category_id')
-                    ->label('Driver Room Type')
+                    ->label(__('app-quotation-itineraries.fields.driver_room_type'))
                     ->options(function (QuotationItinerary $record) {
                         if (!$record->breakdown) return [];
                         $roomCategoryIds = $record->breakdown
@@ -215,7 +215,7 @@ class OffersTab
                     })
                     ->searchable()
                     ->preload()
-                    ->helperText('Select driver room type')
+                    ->helperText(__('app-quotation-itineraries.helpers.select_driver_room_type'))
                     ->required(fn ($get) => $get('is_driver_stay_same_hotel'))
                     ->visible(fn ($get) => $get('is_driver_stay_same_hotel')),
             ])
@@ -225,16 +225,16 @@ class OffersTab
 
     private static function companionsSection(): Section
     {
-        return Section::make('Companions')
-            ->description('Add and manage travel companions')
+        return Section::make(__('app-quotation-itineraries.sections.companions_settings.title'))
+            ->description(__('app-quotation-itineraries.sections.companions_settings.description'))
             ->icon('heroicon-o-users')
             ->schema([
                 Repeater::make('companions')
-                    ->label('Companions')
+                    ->label(__('app-quotation-itineraries.fields.companion'))
                     ->maxItems(config('central.quotation.max_companions_per_group', 2))
                     ->schema([
                         Select::make('companion_type_id')
-                            ->label('Companion Type')
+                            ->label(__('app-quotation-itineraries.fields.companion_type'))
                             ->options(function (QuotationItinerary $record) {
                                 if (!$record->breakdown) {
                                     return \App\Models\Tenants\CompanionType::all()->pluck('name', 'id');
@@ -256,20 +256,20 @@ class OffersTab
                             ->columnSpan(1),
 
                         Checkbox::make('is_same_meal')
-                            ->label('Same Meal')
-                            ->helperText('Does this companion have the same meals?')
+                            ->label(__('app-quotation-itineraries.fields.same_meal'))
+                            ->helperText(__('app-quotation-itineraries.helpers.companion_same_meal_helper'))
                             ->default(false)
                             ->columnSpan(1),
 
                         Checkbox::make('is_stay_same_hotel')
-                            ->label('Stay Same Hotel')
-                            ->helperText('Does this companion stay in the same hotel?')
+                            ->label(__('app-quotation-itineraries.fields.stay_same_hotel'))
+                            ->helperText(__('app-quotation-itineraries.helpers.companion_stay_same_hotel_helper'))
                             ->default(false)
                             ->reactive()
                             ->columnSpan(1),
 
                         Select::make('room_category_id')
-                            ->label('Room Type')
+                            ->label(__('app-quotation-itineraries.fields.room_type'))
                             ->options(function (QuotationItinerary $record) {
                                 if (!$record->breakdown) return [];
                                 $roomCategoryIds = $record->breakdown
@@ -286,13 +286,13 @@ class OffersTab
                             })
                             ->searchable()
                             ->preload()
-                            ->helperText('Select room type')
+                            ->helperText(__('app-quotation-itineraries.helpers.select_room_type'))
                             ->required(fn ($get) => $get('is_stay_same_hotel'))
                             ->visible(fn ($get) => $get('is_stay_same_hotel'))
                             ->columnSpan(1),
 
                         Select::make('living_city_id')
-                            ->label('Living City')
+                            ->label(__('app-quotation-itineraries.fields.living_city'))
                             ->options(function () {
                                 $tenantSetting = tenant()->settings;
                                 if (!$tenantSetting || !$tenantSetting->country_id) {
@@ -307,13 +307,13 @@ class OffersTab
                             ->columnSpan(2),
                     ])
                     ->columns(2)
-                    ->addActionLabel('Add Companion')
+                    ->addActionLabel(__('app-quotation-itineraries.repeater_labels.add_companion'))
                     ->defaultItems(0)
                     ->collapsible()
                     ->itemLabel(fn (array $state): ?string => 
                         $state['companion_type_id'] ? 
                         \App\Models\Tenants\CompanionType::find($state['companion_type_id'])?->name : 
-                        'New Companion'
+                        __('app-quotation-itineraries.repeater_labels.new_companion')
                     ),
             ])
             ->collapsible()
@@ -325,7 +325,7 @@ class OffersTab
         return TextEntry::make('id')
             ->label('')
             ->hiddenLabel()
-            ->formatStateUsing(fn() => 'No offers have been registered yet.')
+            ->formatStateUsing(fn() => __('app-quotation-itineraries.offers_messages.no_offers_registered'))
             ->icon('heroicon-o-information-circle')
             ->color('gray')
             ->hidden(function (QuotationItinerary $record) {
@@ -359,23 +359,28 @@ class OffersTab
     {
         return Section::make()
             ->heading(function ($record) {
-                $status = $record->is_locked ? '🔒 Locked' : '✅ Active';
-                return 'Offer Group ' . ($record->full_number ?? $record->id) . ' - ' . $status;
+                $statusLabel = $record->is_locked 
+                    ? '🔒 ' . __('app-quotation-itineraries.status_labels.locked')
+                    : '✅ ' . __('app-quotation-itineraries.status_labels.active');
+                return __('app-quotation-itineraries.offers_messages.offer_group_title', [
+                    'number' => $record->full_number ?? $record->id,
+                    'status' => $statusLabel
+                ]);
             })
             ->description(function ($record) {
                 $info = [];
                 
                 if ($record->is_include_driver_meal) {
-                    $info[] = 'Driver meal included';
+                    $info[] = __('app-quotation-itineraries.offers_messages.offer_group_driver_meal');
                 }
                 if ($record->is_include_driver_hotel) {
-                    $info[] = 'Driver hotel included';
+                    $info[] = __('app-quotation-itineraries.offers_messages.offer_group_driver_hotel');
                 }
-                $info[] = $record->quotationOfferGroupCompanions->count() . ' companion(s)';
+                $info[] = __('app-quotation-itineraries.offers_messages.offer_group_companions_count', ['count' => $record->quotationOfferGroupCompanions->count()]);
                 
                 // Add last sync info
                 if ($record->last_breakdown_sync_at) {
-                    $info[] = 'Last sync: ' . $record->last_breakdown_sync_at->diffForHumans();
+                    $info[] = __('app-quotation-itineraries.offers_messages.offer_group_last_sync', ['time' => $record->last_breakdown_sync_at->diffForHumans()]);
                 }
                 
                 return implode(' • ', $info);
@@ -399,20 +404,20 @@ class OffersTab
     private static function viewOfferGroupAction(): Action
     {
         return Action::make('view_offer_group')
-            ->label('View')
+            ->label(__('app-quotation-itineraries.actions.view'))
             ->icon('heroicon-m-eye')
             ->color('info')
             ->size('sm')
             ->infolist(OfferGroupInfolist::getSchema())
-            ->modalHeading(fn($record) => 'Offer Group ' . ($record->full_number ?? 'Details'))
+            ->modalHeading(fn($record) => __('app-quotation-itineraries.modals_offers.view_offer_group_heading', ['number' => $record->full_number ?? __('app-quotation-itineraries.actions.details')]))
             ->modalSubmitAction(false)
-            ->modalCancelActionLabel('Close');
+            ->modalCancelActionLabel(__('app-quotation-itineraries.actions.close'));
     }
 
     private static function editOfferGroupAction(): Action
     {
         return Action::make('edit_offer_group')
-            ->label('Edit')
+            ->label(__('app-quotation-itineraries.actions.edit'))
             ->icon('heroicon-m-pencil-square')
             ->color('primary')
             ->size('sm')
@@ -422,15 +427,15 @@ class OffersTab
             )
             ->tooltip(fn($record) => 
                 $record->is_locked || !$record->quotationItinerary->breakdown?->is_completed
-                    ? '⚠️ Complete the breakdown first to edit offer group'
+                    ? __('app-quotation-itineraries.tooltips_breakdown.complete_itinerary_before_edit')
                     : null
             )
             ->schema([
-                Section::make('Driver Settings')
+                Section::make(__('app-quotation-itineraries.sections.driver_settings.title'))
                     ->schema([
                         // 1. Include Driver Meal
                         Checkbox::make('is_include_driver_meal')
-                            ->label('Include Driver Meal')
+                            ->label(__('app-quotation-itineraries.fields.include_driver_meal'))
                             ->reactive()
                             ->afterStateUpdated(function ($state, $set) {
                                 if (!$state) {
@@ -440,12 +445,12 @@ class OffersTab
 
                         // 2. Driver Same Meal
                         Checkbox::make('is_driver_same_meal')
-                            ->label('Driver Same Meal')
+                            ->label(__('app-quotation-itineraries.fields.driver_same_meal'))
                             ->visible(fn ($get) => $get('is_include_driver_meal')),
 
                         // 3. Include Driver Hotel
                         Checkbox::make('is_include_driver_hotel')
-                            ->label('Include Driver Hotel')
+                            ->label(__('app-quotation-itineraries.fields.include_driver_hotel'))
                             ->reactive()
                             ->afterStateUpdated(function ($state, $set) {
                                 if (!$state) {
@@ -456,13 +461,13 @@ class OffersTab
 
                         // 4. Driver Stays Same Hotel
                         Checkbox::make('is_driver_stay_same_hotel')
-                            ->label('Driver Stays Same Hotel')
+                            ->label(__('app-quotation-itineraries.fields.driver_stays_same_hotel'))
                             ->visible(fn ($get) => $get('is_include_driver_hotel'))
                             ->reactive(),
 
                         // 5. Driver Room Type
                         Select::make('driver_room_category_id')
-                            ->label('Driver Room Type')
+                            ->label(__('app-quotation-itineraries.fields.driver_room_type'))
                             ->options(function ($record) {
                                 // Get the quotation itinerary from the offer group
                                 $quotationItinerary = $record->quotationItinerary;
@@ -487,16 +492,16 @@ class OffersTab
                     ->collapsible()
                     ->collapsed(false),
 
-                Section::make('Companions')
-                    ->description('Manage travel companions')
+                Section::make(__('app-quotation-itineraries.sections.companions_settings.title'))
+                    ->description(__('app-quotation-itineraries.sections.companions_settings.description'))
                     ->icon('heroicon-o-users')
                     ->schema([
                         Repeater::make('companions')
-                            ->label('Companions')
+                            ->label(__('app-quotation-itineraries.fields.companion'))
                             ->maxItems(config('central.quotation.max_companions_per_group', 2))
                             ->schema([
                                 Select::make('companion_type_id')
-                                    ->label('Companion Type')
+                                    ->label(__('app-quotation-itineraries.fields.companion_type'))
                                     ->options(function ($record) {
                                         $quotationItinerary = $record->quotationItinerary;
                                         if (!$quotationItinerary || !$quotationItinerary->breakdown) {
@@ -519,20 +524,20 @@ class OffersTab
                                     ->columnSpan(1),
 
                                 Checkbox::make('is_same_meal')
-                                    ->label('Same Meal')
-                                    ->helperText('Does this companion have the same meals?')
+                                    ->label(__('app-quotation-itineraries.fields.same_meal'))
+                                    ->helperText(__('app-quotation-itineraries.helpers.companion_same_meal_helper'))
                                     ->default(false)
                                     ->columnSpan(1),
 
                                 Checkbox::make('is_stay_same_hotel')
-                                    ->label('Stay Same Hotel')
-                                    ->helperText('Does this companion stay in the same hotel?')
+                                    ->label(__('app-quotation-itineraries.fields.stay_same_hotel'))
+                                    ->helperText(__('app-quotation-itineraries.helpers.companion_stay_same_hotel_helper'))
                                     ->default(false)
                                     ->reactive()
                                     ->columnSpan(1),
 
                                 Select::make('room_category_id')
-                                    ->label('Room Type')
+                                    ->label(__('app-quotation-itineraries.fields.room_type'))
                                     ->options(function ($record) {
                                         $quotationItinerary = $record->quotationItinerary;
                                         if (!$quotationItinerary || !$quotationItinerary->breakdown) return [];
@@ -550,13 +555,13 @@ class OffersTab
                                     })
                                     ->searchable()
                                     ->preload()
-                                    ->helperText('Select room type')
+                                    ->helperText(__('app-quotation-itineraries.helpers.select_room_type'))
                                     ->required(fn ($get) => $get('is_stay_same_hotel'))
                                     ->visible(fn ($get) => $get('is_stay_same_hotel'))
                                     ->columnSpan(1),
 
                                 Select::make('living_city_id')
-                                    ->label('Living City')
+                                    ->label(__('app-quotation-itineraries.fields.living_city'))
                                     ->options(function () {
                                         $tenantSetting = tenant()->settings;
                                         if (!$tenantSetting || !$tenantSetting->country_id) {
@@ -571,13 +576,13 @@ class OffersTab
                                     ->columnSpan(2),
                             ])
                             ->columns(2)
-                            ->addActionLabel('Add Companion')
+                            ->addActionLabel(__('app-quotation-itineraries.repeater_labels.add_companion'))
                             ->defaultItems(0)
                             ->collapsible()
                             ->itemLabel(fn (array $state): ?string => 
                                 $state['companion_type_id'] ? 
                                 \App\Models\Tenants\CompanionType::find($state['companion_type_id'])?->name : 
-                                'New Companion'
+                                __('app-quotation-itineraries.repeater_labels.new_companion')
                             ),
                     ])
                     ->collapsible()
@@ -644,35 +649,34 @@ class OffersTab
 
                     $offersCount = $record->quotationOffers()->count();
                     Notification::make()
-                        ->title('Offer Group Updated!')
-                        ->body("Offer group settings updated and {$offersCount} offer(s) recalculated successfully.")
+                        ->title(__('app-quotation-itineraries.notifications_offers.offer_group_updated_title'))
+                        ->body(__('app-quotation-itineraries.notifications_offers.offer_group_updated_body', ['count' => $offersCount]))
                         ->success()
                         ->send();
                         
                 } catch (\Exception $e) {
                     Notification::make()
-                        ->title('Update Failed')
-                        ->body('An error occurred: ' . $e->getMessage())
+                        ->title(__('app-quotation-itineraries.notifications_offers.update_failed_title'))
+                        ->body(__('app-quotation-itineraries.notifications_offers.update_failed_body', ['error' => $e->getMessage()]))
                         ->danger()
                         ->send();
                     
                     throw $e;
                 }
             })
-            ->modalHeading('Edit Offer Group');
+            ->modalHeading(__('app-quotation-itineraries.modals_offers.edit_offer_group_heading'));
     }
 
     private static function deleteOfferGroupAction(): Action
     {
         return Action::make('delete_offer_group')
-            ->label('Delete')
+            ->label(__('common-fields.delete'))
             ->icon('heroicon-m-trash')
             ->color('danger')
             ->size('sm')
-            ->requiresConfirmation()
             ->action(function ($record) {
                 $record->delete();
-                Notification::make()->title('Deleted!')->success()->send();
+                Notification::make()->title(__('app-quotation-itineraries.notifications_offers.deleted_title'))->success()->send();
             });
     }
 
@@ -682,14 +686,14 @@ class OffersTab
             ->schema([
                 // 1. Driver Meal Cost
                 IconEntry::make('is_include_driver_meal')
-                    ->label('Driver Meal Cost')
+                    ->label(__('app-quotation-itineraries.fields.driver_meal_cost'))
                     ->boolean()
                     ->icon(fn($state) => 'heroicon-o-check-circle')
                     ->color(fn($state) => $state ? 'success' : 'gray'),
 
                 // 2. Same Meal
                 IconEntry::make('is_driver_same_meal')
-                    ->label('Same Meal')
+                    ->label(__('app-quotation-itineraries.fields.same_meal'))
                     ->boolean()
                     ->icon(fn($state) => 'heroicon-o-check-circle')
                     ->color(fn($state) => $state ? 'success' : 'gray')
@@ -697,23 +701,23 @@ class OffersTab
 
                 // 3. Driver Hotel
                 IconEntry::make('is_include_driver_hotel')
-                    ->label('Driver Hotel Cost')
+                    ->label(__('app-quotation-itineraries.fields.driver_hotel_cost'))
                     ->boolean()
                     ->icon(fn($state) => 'heroicon-o-check-circle')
                     ->color(fn($state) => $state ? 'success' : 'gray'),
 
                 // 4. Same Hotel
                 IconEntry::make('is_driver_stay_same_hotel')
-                    ->label('Same Hotel')
+                    ->label(__('app-quotation-itineraries.fields.same_hotel'))
                     ->boolean()
                     ->icon(fn($state) => 'heroicon-o-check-circle')
                     ->color(fn($state) => $state ? 'success' : 'gray'),
 
                 // 5. Room Category
                 TextEntry::make('driver_room_category_id')
-                    ->label('Driver Room')
+                    ->label(__('app-quotation-itineraries.fields.driver_room'))
                     ->formatStateUsing(fn($state, $record) => 
-                        $record->driverRoomCategory?->name ?? 'Not specified'
+                        $record->driverRoomCategory?->name ?? __('app-quotation-itineraries.placeholders.not_specified')
                     )
                     ->icon('heroicon-o-home')
                     ->color('primary')
@@ -724,35 +728,35 @@ class OffersTab
     private static function companionsTable(): RepeatableEntry
     {
         return RepeatableEntry::make('quotationOfferGroupCompanions')
-            ->label('Companions')
+            ->label(__('app-quotation-itineraries.fields.companion'))
             ->schema([
                 Grid::make(5)
                     ->schema([
                         TextEntry::make('companionType.name')
-                            ->label('Companion Type')
+                            ->label(__('app-quotation-itineraries.fields.companion_type'))
                             ->icon('heroicon-o-user')
                             ->color('primary'),
                             IconEntry::make('is_same_meal')
-                            ->label('Same Meal')
+                            ->label(__('app-quotation-itineraries.fields.same_meal'))
                             ->boolean()
                             ->icon(fn($state) => 'heroicon-o-check-circle')
                             ->color(fn($state) => $state ? 'success' : 'gray'),
                             
                         IconEntry::make('is_stay_same_hotel')
-                            ->label('Same Hotel')
+                            ->label(__('app-quotation-itineraries.fields.same_hotel'))
                             ->boolean()
                             ->icon(fn($state) => 'heroicon-o-check-circle')
                             ->color(fn($state) => $state ? 'success' : 'gray'),
 
                         TextEntry::make('roomCategory.name')
-                            ->label('Room Type')
-                            ->formatStateUsing(fn($state) => $state ?? 'N/A')
+                            ->label(__('app-quotation-itineraries.fields.room_type'))
+                            ->formatStateUsing(fn($state) => $state ?? __('app-quotation-itineraries.placeholders.na'))
                             ->icon('heroicon-o-home')
                             ->color('primary')
                             ->hidden(fn($record) => !$record->is_stay_same_hotel),
 
                         TextEntry::make('livingCity.name')
-                            ->label('Living City')
+                            ->label(__('app-quotation-itineraries.fields.living_city'))
                             ->icon('heroicon-o-map-pin')
                             ->color('success'),
                     ])
@@ -762,8 +766,8 @@ class OffersTab
 
     private static function offersList(): Section
     {
-        return Section::make('Offers')
-            ->description('Manage offers for this offer group')
+        return Section::make(__('app-quotation-itineraries.sections.offers.title'))
+            ->description(__('app-quotation-itineraries.sections.offers.description'))
             ->icon('heroicon-o-ticket')
             ->schema([
                 self::noOffersMessageForOffers(),
@@ -778,7 +782,7 @@ class OffersTab
         return TextEntry::make('id')
             ->hiddenLabel()
             ->label('')
-            ->formatStateUsing(fn() => 'No offers have been created yet.')
+            ->formatStateUsing(fn() => __('app-quotation-itineraries.offers_messages.no_offers_created'))
             ->icon('heroicon-o-information-circle')
             ->color('gray')
             ->hidden(fn($record) => $record->quotationOffers()->count() > 0);
@@ -812,37 +816,37 @@ class OffersTab
                             ->columnSpan(1),
 
                         TextEntry::make('vehicleType.name')
-                            ->label('Car')
+                            ->label(__('app-quotation-itineraries.fields.car'))
                             ->icon('heroicon-o-truck')
                             ->color('primary')
-                            ->formatStateUsing(fn($state) => $state ?? 'N/A')
+                            ->formatStateUsing(fn($state) => $state ?? __('app-quotation-itineraries.placeholders.na'))
                             ->columnSpan(2),
 
                         TextEntry::make('pax_qty')
-                            ->label('PAX')
+                            ->label(__('app-quotation-itineraries.fields.pax'))
                             ->icon('heroicon-o-users')
                             ->color('success')
                             ->formatStateUsing(fn($state, $record) => ($state ?? 0) . '+' . ($record->leaders_qty ?? 0))
                             ->columnSpan(1),
 
                         TextEntry::make('drivers_qty')
-                            ->label('Drivers')
+                            ->label(__('app-quotation-itineraries.fields.drivers'))
                             ->icon('heroicon-o-user')
                             ->color('info')
                             ->formatStateUsing(fn($state) => $state ?? 0)
                             ->columnSpan(1),
 
                         TextEntry::make('markup')
-                            ->label('Markup')
+                            ->label(__('app-quotation-itineraries.fields.markup'))
                             ->formatStateUsing(fn($state) => ($state ?? 0) . '%')
                             ->color('warning')
                             ->columnSpan(1),
 
                         TextEntry::make('id')
-                            ->label('Room Prices')
+                            ->label(__('app-quotation-itineraries.fields.room_prices'))
                             ->formatStateUsing(function ($state, $record) {
                                 if (!$record->quotationOfferPrices || $record->quotationOfferPrices->isEmpty()) {
-                                    return 'No prices';
+                                    return __('app-quotation-itineraries.placeholders.no_prices');
                                 }
                                 
                                 // Get quotation exchange rate and currency
@@ -852,7 +856,7 @@ class OffersTab
                                 
                                 $prices = [];
                                 foreach ($record->quotationOfferPrices as $price) {
-                                    $roomName = $price->roomCategory?->name ?? 'Unknown';
+                                    $roomName = $price->roomCategory?->name ?? __('app-quotation-itineraries.placeholders.unknown');
                                     // Convert to quotation currency
                                     // Exchange rate format: 1 Quotation Currency = X Tenant Currency
                                     // So to convert: Tenant Currency Price ÷ Exchange Rate = Quotation Currency Price
@@ -867,12 +871,12 @@ class OffersTab
                             ->columnSpan(3),
 
                         TextEntry::make('id')
-                            ->label('Edit')
+                            ->label(__('app-quotation-itineraries.actions.edit'))
                             ->formatStateUsing(fn() => '')
                             ->icon('heroicon-m-pencil-square')
                             ->color('primary')
                             ->size('xs')
-                            ->tooltip('Edit')
+                            ->tooltip(__('app-quotation-itineraries.tooltips.edit_tooltip'))
                             ->action(self::editOfferAction())
                             ->columnSpan(1)
                             ->hidden(fn($record) => 
@@ -881,22 +885,22 @@ class OffersTab
                             ),
 
                         TextEntry::make('id')
-                            ->label('Details')
+                            ->label(__('app-quotation-itineraries.actions.details'))
                             ->formatStateUsing(fn() => '')
                             ->icon('heroicon-m-document-text')
                             ->color('success')
                             ->size('xs')
-                            ->tooltip('Report')
+                            ->tooltip(__('app-quotation-itineraries.tooltips.report_tooltip'))
                             ->action(self::viewReportAction())
                             ->columnSpan(1),
 
                         TextEntry::make('id')
-                            ->label('Delete')
+                            ->label(__('common-fields.delete'))
                             ->formatStateUsing(fn() => '')
                             ->icon('heroicon-m-trash')
                             ->color('danger')
                             ->size('xs')
-                            ->tooltip('Delete')
+                            ->tooltip(__('app-quotation-itineraries.tooltips.delete_tooltip'))
                             ->action(self::deleteOfferAction())
                             ->columnSpan(1),
                     ])
@@ -907,17 +911,17 @@ class OffersTab
     private static function editOfferAction(): Action
     {
         return Action::make('edit_offer')
-            ->label('Edit')
+            ->label(__('app-quotation-itineraries.actions.edit'))
             ->icon('heroicon-m-pencil-square')
             ->color('primary')
             ->size('sm')
             ->schema([
-                Section::make('Offer Details')
-                    ->description('Edit offer settings')
+                Section::make(__('app-quotation-itineraries.sections.offer_details.title'))
+                    ->description(__('app-quotation-itineraries.sections.offer_details.description_edit'))
                     ->icon('heroicon-o-ticket')
                     ->schema([
                         Select::make('vehicle_type_id')
-                            ->label('Vehicle Type')
+                            ->label(__('app-quotation-itineraries.fields.vehicle_type'))
                             ->options(function ($record) {
                                 // Get breakdown vehicle types only
                                 $quotationItinerary = $record->quotationOfferGroup->quotationItinerary ?? null;
@@ -938,7 +942,7 @@ class OffersTab
                             ->columnSpan(1),
 
                         TextInput::make('leaders_qty')
-                            ->label('Leaders Quantity')
+                            ->label(__('app-quotation-itineraries.fields.leaders_quantity'))
                             ->integer()
                             ->default(0)
                             ->minValue(0)
@@ -948,7 +952,7 @@ class OffersTab
                             ->columnSpan(1),
 
                         Select::make('leader_room_category_id')
-                            ->label('Leader Room Category')
+                            ->label(__('app-quotation-itineraries.fields.leader_room_category'))
                             ->options(function ($record) {
                                 $quotationItinerary = $record->quotationOfferGroup->quotationItinerary;
                                 if (!$quotationItinerary || !$quotationItinerary->breakdown) return [];
@@ -971,7 +975,7 @@ class OffersTab
                             ->columnSpan(1),
 
                         TextInput::make('pax_qty')
-                            ->label('PAX Quantity')
+                            ->label(__('app-quotation-itineraries.fields.pax_quantity'))
                             ->integer()
                             ->default(1)
                             ->minValue(1)
@@ -980,7 +984,7 @@ class OffersTab
                             ->columnSpan(1),
 
                         TextInput::make('drivers_qty')
-                            ->label('Drivers Quantity')
+                            ->label(__('app-quotation-itineraries.fields.drivers_quantity'))
                             ->integer()
                             ->default(1)
                             ->minValue(1)
@@ -989,7 +993,7 @@ class OffersTab
                             ->columnSpan(1),
 
                         TextInput::make('markup')
-                            ->label('Markup (%)')
+                            ->label(__('app-quotation-itineraries.fields.markup_percent'))
                             ->numeric()
                             ->default(0)
                             ->minValue(0)
@@ -1031,32 +1035,32 @@ class OffersTab
                     });
 
                 Notification::make()
-                        ->title('Offer Updated!')
-                        ->body('All prices and costs have been recalculated successfully.')
+                        ->title(__('app-quotation-itineraries.notifications_offers.offer_updated_title'))
+                        ->body(__('app-quotation-itineraries.notifications_offers.offer_updated_body'))
                         ->success()
                     ->send();
                         
                 } catch (\Exception $e) {
                     Notification::make()
-                        ->title('Update Failed')
-                        ->body('An error occurred: ' . $e->getMessage())
+                        ->title(__('app-quotation-itineraries.notifications_offers.update_failed_title'))
+                        ->body(__('app-quotation-itineraries.notifications_offers.update_failed_body', ['error' => $e->getMessage()]))
                         ->danger()
                         ->send();
                     
                     throw $e;
                 }
             })
-            ->modalHeading('Edit Offer')
-            ->modalSubmitActionLabel('Update Offer');
+            ->modalHeading(__('app-quotation-itineraries.modals_offers.edit_offer_heading'))
+            ->modalSubmitActionLabel(__('app-quotation-itineraries.actions.update_offer'));
     }
 
     private static function viewReportAction(): Action
     {
         return Action::make('view_report')
-            ->label('View Report')
+            ->label(__('app-quotation-itineraries.actions.view_report'))
             ->icon('heroicon-m-document-text')
             ->color('success')
-            ->modalHeading('Offer Details Report')
+            ->modalHeading(__('app-quotation-itineraries.modals_offers.offer_details_report_heading'))
             ->modalWidth('7xl')
             ->modalContent(function ($record) {
                 // Eager load all necessary relationships
@@ -1106,35 +1110,35 @@ class OffersTab
                 return view('filament.app.pages.offer-report', ['offer' => $offer]);
             })
             ->modalSubmitAction(false)
-            ->modalCancelActionLabel('Close');
+            ->modalCancelActionLabel(__('app-quotation-itineraries.actions.close'));
     }
 
     private static function deleteOfferAction(): Action
     {
         return Action::make('delete_offer')
-            ->label('Delete')
+            ->label(__('common-fields.delete'))
             ->icon('heroicon-m-trash')
             ->color('danger')
             ->size('sm')
             ->requiresConfirmation()
-            ->modalHeading('Delete Offer')
-            ->modalDescription('Are you sure you want to delete this offer? This action cannot be undone.')
-            ->modalSubmitActionLabel('Yes, Delete')
+            ->modalHeading(__('app-quotation-itineraries.modals_offers.delete_offer_heading'))
+            ->modalDescription(__('app-quotation-itineraries.modals_offers.delete_offer_description'))
+            ->modalSubmitActionLabel(__('app-quotation-itineraries.actions.yes_delete'))
             ->action(function ($record) {
                 try {
                     // Delete the offer - all related records will be automatically deleted due to CASCADE constraints
                     $record->delete();
                     $record->refresh();
                     Notification::make()
-                        ->title('Offer Deleted Successfully!')
-                        ->body('The offer and all related records have been automatically deleted.')
+                        ->title(__('app-quotation-itineraries.notifications_offers.offer_deleted_title'))
+                        ->body(__('app-quotation-itineraries.notifications_offers.offer_deleted_body'))
                         ->success()
                         ->send();
 
                 } catch (\Exception $e) {
                     Notification::make()
-                        ->title('Error Deleting Offer')
-                        ->body('An error occurred while deleting the offer: ' . $e->getMessage())
+                        ->title(__('app-quotation-itineraries.notifications_offers.error_deleting_offer_title'))
+                        ->body(__('app-quotation-itineraries.notifications_offers.error_deleting_offer_body', ['error' => $e->getMessage()]))
                         ->danger()
                         ->send();
                 }
@@ -1144,7 +1148,7 @@ class OffersTab
     private static function createOfferAction(): Action
     {
         return Action::make('create_offer')
-            ->label('Create Offer')
+            ->label(__('app-quotation-itineraries.actions.create_offer'))
             ->icon('heroicon-o-plus-circle')
             ->color('success')
             ->size('sm')
@@ -1156,18 +1160,18 @@ class OffersTab
             ->tooltip(function ($record) {
                 $maxOffersPerGroup = config('central.quotation.max_offers_per_group', 6);
                 return $record->quotationOffers()->count() >= $maxOffersPerGroup
-                    ? "⚠️ Maximum {$maxOffersPerGroup} offers per group reached"
+                    ? __('app-quotation-itineraries.tooltips_offers.max_offers_per_group', ['max' => $maxOffersPerGroup])
                     : ($record->is_locked || !$record->quotationItinerary->breakdown?->is_completed
-                        ? '⚠️ Complete the breakdown first to create offer'
+                        ? __('app-quotation-itineraries.tooltips_offers.complete_breakdown_before_create_offer')
                         : null);
             })
             ->schema([
-                Section::make('Offer Details')
-                    ->description('Create a new offer for this offer group')
+                Section::make(__('app-quotation-itineraries.sections.offer_details.title'))
+                    ->description(__('app-quotation-itineraries.sections.offer_details.description_create'))
                     ->icon('heroicon-o-ticket')
                     ->schema([
                         Select::make('vehicle_type_id')
-                            ->label('Vehicle Type')
+                            ->label(__('app-quotation-itineraries.fields.vehicle_type'))
                             ->options(function ($record, $livewire) {
                                 // Get breakdown vehicle types only
                                 // $record in create action context is the QuotationOfferGroup
@@ -1190,7 +1194,7 @@ class OffersTab
                             ->columnSpan(1),
 
                         TextInput::make('leaders_qty')
-                            ->label('Leaders Quantity')
+                            ->label(__('app-quotation-itineraries.fields.leaders_quantity'))
                             ->integer()
                             ->required()
                             ->maxValue(4)
@@ -1200,7 +1204,7 @@ class OffersTab
                             ->columnSpan(1),
 
                         Select::make('leader_room_category_id')
-                            ->label('Leader Room Category')
+                            ->label(__('app-quotation-itineraries.fields.leader_room_category'))
                             ->options(function ($record) {
                                 $quotationItinerary = $record->quotationItinerary;
                                 if (!$quotationItinerary || !$quotationItinerary->breakdown) return [];
@@ -1223,7 +1227,7 @@ class OffersTab
                             ->columnSpan(1),
 
                         TextInput::make('pax_qty')
-                            ->label('PAX Quantity')
+                            ->label(__('app-quotation-itineraries.fields.pax_quantity'))
                             ->integer()
                             ->default(1)
                             ->minValue(1)
@@ -1232,7 +1236,7 @@ class OffersTab
                             ->columnSpan(1),
 
                         TextInput::make('drivers_qty')
-                            ->label('Drivers Quantity')
+                            ->label(__('app-quotation-itineraries.fields.drivers_quantity'))
                             ->integer()
                             ->default(1)
                             ->minValue(1)
@@ -1241,7 +1245,7 @@ class OffersTab
                             ->columnSpan(1),
 
                         TextInput::make('markup')
-                            ->label('Markup (%)')
+                            ->label(__('app-quotation-itineraries.fields.markup_percent'))
                             ->numeric()
                             ->default(0)
                             ->minValue(0)
@@ -1262,8 +1266,8 @@ class OffersTab
                     $currentOffersCount = $record->quotationOffers()->count();
                     if ($currentOffersCount >= $maxOffersPerGroup) {
                         Notification::make()
-                            ->title('Maximum offers reached')
-                            ->body("You can create a maximum of {$maxOffersPerGroup} offers per offer group.")
+                            ->title(__('app-quotation-itineraries.notifications_offers.max_offers_title'))
+                            ->body(__('app-quotation-itineraries.notifications_offers.max_offers_body', ['max' => $maxOffersPerGroup]))
                             ->warning()
                             ->send();
                         return;
@@ -1272,8 +1276,8 @@ class OffersTab
                     // Validate required fields
                     if (!isset($data['vehicle_type_id']) || empty($data['vehicle_type_id'])) {
                         Notification::make()
-                            ->title('Validation Error')
-                            ->body('Vehicle Type is required.')
+                            ->title(__('app-quotation-itineraries.notifications_offers.validation_error_title'))
+                            ->body(__('app-quotation-itineraries.notifications_offers.validation_error_vehicle_required'))
                             ->danger()
                             ->send();
                         return;
@@ -1322,20 +1326,20 @@ class OffersTab
                     });
 
                     Notification::make()
-                        ->title('Offer Created Successfully!')
-                        ->body('The offer has been created successfully. All costs including driver, leader, companions, and final prices for all room categories have been calculated.')
+                        ->title(__('app-quotation-itineraries.notifications_offers.offer_created_title'))
+                        ->body(__('app-quotation-itineraries.notifications_offers.offer_created_body'))
                         ->success()
                         ->send();
 
                 } catch (\Exception $e) {
                     Notification::make()
-                        ->title('Error Creating Offer')
-                        ->body('An error occurred while creating the offer: ' . $e->getMessage())
+                        ->title(__('app-quotation-itineraries.notifications_offers.error_creating_offer_title'))
+                        ->body(__('app-quotation-itineraries.notifications_offers.error_creating_offer_body', ['error' => $e->getMessage()]))
                         ->danger()
                         ->send();
                 }
             })
-            ->modalHeading('Create New Offer')
-            ->modalSubmitActionLabel('Create Offer');
+            ->modalHeading(__('app-quotation-itineraries.modals_offers.create_offer_heading'))
+            ->modalSubmitActionLabel(__('app-quotation-itineraries.actions.create_offer'));
     }
 }

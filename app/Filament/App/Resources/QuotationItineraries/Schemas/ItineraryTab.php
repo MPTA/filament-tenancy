@@ -23,7 +23,7 @@ class ItineraryTab
 {
     public static function getTab(): Tab
     {
-        return Tab::make('Itinerary')
+        return Tab::make(__('app-quotation-itineraries.tabs.itinerary'))
             ->icon('heroicon-o-map')
             ->badge(function (QuotationItinerary $record) {
                 if (!$record->itinerary) {
@@ -57,13 +57,13 @@ class ItineraryTab
 
     private static function transportationsSection(): Section
     {
-        return Section::make('Group Transportations')
-            ->description('Entry and exit transportation details for the group')
+        return Section::make(__('app-quotation-itineraries.sections.group_transportations.title'))
+            ->description(__('app-quotation-itineraries.sections.group_transportations.description'))
             ->icon('heroicon-o-paper-airplane')
             ->hidden(fn(QuotationItinerary $record) => !$record->itinerary)
             ->headerActions([
                 // Create Transportation Action (shown when no transportations exist)
-                Action::make('Create Transportation')
+                Action::make(__('app-quotation-itineraries.actions.create_transportation'))
                     ->icon('heroicon-m-plus-circle')
                     ->color('success')
                     ->hidden(fn(QuotationItinerary $record) => $record->transportations->isNotEmpty())
@@ -116,17 +116,17 @@ class ItineraryTab
                         }
                         
                         Notification::make()
-                            ->title('Transportation created successfully!')
+                            ->title(__('app-quotation-itineraries.notifications.transportation_created_title'))
                             ->success()
                             ->send();
                     })
-                    ->modalHeading('Create Group Transportation')
-                    ->modalDescription('Enter entry and exit transportation details')
-                    ->modalSubmitActionLabel('Create')
+                    ->modalHeading(__('app-quotation-itineraries.modals_itinerary.create_transportation_heading'))
+                    ->modalDescription(__('app-quotation-itineraries.modals_itinerary.create_transportation_description'))
+                    ->modalSubmitActionLabel(__('app-quotation-itineraries.actions.create'))
                     ->modalWidth('3xl'),
                 
                 // Edit Transportation Action (shown when transportations exist)
-                Action::make('Edit Transportation')
+                Action::make(__('app-quotation-itineraries.actions.edit_transportation'))
                     ->icon('heroicon-m-pencil-square')
                     ->color('primary')
                     ->hidden(fn(QuotationItinerary $record) => $record->transportations->isEmpty())
@@ -176,13 +176,13 @@ class ItineraryTab
                         }
                         
                         Notification::make()
-                            ->title('Transportation updated successfully!')
+                            ->title(__('app-quotation-itineraries.notifications.transportation_updated_title'))
                             ->success()
                             ->send();
                     })
-                    ->modalHeading('Edit Group Transportation')
-                    ->modalDescription('Update entry and exit transportation details')
-                    ->modalSubmitActionLabel('Save')
+                    ->modalHeading(__('app-quotation-itineraries.modals_itinerary.edit_transportation_heading'))
+                    ->modalDescription(__('app-quotation-itineraries.modals_itinerary.edit_transportation_description'))
+                    ->modalSubmitActionLabel(__('app-quotation-itineraries.actions.save'))
                     ->modalWidth('3xl')
             ])
             ->schema([
@@ -192,37 +192,37 @@ class ItineraryTab
                         // Header row
                         TextEntry::make('header_type')
                             ->hiddenLabel()
-                            ->formatStateUsing(fn() => 'Type')
+                            ->formatStateUsing(fn() => __('app-quotation-itineraries.table_headers.type'))
                             ->weight('bold')
                             ->color('gray'),
                         
                         TextEntry::make('header_from')
                             ->hiddenLabel()
-                            ->formatStateUsing(fn() => 'From')
+                            ->formatStateUsing(fn() => __('app-quotation-itineraries.table_headers.from'))
                             ->weight('bold')
                             ->color('gray'),
                         
                         TextEntry::make('header_to')
                             ->hiddenLabel()
-                            ->formatStateUsing(fn() => 'To')
+                            ->formatStateUsing(fn() => __('app-quotation-itineraries.table_headers.to'))
                             ->weight('bold')
                             ->color('gray'),
                         
                         TextEntry::make('header_departure')
                             ->hiddenLabel()
-                            ->formatStateUsing(fn() => 'Departure')
+                            ->formatStateUsing(fn() => __('app-quotation-itineraries.table_headers.departure'))
                             ->weight('bold')
                             ->color('gray'),
                         
                         TextEntry::make('header_arrival')
                             ->hiddenLabel()
-                            ->formatStateUsing(fn() => 'Arrival')
+                            ->formatStateUsing(fn() => __('app-quotation-itineraries.table_headers.arrival'))
                             ->weight('bold')
                             ->color('gray'),
                         
                         TextEntry::make('header_number')
                             ->hiddenLabel()
-                            ->formatStateUsing(fn() => 'Number')
+                            ->formatStateUsing(fn() => __('app-quotation-itineraries.table_headers.number'))
                             ->weight('bold')
                             ->color('gray'),
                     ])
@@ -305,7 +305,7 @@ class ItineraryTab
                 // Placeholder when no transportations exist
                 \Filament\Infolists\Components\TextEntry::make('no_transportations')
                     ->hiddenLabel()
-                    ->formatStateUsing(fn () => 'No transportation details available. Click "Create Transportation" to add entry and exit transportation.')
+                    ->formatStateUsing(fn () => __('app-quotation-itineraries.placeholders.no_transportations'))
                     ->color('gray')
                     ->hidden(fn(QuotationItinerary $record) => $record->transportations->isNotEmpty())
             ]);
@@ -313,8 +313,8 @@ class ItineraryTab
 
     private static function itinerarySummarySection(): Section
     {
-        return Section::make('Itinerary Summary')
-            ->description('Quick overview of your travel plan')
+        return Section::make(__('app-quotation-itineraries.sections.itinerary_summary.title'))
+            ->description(__('app-quotation-itineraries.sections.itinerary_summary.description'))
             ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->itinerary)
             ->headerActions([
                 self::completeItineraryAction(),
@@ -323,26 +323,26 @@ class ItineraryTab
                 Grid::make(4)
                     ->schema([
                         TextEntry::make('itinerary.travel_mode')
-                            ->label('Travel Mode')
-                            ->formatStateUsing(fn($state) => $state?->getLabel() ?? 'Not specified')
+                            ->label(__('app-quotation-itineraries.fields.travel_mode'))
+                            ->formatStateUsing(fn($state) => $state?->getLabel() ?? __('app-quotation-itineraries.placeholders.not_specified'))
                             ->icon('heroicon-o-globe-alt')
                             ->color('primary'),
 
                         TextEntry::make('itinerary.id')
-                            ->label('Total Days')
+                            ->label(__('app-quotation-itineraries.fields.total_days'))
                             ->formatStateUsing(fn($state, $record) => $record->itinerary?->days?->count() ?? 0)
                             ->icon('heroicon-o-calendar')
                             ->color('success'),
 
                         TextEntry::make('itinerary.id')
-                            ->label('Total Activities')
+                            ->label(__('app-quotation-itineraries.fields.total_activities'))
                             ->formatStateUsing(fn($state, $record) => $record->itinerary?->days?->sum(fn($day) => $day->activities?->count() ?? 0) ?? 0)
                             ->icon('heroicon-o-map-pin')
                             ->color('warning'),
 
                         TextEntry::make('itinerary.is_complete')
-                            ->label('Status')
-                            ->formatStateUsing(fn($state) => $state ? 'Completed' : 'In Progress')
+                            ->label(__('common-fields.status'))
+                            ->formatStateUsing(fn($state) => $state ? __('app-quotation-itineraries.status_labels.completed') : __('app-quotation-itineraries.status_labels.in_progress'))
                             ->icon(fn($state) => $state ? 'heroicon-o-check-circle' : 'heroicon-o-clock')
                             ->color(fn($state) => $state ? 'success' : 'warning')
                     ])
@@ -352,13 +352,13 @@ class ItineraryTab
 
     private static function createItinerarySection(): Section
     {
-        return Section::make('Create Itinerary')
-            ->description('Start building your travel plan')
+        return Section::make(__('app-quotation-itineraries.sections.create_itinerary.title'))
+            ->description(__('app-quotation-itineraries.sections.create_itinerary.description'))
             ->hidden(fn(QuotationItinerary $quotationItinerary) => $quotationItinerary->itinerary)
             ->schema([
                 Grid::make(1)
                     ->schema([
-                        Action::make('Create Itinerary')
+                        Action::make(__('app-quotation-itineraries.actions.create_itinerary'))
                             ->size(Size::ExtraLarge)
                             ->icon('heroicon-m-plus-circle')
                             ->color('success')
@@ -368,15 +368,15 @@ class ItineraryTab
                             })
                             ->schema([
                                 Select::make('travel_mode')
-                                    ->label('Travel Mode')
+                                    ->label(__('app-quotation-itineraries.fields.travel_mode'))
                                     ->options(TravelModeEnum::getOptions())
                                     ->required()
                                     ->reactive()
-                                    ->placeholder('Select travel mode'),
+                                    ->placeholder(__('app-quotation-itineraries.placeholders.select_travel_mode')),
                                 
                                 Toggle::make('enter_transportation_details')
-                                    ->label('Enter Transportation Details')
-                                    ->helperText('Enable to add entry and exit transportation information')
+                                    ->label(__('app-quotation-itineraries.fields.enter_transportation_details'))
+                                    ->helperText(__('app-quotation-itineraries.helpers.enter_transportation_details'))
                                     ->reactive()
                                     ->default(false)
                                     ->afterStateUpdated(function ($state, $set, $get, $livewire) {
@@ -460,9 +460,9 @@ class ItineraryTab
                                 }
                                 $quotationItinerary->refresh();
                             })
-                            ->modalHeading('Create New Itinerary')
-                            ->modalDescription('Enter transportation details and choose travel mode')
-                            ->modalSubmitActionLabel('Create Itinerary')
+                            ->modalHeading(__('app-quotation-itineraries.modals_itinerary.create_itinerary_heading'))
+                            ->modalDescription(__('app-quotation-itineraries.modals_itinerary.create_itinerary_description'))
+                            ->modalSubmitActionLabel(__('app-quotation-itineraries.actions.create_itinerary'))
                             ->modalWidth('3xl')
                     ])
                     ->extraAttributes(['class' => 'flex justify-center items-center min-h-[200px]'])
@@ -472,8 +472,8 @@ class ItineraryTab
 
     private static function itineraryDaysSection(): Section
     {
-        return Section::make('Itinerary Days')
-            ->description('Your travel plan day by day')
+        return Section::make(__('app-quotation-itineraries.sections.itinerary_days.title'))
+            ->description(__('app-quotation-itineraries.sections.itinerary_days.description'))
             ->compact()
             ->headerActions([
                 self::editItineraryAction(),
@@ -502,7 +502,7 @@ class ItineraryTab
                         // Day Header
                         Section::make()
                             ->heading(function ($record) {
-                                $heading = "Day {$record->day_number}";
+                                $heading = __('app-itineraries.fields.day') . " {$record->day_number}";
                                 
                                 $badges = [];
                                 // Check for vehicle
@@ -523,7 +523,7 @@ class ItineraryTab
                             })
                             ->description(function ($record) {
                                 $items = [];
-                                $cityName = $record->accommodationCity?->name ?? $record->currentCity?->name ?? 'Unknown City';
+                                $cityName = $record->accommodationCity?->name ?? $record->currentCity?->name ?? __('app-quotation-itineraries.placeholders.unknown_city');
                                 $items[] = '📍 ' . $cityName;
 
                                 // Add hotel name and star rating
@@ -564,7 +564,7 @@ class ItineraryTab
                                 
                                 // Add vehicle info
                                 if ($record->vehicle_usage_mode || $record->vehicle_type_id) {
-                                    $vehicleInfo = '🚗 Vehicle';
+                                    $vehicleInfo = '🚗 ' . __('app-quotation-itineraries.fields.vehicle');
                                     if ($record->vehicleType) {
                                         $vehicleInfo .= ': ' . $record->vehicleType->name;
                                     }
@@ -573,7 +573,7 @@ class ItineraryTab
                                 
                                 // Add companion info
                                 if ($record->companion_hire_mode?->value === 'daily') {
-                                    $companionInfo = '👤 Companion';
+                                    $companionInfo = '👤 ' . __('app-quotation-itineraries.fields.companion');
                                     if ($record->companionCategory) {
                                         $companionInfo .= ': ' . $record->companionCategory->name;
                                     }
@@ -630,7 +630,7 @@ class ItineraryTab
         return Grid::make(3)
             ->schema([
                 TextEntry::make('id')
-                    ->label('🌅 Breakfast')
+                    ->label('🌅 ' . __('app-quotation-itineraries.fields.breakfast'))
                     ->formatStateUsing(function ($state, $record) {
                         $mealActivity = self::getMealActivity($record, \App\Enums\MealPartEnum::BREAKFAST);
                         return $mealActivity?->meal?->mealType?->name ?? null;
@@ -642,7 +642,7 @@ class ItineraryTab
                     }),
 
                 TextEntry::make('id')
-                    ->label('☀️ Lunch')
+                    ->label('☀️ ' . __('app-quotation-itineraries.fields.lunch'))
                     ->formatStateUsing(function ($state, $record) {
                         $mealActivity = self::getMealActivity($record, \App\Enums\MealPartEnum::LUNCH);
                         return $mealActivity?->meal?->mealType?->name ?? null;
@@ -654,7 +654,7 @@ class ItineraryTab
                     }),
 
                 TextEntry::make('id')
-                    ->label('🌙 Dinner')
+                    ->label('🌙 ' . __('app-quotation-itineraries.fields.dinner'))
                     ->formatStateUsing(function ($state, $record) {
                         $mealActivity = self::getMealActivity($record, \App\Enums\MealPartEnum::DINNER);
                         return $mealActivity?->meal?->mealType?->name ?? null;
@@ -671,7 +671,7 @@ class ItineraryTab
     private static function ticketsSection(): TextEntry
     {
         return TextEntry::make('id')
-            ->label('🎫 Tickets')
+            ->label('🎫 ' . __('app-quotation-itineraries.fields.tickets'))
             ->formatStateUsing(function ($state, $record) {
                 // Use loaded activities if available
                 if ($record->relationLoaded('activities')) {
@@ -739,7 +739,7 @@ class ItineraryTab
     private static function attractionsSection(): TextEntry
     {
         return TextEntry::make('id')
-            ->label('🏛️ Attractions')
+            ->label('🏛️ ' . __('app-quotation-itineraries.fields.attractions'))
             ->formatStateUsing(function ($state, $record) {
                 // Use loaded activities if available
                 if ($record->relationLoaded('activities')) {
@@ -807,7 +807,7 @@ class ItineraryTab
     private static function experiencesSection(): TextEntry
     {
         return TextEntry::make('id')
-            ->label('🎭 Experiences')
+            ->label('🎭 ' . __('app-quotation-itineraries.fields.experiences'))
             ->formatStateUsing(function ($state, $record) {
                 // Use loaded activities if available
                 if ($record->relationLoaded('activities')) {
@@ -862,7 +862,7 @@ class ItineraryTab
     private static function descriptionSection(): TextEntry
     {
         return TextEntry::make('description')
-            ->label('📝 Description')
+            ->label('📝 ' . __('app-quotation-itineraries.fields.description'))
             ->icon('heroicon-o-document-text')
             ->hidden(fn($state) => empty($state))
             ->columnSpanFull();
@@ -871,7 +871,7 @@ class ItineraryTab
     private static function vehicleSection(): TextEntry
     {
         return TextEntry::make('vehicle_type_id')
-            ->label('🚗 Vehicle')
+            ->label('🚗 ' . __('app-quotation-itineraries.fields.vehicle'))
             ->formatStateUsing(function ($state, $record) {
                 if (!$record->vehicle_type_id && !$record->vehicle_usage_mode) {
                     return null;
@@ -898,7 +898,7 @@ class ItineraryTab
     private static function companionSection(): TextEntry
     {
         return TextEntry::make('companion_category_id')
-            ->label('👤 Companion')
+            ->label('👤 ' . __('app-quotation-itineraries.fields.companion'))
             ->formatStateUsing(function ($state, $record) {
                 if ($record->companion_hire_mode?->value !== 'daily') {
                     return null;
@@ -924,7 +924,7 @@ class ItineraryTab
 
     private static function editItineraryAction(): Action
     {
-        return Action::make('Edit Itinerary Days')
+        return Action::make(__('app-quotation-itineraries.actions.edit_itinerary_days'))
             ->icon('heroicon-m-pencil-square')
             ->color('primary')
             ->url(fn(QuotationItinerary $quotationItinerary) => ItineraryResource::getUrl('edit', ['record' => $quotationItinerary->itinerary]));
@@ -932,7 +932,7 @@ class ItineraryTab
 
     private static function completeItineraryAction(): Action
     {
-        return Action::make('Complete')
+        return Action::make(__('app-quotation-itineraries.actions.complete'))
             ->icon('heroicon-m-check-circle')
             ->color('success')
             ->hidden(function (QuotationItinerary $quotationItinerary) {
@@ -963,8 +963,8 @@ class ItineraryTab
                     
                     if ($lastDay && ($lastDay->accommodation_id || $lastDay->accommodation_city_id)) {
                         Notification::make()
-                            ->title('Cannot Complete Itinerary!')
-                            ->body('The last day (Day ' . $lastDay->day_number . ') cannot have accommodation because it is the checkout day. Please edit the itinerary and remove the accommodation from the last day.')
+                            ->title(__('app-quotation-itineraries.notifications.cannot_complete_title'))
+                            ->body(__('app-quotation-itineraries.notifications.cannot_complete_body', ['day' => $lastDay->day_number]))
                             ->danger()
                             ->persistent()
                             ->send();
@@ -979,8 +979,8 @@ class ItineraryTab
                     $quotationItinerary->generateBreakdownFromItinerary();
 
                     Notification::make()
-                        ->title('Itinerary completed successfully!')
-                        ->body('Breakdown has been automatically generated. Redirecting to breakdown form...')
+                        ->title(__('app-quotation-itineraries.notifications.itinerary_completed_title'))
+                        ->body(__('app-quotation-itineraries.notifications.itinerary_completed_body'))
                         ->success()
                         ->send();
 
@@ -989,8 +989,8 @@ class ItineraryTab
                 }
             })
             ->requiresConfirmation()
-            ->modalHeading('Complete Itinerary')
-            ->modalDescription('Are you sure you want to mark this itinerary as complete?')
-            ->modalSubmitActionLabel('Complete');
+            ->modalHeading(__('app-quotation-itineraries.modals_itinerary.complete_itinerary_heading'))
+            ->modalDescription(__('app-quotation-itineraries.modals_itinerary.complete_itinerary_description'))
+            ->modalSubmitActionLabel(__('app-quotation-itineraries.actions.complete'));
     }
 }

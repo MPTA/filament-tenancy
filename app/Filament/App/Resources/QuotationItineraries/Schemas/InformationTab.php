@@ -24,7 +24,7 @@ class InformationTab
 {
     public static function getTab(): Tab
     {
-        return Tab::make('Information')
+        return Tab::make(__('app-quotation-itineraries.tabs.information'))
             ->icon('heroicon-o-information-circle')
             ->badge('✓')
             ->badgeColor('success')
@@ -36,8 +36,8 @@ class InformationTab
 
     private static function inquiryInformationSection(): Section
     {
-        return Section::make('Inquiry Information')
-            ->description('Basic inquiry details and information')
+        return Section::make(__('app-quotation-itineraries.sections.inquiry_information.title'))
+            ->description(__('app-quotation-itineraries.sections.inquiry_information.description'))
             ->icon('heroicon-o-document-text')
             ->headerActions([
                 self::editInquiryAction(),
@@ -46,14 +46,14 @@ class InformationTab
                 Grid::make(2)
                     ->schema([
                         TextEntry::make('quotation.id')
-                            ->label('Title')
-                            ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->getTranslation('title', app()->getLocale()) ?? 'No title')
+                            ->label(__('app-quotation-itineraries.fields.title'))
+                            ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->getTranslation('title', app()->getLocale()) ?? __('app-quotation-itineraries.placeholders.no_title'))
                             ->icon('heroicon-o-tag')
                             ->color('primary'),
 
                         TextEntry::make('quotation.id')
-                            ->label('Inquiry Number')
-                            ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->number ?? 'No number')
+                            ->label(__('app-quotation-itineraries.fields.inquiry_number'))
+                            ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->number ?? __('app-quotation-itineraries.placeholders.no_number'))
                             ->icon('heroicon-o-hashtag')
                             ->color('info'),
                     ]),
@@ -61,28 +61,28 @@ class InformationTab
                 Grid::make(2)
                     ->schema([
                         TextEntry::make('quotation.id')
-                            ->label('Contact')
-                            ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->contact?->full_name ?? 'No contact')
+                            ->label(__('app-quotation-itineraries.fields.contact'))
+                            ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->contact?->full_name ?? __('app-quotation-itineraries.placeholders.no_contact'))
                             ->icon('heroicon-o-user')
                             ->color('success')
                             ->action(
                                 Action::make('viewContact')
-                                    ->label('View Contact Details')
+                                    ->label(__('app-quotation-itineraries.actions.view_contact_details'))
                                     ->icon('heroicon-o-user-circle')
-                                    ->modalHeading(fn($record) => $record->quotation?->inquiry?->contact?->full_name ?? 'Contact Details')
-                                    ->modalDescription('Complete information about this contact')
+                                    ->modalHeading(fn($record) => $record->quotation?->inquiry?->contact?->full_name ?? __('app-quotation-itineraries.actions.view_contact_details'))
+                                    ->modalDescription(__('app-quotation-itineraries.sections.contact_information.title'))
                                     ->modalSubmitAction(false)
-                                    ->modalCancelActionLabel('Close')
+                                    ->modalCancelActionLabel(__('app-quotation-itineraries.actions.close'))
                                     ->infolist(fn($record) => self::getContactInfolist($record->quotation?->inquiry?->contact))
                                     ->disabled(fn($record) => !$record->quotation?->inquiry?->contact)
                             ),
 
                         TextEntry::make('quotation.id')
-                            ->label('Requested Currency')
+                            ->label(__('app-quotation-itineraries.fields.requested_currency'))
                             ->formatStateUsing(fn($state, $record) => 
                                 $record->quotation?->inquiry?->requestedCurrency 
                                     ? "{$record->quotation->inquiry->requestedCurrency->code} ({$record->quotation->inquiry->requestedCurrency->symbol})"
-                                    : 'Not specified'
+                                    : __('app-quotation-itineraries.placeholders.not_specified')
                             )
                             ->icon('heroicon-o-banknotes')
                             ->color('info'),
@@ -91,14 +91,14 @@ class InformationTab
                 Grid::make(2)
                     ->schema([
                         TextEntry::make('quotation.id')
-                            ->label('Reference')
-                            ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->reference ?? 'No reference')
+                            ->label(__('app-quotation-itineraries.fields.reference'))
+                            ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->reference ?? __('app-quotation-itineraries.placeholders.no_reference'))
                             ->icon('heroicon-o-link')
                             ->color('warning'),
 
                         TextEntry::make('quotation.id')
-                            ->label('Date Type')
-                            ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->inquiryItinerary?->date_type?->label() ?? 'Not specified')
+                            ->label(__('app-quotation-itineraries.fields.date_type'))
+                            ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->inquiryItinerary?->date_type?->label() ?? __('app-quotation-itineraries.placeholders.not_specified'))
                             ->icon('heroicon-o-calendar')
                             ->color('primary'),
                     ]),
@@ -106,24 +106,24 @@ class InformationTab
                 Grid::make(2)
                     ->schema([
                         TextEntry::make('quotation.id')
-                            ->label('From Date')
-                            ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->inquiryItinerary?->from_date?->format('M d, Y') ?? 'Not specified')
+                            ->label(__('app-quotation-itineraries.fields.from_date'))
+                            ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->inquiryItinerary?->from_date?->format('M d, Y') ?? __('app-quotation-itineraries.placeholders.not_specified'))
                             ->icon('heroicon-o-calendar-days')
                             ->color('success'),
 
                         TextEntry::make('quotation.id')
-                            ->label('To Date')
-                            ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->inquiryItinerary?->to_date?->format('M d, Y') ?? 'Not specified')
+                            ->label(__('app-quotation-itineraries.fields.to_date'))
+                            ->formatStateUsing(fn($state, $record) => $record->quotation?->inquiry?->inquiryItinerary?->to_date?->format('M d, Y') ?? __('app-quotation-itineraries.placeholders.not_specified'))
                             ->icon('heroicon-o-calendar-days')
                             ->color('warning'),
                     ]),
 
                 TextEntry::make('attachments_list')
-                    ->label('Attachments')
+                    ->label(__('app-quotation-itineraries.fields.attachments'))
                     ->state(function ($record) {
                         $attachments = $record->quotation?->inquiry?->attachments;
                         if (!$attachments || !is_array($attachments) || empty($attachments)) {
-                            return 'No attachments';
+                            return __('app-quotation-itineraries.placeholders.no_attachments');
                         }
                         return collect($attachments)
                             ->map(fn($file) => '📎 ' . basename($file))
@@ -137,8 +137,8 @@ class InformationTab
 
     private static function quotationInformationSection(): Section
     {
-        return Section::make('Quotation Information')
-            ->description('Quotation and pricing details')
+        return Section::make(__('app-quotation-itineraries.sections.quotation_information.title'))
+            ->description(__('app-quotation-itineraries.sections.quotation_information.description'))
             ->icon('heroicon-o-currency-dollar')
             ->headerActions([
                 self::editQuotationAction(),
@@ -147,23 +147,23 @@ class InformationTab
                 Grid::make(3)
                     ->schema([
                         TextEntry::make('quotation.number')
-                            ->label('Quotation Number')
+                            ->label(__('app-quotation-itineraries.fields.quotation_number'))
                             ->icon('heroicon-o-hashtag')
                             ->color('primary'),
 
                         TextEntry::make('quotation.currency.code')
-                            ->label('Currency')
+                            ->label(__('app-quotation-itineraries.fields.currency'))
                             ->formatStateUsing(fn($state, $record) => 
                                 $record->quotation?->currency 
                                     ? "{$record->quotation->currency->code} ({$record->quotation->currency->symbol})"
-                                    : 'Not specified'
+                                    : __('app-quotation-itineraries.placeholders.not_specified')
                             )
                             ->icon('heroicon-o-currency-dollar')
                             ->color('success'),
 
                         TextEntry::make('quotation.exchange_rate')
-                            ->label('Exchange Rate')
-                            ->formatStateUsing(fn($state) => $state ? number_format($state, 4) : 'Not specified')
+                            ->label(__('app-quotation-itineraries.fields.exchange_rate'))
+                            ->formatStateUsing(fn($state) => $state ? number_format($state, 4) : __('app-quotation-itineraries.placeholders.not_specified'))
                             ->icon('heroicon-o-arrow-path')
                             ->color('info'),
                     ]),
@@ -171,22 +171,22 @@ class InformationTab
                 Grid::make(3)
                     ->schema([
                         TextEntry::make('quotation.expire_date')
-                            ->label('Expiry Date')
+                            ->label(__('app-quotation-itineraries.fields.expiry_date'))
                             ->date()
                             ->icon('heroicon-o-calendar-days')
                             ->color('danger'),
 
                         TextEntry::make('entry_date')
-                            ->label('Entry Date (Arrival)')
-                            ->formatStateUsing(fn($state) => $state ? $state->format('M d, Y') : 'Not specified')
+                            ->label(__('app-quotation-itineraries.fields.entry_date_arrival'))
+                            ->formatStateUsing(fn($state) => $state ? $state->format('M d, Y') : __('app-quotation-itineraries.placeholders.not_specified'))
                             ->icon('heroicon-o-calendar-days')
                             ->color('success'),
 
                         TextEntry::make('roomCategoriesDisplay')
-                            ->label('Room Categories')
+                            ->label(__('app-quotation-itineraries.fields.room_categories'))
                             ->state(function ($record) {
                                 if (empty($record->room_category_ids)) {
-                                    return 'Default (Twin, Single)';
+                                    return __('app-quotation-itineraries.placeholders.default_room_categories');
                                 }
                                 
                                 $uniqueIds = array_values(array_unique($record->room_category_ids));
@@ -203,20 +203,20 @@ class InformationTab
                     ]),
 
                 TextEntry::make('quotation.description')
-                    ->label('Description')
-                    ->formatStateUsing(fn($state) => $state ?? 'No description')
+                    ->label(__('app-quotation-itineraries.fields.description'))
+                    ->formatStateUsing(fn($state) => $state ?? __('app-quotation-itineraries.placeholders.no_description'))
                     ->icon('heroicon-o-document-text')
                     ->columnSpanFull(),
 
                 TextEntry::make('quotation.internal_note')
-                    ->label('Internal Note')
-                    ->formatStateUsing(fn($state) => $state ?? 'No internal note')
+                    ->label(__('app-quotation-itineraries.fields.internal_note'))
+                    ->formatStateUsing(fn($state) => $state ?? __('app-quotation-itineraries.placeholders.no_internal_note'))
                     ->icon('heroicon-o-exclamation-triangle')
                     ->color('warning')
                     ->columnSpanFull(),
 
                 IconEntry::make('is_foreigner_passengers')
-                    ->label('Foreigner Passengers')
+                    ->label(__('app-quotation-itineraries.fields.foreigner_passengers'))
                     ->boolean()
                     ->icon(fn($state) => $state ? 'heroicon-o-globe-alt' : 'heroicon-o-home')
                     ->color(fn($state) => $state ? 'info' : 'gray')
@@ -227,21 +227,21 @@ class InformationTab
     private static function editInquiryAction(): Action
     {
         return Action::make('edit_inquiry')
-            ->label('Edit Inquiry')
+            ->label(__('app-quotation-itineraries.actions.edit_inquiry'))
             ->icon('heroicon-m-pencil-square')
             ->color('primary')
             ->schema([
                 TextInput::make('inquiry.title')
-                    ->label('Title')
+                    ->label(__('app-quotation-itineraries.fields.title'))
                     ->required(),
 
                 TextInput::make('inquiry.number')
-                    ->label('Inquiry Number')
+                    ->label(__('app-quotation-itineraries.fields.inquiry_number'))
                     ->disabled()
                     ->dehydrated(),
 
                 Select::make('inquiry.requested_currency_id')
-                    ->label('Currency')
+                    ->label(__('app-quotation-itineraries.fields.currency'))
                     ->required()
                     ->options(function () {
                         // Load currencies once and format them
@@ -252,13 +252,13 @@ class InformationTab
                     })
                     ->searchable()
                     ->preload()
-                    ->helperText('Changing currency will update both Inquiry and Quotation'),
+                    ->helperText(__('app-quotation-itineraries.helpers.currency_sync')),
 
                 TextInput::make('inquiry.reference')
-                    ->label('Reference'),
+                    ->label(__('app-quotation-itineraries.fields.reference')),
 
                 FileUpload::make('inquiry.attachments')
-                    ->label('Attachments')
+                    ->label(__('app-quotation-itineraries.fields.attachments'))
                     ->multiple()
                     ->disk('local')
                     ->directory(fn () => \App\Models\TenantSetting::getTenantDirectory('inquiries'))
@@ -269,7 +269,7 @@ class InformationTab
                     ->reorderable()
                     ->maxFiles(10)
                     ->maxSize(10240)
-                    ->helperText('You can upload up to 10 files. Max size: 10MB per file.')
+                    ->helperText(__('app-quotation-itineraries.helpers.attachments'))
                     ->acceptedFileTypes([
                         'application/pdf',
                         'application/msword',
@@ -327,28 +327,28 @@ class InformationTab
                 $record->refresh();
 
                 Notification::make()
-                    ->title('Inquiry updated successfully!')
+                    ->title(__('app-quotation-itineraries.notifications.inquiry_updated_title'))
                     ->success()
                     ->send();
             })
-            ->modalHeading('Edit Inquiry')
-            ->modalSubmitActionLabel('Save Changes');
+            ->modalHeading(__('app-quotation-itineraries.actions.edit_inquiry'))
+            ->modalSubmitActionLabel(__('app-quotation-itineraries.actions.save_changes'));
     }
 
     private static function editQuotationAction(): Action
     {
         return Action::make('edit_quotation')
-            ->label('Edit Quotation')
+            ->label(__('app-quotation-itineraries.actions.edit_quotation'))
             ->icon('heroicon-m-pencil-square')
             ->color('primary')
             ->schema([
                 TextInput::make('quotation.number')
-                    ->label('Quotation Number')
+                    ->label(__('app-quotation-itineraries.fields.quotation_number'))
                     ->disabled()
                     ->dehydrated(),
 
                 Select::make('quotation.currency_id')
-                    ->label('Currency')
+                    ->label(__('app-quotation-itineraries.fields.currency'))
                     ->required()
                     ->options(function () {
                         // Load currencies once and format them
@@ -359,33 +359,33 @@ class InformationTab
                     })
                     ->searchable()
                     ->preload()
-                    ->helperText('Changing currency will update both Quotation and Inquiry'),
+                    ->helperText(__('app-quotation-itineraries.helpers.currency_sync_quotation')),
 
                 TextInput::make('quotation.exchange_rate')
-                    ->label('Exchange Rate')
+                    ->label(__('app-quotation-itineraries.fields.exchange_rate'))
                     ->required()
                     ->rules(['required', 'regex:/^\d+(\.\d{1,4})?$/'])
-                    ->helperText('Enter a valid number with up to 4 decimal places')
-                    ->placeholder('e.g., 42500.5000')
+                    ->helperText(__('app-quotation-itineraries.helpers.exchange_rate_format'))
+                    ->placeholder(__('app-quotation-itineraries.placeholders.exchange_rate_modal'))
                     ->validationMessages([
-                        'regex' => 'Please enter a valid number with up to 4 decimal places.',
+                        'regex' => __('app-quotation-itineraries.validations.exchange_rate_regex'),
                     ]),
 
                 DatePicker::make('quotation.expire_date')
-                    ->label('Expiry Date'),
+                    ->label(__('app-quotation-itineraries.fields.expiry_date')),
 
                 Textarea::make('quotation.description')
-                    ->label('Description')
+                    ->label(__('app-quotation-itineraries.fields.description'))
                     ->rows(3)
-                    ->helperText('This description will be visible to the customer in the quotation view.'),
+                    ->helperText(__('app-quotation-itineraries.helpers.description_visible')),
 
                 Textarea::make('quotation.internal_note')
-                    ->label('Internal Note')
+                    ->label(__('app-quotation-itineraries.fields.internal_note'))
                     ->rows(3)
-                    ->helperText('Internal note - NOT visible to the customer. Use this for team notes and reminders.'),
+                    ->helperText(__('app-quotation-itineraries.helpers.internal_note_private')),
 
                 Select::make('room_category_ids')
-                    ->label('Room Categories')
+                    ->label(__('app-quotation-itineraries.fields.room_categories'))
                     ->required()
                     ->multiple()
                     ->maxItems(3)
@@ -395,18 +395,18 @@ class InformationTab
                     )
                     ->searchable()
                     ->preload()
-                    ->helperText('Select up to 3 room types (required). Changing this will regenerate the breakdown.'),
+                    ->helperText(__('app-quotation-itineraries.helpers.room_categories_regenerate')),
 
                 Toggle::make('is_foreigner_passengers')
-                    ->label('Foreigner Passengers')
-                    ->helperText('Enable if passengers are foreigners (affects attraction pricing)'),
+                    ->label(__('app-quotation-itineraries.fields.foreigner_passengers'))
+                    ->helperText(__('app-quotation-itineraries.helpers.foreigner_passengers_affects')),
 
                 DatePicker::make('entry_date')
-                    ->label('Entry Date (Arrival)')
+                    ->label(__('app-quotation-itineraries.fields.entry_date_arrival'))
                     ->disabled(fn(QuotationItinerary $record) => $record->transportations()->count() > 0)
                     ->helperText(fn(QuotationItinerary $record) => $record->transportations()->count() > 0 
-                        ? 'Entry date is controlled by transportation. Remove transportation to edit manually.' 
-                        : 'Entry date for the group arrival'),
+                        ? __('app-quotation-itineraries.helpers.entry_date_controlled')
+                        : __('app-quotation-itineraries.helpers.entry_date_arrival')),
             ])
             ->fillForm(function (QuotationItinerary $record) {
                 return [
@@ -477,15 +477,15 @@ class InformationTab
                 $record->refresh();
 
                 Notification::make()
-                    ->title('Quotation updated successfully!')
+                    ->title(__('app-quotation-itineraries.notifications.quotation_updated_title'))
                     ->body($needsBreakdownRegeneration && $record->breakdown
-                        ? $regenerationReason . ' Breakdown has been regenerated.'
-                        : 'Quotation information has been updated.')
+                        ? __('app-quotation-itineraries.messages.breakdown_regenerated', ['reason' => $regenerationReason])
+                        : __('app-quotation-itineraries.messages.quotation_updated'))
                     ->success()
                     ->send();
             })
-            ->modalHeading('Edit Quotation')
-            ->modalSubmitActionLabel('Save Changes');
+            ->modalHeading(__('app-quotation-itineraries.actions.edit_quotation'))
+            ->modalSubmitActionLabel(__('app-quotation-itineraries.actions.save_changes'));
     }
 
     private static function getContactInfolist($contact): array
@@ -494,24 +494,24 @@ class InformationTab
             return [
                 TextEntry::make('no_contact')
                     ->label('')
-                    ->formatStateUsing(fn() => 'No contact information available')
+                    ->formatStateUsing(fn() => __('app-quotation-itineraries.placeholders.no_contact_info'))
                     ->color('gray'),
             ];
         }
 
         return [
-            Section::make('Personal Information')
+            Section::make(__('app-quotation-itineraries.sections.personal_information.title'))
                 ->icon('heroicon-o-user')
                 ->schema([
                     Grid::make(2)
                         ->schema([
                             TextEntry::make('first_name')
-                                ->label('First Name')
+                                ->label(__('app-quotation-itineraries.fields.first_name'))
                                 ->default($contact->first_name ?? 'N/A')
                                 ->icon('heroicon-o-user'),
 
                             TextEntry::make('last_name')
-                                ->label('Last Name')
+                                ->label(__('app-quotation-itineraries.fields.last_name'))
                                 ->default($contact->last_name ?? 'N/A')
                                 ->icon('heroicon-o-user'),
                         ]),
@@ -519,8 +519,8 @@ class InformationTab
                     Grid::make(2)
                         ->schema([
                             TextEntry::make('gender')
-                                ->label('Gender')
-                                ->default($contact->gender ?? 'Not specified')
+                                ->label(__('common-fields.gender'))
+                                ->default($contact->gender ?? __('app-quotation-itineraries.placeholders.not_specified'))
                                 ->icon('heroicon-o-identification')
                                 ->badge()
                                 ->color(fn() => match($contact->gender ?? null) {
@@ -530,56 +530,56 @@ class InformationTab
                                 }),
 
                             TextEntry::make('company')
-                                ->label('Company')
+                                ->label(__('common-fields.company'))
                                 ->default($contact->company ?? 'N/A')
                                 ->icon('heroicon-o-building-office'),
                         ]),
                 ]),
 
-            Section::make('Contact Information')
+            Section::make(__('app-quotation-itineraries.sections.contact_information.title'))
                 ->icon('heroicon-o-phone')
                 ->schema([
                     Grid::make(2)
                         ->schema([
                             TextEntry::make('email')
-                                ->label('Email')
+                                ->label(__('common-fields.email'))
                                 ->default($contact->email ?? 'N/A')
                                 ->icon('heroicon-o-envelope')
                                 ->copyable()
-                                ->copyMessage('Email copied!')
+                                ->copyMessage(__('app-quotation-itineraries.messages.email_copied'))
                                 ->color('primary'),
 
                             TextEntry::make('phone')
-                                ->label('Phone')
+                                ->label(__('common-fields.phone'))
                                 ->default($contact->phone ?? 'N/A')
                                 ->icon('heroicon-o-phone')
                                 ->copyable()
-                                ->copyMessage('Phone copied!'),
+                                ->copyMessage(__('app-quotation-itineraries.messages.phone_copied')),
                         ]),
 
                     TextEntry::make('mobile')
-                        ->label('Mobile')
+                        ->label(__('app-quotation-itineraries.fields.mobile'))
                         ->default($contact->mobile ?? 'N/A')
                         ->icon('heroicon-o-device-phone-mobile')
                         ->copyable()
-                        ->copyMessage('Mobile copied!')
+                        ->copyMessage(__('app-quotation-itineraries.messages.mobile_copied'))
                         ->columnSpanFull(),
 
                     TextEntry::make('postal_address')
-                        ->label('Postal Address')
+                        ->label(__('app-quotation-itineraries.fields.postal_address'))
                         ->default($contact->postal_address ?? 'N/A')
                         ->icon('heroicon-o-map-pin')
                         ->columnSpanFull(),
                 ]),
 
-            Section::make('Customer Status')
+            Section::make(__('app-quotation-itineraries.sections.customer_status.title'))
                 ->icon('heroicon-o-check-badge')
                 ->schema([
                     IconEntry::make('type')
-                        ->label('Is Customer')
+                        ->label(__('app-quotation-itineraries.fields.is_customer'))
                         ->icon(fn() => ($contact->type ?? ContactTypeEnum::LEAD) === ContactTypeEnum::CUSTOMER ? 'heroicon-o-check-circle' : 'heroicon-o-x-circle')
                         ->color(fn() => ($contact->type ?? ContactTypeEnum::LEAD) === ContactTypeEnum::CUSTOMER ? 'success' : 'gray')
-                        ->label(fn() => ($contact->type ?? ContactTypeEnum::LEAD) === ContactTypeEnum::CUSTOMER ? 'Active Customer' : 'Lead Contact'),
+                        ->label(fn() => ($contact->type ?? ContactTypeEnum::LEAD) === ContactTypeEnum::CUSTOMER ? __('app-quotation-itineraries.infolist.active_customer') : __('app-quotation-itineraries.infolist.lead_contact')),
                 ]),
         ];
     }

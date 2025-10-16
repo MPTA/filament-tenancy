@@ -114,33 +114,39 @@
                         if (is_array($logo)) {
                             $logo = !empty($logo) ? $logo[0] : null;
                         }
+                        
+                        // Get company name based on locale
+                        $locale = app()->getLocale();
+                        $companyName = ($locale === 'en') 
+                            ? (tenant()->settings?->company_name ?? tenant()->name ?? __('customer-view.messages.mpta_default'))
+                            : (tenant()->settings?->company_local_name ?? tenant()->settings?->company_name ?? tenant()->name ?? __('customer-view.messages.mpta_default'));
                     @endphp
                     
                     @if($logo)
                         <img src="{{ asset('storage/' . $logo) }}" alt="Company Logo" class="logo-image">
                     @else
                         <div class="logo-placeholder">
-                            <div class="logo-text">{{ tenant()->settings?->company_name ?? tenant()->name ?? 'MPTA' }}</div>
-                            <div class="logo-subtitle">Travel & Tourism</div>
+                            <div class="logo-text">{{ $companyName }}</div>
+                            <div class="logo-subtitle">{{ __('customer-view.logo_subtitle') }}</div>
                         </div>
                     @endif
                 </div>
                 <div class="quotation-title">
-                    <h1>{{ tenant()->settings?->company_name ?? tenant()->name ?? 'Company Name' }}</h1>
-                    <div class="quotation-subtitle">Tour Quotation</div>
+                    <h1>{{ $companyName }}</h1>
+                    <div class="quotation-subtitle">{{ __('customer-view.tour_quotation') }}</div>
                 </div>
                 <div class="quotation-details">
                     <div class="detail-row">
-                        <span class="label">Number#:</span>
+                        <span class="label">{{ __('customer-view.number') }}</span>
                         <span class="value">{{ $record->quotation->number }}</span>
                     </div>
                     <div class="detail-row">
-                        <span class="label">Issue Date:</span>
+                        <span class="label">{{ __('customer-view.issue_date') }}</span>
                         <span class="value">{{ $record->quotation->created_at->format('Y-m-d H:i:s') }}</span>
                     </div>
                     <div class="detail-row">
-                        <span class="label">Expire Date:</span>
-                        <span class="value">{{ $record->quotation->expire_date?->format('Y-m-d H:i:s') ?? 'N/A' }}</span>
+                        <span class="label">{{ __('customer-view.expire_date') }}</span>
+                        <span class="value">{{ $record->quotation->expire_date?->format('Y-m-d H:i:s') ?? __('customer-view.messages.na') }}</span>
                     </div>
                 </div>
             </div>
@@ -148,9 +154,9 @@
 
         {{-- Customer Section --}}
         <div class="customer-section">
-            <h2>Customer: {{ $record->quotation->inquiry->contact->full_name ?? 'N/A' }}</h2>
+            <h2>{{ __('customer-view.customer') }} {{ $record->quotation->inquiry->contact->full_name ?? __('customer-view.messages.na') }}</h2>
             @if($tripStartDate && $tripEndDate)
-                <p>This quotation is valid for specific travel date From {{ $tripStartDate->format('d-M-Y') }} To: {{ $tripEndDate->format('d-M-Y') }}</p>
+                <p>{{ __('customer-view.quotation_valid_dates', ['start_date' => $tripStartDate->format('d-M-Y'), 'end_date' => $tripEndDate->format('d-M-Y')]) }}</p>
             @endif
         </div>
 
@@ -160,11 +166,11 @@
                 <table class="itinerary-table">
                     <thead>
                         <tr>
-                            <th>Day</th>
-                            <th>City</th>
-                            <th>Activity</th>
-                            <th>Meals</th>
-                            <th>Hotel</th>
+                            <th>{{ __('customer-view.table_headers.day') }}</th>
+                            <th>{{ __('customer-view.table_headers.city') }}</th>
+                            <th>{{ __('customer-view.table_headers.activity') }}</th>
+                            <th>{{ __('customer-view.table_headers.meals') }}</th>
+                            <th>{{ __('customer-view.table_headers.hotel') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -178,10 +184,10 @@
                                     @endif
                                     <div class="day-icons">
                                         @if($day['has_vehicle'])
-                                            <span class="day-icon vehicle-icon" title="Vehicle">🚗</span>
+                                            <span class="day-icon vehicle-icon" title="{{ __('customer-view.tooltips.vehicle') }}">🚗</span>
                                         @endif
                                         @if($day['has_companion'])
-                                            <span class="day-icon companion-icon" title="Guide/Companion">👤</span>
+                                            <span class="day-icon companion-icon" title="{{ __('customer-view.tooltips.guide_companion') }}">👤</span>
                                         @endif
                                     </div>
                                 </td>
@@ -248,7 +254,7 @@
                                                 @endif
                                                 <span class="attraction-bracket">[ {{ $attraction['attraction']->name }} ]</span>
                                                 @if($attraction['is_outview'])
-                                                    <span class="outview-text">*Out View*</span>
+                                                    <span class="outview-text">{{ __('customer-view.out_view') }}</span>
                                                 @endif
                                                 @if(count($attraction['sub_attractions']) > 0)
                                                     @foreach($attraction['sub_attractions'] as $subAttr)
@@ -340,7 +346,7 @@
                                             @endif
                                         </div>
                                     @else
-                                        <div class="no-hotel">No Hotel</div>
+                                        <div class="no-hotel">{{ __('customer-view.no_hotel') }}</div>
                                     @endif
                                 </td>
                             </tr>
@@ -352,11 +358,11 @@
                 <div class="itinerary-legend">
                     <span class="legend-item">
                         <span class="legend-icon">🚗</span>
-                        <span class="legend-text">Vehicle included for this day</span>
+                        <span class="legend-text">{{ __('customer-view.legend.vehicle_included') }}</span>
                     </span>
                     <span class="legend-item">
                         <span class="legend-icon">👤</span>
-                        <span class="legend-text">Tour guide/companion included for this day</span>
+                        <span class="legend-text">{{ __('customer-view.legend.guide_included') }}</span>
                     </span>
                 </div>
             </div>
@@ -365,7 +371,7 @@
         {{-- Offers Section --}}
         @if($record->quotationOfferGroups && $record->quotationOfferGroups->count() > 0)
             <div class="offers-section">
-                <h2>Offers</h2>
+                <h2>{{ __('customer-view.offers.title') }}</h2>
                 
                 {{-- Offer Groups Sections --}}
                 @foreach($record->quotationOfferGroups as $offerGroupIndex => $offerGroup)
@@ -389,14 +395,14 @@
                         <div class="offer-group-section">
                             {{-- Section Header with Companions --}}
                             <div class="offer-group-section-header">
-                                <h3 class="section-title">Option {{ $offerGroupIndex + 1 }}</h3>
+                                <h3 class="section-title">{{ __('customer-view.offers.option', ['number' => $offerGroupIndex + 1]) }}</h3>
                                 @if($companions->count() > 0)
                                     <div class="companions-list">
-                                        <strong>Tour Guides:</strong>
+                                        <strong>{{ __('customer-view.offers.tour_guides') }}</strong>
                                         @foreach($companions as $companion)
                                             <span class="companion-item">
                                                 @if(is_array($companion->companionType->name))
-                                                    {{ $companion->companionType->name[app()->getLocale()] ?? $companion->companionType->name['en'] ?? 'Guide' }}
+                                                    {{ $companion->companionType->name[app()->getLocale()] ?? $companion->companionType->name['en'] ?? __('customer-view.offers.guide_default') }}
                                                 @else
                                                     {{ $companion->companionType->name }}
                                                 @endif
@@ -416,28 +422,28 @@
                             <div class="offer-group-content">
                                 {{-- Offer Group Features --}}
                                 <div class="offer-features">
-                                    <h4 class="features-title">Included Companion Costs:</h4>
+                                    <h4 class="features-title">{{ __('customer-view.offers.included_companion_costs') }}</h4>
                                     <div class="features-grid">
                                         {{-- Driver --}}
                                         <div class="feature-item">
                                             <span class="feature-icon">🚗</span>
                                             <span class="feature-text">
-                                                Driver
+                                                {{ __('customer-view.offers.driver') }}
                                                 <span class="feature-detail">
-                                                    Meal: 
+                                                    {{ __('customer-view.offers.meal') }} 
                                                     @if($offerGroup->is_include_driver_meal)
-                                                        Included{{ $offerGroup->is_driver_same_meal ? ' (With group)' : '' }}
+                                                        {{ __('customer-view.offers.included') }}{{ $offerGroup->is_driver_same_meal ? ' ' . __('customer-view.offers.with_group') : '' }}
                                                     @else
-                                                        Not included
+                                                        {{ __('customer-view.offers.not_included') }}
                                                     @endif
-                                                    | Hotel: 
+                                                    | {{ __('customer-view.offers.hotel') }} 
                                                     @if($offerGroup->is_include_driver_hotel)
-                                                        Included
+                                                        {{ __('customer-view.offers.included') }}
                                                         @if($offerGroup->is_driver_stay_same_hotel)
-                                                            ({{ $offerGroup->driverRoomCategory->name ?? 'Same hotel' }})
+                                                            ({{ $offerGroup->driverRoomCategory->name ?? __('customer-view.offers.same_hotel') }})
                                                         @endif
                                                     @else
-                                                        Not included
+                                                        {{ __('customer-view.offers.not_included') }}
                                                     @endif
                                                 </span>
                                             </span>
@@ -451,15 +457,15 @@
                                                 <span class="feature-text">
                                                     {{ is_array($companion->companionType->name) ? ($companion->companionType->name[app()->getLocale()] ?? $companion->companionType->name['en']) : $companion->companionType->name }}
                                                     <span class="feature-detail">
-                                                        Meal: {{ $companion->is_same_meal ? 'With group' : 'Separate' }}
-                                                        | Hotel: 
+                                                        {{ __('customer-view.offers.meal') }} {{ $companion->is_same_meal ? __('customer-view.offers.with_group_no_paren') : __('customer-view.offers.separate') }}
+                                                        | {{ __('customer-view.offers.hotel') }} 
                                                         @if($companion->is_stay_same_hotel)
-                                                            With group
+                                                            {{ __('customer-view.offers.with_group_no_paren') }}
                                                             @if($companion->roomCategory)
                                                                 ({{ $companion->roomCategory->name }})
                                                             @endif
                                                         @else
-                                                            Separate
+                                                            {{ __('customer-view.offers.separate') }}
                                                         @endif
                                                     </span>
                                                 </span>
@@ -472,10 +478,10 @@
                                 <table class="pricing-table">
                                     <thead>
                                         <tr>
-                                            <th>Offer #</th>
-                                            <th>Pax Qty</th>
-                                            <th>Vehicle</th>
-                                            <th>Leader Bed</th>
+                                            <th>{{ __('customer-view.pricing_table.offer_number') }}</th>
+                                            <th>{{ __('customer-view.pricing_table.pax_qty') }}</th>
+                                            <th>{{ __('customer-view.pricing_table.vehicle') }}</th>
+                                            <th>{{ __('customer-view.pricing_table.leader_bed') }}</th>
                                             @foreach($roomPrices as $roomName => $price)
                                                 <th>{{ $roomName }} ({{ $record->quotation->currency->code ?? 'USD' }})</th>
                                             @endforeach
@@ -486,10 +492,10 @@
                                             <td class="offer-number">{{ $firstOffer->full_number }}</td>
                                             <td class="pax-qty">{{ $firstOffer->pax_qty }} + {{ $firstOffer->leaders_qty }}</td>
                                             <td class="vehicle-info">
-                                                <div class="vehicle-name">{{ $firstOffer->vehicleType->name ?? 'N/A' }}</div>
-                                                <div class="drivers-count">{{ $firstOffer->drivers_qty ?? 1 }} Driver(s)</div>
+                                                <div class="vehicle-name">{{ $firstOffer->vehicleType->name ?? __('customer-view.messages.na') }}</div>
+                                                <div class="drivers-count">{{ __('customer-view.offers.drivers', ['count' => $firstOffer->drivers_qty ?? 1]) }}</div>
                                             </td>
-                                            <td class="leader-bed">Twin</td>
+                                            <td class="leader-bed">{{ __('customer-view.offers.twin') }}</td>
                                             @foreach($roomPrices as $roomName => $price)
                                                 <td class="room-price">
                                                     {{ $price->quotation_currency_symbol }}{{ $price->formatted_quotation_currency_price }}
@@ -508,7 +514,7 @@
         {{-- Quotation Description --}}
         @if($record->quotation->description)
             <div class="quotation-description-section">
-                <h3 class="description-title">Description & Notes</h3>
+                <h3 class="description-title">{{ __('customer-view.description.title') }}</h3>
                 <div class="description-content">
                     @if(is_array($record->quotation->description))
                         {{ $record->quotation->description[app()->getLocale()] ?? $record->quotation->description['en'] ?? '' }}
@@ -522,7 +528,7 @@
         {{-- Signature Section --}}
         <div class="signature-section">
             <div class="signature-box">
-                <div class="signature-title">Company Signature & Stamp</div>
+                <div class="signature-title">{{ __('customer-view.signature.title') }}</div>
                 <div class="signature-space">
                     @php
                         $signature = tenant()->settings?->signature;
@@ -537,7 +543,7 @@
                     @endif
                 </div>
                 <div class="signature-line"></div>
-                <div class="signature-label">{{ tenant()->settings?->company_name ?? tenant()->name ?? 'Authorized Signature' }}</div>
+                <div class="signature-label">{{ $companyName }}</div>
             </div>
         </div>
     </div>

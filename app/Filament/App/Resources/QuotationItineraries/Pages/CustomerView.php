@@ -32,8 +32,8 @@ class CustomerView extends Page
         // Validate that itinerary and breakdown are complete
         if (!$this->record->itinerary) {
             \Filament\Notifications\Notification::make()
-                ->title('Itinerary Not Found')
-                ->body('The itinerary must be created before viewing the customer quotation.')
+                ->title(__('app-quotation-itineraries.notifications_customer_view.itinerary_not_found_title'))
+                ->body(__('app-quotation-itineraries.notifications_customer_view.itinerary_not_found_body'))
                 ->danger()
                 ->persistent()
                 ->send();
@@ -44,8 +44,8 @@ class CustomerView extends Page
 
         if (!$this->record->itinerary->is_complete) {
             \Filament\Notifications\Notification::make()
-                ->title('Itinerary Incomplete')
-                ->body('The itinerary must be completed before viewing the customer quotation.')
+                ->title(__('app-quotation-itineraries.notifications_customer_view.itinerary_incomplete_title'))
+                ->body(__('app-quotation-itineraries.notifications_customer_view.itinerary_incomplete_body'))
                 ->warning()
                 ->persistent()
                 ->send();
@@ -56,8 +56,8 @@ class CustomerView extends Page
 
         if (!$this->record->breakdown) {
             \Filament\Notifications\Notification::make()
-                ->title('Breakdown Not Found')
-                ->body('The breakdown must be created before viewing the customer quotation.')
+                ->title(__('app-quotation-itineraries.notifications_customer_view.breakdown_not_found_title'))
+                ->body(__('app-quotation-itineraries.notifications_customer_view.breakdown_not_found_body'))
                 ->danger()
                 ->persistent()
                 ->send();
@@ -68,8 +68,8 @@ class CustomerView extends Page
 
         if (!$this->record->breakdown->is_completed) {
             \Filament\Notifications\Notification::make()
-                ->title('Breakdown Incomplete')
-                ->body('The breakdown must be completed before viewing the customer quotation.')
+                ->title(__('app-quotation-itineraries.notifications_customer_view.breakdown_incomplete_title'))
+                ->body(__('app-quotation-itineraries.notifications_customer_view.breakdown_incomplete_body'))
                 ->warning()
                 ->persistent()
                 ->send();
@@ -109,14 +109,14 @@ class CustomerView extends Page
     {
         return [
             Action::make('viewQuotation')
-                ->label('View Quotation')
+                ->label(__('app-quotation-itineraries.customer_view.view_quotation'))
                 ->icon('heroicon-o-document-text')
                 ->color('info')
                 ->url(fn () => QuotationItineraryResource::getUrl('view', ['record' => $this->record->id]) . '?tab=offers%3A%3Atab')
                 ->openUrlInNewTab(false),
             
             Action::make('refresh')
-                ->label('Refresh')
+                ->label(__('app-quotation-itineraries.customer_view.refresh'))
                 ->icon('heroicon-o-arrow-path')
                 ->color('gray')
                 ->action(function () {
@@ -125,17 +125,17 @@ class CustomerView extends Page
                     $this->prepareItineraryDays();
                     
                     \Filament\Notifications\Notification::make()
-                        ->title('Refreshed')
-                        ->body('Page data has been refreshed successfully.')
+                        ->title(__('app-quotation-itineraries.notifications_customer_view.refreshed_title'))
+                        ->body(__('app-quotation-itineraries.notifications_customer_view.refreshed_body'))
                         ->success()
                         ->send();
                 }),
             
             Action::make('print')
-                ->label('Print')
+                ->label(__('app-quotation-itineraries.customer_view.print'))
                 ->icon('heroicon-o-printer')
                 ->color('primary')
-                ->tooltip('Print quotation')
+                ->tooltip(__('app-quotation-itineraries.customer_view.tooltip_print'))
                 ->action(function () {
                     // Always refresh and validate on each click
                     $this->record->refresh();
@@ -143,8 +143,8 @@ class CustomerView extends Page
                     
                     if (!$this->record->itinerary) {
                         \Filament\Notifications\Notification::make()
-                            ->title('Cannot Print')
-                            ->body('The itinerary must be created first.')
+                            ->title(__('app-quotation-itineraries.notifications_customer_view.cannot_print_title'))
+                            ->body(__('app-quotation-itineraries.notifications_customer_view.cannot_print_itinerary_missing'))
                             ->danger()
                             ->persistent()
                             ->send();
@@ -153,8 +153,8 @@ class CustomerView extends Page
                     
                     if (!$this->record->itinerary->is_complete) {
                         \Filament\Notifications\Notification::make()
-                            ->title('Cannot Print')
-                            ->body('The itinerary must be completed before printing.')
+                            ->title(__('app-quotation-itineraries.notifications_customer_view.cannot_print_title'))
+                            ->body(__('app-quotation-itineraries.notifications_customer_view.cannot_print_itinerary_incomplete'))
                             ->warning()
                             ->persistent()
                             ->send();
@@ -163,8 +163,8 @@ class CustomerView extends Page
                     
                     if (!$this->record->breakdown) {
                         \Filament\Notifications\Notification::make()
-                            ->title('Cannot Print')
-                            ->body('The breakdown must be created first.')
+                            ->title(__('app-quotation-itineraries.notifications_customer_view.cannot_print_title'))
+                            ->body(__('app-quotation-itineraries.notifications_customer_view.cannot_print_breakdown_missing'))
                             ->danger()
                             ->persistent()
                             ->send();
@@ -173,8 +173,8 @@ class CustomerView extends Page
                     
                     if (!$this->record->breakdown->is_completed) {
                         \Filament\Notifications\Notification::make()
-                            ->title('Cannot Print')
-                            ->body('The breakdown must be completed before printing.')
+                            ->title(__('app-quotation-itineraries.notifications_customer_view.cannot_print_title'))
+                            ->body(__('app-quotation-itineraries.notifications_customer_view.cannot_print_breakdown_incomplete'))
                             ->warning()
                             ->persistent()
                             ->send();
@@ -186,10 +186,10 @@ class CustomerView extends Page
                 }),
             
             Action::make('exportPdf')
-                ->label('Export PDF')
+                ->label(__('app-quotation-itineraries.customer_view.export_pdf'))
                 ->icon('heroicon-o-arrow-down-tray')
                 ->color('success')
-                ->tooltip('Download as PDF')
+                ->tooltip(__('app-quotation-itineraries.customer_view.tooltip_download'))
                 ->action(function () {
                     // Always refresh and validate on each click
                     $this->record->refresh();
@@ -197,8 +197,8 @@ class CustomerView extends Page
                     
                     if (!$this->record->itinerary) {
                         \Filament\Notifications\Notification::make()
-                            ->title('Cannot Export PDF')
-                            ->body('The itinerary must be created first.')
+                            ->title(__('app-quotation-itineraries.notifications_customer_view.cannot_export_title'))
+                            ->body(__('app-quotation-itineraries.notifications_customer_view.cannot_export_itinerary_missing'))
                             ->danger()
                             ->persistent()
                             ->send();
@@ -207,8 +207,8 @@ class CustomerView extends Page
                     
                     if (!$this->record->itinerary->is_complete) {
                         \Filament\Notifications\Notification::make()
-                            ->title('Cannot Export PDF')
-                            ->body('The itinerary must be completed before exporting.')
+                            ->title(__('app-quotation-itineraries.notifications_customer_view.cannot_export_title'))
+                            ->body(__('app-quotation-itineraries.notifications_customer_view.cannot_export_itinerary_incomplete'))
                             ->warning()
                             ->persistent()
                             ->send();
@@ -217,8 +217,8 @@ class CustomerView extends Page
                     
                     if (!$this->record->breakdown) {
                         \Filament\Notifications\Notification::make()
-                            ->title('Cannot Export PDF')
-                            ->body('The breakdown must be created first.')
+                            ->title(__('app-quotation-itineraries.notifications_customer_view.cannot_export_title'))
+                            ->body(__('app-quotation-itineraries.notifications_customer_view.cannot_export_breakdown_missing'))
                             ->danger()
                             ->persistent()
                             ->send();
@@ -227,8 +227,8 @@ class CustomerView extends Page
                     
                     if (!$this->record->breakdown->is_completed) {
                         \Filament\Notifications\Notification::make()
-                            ->title('Cannot Export PDF')
-                            ->body('The breakdown must be completed before exporting.')
+                            ->title(__('app-quotation-itineraries.notifications_customer_view.cannot_export_title'))
+                            ->body(__('app-quotation-itineraries.notifications_customer_view.cannot_export_breakdown_incomplete'))
                             ->warning()
                             ->persistent()
                             ->send();
@@ -269,8 +269,8 @@ class CustomerView extends Page
             !$this->record->breakdown->is_completed) {
             
             \Filament\Notifications\Notification::make()
-                ->title('Data Changed')
-                ->body('The itinerary or breakdown is no longer complete. Redirecting...')
+                ->title(__('app-quotation-itineraries.notifications_customer_view.data_changed_title'))
+                ->body(__('app-quotation-itineraries.notifications_customer_view.data_changed_body'))
                 ->warning()
                 ->send();
             
@@ -441,7 +441,7 @@ class CustomerView extends Page
 
     public function getTitle(): string
     {
-        return 'Quotation View - ' . $this->record->quotation->number;
+        return __('app-quotation-itineraries.page_titles.quotation_view', ['number' => $this->record->quotation->number]);
     }
 }
 

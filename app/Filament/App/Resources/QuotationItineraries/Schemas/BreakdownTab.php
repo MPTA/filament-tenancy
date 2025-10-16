@@ -16,7 +16,7 @@ class BreakdownTab
 {
     public static function getTab(): Tab
     {
-        return Tab::make('Breakdown')
+        return Tab::make(__('app-quotation-itineraries.tabs.breakdown'))
             ->icon('heroicon-o-calculator')
             ->badge(function (QuotationItinerary $record) {
                 if (!$record->breakdown) {
@@ -56,13 +56,13 @@ class BreakdownTab
 
     private static function createBreakdownSection(): Section
     {
-        return Section::make('Create Breakdown')
-            ->description('Start building your cost breakdown')
+        return Section::make(__('app-quotation-itineraries.sections.create_breakdown.title'))
+            ->description(__('app-quotation-itineraries.sections.create_breakdown.description'))
             ->hidden(fn(QuotationItinerary $quotationItinerary) => $quotationItinerary->breakdown)
             ->schema([
                 Grid::make(1)
                     ->schema([
-                        Action::make('Create Breakdown')
+                        Action::make(__('app-quotation-itineraries.actions.create_breakdown'))
                             ->size(Size::ExtraLarge)
                             ->icon('heroicon-m-plus-circle')
                             ->color(fn(QuotationItinerary $quotationItinerary) => 
@@ -73,20 +73,20 @@ class BreakdownTab
                             )
                             ->label(fn(QuotationItinerary $quotationItinerary) => 
                                 $quotationItinerary->itinerary?->is_complete 
-                                    ? 'Create Breakdown' 
-                                    : 'Complete Itinerary First'
+                                    ? __('app-quotation-itineraries.actions.create_breakdown')
+                                    : __('app-quotation-itineraries.actions.complete_itinerary_first')
                             )
                             ->tooltip(fn(QuotationItinerary $quotationItinerary) => 
                                 !$quotationItinerary->itinerary?->is_complete 
-                                    ? 'Please complete the itinerary before creating breakdown' 
+                                    ? __('app-quotation-itineraries.tooltips_breakdown.complete_itinerary_before_breakdown')
                                     : null
                             )
                             ->action(function (QuotationItinerary $quotationItinerary) {
                                 // Check if itinerary is complete
                                 if (!$quotationItinerary->itinerary || !$quotationItinerary->itinerary->is_complete) {
                                     Notification::make()
-                                        ->title('Incomplete Itinerary')
-                                        ->body('Please complete the itinerary first before generating breakdown.')
+                                        ->title(__('app-quotation-itineraries.notifications.incomplete_itinerary_title'))
+                                        ->body(__('app-quotation-itineraries.notifications.incomplete_itinerary_body'))
                                         ->warning()
                                         ->send();
                                     return;
@@ -99,17 +99,17 @@ class BreakdownTab
                                 $quotationItinerary->refresh();
 
                                 Notification::make()
-                                    ->title('Breakdown Generated')
-                                    ->body('Cost breakdown has been successfully generated. Redirecting to breakdown form...')
+                                    ->title(__('app-quotation-itineraries.notifications.breakdown_generated_title'))
+                                    ->body(__('app-quotation-itineraries.notifications.breakdown_generated_body'))
                                     ->success()
                                     ->send();
 
                                 // Redirect to breakdown edit form
                                 return redirect()->to(\App\Filament\App\Resources\QuotationItineraries\QuotationItineraryResource::getUrl('edit-breakdown', ['record' => $quotationItinerary]));
                             })
-                            ->modalHeading('Create New Breakdown')
-                            ->modalDescription('Create a detailed cost breakdown for this quotation itinerary')
-                            ->modalSubmitActionLabel('Create Breakdown')
+                            ->modalHeading(__('app-quotation-itineraries.modals_breakdown.create_breakdown_heading'))
+                            ->modalDescription(__('app-quotation-itineraries.modals_breakdown.create_breakdown_description'))
+                            ->modalSubmitActionLabel(__('app-quotation-itineraries.actions.create_breakdown'))
                     ])
                     ->extraAttributes(['class' => 'flex justify-center items-center min-h-[200px]'])
             ])
@@ -118,8 +118,8 @@ class BreakdownTab
 
     private static function breakdownOverviewSection(): Section
     {
-        return Section::make('Breakdown Overview')
-            ->description('Cost breakdown summary and details')
+        return Section::make(__('app-quotation-itineraries.sections.breakdown_overview.title'))
+            ->description(__('app-quotation-itineraries.sections.breakdown_overview.description'))
             ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
             ->headerActions([
                 self::regenerateBreakdownAction(),
@@ -131,8 +131,8 @@ class BreakdownTab
                 Grid::make(4)
                     ->schema([
                         TextEntry::make('breakdown.is_completed')
-                            ->label('Status')
-                            ->formatStateUsing(fn($state) => $state ? 'Completed' : 'In Progress')
+                            ->label(__('common-fields.status'))
+                            ->formatStateUsing(fn($state) => $state ? __('app-quotation-itineraries.status_labels.completed') : __('app-quotation-itineraries.status_labels.in_progress'))
                             ->icon(fn($state) => $state ? 'heroicon-o-check-circle' : 'heroicon-o-clock')
                             ->color(fn($state) => $state ? 'success' : 'warning')
                             ->columnStart(1),
@@ -141,25 +141,25 @@ class BreakdownTab
                 Grid::make(4)
                     ->schema([
                         TextEntry::make('breakdown.vehicle_days_qty')
-                            ->label('Vehicle Days')
+                            ->label(__('app-quotation-itineraries.fields.vehicle_days'))
                             ->numeric()
                             ->icon('heroicon-o-truck')
                             ->color('primary'),
 
                         TextEntry::make('breakdown.vehicle_half_days_qty')
-                            ->label('Half Days')
+                            ->label(__('app-quotation-itineraries.fields.half_days'))
                             ->numeric()
                             ->icon('heroicon-o-clock')
                             ->color('warning'),
 
                         TextEntry::make('breakdown.vehicle_hours_qty')
-                            ->label('Vehicle Hours')
+                            ->label(__('app-quotation-itineraries.fields.vehicle_hours'))
                             ->numeric()
                             ->icon('heroicon-o-clock')
                             ->color('info'),
 
                         TextEntry::make('breakdown.currency.name')
-                            ->label('Currency')
+                            ->label(__('common-fields.currency'))
                             ->icon('heroicon-o-banknotes')
                             ->color('success'),
                     ]),
@@ -167,25 +167,25 @@ class BreakdownTab
                 Grid::make(2)
                     ->schema([
                         TextEntry::make('breakdown.driver_base_meal_budget')
-                            ->label('Driver Meal Budget')
+                            ->label(__('app-quotation-itineraries.fields.driver_meal_budget'))
                             ->money('CNY')
                             ->icon('heroicon-o-currency-dollar')
                             ->color('success'),
 
                         TextEntry::make('breakdown.driver_base_accommodation_budget')
-                            ->label('Driver Accommodation Budget')
+                            ->label(__('app-quotation-itineraries.fields.driver_accommodation_budget'))
                             ->money('CNY')
                             ->icon('heroicon-o-home')
                             ->color('primary'),
 
                         TextEntry::make('breakdown.companion_base_meal_budget')
-                            ->label('Companion Meal Budget')
+                            ->label(__('app-quotation-itineraries.fields.companion_meal_budget'))
                             ->money('CNY')
                             ->icon('heroicon-o-currency-dollar')
                             ->color('warning'),
 
                         TextEntry::make('breakdown.companion_base_accommodation_budget')
-                            ->label('Companion Accommodation Budget')
+                            ->label(__('app-quotation-itineraries.fields.companion_accommodation_budget'))
                             ->money('CNY')
                             ->icon('heroicon-o-home')
                             ->color('info'),
@@ -196,8 +196,8 @@ class BreakdownTab
 
     private static function vehicleTypesSection(): Section
     {
-        return Section::make('Vehicle Types')
-            ->description('Vehicle pricing and details')
+        return Section::make(__('app-quotation-itineraries.sections.vehicle_types.title'))
+            ->description(__('app-quotation-itineraries.sections.vehicle_types.description'))
             ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
             ->schema([
                 RepeatableEntry::make('breakdown.vehicleTypes')
@@ -207,18 +207,18 @@ class BreakdownTab
                         Grid::make(4)
                             ->schema([
                                 TextEntry::make('vehicleType.name')
-                                    ->label('Vehicle Type')
+                                    ->label(__('app-quotation-itineraries.fields.vehicle_type'))
                                     ->icon('heroicon-o-truck')
                                     ->color('primary'),
 
                                 TextEntry::make('per_day_price')
-                                    ->label('Per Day Price')
+                                    ->label(__('app-quotation-itineraries.fields.per_day_price'))
                                     ->money('CNY')
                                     ->icon('heroicon-o-currency-dollar')
                                     ->color('success'),
 
                                 TextEntry::make('half_day_price')
-                                    ->label('Half Day Price')
+                                    ->label(__('app-quotation-itineraries.fields.half_day_price'))
                                     ->money('CNY')
                                     ->icon('heroicon-o-clock')
                                     ->color('warning'),
@@ -230,8 +230,8 @@ class BreakdownTab
 
     private static function ticketsSection(): Section
     {
-        return Section::make('Tickets')
-            ->description('Transportation tickets and pricing')
+        return Section::make(__('app-quotation-itineraries.sections.tickets.title'))
+            ->description(__('app-quotation-itineraries.sections.tickets.description'))
             ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
             ->schema([
                 RepeatableEntry::make('breakdown.tickets')
@@ -241,28 +241,28 @@ class BreakdownTab
                         Grid::make(4)
                             ->schema([
                                 TextEntry::make('transport_mode')
-                                    ->label('Transport Mode')
+                                    ->label(__('app-quotation-itineraries.fields.transport_mode'))
                                     ->badge()
                                     ->color('primary'),
 
                                 TextEntry::make('fromCity.name')
-                                    ->label('From City')
+                                    ->label(__('app-quotation-itineraries.fields.from_city'))
                                     ->icon('heroicon-o-map-pin')
                                     ->color('success'),
 
                                 TextEntry::make('toCity.name')
-                                    ->label('To City')
+                                    ->label(__('app-quotation-itineraries.fields.to_city'))
                                     ->icon('heroicon-o-map-pin')
                                     ->color('warning'),
 
                                 TextEntry::make('class')
-                                    ->label('Class')
+                                    ->label(__('app-quotation-itineraries.fields.class'))
                                     ->badge()
                                     ->color('info'),
                             ]),
 
                         TextEntry::make('price')
-                            ->label('Price')
+                            ->label(__('app-quotation-itineraries.fields.price'))
                             ->money('CNY')
                             ->icon('heroicon-o-currency-dollar')
                             ->color('success')
@@ -274,8 +274,8 @@ class BreakdownTab
 
     private static function mealsSection(): Section
     {
-        return Section::make('Meals')
-            ->description('Meal types and quantities')
+        return Section::make(__('app-quotation-itineraries.sections.meals.title'))
+            ->description(__('app-quotation-itineraries.sections.meals.description'))
             ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
             ->schema([
                 RepeatableEntry::make('breakdown.meals')
@@ -285,12 +285,12 @@ class BreakdownTab
                         Grid::make(2)
                             ->schema([
                                 TextEntry::make('mealType.name')
-                                    ->label('Meal Type')
+                                    ->label(__('app-quotation-itineraries.fields.meal_type'))
                                     ->icon('heroicon-o-cake')
                                     ->color('primary'),
 
                                 TextEntry::make('price')
-                                    ->label('Price')
+                                    ->label(__('app-quotation-itineraries.fields.price'))
                                     ->money('CNY')
                                     ->icon('heroicon-o-currency-dollar')
                                     ->color('warning'),
@@ -302,8 +302,8 @@ class BreakdownTab
 
     private static function experiencesSection(): Section
     {
-        return Section::make('Experiences')
-            ->description('Experience activities and pricing')
+        return Section::make(__('app-quotation-itineraries.sections.experiences.title'))
+            ->description(__('app-quotation-itineraries.sections.experiences.description'))
             ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
             ->schema([
                 RepeatableEntry::make('breakdown.experiences')
@@ -313,18 +313,18 @@ class BreakdownTab
                         Grid::make(3)
                             ->schema([
                                 TextEntry::make('experience.name')
-                                    ->label('Experience')
+                                    ->label(__('common-fields.experience'))
                                     ->icon('heroicon-o-sparkles')
                                     ->color('primary'),
 
                                 TextEntry::make('price')
-                                    ->label('Price')
+                                    ->label(__('app-quotation-itineraries.fields.price'))
                                     ->money('CNY')
                                     ->icon('heroicon-o-currency-dollar')
                                     ->color('success'),
 
                                 TextEntry::make('charge_mode')
-                                    ->label('Charge Mode')
+                                    ->label(__('app-quotation-itineraries.fields.charge_mode'))
                                     ->formatStateUsing(fn($state) => $state?->label() ?? $state)
                                     ->badge()
                                     ->color('info'),
@@ -336,8 +336,8 @@ class BreakdownTab
 
     private static function accommodationsSection(): Section
     {
-        return Section::make('Accommodations')
-            ->description('Hotel accommodations and room pricing')
+        return Section::make(__('app-quotation-itineraries.sections.accommodations.title'))
+            ->description(__('app-quotation-itineraries.sections.accommodations.description'))
             ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
             ->schema([
                 RepeatableEntry::make('breakdown.accommodations')
@@ -347,35 +347,35 @@ class BreakdownTab
                         Grid::make(5)
                             ->schema([
                                 TextEntry::make('accommodation.name')
-                                    ->label('🏨 Hotel')
+                                    ->label('🏨 ' . __('app-quotation-itineraries.fields.hotel'))
                                     ->weight('bold')
                                     ->color('primary')
                                     ->columnSpan(1),
 
                                 TextEntry::make('city.name')
-                                    ->label('📍 City')
+                                    ->label('📍 ' . __('common-fields.city'))
                                     ->badge()
                                     ->color('success')
                                     ->columnSpan(1),
 
                                 TextEntry::make('nights_qty')
-                                    ->label('🌙 Nights')
+                                    ->label('🌙 ' . __('app-quotation-itineraries.fields.nights'))
                                     ->badge()
                                     ->color('warning')
                                     ->columnSpan(1),
 
                                 TextEntry::make('has_breakfast')
-                                    ->label('🍳 Breakfast')
-                                    ->formatStateUsing(fn($state) => $state ? 'Yes' : 'No')
+                                    ->label('🍳 ' . __('common-fields.breakfast'))
+                                    ->formatStateUsing(fn($state) => $state ? __('common-fields.yes') : __('common-fields.no'))
                                     ->badge()
                                     ->color(fn($state) => $state ? 'success' : 'gray')
                                     ->columnSpan(1),
 
                                 TextEntry::make('id')
-                                    ->label('💰 Room Prices')
+                                    ->label('💰 ' . __('app-quotation-itineraries.fields.room_prices'))
                                     ->formatStateUsing(function ($state, $record, $livewire) {
                                         if (!$record->rooms || $record->rooms->isEmpty()) {
-                                            return 'No rooms';
+                                            return __('app-quotation-itineraries.breakdown_placeholders.no_rooms');
                                         }
                                         
                                         // Get currency from parent QuotationItinerary to avoid N+1
@@ -401,8 +401,8 @@ class BreakdownTab
 
     private static function attractionsSection(): Section
     {
-        return Section::make('Attractions')
-            ->description('Tourist attractions and entry fees')
+        return Section::make(__('app-quotation-itineraries.sections.attractions.title'))
+            ->description(__('app-quotation-itineraries.sections.attractions.description'))
             ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
             ->schema([
                 RepeatableEntry::make('breakdown.attractions')
@@ -412,26 +412,26 @@ class BreakdownTab
                         Grid::make(5)
                             ->schema([
                                 TextEntry::make('attraction.name')
-                                    ->label('🏛️ Attraction')
+                                    ->label('🏛️ ' . __('app-quotation-itineraries.fields.attraction'))
                                     ->weight('bold')
                                     ->color('primary')
                                     ->columnSpan(1),
 
                                 TextEntry::make('city.name')
-                                    ->label('📍 City')
+                                    ->label('📍 ' . __('common-fields.city'))
                                     ->badge()
                                     ->color('success')
                                     ->columnSpan(1),
 
                                 TextEntry::make('is_outview')
-                                    ->label('👁️ Outview')
-                                    ->formatStateUsing(fn($state) => $state ? 'Yes' : 'No')
+                                    ->label('👁️ ' . __('app-quotation-itineraries.fields.outview'))
+                                    ->formatStateUsing(fn($state) => $state ? __('common-fields.yes') : __('common-fields.no'))
                                     ->badge()
                                     ->color(fn($state) => $state ? 'warning' : 'success')
                                     ->columnSpan(1),
 
                                 TextEntry::make('entry_price')
-                                    ->label('💵 Entry Price')
+                                    ->label('💵 ' . __('app-quotation-itineraries.fields.entry_price'))
                                     ->formatStateUsing(function ($state, $record, $livewire) {
                                         // Get currency from parent QuotationItinerary to avoid N+1
                                         $currency = $livewire->record->breakdown?->currency;
@@ -443,10 +443,10 @@ class BreakdownTab
                                     ->columnSpan(1),
 
                                 TextEntry::make('id')
-                                    ->label('🎫 Sub-Attractions')
+                                    ->label('🎫 ' . __('app-quotation-itineraries.fields.sub_attractions'))
                                     ->formatStateUsing(function ($state, $record, $livewire) {
                                         if (!$record->subAttractions || $record->subAttractions->isEmpty()) {
-                                            return 'No sub-attractions';
+                                            return __('app-quotation-itineraries.breakdown_placeholders.no_sub_attractions');
                                         }
                                         
                                         // Get currency from parent QuotationItinerary to avoid N+1
@@ -472,8 +472,8 @@ class BreakdownTab
 
     private static function companionsSection(): Section
     {
-        return Section::make('Companions')
-            ->description('Tour guides and companion services')
+        return Section::make(__('app-quotation-itineraries.sections.companions.title'))
+            ->description(__('app-quotation-itineraries.sections.companions.description'))
             ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
             ->schema([
                 RepeatableEntry::make('breakdown.companions')
@@ -483,24 +483,24 @@ class BreakdownTab
                         Grid::make(4)
                             ->schema([
                                 TextEntry::make('companionType.name')
-                                    ->label('Companion Type')
+                                    ->label(__('app-quotation-itineraries.fields.companion_type'))
                                     ->icon('heroicon-o-user')
                                     ->color('primary'),
 
                                 TextEntry::make('per_day_price')
-                                    ->label('Per Day Price')
+                                    ->label(__('app-quotation-itineraries.fields.per_day_price'))
                                     ->money('CNY')
                                     ->icon('heroicon-o-currency-dollar')
                                     ->color('success'),
 
                                 TextEntry::make('half_day_price')
-                                    ->label('Half Day Price')
+                                    ->label(__('app-quotation-itineraries.fields.half_day_price'))
                                     ->money('CNY')
                                     ->icon('heroicon-o-clock')
                                     ->color('warning'),
 
                                 TextEntry::make('per_hour_price')
-                                    ->label('Per Hour Price')
+                                    ->label(__('app-quotation-itineraries.fields.per_hour_price'))
                                     ->money('CNY')
                                     ->icon('heroicon-o-clock')
                                     ->color('gray'),
@@ -512,8 +512,8 @@ class BreakdownTab
 
     private static function expensesSection(): Section
     {
-        return Section::make('Additional Expenses')
-            ->description('Miscellaneous expenses and costs')
+        return Section::make(__('app-quotation-itineraries.sections.additional_expenses.title'))
+            ->description(__('app-quotation-itineraries.sections.additional_expenses.description'))
             ->hidden(fn(QuotationItinerary $quotationItinerary) => !$quotationItinerary->breakdown)
             ->schema([
                 RepeatableEntry::make('breakdown.expenses')
@@ -523,18 +523,18 @@ class BreakdownTab
                         Grid::make(3)
                             ->schema([
                                 TextEntry::make('description')
-                                    ->label('Description')
+                                    ->label(__('common-fields.description'))
                                     ->icon('heroicon-o-document-text')
                                     ->color('primary'),
 
                                 TextEntry::make('price')
-                                    ->label('Price')
+                                    ->label(__('app-quotation-itineraries.fields.price'))
                                     ->money('CNY')
                                     ->icon('heroicon-o-currency-dollar')
                                     ->color('success'),
 
                                 TextEntry::make('charge_mode')
-                                    ->label('Charge Mode')
+                                    ->label(__('app-quotation-itineraries.fields.charge_mode'))
                                     ->formatStateUsing(fn($state) => $state?->label() ?? $state)
                                     ->badge()
                                     ->color('info'),
@@ -547,7 +547,7 @@ class BreakdownTab
     private static function regenerateBreakdownAction(): Action
     {
         return Action::make('regenerate_breakdown')
-            ->label('Regenerate')
+            ->label(__('app-quotation-itineraries.actions.regenerate'))
             ->icon('heroicon-m-arrow-path')
             ->color(fn(QuotationItinerary $quotationItinerary) => 
                 $quotationItinerary->itinerary?->is_complete ? 'primary' : 'gray'
@@ -557,7 +557,7 @@ class BreakdownTab
             )
             ->tooltip(fn(QuotationItinerary $quotationItinerary) => 
                 !$quotationItinerary->itinerary?->is_complete 
-                    ? 'Please complete the itinerary before regenerating breakdown' 
+                    ? __('app-quotation-itineraries.tooltips_breakdown.complete_itinerary_before_regenerate')
                     : null
             )
             ->action(function (QuotationItinerary $quotationItinerary) {
@@ -566,8 +566,8 @@ class BreakdownTab
                     $quotationItinerary->generateBreakdownFromItinerary();
 
                     Notification::make()
-                        ->title('Breakdown regenerated successfully!')
-                        ->body('The breakdown has been updated. Redirecting to breakdown editor...')
+                        ->title(__('app-quotation-itineraries.notifications.breakdown_regenerated_title'))
+                        ->body(__('app-quotation-itineraries.notifications.breakdown_regenerated_body'))
                         ->success()
                         ->send();
                     
@@ -575,22 +575,22 @@ class BreakdownTab
                     return redirect()->to(\App\Filament\App\Resources\QuotationItineraries\QuotationItineraryResource::getUrl('edit-breakdown', ['record' => $quotationItinerary]));
                 } else {
                     Notification::make()
-                        ->title('Cannot Regenerate')
-                        ->body('Please complete the itinerary first before regenerating breakdown.')
+                        ->title(__('app-quotation-itineraries.notifications.cannot_regenerate_title'))
+                        ->body(__('app-quotation-itineraries.notifications.cannot_regenerate_body'))
                         ->warning()
                         ->send();
                 }
             })
             ->requiresConfirmation()
-            ->modalHeading('Regenerate Breakdown')
-            ->modalDescription('This will update the breakdown based on the current itinerary. Are you sure?')
-            ->modalSubmitActionLabel('Regenerate');
+            ->modalHeading(__('app-quotation-itineraries.modals_breakdown.regenerate_breakdown_heading'))
+            ->modalDescription(__('app-quotation-itineraries.modals_breakdown.regenerate_breakdown_description'))
+            ->modalSubmitActionLabel(__('app-quotation-itineraries.actions.regenerate'));
     }
 
     private static function completeBreakdownAction(): Action
     {
         return Action::make('complete_breakdown')
-            ->label('Complete')
+            ->label(__('app-quotation-itineraries.actions.complete'))
             ->icon('heroicon-m-check-circle')
             ->color(fn(QuotationItinerary $quotationItinerary) => 
                 $quotationItinerary->itinerary?->is_complete ? 'success' : 'gray'
@@ -603,15 +603,15 @@ class BreakdownTab
             )
             ->tooltip(fn(QuotationItinerary $quotationItinerary) => 
                 !$quotationItinerary->itinerary?->is_complete 
-                    ? 'Please complete the itinerary before marking breakdown as complete' 
+                    ? __('app-quotation-itineraries.tooltips_breakdown.complete_itinerary_before_complete')
                     : null
             )
             ->action(function (QuotationItinerary $quotationItinerary) {
                 // Check if itinerary is complete first
                 if (!$quotationItinerary->itinerary || !$quotationItinerary->itinerary->is_complete) {
                     Notification::make()
-                        ->title('Cannot Complete Breakdown')
-                        ->body('Please complete the itinerary first before marking the breakdown as complete.')
+                        ->title(__('app-quotation-itineraries.notifications.cannot_complete_breakdown_title'))
+                        ->body(__('app-quotation-itineraries.notifications.cannot_complete_breakdown_body'))
                         ->warning()
                         ->send();
                     return;
@@ -620,26 +620,26 @@ class BreakdownTab
                 if ($quotationItinerary->breakdown) {
                     $quotationItinerary->breakdown->update(['is_completed' => true]);
                     Notification::make()
-                        ->title('Breakdown completed successfully!')
+                        ->title(__('app-quotation-itineraries.notifications.breakdown_completed_title'))
                         ->success()
                         ->send();
                 }
             })
             ->requiresConfirmation()
-            ->modalHeading('Complete Breakdown')
+            ->modalHeading(__('app-quotation-itineraries.modals_breakdown.complete_breakdown_heading'))
             ->modalDescription(function (QuotationItinerary $quotationItinerary) {
                 if (!$quotationItinerary->itinerary || !$quotationItinerary->itinerary->is_complete) {
-                    return 'Please complete the itinerary first before marking the breakdown as complete.';
+                    return __('app-quotation-itineraries.modals_breakdown.complete_breakdown_description_incomplete');
                 }
-                return 'Are you sure you want to mark this breakdown as complete?';
+                return __('app-quotation-itineraries.modals_breakdown.complete_breakdown_description');
             })
-            ->modalSubmitActionLabel('Complete');
+            ->modalSubmitActionLabel(__('app-quotation-itineraries.actions.complete'));
     }
 
     private static function editBreakdownAction(): Action
     {
         return Action::make('edit_breakdown')
-            ->label('Edit')
+            ->label(__('app-quotation-itineraries.actions.edit'))
             ->icon('heroicon-m-pencil-square')
             ->color(fn(QuotationItinerary $quotationItinerary) => 
                 $quotationItinerary->itinerary?->is_complete ? 'primary' : 'gray'
@@ -649,7 +649,7 @@ class BreakdownTab
             )
             ->tooltip(fn(QuotationItinerary $quotationItinerary) => 
                 !$quotationItinerary->itinerary?->is_complete 
-                    ? 'Please complete the itinerary before editing breakdown' 
+                    ? __('app-quotation-itineraries.tooltips_breakdown.complete_itinerary_before_edit')
                     : null
             )
             ->url(fn(QuotationItinerary $quotationItinerary) => \App\Filament\App\Resources\QuotationItineraries\QuotationItineraryResource::getUrl('edit-breakdown', ['record' => $quotationItinerary]));
@@ -658,13 +658,13 @@ class BreakdownTab
     private static function deleteBreakdownAction(): Action
     {
         return Action::make('delete_breakdown')
-            ->label('Delete')
+            ->label(__('common-fields.delete'))
             ->icon('heroicon-m-trash')
             ->color('danger')
             ->requiresConfirmation()
-            ->modalHeading('Delete Breakdown')
-            ->modalDescription('Are you sure you want to delete this breakdown? This action cannot be undone.')
-            ->modalSubmitActionLabel('Delete')
+            ->modalHeading(__('app-quotation-itineraries.modals_breakdown.delete_breakdown_heading'))
+            ->modalDescription(__('app-quotation-itineraries.modals_breakdown.delete_breakdown_description'))
+            ->modalSubmitActionLabel(__('common-fields.delete'))
             ->action(function (QuotationItinerary $quotationItinerary) {
                 if ($quotationItinerary->breakdown) {
                     $quotationItinerary->breakdown->delete();
@@ -673,7 +673,7 @@ class BreakdownTab
                     $quotationItinerary->refresh();
 
                     Notification::make()
-                        ->title('Breakdown deleted successfully!')
+                        ->title(__('app-quotation-itineraries.notifications.breakdown_deleted_title'))
                         ->success()
                         ->send();
                 }

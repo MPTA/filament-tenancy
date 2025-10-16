@@ -24,13 +24,37 @@ class QuotationItineraryResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedDocumentText;
 
-    protected static string|\UnitEnum|null $navigationGroup = 'Quotations';
+    protected static string|\UnitEnum|null $navigationGroup = null;
 
     protected static ?int $navigationSort = 1;
 
-    protected static ?string $navigationLabel = 'Quotations';
+    protected static ?string $navigationLabel = null;
+
+    protected static ?string $modelLabel = null;
+
+    protected static ?string $pluralModelLabel = null;
 
     protected static ?string $recordTitleAttribute = 'quotation_id';
+
+    public static function getNavigationGroup(): ?string
+    {
+        return __('app-quotation-itineraries.navigation_group');
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return __('app-quotation-itineraries.navigation_label');
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('app-quotation-itineraries.resource_name');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('app-quotation-itineraries.resource_name_plural');
+    }
 
     public static function form(Schema $schema): Schema
     {

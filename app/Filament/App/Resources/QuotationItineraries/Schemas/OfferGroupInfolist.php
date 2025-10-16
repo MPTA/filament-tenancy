@@ -16,33 +16,33 @@ class OfferGroupInfolist
             Grid::make(2)
                 ->schema([
                     TextEntry::make('full_number')
-                        ->label('Offer Group Number')
+                        ->label(__('app-quotation-itineraries.fields.offer_group_number'))
                         ->icon('heroicon-o-hashtag')
                         ->color('primary')
                         ->weight('bold')
                         ->size('lg'),
 
                     TextEntry::make('created_at')
-                        ->label('Created At')
+                        ->label(__('app-quotation-itineraries.fields.created_at'))
                         ->dateTime()
                         ->icon('heroicon-o-calendar')
                         ->color('info'),
                 ]),
 
-            Section::make('Driver Settings')
-                ->description('Driver cost configuration')
+            Section::make(__('app-quotation-itineraries.sections.driver_settings_infolist.title'))
+                ->description(__('app-quotation-itineraries.sections.driver_settings_infolist.description'))
                 ->icon('heroicon-o-user')
                 ->schema([
                     Grid::make(2)
                         ->schema([
                             IconEntry::make('is_include_driver_meal')
-                                ->label('Include Driver Meal')
+                                ->label(__('app-quotation-itineraries.fields.include_driver_meal'))
                                 ->boolean()
                                 ->icon(fn($state) => $state ? 'heroicon-o-check-circle' : 'heroicon-o-x-circle')
                                 ->color(fn($state) => $state ? 'success' : 'gray'),
 
                             IconEntry::make('is_driver_same_meal')
-                                ->label('Driver Same Meal')
+                                ->label(__('app-quotation-itineraries.fields.driver_same_meal'))
                                 ->boolean()
                                 ->icon(fn($state) => $state ? 'heroicon-o-check-circle' : 'heroicon-o-x-circle')
                                 ->color(fn($state) => $state ? 'success' : 'gray')
@@ -52,13 +52,13 @@ class OfferGroupInfolist
                     Grid::make(2)
                         ->schema([
                             IconEntry::make('is_include_driver_hotel')
-                                ->label('Include Driver Hotel')
+                                ->label(__('app-quotation-itineraries.fields.include_driver_hotel'))
                                 ->boolean()
                                 ->icon(fn($state) => $state ? 'heroicon-o-check-circle' : 'heroicon-o-x-circle')
                                 ->color(fn($state) => $state ? 'success' : 'gray'),
 
                             IconEntry::make('is_driver_stay_same_hotel')
-                                ->label('Driver Stays Same Hotel')
+                                ->label(__('app-quotation-itineraries.fields.driver_stays_same_hotel'))
                                 ->boolean()
                                 ->icon(fn($state) => $state ? 'heroicon-o-check-circle' : 'heroicon-o-x-circle')
                                 ->color(fn($state) => $state ? 'success' : 'gray')
@@ -66,9 +66,9 @@ class OfferGroupInfolist
                         ]),
 
                     TextEntry::make('driver_room_category_id')
-                        ->label('Driver Room Type')
+                        ->label(__('app-quotation-itineraries.fields.driver_room_type'))
                         ->formatStateUsing(fn($state, $record) => 
-                            $record->driverRoomCategory?->name ?? 'Not specified'
+                            $record->driverRoomCategory?->name ?? __('app-quotation-itineraries.placeholders.not_specified')
                         )
                         ->icon('heroicon-o-home')
                         ->color('primary')
@@ -78,21 +78,21 @@ class OfferGroupInfolist
                 ->collapsed(false),
 
             RepeatableEntry::make('quotationOfferGroupCompanions')
-                ->label('Companions Details')
+                ->label(__('app-quotation-itineraries.sections.companions_details.title'))
                 ->contained(false)
                 ->schema([
                     Section::make()
-                        ->heading(fn($record) => $record->companionType?->name ?? 'Unknown Companion')
+                        ->heading(fn($record) => $record->companionType?->name ?? __('app-quotation-itineraries.infolist_placeholders.unknown_companion'))
                         ->description(function ($record) {
                             $info = [];
                             if ($record->is_same_meal) {
-                                $info[] = 'Same meal as passengers';
+                                $info[] = __('app-quotation-itineraries.infolist_placeholders.same_meal_as_passengers');
                             }
                             if ($record->is_stay_same_hotel) {
-                                $info[] = 'Stays in same hotel';
+                                $info[] = __('app-quotation-itineraries.infolist_placeholders.stays_in_same_hotel');
                             }
                             if ($record->livingCity) {
-                                $info[] = 'Lives in: ' . $record->livingCity->name;
+                                $info[] = __('app-quotation-itineraries.infolist_placeholders.lives_in', ['city' => $record->livingCity->name]);
                             }
                             return implode(' • ', $info);
                         })
@@ -102,19 +102,19 @@ class OfferGroupInfolist
                             Grid::make(3)
                                 ->schema([
                                     TextEntry::make('full_days_qty')
-                                        ->label('Full Days')
+                                        ->label(__('app-quotation-itineraries.fields.full_days'))
                                         ->numeric()
                                         ->icon('heroicon-o-calendar')
                                         ->color('success'),
 
                                     TextEntry::make('half_days_qty')
-                                        ->label('Half Days')
+                                        ->label(__('common-fields.half_days'))
                                         ->numeric()
                                         ->icon('heroicon-o-clock')
                                         ->color('warning'),
 
                                     TextEntry::make('hours_qty')
-                                        ->label('Hours')
+                                        ->label(__('app-quotation-itineraries.fields.hours'))
                                         ->numeric()
                                         ->icon('heroicon-o-clock')
                                         ->color('info'),
@@ -124,57 +124,57 @@ class OfferGroupInfolist
                             Grid::make(3)
                                 ->schema([
                                     TextEntry::make('day_price')
-                                        ->label('Day Price')
+                                        ->label(__('app-quotation-itineraries.fields.day_price'))
                                         ->money('CNY')
                                         ->icon('heroicon-o-currency-dollar')
                                         ->color('success'),
 
                                     TextEntry::make('half_day_price')
-                                        ->label('Half Day Price')
+                                        ->label(__('common-fields.half_day_price'))
                                         ->money('CNY')
                                         ->icon('heroicon-o-currency-dollar')
                                         ->color('warning'),
 
                                     TextEntry::make('total_companion_salary')
-                                        ->label('Total Companion Salary')
+                                        ->label(__('app-quotation-itineraries.fields.total_companion_salary'))
                                         ->money('CNY')
                                         ->icon('heroicon-o-currency-dollar')
                                         ->color('primary'),
                                 ]),
 
                             // Meal Details
-                            Section::make('Meal Details')
-                                ->heading('Meal Details')
-                                ->description(fn($record) => 'Total: ' . number_format($record->meal_cost, 2) . ' CNY - Detailed meal cost breakdown')
+                            Section::make(__('app-quotation-itineraries.sections.meal_details.title'))
+                                ->heading(__('app-quotation-itineraries.sections.meal_details.title'))
+                                ->description(fn($record) => __('app-quotation-itineraries.sections.meal_details.description', ['total' => number_format($record->meal_cost, 2)]))
                                 ->icon('heroicon-o-cake')
                                 ->schema([
                                     RepeatableEntry::make('meals')
-                                        ->label('Meal Records')
+                                        ->label(__('app-quotation-itineraries.fields.meal_records'))
                                         ->hiddenLabel()
                                         ->contained(false)
                                         ->schema([
                                             Grid::make(4)
                                                 ->schema([
                                                     TextEntry::make('mealType.name')
-                                                        ->label('Meal Type')
-                                                        ->formatStateUsing(fn($state) => $state ?? 'Base Budget')
+                                                        ->label(__('common-fields.meal_type'))
+                                                        ->formatStateUsing(fn($state) => $state ?? __('app-quotation-itineraries.infolist_placeholders.base_budget'))
                                                         ->icon('heroicon-o-cake')
                                                         ->color('primary'),
 
                                                     TextEntry::make('qty')
-                                                        ->label('Quantity')
+                                                        ->label(__('app-quotation-itineraries.fields.quantity'))
                                                         ->numeric()
                                                         ->icon('heroicon-o-hashtag')
                                                         ->color('info'),
 
                                                     TextEntry::make('price')
-                                                        ->label('Unit Price')
+                                                        ->label(__('app-quotation-itineraries.fields.unit_price'))
                                                         ->money('CNY')
                                                         ->icon('heroicon-o-currency-dollar')
                                                         ->color('success'),
 
                                                     TextEntry::make('total_cost')
-                                                        ->label('Total Price')
+                                                        ->label(__('app-quotation-itineraries.fields.total_price'))
                                                         ->money('CNY')
                                                         ->icon('heroicon-o-calculator')
                                                         ->color('warning'),
@@ -186,35 +186,35 @@ class OfferGroupInfolist
                                 ->collapsed(true),
 
                             // Ticket Details
-                            Section::make('Ticket Details')
-                                ->heading('Ticket Details')
-                                ->description(fn($record) => 'Total: ' . number_format($record->ticket_cost, 2) . ' CNY - Transportation ticket cost breakdown')
+                            Section::make(__('app-quotation-itineraries.sections.ticket_details.title'))
+                                ->heading(__('app-quotation-itineraries.sections.ticket_details.title'))
+                                ->description(fn($record) => __('app-quotation-itineraries.sections.ticket_details.description', ['total' => number_format($record->ticket_cost, 2)]))
                                 ->icon('heroicon-o-ticket')
                                 ->schema([
                                     RepeatableEntry::make('tickets')
-                                        ->label('Ticket Records')
+                                        ->label(__('app-quotation-itineraries.fields.ticket_records'))
                                         ->hiddenLabel()
                                         ->contained(false)
                                         ->schema([
                                             Grid::make(4)
                                                 ->schema([
                                                     TextEntry::make('fromCity.name')
-                                                        ->label('From City')
+                                                        ->label(__('common-fields.from_city'))
                                                         ->icon('heroicon-o-map-pin')
                                                         ->color('primary'),
 
                                                     TextEntry::make('toCity.name')
-                                                        ->label('To City')
+                                                        ->label(__('common-fields.to_city'))
                                                         ->icon('heroicon-o-map-pin')
                                                         ->color('info'),
 
                                                     TextEntry::make('class')
-                                                        ->label('Class')
+                                                        ->label(__('common-fields.class'))
                                                         ->badge()
                                                         ->color('warning'),
 
                                                     TextEntry::make('price')
-                                                        ->label('Price')
+                                                        ->label(__('common-fields.price'))
                                                         ->money('CNY')
                                                         ->icon('heroicon-o-currency-dollar')
                                                         ->color('success'),
@@ -226,25 +226,25 @@ class OfferGroupInfolist
                                 ->collapsed(true),
 
                             // Experience Details
-                            Section::make('Experience Details')
-                                ->heading('Experience Details')
-                                ->description(fn($record) => 'Total: ' . number_format($record->experience_cost, 2) . ' CNY - Experience cost breakdown')
+                            Section::make(__('app-quotation-itineraries.sections.experience_details.title'))
+                                ->heading(__('app-quotation-itineraries.sections.experience_details.title'))
+                                ->description(fn($record) => __('app-quotation-itineraries.sections.experience_details.description', ['total' => number_format($record->experience_cost, 2)]))
                                 ->icon('heroicon-o-sparkles')
                                 ->schema([
                                     RepeatableEntry::make('experiences')
-                                        ->label('Experience Records')
+                                        ->label(__('app-quotation-itineraries.fields.experience_records'))
                                         ->hiddenLabel()
                                         ->contained(false)
                                         ->schema([
                                             Grid::make(2)
                                                 ->schema([
                                                     TextEntry::make('experience.name')
-                                                        ->label('Experience')
+                                                        ->label(__('common-fields.experience'))
                                                         ->icon('heroicon-o-sparkles')
                                                         ->color('primary'),
 
                                                     TextEntry::make('price')
-                                                        ->label('Price')
+                                                        ->label(__('common-fields.price'))
                                                         ->money('CNY')
                                                         ->icon('heroicon-o-currency-dollar')
                                                         ->color('success'),
@@ -256,26 +256,26 @@ class OfferGroupInfolist
                                 ->collapsed(true),
 
                             // Attraction Details
-                            Section::make('Attraction Details')
-                                ->heading('Attraction Details')
-                                ->description(fn($record) => 'Total: ' . number_format($record->attraction_cost, 2) . ' CNY - Attraction cost breakdown')
+                            Section::make(__('app-quotation-itineraries.sections.attraction_details.title'))
+                                ->heading(__('app-quotation-itineraries.sections.attraction_details.title'))
+                                ->description(fn($record) => __('app-quotation-itineraries.sections.attraction_details.description', ['total' => number_format($record->attraction_cost, 2)]))
                                 ->icon('heroicon-o-building-library')
                                 ->schema([
                                     RepeatableEntry::make('attractions')
-                                        ->label('Attraction Records')
+                                        ->label(__('app-quotation-itineraries.fields.attraction_records'))
                                         ->hiddenLabel()
                                         ->contained(false)
                                         ->schema([
                                             Grid::make(3)
                                                 ->schema([
                                                     TextEntry::make('attraction.name')
-                                                        ->label('🏛️ Attraction')
+                                                        ->label('🏛️ ' . __('common-fields.attraction'))
                                                         ->weight('bold')
                                                         ->color('primary')
                                                         ->columnSpan(1),
 
                                                     TextEntry::make('price')
-                                                        ->label('💵 Entry Price')
+                                                        ->label('💵 ' . __('common-fields.entry_price'))
                                                         ->formatStateUsing(function ($state) {
                                                             return 'CNY ' . number_format($state, 2);
                                                         })
@@ -284,17 +284,17 @@ class OfferGroupInfolist
                                                         ->columnSpan(1),
 
                                                     TextEntry::make('id')
-                                                        ->label('🎫 Sub-Attractions')
+                                                        ->label('🎫 ' . __('common-fields.sub_attractions'))
                                                         ->formatStateUsing(fn($state, $record) => 
                                                             $record->subAttractions && $record->subAttractions->isNotEmpty()
                                                                 ? nl2br(e(
                                                                     $record->subAttractions->map(function ($subAttraction) {
-                                                                        $name = $subAttraction->subAttraction?->name ?? 'Unknown';
+                                                                        $name = $subAttraction->subAttraction?->name ?? __('app-quotation-itineraries.placeholders.unknown');
                                                                         $price = number_format($subAttraction->price, 2);
                                                                         return "• {$name}: CNY {$price}";
                                                                     })->implode("\n")
                                                                 ))
-                                                                : 'No sub-attractions'
+                                                                : __('app-quotation-itineraries.breakdown_placeholders.no_sub_attractions')
                                                         )
                                                         ->html()
                                                         ->color('info')
@@ -306,25 +306,25 @@ class OfferGroupInfolist
                                 ->collapsed(true),
 
                             // Expense Details
-                            Section::make('Expense Details')
-                                ->heading('Expense Details')
-                                ->description(fn($record) => 'Total: ' . number_format($record->expense_cost, 2) . ' CNY - Additional expense breakdown')
+                            Section::make(__('app-quotation-itineraries.sections.expense_details.title'))
+                                ->heading(__('app-quotation-itineraries.sections.expense_details.title'))
+                                ->description(fn($record) => __('app-quotation-itineraries.sections.expense_details.description', ['total' => number_format($record->expense_cost, 2)]))
                                 ->icon('heroicon-o-document-text')
                                 ->schema([
                                     RepeatableEntry::make('expenses')
-                                        ->label('Expense Records')
+                                        ->label(__('app-quotation-itineraries.fields.expense_records'))
                                         ->hiddenLabel()
                                         ->contained(false)
                                         ->schema([
                                             Grid::make(2)
                                                 ->schema([
                                                     TextEntry::make('description')
-                                                        ->label('Description')
+                                                        ->label(__('common-fields.description'))
                                                         ->icon('heroicon-o-document-text')
                                                         ->color('primary'),
 
                                                     TextEntry::make('price')
-                                                        ->label('Price')
+                                                        ->label(__('common-fields.price'))
                                                         ->money('CNY')
                                                         ->icon('heroicon-o-currency-dollar')
                                                         ->color('success'),
@@ -336,38 +336,38 @@ class OfferGroupInfolist
                                 ->collapsed(true),
 
                             // Accommodation Details
-                            Section::make('Accommodation Details')
-                                ->heading('Accommodation Details')
-                                ->description(fn($record) => 'Total: ' . number_format($record->accommodation_cost, 2) . ' CNY - Accommodation cost breakdown')
+                            Section::make(__('app-quotation-itineraries.sections.accommodation_details.title'))
+                                ->heading(__('app-quotation-itineraries.sections.accommodation_details.title'))
+                                ->description(fn($record) => __('app-quotation-itineraries.sections.accommodation_details.description', ['total' => number_format($record->accommodation_cost, 2)]))
                                 ->icon('heroicon-o-home')
                                 ->schema([
                                     RepeatableEntry::make('accommodations')
-                                        ->label('Accommodation Records')
+                                        ->label(__('app-quotation-itineraries.fields.accommodation_records'))
                                         ->hiddenLabel()
                                         ->contained(false)
                                         ->schema([
                                             Grid::make(4)
                                                 ->schema([
                                                     TextEntry::make('accommodation.name')
-                                                        ->label('🏨 Hotel')
+                                                        ->label('🏨 ' . __('common-fields.hotel'))
                                                         ->formatStateUsing(fn($state, $record) => 
                                                             $state 
                                                                 ? $state . ($record->city?->name ? ' (' . $record->city->name . ')' : '')
-                                                                : 'Base Budget'
+                                                                : __('app-quotation-itineraries.infolist_placeholders.base_budget')
                                                         )
                                                         ->weight('bold')
                                                         ->color('primary')
                                                         ->columnSpan(1),
 
                                                     TextEntry::make('nights')
-                                                        ->label('🌙 Nights')
+                                                        ->label('🌙 ' . __('common-fields.nights'))
                                                         ->numeric()
                                                         ->badge()
                                                         ->color('warning')
                                                         ->columnSpan(1),
 
                                                     TextEntry::make('night_price')
-                                                        ->label('💵 Per Night')
+                                                        ->label('💵 ' . __('app-quotation-itineraries.fields.per_night'))
                                                         ->formatStateUsing(function ($state) {
                                                             return 'CNY ' . number_format($state, 2);
                                                         })
@@ -376,7 +376,7 @@ class OfferGroupInfolist
                                                         ->columnSpan(1),
 
                                                     TextEntry::make('total_cost')
-                                                        ->label('💰 Total Cost')
+                                                        ->label('💰 ' . __('app-quotation-itineraries.fields.total_cost'))
                                                         ->formatStateUsing(function ($state, $record) {
                                                             $total = $record->nights * $record->night_price;
                                                             return 'CNY ' . number_format($total, 2);
@@ -391,13 +391,13 @@ class OfferGroupInfolist
                                 ->collapsed(true),
 
                             // Summary
-                            Section::make('Cost Summary')
-                                ->description('Total cost breakdown for this companion')
+                            Section::make(__('app-quotation-itineraries.sections.cost_summary.title'))
+                                ->description(__('app-quotation-itineraries.sections.cost_summary.description'))
                                 ->icon('heroicon-o-calculator')
                                 ->schema([
                                     // Total Cost
                                     TextEntry::make('total_companion_cost')
-                                        ->label('Total Companion Cost')
+                                        ->label(__('app-quotation-itineraries.fields.total_companion_cost'))
                                         ->formatStateUsing(fn($state, $record) => 
                                             number_format(
                                                 $record->meal_cost + 
@@ -421,43 +421,43 @@ class OfferGroupInfolist
                                         ->schema([
                                             // Left Column - Categories
                                             TextEntry::make('total_companion_salary')
-                                                ->label(fn($record) => 'Salary (' . $record->full_days_qty . ' full days + ' . $record->half_days_qty . ' half days)')
+                                                ->label(fn($record) => __('app-quotation-itineraries.infolist_messages.salary_days', ['full' => $record->full_days_qty, 'half' => $record->half_days_qty]))
                                                 ->money('CNY')
                                                 ->icon('heroicon-o-currency-dollar')
                                                 ->color('success'),
 
                                             TextEntry::make('meal_cost')
-                                                ->label('Meals')
+                                                ->label(__('common-fields.meals'))
                                                 ->money('CNY')
                                                 ->icon('heroicon-o-cake')
                                                 ->color('success'),
 
                                             TextEntry::make('experience_cost')
-                                                ->label('Experiences')
+                                                ->label(__('common-fields.experiences'))
                                                 ->money('CNY')
                                                 ->icon('heroicon-o-sparkles')
                                                 ->color('success'),
 
                                             TextEntry::make('attraction_cost')
-                                                ->label('Attractions')
+                                                ->label(__('common-fields.attractions'))
                                                 ->money('CNY')
                                                 ->icon('heroicon-o-building-library')
                                                 ->color('success'),
 
                                             TextEntry::make('expense_cost')
-                                                ->label('Expenses')
+                                                ->label(__('common-fields.expenses'))
                                                 ->money('CNY')
                                                 ->icon('heroicon-o-document-text')
                                                 ->color('success'),
 
                                             TextEntry::make('accommodation_cost')
-                                                ->label('Accommodation')
+                                                ->label(__('app-quotation-itineraries.fields.accommodation'))
                                                 ->money('CNY')
                                                 ->icon('heroicon-o-home')
                                                 ->color('success'),
 
                                             TextEntry::make('ticket_cost')
-                                                ->label('Tickets')
+                                                ->label(__('common-fields.tickets'))
                                                 ->money('CNY')
                                                 ->icon('heroicon-o-ticket')
                                                 ->color('success'),

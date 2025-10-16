@@ -28,15 +28,15 @@ class TransportationRepeater
                 Grid::make(3)
                             ->schema([
                                 Select::make('transport_mode')
-                                    ->label('Transport Mode')
+                                    ->label(__('transportation.transport_mode'))
                                     ->options(TransportModeEnum::getOptions())
                                     ->required()
                                     ->reactive()
                                     ->native(false)
-                                    ->placeholder('Select mode'),
+                                    ->placeholder(__('transportation.select_mode')),
 
                                 Select::make('from_city_id')
-                                    ->label('From City')
+                                    ->label(__('transportation.from_city'))
                                     ->options(fn() => City::all()
                                         ->sortBy('name')
                                         ->mapWithKeys(fn($city) => [$city->id => $city->name])
@@ -44,10 +44,10 @@ class TransportationRepeater
                                     ->searchable()
                                     ->preload()
                                     ->required()
-                                    ->placeholder('Select city'),
+                                    ->placeholder(__('transportation.select_city')),
 
                                 Select::make('to_city_id')
-                                    ->label('To City')
+                                    ->label(__('transportation.to_city'))
                                     ->options(fn() => City::all()
                                         ->sortBy('name')
                                         ->mapWithKeys(fn($city) => [$city->id => $city->name])
@@ -55,7 +55,7 @@ class TransportationRepeater
                                     ->searchable()
                                     ->preload()
                                     ->required()
-                                    ->placeholder('Select city'),
+                                    ->placeholder(__('transportation.select_city')),
                     ]),
 
                 // Row 2: Departure and Arrival Date/Time
@@ -64,7 +64,7 @@ class TransportationRepeater
                         Grid::make(2)
                             ->schema([
                                 DatePicker::make('departure_date')
-                                    ->label('Departure Date')
+                                    ->label(__('transportation.departure_date'))
                                     ->required()
                                     ->reactive()
                                     ->displayFormat('d/m/Y')
@@ -84,7 +84,7 @@ class TransportationRepeater
                                     }),
 
                                 TimePicker::make('departure_time')
-                                    ->label('Departure Time')
+                                    ->label(__('transportation.departure_time'))
                                     ->seconds(false)
                                     ->minutesStep(5),
                             ]),
@@ -92,7 +92,7 @@ class TransportationRepeater
                         Grid::make(2)
                             ->schema([
                                 DatePicker::make('arrival_date')
-                                    ->label('Arrival Date')
+                                    ->label(__('transportation.arrival_date'))
                                     ->displayFormat('d/m/Y')
                                     ->closeOnDateSelection()
                                     ->minDate(fn ($get) => $get('departure_date') ?: null)
@@ -100,12 +100,12 @@ class TransportationRepeater
                                         ? \Carbon\Carbon::parse($get('departure_date'))->addDay()->format('Y-m-d')
                                         : null)
                                     ->helperText(fn ($get) => $get('departure_date')
-                                        ? 'Must be same day or maximum 1 day after departure'
-                                        : 'Select departure date first')
+                                        ? __('transportation.arrival_date_helper_with_departure')
+                                        : __('transportation.arrival_date_helper_no_departure'))
                                     ->disabled(fn ($get) => !$get('departure_date')),
 
                                 TimePicker::make('arrival_time')
-                                    ->label('Arrival Time')
+                                    ->label(__('transportation.arrival_time'))
                                     ->seconds(false)
                                     ->minutesStep(5),
                             ]),
@@ -113,23 +113,23 @@ class TransportationRepeater
 
                 // Row 3: Transport Number
                 TextInput::make('transport_number')
-                    ->label('Transport Number')
-                    ->helperText('Flight number, train number, or bus number')
+                    ->label(__('transportation.transport_number'))
+                    ->helperText(__('transportation.transport_number_helper'))
                     ->maxLength(100)
-                    ->placeholder('e.g., IRA123, TR456'),
+                    ->placeholder(__('transportation.transport_number_placeholder')),
 
                 // Conditional Fields for AIR
                 Grid::make(2)
                     ->schema([
                         TextInput::make('departure_airport_terminal')
-                            ->label('Departure Terminal')
+                            ->label(__('transportation.departure_terminal'))
                             ->maxLength(50)
-                            ->placeholder('e.g., Terminal 2'),
+                            ->placeholder(__('transportation.terminal_departure_placeholder')),
 
                         TextInput::make('arrival_airport_terminal')
-                            ->label('Arrival Terminal')
+                            ->label(__('transportation.arrival_terminal'))
                             ->maxLength(50)
-                            ->placeholder('e.g., Terminal 1'),
+                            ->placeholder(__('transportation.terminal_arrival_placeholder')),
                     ])
                     ->visible(fn($get) => $get('transport_mode') === TransportModeEnum::AIR->value),
 
@@ -137,24 +137,24 @@ class TransportationRepeater
                 Grid::make(2)
                     ->schema([
                         Select::make('entry_border_id')
-                            ->label('Entry Border')
+                            ->label(__('transportation.entry_border'))
                             ->options(fn() => BorderPoint::all()
                                 ->sortBy('name')
                                 ->mapWithKeys(fn($border) => [$border->id => $border->name])
                                 ->toArray())
                             ->searchable()
                             ->preload()
-                            ->placeholder('Select border point'),
+                            ->placeholder(__('transportation.select_border_point')),
 
                         Select::make('exit_border_id')
-                            ->label('Exit Border')
+                            ->label(__('transportation.exit_border'))
                             ->options(fn() => BorderPoint::all()
                                 ->sortBy('name')
                                 ->mapWithKeys(fn($border) => [$border->id => $border->name])
                                 ->toArray())
                             ->searchable()
                             ->preload()
-                            ->placeholder('Select border point'),
+                            ->placeholder(__('transportation.select_border_point')),
                     ])
                     ->visible(fn($get) => $get('transport_mode') === TransportModeEnum::LAND->value),
 
@@ -190,14 +190,14 @@ class TransportationRepeater
                 
                 // Return label based on index
                 if ($index === 0) {
-                    return '✈️ Entry Transportation (Arrival)';
+                    return __('transportation.entry_transportation');
                 } elseif ($index === 1) {
-                    return '🛫 Exit Transportation (Departure)';
+                    return __('transportation.exit_transportation');
                 }
                 
-                return 'Transportation #' . ($index + 1);
+                return __('transportation.transportation_item', ['number' => ($index + 1)]);
             })
-            ->helperText('Entry and exit transportation for the group');
+            ->helperText(__('transportation.repeater_helper'));
     }
 }
 

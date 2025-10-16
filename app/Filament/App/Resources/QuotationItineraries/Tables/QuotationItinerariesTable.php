@@ -20,14 +20,14 @@ class QuotationItinerariesTable
         return $table
             ->columns([
                 TextColumn::make('quotation.number')
-                    ->label('Number')
+                    ->label(__('app-quotation-itineraries.columns.number'))
                     ->searchable()
                     ->sortable()
                     ->copyable()
                     ->weight('bold'),
                 
                 TextColumn::make('quotation.inquiry.title')
-                    ->label('Inquiry Title')
+                    ->label(__('app-quotation-itineraries.columns.inquiry_title'))
                     ->searchable()
                     ->limit(50)
                     ->tooltip(function (TextColumn $column): ?string {
@@ -39,48 +39,48 @@ class QuotationItinerariesTable
                     }),
                 
                 TextColumn::make('quotation.inquiry.contact.full_name')
-                    ->label('Contact')
+                    ->label(__('app-quotation-itineraries.columns.contact'))
                     ->searchable()
                     ->sortable(),
                 
                 TextColumn::make('offers_count')
-                    ->label('Offers')
+                    ->label(__('app-quotation-itineraries.columns.offers'))
                     ->state(function ($record) {
                         return $record->quotationOfferGroups()->count();
                     })
                     ->badge()
                     ->color(fn ($state) => $state > 0 ? 'success' : 'gray')
-                    ->tooltip(fn ($state) => $state > 0 ? $state . ' offer(s) created' : 'No offers yet'),
+                    ->tooltip(fn ($state) => $state > 0 ? __('app-quotation-itineraries.tooltips.offers_count', ['count' => $state]) : __('app-quotation-itineraries.tooltips.no_offers_yet')),
                 
                 TextColumn::make('quotation.expire_date')
-                    ->label('Expires')
+                    ->label(__('app-quotation-itineraries.columns.expires'))
                     ->date()
                     ->sortable()
                     ->color(fn ($state) => $state < now() ? 'danger' : ($state < now()->addDays(7) ? 'warning' : 'success')),
                 
                 TextColumn::make('quotation.status')
-                    ->label('Status')
+                    ->label(__('app-quotation-itineraries.columns.status'))
                     ->badge()
                     ->color(fn ($state) => $state === 'Active' ? 'success' : 'danger'),
                 
                 TextColumn::make('created_at')
-                    ->label('Created')
+                    ->label(__('app-quotation-itineraries.columns.created'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 
                 TextColumn::make('updated_at')
-                    ->label('Updated')
+                    ->label(__('app-quotation-itineraries.columns.updated'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 SelectFilter::make('quotation_status')
-                    ->label('Status')
+                    ->label(__('app-quotation-itineraries.filters.status'))
                     ->options([
-                        'active' => 'Active',
-                        'expired' => 'Expired',
+                        'active' => __('app-quotation-itineraries.filters.active'),
+                        'expired' => __('app-quotation-itineraries.filters.expired'),
                     ])
                     ->query(function ($query, array $data) {
                         if ($data['value'] === 'active') {
@@ -98,7 +98,7 @@ class QuotationItinerariesTable
             ])
             ->recordActions([
                 Action::make('customerView')
-                    ->label('Customer View')
+                    ->label(__('app-quotation-itineraries.actions.customer_view'))
                     ->icon('heroicon-o-eye')
                     ->color('primary')
                     ->url(fn ($record) => route('filament.app.resources.quotation-itineraries.customer-view', ['record' => $record->id]))
@@ -107,20 +107,23 @@ class QuotationItinerariesTable
                     ViewAction::make(),
                     DeleteAction::make()
                         ->requiresConfirmation()
-                        ->modalHeading(fn ($record) => 'Delete Quotation ' . ($record->quotation?->number ?? 'N/A'))
+                        ->modalHeading(fn ($record) => __('app-quotation-itineraries.modals.delete_heading', ['number' => $record->quotation?->number ?? 'N/A']))
                         ->modalDescription(function ($record) {
                             $inquiry = $record->quotation?->inquiry;
                             $quotationsCount = $inquiry?->quotations()->count() ?? 0;
                             
-                            $description = 'Are you sure you want to delete quotation itinerary "' . ($record->quotation?->number ?? 'N/A') . '"?';
+                            $description = __('app-quotation-itineraries.modals.delete_description', ['number' => $record->quotation?->number ?? 'N/A']);
                             
                             if ($quotationsCount === 1) {
-                                $description .= "\n\nNote: This is the only quotation for inquiry #" . ($inquiry?->number ?? 'N/A') . '. You can choose to delete the inquiry as well.';
+                                $description = __('app-quotation-itineraries.modals.delete_description_only_quotation', [
+                                    'number' => $record->quotation?->number ?? 'N/A',
+                                    'inquiry_number' => $inquiry?->number ?? 'N/A'
+                                ]);
                             }
                             
                             return $description;
                         })
-                        ->form(function ($record) {
+                        ->schema(function ($record) {
                             $inquiry = $record->quotation?->inquiry;
                             $quotationsCount = $inquiry?->quotations()->count() ?? 0;
                             
@@ -128,8 +131,8 @@ class QuotationItinerariesTable
                             if ($quotationsCount === 1) {
                                 return [
                                     Checkbox::make('delete_inquiry')
-                                        ->label('Also delete the related inquiry (#' . ($inquiry?->number ?? 'N/A') . ') and all its data')
-                                        ->helperText('Warning: This will permanently delete the inquiry, inquiry itinerary, and all related data.')
+                                        ->label(__('app-quotation-itineraries.modals.delete_inquiry_checkbox', ['inquiry_number' => $inquiry?->number ?? 'N/A']))
+                                        ->helperText(__('app-quotation-itineraries.modals.delete_inquiry_helper'))
                                         ->default(false),
                                 ];
                             }
@@ -165,13 +168,13 @@ class QuotationItinerariesTable
                             // نمایش پیام موفقیت
                             Notification::make()
                                 ->success()
-                                ->title('Deleted successfully')
+                                ->title(__('app-quotation-itineraries.notifications.deleted_title'))
                                 ->body($deleteInquiry 
-                                    ? 'Quotation and inquiry have been deleted.' 
-                                    : 'Quotation has been deleted.')
+                                    ? __('app-quotation-itineraries.notifications.deleted_quotation_and_inquiry')
+                                    : __('app-quotation-itineraries.notifications.deleted_quotation_only'))
                                 ->send();
                         })
-                        ->modalSubmitActionLabel('Delete'),
+                        ->modalSubmitActionLabel(__('app-quotation-itineraries.modals.delete_submit')),
                 ]),
             ])
             ->defaultSort('created_at', 'desc')

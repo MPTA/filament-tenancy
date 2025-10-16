@@ -12,7 +12,7 @@ class ViewQuotationItinerary extends ViewRecord
 
     public function getTitle(): string|\Illuminate\Contracts\Support\Htmlable
     {
-        return 'Quotation ' . ($this->record->quotation?->number ?? 'N/A');
+        return __('app-quotation-itineraries.page_titles.quotation', ['number' => $this->record->quotation?->number ?? 'N/A']);
     }
 
     public function getRecordTitle(): string|\Illuminate\Contracts\Support\Htmlable
@@ -24,7 +24,7 @@ class ViewQuotationItinerary extends ViewRecord
     {
         return [
             \Filament\Actions\Action::make('customerView')
-                ->label('Customer View')
+                ->label(__('app-quotation-itineraries.customer_view.label'))
                 ->icon('heroicon-o-eye')
                 ->color('success')
                 ->disabled(function () {
@@ -36,16 +36,16 @@ class ViewQuotationItinerary extends ViewRecord
                 })
                 ->tooltip(function () {
                     if (!$this->record->itinerary) {
-                        return 'Itinerary must be created first';
+                        return __('app-quotation-itineraries.tooltips_customer_view.itinerary_must_be_created');
                     }
                     if (!$this->record->itinerary->is_complete) {
-                        return 'Itinerary must be completed first';
+                        return __('app-quotation-itineraries.tooltips_customer_view.itinerary_must_be_completed');
                     }
                     if (!$this->record->breakdown) {
-                        return 'Breakdown must be created first';
+                        return __('app-quotation-itineraries.tooltips_customer_view.breakdown_must_be_created');
                     }
                     if (!$this->record->breakdown->is_completed) {
-                        return 'Breakdown must be completed first';
+                        return __('app-quotation-itineraries.tooltips_customer_view.breakdown_must_be_completed');
                     }
                     return null;
                 })
