@@ -16,15 +16,15 @@ class VehicleTypeForm
     {
         return $schema
             ->components([
-                Section::make('Basic Information')
-                    ->description('Enter the vehicle type details')
+                Section::make(__('tenant-vehicle-types.sections.basic_information.title'))
+                    ->description(__('tenant-vehicle-types.sections.basic_information.description'))
                     ->schema([
                         TextInput::make('name')
-                            ->label('Vehicle Type Name')
+                            ->label(__('tenant-vehicle-types.fields.vehicle_type_name'))
                             ->required()
                             ->maxLength(255)
-                            ->placeholder('e.g., Sedan, SUV, Minivan, Bus')
-                            ->helperText('Full name of the vehicle type')
+                            ->placeholder(__('tenant-vehicle-types.placeholders.name'))
+                            ->helperText(__('tenant-vehicle-types.helpers.name'))
                             ->live(onBlur: true)
                             ->afterStateUpdated(function ($state, $set) {
                                 if ($state) {
@@ -33,22 +33,22 @@ class VehicleTypeForm
                             }),
                         
                         TextInput::make('slug')
-                            ->label('Slug')
+                            ->label(__('common-fields.slug'))
                             ->required()
                             ->maxLength(255)
                             ->unique(ignoreRecord: true)
-                            ->placeholder('e.g., sedan, suv, minivan, bus')
-                            ->helperText('URL-friendly identifier (auto-generated from name)')
+                            ->placeholder(__('tenant-vehicle-types.placeholders.slug'))
+                            ->helperText(__('tenant-vehicle-types.helpers.slug'))
                             ->rules(['regex:/^[a-z0-9-]+$/']),
                         
                         Select::make('vehicle_category_id')
-                            ->label('Vehicle Category')
+                            ->label(__('tenant-vehicle-types.fields.vehicle_category'))
                             ->relationship('vehicleCategory', 'name')
                             ->required()
                             ->searchable()
                             ->preload()
-                            ->placeholder('Select a vehicle category')
-                            ->helperText('Category this vehicle type belongs to')
+                            ->placeholder(__('tenant-vehicle-types.placeholders.vehicle_category'))
+                            ->helperText(__('tenant-vehicle-types.helpers.vehicle_category'))
                             ->createOptionForm([
                                 TextInput::make('name')
                                     ->required()
@@ -56,30 +56,30 @@ class VehicleTypeForm
                             ]),
                         
                         TextInput::make('cover')
-                            ->label('Cover Image URL')
+                            ->label(__('tenant-vehicle-types.fields.cover_image_url'))
                             ->url()
-                            ->placeholder('https://example.com/image.jpg')
-                            ->helperText('URL to the vehicle cover image'),
+                            ->placeholder(__('tenant-vehicle-types.placeholders.cover_url'))
+                            ->helperText(__('tenant-vehicle-types.helpers.cover_url')),
                         
                         Textarea::make('description')
-                            ->label('Description')
+                            ->label(__('common-fields.description'))
                             ->maxLength(1000)
-                            ->placeholder('Brief description of the vehicle type')
-                            ->helperText('Short description for listings and previews')
+                            ->placeholder(__('tenant-vehicle-types.placeholders.description'))
+                            ->helperText(__('tenant-vehicle-types.helpers.description'))
                             ->rows(3)
                             ->columnSpanFull(),
                     ])
                     ->columns(2),
                 
-                Section::make('Capacity & Specifications')
-                    ->description('Set passenger capacity and specifications')
+                Section::make(__('tenant-vehicle-types.sections.capacity_specifications.title'))
+                    ->description(__('tenant-vehicle-types.sections.capacity_specifications.description'))
                     ->schema([
                         TextInput::make('capacity_from')
-                            ->label('Minimum Capacity')
+                            ->label(__('tenant-vehicle-types.fields.minimum_capacity'))
                             ->required()
-                            ->suffix('passengers')
-                            ->placeholder('1')
-                            ->helperText('Minimum number of passengers')
+                            ->suffix(__('tenant-vehicle-types.suffixes.passengers'))
+                            ->placeholder(__('tenant-vehicle-types.placeholders.capacity_min'))
+                            ->helperText(__('tenant-vehicle-types.helpers.capacity_min'))
                             ->rules(['required', 'integer', 'min:1', 'max:100'])
                             ->inputMode('numeric')
                             ->live(onBlur: true)
@@ -91,11 +91,11 @@ class VehicleTypeForm
                             }),
                         
                         TextInput::make('capacity_to')
-                            ->label('Maximum Capacity')
+                            ->label(__('tenant-vehicle-types.fields.maximum_capacity'))
                             ->required()
-                            ->suffix('passengers')
-                            ->placeholder('4')
-                            ->helperText('Maximum number of passengers')
+                            ->suffix(__('tenant-vehicle-types.suffixes.passengers'))
+                            ->placeholder(__('tenant-vehicle-types.placeholders.capacity_max'))
+                            ->helperText(__('tenant-vehicle-types.helpers.capacity_max'))
                             ->rules(['required', 'integer', 'min:1', 'max:100'])
                             ->inputMode('numeric')
                             ->live(onBlur: true)
@@ -107,66 +107,66 @@ class VehicleTypeForm
                             }),
                         
                         TextInput::make('max_hour_per_day')
-                            ->label('Max Hours Per Day')
-                            ->suffix('hours')
-                            ->placeholder('8')
-                            ->helperText('Maximum hours allowed per day')
+                            ->label(__('tenant-vehicle-types.fields.max_hours_per_day'))
+                            ->suffix(__('tenant-vehicle-types.suffixes.hours'))
+                            ->placeholder(__('tenant-vehicle-types.placeholders.max_hours_day'))
+                            ->helperText(__('tenant-vehicle-types.helpers.max_hours_day'))
                             ->rules(['nullable', 'integer', 'min:1', 'max:24'])
                             ->inputMode('numeric'),
                         
                         TextInput::make('max_hour_half_day')
-                            ->label('Max Hours Half Day')
-                            ->suffix('hours')
-                            ->placeholder('4')
-                            ->helperText('Maximum hours for half day service')
+                            ->label(__('tenant-vehicle-types.fields.max_hours_half_day'))
+                            ->suffix(__('tenant-vehicle-types.suffixes.hours'))
+                            ->placeholder(__('tenant-vehicle-types.placeholders.max_hours_half'))
+                            ->helperText(__('tenant-vehicle-types.helpers.max_hours_half'))
                             ->rules(['nullable', 'integer', 'min:1', 'max:12'])
                             ->inputMode('numeric'),
                     ])
                     ->columns(2),
                 
-                Section::make('Pricing Configuration')
-                    ->description('Set pricing for different service types')
+                Section::make(__('tenant-vehicle-types.sections.pricing_configuration.title'))
+                    ->description(__('tenant-vehicle-types.sections.pricing_configuration.description'))
                     ->schema([
                         TextInput::make('per_day_price')
-                            ->label('Per Day Price')
+                            ->label(__('tenant-vehicle-types.fields.per_day_price'))
                             ->prefix(fn() => tenant()->settings?->country?->currency?->symbol ?? '$')
-                            ->placeholder('0.00')
-                            ->helperText('Price for full day service')
+                            ->placeholder(__('tenant-vehicle-types.placeholders.price'))
+                            ->helperText(__('tenant-vehicle-types.helpers.per_day_price'))
                             ->rules(['nullable', 'numeric', 'min:0'])
                             ->inputMode('decimal'),
                         
                         TextInput::make('half_day_price')
-                            ->label('Half Day Price')
+                            ->label(__('tenant-vehicle-types.fields.half_day_price'))
                             ->prefix(fn() => tenant()->settings?->country?->currency?->symbol ?? '$')
-                            ->placeholder('0.00')
-                            ->helperText('Price for half day service')
+                            ->placeholder(__('tenant-vehicle-types.placeholders.price'))
+                            ->helperText(__('tenant-vehicle-types.helpers.half_day_price'))
                             ->rules(['nullable', 'numeric', 'min:0'])
                             ->inputMode('decimal'),
                         
                         TextInput::make('extra_hour_price')
-                            ->label('Extra Hour Price')
+                            ->label(__('tenant-vehicle-types.fields.extra_hour_price'))
                             ->prefix(fn() => tenant()->settings?->country?->currency?->symbol ?? '$')
-                            ->placeholder('0.00')
-                            ->helperText('Price for each extra hour')
+                            ->placeholder(__('tenant-vehicle-types.placeholders.price'))
+                            ->helperText(__('tenant-vehicle-types.helpers.extra_hour_price'))
                             ->rules(['nullable', 'numeric', 'min:0'])
                             ->inputMode('decimal'),
                         
                         TextInput::make('airport_transfer_price')
-                            ->label('Airport Transfer Price')
+                            ->label(__('tenant-vehicle-types.fields.airport_transfer_price'))
                             ->prefix(fn() => tenant()->settings?->country?->currency?->symbol ?? '$')
-                            ->placeholder('0.00')
-                            ->helperText('Price for airport transfer service')
+                            ->placeholder(__('tenant-vehicle-types.placeholders.price'))
+                            ->helperText(__('tenant-vehicle-types.helpers.airport_transfer_price'))
                             ->rules(['nullable', 'numeric', 'min:0'])
                             ->inputMode('decimal'),
                     ])
                     ->columns(2),
                 
-                Section::make('Service Options')
-                    ->description('Configure service options and features')
+                Section::make(__('tenant-vehicle-types.sections.service_options.title'))
+                    ->description(__('tenant-vehicle-types.sections.service_options.description'))
                     ->schema([
                         Toggle::make('is_vip')
-                            ->label('VIP Service')
-                            ->helperText('Enable VIP service features')
+                            ->label(__('tenant-vehicle-types.fields.vip_service'))
+                            ->helperText(__('tenant-vehicle-types.helpers.vip_service'))
                             ->default(false),
                     ])
                     ->columns(1)

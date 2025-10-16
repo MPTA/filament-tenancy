@@ -27,13 +27,33 @@ class VehicleTypeResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'name';
 
-    protected static ?string $navigationLabel = 'Vehicle Types';
+    protected static ?string $navigationLabel = null;
 
-    protected static ?string $modelLabel = 'Vehicle Type';
+    protected static ?string $modelLabel = null;
 
-    protected static ?string $pluralModelLabel = 'Vehicle Types';
+    protected static ?string $pluralModelLabel = null;
 
-    protected static string | UnitEnum | null $navigationGroup = 'Data Types';
+    protected static string | UnitEnum | null $navigationGroup = null;
+
+    public static function getNavigationLabel(): string
+    {
+        return __('tenant-vehicle-types.navigation_label');
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('tenant-vehicle-types.resource_name');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('tenant-vehicle-types.resource_name_plural');
+    }
+
+    public static function getNavigationGroup(): ?string
+    {
+        return __('tenant-vehicle-types.navigation_group');
+    }
 
     protected static ?int $navigationSort = 1;
 
@@ -49,18 +69,18 @@ class VehicleTypeResource extends Resource
 
     public static function getGlobalSearchResultTitle($record): string
     {
-        return $record->name . ' (' . ($record->vehicleCategory->name ?? 'No Category') . ')';
+        return $record->name . ' (' . ($record->vehicleCategory->name ?? __('tenant-vehicle-types.placeholders.no_category')) . ')';
     }
 
     public static function getGlobalSearchResultDetails($record): array
     {
         return [
-            'Category' => $record->vehicleCategory->name ?? 'No category',
-            'Capacity' => $record->capacity_from === $record->capacity_to 
-                ? $record->capacity_from . ' passengers'
-                : $record->capacity_from . '-' . $record->capacity_to . ' passengers',
-            'VIP' => $record->is_vip ? 'VIP Service' : 'Standard Service',
-            'Per Day Price' => $record->per_day_price ? '$' . number_format($record->per_day_price, 2) : 'Not specified',
+            __('tenant-vehicle-types.global_search.category') => $record->vehicleCategory->name ?? __('tenant-vehicle-types.placeholders.no_category'),
+            __('tenant-vehicle-types.global_search.capacity') => $record->capacity_from === $record->capacity_to 
+                ? $record->capacity_from . ' ' . __('tenant-vehicle-types.suffixes.passengers')
+                : $record->capacity_from . '-' . $record->capacity_to . ' ' . __('tenant-vehicle-types.suffixes.passengers'),
+            __('tenant-vehicle-types.global_search.vip') => $record->is_vip ? __('tenant-vehicle-types.global_search.vip_service') : __('tenant-vehicle-types.global_search.standard_service'),
+            __('tenant-vehicle-types.global_search.per_day_price') => $record->per_day_price ? '$' . number_format($record->per_day_price, 2) : __('tenant-vehicle-types.placeholders.not_specified'),
         ];
     }
 

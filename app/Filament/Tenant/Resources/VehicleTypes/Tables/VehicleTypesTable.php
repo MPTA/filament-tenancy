@@ -21,7 +21,7 @@ class VehicleTypesTable
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->label('Vehicle Type')
+                    ->label(__('tenant-vehicle-types.columns.vehicle_type'))
                     ->searchable()
                     ->sortable()
                     ->weight('bold')
@@ -29,51 +29,51 @@ class VehicleTypesTable
                     ->limit(30),
                 
                 TextColumn::make('slug')
-                    ->label('Slug')
+                    ->label(__('common-fields.slug'))
                     ->searchable()
                     ->sortable()
                     ->badge()
                     ->color('primary')
                     ->copyable()
-                    ->copyMessage('Slug copied')
-                    ->placeholder('No slug'),
+                    ->copyMessage(__('tenant-vehicle-types.messages.slug_copied'))
+                    ->placeholder(__('tenant-vehicle-types.placeholders.no_slug')),
                 
                 TextColumn::make('vehicleCategory.name')
-                    ->label('Category')
+                    ->label(__('common-fields.category'))
                     ->searchable()
                     ->sortable()
                     ->badge()
                     ->color('success')
-                    ->placeholder('No category'),
+                    ->placeholder(__('tenant-vehicle-types.placeholders.no_category')),
                 
                 TextColumn::make('capacity_from')
-                    ->label('Min Capacity')
+                    ->label(__('tenant-vehicle-types.fields.min_capacity'))
                     ->numeric()
                     ->sortable()
-                    ->suffix(' pax')
-                    ->placeholder('Not set')
+                    ->suffix(' ' . __('tenant-vehicle-types.suffixes.pax'))
+                    ->placeholder(__('tenant-vehicle-types.placeholders.not_set'))
                     ->alignCenter(),
                 
                 TextColumn::make('capacity_to')
-                    ->label('Max Capacity')
+                    ->label(__('tenant-vehicle-types.fields.max_capacity'))
                     ->numeric()
                     ->sortable()
-                    ->suffix(' pax')
-                    ->placeholder('Not set')
+                    ->suffix(' ' . __('tenant-vehicle-types.suffixes.pax'))
+                    ->placeholder(__('tenant-vehicle-types.placeholders.not_set'))
                     ->alignCenter(),
                 
                 TextColumn::make('per_day_price')
-                    ->label('Per Day Price')
+                    ->label(__('tenant-vehicle-types.fields.per_day_price'))
                     ->money('USD')
                     ->sortable()
-                    ->placeholder('Not set')
+                    ->placeholder(__('tenant-vehicle-types.placeholders.not_set'))
                     ->alignCenter(),
                 
                 TextColumn::make('half_day_price')
-                    ->label('Half Day Price')
+                    ->label(__('tenant-vehicle-types.fields.half_day_price'))
                     ->money('USD')
                     ->sortable()
-                    ->placeholder('Not set')
+                    ->placeholder(__('tenant-vehicle-types.placeholders.not_set'))
                     ->alignCenter(),
                 
                 IconColumn::make('is_vip')
@@ -86,21 +86,21 @@ class VehicleTypesTable
                     ->alignCenter(),
                 
                 TextColumn::make('airport_transfer_price')
-                    ->label('Airport Transfer')
+                    ->label(__('tenant-vehicle-types.columns.airport_transfer'))
                     ->money('USD')
                     ->sortable()
-                    ->placeholder('Not set')
+                    ->placeholder(__('tenant-vehicle-types.placeholders.not_set'))
                     ->alignCenter(),
                 
                 TextColumn::make('created_at')
-                    ->label('Created')
+                    ->label(__('common-fields.created_at'))
                     ->dateTime('M j, Y')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->alignCenter(),
                 
                 TextColumn::make('updated_at')
-                    ->label('Updated')
+                    ->label(__('common-fields.updated_at'))
                     ->dateTime('M j, Y')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true)
@@ -108,25 +108,25 @@ class VehicleTypesTable
             ])
             ->filters([
                 SelectFilter::make('vehicle_category_id')
-                    ->label('Vehicle Category')
+                    ->label(__('tenant-vehicle-types.filters.vehicle_category'))
                     ->relationship('vehicleCategory', 'name')
                     ->searchable()
                     ->preload(),
                 
                 TernaryFilter::make('is_vip')
-                    ->label('VIP Service')
-                    ->placeholder('All vehicles')
-                    ->trueLabel('VIP only')
-                    ->falseLabel('Non-VIP only'),
+                    ->label(__('tenant-vehicle-types.filters.vip_service'))
+                    ->placeholder(__('tenant-vehicle-types.filters.all_vehicles'))
+                    ->trueLabel(__('tenant-vehicle-types.filters.vip_only'))
+                    ->falseLabel(__('tenant-vehicle-types.filters.non_vip_only')),
                 
                 SelectFilter::make('capacity_range')
-                    ->label('Capacity Range')
+                    ->label(__('tenant-vehicle-types.filters.capacity_range'))
                     ->options([
-                        '1-4' => '1-4 passengers',
-                        '5-8' => '5-8 passengers',
-                        '9-16' => '9-16 passengers',
-                        '17-30' => '17-30 passengers',
-                        '30+' => '30+ passengers',
+                        '1-4' => __('tenant-vehicle-types.filters.capacity_1_4'),
+                        '5-8' => __('tenant-vehicle-types.filters.capacity_5_8'),
+                        '9-16' => __('tenant-vehicle-types.filters.capacity_9_16'),
+                        '17-30' => __('tenant-vehicle-types.filters.capacity_17_30'),
+                        '30+' => __('tenant-vehicle-types.filters.capacity_30_plus'),
                     ])
                     ->query(function ($query, array $data) {
                         if ($data['value'] === '1-4') {
@@ -148,10 +148,10 @@ class VehicleTypesTable
                     }),
                 
                 SelectFilter::make('has_pricing')
-                    ->label('Has Pricing')
+                    ->label(__('tenant-vehicle-types.filters.has_pricing'))
                     ->options([
-                        'yes' => 'Has Pricing',
-                        'no' => 'No Pricing',
+                        'yes' => __('tenant-vehicle-types.filters.has_pricing_yes'),
+                        'no' => __('tenant-vehicle-types.filters.has_pricing_no'),
                     ])
                     ->query(function ($query, array $data) {
                         if ($data['value'] === 'yes') {
@@ -187,37 +187,37 @@ class VehicleTypesTable
                         ->requiresConfirmation(),
                     
                     BulkAction::make('export')
-                        ->label('Export Selected')
+                        ->label(__('tenant-vehicle-types.bulk_actions.export'))
                         ->icon('heroicon-o-arrow-down-tray')
                         ->action(function ($records) {
                             // Export logic can be implemented here
                             Notification::make()
-                                ->title('Export Started')
-                                ->body('Selected vehicle types will be exported.')
+                                ->title(__('tenant-vehicle-types.notifications.export_started_title'))
+                                ->body(__('tenant-vehicle-types.notifications.export_started_body'))
                                 ->success()
                                 ->send();
                         }),
                     
                     BulkAction::make('duplicate')
-                        ->label('Duplicate Selected')
+                        ->label(__('tenant-vehicle-types.bulk_actions.duplicate'))
                         ->icon('heroicon-o-document-duplicate')
                         ->action(function ($records) {
                             foreach ($records as $record) {
                                 $newRecord = $record->replicate();
-                                $newRecord->name = $record->name . ' (Copy)';
-                                $newRecord->slug = $record->slug . '-copy';
+                                $newRecord->name = $record->name . __('tenant-vehicle-types.messages.name_copy_suffix');
+                                $newRecord->slug = $record->slug . __('tenant-vehicle-types.messages.slug_copy_suffix');
                                 $newRecord->save();
                             }
                             
                             Notification::make()
-                                ->title('Duplication Complete')
-                                ->body('Selected vehicle types have been duplicated.')
+                                ->title(__('tenant-vehicle-types.notifications.duplication_complete_title'))
+                                ->body(__('tenant-vehicle-types.notifications.duplication_complete_body'))
                                 ->success()
                                 ->send();
                         }),
                     
                     BulkAction::make('toggle_vip')
-                        ->label('Toggle VIP Status')
+                        ->label(__('tenant-vehicle-types.bulk_actions.toggle_vip'))
                         ->icon('heroicon-o-star')
                         ->action(function ($records) {
                             foreach ($records as $record) {
@@ -225,8 +225,8 @@ class VehicleTypesTable
                             }
                             
                             Notification::make()
-                                ->title('VIP Status Updated')
-                                ->body('Selected vehicle types VIP status has been toggled.')
+                                ->title(__('tenant-vehicle-types.notifications.vip_status_updated_title'))
+                                ->body(__('tenant-vehicle-types.notifications.vip_status_updated_body'))
                                 ->success()
                                 ->send();
                         }),
