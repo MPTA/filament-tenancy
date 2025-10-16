@@ -53,5 +53,10 @@ return [
         'duplicate_price_title' => 'Duplicate Price',
         'duplicate_price_body' => 'A price with the same room category, date, and meal inclusion already exists.',
     ],
+    
+    'empty_state' => [
+        'heading' => 'No prices yet',
+        'description' => 'Add a price for this accommodation to get started.',
+    ],
 ];
 

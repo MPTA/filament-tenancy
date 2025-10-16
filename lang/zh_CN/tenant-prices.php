@@ -53,5 +53,10 @@ return [
         'duplicate_price_title' => '重复价格',
         'duplicate_price_body' => '已存在具有相同房间类别、日期和餐食包含的价格。',
     ],
+    
+    'empty_state' => [
+        'heading' => '暂无价格',
+        'description' => '为此住宿添加价格以开始使用。',
+    ],
 ];
 

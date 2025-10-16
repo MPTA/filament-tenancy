@@ -100,6 +100,8 @@ class TenantUsersTable
                         return $query;
                     }),
             ])
+            ->emptyStateHeading(__('tenant-users.empty_state.heading'))
+            ->emptyStateDescription(__('tenant-users.empty_state.description'))
             ->recordActions([
                 EditAction::make(),
             ])

@@ -34,5 +34,10 @@ return [
     'placeholders' => [
         'no_data' => '—',
     ],
+    
+    'empty_state' => [
+        'heading' => 'No users yet',
+        'description' => 'Get started by creating a new user.',
+    ],
 ];
 

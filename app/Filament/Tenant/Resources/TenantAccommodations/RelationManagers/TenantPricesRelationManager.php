@@ -259,6 +259,8 @@ class TenantPricesRelationManager extends RelationManager
                     ->label(__('tenant-prices.filters.with_dinner'))
                     ->query(fn(Builder $query) => $query->where('is_include_dinner', true)),
             ])
+            ->emptyStateHeading(__('tenant-prices.empty_state.heading'))
+            ->emptyStateDescription(__('tenant-prices.empty_state.description'))
             ->defaultSort('valid_from', 'desc')
             ->headerActions([
                 CreateAction::make()

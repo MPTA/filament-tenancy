@@ -34,5 +34,10 @@ return [
         'no_rating' => '无评分',
         'prices_count' => ':count 个价格',
     ],
+    
+    'empty_state' => [
+        'heading' => '暂无住宿',
+        'description' => '请联系管理员为您的租户添加住宿。',
+    ],
 ];
 

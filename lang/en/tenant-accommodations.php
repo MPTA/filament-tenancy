@@ -34,5 +34,10 @@ return [
         'no_rating' => 'No rating',
         'prices_count' => ':count prices',
     ],
+    
+    'empty_state' => [
+        'heading' => 'No accommodations available',
+        'description' => 'Contact admin to add accommodations to your tenant.',
+    ],
 ];
 

@@ -34,5 +34,10 @@ return [
     'placeholders' => [
         'no_data' => '—',
     ],
+    
+    'empty_state' => [
+        'heading' => '暂无用户',
+        'description' => '开始创建新用户。',
+    ],
 ];
 

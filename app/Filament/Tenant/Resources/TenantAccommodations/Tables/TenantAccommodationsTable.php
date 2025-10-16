@@ -64,6 +64,8 @@ class TenantAccommodationsTable
                     ])
                     ->multiple(),
             ])
+            ->emptyStateHeading(__('tenant-accommodations.empty_state.heading'))
+            ->emptyStateDescription(__('tenant-accommodations.empty_state.description'))
             ->filtersLayout(FiltersLayout::AboveContent)
             ->defaultSort('name', 'asc')
             ->recordActions([
