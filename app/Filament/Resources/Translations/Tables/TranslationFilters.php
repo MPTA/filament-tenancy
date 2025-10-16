@@ -19,6 +19,7 @@ class TranslationFilters
         return [
             Filters\Group::make(),
             Filters\Text::make(),
+            Filters\MissingTranslation::make(),
         ];
     }
 

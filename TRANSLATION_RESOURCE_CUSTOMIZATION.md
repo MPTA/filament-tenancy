@@ -197,16 +197,31 @@ public static function getDefaultColumns(): array
 
 ### 4️⃣ اضافه کردن Filter
 
-**فایل:** `app/Filament/Resources/Translations/Tables/TranslationFilters.php`
+**✅ فیلتر Missing Translation اضافه شده است!**
+
+**فایل:** `app/Filament/Resources/Translations/Tables/Filters/MissingTranslation.php`
+
+این فیلتر به کاربر اجازه می‌دهد رکوردهایی را ببیند که به زبان خاصی ترجمه نشده‌اند.
+
+**استفاده:**
+- از منوی Filters بالای جدول
+- "Missing Translation" را انتخاب کنید
+- زبان مورد نظر را انتخاب کنید (مثلاً Chinese)
+- فقط رکوردهایی که به چینی ترجمه نشده‌اند نمایش داده می‌شوند
+
+**مثال اضافه کردن Filter جدید:**
 
 ```php
+// app/Filament/Resources/Translations/Tables/TranslationFilters.php
+
 public static function getDefaultFilters(): array
 {
     return [
         Filter\Group::make(),
         Filter\Text::make(),
+        Filter\MissingTranslation::make(), // ← اضافه شده
         
-        // Filter جدید:
+        // Filter دیگر:
         \Filament\Tables\Filters\SelectFilter::make('status')
             ->label('Status')
             ->options([
@@ -475,4 +490,55 @@ class TranslationResource extends Resource
 - ✅ هر چیزی که می‌خواهید!
 
 **شروع کنید با ویرایش فایل‌ها در `app/Filament/Resources/Translations/`** 🚀
+
+---
+
+## 🎯 قابلیت‌های اضافه شده:
+
+### ✅ Missing Translation Filter
+
+**فیلتری که به کاربر اجازه می‌دهد ترجمه‌های ناقص را پیدا کند!**
+
+**مکان:** `app/Filament/Resources/Translations/Tables/Filters/MissingTranslation.php`
+
+**ویژگی‌ها:**
+- 🔍 انتخاب زبان از لیست زبان‌های تعریف شده
+- 📊 نمایش فقط رکوردهایی که به آن زبان ترجمه نشده‌اند
+- ⚡ پشتیبانی از PostgreSQL JSONB
+- 🎯 چک کردن هم key های نامعتبر و هم مقادیر خالی
+
+**نحوه استفاده:**
+1. بروید به صفحه Translations
+2. روی دکمه Filters کلیک کنید
+3. "Missing Translation" را انتخاب کنید
+4. زبان مورد نظر را انتخاب کنید (مثلاً Chinese)
+5. فقط ترجمه‌های ناقص نمایش داده می‌شوند!
+
+**کد:**
+```php
+SelectFilter::make('missing_translation')
+    ->label('Missing Translation')
+    ->placeholder('Show all translations')
+    ->options($locales)
+    ->query(function ($query, array $data) {
+        if (!isset($data['value']) || empty($data['value'])) {
+            return $query;
+        }
+        
+        $locale = $data['value'];
+        
+        // Check if text->locale is null or empty
+        return $query->where(function ($query) use ($locale) {
+            $query->whereRaw("(text->>?) IS NULL", [$locale])
+                  ->orWhereRaw("(text->>?) = ''", [$locale]);
+        });
+    });
+```
+
+**مثال نتیجه:**
+```
+رکورد 1: key = "welcome" → EN: "Welcome", ZH: null → نمایش داده می‌شود ✅
+رکورد 2: key = "hello" → EN: "Hello", ZH: "" → نمایش داده می‌شود ✅
+رکورد 3: key = "goodbye" → EN: "Goodbye", ZH: "再见" → نمایش داده نمی‌شود ❌
+```
 
