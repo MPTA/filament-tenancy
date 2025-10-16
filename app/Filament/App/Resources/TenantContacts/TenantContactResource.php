@@ -25,13 +25,33 @@ class TenantContactResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'first_name';
 
-    protected static ?string $navigationLabel = 'Contacts';
+    protected static ?string $navigationLabel = null;
 
-    protected static ?string $modelLabel = 'Contact';
+    protected static ?string $modelLabel = null;
 
-    protected static ?string $pluralModelLabel = 'Contacts';
+    protected static ?string $pluralModelLabel = null;
 
-    protected static string|UnitEnum|null $navigationGroup = 'CRM';
+    protected static string|UnitEnum|null $navigationGroup = null;
+
+    public static function getNavigationLabel(): string
+    {
+        return __('app-contacts.navigation_label');
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('app-contacts.resource_name');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('app-contacts.resource_name_plural');
+    }
+
+    public static function getNavigationGroup(): ?string
+    {
+        return __('app-contacts.navigation_group');
+    }
 
     protected static ?int $navigationSort = 1;
 
@@ -56,9 +76,9 @@ class TenantContactResource extends Resource
     public static function getGlobalSearchResultDetails($record): array
     {
         return [
-            'Email' => $record->email ?? 'No email',
-            'Phone' => $record->phone ?? 'No phone',
-            'Company' => $record->company ?? 'No company',
+            __('app-contacts.global_search.email') => $record->email ?? __('app-contacts.placeholders.no_email'),
+            __('app-contacts.global_search.phone') => $record->phone ?? __('app-contacts.placeholders.no_phone'),
+            __('app-contacts.global_search.company') => $record->company ?? __('app-contacts.placeholders.no_company'),
         ];
     }
 

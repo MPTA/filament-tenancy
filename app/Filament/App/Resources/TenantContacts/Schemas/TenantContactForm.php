@@ -17,67 +17,67 @@ class TenantContactForm
     {
         return $schema
             ->components([
-                Section::make('Contact Information')
-                    ->description('Enter the contact details')
+                Section::make(__('app-contacts.sections.contact_information.title'))
+                    ->description(__('app-contacts.sections.contact_information.description'))
                     ->schema([
                         TextInput::make('first_name')
-                            ->label('First Name')
+                            ->label(__('app-contacts.fields.first_name'))
                             ->required()
                             ->maxLength(255),
                         
                         TextInput::make('last_name')
-                            ->label('Last Name')
+                            ->label(__('app-contacts.fields.last_name'))
                             ->maxLength(255),
                         
                         TextInput::make('email')
-                            ->label('Email Address')
+                            ->label(__('app-contacts.fields.email_address'))
                             ->email()
                             ->maxLength(255)
                             ->unique(ignoreRecord: true),
                         
                         TextInput::make('phone')
-                            ->label('Phone')
+                            ->label(__('common-fields.phone'))
                             ->tel()
                             ->maxLength(20),
                         
                         TextInput::make('mobile')
-                            ->label('Mobile')
+                            ->label(__('common-fields.mobile'))
                             ->tel()
                             ->maxLength(20),
                         
                         TextInput::make('country_code')
-                            ->label('Country Code')
+                            ->label(__('app-contacts.fields.country_code'))
                             ->maxLength(10),
                         
                         TextInput::make('company')
-                            ->label('Company')
+                            ->label(__('common-fields.company'))
                             ->maxLength(255),
                     ])
                     ->columns(2),
                 
-                Section::make('Additional Information')
+                Section::make(__('app-contacts.sections.additional_information.title'))
                     ->schema([
                         Select::make('gender')
-                            ->label('Gender')
+                            ->label(__('common-fields.gender'))
                             ->options(GenderEnum::class)
                             ->searchable(),
                         
                         Select::make('country_id')
-                            ->label('Country')
+                            ->label(__('common-fields.country'))
                             ->required()
                             ->options(fn () => Country::all()->pluck('name', 'id')->mapWithKeys(fn ($name, $id) => [$id => is_array($name) ? ($name['en'] ?? $name['fa'] ?? current($name)) : $name]))
                             ->searchable()
                             ->preload(),
                         
                         Toggle::make('is_customer')
-                            ->label('Mark as Customer')
-                            ->helperText('Enable to save this contact as a customer (otherwise saved as lead)')
+                            ->label(__('app-contacts.fields.mark_as_customer'))
+                            ->helperText(__('app-contacts.helpers.mark_as_customer'))
                             ->default(false)
                             ->inline(false)
                             ->columnSpanFull(),
                         
                         Textarea::make('postal_address')
-                            ->label('Postal Address')
+                            ->label(__('app-contacts.fields.postal_address'))
                             ->columnSpanFull()
                             ->rows(3),
                     ])

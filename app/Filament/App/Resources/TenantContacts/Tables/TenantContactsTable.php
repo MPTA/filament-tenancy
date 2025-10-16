@@ -26,7 +26,7 @@ class TenantContactsTable
             ]))
             ->columns([
                 TextColumn::make('type')
-                    ->label('Type')
+                    ->label(__('app-contacts.columns.type'))
                     ->badge()
                     ->sortable()
                     ->color(fn($state) => match($state) {
@@ -37,60 +37,60 @@ class TenantContactsTable
                     }),
                 
                 TextColumn::make('first_name')
-                    ->label('First Name')
+                    ->label(__('app-contacts.fields.first_name'))
                     ->searchable()
                     ->sortable()
                     ->weight('bold'),
                 
                 TextColumn::make('last_name')
-                    ->label('Last Name')
+                    ->label(__('app-contacts.fields.last_name'))
                     ->searchable()
                     ->sortable()
-                    ->placeholder('Not provided'),
+                    ->placeholder(__('app-contacts.placeholders.not_provided')),
                 
                 TextColumn::make('email')
-                    ->label('Email')
+                    ->label(__('common-fields.email'))
                     ->searchable()
                     ->sortable()
                     ->copyable()
-                    ->copyMessage('Email copied')
-                    ->placeholder('No email')
+                    ->copyMessage(__('app-contacts.messages.email_copied'))
+                    ->placeholder(__('app-contacts.placeholders.no_email'))
                     ->icon('heroicon-o-envelope'),
                 
                 TextColumn::make('phone')
-                    ->label('Phone')
+                    ->label(__('common-fields.phone'))
                     ->searchable()
                     ->sortable()
                     ->copyable()
-                    ->copyMessage('Phone copied')
-                    ->placeholder('No phone')
+                    ->copyMessage(__('app-contacts.messages.phone_copied'))
+                    ->placeholder(__('app-contacts.placeholders.no_phone'))
                     ->icon('heroicon-o-phone'),
                 
                 TextColumn::make('company')
-                    ->label('Company')
+                    ->label(__('common-fields.company'))
                     ->searchable()
                     ->sortable()
-                    ->placeholder('No company')
+                    ->placeholder(__('app-contacts.placeholders.no_company'))
                     ->icon('heroicon-o-building-office'),
                 
                 TextColumn::make('country.name')
-                    ->label('Country')
+                    ->label(__('common-fields.country'))
                     ->searchable()
                     ->sortable()
-                    ->placeholder('Not specified')
+                    ->placeholder(__('app-contacts.placeholders.not_specified'))
                     ->badge()
                     ->color('primary')
                     ->toggleable(isToggledHiddenByDefault: true),
                 
                 TextColumn::make('created_at')
-                    ->label('Created')
+                    ->label(__('common-fields.created_at'))
                     ->dateTime('M j, Y')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->alignCenter(),
                 
                 TextColumn::make('updated_at')
-                    ->label('Updated')
+                    ->label(__('common-fields.updated_at'))
                     ->dateTime('M j, Y')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true)
@@ -98,10 +98,10 @@ class TenantContactsTable
             ])
             ->filters([
                 TernaryFilter::make('is_customer')
-                    ->label('Customer Status')
-                    ->placeholder('All contacts')
-                    ->trueLabel('Customers only')
-                    ->falseLabel('Leads only')
+                    ->label(__('app-contacts.filters.customer_status'))
+                    ->placeholder(__('app-contacts.filters.all_contacts'))
+                    ->trueLabel(__('app-contacts.filters.customers_only'))
+                    ->falseLabel(__('app-contacts.filters.leads_only'))
                     ->queries(
                         true: fn($query) => $query->where('type', ContactTypeEnum::CUSTOMER->value),
                         false: fn($query) => $query->where('type', ContactTypeEnum::LEAD->value),
@@ -120,13 +120,13 @@ class TenantContactsTable
                         ->requiresConfirmation(),
                     
                     BulkAction::make('export')
-                        ->label('Export Selected')
+                        ->label(__('app-contacts.bulk_actions.export'))
                         ->icon('heroicon-o-arrow-down-tray')
                         ->action(function ($records) {
                             // Export logic can be implemented here
                             Notification::make()
-                                ->title('Export Started')
-                                ->body('Selected contacts will be exported.')
+                                ->title(__('app-contacts.notifications.export_started_title'))
+                                ->body(__('app-contacts.notifications.export_started_body'))
                                 ->success()
                                 ->send();
                         }),
