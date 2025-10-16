@@ -19,23 +19,23 @@ class TenantUsersTable
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->label('Full Name')
+                    ->label(__('common-fields.full_name'))
                     ->searchable()
                     ->sortable()
                     ->icon('heroicon-o-user')
                     ->weight('medium'),
                 
                 TextColumn::make('email')
-                    ->label('Email Address')
+                    ->label(__('common-fields.email_address'))
                     ->searchable()
                     ->sortable()
                     ->icon('heroicon-o-envelope')
                     ->copyable()
-                    ->copyMessage('Email copied!')
+                    ->copyMessage(__('tenant-users.messages.email_copied'))
                     ->copyMessageDuration(1500),
                 
                 IconColumn::make('email_verified_at')
-                    ->label('Verified')
+                    ->label(__('common-fields.verified'))
                     ->boolean()
                     ->trueIcon('heroicon-o-check-badge')
                     ->falseIcon('heroicon-o-x-circle')
@@ -45,49 +45,49 @@ class TenantUsersTable
                     ->alignCenter(),
                 
                 TextColumn::make('contact.phone')
-                    ->label('Phone')
+                    ->label(__('common-fields.phone'))
                     ->icon('heroicon-o-phone')
-                    ->placeholder('—')
+                    ->placeholder(__('tenant-users.placeholders.no_data'))
                     ->toggleable(),
                 
                 TextColumn::make('contact.company')
-                    ->label('Company')
+                    ->label(__('common-fields.company'))
                     ->icon('heroicon-o-building-office')
-                    ->placeholder('—')
+                    ->placeholder(__('tenant-users.placeholders.no_data'))
                     ->toggleable()
                     ->searchable(),
                 
                 TextColumn::make('contact.country.name')
-                    ->label('Country')
-                    ->placeholder('—')
+                    ->label(__('common-fields.country'))
+                    ->placeholder(__('tenant-users.placeholders.no_data'))
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->formatStateUsing(fn ($state) => is_array($state) ? ($state['en'] ?? $state['fa'] ?? current($state)) : $state),
                 
                 TextColumn::make('created_at')
-                    ->label('Created')
+                    ->label(__('common-fields.created_at'))
                     ->dateTime('M d, Y')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 
                 TextColumn::make('updated_at')
-                    ->label('Updated')
+                    ->label(__('common-fields.updated_at'))
                     ->dateTime('M d, Y')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 TernaryFilter::make('email_verified_at')
-                    ->label('Email Verified')
-                    ->placeholder('All Users')
-                    ->trueLabel('Verified')
-                    ->falseLabel('Not Verified')
+                    ->label(__('tenant-users.filters.email_verified.label'))
+                    ->placeholder(__('tenant-users.filters.email_verified.placeholder'))
+                    ->trueLabel(__('tenant-users.filters.email_verified.true_label'))
+                    ->falseLabel(__('tenant-users.filters.email_verified.false_label'))
                     ->queries(
                         true: fn ($query) => $query->whereNotNull('email_verified_at'),
                         false: fn ($query) => $query->whereNull('email_verified_at'),
                     ),
                 
                 SelectFilter::make('country')
-                    ->label('Country')
+                    ->label(__('common-fields.country'))
                     ->options(fn () => Country::all()->pluck('name', 'id')->mapWithKeys(fn ($name, $id) => [$id => is_array($name) ? ($name['en'] ?? $name['fa'] ?? current($name)) : $name]))
                     ->searchable()
                     ->preload()

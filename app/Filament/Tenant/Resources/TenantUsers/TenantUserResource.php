@@ -21,6 +21,26 @@ class TenantUserResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedUserGroup;
 
     protected static ?string $recordTitleAttribute = 'name';
+    
+    public static function getNavigationLabel(): string
+    {
+        return __('tenant-users.navigation_label');
+    }
+    
+    public static function getLabel(): ?string
+    {
+        return __('tenant-users.resource_name');
+    }
+    
+    public static function getPluralLabel(): ?string
+    {
+        return __('tenant-users.resource_name_plural');
+    }
+    
+    public static function getNavigationGroup(): ?string
+    {
+        return __('tenant-users.navigation_group');
+    }
 
     public static function form(Schema $schema): Schema
     {

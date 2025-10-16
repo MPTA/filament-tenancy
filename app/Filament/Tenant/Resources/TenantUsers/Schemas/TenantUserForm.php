@@ -17,23 +17,23 @@ class TenantUserForm
     {
         return $schema
             ->schema([
-                Section::make('Essential Information')
-                    ->description('Required information to create a user account')
+                Section::make(__('tenant-users.sections.essential_information.title'))
+                    ->description(__('tenant-users.sections.essential_information.description'))
                     ->columns(2)
                     ->schema([
                         TextInput::make('name')
-                            ->label('Full Name')
+                            ->label(__('common-fields.full_name'))
                             ->required()
                             ->maxLength(255)
                             ->columnSpan(1),
                         
                         Select::make('contact.gender')
-                            ->label('Gender')
+                            ->label(__('common-fields.gender'))
                             ->options(GenderEnum::class)
                             ->columnSpan(1),
                         
                         TextInput::make('email')
-                            ->label('Email Address')
+                            ->label(__('common-fields.email_address'))
                             ->email()
                             ->required()
                             ->unique(ignoreRecord: true)
@@ -41,18 +41,18 @@ class TenantUserForm
                             ->columnSpan(2),
                         
                         TextInput::make('password')
-                            ->label('Password')
+                            ->label(__('common-fields.password'))
                             ->password()
                             ->revealable()
                             ->rules([Password::default()])
                             ->required(fn ($context) => $context === 'create')
                             ->dehydrated(fn ($state): bool => filled($state))
                             ->dehydrateStateUsing(fn ($state): string => bcrypt($state))
-                            ->helperText(fn ($context) => $context === 'edit' ? 'Leave blank to keep current password' : null)
+                            ->helperText(fn ($context) => $context === 'edit' ? __('tenant-users.messages.password_helper') : null)
                             ->columnSpan(1),
                         
                         TextInput::make('password_confirmation')
-                            ->label('Confirm Password')
+                            ->label(__('common-fields.confirm_password'))
                             ->password()
                             ->revealable()
                             ->dehydrated(false)
@@ -62,36 +62,36 @@ class TenantUserForm
                             ->columnSpan(1),
                     ]),
 
-                Section::make('Contact Information')
-                    ->description('Contact details for this user')
+                Section::make(__('tenant-users.sections.contact_information.title'))
+                    ->description(__('tenant-users.sections.contact_information.description'))
                     ->columns(2)
                     ->schema([
                         TextInput::make('contact.phone')
-                            ->label('Phone')
+                            ->label(__('common-fields.phone'))
                             ->tel()
                             ->maxLength(255)
                             ->columnSpan(1),
                         
                         TextInput::make('contact.mobile')
-                            ->label('Mobile')
+                            ->label(__('common-fields.mobile'))
                             ->tel()
                             ->maxLength(255)
                             ->columnSpan(1),
                         
                         Select::make('contact.country_id')
-                            ->label('Country')
+                            ->label(__('common-fields.country'))
                             ->options(fn () => Country::all()->pluck('name', 'id')->mapWithKeys(fn ($name, $id) => [$id => is_array($name) ? ($name['en'] ?? $name['fa'] ?? current($name)) : $name]))
                             ->searchable()
                             ->preload()
                             ->columnSpan(1),
                         
                         TextInput::make('contact.company')
-                            ->label('Company')
+                            ->label(__('common-fields.company'))
                             ->maxLength(255)
                             ->columnSpan(1),
                         
                         Textarea::make('contact.postal_address')
-                            ->label('Address')
+                            ->label(__('common-fields.address'))
                             ->rows(3)
                             ->columnSpan(2),
                     ]),
