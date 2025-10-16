@@ -27,15 +27,27 @@ class CompanionTypeResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'name';
 
-    protected static ?string $navigationLabel = 'Companion Types';
-
-    protected static ?string $modelLabel = 'Companion Type';
-
-    protected static ?string $pluralModelLabel = 'Companion Types';
-
-    protected static string | UnitEnum | null $navigationGroup = 'Data Types';
-
     protected static ?int $navigationSort = 1;
+    
+    public static function getNavigationLabel(): string
+    {
+        return __('tenant-companion-types.navigation_label');
+    }
+    
+    public static function getLabel(): ?string
+    {
+        return __('tenant-companion-types.resource_name');
+    }
+    
+    public static function getPluralLabel(): ?string
+    {
+        return __('tenant-companion-types.resource_name_plural');
+    }
+    
+    public static function getNavigationGroup(): ?string
+    {
+        return __('tenant-companion-types.navigation_group');
+    }
 
     public static function getNavigationBadge(): ?string
     {
@@ -49,16 +61,16 @@ class CompanionTypeResource extends Resource
 
     public static function getGlobalSearchResultTitle($record): string
     {
-        return $record->name . ' (' . ($record->companionCategory->name ?? 'No Category') . ')';
+        return $record->name . ' (' . ($record->companionCategory->name ?? __('tenant-companion-types.global_search.no_category')) . ')';
     }
 
     public static function getGlobalSearchResultDetails($record): array
     {
         return [
-            'Category' => $record->companionCategory->name ?? 'No category',
-            'Native Language' => $record->nativeLanguage->name ?? 'Not specified',
-            'Speaking Language' => $record->speakingLanguage->name ?? 'Not specified',
-            'Per Day Price' => $record->per_day_price ? '$' . number_format($record->per_day_price, 2) : 'Not set',
+            __('tenant-companion-types.global_search.category_label') => $record->companionCategory->name ?? __('tenant-companion-types.global_search.no_category'),
+            __('tenant-companion-types.global_search.native_language_label') => $record->nativeLanguage->name ?? __('tenant-companion-types.global_search.not_specified'),
+            __('tenant-companion-types.global_search.speaking_language_label') => $record->speakingLanguage->name ?? __('tenant-companion-types.global_search.not_specified'),
+            __('tenant-companion-types.global_search.per_day_price_label') => $record->per_day_price ? '$' . number_format($record->per_day_price, 2) : __('tenant-companion-types.global_search.not_set'),
         ];
     }
 

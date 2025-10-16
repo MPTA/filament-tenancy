@@ -19,7 +19,7 @@ class CompanionTypesTable
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->label('Companion Type')
+                    ->label(__('tenant-companion-types.columns.companion_type'))
                     ->searchable()
                     ->sortable()
                     ->weight('bold')
@@ -27,62 +27,62 @@ class CompanionTypesTable
                     ->limit(30),
                 
                 TextColumn::make('companionCategory.name')
-                    ->label('Category')
+                    ->label(__('common-fields.category'))
                     ->searchable()
                     ->sortable()
                     ->badge()
                     ->color('success')
-                    ->placeholder('No category'),
+                    ->placeholder(__('tenant-companion-types.placeholders.no_category')),
                 
                 TextColumn::make('nativeLanguage.name')
-                    ->label('Native Language')
+                    ->label(__('common-fields.native_language'))
                     ->searchable()
                     ->sortable()
                     ->badge()
                     ->color('info')
-                    ->placeholder('Not specified'),
+                    ->placeholder(__('tenant-companion-types.placeholders.not_specified')),
                 
                 TextColumn::make('speakingLanguage.name')
-                    ->label('Speaking Language')
+                    ->label(__('common-fields.speaking_language'))
                     ->searchable()
                     ->sortable()
                     ->badge()
                     ->color('info')
-                    ->placeholder('Not specified'),
+                    ->placeholder(__('tenant-companion-types.placeholders.not_specified')),
                 
                 TextColumn::make('per_day_price')
-                    ->label('Per Day Price')
+                    ->label(__('common-fields.per_day_price'))
                     ->money('USD')
                     ->sortable()
-                    ->placeholder('Not set')
+                    ->placeholder(__('tenant-companion-types.placeholders.not_set'))
                     ->alignCenter(),
                 
                 TextColumn::make('per_hour_price')
-                    ->label('Per Hour Price')
+                    ->label(__('common-fields.per_hour_price'))
                     ->money('USD')
                     ->sortable()
-                    ->placeholder('Not set')
+                    ->placeholder(__('tenant-companion-types.placeholders.not_set'))
                     ->alignCenter(),
                 
                 TextColumn::make('slug')
-                    ->label('Slug')
+                    ->label(__('common-fields.slug'))
                     ->searchable()
                     ->sortable()
                     ->badge()
                     ->color('primary')
                     ->copyable()
-                    ->copyMessage('Slug copied')
-                    ->placeholder('No slug'),
+                    ->copyMessage(__('tenant-companion-types.messages.slug_copied'))
+                    ->placeholder(__('tenant-companion-types.placeholders.no_slug')),
                 
                 TextColumn::make('created_at')
-                    ->label('Created')
+                    ->label(__('common-fields.created_at'))
                     ->dateTime('M j, Y')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->alignCenter(),
                 
                 TextColumn::make('updated_at')
-                    ->label('Updated')
+                    ->label(__('common-fields.updated_at'))
                     ->dateTime('M j, Y')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true)
@@ -90,19 +90,19 @@ class CompanionTypesTable
             ])
             ->filters([
                 SelectFilter::make('companion_category_id')
-                    ->label('Companion Category')
+                    ->label(__('common-fields.companion_category'))
                     ->relationship('companionCategory', 'name')
                     ->searchable()
                     ->preload(),
                 
                 SelectFilter::make('native_language_id')
-                    ->label('Native Language')
+                    ->label(__('common-fields.native_language'))
                     ->relationship('nativeLanguage', 'name')
                     ->searchable()
                     ->preload(),
                 
                 SelectFilter::make('speaking_language_id')
-                    ->label('Speaking Language')
+                    ->label(__('common-fields.speaking_language'))
                     ->relationship('speakingLanguage', 'name')
                     ->searchable()
                     ->preload(),
@@ -119,36 +119,38 @@ class CompanionTypesTable
                         ->requiresConfirmation(),
                     
                     BulkAction::make('export')
-                        ->label('Export Selected')
+                        ->label(__('tenant-companion-types.bulk_actions.export'))
                         ->icon('heroicon-o-arrow-down-tray')
                         ->action(function ($records) {
                             // Export logic can be implemented here
                             Notification::make()
-                                ->title('Export Started')
-                                ->body('Selected companion types will be exported.')
+                                ->title(__('tenant-companion-types.notifications.export_started_title'))
+                                ->body(__('tenant-companion-types.notifications.export_started_body'))
                                 ->success()
                                 ->send();
                         }),
                     
                     BulkAction::make('duplicate')
-                        ->label('Duplicate Selected')
+                        ->label(__('tenant-companion-types.bulk_actions.duplicate'))
                         ->icon('heroicon-o-document-duplicate')
                         ->action(function ($records) {
                             foreach ($records as $record) {
                                 $newRecord = $record->replicate();
-                                $newRecord->name = $record->name . ' (Copy)';
-                                $newRecord->slug = $record->slug . '-copy';
+                                $newRecord->name = $record->name . __('tenant-companion-types.copy_suffix');
+                                $newRecord->slug = $record->slug . __('tenant-companion-types.copy_slug_suffix');
                                 $newRecord->save();
                             }
                             
                             Notification::make()
-                                ->title('Duplication Complete')
-                                ->body('Selected companion types have been duplicated.')
+                                ->title(__('tenant-companion-types.notifications.duplication_complete_title'))
+                                ->body(__('tenant-companion-types.notifications.duplication_complete_body'))
                                 ->success()
                                 ->send();
                         }),
                 ]),
             ])
+            ->emptyStateHeading(__('tenant-companion-types.empty_state.heading'))
+            ->emptyStateDescription(__('tenant-companion-types.empty_state.description'))
             ->defaultSort('name')
             ->striped()
             ->paginated([10, 25, 50, 100])

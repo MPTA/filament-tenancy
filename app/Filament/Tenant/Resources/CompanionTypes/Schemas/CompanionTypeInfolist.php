@@ -12,105 +12,105 @@ class CompanionTypeInfolist
     {
         return $schema
             ->components([
-                Section::make('Basic Information')
+                Section::make(__('tenant-companion-types.sections.basic_information.title'))
                     ->schema([
                         TextEntry::make('name')
-                            ->label('Companion Type Name')
+                            ->label(__('tenant-companion-types.fields.companion_type_name'))
                             ->weight('bold')
                             ->size('lg'),
                         
                         TextEntry::make('slug')
-                            ->label('Slug')
+                            ->label(__('common-fields.slug'))
                             ->badge()
                             ->color('primary')
                             ->copyable()
-                            ->copyMessage('Slug copied')
+                            ->copyMessage(__('tenant-companion-types.messages.slug_copied'))
                             ->copyMessageDuration(1500),
                         
                         TextEntry::make('companionCategory.name')
-                            ->label('Companion Category')
+                            ->label(__('common-fields.companion_category'))
                             ->badge()
                             ->color('success'),
                     ])
                     ->columns(3),
                 
-                Section::make('Language Requirements')
+                Section::make(__('tenant-companion-types.sections.language_requirements.title'))
                     ->schema([
                         TextEntry::make('nativeLanguage.name')
-                            ->label('Native Language')
+                            ->label(__('common-fields.native_language'))
                             ->badge()
                             ->color('info')
-                            ->placeholder('Not specified'),
+                            ->placeholder(__('tenant-companion-types.placeholders.not_specified')),
                         
                         TextEntry::make('speakingLanguage.name')
-                            ->label('Speaking Language')
+                            ->label(__('common-fields.speaking_language'))
                             ->badge()
                             ->color('info')
-                            ->placeholder('Not specified'),
+                            ->placeholder(__('tenant-companion-types.placeholders.not_specified')),
                     ])
                     ->columns(2),
                 
-                Section::make('Pricing Information')
+                Section::make(__('tenant-companion-types.sections.pricing_information.title'))
                     ->schema([
                         TextEntry::make('per_day_price')
-                            ->label('Per Day Price')
+                            ->label(__('common-fields.per_day_price'))
                             ->money('USD')
-                            ->placeholder('Not specified')
+                            ->placeholder(__('tenant-companion-types.placeholders.not_specified'))
                             ->icon('heroicon-o-currency-dollar'),
                         
                         TextEntry::make('half_day_price')
-                            ->label('Half Day Price')
+                            ->label(__('common-fields.half_day_price'))
                             ->money('USD')
-                            ->placeholder('Not specified')
+                            ->placeholder(__('tenant-companion-types.placeholders.not_specified'))
                             ->icon('heroicon-o-currency-dollar'),
                         
                         TextEntry::make('per_hour_price')
-                            ->label('Per Hour Price')
+                            ->label(__('common-fields.per_hour_price'))
                             ->money('USD')
-                            ->placeholder('Not specified')
+                            ->placeholder(__('tenant-companion-types.placeholders.not_specified'))
                             ->icon('heroicon-o-clock'),
                         
                         TextEntry::make('extra_hour_price')
-                            ->label('Extra Hour Price')
+                            ->label(__('common-fields.extra_hour_price'))
                             ->money('USD')
-                            ->placeholder('Not specified')
+                            ->placeholder(__('tenant-companion-types.placeholders.not_specified'))
                             ->icon('heroicon-o-plus-circle'),
                     ])
                     ->columns(2),
                 
-                Section::make('Service Limits')
+                Section::make(__('tenant-companion-types.sections.service_limits.title'))
                     ->schema([
                         TextEntry::make('max_hour_per_day')
-                            ->label('Max Hours Per Day')
-                            ->suffix(' hours')
-                            ->placeholder('Not specified')
+                            ->label(__('common-fields.max_hours_per_day'))
+                            ->suffix(__('tenant-companion-types.suffixes.hours'))
+                            ->placeholder(__('tenant-companion-types.placeholders.not_specified'))
                             ->icon('heroicon-o-sun'),
                         
                         TextEntry::make('max_hour_half_day')
-                            ->label('Max Hours Half Day')
-                            ->suffix(' hours')
-                            ->placeholder('Not specified')
+                            ->label(__('common-fields.max_hours_half_day'))
+                            ->suffix(__('tenant-companion-types.suffixes.hours'))
+                            ->placeholder(__('tenant-companion-types.placeholders.not_specified'))
                             ->icon('heroicon-o-moon'),
                     ])
                     ->columns(2),
                 
-                Section::make('System Information')
+                Section::make(__('tenant-companion-types.sections.system_information.title'))
                     ->schema([
                         TextEntry::make('id')
-                            ->label('ID')
+                            ->label(__('common-fields.id'))
                             ->badge()
                             ->color('gray'),
                         
                         TextEntry::make('created_at')
-                            ->label('Created At')
+                            ->label(__('common-fields.created_at_full'))
                             ->dateTime('M j, Y g:i A')
-                            ->placeholder('Not available')
+                            ->placeholder(__('tenant-companion-types.placeholders.not_specified'))
                             ->icon('heroicon-o-calendar'),
                         
                         TextEntry::make('updated_at')
-                            ->label('Updated At')
+                            ->label(__('common-fields.updated_at_full'))
                             ->dateTime('M j, Y g:i A')
-                            ->placeholder('Not available')
+                            ->placeholder(__('tenant-companion-types.placeholders.not_specified'))
                             ->icon('heroicon-o-pencil'),
                     ])
                     ->columns(3)

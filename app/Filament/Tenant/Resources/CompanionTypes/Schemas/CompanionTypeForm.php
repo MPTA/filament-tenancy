@@ -14,15 +14,15 @@ class CompanionTypeForm
     {
         return $schema
             ->components([
-                Section::make('Basic Information')
-                    ->description('Enter the basic companion type details')
+                Section::make(__('tenant-companion-types.sections.basic_information.title'))
+                    ->description(__('tenant-companion-types.sections.basic_information.description'))
                     ->schema([
                         TextInput::make('name')
-                            ->label('Companion Type Name')
+                            ->label(__('tenant-companion-types.fields.companion_type_name'))
                             ->required()
                             ->maxLength(255)
-                            ->placeholder('e.g., Professional Guide, Cultural Companion')
-                            ->helperText('Full name of the companion type')
+                            ->placeholder(__('tenant-companion-types.placeholders.name'))
+                            ->helperText(__('tenant-companion-types.helpers.name'))
                             ->live(onBlur: true)
                             ->afterStateUpdated(function ($state, $set) {
                                 if ($state) {
@@ -31,22 +31,22 @@ class CompanionTypeForm
                             }),
                         
                         TextInput::make('slug')
-                            ->label('Slug')
+                            ->label(__('common-fields.slug'))
                             ->required()
                             ->maxLength(255)
                             ->unique(ignoreRecord: true)
-                            ->placeholder('e.g., professional-guide, cultural-companion')
-                            ->helperText('URL-friendly identifier (auto-generated from name)')
+                            ->placeholder(__('tenant-companion-types.placeholders.slug'))
+                            ->helperText(__('tenant-companion-types.helpers.slug'))
                             ->rules(['regex:/^[a-z0-9-]+$/']),
                         
                         Select::make('companion_category_id')
-                            ->label('Companion Category')
+                            ->label(__('common-fields.companion_category'))
                             ->relationship('companionCategory', 'name')
                             ->required()
                             ->searchable()
                             ->preload()
-                            ->placeholder('Select a companion category')
-                            ->helperText('Category this companion type belongs to')
+                            ->placeholder(__('tenant-companion-types.placeholders.companion_category'))
+                            ->helperText(__('tenant-companion-types.helpers.category'))
                             ->rules([
                                 function () {
                                     return function (string $attribute, $value, \Closure $fail) {
@@ -60,7 +60,7 @@ class CompanionTypeForm
                                         }
                                         
                                         if ($query->exists()) {
-                                            $fail('A companion type with this category, native language, and speaking language combination already exists for this tenant. Please choose different values.');
+                                            $fail(__('tenant-companion-types.validations.duplicate_combination'));
                                         }
                                     };
                                 },
@@ -68,17 +68,17 @@ class CompanionTypeForm
                     ])
                     ->columns(2),
                 
-                Section::make('Language Requirements')
-                    ->description('Specify language requirements for this companion type')
+                Section::make(__('tenant-companion-types.sections.language_requirements.title'))
+                    ->description(__('tenant-companion-types.sections.language_requirements.description'))
                     ->schema([
                         Select::make('native_language_id')
-                            ->label('Native Language')
+                            ->label(__('common-fields.native_language'))
                             ->relationship('nativeLanguage', 'name')
                             ->required()
                             ->searchable()
                             ->preload()
-                            ->placeholder('Select native language')
-                            ->helperText('Primary language of the companion')
+                            ->placeholder(__('tenant-companion-types.placeholders.native_language'))
+                            ->helperText(__('tenant-companion-types.helpers.native_language'))
                             ->rules([
                                 function () {
                                     return function (string $attribute, $value, \Closure $fail) {
@@ -92,20 +92,20 @@ class CompanionTypeForm
                                         }
                                         
                                         if ($query->exists()) {
-                                            $fail('A companion type with this category, native language, and speaking language combination already exists for this tenant. Please choose different values.');
+                                            $fail(__('tenant-companion-types.validations.duplicate_combination'));
                                         }
                                     };
                                 },
                             ]),
                         
                         Select::make('speaking_language_id')
-                            ->label('Speaking Language')
+                            ->label(__('common-fields.speaking_language'))
                             ->relationship('speakingLanguage', 'name')
                             ->required()
                             ->searchable()
                             ->preload()
-                            ->placeholder('Select speaking language')
-                            ->helperText('Language the companion can speak')
+                            ->placeholder(__('tenant-companion-types.placeholders.speaking_language'))
+                            ->helperText(__('tenant-companion-types.helpers.speaking_language'))
                             ->rules([
                                 function () {
                                     return function (string $attribute, $value, \Closure $fail) {
@@ -119,7 +119,7 @@ class CompanionTypeForm
                                         }
                                         
                                         if ($query->exists()) {
-                                            $fail('A companion type with this category, native language, and speaking language combination already exists for this tenant. Please choose different values.');
+                                            $fail(__('tenant-companion-types.validations.duplicate_combination'));
                                         }
                                     };
                                 },
@@ -127,59 +127,59 @@ class CompanionTypeForm
                     ])
                     ->columns(2),
                 
-                Section::make('Pricing Configuration')
-                    ->description('Set pricing for different service durations')
+                Section::make(__('tenant-companion-types.sections.pricing_configuration.title'))
+                    ->description(__('tenant-companion-types.sections.pricing_configuration.description'))
                     ->schema([
                         TextInput::make('per_day_price')
-                            ->label('Per Day Price')
+                            ->label(__('common-fields.per_day_price'))
                             ->prefix(fn() => tenant()->settings?->country?->currency?->symbol ?? '$')
-                            ->placeholder('0.00')
+                            ->placeholder(__('tenant-companion-types.placeholders.price_placeholder'))
                             ->rules(['nullable', 'numeric', 'min:0'])
                             ->inputMode('decimal')
-                            ->helperText('Price for full day service'),
+                            ->helperText(__('tenant-companion-types.helpers.per_day_price')),
                         
                         TextInput::make('half_day_price')
-                            ->label('Half Day Price')
+                            ->label(__('common-fields.half_day_price'))
                             ->prefix(fn() => tenant()->settings?->country?->currency?->symbol ?? '$')
-                            ->placeholder('0.00')
+                            ->placeholder(__('tenant-companion-types.placeholders.price_placeholder'))
                             ->rules(['nullable', 'numeric', 'min:0'])
                             ->inputMode('decimal')
-                            ->helperText('Price for half day service'),
+                            ->helperText(__('tenant-companion-types.helpers.half_day_price')),
                         
                         TextInput::make('per_hour_price')
-                            ->label('Per Hour Price')
+                            ->label(__('common-fields.per_hour_price'))
                             ->prefix(fn() => tenant()->settings?->country?->currency?->symbol ?? '$')
-                            ->placeholder('0.00')
+                            ->placeholder(__('tenant-companion-types.placeholders.price_placeholder'))
                             ->rules(['nullable', 'numeric', 'min:0'])
                             ->inputMode('decimal')
-                            ->helperText('Price per hour of service'),
+                            ->helperText(__('tenant-companion-types.helpers.per_hour_price')),
                         
                         TextInput::make('extra_hour_price')
-                            ->label('Extra Hour Price')
+                            ->label(__('common-fields.extra_hour_price'))
                             ->prefix(fn() => tenant()->settings?->country?->currency?->symbol ?? '$')
-                            ->placeholder('0.00')
+                            ->placeholder(__('tenant-companion-types.placeholders.price_placeholder'))
                             ->rules(['nullable', 'numeric', 'min:0'])
                             ->inputMode('decimal')
-                            ->helperText('Price for additional hours beyond limit'),
+                            ->helperText(__('tenant-companion-types.helpers.extra_hour_price')),
                     ])
                     ->columns(2),
                 
-                Section::make('Service Limits')
-                    ->description('Define maximum service hours and time limits')
+                Section::make(__('tenant-companion-types.sections.service_limits.title'))
+                    ->description(__('tenant-companion-types.sections.service_limits.description'))
                     ->schema([
                         TextInput::make('max_hour_per_day')
-                            ->label('Max Hours Per Day')
-                            ->suffix('hours')
-                            ->placeholder('8')
-                            ->helperText('Maximum hours allowed per day')
+                            ->label(__('common-fields.max_hours_per_day'))
+                            ->suffix(__('tenant-companion-types.suffixes.hours'))
+                            ->placeholder(__('tenant-companion-types.placeholders.max_hours_day'))
+                            ->helperText(__('tenant-companion-types.helpers.max_hours_per_day'))
                             ->rules(['nullable', 'integer', 'min:1'])
                             ->inputMode('numeric'),
                         
                         TextInput::make('max_hour_half_day')
-                            ->label('Max Hours Half Day')
-                            ->suffix('hours')
-                            ->placeholder('4')
-                            ->helperText('Maximum hours allowed for half day service')
+                            ->label(__('common-fields.max_hours_half_day'))
+                            ->suffix(__('tenant-companion-types.suffixes.hours'))
+                            ->placeholder(__('tenant-companion-types.placeholders.max_hours_half'))
+                            ->helperText(__('tenant-companion-types.helpers.max_hours_half_day'))
                             ->rules(['nullable', 'integer', 'min:1'])
                             ->inputMode('numeric'),
                     ])
