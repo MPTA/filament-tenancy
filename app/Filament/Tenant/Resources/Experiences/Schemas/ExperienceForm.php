@@ -18,15 +18,15 @@ class ExperienceForm
     {
         return $schema
             ->components([
-                Section::make('Basic Information')
-                    ->description('Enter the basic experience details')
+                Section::make(__('tenant-experiences.sections.basic_information.title'))
+                    ->description(__('tenant-experiences.sections.basic_information.description'))
                     ->schema([
                         TextInput::make('name')
-                            ->label('Experience Name')
+                            ->label(__('tenant-experiences.fields.experience_name'))
                             ->required()
                             ->maxLength(255)
-                            ->placeholder('e.g., City Walking Tour, Cultural Experience')
-                            ->helperText('Full name of the experience')
+                            ->placeholder(__('tenant-experiences.placeholders.name'))
+                            ->helperText(__('tenant-experiences.helpers.name'))
                             ->live(onBlur: true)
                             ->afterStateUpdated(function ($state, $set) {
                                 if ($state) {
@@ -35,26 +35,26 @@ class ExperienceForm
                             }),
                         
                         TextInput::make('slug')
-                            ->label('Slug')
+                            ->label(__('common-fields.slug'))
                             ->required()
                             ->maxLength(255)
                             ->unique(ignoreRecord: true)
-                            ->placeholder('e.g., city-walking-tour, cultural-experience')
-                            ->helperText('URL-friendly identifier (auto-generated from name)')
+                            ->placeholder(__('tenant-experiences.placeholders.slug'))
+                            ->helperText(__('tenant-experiences.helpers.slug'))
                             ->rules(['regex:/^[a-z0-9-]+$/']),
                         
                         Textarea::make('description')
-                            ->label('Description')
+                            ->label(__('common-fields.description'))
                             ->maxLength(1000)
-                            ->placeholder('Brief description of the experience')
-                            ->helperText('Short description for listings and previews')
+                            ->placeholder(__('tenant-experiences.placeholders.description'))
+                            ->helperText(__('tenant-experiences.helpers.description'))
                             ->rows(3)
                             ->columnSpanFull(),
                         
                         RichEditor::make('content')
-                            ->label('Content')
-                            ->placeholder('Detailed content about the experience')
-                            ->helperText('Full content with all details about the experience')
+                            ->label(__('tenant-experiences.fields.content'))
+                            ->placeholder(__('tenant-experiences.placeholders.content'))
+                            ->helperText(__('tenant-experiences.helpers.content'))
                             ->toolbarButtons([
                                 'attachFiles',
                                 'blockquote',
@@ -76,33 +76,33 @@ class ExperienceForm
                     ->columns(2)
                     ->columnSpanFull(),
                 
-                Section::make('Pricing & Location')
-                    ->description('Set pricing and location information')
+                Section::make(__('tenant-experiences.sections.pricing_location.title'))
+                    ->description(__('tenant-experiences.sections.pricing_location.description'))
                     ->schema([
                         TextInput::make('price')
-                            ->label('Price')
+                            ->label(__('common-fields.price'))
                             ->prefix(fn() => tenant()->settings?->country?->currency?->symbol ?? '$')
-                            ->placeholder('0.00')
-                            ->helperText('Price for the experience (in default currency)')
+                            ->placeholder(__('tenant-experiences.placeholders.price'))
+                            ->helperText(__('tenant-experiences.helpers.price'))
                             ->rules(['nullable', 'numeric', 'min:0'])
                             ->inputMode('decimal'),
                         
                         Select::make('charge_mode')
-                            ->label('Charge Mode')
+                            ->label(__('common-fields.charge_mode'))
                             ->options(ChargeModeEnum::class)
                             ->default('per_person')
                             ->required()
                             ->searchable()
-                            ->placeholder('Select charge mode')
-                            ->helperText('How the experience is charged'),
+                            ->placeholder(__('tenant-experiences.placeholders.charge_mode'))
+                            ->helperText(__('tenant-experiences.helpers.charge_mode')),
                         
                         Toggle::make('is_free_for_guide')
-                            ->label('Free for Guide')
+                            ->label(__('common-fields.is_free_for_guide'))
                             ->default(false)
-                            ->helperText('Whether this experience is free for tour guides'),
+                            ->helperText(__('tenant-experiences.helpers.is_free_for_guide')),
                         
                         Toggle::make('is_free_for_other_companions')
-                            ->label('Free for Other Companions')
+                            ->label(__('common-fields.is_free_for_other_companions'))
                             ->default(false)
                             ->live()
                             ->afterStateUpdated(function ($state, $set) {
@@ -110,28 +110,28 @@ class ExperienceForm
                                     $set('is_free_for_guide', true);
                                 }
                             })
-                            ->helperText('Whether this experience is free for other companions (automatically enables free for guide)'),
+                            ->helperText(__('tenant-experiences.helpers.is_free_for_other_companions')),
                     ])
                     ->columns(2),
                 
-                Section::make('Location Details')
-                    ->description('Specify the location of the experience')
+                Section::make(__('tenant-experiences.sections.location_details.title'))
+                    ->description(__('tenant-experiences.sections.location_details.description'))
                     ->schema([
                         Textarea::make('address')
-                            ->label('Address')
+                            ->label(__('common-fields.address'))
                             ->maxLength(500)
-                            ->placeholder('Full address of the experience location')
-                            ->helperText('Complete address including street, building, etc.')
+                            ->placeholder(__('tenant-experiences.placeholders.address'))
+                            ->helperText(__('tenant-experiences.helpers.address'))
                             ->rows(3),
                         
                         Select::make('city_id')
-                            ->label('City')
+                            ->label(__('common-fields.city'))
                             ->relationship('city', 'name')
                             ->required()
                             ->searchable()
                             ->preload()
-                            ->placeholder('Select a city')
-                            ->helperText('City where the experience takes place')
+                            ->placeholder(__('tenant-experiences.placeholders.city'))
+                            ->helperText(__('tenant-experiences.helpers.city'))
                             ->createOptionForm([
                                 TextInput::make('name')
                                     ->required()
@@ -144,12 +144,12 @@ class ExperienceForm
                             ]),
                         
                         Select::make('district_id')
-                            ->label('District')
+                            ->label(__('common-fields.district'))
                             ->relationship('district', 'name')
                             ->searchable()
                             ->preload()
-                            ->placeholder('Select a district')
-                            ->helperText('District within the city')
+                            ->placeholder(__('tenant-experiences.placeholders.district'))
+                            ->helperText(__('tenant-experiences.helpers.district'))
                             ->createOptionForm([
                                 TextInput::make('name')
                                     ->required()

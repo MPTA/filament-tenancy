@@ -13,28 +13,28 @@ class ExperienceInfolist
     {
         return $schema
             ->components([
-                Section::make('Experience Details')
+                Section::make(__('tenant-experiences.sections.experience_details.title'))
                     ->schema([
                         TextEntry::make('name')
-                            ->label('Experience Name')
+                            ->label(__('tenant-experiences.fields.experience_name'))
                             ->weight('bold')
                             ->size('lg'),
                         
                         TextEntry::make('slug')
-                            ->label('Slug')
+                            ->label(__('common-fields.slug'))
                             ->badge()
                             ->color('primary')
                             ->copyable()
-                            ->copyMessage('Slug copied')
+                            ->copyMessage(__('tenant-experiences.messages.slug_copied'))
                             ->copyMessageDuration(1500),
                         
                         TextEntry::make('charge_mode')
-                            ->label('Charge Mode')
+                            ->label(__('common-fields.charge_mode'))
                             ->badge()
                             ->color('success'),
                         
                         IconEntry::make('is_active')
-                            ->label('Status')
+                            ->label(__('common-fields.status'))
                             ->boolean()
                             ->trueIcon('heroicon-o-check-circle')
                             ->falseIcon('heroicon-o-x-circle')
@@ -42,7 +42,7 @@ class ExperienceInfolist
                             ->falseColor('danger'),
                         
                         IconEntry::make('is_free_for_guide')
-                            ->label('Free for Guide')
+                            ->label(__('common-fields.is_free_for_guide'))
                             ->boolean()
                             ->trueIcon('heroicon-o-gift')
                             ->falseIcon('heroicon-o-currency-dollar')
@@ -50,7 +50,7 @@ class ExperienceInfolist
                             ->falseColor('gray'),
                         
                         IconEntry::make('is_free_for_other_companions')
-                            ->label('Free for Companions')
+                            ->label(__('tenant-experiences.fields.free_for_companions'))
                             ->boolean()
                             ->trueIcon('heroicon-o-gift')
                             ->falseIcon('heroicon-o-currency-dollar')
@@ -59,76 +59,76 @@ class ExperienceInfolist
                     ])
                     ->columns(2),
                 
-                Section::make('Description & Content')
+                Section::make(__('tenant-experiences.sections.description_content.title'))
                     ->schema([
                         TextEntry::make('description')
-                            ->label('Description')
-                            ->placeholder('No description provided')
+                            ->label(__('common-fields.description'))
+                            ->placeholder(__('tenant-experiences.placeholders.no_description'))
                             ->markdown()
                             ->columnSpanFull(),
                         
                         TextEntry::make('content')
-                            ->label('Content')
-                            ->placeholder('No content provided')
+                            ->label(__('tenant-experiences.fields.content'))
+                            ->placeholder(__('tenant-experiences.placeholders.no_content'))
                             ->html()
                             ->columnSpanFull(),
                     ])
                     ->collapsible(),
                 
-                Section::make('Pricing Information')
+                Section::make(__('tenant-experiences.sections.pricing_information.title'))
                     ->schema([
                         TextEntry::make('price')
-                            ->label('Price (Default Currency)')
+                            ->label(__('tenant-experiences.fields.price_default_currency'))
                             ->money('USD')
-                            ->placeholder('Free')
+                            ->placeholder(__('tenant-experiences.placeholders.free'))
                             ->icon('heroicon-o-currency-dollar'),
                     ])
                     ->columns(1),
                 
-                Section::make('Location Information')
+                Section::make(__('tenant-experiences.sections.location_information.title'))
                     ->schema([
                         TextEntry::make('address')
-                            ->label('Address')
-                            ->placeholder('No address provided')
+                            ->label(__('common-fields.address'))
+                            ->placeholder(__('tenant-experiences.placeholders.no_address'))
                             ->icon('heroicon-o-map-pin')
                             ->columnSpanFull(),
                         
                         TextEntry::make('city.name')
-                            ->label('City')
+                            ->label(__('common-fields.city'))
                             ->badge()
                             ->color('info')
-                            ->placeholder('Not specified'),
+                            ->placeholder(__('tenant-experiences.placeholders.not_specified')),
                         
                         TextEntry::make('district.name')
-                            ->label('District')
+                            ->label(__('common-fields.district'))
                             ->badge()
                             ->color('info')
-                            ->placeholder('Not specified'),
+                            ->placeholder(__('tenant-experiences.placeholders.not_specified')),
                     ])
                     ->columns(2),
                 
-                Section::make('System Information')
+                Section::make(__('tenant-experiences.sections.system_information.title'))
                     ->schema([
                         TextEntry::make('id')
-                            ->label('ID')
+                            ->label(__('common-fields.id'))
                             ->badge()
                             ->color('gray'),
                         
                         TextEntry::make('creator.name')
-                            ->label('Created By')
-                            ->placeholder('Unknown')
+                            ->label(__('common-fields.created_by'))
+                            ->placeholder(__('tenant-experiences.placeholders.unknown'))
                             ->icon('heroicon-o-user'),
                         
                         TextEntry::make('created_at')
-                            ->label('Created At')
+                            ->label(__('common-fields.created_at_full'))
                             ->dateTime('M j, Y g:i A')
-                            ->placeholder('Not available')
+                            ->placeholder(__('tenant-experiences.placeholders.not_available'))
                             ->icon('heroicon-o-calendar'),
                         
                         TextEntry::make('updated_at')
-                            ->label('Updated At')
+                            ->label(__('common-fields.updated_at_full'))
                             ->dateTime('M j, Y g:i A')
-                            ->placeholder('Not available')
+                            ->placeholder(__('tenant-experiences.placeholders.not_available'))
                             ->icon('heroicon-o-pencil'),
                     ])
                     ->columns(2)

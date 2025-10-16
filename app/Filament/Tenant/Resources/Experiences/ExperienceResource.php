@@ -27,15 +27,27 @@ class ExperienceResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'name';
 
-    protected static ?string $navigationLabel = 'Experiences';
-
-    protected static ?string $modelLabel = 'Experience';
-
-    protected static ?string $pluralModelLabel = 'Experiences';
-
-    protected static string | UnitEnum | null $navigationGroup = 'Content';
-
     protected static ?int $navigationSort = 1;
+    
+    public static function getNavigationLabel(): string
+    {
+        return __('tenant-experiences.navigation_label');
+    }
+    
+    public static function getLabel(): ?string
+    {
+        return __('tenant-experiences.resource_name');
+    }
+    
+    public static function getPluralLabel(): ?string
+    {
+        return __('tenant-experiences.resource_name_plural');
+    }
+    
+    public static function getNavigationGroup(): ?string
+    {
+        return __('tenant-experiences.navigation_group');
+    }
 
     public static function getNavigationBadge(): ?string
     {
@@ -49,16 +61,16 @@ class ExperienceResource extends Resource
 
     public static function getGlobalSearchResultTitle($record): string
     {
-        return $record->name . ' (' . ($record->city->name ?? 'No Location') . ')';
+        return $record->name . ' (' . ($record->city->name ?? __('tenant-experiences.global_search.no_location')) . ')';
     }
 
     public static function getGlobalSearchResultDetails($record): array
     {
         return [
-            'Price' => $record->price ? '$' . number_format($record->price, 2) : 'Free',
-            'City' => $record->city->name ?? 'Not specified',
-            'Status' => $record->is_active ? 'Active' : 'Inactive',
-            'Charge Mode' => $record->charge_mode->value ?? 'Not specified',
+            __('tenant-experiences.global_search.price_label') => $record->price ? '$' . number_format($record->price, 2) : __('tenant-experiences.global_search.free'),
+            __('tenant-experiences.global_search.city_label') => $record->city->name ?? __('tenant-experiences.global_search.not_specified'),
+            __('tenant-experiences.global_search.status_label') => $record->is_active ? __('tenant-experiences.global_search.active') : __('tenant-experiences.global_search.inactive'),
+            __('tenant-experiences.global_search.charge_mode_label') => $record->charge_mode->value ?? __('tenant-experiences.global_search.not_specified'),
         ];
     }
 
