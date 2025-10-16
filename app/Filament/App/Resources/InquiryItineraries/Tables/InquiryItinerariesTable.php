@@ -16,14 +16,14 @@ class InquiryItinerariesTable
         return $table
             ->columns([
                 TextColumn::make('inquiry.number')
-                    ->label('Number')
+                    ->label(__('app-inquiry-itineraries.columns.number'))
                     ->searchable()
                     ->sortable()
                     ->copyable()
                     ->weight('bold'),
                 
                 TextColumn::make('inquiry.title')
-                    ->label('Title')
+                    ->label(__('app-inquiry-itineraries.columns.title'))
                     ->searchable()
                     ->limit(50)
                     ->tooltip(function (TextColumn $column): ?string {
@@ -35,28 +35,28 @@ class InquiryItinerariesTable
                     }),
                 
                 TextColumn::make('inquiry.reference')
-                    ->label('Reference')
+                    ->label(__('app-inquiry-itineraries.columns.reference'))
                     ->searchable()
                     ->sortable()
                     ->placeholder('—')
                     ->toggleable(),
                 
                 TextColumn::make('inquiry.contact.full_name')
-                    ->label('Contact')
+                    ->label(__('app-inquiry-itineraries.columns.contact'))
                     ->searchable()
                     ->sortable(),
                 
                 TextColumn::make('quotations_count')
-                    ->label('Quotations')
+                    ->label(__('app-inquiry-itineraries.columns.quotations'))
                     ->state(function ($record) {
                         return $record->inquiry?->quotations()->count() ?? 0;
                     })
                     ->badge()
                     ->color(fn ($state) => $state > 0 ? 'success' : 'gray')
-                    ->tooltip(fn ($state) => $state > 0 ? $state . ' quotation(s)' : 'No quotations'),
+                    ->tooltip(fn ($state) => $state > 0 ? __('app-inquiry-itineraries.tooltips.quotations_count', ['count' => $state]) : __('app-inquiry-itineraries.tooltips.no_quotations')),
                 
                 TextColumn::make('quotation_numbers')
-                    ->label('Quotation Numbers')
+                    ->label(__('app-inquiry-itineraries.columns.quotation_numbers'))
                     ->state(function ($record) {
                         $quotations = $record->inquiry?->quotations ?? collect();
                         if ($quotations->isEmpty()) {
@@ -80,13 +80,13 @@ class InquiryItinerariesTable
                     ->wrap(),
                 
                 TextColumn::make('created_at')
-                    ->label('Created')
+                    ->label(__('app-inquiry-itineraries.columns.created'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 
                 TextColumn::make('updated_at')
-                    ->label('Updated')
+                    ->label(__('app-inquiry-itineraries.columns.updated'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -97,22 +97,22 @@ class InquiryItinerariesTable
             ->recordActions([
                 DeleteAction::make()
                     ->requiresConfirmation()
-                    ->modalHeading(fn ($record) => 'Delete Inquiry #' . ($record->inquiry?->number ?? 'N/A'))
+                    ->modalHeading(fn ($record) => __('app-inquiry-itineraries.modals.delete_heading', ['number' => $record->inquiry?->number ?? 'N/A']))
                     ->modalDescription(function ($record) {
                         $quotationsCount = $record->inquiry?->quotations()->count() ?? 0;
                         
                         if ($quotationsCount > 0) {
-                            return 'Cannot delete this inquiry because it has ' . $quotationsCount . ' quotation(s). Please delete all quotations first.';
+                            return __('app-inquiry-itineraries.modals.delete_description_with_quotations', ['count' => $quotationsCount]);
                         }
                         
-                        return 'Are you sure you want to delete this inquiry itinerary? This action cannot be undone.';
+                        return __('app-inquiry-itineraries.modals.delete_description');
                     })
                     ->disabled(fn ($record) => ($record->inquiry?->quotations()->count() ?? 0) > 0)
                     ->tooltip(function ($record) {
                         $quotationsCount = $record->inquiry?->quotations()->count() ?? 0;
                         
                         if ($quotationsCount > 0) {
-                            return 'This inquiry has ' . $quotationsCount . ' quotation(s). Delete all quotations first.';
+                            return __('app-inquiry-itineraries.tooltips.cannot_delete_has_quotations', ['count' => $quotationsCount]);
                         }
                         
                         return null;
@@ -123,15 +123,15 @@ class InquiryItinerariesTable
                         if ($quotationsCount > 0) {
                             Notification::make()
                                 ->warning()
-                                ->title('Cannot delete inquiry')
-                                ->body('This inquiry has ' . $quotationsCount . ' quotation(s). Please delete all quotations first.')
+                                ->title(__('app-inquiry-itineraries.notifications.cannot_delete_title'))
+                                ->body(__('app-inquiry-itineraries.notifications.cannot_delete_body', ['count' => $quotationsCount]))
                                 ->persistent()
                                 ->send();
                             
                             $action->cancel();
                         }
                     })
-                    ->modalSubmitActionLabel('Delete'),
+                    ->modalSubmitActionLabel(__('app-inquiry-itineraries.modals.delete_submit')),
             ])
             ->toolbarActions([
                 // BulkActionGroup::make([

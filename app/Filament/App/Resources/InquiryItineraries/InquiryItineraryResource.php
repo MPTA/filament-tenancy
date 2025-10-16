@@ -16,13 +16,37 @@ class InquiryItineraryResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static string|\UnitEnum|null $navigationGroup = 'Quotations';
+    protected static string|\UnitEnum|null $navigationGroup = null;
 
     protected static ?int $navigationSort = 2;
 
-    protected static ?string $navigationLabel = 'Inquiries';
+    protected static ?string $navigationLabel = null;
+
+    protected static ?string $modelLabel = null;
+
+    protected static ?string $pluralModelLabel = null;
 
     protected static ?string $recordTitleAttribute = 'date_type';
+
+    public static function getNavigationGroup(): ?string
+    {
+        return __('app-inquiry-itineraries.navigation_group');
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return __('app-inquiry-itineraries.navigation_label');
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('app-inquiry-itineraries.resource_name');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('app-inquiry-itineraries.resource_name_plural');
+    }
 
     public static function table(Table $table): Table
     {
