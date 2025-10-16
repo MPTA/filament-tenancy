@@ -102,7 +102,7 @@ return [
      | Translation resource.
      |
      */
-    'translation_resource' => \TomatoPHP\FilamentTranslations\Filament\Resources\Translations\TranslationResource::class,
+    'translation_resource' => \App\Filament\Resources\Translations\TranslationResource::class,
 
     /*
      |--------------------------------------------------------------------------
