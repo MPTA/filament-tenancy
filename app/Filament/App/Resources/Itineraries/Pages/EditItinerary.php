@@ -458,11 +458,42 @@ class EditItinerary extends EditRecord
     private function processTickets($itineraryDay, $dayData)
     {
         if (!empty($dayData['tickets'])) {
-            foreach ($dayData['tickets'] as $ticketData) {
+            foreach ($dayData['tickets'] as $index => $ticketData) {
+                // Validate required fields
+                $errors = [];
+                $dayNumber = $itineraryDay->day_number;
+                
+                if (empty($ticketData['transport_mode'])) {
+                    $errors[] = __('app-itineraries.fields.mode');
+                }
+                if (empty($ticketData['from_city_id'])) {
+                    $errors[] = __('app-itineraries.fields.from_city');
+                }
+                if (empty($ticketData['to_city_id'])) {
+                    $errors[] = __('app-itineraries.fields.to_city');
+                }
+                if (empty($ticketData['class'])) {
+                    $errors[] = __('app-itineraries.fields.class');
+                }
+                
+                if (!empty($errors)) {
+                    $errorFields = implode(', ', $errors);
+                    \Filament\Notifications\Notification::make()
+                        ->title('Ticket Validation Error')
+                        ->body("Day {$dayNumber}, Ticket " . ($index + 1) . ": The following fields are required: {$errorFields}")
+                        ->danger()
+                        ->persistent()
+                        ->send();
+                    
+                    throw \Illuminate\Validation\ValidationException::withMessages([
+                        "days." . ($dayNumber - 1) . ".tickets.{$index}" => "Please fill all required fields: {$errorFields}",
+                    ]);
+                }
+                
                 $activity = $itineraryDay->activities()->create([
                     'city_id' => $ticketData['from_city_id'],
-                    'start_time' => $ticketData['departure_time'],
-                    'end_time' => $ticketData['arrival_time'],
+                    'start_time' => $ticketData['departure_time'] ?? null,
+                    'end_time' => $ticketData['arrival_time'] ?? null,
                     'description' => 'Transport ticket',
                     'activity_category_id' => \App\Models\Base\ActivityCategory::where('type', ActivityCategoryTypeEnum::TICKET->value)->first()->id,
                     'creator_user_id' => \Illuminate\Support\Facades\Auth::user()->id,
@@ -471,7 +502,7 @@ class EditItinerary extends EditRecord
                 $activity->ticket()->create([
                     'to_city_id' => $ticketData['to_city_id'],
                     'class' => $ticketData['class'],
-                    'transport_number' => $ticketData['transport_number'],
+                    'transport_number' => $ticketData['transport_number'] ?? null,
                     'transport_mode' => $ticketData['transport_mode'],
                 ]);
             }

@@ -36,7 +36,6 @@ class ItineraryForm
                     ->columnSpanFull()
                     ->columns(['md' => 2, 'lg' => 4])
                     ->label(__('app-itineraries.fields.days'))
-                    ->live()
                     ->itemLabel(function (array $state, $component) {
                         // Get day number using a different approach
                         $dayNumber = 1;
@@ -50,17 +49,24 @@ class ItineraryForm
                             }
                         }
                         
-                        // Alternative: try to get from container state
+                        // Alternative: try to get from container state (with error handling)
                         if ($dayNumber === 1) {
-                            $container = $component->getContainer();
-                            if ($container) {
-                                $allDays = $container->getState();
-                                if (is_array($allDays)) {
-                                    $currentIndex = array_search($state, $allDays, true);
-                                    if ($currentIndex !== false) {
-                                        $dayNumber = $currentIndex + 1;
+                            try {
+                                $container = $component->getContainer();
+                                if ($container) {
+                                    $allDays = $container->getState();
+                                    if (is_array($allDays)) {
+                                        $currentIndex = array_search($state, $allDays, true);
+                                        if ($currentIndex !== false) {
+                                            $dayNumber = $currentIndex + 1;
+                                        }
                                     }
                                 }
+                            } catch (\Illuminate\Validation\ValidationException $e) {
+                                // Ignore validation errors during label rendering
+                                // This happens when ticket fields are empty
+                            } catch (\Exception $e) {
+                                // Ignore other errors during label rendering
                             }
                         }
                         
@@ -265,6 +271,7 @@ class ItineraryForm
                                                 }),
 
                                             Select::make('attraction_id')
+                                                ->required()
                                                 ->label(__('app-itineraries.fields.main_attraction'))
                                                 ->options(function (callable $get) {
                                                     $cityId = $get('city_id');
@@ -337,24 +344,21 @@ class ItineraryForm
                                         ->schema([
                                             Select::make('transport_mode')
                                                 ->options(TransportModeEnum::getOptions())
-                                                ->label(__('app-itineraries.fields.mode'))
-                                                ->rules(['required_with:from_city_id']),
+                                                ->label(__('app-itineraries.fields.mode')),
                                             Select::make('from_city_id')
                                                 ->options(City::getCachedSelectOptionsForTenant())
                                                 ->label(__('app-itineraries.fields.from_city'))
-                                                ->reactive()
+                                                ->live(onBlur: true)
                                                 ->afterStateUpdated(function ($state, callable $set) {
                                                     $set('to_city_id', null);
                                                 }),
                                             Select::make('to_city_id')
                                                 ->options(City::getCachedSelectOptionsForTenant())
-                                                ->label(__('app-itineraries.fields.to_city'))
-                                                ->rules(['required_with:from_city_id']),
+                                                ->label(__('app-itineraries.fields.to_city')),
                                             TextInput::make('transport_number')->label(__('app-itineraries.fields.transport_number')),
                                             Select::make('class')
                                                 ->options(TicketClassEnum::getOptions())
-                                                ->label(__('app-itineraries.fields.class'))
-                                                ->rules(['required_with:from_city_id']),
+                                                ->label(__('app-itineraries.fields.class')),
                                             TimePicker::make('departure_time')->label(__('app-itineraries.fields.departure'))->seconds(false),
                                             TimePicker::make('arrival_time')->label(__('app-itineraries.fields.arrival'))->seconds(false),
                                         ])
@@ -391,6 +395,7 @@ class ItineraryForm
                                             Select::make('experience_id')
                                                 ->label(__('app-itineraries.table_columns.experience'))
                                                 ->rules(['required_with:city_id'])
+                                                ->required()
                                                 ->options(function (callable $get) {
                                                     $cityId = $get('city_id');
                                                     if (!$cityId) {
