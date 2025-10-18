@@ -17,10 +17,34 @@ class Country extends Model
     protected $table = 'countries';
     public $translatable = ['name'];
 
-    protected $fillable = ['name', 'code', 'currency_id'];
+    protected $fillable = [
+        'name',
+        'code',
+        'currency_id',
+        'iso3',
+        'numeric_code',
+        'phone_code',
+        'capital',
+        'tld',
+        'native_name',
+        'population',
+        'gdp',
+        'nationality',
+        'timezones',
+        'latitude',
+        'longitude',
+        'emoji',
+        'emoji_u',
+        'wiki_data_id',
+    ];
 
     protected $casts = [
         'name' => 'array',
+        'timezones' => 'array',
+        'population' => 'integer',
+        'gdp' => 'decimal:2',
+        'latitude' => 'decimal:8',
+        'longitude' => 'decimal:8',
     ];
 
     /**

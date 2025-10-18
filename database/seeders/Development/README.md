@@ -10,7 +10,6 @@
 
 | Seeder | توضیحات | دیتا |
 |--------|---------|------|
-| `CountrySeeder` | کشورهای تستی | China |
 | `ProvinceSeeder` | استان‌های تستی | Beijing, Shanghai, Guangdong |
 | `CitySeeder` | شهرهای تستی | Beijing, Shanghai, Shenzhen |
 | `TenantSeeder` | Tenant تستی | balopar (CNY, English, Beijing) |
@@ -23,6 +22,13 @@
 
 ## 🚀 نحوه استفاده
 
+### پیش‌نیاز: اجرای seedهای Production
+قبل از اجرای development seedها، حتماً seedهای production را اجرا کنید:
+```bash
+php artisan db:seed --class=CurrencySeeder
+php artisan db:seed --class=CountrySeeder
+```
+
 ### اجرای تمام seedهای Development:
 ```bash
 php artisan db:seed --class=DevelopmentSeeder
@@ -30,7 +36,7 @@ php artisan db:seed --class=DevelopmentSeeder
 
 ### اجرای یک seeder خاص:
 ```bash
-php artisan db:seed --class=Database\\Seeders\\Development\\CountrySeeder
+php artisan db:seed --class=Database\\Seeders\\Development\\ProvinceSeeder
 ```
 
 ### همراه با migrate:fresh:
