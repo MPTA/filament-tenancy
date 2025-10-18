@@ -4,7 +4,8 @@ namespace App\Filament\App\Widgets;
 
 use App\Models\Tenants\QuotationItinerary;
 use App\Models\Tenants\Inquiry;
-use App\Models\Contact;
+use App\Models\Tenants\TenantContact;
+use App\Enums\ContactTypeEnum;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 
@@ -54,12 +55,14 @@ class CombinedStatsWidget extends BaseWidget
                 ? abs($inquiriesPercentageChange) . "% " . __('common-fields.decrease_from_last_month')
                 : __('common-fields.no_change_from_last_month'));
 
-        // Contacts stats
-        $contactsTotal = Contact::count();
-        $contactsThisMonth = Contact::whereMonth('created_at', now()->month)
+        // Contacts stats (only customer and lead types from current tenant)
+        $contactsTotal = TenantContact::whereIn('type', [ContactTypeEnum::CUSTOMER, ContactTypeEnum::LEAD])->count();
+        $contactsThisMonth = TenantContact::whereIn('type', [ContactTypeEnum::CUSTOMER, ContactTypeEnum::LEAD])
+            ->whereMonth('created_at', now()->month)
             ->whereYear('created_at', now()->year)
             ->count();
-        $contactsLastMonth = Contact::whereMonth('created_at', now()->subMonth()->month)
+        $contactsLastMonth = TenantContact::whereIn('type', [ContactTypeEnum::CUSTOMER, ContactTypeEnum::LEAD])
+            ->whereMonth('created_at', now()->subMonth()->month)
             ->whereYear('created_at', now()->subMonth()->year)
             ->count();
         
@@ -105,14 +108,25 @@ class CombinedStatsWidget extends BaseWidget
                 ->descriptionIcon($contactsPercentageChange > 0 ? 'heroicon-m-arrow-trending-up' : ($contactsPercentageChange < 0 ? 'heroicon-m-arrow-trending-down' : 'heroicon-m-minus'))
                 ->color($contactsPercentageChange > 0 ? 'success' : ($contactsPercentageChange < 0 ? 'danger' : 'gray'))
                 ->chart(
-                    Contact::selectRaw('DATE(created_at) as date, COUNT(*) as count')
-                        ->where('created_at', '>=', now()->subDays(7))
-                        ->groupBy('date')
-                        ->orderBy('date')
-                        ->pluck('count')
-                        ->toArray()
+                    $this->getContactsChartData()
                 ),
         ];
+    }
+
+    private function getContactsChartData(): array
+    {
+        $chartData = [];
+        
+        // Generate data for the last 7 days
+        for ($i = 6; $i >= 0; $i--) {
+            $date = now()->subDays($i)->format('Y-m-d');
+            $count = TenantContact::whereIn('type', [ContactTypeEnum::CUSTOMER, ContactTypeEnum::LEAD])
+                ->whereDate('created_at', $date)
+                ->count();
+            $chartData[] = $count;
+        }
+        
+        return $chartData;
     }
 }
 
