@@ -129,16 +129,9 @@ class TransportationRepeater
                                     ->displayFormat('d/m/Y')
                                     ->closeOnDateSelection()
                                     ->afterStateUpdated(function ($state, $set, $get) {
-                                        // Clear arrival_date if it's not within valid range
-                                        $arrivalDate = $get('arrival_date');
-                                        if ($state && $arrivalDate) {
-                                            $departure = \Carbon\Carbon::parse($state);
-                                            $arrival = \Carbon\Carbon::parse($arrivalDate);
-                                            
-                                            // If arrival is before departure or more than 1 day after
-                                            if ($arrival->lt($departure) || $arrival->gt($departure->copy()->addDay())) {
-                                                $set('arrival_date', null);
-                                            }
+                                        // Set arrival_date to same as departure_date when departure_date is selected
+                                        if ($state) {
+                                            $set('arrival_date', $state);
                                         }
                                     }),
 
@@ -152,6 +145,7 @@ class TransportationRepeater
                             ->schema([
                                 DatePicker::make('arrival_date')
                                     ->label(__('transportation.arrival_date'))
+                                    ->required()
                                     ->displayFormat('d/m/Y')
                                     ->closeOnDateSelection()
                                     ->minDate(fn ($get) => $get('departure_date') ?: null)

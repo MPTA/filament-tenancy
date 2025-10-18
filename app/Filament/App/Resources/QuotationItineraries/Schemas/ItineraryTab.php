@@ -62,6 +62,29 @@ class ItineraryTab
             ->icon('heroicon-o-paper-airplane')
             ->hidden(fn(QuotationItinerary $record) => !$record->itinerary)
             ->headerActions([
+                // Delete Transportation Action (shown when transportations exist)
+                Action::make(__('app-quotation-itineraries.actions.delete_transportation'))
+                    ->icon('heroicon-m-trash')
+                    ->color('danger')
+                    ->hidden(fn(QuotationItinerary $record) => $record->transportations->isEmpty())
+                    ->requiresConfirmation()
+                    ->modalHeading(__('app-quotation-itineraries.modals_itinerary.delete_transportation_heading'))
+                    ->modalDescription(__('app-quotation-itineraries.modals_itinerary.delete_transportation_description'))
+                    ->modalSubmitActionLabel(__('app-quotation-itineraries.actions.delete'))
+                    ->action(function (QuotationItinerary $quotationItinerary) {
+                        // Delete all transportations
+                        $quotationItinerary->transportations()->delete();
+                        
+                        // Clear entry_date
+                        
+                        $quotationItinerary->refresh();
+                        Notification::make()
+                            ->title(__('app-quotation-itineraries.notifications.transportation_deleted_title'))
+                            ->body(__('app-quotation-itineraries.notifications.transportation_deleted_body'))
+                            ->success()
+                            ->send();
+                    }),
+                
                 // Create Transportation Action (shown when no transportations exist)
                 Action::make(__('app-quotation-itineraries.actions.create_transportation'))
                     ->icon('heroicon-m-plus-circle')
