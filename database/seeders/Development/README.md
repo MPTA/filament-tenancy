@@ -10,7 +10,6 @@
 
 | Seeder | توضیحات | دیتا |
 |--------|---------|------|
-| `CurrencySeeder` | کارنسی‌های تستی | USD, CNY |
 | `CountrySeeder` | کشورهای تستی | China |
 | `ProvinceSeeder` | استان‌های تستی | Beijing, Shanghai, Guangdong |
 | `CitySeeder` | شهرهای تستی | Beijing, Shanghai, Shenzhen |
@@ -31,7 +30,7 @@ php artisan db:seed --class=DevelopmentSeeder
 
 ### اجرای یک seeder خاص:
 ```bash
-php artisan db:seed --class=Database\\Seeders\\Development\\CurrencySeeder
+php artisan db:seed --class=Database\\Seeders\\Development\\CountrySeeder
 ```
 
 ### همراه با migrate:fresh:

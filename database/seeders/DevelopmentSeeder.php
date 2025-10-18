@@ -9,7 +9,6 @@ use Database\Seeders\Development\CompanionTypeSeeder;
 use Database\Seeders\Development\ContactSeeder;
 use Database\Seeders\Development\ExperienceSeeder;
 use Database\Seeders\Development\CountrySeeder;
-use Database\Seeders\Development\CurrencySeeder;
 use Database\Seeders\Development\MealTypeSeeder;
 use Database\Seeders\Development\ProvinceSeeder;
 use Database\Seeders\Development\QuotationSeeder;
@@ -24,6 +23,10 @@ class DevelopmentSeeder extends Seeder
      * Run the database seeds.
      * 
      * این seeder فقط برای محیط development است و شامل دیتای تستی می‌باشد.
+     * 
+     * ⚠️ توجه: قبل از اجرای این seeder، حتماً CurrencySeeder را اجرا کنید:
+     * php artisan db:seed --class=CurrencySeeder
+     * 
      * برای اجرا: php artisan db:seed --class=DevelopmentSeeder
      */
     public function run(): void
@@ -38,7 +41,6 @@ class DevelopmentSeeder extends Seeder
         $this->command->info('🔧 Running Development Seeders...');
         
         $this->call([
-            CurrencySeeder::class,
             CountrySeeder::class,
             ProvinceSeeder::class,
             CitySeeder::class,
