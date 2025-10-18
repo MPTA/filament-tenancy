@@ -20,7 +20,7 @@ class EditBreakdown extends EditRecord
 
     public function getTitle(): string|\Illuminate\Contracts\Support\Htmlable
     {
-        return 'Edit Breakdown - Quotation ' . ($this->record->quotation?->number ?? 'N/A');
+        return __('breakdown-form.page.edit_breakdown_title', ['number' => $this->record->quotation?->number ?? 'N/A']);
     }
 
     public function getRecordTitle(): string|\Illuminate\Contracts\Support\Htmlable
@@ -36,8 +36,8 @@ class EditBreakdown extends EditRecord
         // Check if itinerary is complete before allowing edit
         if (!$this->record->itinerary?->is_complete) {
             Notification::make()
-                ->title('Cannot Edit Breakdown')
-                ->body('Please complete the itinerary before editing the breakdown.')
+                ->title(__('breakdown-form.page.cannot_edit_title'))
+                ->body(__('breakdown-form.page.cannot_edit_body'))
                 ->warning()
                 ->send();
             
@@ -50,7 +50,7 @@ class EditBreakdown extends EditRecord
     {
         return [
             Actions\Action::make('store')
-                ->label('Store')
+                ->label(__('breakdown-form.page.store'))
                 ->action(function () {
                     try {
                         // Get form data
@@ -63,12 +63,12 @@ class EditBreakdown extends EditRecord
                         $this->breakdown->refresh();
                         
                         Notification::make()
-                            ->title('Breakdown saved successfully!')
+                            ->title(__('breakdown-form.page.saved_successfully'))
                             ->success()
                             ->send();
                     } catch (\Exception $e) {
                         Notification::make()
-                            ->title('Error saving breakdown')
+                            ->title(__('breakdown-form.page.error_saving'))
                             ->body($e->getMessage())
                             ->danger()
                             ->send();
@@ -78,7 +78,7 @@ class EditBreakdown extends EditRecord
                 ->icon('heroicon-o-check'),
             
             Actions\Action::make('save_and_close')
-                ->label('Save and Close')
+                ->label(__('breakdown-form.page.save_and_close'))
                 ->action(function () {
                     $this->save();
                     $this->redirect($this->getRedirectUrl());
@@ -87,18 +87,18 @@ class EditBreakdown extends EditRecord
                 ->icon('heroicon-o-check-circle'),
             
             Actions\Action::make('save_and_complete')
-                ->label('Save and Complete')
+                ->label(__('breakdown-form.page.save_and_complete'))
                 ->requiresConfirmation()
-                ->modalHeading('Complete Breakdown')
-                ->modalDescription('Are you sure you want to complete this breakdown? This will save, mark it as complete, and redirect you to the Offers tab.')
-                ->modalSubmitActionLabel('Yes, Complete')
+                ->modalHeading(__('breakdown-form.page.complete_breakdown_heading'))
+                ->modalDescription(__('breakdown-form.page.complete_breakdown_description'))
+                ->modalSubmitActionLabel(__('breakdown-form.page.complete_breakdown_submit'))
                 ->action(function () {
                     try {
                         // Check if itinerary is complete
                         if (!$this->record->itinerary?->is_complete) {
                             Notification::make()
-                                ->title('Cannot Complete Breakdown')
-                                ->body('Please complete the itinerary first.')
+                                ->title(__('breakdown-form.page.cannot_complete_title'))
+                                ->body(__('breakdown-form.page.cannot_complete_body'))
                                 ->warning()
                                 ->send();
                             return;
@@ -113,8 +113,8 @@ class EditBreakdown extends EditRecord
                         
                         // Step 3: Show success notification
                         Notification::make()
-                            ->title('Breakdown completed successfully!')
-                            ->body('You can now create offers.')
+                            ->title(__('breakdown-form.page.completed_successfully'))
+                            ->body(__('breakdown-form.page.can_create_offers'))
                             ->success()
                             ->send();
                         
@@ -122,7 +122,7 @@ class EditBreakdown extends EditRecord
                         return redirect(QuotationItineraryResource::getUrl('view', ['record' => $this->record]) . '?tab=offers%3A%3Atab');
                     } catch (\Exception $e) {
                         Notification::make()
-                            ->title('Error completing breakdown')
+                            ->title(__('breakdown-form.page.error_completing'))
                             ->body($e->getMessage())
                             ->danger()
                             ->send();
@@ -134,7 +134,7 @@ class EditBreakdown extends EditRecord
                 ->icon('heroicon-o-check-badge'),
             
             Actions\Action::make('view_quotation')
-                ->label('View Quotation')
+                ->label(__('breakdown-form.page.view_quotation'))
                 ->url(fn() => route('filament.app.resources.quotation-itineraries.view', $this->record) . '?tab=breakdown%3A%3Atab')
                 ->icon('heroicon-o-eye')
                 ->color('gray'),
@@ -197,8 +197,8 @@ class EditBreakdown extends EditRecord
         // Check if itinerary is complete before saving
         if (!$this->record->itinerary?->is_complete) {
             Notification::make()
-                ->title('Cannot Save Breakdown')
-                ->body('The itinerary is not complete. Please complete the itinerary first.')
+                ->title(__('breakdown-form.page.cannot_save_title'))
+                ->body(__('breakdown-form.page.cannot_save_body'))
                 ->danger()
                 ->send();
             

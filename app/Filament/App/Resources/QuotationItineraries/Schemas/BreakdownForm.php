@@ -19,73 +19,73 @@ class BreakdownForm
     {
         return $schema->components([
             Wizard::make([
-                Wizard\Step::make('Vehicle Types')
+                Wizard\Step::make(__('breakdown-form.steps.vehicle_types'))
                     ->icon('heroicon-o-truck')
                     ->schema([
-                        Section::make('Vehicle Quantities')
+                        Section::make(__('breakdown-form.vehicle_types.quantities_section'))
                             ->schema([
                                 Grid::make(4)
                                     ->schema([
                                         TextInput::make('vehicle_days_qty')
-                                            ->label('Vehicle Days')
+                                            ->label(__('breakdown-form.vehicle_types.vehicle_days'))
                                             ->default(0)
                                             ->rules(['numeric', 'min:0'])
                                             ->validationMessages([
-                                                'numeric' => 'Value must be a valid number',
-                                                'min' => 'Value cannot be negative',
+                                                'numeric' => __('breakdown-form.validation.numeric'),
+                                                'min' => __('breakdown-form.validation.min'),
                                             ]),
                                         TextInput::make('vehicle_half_days_qty')
-                                            ->label('Vehicle Half Days')
+                                            ->label(__('breakdown-form.vehicle_types.vehicle_half_days'))
                                             ->default(0)
                                             ->rules(['numeric', 'min:0'])
                                             ->validationMessages([
-                                                'numeric' => 'Value must be a valid number',
-                                                'min' => 'Value cannot be negative',
+                                                'numeric' => __('breakdown-form.validation.numeric'),
+                                                'min' => __('breakdown-form.validation.min'),
                                             ]),
                                         TextInput::make('vehicle_hours_qty')
-                                            ->label('Vehicle Hours')
+                                            ->label(__('breakdown-form.vehicle_types.vehicle_hours'))
                                             ->default(0)
                                             ->rules(['numeric', 'min:0'])
                                             ->validationMessages([
-                                                'numeric' => 'Value must be a valid number',
-                                                'min' => 'Value cannot be negative',
+                                                'numeric' => __('breakdown-form.validation.numeric'),
+                                                'min' => __('breakdown-form.validation.min'),
                                             ]),
                                         TextInput::make('vehicle_airport_transfers_qty')
-                                            ->label('Airport Transfers')
+                                            ->label(__('breakdown-form.vehicle_types.airport_transfers'))
                                             ->default(0)
                                             ->rules(['numeric', 'min:0'])
                                             ->validationMessages([
-                                                'numeric' => 'Value must be a valid number',
-                                                'min' => 'Value cannot be negative',
+                                                'numeric' => __('breakdown-form.validation.numeric'),
+                                                'min' => __('breakdown-form.validation.min'),
                                             ]),
                                     ]),
                                 Grid::make(2)
                                     ->schema([
                                         TextInput::make('driver_base_meal_budget')
-                                            ->label('Driver Meal Budget')
+                                            ->label(__('breakdown-form.vehicle_types.driver_meal_budget'))
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
                                             ->default(50)
                                             ->required()
                                             ->rules(['required', 'numeric', 'min:0'])
                                             ->validationMessages([
-                                                'required' => 'Driver meal budget is required',
-                                                'numeric' => 'Value must be a number',
-                                                'min' => 'Value cannot be negative',
+                                                'required' => __('breakdown-form.validation.required_field.driver_meal_budget'),
+                                                'numeric' => __('breakdown-form.validation.numeric'),
+                                                'min' => __('breakdown-form.validation.min'),
                                             ]),
                                         TextInput::make('driver_base_accommodation_budget')
-                                            ->label('Driver Accommodation Budget')
+                                            ->label(__('breakdown-form.vehicle_types.driver_accommodation_budget'))
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
                                             ->default(100)
                                             ->required()
                                             ->rules(['required', 'numeric', 'min:0'])
                                             ->validationMessages([
-                                                'required' => 'Driver accommodation budget is required',
-                                                'numeric' => 'Value must be a number',
-                                                'min' => 'Value cannot be negative',
+                                                'required' => __('breakdown-form.validation.required_field.driver_accommodation_budget'),
+                                                'numeric' => __('breakdown-form.validation.numeric'),
+                                                'min' => __('breakdown-form.validation.min'),
                                             ]),
                                     ]),
                             ]),
-                        Section::make('Vehicle Types')
+                        Section::make(__('breakdown-form.vehicle_types.section_title'))
                             ->schema([
                             Repeater::make('vehicleTypes')
                                     ->hiddenLabel()
@@ -131,9 +131,7 @@ class BreakdownForm
                                                     ->count();
                                                 
                                                 if ($usageCount > 0) {
-                                                    $vehicleType = \App\Models\Tenants\VehicleType::find($vehicleData['vehicle_type_id']);
-                                                    $vehicleName = $vehicleType ? $vehicleType->name : 'This vehicle type';
-                                                    return "{$vehicleName} is used in {$usageCount} offer(s). Please remove it from offers first.";
+                                                    return __('breakdown-form.vehicle_types.cannot_delete_in_use', ['count' => $usageCount]);
                                                 }
                                                 
                                                 return null;
@@ -160,13 +158,13 @@ class BreakdownForm
                                         },
                                     ])
                                     ->table([
-                                        TableColumn::make('Vehicle Type'),
-                                        TableColumn::make('Per Day Price'),
-                                        TableColumn::make('Half Day Price'),
+                                        TableColumn::make(__('breakdown-form.vehicle_types.vehicle_type')),
+                                        TableColumn::make(__('breakdown-form.vehicle_types.per_day_price')),
+                                        TableColumn::make(__('breakdown-form.vehicle_types.half_day_price')),
                                     ])
                                     ->schema([
                                         Select::make('vehicle_type_id')
-                                            ->label('Vehicle Type')
+                                            ->label(__('breakdown-form.vehicle_types.vehicle_type'))
                                             ->options(\App\Models\Tenants\VehicleType::pluck('name', 'id'))
                                             ->searchable()
                                             ->required()
@@ -185,38 +183,38 @@ class BreakdownForm
                                                 }
                                             }),
                                         TextInput::make('per_day_price')
-                                            ->label('Per Day Price')
+                                            ->label(__('breakdown-form.vehicle_types.per_day_price'))
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
                                             ->formatStateUsing(fn($state) => $state == 0 ? null : $state)
                                             ->dehydrateStateUsing(fn($state) => $state ?: 0)
                                             ->required()
-                                            ->placeholder('Enter price')
+                                            ->placeholder(__('breakdown-form.placeholders.enter_price'))
                                             ->rules(['required', 'numeric', 'min:0'])
                                             ->validationMessages([
-                                                'required' => 'Per day price is required',
-                                                'numeric' => 'Price must be a valid number',
-                                                'min' => 'Price cannot be negative',
+                                                'required' => __('breakdown-form.validation.required_field.price'),
+                                                'numeric' => __('breakdown-form.validation.numeric'),
+                                                'min' => __('breakdown-form.validation.min'),
                                             ]),
                                         TextInput::make('half_day_price')
-                                            ->label('Half Day Price')
+                                            ->label(__('breakdown-form.vehicle_types.half_day_price'))
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
                                             ->formatStateUsing(fn($state) => $state == 0 ? null : $state)
                                             ->dehydrateStateUsing(fn($state) => $state ?: 0)
                                             ->required()
-                                            ->placeholder('Enter price')
+                                            ->placeholder(__('breakdown-form.placeholders.enter_price'))
                                             ->rules(['required', 'numeric', 'min:0'])
                                             ->validationMessages([
-                                                'required' => 'Half day price is required',
-                                                'numeric' => 'Price must be a valid number',
-                                                'min' => 'Price cannot be negative',
+                                                'required' => __('breakdown-form.validation.required_field.price'),
+                                                'numeric' => __('breakdown-form.validation.numeric'),
+                                                'min' => __('breakdown-form.validation.min'),
                                             ]),
                                     ])
-                                    ->addActionLabel('Add Vehicle Type')
+                                    ->addActionLabel(__('common-fields.add'))
                                     ->collapsible(),
                             ]),
                     ]),
 
-                Wizard\Step::make('Tickets')
+                Wizard\Step::make(__('breakdown-form.steps.tickets'))
                     ->icon('heroicon-o-ticket')
                     
                     ->schema([
@@ -252,66 +250,58 @@ class BreakdownForm
                                 },
                             ])
                             ->table([
-                                TableColumn::make('Transport Mode'),
-                                TableColumn::make('Class'),
-                                TableColumn::make('From City'),
-                                TableColumn::make('To City'),
-                                TableColumn::make('Price'),
+                                TableColumn::make(__('breakdown-form.tickets.transport_mode')),
+                                TableColumn::make(__('breakdown-form.tickets.class')),
+                                TableColumn::make(__('breakdown-form.tickets.from_city')),
+                                TableColumn::make(__('breakdown-form.tickets.to_city')),
+                                TableColumn::make(__('breakdown-form.tickets.price')),
                             ])
                             ->schema([
                                 Select::make('transport_mode')
                                     ->disabled()
-                                    ->label('Transport Mode')
-                                    ->options([
-                                        'air' => 'Air',
-                                        'train' => 'Train',
-                                        'land' => 'Land',
-                                    ])
+                                    ->label(__('breakdown-form.tickets.transport_mode'))
+                                    ->options(\App\Enums\TransportModeEnum::getOptions())
                                     ->required()
                                     ->dehydrated(),
                                 Select::make('class')
                                     ->disabled()
-                                    ->label('Class')
-                                    ->options([
-                                        'economy' => 'Economy',
-                                        'business' => 'Business',
-                                        'first' => 'First',
-                                    ])
+                                    ->label(__('breakdown-form.tickets.class'))
+                                    ->options(\App\Enums\TicketClassEnum::getOptions())
                                     ->required()
                                     ->dehydrated(),
                                 Select::make('from_city_id')
                                     ->disabled()
-                                    ->label('From City')
+                                    ->label(__('breakdown-form.tickets.from_city'))
                                     ->options(\App\Models\Base\City::pluck('name', 'id'))
                                     ->searchable()
                                     ->required()
                                     ->dehydrated(),
                                 Select::make('to_city_id')
                                     ->disabled()
-                                    ->label('To City')
+                                    ->label(__('breakdown-form.tickets.to_city'))
                                     ->options(\App\Models\Base\City::pluck('name', 'id'))
                                     ->searchable()
                                     ->required()
                                     ->dehydrated(),
                                 TextInput::make('price')
-                                    ->label('Price')
+                                    ->label(__('breakdown-form.tickets.price'))
                                     ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
                                     ->formatStateUsing(fn($state) => $state == 0 ? null : $state)
                                     ->dehydrateStateUsing(fn($state) => $state === null ? null : (float)$state)
                                     ->required()
                                     ->rules(['required', 'numeric', 'min:0'])
                                     ->validationMessages([
-                                        'required' => 'Ticket price is required',
-                                        'numeric' => 'Ticket price must be a number',
-                                        'min' => 'Ticket price cannot be negative',
+                                        'required' => __('breakdown-form.validation.required_field.price'),
+                                        'numeric' => __('breakdown-form.validation.numeric'),
+                                        'min' => __('breakdown-form.validation.min'),
                                     ])
                                     ->default(0),
                             ])
-                            ->addActionLabel('Add Ticket')
+                            ->addActionLabel(__('common-fields.add'))
                             ->collapsible(),
                     ]),
 
-                Wizard\Step::make('Meals')
+                Wizard\Step::make(__('breakdown-form.steps.meals'))
                     ->icon('heroicon-o-cake')
                     
                     ->schema([
@@ -321,33 +311,33 @@ class BreakdownForm
                             ->reorderable(false)
                             ->hiddenLabel()
                             ->table([
-                                TableColumn::make('Meal Type'),
-                                TableColumn::make('Price'),
+                                TableColumn::make(__('breakdown-form.meals.meal_type')),
+                                TableColumn::make(__('breakdown-form.meals.price')),
                             ])
                             ->schema([
                                 Select::make('meal_type_id')
-                                    ->label('Meal Type')
+                                    ->label(__('breakdown-form.meals.meal_type'))
                                     ->disabled()
                                     ->options(\App\Models\Tenants\MealType::pluck('name', 'id'))
                                     ->searchable()
                                     ->required()
                                     ->dehydrated(),
                                 TextInput::make('price')
-                                    ->label('Price')
+                                    ->label(__('breakdown-form.meals.price'))
                                     ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
                                     ->required()
                                     ->rules(['required', 'numeric', 'min:0'])
                                     ->validationMessages([
-                                        'required' => 'Price is required',
-                                        'numeric' => 'Price must be a valid number',
-                                        'min' => 'Price cannot be negative',
+                                        'required' => __('breakdown-form.validation.required_field.price'),
+                                        'numeric' => __('breakdown-form.validation.numeric'),
+                                        'min' => __('breakdown-form.validation.min'),
                                     ]),
                             ])
-                            ->addActionLabel('Add Meal')
+                            ->addActionLabel(__('common-fields.add'))
                             ->collapsible(),
                     ]),
 
-                Wizard\Step::make('Hotels')
+                Wizard\Step::make(__('breakdown-form.steps.hotels'))
                     ->icon('heroicon-o-building-office')
                     ->schema([
                         Repeater::make('accommodations')
@@ -356,65 +346,65 @@ class BreakdownForm
                             ->deletable(false)
                             ->reorderable(false)
                             ->table([
-                                TableColumn::make('Accommodation')->width('22%'),
-                                TableColumn::make('City')->width('18%'),
-                                TableColumn::make('Nights')->width('12%'),
-                                TableColumn::make('Breakfast')->width('12%'),
-                                TableColumn::make('Room Categories')->width('36%'),
+                                TableColumn::make(__('breakdown-form.hotels.accommodation'))->width('22%'),
+                                TableColumn::make(__('breakdown-form.hotels.city'))->width('18%'),
+                                TableColumn::make(__('breakdown-form.hotels.nights'))->width('12%'),
+                                TableColumn::make(__('common-fields.breakfast'))->width('12%'),
+                                TableColumn::make(__('breakdown-form.hotels.room_categories'))->width('36%'),
                             ])
                             ->schema([
                                 Select::make('accommodation_id')
-                                    ->label('Accommodation')
+                                    ->label(__('breakdown-form.hotels.accommodation'))
                                     ->options(\App\Models\Base\Accommodation::pluck('name', 'id'))
                                     ->searchable()
                                     ->required()
                                     ->disabled()
                                     ->dehydrated(),
                                 Select::make('city_id')
-                                    ->label('City')
+                                    ->label(__('breakdown-form.hotels.city'))
                                     ->options(\App\Models\Base\City::pluck('name', 'id'))
                                     ->searchable()
                                     ->required()
                                     ->disabled()
                                     ->dehydrated(),
                                 TextInput::make('nights_qty')
-                                    ->label('Nights')
+                                    ->label(__('breakdown-form.hotels.nights'))
                                     ->numeric()
                                     ->disabled()
                                     ->default(1)
                                     ->dehydrated(),
                                 Toggle::make('has_breakfast')
-                                    ->label('Has Breakfast')
+                                    ->label(__('breakdown-form.hotels.has_breakfast'))
                                     ->default(true),
                                 Repeater::make('rooms')
-                                    ->label('Room Categories')
+                                    ->label(__('breakdown-form.hotels.room_categories'))
                                     ->addable(false)
                                     ->deletable(false)
                                     ->reorderable(false)
                                     ->table([
-                                        TableColumn::make('Room Category')->width('60%'),
-                                        TableColumn::make('Price')->width('40%'),
+                                        TableColumn::make(__('breakdown-form.hotels.room_category'))->width('60%'),
+                                        TableColumn::make(__('breakdown-form.hotels.price'))->width('40%'),
                                     ])
                                     ->schema([
                                         Grid::make(2)
                                             ->schema([
                                                 Select::make('room_category_id')
-                                                    ->label('Room Category')
+                                                    ->label(__('breakdown-form.hotels.room_category'))
                                                     ->options(\App\Models\Base\RoomCategory::pluck('name', 'id'))
                                                     ->searchable()
                                                     ->required()
                                                     ->disabled()
                                                     ->dehydrated(),
                                                 TextInput::make('price')
-                                                    ->label('Price')
+                                                    ->label(__('breakdown-form.hotels.price'))
                                                     ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
                                                     ->required()
-                                                    ->placeholder('Enter room price')
+                                                    ->placeholder(__('breakdown-form.placeholders.enter_price'))
                                                     ->rules(['required', 'numeric', 'min:0'])
                                                     ->validationMessages([
-                                                        'required' => 'Room price is required',
-                                                        'numeric' => 'Value must be a valid number',
-                                                        'min' => 'Value cannot be negative',
+                                                        'required' => __('breakdown-form.validation.required_field.price'),
+                                                        'numeric' => __('breakdown-form.validation.numeric'),
+                                                        'min' => __('breakdown-form.validation.min'),
                                                     ]),
                                             ])
                                     ])
@@ -424,10 +414,10 @@ class BreakdownForm
                             ->deletable(false),
                     ]),
 
-                Wizard\Step::make('Attractions')
+                Wizard\Step::make(__('breakdown-form.steps.attractions'))
                     ->icon('heroicon-o-map-pin')
                     ->schema([
-                        Section::make('Experiences')
+                        Section::make(__('breakdown-form.attractions.experiences_section'))
                             ->schema([
                             Repeater::make('experiences')
                                     ->hiddenLabel()
@@ -435,16 +425,16 @@ class BreakdownForm
                                     ->deletable(false)
                                     ->reorderable(false)
                                     ->table([
-                                        TableColumn::make('Experience'),
-                                        TableColumn::make('Charge Mode'),
-                                        TableColumn::make('Free for Guide'),
-                                        TableColumn::make('Free for Companions'),
-                                        TableColumn::make('Price'),
+                                        TableColumn::make(__('breakdown-form.attractions.experience')),
+                                        TableColumn::make(__('breakdown-form.attractions.charge_mode')),
+                                        TableColumn::make(__('breakdown-form.attractions.free_for_guide')),
+                                        TableColumn::make(__('breakdown-form.attractions.free_for_companions')),
+                                        TableColumn::make(__('breakdown-form.attractions.price')),
 
                                     ])
                                     ->schema([
                                         Select::make('experience_id')
-                                            ->label('Experience')
+                                            ->label(__('breakdown-form.attractions.experience'))
                                             ->disabled()
                                             ->options(\App\Models\Tenants\Experience::pluck('name', 'id'))
                                             ->searchable()
@@ -452,20 +442,16 @@ class BreakdownForm
                                             ->dehydrated(),
                                         Select::make('charge_mode')
                                             ->disabled()
-                                            ->label('Charge Mode')
-                                            ->options([
-                                                'per_person' => 'Per Person',
-                                                'per_group' => 'Per Group',
-                                                'per_hour' => 'Per Hour',
-                                            ])
+                                            ->label(__('breakdown-form.attractions.charge_mode'))
+                                            ->options(\App\Enums\ChargeModeEnum::getOptions())
                                             ->required()
                                             ->dehydrated(),
 
                                         Toggle::make('is_free_for_guide')
-                                            ->label('Free for Guide')
+                                            ->label(__('breakdown-form.attractions.free_for_guide'))
                                             ->dehydrated(),
                                         Toggle::make('is_free_for_other_companions')
-                                            ->label('Free for Companions')
+                                            ->label(__('breakdown-form.attractions.free_for_companions'))
                                             ->live()
                                             ->afterStateUpdated(function ($state, $set) {
                                                 if ($state) {
@@ -475,92 +461,92 @@ class BreakdownForm
                                             ->dehydrated(),
                                             TextInput::make('price')
                                         
-                                            ->label('Price')
+                                            ->label(__('breakdown-form.attractions.price'))
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
                                             ->default(0)
                                             ->required()
                                             ->rules(['required', 'numeric', 'min:0'])
                                             ->validationMessages([
-                                                'required' => 'Price is required',
-                                                'numeric' => 'Value must be a valid number',
-                                                'min' => 'Value cannot be negative',
+                                                'required' => __('breakdown-form.validation.required_field.price'),
+                                                'numeric' => __('breakdown-form.validation.numeric'),
+                                                'min' => __('breakdown-form.validation.min'),
                                             ]),
                                     ])
-                                    ->addActionLabel('Add Experience')
+                                    ->addActionLabel(__('common-fields.add'))
                                     ->collapsible(),
                             ]),
-                        Section::make('Attractions')
+                        Section::make(__('breakdown-form.attractions.section_title'))
                             ->schema([
                             Repeater::make('attractions')
                                     ->hiddenLabel()
                                     ->table([
-                                        TableColumn::make('Attraction')->width('20%'),
-                                        TableColumn::make('City')->width('15%'),
-                                        TableColumn::make('Entry Price')->width('15%'),
-                                        TableColumn::make('Outview')->width('10%'),
-                                        TableColumn::make('Sub Attractions')->width('40%'),
+                                        TableColumn::make(__('breakdown-form.attractions.attraction'))->width('20%'),
+                                        TableColumn::make(__('breakdown-form.attractions.city'))->width('15%'),
+                                        TableColumn::make(__('breakdown-form.attractions.entry_price'))->width('15%'),
+                                        TableColumn::make(__('breakdown-form.attractions.outview'))->width('10%'),
+                                        TableColumn::make(__('breakdown-form.attractions.sub_attractions'))->width('40%'),
                                     ])
                                     ->schema([
                                         Select::make('attraction_id')
-                                            ->label('Attraction')
+                                            ->label(__('breakdown-form.attractions.attraction'))
                                             ->options(\App\Models\Base\Attraction::pluck('name', 'id'))
                                             ->searchable()
                                             ->required()
                                             ->disabled()
                                             ->dehydrated(),
                                         Select::make('city_id')
-                                            ->label('City')
+                                            ->label(__('breakdown-form.attractions.city'))
                                             ->options(\App\Models\Base\City::pluck('name', 'id'))
                                             ->searchable()
                                             ->required()
                                             ->disabled()
                                             ->dehydrated(),
                                         TextInput::make('entry_price')
-                                            ->label('Entry Price')
+                                            ->label(__('breakdown-form.attractions.entry_price'))
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
                                             ->default(0)
                                             ->required()
                                             ->rules(['required', 'numeric', 'min:0'])
                                             ->validationMessages([
-                                                'required' => 'Entry price is required',
-                                                'numeric' => 'Value must be a valid number',
-                                                'min' => 'Value cannot be negative',
+                                                'required' => __('breakdown-form.validation.required_field.entry_price'),
+                                                'numeric' => __('breakdown-form.validation.numeric'),
+                                                'min' => __('breakdown-form.validation.min'),
                                             ])
                                             ->disabled(fn($get) => $get('is_outview') == true),
                                         Toggle::make('is_outview')
-                                            ->label('Outview')
+                                            ->label(__('breakdown-form.attractions.outview'))
                                             ->disabled()
                                             ->reactive(),
                                         Repeater::make('subAttractions')
                                             ->addable(false)
                                             ->deletable(false)
                                             ->reorderable(false)
-                                            ->label('Sub Attractions')
+                                            ->label(__('breakdown-form.attractions.sub_attractions'))
                                             ->hidden(fn($get) => $get('is_outview') == true)
                                             ->table([
-                                                TableColumn::make('Sub Attraction')->width('60%'),
-                                                TableColumn::make('Price')->width('40%'),
+                                                TableColumn::make(__('breakdown-form.attractions.sub_attraction'))->width('60%'),
+                                                TableColumn::make(__('breakdown-form.attractions.price'))->width('40%'),
                                             ])
                                             ->schema([
                                                 Grid::make(2)
                                                     ->schema([
                                                         Select::make('sub_attraction_id')
-                                                            ->label('Sub Attraction')
+                                                            ->label(__('breakdown-form.attractions.sub_attraction'))
                                                             ->options(\App\Models\Base\SubAttraction::pluck('name', 'id'))
                                                             ->searchable()
                                                             ->required()
                                                             ->disabled()
                                                             ->dehydrated(),
                                                         TextInput::make('price')
-                                                            ->label('Price')
+                                                            ->label(__('breakdown-form.attractions.price'))
                                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
                                                             ->required()
-                                                            ->placeholder('Enter price')
+                                                            ->placeholder(__('breakdown-form.placeholders.enter_price'))
                                                             ->rules(['required', 'numeric', 'min:0'])
                                                             ->validationMessages([
-                                                                'required' => 'Price is required',
-                                                                'numeric' => 'Value must be a valid number',
-                                                                'min' => 'Value cannot be negative',
+                                                                'required' => __('breakdown-form.validation.required_field.price'),
+                                                                'numeric' => __('breakdown-form.validation.numeric'),
+                                                                'min' => __('breakdown-form.validation.min'),
                                                             ]),
                                                     ])
                                             ])->addable(false)->deletable(false)
@@ -569,38 +555,38 @@ class BreakdownForm
                             ]),
                     ]),
 
-                Wizard\Step::make('Companions')
+                Wizard\Step::make(__('breakdown-form.steps.companions'))
                     ->icon('heroicon-o-user-group')
                     ->schema([
-                        Section::make('Companion Budgets')
+                        Section::make(__('breakdown-form.companions.budgets_section'))
                             ->schema([
                                 Grid::make(2)
                                     ->schema([
                                         TextInput::make('companion_base_meal_budget')
-                                            ->label('Companion Meal Budget')
+                                            ->label(__('breakdown-form.companions.companion_meal_budget'))
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
                                             ->default(50)
                                             ->required()
                                             ->rules(['required', 'numeric', 'min:0'])
                                             ->validationMessages([
-                                                'required' => 'Companion meal budget is required',
-                                                'numeric' => 'Value must be a number',
-                                                'min' => 'Value cannot be negative',
+                                                'required' => __('breakdown-form.validation.required_field.companion_meal_budget'),
+                                                'numeric' => __('breakdown-form.validation.numeric'),
+                                                'min' => __('breakdown-form.validation.min'),
                                             ]),
                                         TextInput::make('companion_base_accommodation_budget')
-                                            ->label('Companion Accommodation Budget')
+                                            ->label(__('breakdown-form.companions.companion_accommodation_budget'))
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
                                             ->default(100)
                                             ->required()
                                             ->rules(['required', 'numeric', 'min:0'])
                                             ->validationMessages([
-                                                'required' => 'Companion accommodation budget is required',
-                                                'numeric' => 'Value must be a number',
-                                                'min' => 'Value cannot be negative',
+                                                'required' => __('breakdown-form.validation.required_field.companion_accommodation_budget'),
+                                                'numeric' => __('breakdown-form.validation.numeric'),
+                                                'min' => __('breakdown-form.validation.min'),
                                             ]),
                                     ]),
                             ]),
-                        Section::make('Companions')
+                        Section::make(__('breakdown-form.companions.section_title'))
                             ->schema([
                             Repeater::make('companions')
                                     ->hiddenLabel()
@@ -646,9 +632,7 @@ class BreakdownForm
                                                     ->count();
                                                 
                                                 if ($usageCount > 0) {
-                                                    $companionType = \App\Models\Tenants\CompanionType::find($companionData['companion_type_id']);
-                                                    $companionName = $companionType ? $companionType->name : 'This companion';
-                                                    return "{$companionName} is used in {$usageCount} offer group(s). Please remove it from offer groups first.";
+                                                    return __('breakdown-form.companions.cannot_delete_in_use', ['count' => $usageCount]);
                                                 }
                                                 
                                                 return null;
@@ -675,14 +659,14 @@ class BreakdownForm
                                         },
                                     ])
                                     ->table([
-                                        TableColumn::make('Companion Type'),
-                                        TableColumn::make('Per Day Price'),
-                                        TableColumn::make('Half Day Price'),
-                                        TableColumn::make('Per Hour Price'),
+                                        TableColumn::make(__('breakdown-form.companions.companion_type')),
+                                        TableColumn::make(__('breakdown-form.companions.per_day_price')),
+                                        TableColumn::make(__('breakdown-form.companions.half_day_price')),
+                                        TableColumn::make(__('breakdown-form.companions.per_hour_price')),
                                     ])
                                     ->schema([
                                         Select::make('companion_type_id')
-                                            ->label('Companion Type')
+                                            ->label(__('breakdown-form.companions.companion_type'))
                                             ->options(\App\Models\Tenants\CompanionType::pluck('name', 'id'))
                                             ->searchable()
                                             ->required()
@@ -703,81 +687,81 @@ class BreakdownForm
                                                 }
                                             }),
                                         TextInput::make('per_day_price')
-                                            ->label('Per Day Price')
+                                            ->label(__('breakdown-form.companions.per_day_price'))
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
                                             ->formatStateUsing(fn($state) => $state == 0 ? null : $state)
                                             ->dehydrateStateUsing(fn($state) => $state ?: 0)
                                             ->required()
-                                            ->placeholder('Enter price')
+                                            ->placeholder(__('breakdown-form.placeholders.enter_price'))
                                             ->rules(['required', 'numeric', 'min:0'])
                                             ->validationMessages([
-                                                'required' => 'Per day price is required',
-                                                'numeric' => 'Price must be a valid number',
-                                                'min' => 'Price cannot be negative',
+                                                'required' => __('breakdown-form.validation.required_field.price'),
+                                                'numeric' => __('breakdown-form.validation.numeric'),
+                                                'min' => __('breakdown-form.validation.min'),
                                             ]),
                                         TextInput::make('half_day_price')
-                                            ->label('Half Day Price')
+                                            ->label(__('breakdown-form.companions.half_day_price'))
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
                                             ->formatStateUsing(fn($state) => $state == 0 ? null : $state)
                                             ->dehydrateStateUsing(fn($state) => $state ?: 0)
                                             ->required()
-                                            ->placeholder('Enter price')
+                                            ->placeholder(__('breakdown-form.placeholders.enter_price'))
                                             ->rules(['required', 'numeric', 'min:0'])
                                             ->validationMessages([
-                                                'required' => 'Half day price is required',
-                                                'numeric' => 'Price must be a valid number',
-                                                'min' => 'Price cannot be negative',
+                                                'required' => __('breakdown-form.validation.required_field.price'),
+                                                'numeric' => __('breakdown-form.validation.numeric'),
+                                                'min' => __('breakdown-form.validation.min'),
                                             ]),
                                         TextInput::make('per_hour_price')
-                                            ->label('Per Hour Price')
+                                            ->label(__('breakdown-form.companions.per_hour_price'))
                                             ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
                                             ->formatStateUsing(fn($state) => $state == 0 ? null : $state)
                                             ->dehydrateStateUsing(fn($state) => $state ?: 0)
                                             ->required()
-                                            ->placeholder('Enter price')
+                                            ->placeholder(__('breakdown-form.placeholders.enter_price'))
                                             ->rules(['required', 'numeric', 'min:0'])
                                             ->validationMessages([
-                                                'required' => 'Per hour price is required',
-                                                'numeric' => 'Price must be a valid number',
-                                                'min' => 'Price cannot be negative',
+                                                'required' => __('breakdown-form.validation.required_field.price'),
+                                                'numeric' => __('breakdown-form.validation.numeric'),
+                                                'min' => __('breakdown-form.validation.min'),
                                             ]),
                                     ])
-                                    ->addActionLabel('Add Companion')
+                                    ->addActionLabel(__('common-fields.add'))
                                     ->collapsible(),
                             ]),
                     ]),
 
-                Wizard\Step::make('Expenses')
+                Wizard\Step::make(__('breakdown-form.steps.expenses'))
                     ->icon('heroicon-o-currency-dollar')
                     ->schema([
                         Repeater::make('expenses')
                             ->hiddenLabel()
                             ->reorderable(false)
                             ->table([
-                                TableColumn::make('Description'),
-                                TableColumn::make('Charge Mode'),
-                                TableColumn::make('Price'),
+                                TableColumn::make(__('common-fields.description')),
+                                TableColumn::make(__('breakdown-form.expenses.charge_mode')),
+                                TableColumn::make(__('breakdown-form.expenses.price')),
                             ])
                             ->schema([
                                 TextInput::make('description')
-                                    ->label('Description')
+                                    ->label(__('common-fields.description'))
                                     ->required(),
                                 Select::make('charge_mode')
-                                    ->label('Charge Mode')
+                                    ->label(__('breakdown-form.expenses.charge_mode'))
                                     ->options(\App\Enums\ChargeModeEnum::getOptions())
                                     ->required(),
                                 TextInput::make('price')
-                                    ->label('Price')
+                                    ->label(__('breakdown-form.expenses.price'))
                                     ->prefix(fn($record) => $record?->breakdown?->currency?->symbol)
                                     ->required()
                                     ->rules(['required', 'numeric', 'min:0'])
                                     ->validationMessages([
-                                        'required' => 'Price is required',
-                                        'numeric' => 'Price must be a valid number',
-                                        'min' => 'Price cannot be negative',
+                                        'required' => __('breakdown-form.validation.required_field.price'),
+                                        'numeric' => __('breakdown-form.validation.numeric'),
+                                        'min' => __('breakdown-form.validation.min'),
                                     ]),
                             ])
-                            ->addActionLabel('Add Expense')
+                            ->addActionLabel(__('common-fields.add'))
                             ->collapsible(),
                     ]),
                 ])->columnSpanFull()->skippable()

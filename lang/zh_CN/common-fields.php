@@ -95,5 +95,6 @@ return [
     'sub_attractions' => '子景点',
     'entry_price' => '门票价格',
     'save' => '保存',
+    'add' => '添加',
 ];
 

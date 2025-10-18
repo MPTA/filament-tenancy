@@ -95,5 +95,6 @@ return [
     'sub_attractions' => 'Sub-Attractions',
     'entry_price' => 'Entry Price',
     'save' => 'Save',
+    'add' => 'Add',
 ];
 
