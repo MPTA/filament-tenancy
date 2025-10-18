@@ -16,10 +16,23 @@ class Province extends Model
 
     protected $table = 'provinces';
     public $translatable = ['name'];
-    protected $fillable = ['name', 'code', 'country_id'];
+    protected $fillable = [
+        'name',
+        'code',
+        'country_id',
+        'iso3166_2',
+        'fips_code',
+        'level',
+        'latitude',
+        'longitude',
+        'timezone',
+        'wiki_data_id',
+    ];
 
     protected $casts = [
         'name' => 'array',
+        'latitude' => 'decimal:8',
+        'longitude' => 'decimal:8',
     ];
 
     /**
