@@ -38,5 +38,9 @@ return [
         'cannot_delete_title' => 'Cannot delete inquiry',
         'cannot_delete_body' => 'This inquiry has :count quotation(s). Please delete all quotations first.',
     ],
+    
+    'widgets' => [
+        'total_inquiries' => 'Total Inquiries',
+    ],
 ];
 

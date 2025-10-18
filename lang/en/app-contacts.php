@@ -80,5 +80,9 @@ return [
         'phone' => 'Phone',
         'company' => 'Company',
     ],
+    
+    'widgets' => [
+        'total_contacts' => 'Total Contacts',
+    ],
 ];
 

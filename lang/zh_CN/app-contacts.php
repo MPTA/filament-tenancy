@@ -80,5 +80,9 @@ return [
         'phone' => '电话',
         'company' => '公司',
     ],
+    
+    'widgets' => [
+        'total_contacts' => '联系人总数',
+    ],
 ];
 

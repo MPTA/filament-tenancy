@@ -38,5 +38,9 @@ return [
         'cannot_delete_title' => '无法删除询价',
         'cannot_delete_body' => '此询价有 :count 个报价单。请先删除所有报价单。',
     ],
+    
+    'widgets' => [
+        'total_inquiries' => '询价总数',
+    ],
 ];
 

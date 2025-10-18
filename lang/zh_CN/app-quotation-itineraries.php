@@ -15,6 +15,7 @@ return [
         'contact' => '联系人',
         'requested_currency' => '请求货币',
         'inquiry_number' => '询价编号',
+        'customer_name' => '客户名称',
         'quotation_number' => '报价单编号',
         'currency' => '货币',
         'date_type' => '日期类型',
@@ -163,7 +164,6 @@ return [
         'select_travel_mode' => '选择旅行方式',
         'no_transportations' => '无交通详情。点击"创建交通"添加入境和出境交通。',
         'unknown_city' => '未知城市',
-        'not_specified' => '未指定',
         'na' => '不适用',
         'unknown' => '未知',
         'no_prices' => '无价格',
@@ -598,6 +598,12 @@ return [
         'create_offer_heading' => '创建新优惠',
         'edit_offer_heading' => '编辑优惠',
         'offer_details_report_heading' => '优惠详情报告',
+    ],
+    
+    // Widgets
+    'widgets' => [
+        'latest_updates' => '最新更新的报价单',
+        'total_quotations' => '报价单总数',
     ],
     
     // Offers Notifications

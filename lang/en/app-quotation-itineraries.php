@@ -15,6 +15,7 @@ return [
         'contact' => 'Contact',
         'requested_currency' => 'Requested Currency',
         'inquiry_number' => 'Inquiry Number',
+        'customer_name' => 'Customer Name',
         'quotation_number' => 'Quotation Number',
         'currency' => 'Currency',
         'date_type' => 'Date Type',
@@ -163,7 +164,6 @@ return [
         'select_travel_mode' => 'Select travel mode',
         'no_transportations' => 'No transportation details available. Click "Create Transportation" to add entry and exit transportation.',
         'unknown_city' => 'Unknown City',
-        'not_specified' => 'Not specified',
         'na' => 'N/A',
         'unknown' => 'Unknown',
         'no_prices' => 'No prices',
@@ -603,6 +603,12 @@ return [
         'create_offer_heading' => 'Create New Offer',
         'edit_offer_heading' => 'Edit Offer',
         'offer_details_report_heading' => 'Offer Details Report',
+    ],
+    
+    // Widgets
+    'widgets' => [
+        'latest_updates' => 'Latest Updated Quotations',
+        'total_quotations' => 'Total Quotations',
     ],
     
     // Offers Notifications

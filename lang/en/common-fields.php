@@ -96,5 +96,8 @@ return [
     'entry_price' => 'Entry Price',
     'save' => 'Save',
     'add' => 'Add',
+    'increase_from_last_month' => 'increase from last month',
+    'decrease_from_last_month' => 'decrease from last month',
+    'no_change_from_last_month' => 'No change from last month',
 ];
 

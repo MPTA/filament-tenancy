@@ -96,5 +96,8 @@ return [
     'entry_price' => '门票价格',
     'save' => '保存',
     'add' => '添加',
+    'increase_from_last_month' => '较上月增长',
+    'decrease_from_last_month' => '较上月减少',
+    'no_change_from_last_month' => '与上月无变化',
 ];
 
