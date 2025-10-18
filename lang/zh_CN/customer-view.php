@@ -15,6 +15,21 @@ return [
     'customer' => '客户：',
     'quotation_valid_dates' => '此报价单适用于特定旅行日期，从 :start_date 到 :end_date',
     
+    // Transportation Section
+    'transportation' => [
+        'title' => '交通详情',
+        'type' => '类型',
+        'number' => '编号',
+        'route' => '路线',
+        'departure' => '出发',
+        'arrival' => '到达',
+        'details' => '详情',
+        'dep_terminal' => '出发航站楼',
+        'arr_terminal' => '到达航站楼',
+        'entry_border' => '入境口岸',
+        'exit_border' => '出境口岸',
+    ],
+    
     // Itinerary Table Headers
     'table_headers' => [
         'day' => '天',

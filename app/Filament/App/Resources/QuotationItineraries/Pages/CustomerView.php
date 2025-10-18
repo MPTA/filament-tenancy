@@ -17,6 +17,7 @@ class CustomerView extends Page
     public QuotationItinerary $record;
     
     public array $itineraryDays = [];
+    public array $transportations = [];
     public ?Carbon $tripStartDate = null;
     public ?Carbon $tripEndDate = null;
 
@@ -102,6 +103,7 @@ class CustomerView extends Page
         ]);
 
         $this->calculateTripDates();
+        $this->prepareTransportations();
         $this->prepareItineraryDays();
     }
 
@@ -122,6 +124,7 @@ class CustomerView extends Page
                 ->action(function () {
                     $this->record->refresh();
                     $this->calculateTripDates();
+                    $this->prepareTransportations();
                     $this->prepareItineraryDays();
                     
                     \Filament\Notifications\Notification::make()
@@ -286,6 +289,7 @@ class CustomerView extends Page
         $pdf = \Barryvdh\DomPDF\Facade\Pdf::loadView('pdf.quotation-customer', [
             'record' => $this->record,
             'itineraryDays' => $this->itineraryDays,
+            'transportations' => $this->transportations,
             'tripStartDate' => $this->tripStartDate,
             'tripEndDate' => $this->tripEndDate,
         ]);
@@ -436,6 +440,39 @@ class CustomerView extends Page
             }
 
             $this->itineraryDays[] = $dayData;
+        }
+    }
+
+    /**
+     * Prepare transportation records with formatted data
+     */
+    protected function prepareTransportations(): void
+    {
+        $this->transportations = [];
+        
+        if (!$this->record->transportations || $this->record->transportations->isEmpty()) {
+            return;
+        }
+
+        foreach ($this->record->transportations as $transport) {
+            $this->transportations[] = [
+                'transport_mode' => $transport->transport_mode,
+                'transport_number' => $transport->transport_number,
+                'from_city' => $transport->use_custom_from_city 
+                    ? $transport->custom_from_city 
+                    : ($transport->fromCity?->name ?? 'N/A'),
+                'to_city' => $transport->use_custom_to_city 
+                    ? $transport->custom_to_city 
+                    : ($transport->toCity?->name ?? 'N/A'),
+                'departure_date' => $transport->departure_date,
+                'departure_time' => $transport->departure_time,
+                'arrival_date' => $transport->arrival_date,
+                'arrival_time' => $transport->arrival_time,
+                'departure_terminal' => $transport->departure_airport_terminal,
+                'arrival_terminal' => $transport->arrival_airport_terminal,
+                'entry_border' => $transport->entryBorder?->name,
+                'exit_border' => $transport->exitBorder?->name,
+            ];
         }
     }
 

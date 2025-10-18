@@ -295,6 +295,103 @@
         @endif
     </div>
 
+    {{-- Transportation Table --}}
+    @if(count($transportations) > 0)
+        <div style="margin-bottom: 12px;">
+            <div style="font-size: 10pt; font-weight: bold; margin-bottom: 5px; border-bottom: 2px solid #000; padding-bottom: 3px;">
+                Transportation Details
+            </div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th style="width: 12%;">Type</th>
+                        <th style="width: 12%;">Number</th>
+                        <th style="width: 18%;">Route</th>
+                        <th style="width: 14%;">Departure</th>
+                        <th style="width: 14%;">Arrival</th>
+                        <th style="width: 30%;">Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($transportations as $transport)
+                        <tr>
+                            {{-- Transport Mode --}}
+                            <td>
+                                @php
+                                    $transportIcon = '▶'; // Default
+                                    $transportLabel = 'Land';
+                                    if ($transport['transport_mode']) {
+                                        $transportIcon = match($transport['transport_mode']) {
+                                            \App\Enums\TransportModeEnum::AIR => '✈',
+                                            \App\Enums\TransportModeEnum::TRAIN => '⚡',
+                                            \App\Enums\TransportModeEnum::LAND => '▶',
+                                            \App\Enums\TransportModeEnum::CAR => '⚙',
+                                            \App\Enums\TransportModeEnum::SEA => '⚓',
+                                            default => '▶',
+                                        };
+                                        $transportLabel = $transport['transport_mode']->label();
+                                    }
+                                @endphp
+                                <span class="icon">{{ $transportIcon }}</span> {{ $transportLabel }}
+                            </td>
+
+                            {{-- Transport Number --}}
+                            <td>{{ $transport['transport_number'] ?? '-' }}</td>
+
+                            {{-- Route --}}
+                            <td>
+                                {{ $transport['from_city'] }} → {{ $transport['to_city'] }}
+                            </td>
+
+                            {{-- Departure --}}
+                            <td>
+                                @if($transport['departure_date'])
+                                    <strong>{{ $transport['departure_date']->format('d-M-Y') }}</strong>
+                                    @if($transport['departure_time'])
+                                        <br>{{ \Carbon\Carbon::parse($transport['departure_time'])->format('H:i') }}
+                                    @endif
+                                @else
+                                    -
+                                @endif
+                            </td>
+
+                            {{-- Arrival --}}
+                            <td>
+                                @if($transport['arrival_date'])
+                                    <strong>{{ $transport['arrival_date']->format('d-M-Y') }}</strong>
+                                    @if($transport['arrival_time'])
+                                        <br>{{ \Carbon\Carbon::parse($transport['arrival_time'])->format('H:i') }}
+                                    @endif
+                                @else
+                                    -
+                                @endif
+                            </td>
+
+                            {{-- Additional Details --}}
+                            <td style="font-size: 6pt;">
+                                @if($transport['departure_terminal'])
+                                    Dep Terminal: {{ $transport['departure_terminal'] }}<br>
+                                @endif
+                                @if($transport['arrival_terminal'])
+                                    Arr Terminal: {{ $transport['arrival_terminal'] }}<br>
+                                @endif
+                                @if($transport['entry_border'])
+                                    Entry: {{ $transport['entry_border'] }}<br>
+                                @endif
+                                @if($transport['exit_border'])
+                                    Exit: {{ $transport['exit_border'] }}
+                                @endif
+                                @if(!$transport['departure_terminal'] && !$transport['arrival_terminal'] && !$transport['entry_border'] && !$transport['exit_border'])
+                                    -
+                                @endif
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    @endif
+
     {{-- Itinerary Table --}}
     @if($record->itinerary && count($itineraryDays) > 0)
         <table class="data-table">

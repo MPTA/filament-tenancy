@@ -160,6 +160,117 @@
             @endif
         </div>
 
+        {{-- Transportation Section --}}
+        @if(count($transportations) > 0)
+            <div class="transportation-section" style="margin-bottom: 25px !important; padding-bottom: 10px !important;">
+                <h2>{{ __('customer-view.transportation.title') }}</h2>
+                <table class="transportation-table" style="width: 100% !important; border-collapse: collapse !important; border: 2px solid #000 !important; background: white !important;">
+                    <thead>
+                        <tr>
+                            <th style="border: 1px solid #000 !important; padding: 8px !important; background: #f3f4f6 !important; font-weight: bold !important;">{{ __('customer-view.transportation.type') }}</th>
+                            <th style="border: 1px solid #000 !important; padding: 8px !important; background: #f3f4f6 !important; font-weight: bold !important;">{{ __('customer-view.transportation.number') }}</th>
+                            <th style="border: 1px solid #000 !important; padding: 8px !important; background: #f3f4f6 !important; font-weight: bold !important;">{{ __('customer-view.transportation.route') }}</th>
+                            <th style="border: 1px solid #000 !important; padding: 8px !important; background: #f3f4f6 !important; font-weight: bold !important;">{{ __('customer-view.transportation.departure') }}</th>
+                            <th style="border: 1px solid #000 !important; padding: 8px !important; background: #f3f4f6 !important; font-weight: bold !important;">{{ __('customer-view.transportation.arrival') }}</th>
+                            <th style="border: 1px solid #000 !important; padding: 8px !important; background: #f3f4f6 !important; font-weight: bold !important;">{{ __('customer-view.transportation.details') }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($transportations as $transport)
+                            <tr>
+                                {{-- Transport Mode --}}
+                                <td class="transport-mode-cell" style="border: 1px solid #000 !important; padding: 8px !important;">
+                                    @php
+                                        $transportIcon = '🚌'; // Default
+                                        $transportLabel = 'Land';
+                                        if ($transport['transport_mode']) {
+                                            $transportIcon = match($transport['transport_mode']) {
+                                                \App\Enums\TransportModeEnum::AIR => '✈️',
+                                                \App\Enums\TransportModeEnum::TRAIN => '🚂',
+                                                \App\Enums\TransportModeEnum::LAND => '🚌',
+                                                \App\Enums\TransportModeEnum::CAR => '🚗',
+                                                \App\Enums\TransportModeEnum::SEA => '🚢',
+                                                default => '🚌',
+                                            };
+                                            $transportLabel = $transport['transport_mode']->label();
+                                        }
+                                    @endphp
+                                    <div class="transport-mode-info">
+                                        <span class="transport-icon-large">{{ $transportIcon }}</span>
+                                        <span class="transport-label">{{ $transportLabel }}</span>
+                                    </div>
+                                </td>
+
+                                {{-- Transport Number --}}
+                                <td class="transport-number-cell" style="border: 1px solid #000 !important; padding: 8px !important;">
+                                    {{ $transport['transport_number'] ?? '-' }}
+                                </td>
+
+                                {{-- Route --}}
+                                <td class="transport-route-cell" style="border: 1px solid #000 !important; padding: 8px !important;">
+                                    <div class="route-info">
+                                        <span class="route-from">{{ $transport['from_city'] }}</span>
+                                        <span class="route-arrow">→</span>
+                                        <span class="route-to">{{ $transport['to_city'] }}</span>
+                                    </div>
+                                </td>
+
+                                {{-- Departure --}}
+                                <td class="transport-datetime-cell" style="border: 1px solid #000 !important; padding: 8px !important;">
+                                    @if($transport['departure_date'])
+                                        <div class="datetime-info">
+                                            <div class="date">{{ $transport['departure_date']->format('d-M-Y') }}</div>
+                                            @if($transport['departure_time'])
+                                                <div class="time">{{ \Carbon\Carbon::parse($transport['departure_time'])->format('H:i') }}</div>
+                                            @endif
+                                        </div>
+                                    @else
+                                        -
+                                    @endif
+                                </td>
+
+                                {{-- Arrival --}}
+                                <td class="transport-datetime-cell" style="border: 1px solid #000 !important; padding: 8px !important;">
+                                    @if($transport['arrival_date'])
+                                        <div class="datetime-info">
+                                            <div class="date">{{ $transport['arrival_date']->format('d-M-Y') }}</div>
+                                            @if($transport['arrival_time'])
+                                                <div class="time">{{ \Carbon\Carbon::parse($transport['arrival_time'])->format('H:i') }}</div>
+                                            @endif
+                                        </div>
+                                    @else
+                                        -
+                                    @endif
+                                </td>
+
+                                {{-- Additional Details --}}
+                                <td class="transport-details-cell" style="border: 1px solid #000 !important; padding: 8px !important;">
+                                    @if($transport['departure_terminal'] || $transport['arrival_terminal'] || $transport['entry_border'] || $transport['exit_border'])
+                                        <div class="transport-details">
+                                            @if($transport['departure_terminal'])
+                                                <div class="detail-item">{{ __('customer-view.transportation.dep_terminal') }}: {{ $transport['departure_terminal'] }}</div>
+                                            @endif
+                                            @if($transport['arrival_terminal'])
+                                                <div class="detail-item">{{ __('customer-view.transportation.arr_terminal') }}: {{ $transport['arrival_terminal'] }}</div>
+                                            @endif
+                                            @if($transport['entry_border'])
+                                                <div class="detail-item">{{ __('customer-view.transportation.entry_border') }}: {{ $transport['entry_border'] }}</div>
+                                            @endif
+                                            @if($transport['exit_border'])
+                                                <div class="detail-item">{{ __('customer-view.transportation.exit_border') }}: {{ $transport['exit_border'] }}</div>
+                                            @endif
+                                        </div>
+                                    @else
+                                        -
+                                    @endif
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        @endif
+
         {{-- Itinerary Section --}}
         @if($record->itinerary && count($itineraryDays) > 0)
             <div class="itinerary-section">

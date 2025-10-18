@@ -15,6 +15,21 @@ return [
     'customer' => 'Customer:',
     'quotation_valid_dates' => 'This quotation is valid for specific travel date From :start_date To: :end_date',
     
+    // Transportation Section
+    'transportation' => [
+        'title' => 'Transportation Details',
+        'type' => 'Type',
+        'number' => 'Number',
+        'route' => 'Route',
+        'departure' => 'Departure',
+        'arrival' => 'Arrival',
+        'details' => 'Details',
+        'dep_terminal' => 'Dep Terminal',
+        'arr_terminal' => 'Arr Terminal',
+        'entry_border' => 'Entry Border',
+        'exit_border' => 'Exit Border',
+    ],
+    
     // Itinerary Table Headers
     'table_headers' => [
         'day' => 'Day',
