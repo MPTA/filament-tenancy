@@ -213,7 +213,13 @@ class EditBreakdown extends EditRecord
                 'accommodations', 'attractions', 'companions', 'expenses'
             ])->toArray();
             
+            // Mark breakdown as incomplete and lock offer groups
+            $breakdownData['is_completed'] = false;
+            
             $this->record->breakdown->update($breakdownData);
+            
+            // Lock offer groups when breakdown is edited
+            $this->record->breakdown->lockAllOfferGroups();
             
             // Handle relationship data
             $this->handleRelationshipData($data);

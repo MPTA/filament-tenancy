@@ -54,6 +54,19 @@ class Itinerary extends Model
         static::updated(function ($itinerary) {
             if ($itinerary->wasChanged(['travel_mode', 'is_advanced', 'is_vip'])) {
             }
+            
+            // When itinerary completion status changes, manage offer groups
+            if ($itinerary->wasChanged('is_complete')) {
+                $breakdown = $itinerary->breakdown;
+                if ($breakdown) {
+                    if (!$itinerary->is_complete) {
+                        // Itinerary became incomplete - lock offer groups
+                        $breakdown->lockAllOfferGroups();
+                    }
+                    // NOTE: When itinerary becomes complete, we DON'T unlock yet
+                    // We wait for breakdown to be completed, which will trigger the sync
+                }
+            }
         });
 
         // When itinerary is deleted, delete the breakdown as well

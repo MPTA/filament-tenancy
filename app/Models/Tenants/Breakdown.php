@@ -52,6 +52,9 @@ class Breakdown extends Model
         static::updating(function ($breakdown) {
             if ($breakdown->isDirty() && !$breakdown->isDirty('is_completed')) {
                 $breakdown->is_completed = false;
+                
+                // Lock all offer groups immediately when breakdown is being edited
+                $breakdown->lockAllOfferGroups();
             }
         });
 
@@ -59,8 +62,16 @@ class Breakdown extends Model
         static::updated(function ($breakdown) {
             if ($breakdown->wasChanged('is_completed')) {
                 if ($breakdown->is_completed) {
-                    // Unlock and recalculate all offer groups when completed
-                    $breakdown->syncAllOfferGroups();
+                    // Only unlock and sync if BOTH breakdown AND itinerary are complete
+                    $itinerary = $breakdown->quotationItinerary->itinerary;
+                    
+                    if ($itinerary && $itinerary->is_complete) {
+                        // Unlock and recalculate all offer groups when both are completed
+                        $breakdown->syncAllOfferGroups();
+                    } else {
+                        // Keep locked if itinerary is not complete
+                        $breakdown->lockAllOfferGroups();
+                    }
                 } else {
                     // Lock all offer groups when becomes incomplete
                     $breakdown->lockAllOfferGroups();
