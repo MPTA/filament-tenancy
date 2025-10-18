@@ -81,16 +81,31 @@ class ItineraryTab
                                     [
                                         // Entry: arrival_date = from_date (when arriving to the country)
                                         'arrival_date' => $inquiryItinerary->from_date->format('Y-m-d'),
+                                        'use_custom_from_city' => true, // Entry Transportation: Use custom from city
+                                        'use_custom_to_city' => false, // Entry Transportation: Use select for to city
                                     ],
                                     [
                                         // Exit: departure_date = to_date (when leaving the country)
                                         'departure_date' => $inquiryItinerary->to_date->format('Y-m-d'),
+                                        'use_custom_from_city' => false, // Exit Transportation: Use select for from city
+                                        'use_custom_to_city' => true, // Exit Transportation: Use custom to city
                                     ],
                                 ],
                             ];
                         }
                         
-                        return [];
+                        return [
+                            'transportations' => [
+                                [
+                                    'use_custom_from_city' => true, // Entry Transportation: Use custom from city
+                                    'use_custom_to_city' => false, // Entry Transportation: Use select for to city
+                                ],
+                                [
+                                    'use_custom_from_city' => false, // Exit Transportation: Use select for from city
+                                    'use_custom_to_city' => true, // Exit Transportation: Use custom to city
+                                ],
+                            ],
+                        ];
                     })
                     ->schema([
                         TransportationRepeater::make(false)
@@ -101,6 +116,10 @@ class ItineraryTab
                             foreach ($data['transportations'] as $transportationData) {
                                 // Skip empty transportations
                                 if (!empty($transportationData['transport_mode']) || !empty($transportationData['from_city_id'])) {
+                                    // Set checkbox values based on which fields have values
+                                    $transportationData['use_custom_from_city'] = !empty($transportationData['custom_from_city']);
+                                    $transportationData['use_custom_to_city'] = !empty($transportationData['custom_to_city']);
+                                    
                                     $quotationItinerary->transportations()->create($transportationData);
                                 }
                             }
@@ -136,7 +155,11 @@ class ItineraryTab
                                 'id' => $transportation->id,
                                 'transport_mode' => $transportation->transport_mode?->value,
                                 'from_city_id' => $transportation->from_city_id,
+                                'custom_from_city' => $transportation->custom_from_city,
                                 'to_city_id' => $transportation->to_city_id,
+                                'custom_to_city' => $transportation->custom_to_city,
+                                'use_custom_from_city' => $transportation->use_custom_from_city,
+                                'use_custom_to_city' => $transportation->use_custom_to_city,
                                 'departure_date' => $transportation->departure_date?->format('Y-m-d'),
                                 'departure_time' => $transportation->departure_time?->format('H:i'),
                                 'arrival_date' => $transportation->arrival_date?->format('Y-m-d'),
@@ -161,6 +184,10 @@ class ItineraryTab
                             foreach ($data['transportations'] as $transportationData) {
                                 // Skip empty transportations
                                 if (!empty($transportationData['transport_mode']) || !empty($transportationData['from_city_id'])) {
+                                    // Set checkbox values based on which fields have values
+                                    $transportationData['use_custom_from_city'] = !empty($transportationData['custom_from_city']);
+                                    $transportationData['use_custom_to_city'] = !empty($transportationData['custom_to_city']);
+                                    
                                     $quotationItinerary->transportations()->create($transportationData);
                                 }
                             }
@@ -405,6 +432,8 @@ class ItineraryTab
                                                                       $inquiryItinerary->from_date) 
                                                                       ? $inquiryItinerary->from_date->format('Y-m-d') 
                                                                       : null,
+                                                    'use_custom_from_city' => true, // Entry Transportation: Use custom from city
+                                                    'use_custom_to_city' => false, // Entry Transportation: Use select for to city
                                                 ],
                                                 [
                                                     'transport_mode' => $transportMode,
@@ -413,6 +442,8 @@ class ItineraryTab
                                                                         $inquiryItinerary->to_date) 
                                                                         ? $inquiryItinerary->to_date->format('Y-m-d') 
                                                                         : null,
+                                                    'use_custom_from_city' => false, // Exit Transportation: Use select for from city
+                                                    'use_custom_to_city' => true, // Exit Transportation: Use custom to city
                                                 ],
                                             ];
                                             
@@ -431,6 +462,10 @@ class ItineraryTab
                                         foreach ($data['transportations'] as $transportationData) {
                                             // Skip empty transportations
                                             if (!empty($transportationData['transport_mode']) || !empty($transportationData['from_city_id'])) {
+                                                // Set checkbox values based on which fields have values
+                                                $transportationData['use_custom_from_city'] = !empty($transportationData['custom_from_city']);
+                                                $transportationData['use_custom_to_city'] = !empty($transportationData['custom_to_city']);
+                                                
                                                 $quotationItinerary->transportations()->create($transportationData);
                                             }
                                         }

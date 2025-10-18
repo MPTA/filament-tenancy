@@ -33,5 +33,15 @@ return [
     'entry_transportation' => '✈️ 入境交通（到达）',
     'exit_transportation' => '🛫 出境交通（离开）',
     'transportation_item' => '交通 #:number',
+    
+    // Custom City Fields
+    'enter_city_name' => '例如：东京、首尔等',
+    'international_city_helper' => '对于中国境外的国际城市，请手动输入名称',
+    
+    // Checkbox labels
+    'use_custom_from_city' => '使用自定义出发城市',
+    'use_custom_from_city_helper' => '勾选以输入自定义城市名称而不是从列表中选择',
+    'use_custom_to_city' => '使用自定义到达城市',
+    'use_custom_to_city_helper' => '勾选以输入自定义城市名称而不是从列表中选择',
 ];
 

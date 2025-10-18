@@ -33,5 +33,15 @@ return [
     'entry_transportation' => 'Entry Transportation (Arrival)',
     'exit_transportation' => 'Exit Transportation (Departure)',
     'transportation_item' => 'Transportation #:number',
+    
+    // Custom City Fields
+    'enter_city_name' => 'e.g., Tokyo, Seoul, E.',
+    'international_city_helper' => 'For international cities outside China, enter the name manually.',
+    
+    // Checkbox labels
+    'use_custom_from_city' => 'Use custom from city',
+    'use_custom_from_city_helper' => 'Check to enter a custom city name instead of selecting from the list',
+    'use_custom_to_city' => 'Use custom to city',
+    'use_custom_to_city_helper' => 'Check to enter a custom city name instead of selecting from the list',
 ];
 

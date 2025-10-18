@@ -5,11 +5,13 @@ namespace App\Filament\Shared\Schemas;
 use App\Enums\TransportModeEnum;
 use App\Models\Base\BorderPoint;
 use App\Models\Base\City;
+use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\TimePicker;
+use Filament\Forms\Components\Hidden;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
 
@@ -24,16 +26,35 @@ class TransportationRepeater
         }
         
         return $repeater->schema([
-                // Row 1: Transport Mode, From City, To City
-                Grid::make(3)
+                // Row 1: Transport Mode
+                Select::make('transport_mode')
+                    ->label(__('transportation.transport_mode'))
+                    ->options(TransportModeEnum::getOptions())
+                    ->required()
+                    ->reactive()
+                    ->native(false)
+                    ->placeholder(__('transportation.select_mode')),
+
+                // Row 2: From City and To City in one line
+                Grid::make(2)
+                    ->schema([
+                        // From City
+                        Grid::make(1)
                             ->schema([
-                                Select::make('transport_mode')
-                                    ->label(__('transportation.transport_mode'))
-                                    ->options(TransportModeEnum::getOptions())
-                                    ->required()
+                                Checkbox::make('use_custom_from_city')
+                                    ->label(__('transportation.use_custom_from_city'))
+                                    ->helperText(__('transportation.use_custom_from_city_helper'))
                                     ->reactive()
-                                    ->native(false)
-                                    ->placeholder(__('transportation.select_mode')),
+                                    ->hidden()
+                                    ->default(false)
+                                    ->dehydrated(true)
+                                    ->afterStateUpdated(function ($state, $set) {
+                                        if ($state) {
+                                            $set('from_city_id', null);
+                                        } else {
+                                            $set('custom_from_city', null);
+                                        }
+                                    }),
 
                                 Select::make('from_city_id')
                                     ->label(__('transportation.from_city'))
@@ -43,8 +64,36 @@ class TransportationRepeater
                                         ->toArray())
                                     ->searchable()
                                     ->preload()
-                                    ->required()
-                                    ->placeholder(__('transportation.select_city')),
+                                    ->placeholder(__('transportation.select_city'))
+                                    ->visible(fn($get) => !$get('use_custom_from_city'))
+                                    ->required(fn($get) => !$get('use_custom_from_city')),
+
+                                TextInput::make('custom_from_city')
+                                    ->label(__('transportation.from_city'))
+                                    ->placeholder(__('transportation.enter_city_name'))
+                                    ->helperText(__('transportation.international_city_helper'))
+                                    ->maxLength(255)
+                                    ->visible(fn($get) => $get('use_custom_from_city'))
+                                    ->required(fn($get) => $get('use_custom_from_city')),
+                            ]),
+
+                        // To City
+                        Grid::make(1)
+                            ->schema([
+                                Checkbox::make('use_custom_to_city')
+                                    ->label(__('transportation.use_custom_to_city'))
+                                    ->helperText(__('transportation.use_custom_to_city_helper'))
+                                    ->reactive()
+                                    ->hidden()
+                                    ->default(false)
+                                    ->dehydrated(true)
+                                    ->afterStateUpdated(function ($state, $set) {
+                                        if ($state) {
+                                            $set('to_city_id', null);
+                                        } else {
+                                            $set('custom_to_city', null);
+                                        }
+                                    }),
 
                                 Select::make('to_city_id')
                                     ->label(__('transportation.to_city'))
@@ -54,8 +103,18 @@ class TransportationRepeater
                                         ->toArray())
                                     ->searchable()
                                     ->preload()
-                                    ->required()
-                                    ->placeholder(__('transportation.select_city')),
+                                    ->placeholder(__('transportation.select_city'))
+                                    ->visible(fn($get) => !$get('use_custom_to_city'))
+                                    ->required(fn($get) => !$get('use_custom_to_city')),
+
+                                TextInput::make('custom_to_city')
+                                    ->label(__('transportation.to_city'))
+                                    ->placeholder(__('transportation.enter_city_name'))
+                                    ->helperText(__('transportation.international_city_helper'))
+                                    ->maxLength(255)
+                                    ->visible(fn($get) => $get('use_custom_to_city'))
+                                    ->required(fn($get) => $get('use_custom_to_city')),
+                            ]),
                     ]),
 
                 // Row 2: Departure and Arrival Date/Time

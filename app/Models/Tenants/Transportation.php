@@ -21,7 +21,11 @@ class Transportation extends Model
         'departure_time',
         'arrival_time',
         'from_city_id',
+        'custom_from_city',
         'to_city_id',
+        'custom_to_city',
+        'use_custom_from_city',
+        'use_custom_to_city',
         'transport_number',
         'transport_mode',
         'entry_border_id',
@@ -39,6 +43,8 @@ class Transportation extends Model
         'departure_time' => 'datetime:H:i',
         'arrival_time' => 'datetime:H:i',
         'transport_mode' => TransportModeEnum::class,
+        'use_custom_from_city' => 'boolean',
+        'use_custom_to_city' => 'boolean',
     ];
 
     /**
@@ -155,6 +161,8 @@ class Transportation extends Model
     {
         return $query->where(function ($q) use ($search) {
             $q->where('transport_number', 'like', "%{$search}%")
+              ->orWhere('custom_from_city', 'like', "%{$search}%")
+              ->orWhere('custom_to_city', 'like', "%{$search}%")
               ->orWhereHas('fromCity', function ($cityQuery) use ($search) {
                   $cityQuery->where('name->en', 'like', "%{$search}%")
                            ->orWhere('name->fa', 'like', "%{$search}%");
@@ -197,14 +205,31 @@ class Transportation extends Model
     }
 
     /**
+     * Get the from city name (from relationship or custom field).
+     */
+    public function getFromCityNameAttribute(): string
+    {
+        return $this->from_city_id 
+            ? ($this->fromCity ? $this->fromCity->name : 'Unknown')
+            : ($this->custom_from_city ?? 'Unknown');
+    }
+
+    /**
+     * Get the to city name (from relationship or custom field).
+     */
+    public function getToCityNameAttribute(): string
+    {
+        return $this->to_city_id 
+            ? ($this->toCity ? $this->toCity->name : 'Unknown')
+            : ($this->custom_to_city ?? 'Unknown');
+    }
+
+    /**
      * Get the route description.
      */
     public function getRouteDescriptionAttribute(): string
     {
-        $fromCity = $this->fromCity ? $this->fromCity->name : 'Unknown';
-        $toCity = $this->toCity ? $this->toCity->name : 'Unknown';
-
-        return "{$fromCity} → {$toCity}";
+        return "{$this->from_city_name} → {$this->to_city_name}";
     }
 
     /**
