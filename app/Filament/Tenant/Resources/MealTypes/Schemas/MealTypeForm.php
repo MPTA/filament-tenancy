@@ -35,7 +35,14 @@ class MealTypeForm
                             ->label(__('common-fields.slug'))
                             ->required()
                             ->maxLength(255)
-                            ->unique(ignoreRecord: true)
+                            ->unique(
+                                table: 'meal_types',
+                                column: 'slug',
+                                ignoreRecord: true,
+                                modifyRuleUsing: function ($rule) {
+                                    return $rule->where('tenant_id', tenant()->id);
+                                }
+                            )
                             ->placeholder(__('tenant-meal-types.placeholders.slug'))
                             ->helperText(__('tenant-meal-types.helpers.slug'))
                             ->rules(['regex:/^[a-z0-9-]+$/']),

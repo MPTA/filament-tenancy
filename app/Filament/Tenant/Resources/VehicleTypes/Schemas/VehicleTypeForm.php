@@ -36,7 +36,14 @@ class VehicleTypeForm
                             ->label(__('common-fields.slug'))
                             ->required()
                             ->maxLength(255)
-                            ->unique(ignoreRecord: true)
+                            ->unique(
+                                table: 'vehicle_types',
+                                column: 'slug',
+                                ignoreRecord: true,
+                                modifyRuleUsing: function ($rule) {
+                                    return $rule->where('tenant_id', tenant()->id);
+                                }
+                            )
                             ->placeholder(__('tenant-vehicle-types.placeholders.slug'))
                             ->helperText(__('tenant-vehicle-types.helpers.slug'))
                             ->rules(['regex:/^[a-z0-9-]+$/']),
