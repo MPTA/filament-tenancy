@@ -10,7 +10,6 @@
 
 | Seeder | توضیحات | دیتا |
 |--------|---------|------|
-| `CitySeeder` | شهرهای تستی | Beijing, Shanghai, Shenzhen |
 | `TenantSeeder` | Tenant تستی | balopar (CNY, English, Beijing) |
 | `CompanionTypeSeeder` | انواع همراهان برای balopar | English Guide, English Translator |
 | `MealTypeSeeder` | انواع غذا برای balopar | Chinese Standard, Hotpot, Buffet Breakfast, Turkish Standard |
@@ -27,6 +26,7 @@
 php artisan db:seed --class=CurrencySeeder
 php artisan db:seed --class=CountrySeeder
 php artisan db:seed --class=ProvinceSeeder
+php artisan db:seed --class=CitySeeder
 ```
 
 ### اجرای تمام seedهای Development:
@@ -36,7 +36,7 @@ php artisan db:seed --class=DevelopmentSeeder
 
 ### اجرای یک seeder خاص:
 ```bash
-php artisan db:seed --class=Database\\Seeders\\Development\\CitySeeder
+php artisan db:seed --class=Database\\Seeders\\Development\\TenantSeeder
 ```
 
 ### همراه با migrate:fresh:

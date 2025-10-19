@@ -20,9 +20,9 @@ class ExperienceSeeder extends Seeder
     {
         // Get required data
         $tenant = Tenant::find('balopar');
-        $beijing = City::where('code', 'BJ')->first();
-        $shanghai = City::where('code', 'SH')->first();
-        $shenzhen = City::where('code', 'SZ')->first();
+        $beijing = City::where('code', 'BJS')->first();
+        $shanghai = City::where('code', 'SHA')->first();
+        $shenzhen = City::where('code', 'SZX')->first();
         $cny = Currency::where('code', 'CNY')->first();
 
         if (!$tenant || !$beijing || !$shanghai || !$shenzhen || !$cny) {

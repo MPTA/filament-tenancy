@@ -65,9 +65,9 @@ class QuotationSeeder extends Seeder
         }
 
         // Get cities
-        $beijing = City::where('code', 'BJ')->first();
-        $shanghai = City::where('code', 'SH')->first();
-        $shenzhen = City::where('code', 'SZ')->first();
+        $beijing = City::where('code', 'BJS')->first();
+        $shanghai = City::where('code', 'SHA')->first();
+        $shenzhen = City::where('code', 'SZX')->first();
 
         // Get meal types
         $buffetBreakfast = MealType::where('tenant_id', $tenant->id)->where('name->en', 'Buffet Breakfast')->first();

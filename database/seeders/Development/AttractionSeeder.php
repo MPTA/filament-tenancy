@@ -18,9 +18,9 @@ class AttractionSeeder extends Seeder
     public function run(): void
     {
         // Get required data
-        $beijing = City::where('code', 'BJ')->first();
-        $shanghai = City::where('code', 'SH')->first();
-        $shenzhen = City::where('code', 'SZ')->first();
+        $beijing = City::where('code', 'BJS')->first();
+        $shanghai = City::where('code', 'SHA')->first();
+        $shenzhen = City::where('code', 'SZX')->first();
         $cny = Currency::where('code', 'CNY')->first();
 
         if (!$beijing || !$shanghai || !$shenzhen) {

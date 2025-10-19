@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use Database\Seeders\Development\AccommodationSeeder;
 use Database\Seeders\Development\AttractionSeeder;
-use Database\Seeders\Development\CitySeeder;
 use Database\Seeders\Development\CompanionTypeSeeder;
 use Database\Seeders\Development\ContactSeeder;
 use Database\Seeders\Development\ExperienceSeeder;
@@ -26,6 +25,7 @@ class DevelopmentSeeder extends Seeder
      * php artisan db:seed --class=CurrencySeeder
      * php artisan db:seed --class=CountrySeeder
      * php artisan db:seed --class=ProvinceSeeder
+     * php artisan db:seed --class=CitySeeder
      * 
      * برای اجرا: php artisan db:seed --class=DevelopmentSeeder
      */
@@ -41,7 +41,6 @@ class DevelopmentSeeder extends Seeder
         $this->command->info('🔧 Running Development Seeders...');
         
         $this->call([
-            CitySeeder::class,
             TenantSeeder::class,
             ContactSeeder::class,
             CompanionTypeSeeder::class,

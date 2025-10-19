@@ -16,10 +16,23 @@ class City extends Model
     protected $table = 'cities';
     public $translatable = ['name'];
 
-    protected $fillable = ['name', 'code', 'province_id'];
+    protected $fillable = [
+        'name',
+        'code',
+        'has_code',
+        'province_id',
+        'latitude',
+        'longitude',
+        'native',
+        'timezone',
+        'wiki_data_id',
+    ];
 
     protected $casts = [
         'name' => 'array',
+        'has_code' => 'boolean',
+        'latitude' => 'decimal:8',
+        'longitude' => 'decimal:8',
     ];
 
     /**

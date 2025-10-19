@@ -22,7 +22,7 @@ class TenantSeeder extends Seeder
     {
         // Get required data
         $china = Country::where('code', 'CN')->first();
-        $beijing = City::where('code', 'BJ')->first();
+        $beijing = City::where('code', 'BJS')->first();
         $english = Language::where('code', 'en')->first();
 
         if (!$china || !$beijing || !$english) {
