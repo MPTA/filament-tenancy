@@ -52,7 +52,8 @@ class AppServiceProvider extends ServiceProvider
             $switch
                 ->locales(['en','zh_CN']) // also accepts a closure
                 ->excludes([
-                    'admin'
+                    'admin',
+                    'base'
                 ])
                 ->labels([
                     'en' => 'English',
