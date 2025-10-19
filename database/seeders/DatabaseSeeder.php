@@ -11,14 +11,23 @@ class DatabaseSeeder extends Seeder
     /**
      * Seed the application's database.
      * 
-     * این seeders برای همه محیط‌ها (production و development) اجرا می‌شوند.
+     * این seeder دیتاهای production و essential را اجرا می‌کند.
      * برای دیتای تستی، از DevelopmentSeeder استفاده کنید.
+     * 
+     * ترتیب اجرا:
+     * 1. Production Data (Currencies, Countries, Provinces, Cities)
+     * 2. Essential Data (Languages, Categories, Admin User)
      */
     public function run(): void
     {
+        // 1. Production Data (جغرافیایی)
+        $this->call([
+            ProductionSeeder::class,
+        ]);
+
+        // 2. Essential Data (دیتاهای ضروری)
         $this->command->info('🌱 Seeding essential data...');
         
-        // Seedهای ضروری برای همه محیط‌ها
         $this->call([
             LanguageSeeder::class,
             ActivityCategorySeeder::class,
@@ -30,7 +39,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->command->newLine();
-        $this->command->info('✅ Essential data seeded successfully!');
+        $this->command->info('✅ All production and essential data seeded successfully!');
         
         // نمایش راهنما برای seedهای development
         if (app()->environment(['local', 'development'])) {

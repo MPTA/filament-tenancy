@@ -20,18 +20,18 @@
 
 ## 🚀 نحوه استفاده
 
-### پیش‌نیاز: اجرای seedهای Production
-قبل از اجرای development seedها، حتماً seedهای production را اجرا کنید:
+### روش پیشنهادی (فقط 2 دستور):
 ```bash
-php artisan db:seed --class=CurrencySeeder
-php artisan db:seed --class=CountrySeeder
-php artisan db:seed --class=ProvinceSeeder
-php artisan db:seed --class=CitySeeder
+# 1️⃣ Production + Essential Data
+php artisan db:seed
+
+# 2️⃣ Development Data
+php artisan db:seed --class=DevelopmentSeeder
 ```
 
-### اجرای تمام seedهای Development:
+### همراه با migrate:fresh:
 ```bash
-php artisan db:seed --class=DevelopmentSeeder
+php artisan migrate:fresh --seed && php artisan db:seed --class=DevelopmentSeeder
 ```
 
 ### اجرای یک seeder خاص:
@@ -39,9 +39,14 @@ php artisan db:seed --class=DevelopmentSeeder
 php artisan db:seed --class=Database\\Seeders\\Development\\TenantSeeder
 ```
 
-### همراه با migrate:fresh:
+### پیش‌نیاز: seedهای Production
+`DatabaseSeeder` به صورت خودکار seedهای production را اجرا می‌کند:
+- ProductionSeeder (Currencies, Countries, Provinces, Cities)
+- Essential Data (Languages, Categories, Admin User)
+
+اگر نیاز به اجرای جداگانه داشتید:
 ```bash
-php artisan migrate:fresh --seed --seeder=DevelopmentSeeder
+php artisan db:seed --class=ProductionSeeder
 ```
 
 ## 🔒 امنیت
