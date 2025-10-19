@@ -83,13 +83,6 @@ class Experience extends Model
         return tenant()->settings?->currency_id;
     }
 
-    /**
-     * Get the route key for the model.
-     */
-    public function getRouteKeyName(): string
-    {
-        return 'slug';
-    }
 
     /**
      * Get the city that owns the experience.

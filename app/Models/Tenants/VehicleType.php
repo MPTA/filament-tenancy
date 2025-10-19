@@ -48,13 +48,6 @@ class VehicleType extends Model
         'name',
     ];
 
-    /**
-     * Get the route key for the model.
-     */
-    public function getRouteKeyName(): string
-    {
-        return 'slug';
-    }
 
     /**
      * Get the vehicle category that owns this vehicle type.
