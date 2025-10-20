@@ -21,7 +21,7 @@ class ExchangeRateForm
                     ->schema([
                         Select::make('from_currency_id')
                             ->label(__('common-fields.from_currency'))
-                            ->options(Currency::all()->pluck('name', 'id'))
+                            ->options(Currency::all()->mapWithKeys(fn($currency) => [$currency->id => "{$currency->name} ({$currency->code})"]))
                             ->required()
                             ->searchable()
                             ->preload()
@@ -67,7 +67,7 @@ class ExchangeRateForm
                         
                         Select::make('to_currency_id')
                             ->label(__('tenant-exchange-rates.fields.to_currency_tenant_default'))
-                            ->options(Currency::all()->pluck('name', 'id'))
+                            ->options(Currency::all()->mapWithKeys(fn($currency) => [$currency->id => "{$currency->name} ({$currency->code})"]))
                             ->required()
                             ->searchable()
                             ->preload()
