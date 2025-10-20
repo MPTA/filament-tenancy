@@ -3,6 +3,7 @@
 namespace App\Models\Tenants;
 
 use App\Models\Base\VehicleCategory;
+use App\Traits\HasTranslatableFallback;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -12,7 +13,7 @@ use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 
 class VehicleType extends Model
 {
-    use HasUuids, BelongsToTenant, HasTranslations;
+    use HasUuids, BelongsToTenant, HasTranslations, HasTranslatableFallback;
 
     protected $fillable = [
         'vehicle_category_id',

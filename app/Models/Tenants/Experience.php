@@ -6,6 +6,7 @@ use App\Enums\ChargeModeEnum;
 use App\Models\Base\City;
 use App\Models\Base\District;
 use App\Models\User;
+use App\Traits\HasTranslatableFallback;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -15,7 +16,7 @@ use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
 
 class Experience extends Model
 {
-    use HasUuids, BelongsToTenant, HasTranslations;
+    use HasUuids, BelongsToTenant, HasTranslations, HasTranslatableFallback;
 
     // Eager load only what's needed to avoid too many joins
     protected $with = ['city'];
