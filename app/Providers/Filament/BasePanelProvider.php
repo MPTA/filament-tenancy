@@ -54,7 +54,7 @@ class BasePanelProvider extends PanelProvider
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
             ])
-            ->plugin(SpatieTranslatablePlugin::make()->defaultLocales(['en', 'zh']))
+            ->plugin(SpatieTranslatablePlugin::make()->defaultLocales(['en', 'zh_CN']))
             ->authMiddleware([
                 Authenticate::class,
             ]);

@@ -54,7 +54,7 @@ class TenantAdminPanelProvider extends PanelProvider
             ])
             // ->authGuard('web')
             ->plugin(FilamentTenancyAppPlugin::make())
-            ->plugin(SpatieTranslatablePlugin::make()->defaultLocales(['en', 'zh']))
+            ->plugin(SpatieTranslatablePlugin::make()->defaultLocales(['en', 'zh_CN']))
             ->viteTheme('resources/css/filament/tenant-admin/theme.css')
             ->authMiddleware([
                 Authenticate::class,
