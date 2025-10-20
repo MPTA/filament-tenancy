@@ -37,7 +37,7 @@ class CompanionTypeSeeder extends Seeder
                 'name' => [
                     'en' => 'English Speaking Guide',
                     'fa' => 'راهنمای انگلیسی زبان',
-                    'zh' => '英语导游',
+                    'zh_CN' => '英语导游',
                 ],
                 'slug' => 'english-guide',
                 'tenant_id' => $tenant->id,
@@ -59,7 +59,7 @@ class CompanionTypeSeeder extends Seeder
                 'name' => [
                     'en' => 'English Translator',
                     'fa' => 'مترجم انگلیسی',
-                    'zh' => '英语翻译',
+                    'zh_CN' => '英语翻译',
                 ],
                 'slug' => 'english-translator',
                 'tenant_id' => $tenant->id,

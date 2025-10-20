@@ -21,7 +21,7 @@ class ActivityCategorySeeder extends Seeder
                 'name' => [
                     'en' => 'Attraction',
                     'fa' => 'جاذبه گردشگری',
-                    'zh' => '景点',
+                    'zh_CN' => '景点',
                 ],
             ],
             [
@@ -30,7 +30,7 @@ class ActivityCategorySeeder extends Seeder
                 'name' => [
                     'en' => 'Experience',
                     'fa' => 'تجربه',
-                    'zh' => '体验',
+                    'zh_CN' => '体验',
                 ],
             ],
             [
@@ -39,7 +39,7 @@ class ActivityCategorySeeder extends Seeder
                 'name' => [
                     'en' => 'Meal',
                     'fa' => 'وعده غذایی',
-                    'zh' => '餐饮',
+                    'zh_CN' => '餐饮',
                 ],
             ],
             [
@@ -48,7 +48,7 @@ class ActivityCategorySeeder extends Seeder
                 'name' => [
                     'en' => 'Ticket',
                     'fa' => 'بلیط',
-                    'zh' => '门票',
+                    'zh_CN' => '门票',
                 ],
             ],
         ];

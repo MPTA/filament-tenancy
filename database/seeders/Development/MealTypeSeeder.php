@@ -42,7 +42,7 @@ class MealTypeSeeder extends Seeder
                 'name' => [
                     'en' => 'Chinese Standard',
                     'fa' => 'چینی استاندارد',
-                    'zh' => '标准中餐',
+                    'zh_CN' => '标准中餐',
                 ],
                 'slug' => 'chinese-standard',
                 'meal_category_id' => $chinese->id,
@@ -52,7 +52,7 @@ class MealTypeSeeder extends Seeder
                 'name' => [
                     'en' => 'Chinese Hotpot',
                     'fa' => 'هات‌پات چینی',
-                    'zh' => '中式火锅',
+                    'zh_CN' => '中式火锅',
                 ],
                 'slug' => 'chinese-hotpot',
                 'meal_category_id' => $hotpot->id,
@@ -62,7 +62,7 @@ class MealTypeSeeder extends Seeder
                 'name' => [
                     'en' => 'Buffet Breakfast',
                     'fa' => 'بوفه صبحانه',
-                    'zh' => '自助早餐',
+                    'zh_CN' => '自助早餐',
                 ],
                 'slug' => 'buffet-breakfast',
                 'meal_category_id' => $buffetBreakfast->id,
@@ -72,7 +72,7 @@ class MealTypeSeeder extends Seeder
                 'name' => [
                     'en' => 'Turkish Standard',
                     'fa' => 'ترکی استاندارد',
-                    'zh' => '标准土耳其菜',
+                    'zh_CN' => '标准土耳其菜',
                 ],
                 'slug' => 'turkish-standard',
                 'meal_category_id' => $turkish->id,

@@ -48,12 +48,12 @@ class ExperienceSeeder extends Seeder
                 'name' => [
                     'en' => 'Peking Duck Dinner',
                     'fa' => 'شام اردک پکن',
-                    'zh' => '北京烤鸭晚餐',
+                    'zh_CN' => '北京烤鸭晚餐',
                 ],
                 'description' => [
                     'en' => 'Traditional Peking Duck dining experience at famous restaurant',
                     'fa' => 'تجربه غذای اردک پکن سنتی در رستوران معروف',
-                    'zh' => '在著名餐厅享用传统北京烤鸭',
+                    'zh_CN' => '在著名餐厅享用传统北京烤鸭',
                 ],
                 'slug' => 'peking-duck-dinner',
                 'city_id' => $beijing->id,
@@ -64,12 +64,12 @@ class ExperienceSeeder extends Seeder
                 'name' => [
                     'en' => 'Kung Fu Show',
                     'fa' => 'نمایش کونگ فو',
-                    'zh' => '功夫表演',
+                    'zh_CN' => '功夫表演',
                 ],
                 'description' => [
                     'en' => 'Live traditional Chinese martial arts performance',
                     'fa' => 'نمایش زنده هنرهای رزمی سنتی چینی',
-                    'zh' => '现场传统中国武术表演',
+                    'zh_CN' => '现场传统中国武术表演',
                 ],
                 'slug' => 'kung-fu-show',
                 'city_id' => $beijing->id,
@@ -82,12 +82,12 @@ class ExperienceSeeder extends Seeder
                 'name' => [
                     'en' => 'Huangpu River Cruise',
                     'fa' => 'کروز رودخانه هوانگپو',
-                    'zh' => '黄浦江游船',
+                    'zh_CN' => '黄浦江游船',
                 ],
                 'description' => [
                     'en' => 'Evening river cruise with city skyline views',
                     'fa' => 'کروز شبانه رودخانه با منظره شهر',
-                    'zh' => '晚间游船观赏城市天际线',
+                    'zh_CN' => '晚间游船观赏城市天际线',
                 ],
                 'slug' => 'huangpu-river-cruise',
                 'city_id' => $shanghai->id,
@@ -98,12 +98,12 @@ class ExperienceSeeder extends Seeder
                 'name' => [
                     'en' => 'Acrobatic Show',
                     'fa' => 'نمایش آکروباتیک',
-                    'zh' => '杂技表演',
+                    'zh_CN' => '杂技表演',
                 ],
                 'description' => [
                     'en' => 'World-famous Shanghai acrobatic performance',
                     'fa' => 'نمایش آکروباتیک معروف جهانی شانگهای',
-                    'zh' => '世界著名的上海杂技表演',
+                    'zh_CN' => '世界著名的上海杂技表演',
                 ],
                 'slug' => 'acrobatic-show',
                 'city_id' => $shanghai->id,
@@ -116,12 +116,12 @@ class ExperienceSeeder extends Seeder
                 'name' => [
                     'en' => 'Chinese Tea Ceremony',
                     'fa' => 'مراسم چای چینی',
-                    'zh' => '中国茶道',
+                    'zh_CN' => '中国茶道',
                 ],
                 'description' => [
                     'en' => 'Traditional Chinese tea ceremony with tea master',
                     'fa' => 'مراسم چای سنتی چینی با استاد چای',
-                    'zh' => '与茶道大师一起的传统中国茶道',
+                    'zh_CN' => '与茶道大师一起的传统中国茶道',
                 ],
                 'slug' => 'tea-ceremony',
                 'city_id' => $shenzhen->id,
@@ -132,12 +132,12 @@ class ExperienceSeeder extends Seeder
                 'name' => [
                     'en' => 'Calligraphy Workshop',
                     'fa' => 'کارگاه خوشنویسی',
-                    'zh' => '书法工作坊',
+                    'zh_CN' => '书法工作坊',
                 ],
                 'description' => [
                     'en' => 'Learn Chinese calligraphy from professional artist',
                     'fa' => 'یادگیری خوشنویسی چینی از هنرمند حرفه‌ای',
-                    'zh' => '向专业艺术家学习中国书法',
+                    'zh_CN' => '向专业艺术家学习中国书法',
                 ],
                 'slug' => 'calligraphy-workshop',
                 'city_id' => $shenzhen->id,

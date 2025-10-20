@@ -145,12 +145,12 @@ class AccommodationSeeder extends Seeder
             [
                 'name' => [
                     'en' => $nameEn,
-                    'zh' => $nameZh,
+                    'zh_CN' => $nameZh,
                     'fa' => $nameFa,
                 ],
                 'content' => [
                     'en' => "Luxury accommodation in {$city->getTranslation('name', 'en')}",
-                    'zh' => "{$city->getTranslation('name', 'zh')}的豪华住宿",
+                    'zh_CN' => "{$city->getTranslation('name', 'zh')}的豪华住宿",
                     'fa' => "اقامتگاه لوکس در {$city->getTranslation('name', 'en')}",
                 ],
                 'star_rating' => $stars,

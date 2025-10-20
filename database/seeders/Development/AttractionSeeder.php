@@ -212,13 +212,13 @@ class AttractionSeeder extends Seeder
             [
                 'name' => [
                     'en' => $nameEn,
-                    'zh' => $nameZh,
+                    'zh_CN' => $nameZh,
                     'fa' => $nameFa,
                 ],
                 'description' => [
                     'en' => $descEn,
                     'fa' => $descFa,
-                    'zh' => $descZh,
+                    'zh_CN' => $descZh,
                 ],
                 'type' => $type,
                 'local_price' => $localPrice,
@@ -254,13 +254,13 @@ class AttractionSeeder extends Seeder
             [
                 'name' => [
                     'en' => $nameEn,
-                    'zh' => $nameZh,
+                    'zh_CN' => $nameZh,
                     'fa' => $nameFa,
                 ],
                 'description' => [
                     'en' => $descEn,
                     'fa' => $descFa,
-                    'zh' => $descZh,
+                    'zh_CN' => $descZh,
                 ],
                 'local_price' => $localPrice,
                 'foreigner_price' => $foreignerPrice,

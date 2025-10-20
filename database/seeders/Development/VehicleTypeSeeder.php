@@ -41,7 +41,7 @@ class VehicleTypeSeeder extends Seeder
                 'name' => [
                     'en' => 'SUV',
                     'fa' => 'شاسی بلند',
-                    'zh' => 'SUV越野车',
+                    'zh_CN' => 'SUV越野车',
                 ],
                 'slug' => 'balopar-suv',
                 'vehicle_category_id' => $suv->id,
@@ -59,7 +59,7 @@ class VehicleTypeSeeder extends Seeder
                 'name' => [
                     'en' => 'Mini Bus',
                     'fa' => 'مینی بوس',
-                    'zh' => '小巴士',
+                    'zh_CN' => '小巴士',
                 ],
                 'slug' => 'balopar-minibus',
                 'vehicle_category_id' => $minibus->id,
@@ -77,7 +77,7 @@ class VehicleTypeSeeder extends Seeder
                 'name' => [
                     'en' => 'Bus',
                     'fa' => 'اتوبوس',
-                    'zh' => '大巴士',
+                    'zh_CN' => '大巴士',
                 ],
                 'slug' => 'balopar-bus',
                 'vehicle_category_id' => $bus->id,
