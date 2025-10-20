@@ -57,7 +57,7 @@ class AppServiceProvider extends ServiceProvider
                 ])
                 ->labels([
                     'en' => 'English',
-                    'zh' => '中文',
+                    'zh_CN' => '中文',
                 ]);
         });
 
