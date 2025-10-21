@@ -40,17 +40,10 @@ class AccommodationInfolist
                 
                 Section::make('Location Information')
                     ->schema([
-                        Grid::make(2)
-                            ->schema([
-                                TextEntry::make('country.name')
-                                    ->label('Country')
-                                    ->badge()
-                                    ->color('info'),
-                                TextEntry::make('province.name')
-                                    ->label('Province')
-                                    ->badge()
-                                    ->color('info'),
-                            ]),
+                        TextEntry::make('country.name')
+                            ->label('Country')
+                            ->badge()
+                            ->color('info'),
                         Grid::make(2)
                             ->schema([
                                 TextEntry::make('city.name')

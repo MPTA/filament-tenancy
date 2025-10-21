@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Database\Seeders\Development\AccommodationSeeder;
 use Database\Seeders\Development\AttractionSeeder;
 use Database\Seeders\Development\CompanionTypeSeeder;
 use Database\Seeders\Development\ContactSeeder;
@@ -47,7 +46,6 @@ class DevelopmentSeeder extends Seeder
             MealTypeSeeder::class,
             VehicleTypeSeeder::class,
             ExperienceSeeder::class,
-            AccommodationSeeder::class,
             AttractionSeeder::class,
             QuotationSeeder::class,
         ]);

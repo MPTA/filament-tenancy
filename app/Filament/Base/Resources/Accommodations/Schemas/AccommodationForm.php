@@ -44,23 +44,13 @@ class AccommodationForm
                 
                 Section::make('Location Information')
                     ->schema([
-                        Grid::make(2)
-                            ->schema([
-                                Select::make('country_id')
-                                    ->label('Country')
-                                    ->relationship('country', 'name')
-                                    ->searchable()
-                                    ->preload()
-                                    ->required()
-                                    ->reactive(),
-                                Select::make('province_id')
-                                    ->label('Province')
-                                    ->relationship('province', 'name')
-                                    ->searchable()
-                                    ->preload()
-                                    ->required()
-                                    ->reactive(),
-                            ]),
+                        Select::make('country_id')
+                            ->label('Country')
+                            ->relationship('country', 'name')
+                            ->searchable()
+                            ->preload()
+                            ->required()
+                            ->reactive(),
                         Grid::make(2)
                             ->schema([
                                 Select::make('city_id')

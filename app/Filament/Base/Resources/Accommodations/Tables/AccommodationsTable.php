@@ -35,10 +35,9 @@ class AccommodationsTable
                     ->label('Location')
                     ->formatStateUsing(fn($record) => implode(', ', array_filter([
                         $record->city?->name,
-                        $record->province?->name,
                         $record->country?->name,
                     ])))
-                    ->searchable(['city.name', 'province.name', 'country.name'])
+                    ->searchable(['city.name', 'country.name'])
                     ->sortable()
                     ->badge()
                     ->color('info'),
@@ -84,9 +83,6 @@ class AccommodationsTable
                 SelectFilter::make('country_id')
                     ->label('Country')
                     ->relationship('country', 'name'),
-                SelectFilter::make('province_id')
-                    ->label('Province')
-                    ->relationship('province', 'name'),
                 SelectFilter::make('city_id')
                     ->label('City')
                     ->relationship('city', 'name'),

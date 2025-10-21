@@ -74,10 +74,10 @@ class QuotationSeeder extends Seeder
         $chineseStandard = MealType::where('tenant_id', $tenant->id)->where('name->en', 'Chinese Standard')->first();
         $turkishStandard = MealType::where('tenant_id', $tenant->id)->where('name->en', 'Turkish Standard')->first();
 
-        // Get accommodations
-        $beijingLuxury = \App\Models\Base\Accommodation::where('name->en', 'Beijing Luxury Palace')->first();
-        $shanghaiRoyal = \App\Models\Base\Accommodation::where('name->en', 'Shanghai Royal Suites')->first();
-        $shenzhenPearl = \App\Models\Base\Accommodation::where('name->en', 'Shenzhen Pearl Tower')->first();
+        // Get accommodations from production data
+        $beijingLuxury = \App\Models\Base\Accommodation::where('city_id', $beijing->id)->where('star_rating', '>=', 4)->first();
+        $shanghaiRoyal = \App\Models\Base\Accommodation::where('city_id', $shanghai->id)->where('star_rating', '>=', 4)->first();
+        $shenzhenPearl = \App\Models\Base\Accommodation::where('city_id', $shenzhen->id)->where('star_rating', '>=', 4)->first();
 
         // Get attractions
         $forbiddenCity = Attraction::where('name->en', 'Forbidden City')->first();

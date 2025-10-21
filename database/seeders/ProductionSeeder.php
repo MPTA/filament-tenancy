@@ -26,6 +26,7 @@ class ProductionSeeder extends Seeder
             CountrySeeder::class,
             ProvinceSeeder::class,
             CitySeeder::class,
+            Production\ChinaAccommodationSeeder::class,
         ]);
 
         $this->command->newLine();
