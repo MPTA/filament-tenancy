@@ -74,10 +74,32 @@ class QuotationSeeder extends Seeder
         $chineseStandard = MealType::where('tenant_id', $tenant->id)->where('name->en', 'Chinese Standard')->first();
         $turkishStandard = MealType::where('tenant_id', $tenant->id)->where('name->en', 'Turkish Standard')->first();
 
-        // Get accommodations from production data
-        $beijingLuxury = \App\Models\Base\Accommodation::where('city_id', $beijing->id)->where('star_rating', '>=', 4)->first();
-        $shanghaiRoyal = \App\Models\Base\Accommodation::where('city_id', $shanghai->id)->where('star_rating', '>=', 4)->first();
-        $shenzhenPearl = \App\Models\Base\Accommodation::where('city_id', $shenzhen->id)->where('star_rating', '>=', 4)->first();
+        // Get accommodations from production data - first available 4 or 5 star hotel in each city
+        $beijingHotel = \App\Models\Base\Accommodation::where('city_id', $beijing->id)
+            ->whereIn('star_rating', [4, 5])
+            ->orderByDesc('star_rating')
+            ->first();
+            
+        $shanghaiHotel = \App\Models\Base\Accommodation::where('city_id', $shanghai->id)
+            ->whereIn('star_rating', [4, 5])
+            ->orderByDesc('star_rating')
+            ->first();
+            
+        $shenzhenHotel = \App\Models\Base\Accommodation::where('city_id', $shenzhen->id)
+            ->whereIn('star_rating', [4, 5])
+            ->orderByDesc('star_rating')
+            ->first();
+
+        // Validate accommodations exist
+        if (!$beijingHotel || !$shanghaiHotel || !$shenzhenHotel) {
+            $missing = [];
+            if (!$beijingHotel) $missing[] = 'Beijing';
+            if (!$shanghaiHotel) $missing[] = 'Shanghai';
+            if (!$shenzhenHotel) $missing[] = 'Shenzhen';
+            $this->command->warn('No 4 or 5 star hotels found in: ' . implode(', ', $missing));
+            $this->command->warn('Please ensure China accommodation data is seeded first.');
+            return;
+        }
 
         // Get attractions
         $forbiddenCity = Attraction::where('name->en', 'Forbidden City')->first();
@@ -127,9 +149,9 @@ class QuotationSeeder extends Seeder
             $buffetBreakfast,
             $chineseStandard,
             $turkishStandard,
-            $beijingLuxury,
-            $shanghaiRoyal,
-            $shenzhenPearl,
+            $beijingHotel,
+            $shanghaiHotel,
+            $shenzhenHotel,
             $forbiddenCity,
             $bund,
             $westLake,
@@ -203,7 +225,7 @@ class QuotationSeeder extends Seeder
                 'day_number' => 1,
                 'current_city_id' => $beijing->id,
                 'accommodation_city_id' => $beijing->id,
-                'accommodation_id' => $beijingLuxury->id,
+                'accommodation_id' => $beijingHotel->id,
                 'accommodation_star_rating' => 5,
                 'vehicle_usage_mode' => 'full_day',
                 'companion_hire_mode' => 'daily',
@@ -231,7 +253,7 @@ class QuotationSeeder extends Seeder
                 'day_number' => 2,
                 'current_city_id' => $beijing->id,
                 'accommodation_city_id' => $shanghai->id,
-                'accommodation_id' => $shanghaiRoyal->id,
+                'accommodation_id' => $shanghaiHotel->id,
                 'accommodation_star_rating' => 5,
                 'vehicle_usage_mode' => 'full_day',
                 'companion_hire_mode' => 'daily',
@@ -262,7 +284,7 @@ class QuotationSeeder extends Seeder
                 'day_number' => 3,
                 'current_city_id' => $shanghai->id,
                 'accommodation_city_id' => $shanghai->id,
-                'accommodation_id' => $shanghaiRoyal->id,
+                'accommodation_id' => $shanghaiHotel->id,
                 'accommodation_star_rating' => 5,
                 'vehicle_usage_mode' => 'full_day',
                 'companion_hire_mode' => 'daily',
@@ -293,7 +315,7 @@ class QuotationSeeder extends Seeder
                 'day_number' => 4,
                 'current_city_id' => $shanghai->id,
                 'accommodation_city_id' => $shenzhen->id,
-                'accommodation_id' => $shenzhenPearl->id,
+                'accommodation_id' => $shenzhenHotel->id,
                 'accommodation_star_rating' => 5,
                 'vehicle_usage_mode' => 'full_day',
                 'companion_hire_mode' => 'daily',
