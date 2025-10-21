@@ -14,7 +14,7 @@ class Accommodation extends Model
     use HasTranslations, CentralConnection, HasUuids;
 
     protected $table = 'accommodations';
-    public $translatable = ['name', 'content'];
+    public $translatable = ['name', 'content','attractions_data','facilities','description'];
 
     protected $with = ['country.currency'];
 
@@ -26,16 +26,24 @@ class Accommodation extends Model
         'latitude',
         'longitude',
         'country_id',
-        'province_id',
         'city_id',
         'district_id',
         'external_id',
+        'external_dataset',
+        'attractions_data',
+        'description',
+        'phone_number',
+        'website',
+        'facilities',
         'is_active',
     ];
 
     protected $casts = [
         'name' => 'array',
         'content' => 'array',
+        'attractions_data' => 'array',
+        'description' => 'array',
+        'facilities' => 'array',
         'latitude' => 'decimal:8',
         'longitude' => 'decimal:8',
         'star_rating' => 'integer',
@@ -56,14 +64,6 @@ class Accommodation extends Model
     public function country(): BelongsTo
     {
         return $this->belongsTo(Country::class);
-    }
-
-    /**
-     * Get the province that owns the accommodation.
-     */
-    public function province(): BelongsTo
-    {
-        return $this->belongsTo(Province::class);
     }
 
     /**

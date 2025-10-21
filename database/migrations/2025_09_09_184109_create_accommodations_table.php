@@ -20,28 +20,30 @@ return new class extends Migration
             $table->decimal('latitude', 10, 8)->nullable();
             $table->decimal('longitude', 11, 8)->nullable();
             $table->uuid('country_id');
-            $table->uuid('province_id');
             $table->uuid('city_id');
             $table->uuid('district_id')->nullable();
             $table->string('external_id')->nullable();
+            $table->string('external_dataset')->nullable();
+            $table->jsonb('attractions_data')->nullable();
+            $table->jsonb('description')->nullable();
+            $table->string('phone_number')->nullable();
+            $table->string('website')->nullable();
+            $table->jsonb('facilities')->nullable();
             $table->boolean('is_active')->default(true);
             $table->timestamps();
 
             // Foreign keys
             $table->foreign('country_id')->references('id')->on('countries')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('province_id')->references('id')->on('provinces')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('city_id')->references('id')->on('cities')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('district_id')->references('id')->on('districts')->onUpdate('cascade')->onDelete('set null');
 
             // Indexes
             $table->index('country_id');
-            $table->index('province_id');
             $table->index('city_id');
             $table->index('district_id');
             $table->index(['latitude', 'longitude']);
             $table->index('star_rating');
             $table->index('is_active');
-            $table->index('external_id');
         });
     }
 

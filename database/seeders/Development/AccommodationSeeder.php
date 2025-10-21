@@ -155,7 +155,6 @@ class AccommodationSeeder extends Seeder
                 ],
                 'star_rating' => $stars,
                 'country_id' => $city->province->country_id,
-                'province_id' => $city->province_id,
                 'city_id' => $city->id,
                 'is_active' => true,
             ]
