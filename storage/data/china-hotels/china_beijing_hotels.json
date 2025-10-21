@@ -5,7 +5,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1004776",
-    "HotelName": "Grand View Garden",
+    "HotelName": {
+      "zh_CN": "北京大观园酒店",
+      "en": "Grand View Garden"
+    },
     "HotelRating": "FourStar",
     "Address": "88 NANCAIYUAN YUAN STREET, XUANWU DISTRICT BEIJING ",
     "Attractions": "Taoranting Park: within 2000 metre  Daguanyuan Park: within 50 metre ",
@@ -15,7 +18,10 @@
     "Map": "39.871354887624|116.34819746018",
     "PhoneNumber": "",
     "PinCode": "100054",
-    "HotelWebsiteUrl": "http://www.gvghotel.com/"
+    "HotelWebsiteUrl": "http://www.gvghotel.com/",
+    "star_rating": 4,
+    "latitude": 39.871354887624,
+    "longitude": 116.34819746018
   },
   {
     "countyCode": "CN",
@@ -23,7 +29,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1010889",
-    "HotelName": "EAST Beijing",
+    "HotelName": {
+      "zh_CN": "北京东隅酒店",
+      "en": "EAST Beijing"
+    },
     "HotelRating": "FourStar",
     "Address": "No.22 Jiuxianqiao Road Chaoyang District Chaoyang DistrictPeking 100016 ",
     "Attractions": "Distances are displayed to the nearest 0.1 mile and kilometer. <br /> <p>798 Space - 2.1 km / 1.3 mi <br /> Lady Street Market - 3.9 km / 2.4 mi <br /> Sanlitun - 5.4 km / 3.3 mi <br /> National Agricultural Exhibition Center - 5.9 km / 3.7 mi <br /> Nali Patio - 6.6 km / 4.1 mi <br /> Yashow Market - 7.1 km / 4.4 mi <br /> Sanlitun Barstreet - 7.7 km / 4.8 mi <br /> Chaoyang Park - 8 km / 5 mi <br /> CCTV Headquarters - 8.9 km / 5.5 mi <br /> China World Mall - 9 km / 5.6 mi <br /> The Place - 9.6 km / 6 mi <br /> Beijing National Stadium - 10.1 km / 6.3 mi <br /> Gui Street - 11 km / 6.8 mi <br /> Olympic Sports Center - 11.3 km / 7 mi <br /> Yonghe Temple - 11.5 km / 7.1 mi <br /> </p><p>The preferred airport for EAST Beijing is Beijing (PEK-Capital Intl.) - 16.7 km / 10.4 mi </p>",
@@ -33,7 +42,10 @@
     "Map": "39.972072|116.493412",
     "PhoneNumber": "86-108-4260888",
     "PinCode": "100027",
-    "HotelWebsiteUrl": "http://www.east-beijing.com"
+    "HotelWebsiteUrl": "http://www.east-beijing.com",
+    "star_rating": 4,
+    "latitude": 39.972072,
+    "longitude": 116.493412
   },
   {
     "countyCode": "CN",
@@ -41,7 +53,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1015491",
-    "HotelName": "Hotel Kunlun",
+    "HotelName": {
+      "zh_CN": "北京昆仑饭店",
+      "en": "Hotel Kunlun"
+    },
     "HotelRating": "FourStar",
     "Address": "2 South Xin Yuan Road Chaoyang District Chaoyang DistrictBeijing 100004 ",
     "Attractions": "Distances are displayed to the nearest 0.1 mile and kilometer. <br /> <p>Sanlitun - 1.1 km / 0.7 mi <br /> Nali Patio - 1.6 km / 1 mi <br /> Taikoo Li Sanlitun - Shopping & Life Style Centre - 1.8 km / 1.1 mi <br /> Yansha Youyi Shopping City - 1.9 km / 1.2 mi <br /> Gui Street - 1.9 km / 1.2 mi <br /> Workers Stadium - 1.9 km / 1.2 mi <br /> National Agricultural Exhibition Center - 1.9 km / 1.2 mi <br /> Chaoyang Park - 2 km / 1.3 mi <br /> Sanlitun Barstreet - 2.1 km / 1.3 mi <br /> China International Exhibition Center - 3.2 km / 2 mi <br /> Yonghe Temple - 3.8 km / 2.3 mi <br /> Ritan Park - 3.8 km / 2.3 mi <br /> The Imperial College - 3.9 km / 2.4 mi <br /> 46 Fangjia Hutong - 4.2 km / 2.6 mi <br /> South Luogu Alley - 4.3 km / 2.7 mi <br /> </p><p>The nearest airports are:<br />Capital Intl. Airport (PEK) - 21.1 km / 13.1 mi<br /> Beijing (PKX-Daxing Intl.) - 63 km / 39.2 mi<br /> </p><p>The preferred airport for The Kunlun Beijing is Capital Intl. Airport (PEK). </p>",
@@ -51,7 +66,10 @@
     "Map": "39.943938|116.447705",
     "PhoneNumber": "86-10-65903388",
     "PinCode": "100004",
-    "HotelWebsiteUrl": "http://hotelkunlun.com/?lang=english"
+    "HotelWebsiteUrl": "http://hotelkunlun.com/?lang=english",
+    "star_rating": 4,
+    "latitude": 39.943938,
+    "longitude": 116.447705
   },
   {
     "countyCode": "CN",
@@ -59,7 +77,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1015505",
-    "HotelName": "Park Plaza Beijing Science Park",
+    "HotelName": {
+      "zh_CN": "北京丽亭酒店科技园",
+      "en": "Park Plaza Beijing Science Park"
+    },
     "HotelRating": "FourStar",
     "Address": "25 Zhichun Road. Haidian District Beijing 100083 ",
     "Attractions": "Distances are displayed to the nearest 0.1 mile and kilometer. <br /> <p>Dazhong Temple Ancient Bell Museum - 1.1 km / 0.7 mi <br /> Beijing Language and Culture University - 2.4 km / 1.5 mi <br /> Renmin University of China - 2.6 km / 1.6 mi <br /> Tsinghua University - 2.7 km / 1.7 mi <br /> Zhongguancun Electronics City - 2.9 km / 1.8 mi <br /> Beijing Normal University - 3.1 km / 1.9 mi <br /> Peking University - 3.4 km / 2.1 mi <br /> Beijing Foreign Studies University - 4.1 km / 2.5 mi <br /> Beijing Aquarium - 5.3 km / 3.3 mi <br /> National Aquatics Center - 5.9 km / 3.7 mi <br /> Happy Magic Water Cube - 6.2 km / 3.8 mi <br /> Olympic Forest Park - 6.3 km / 3.9 mi <br /> Golden Resources Mall - 6.4 km / 4 mi <br /> Deshengmen - 6.5 km / 4.1 mi <br /> Shichahai - 6.8 km / 4.2 mi <br /> </p><p>The preferred airport for Park Plaza Beijing Science Park is Capital Intl. Airport (PEK) - 33.2 km / 20.6 mi </p>",
@@ -69,7 +90,10 @@
     "Map": "39.97582|116.339386",
     "PhoneNumber": "861082356699",
     "PinCode": "100083",
-    "HotelWebsiteUrl": "http://www.parkplaza.com/beijingcn_sciencepark"
+    "HotelWebsiteUrl": "http://www.parkplaza.com/beijingcn_sciencepark",
+    "star_rating": 4,
+    "latitude": 39.97582,
+    "longitude": 116.339386
   },
   {
     "countyCode": "CN",
@@ -77,7 +101,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1016398",
-    "HotelName": "Beijing Hotel",
+    "HotelName": {
+      "zh_CN": "北京饭店",
+      "en": "Beijing Hotel"
+    },
     "HotelRating": "FiveStar",
     "Address": "No 33 East Chang Avenue Block A, C, D Beijing 100004 ",
     "Attractions": "Distances are displayed to the nearest 0.1 mile and kilometer. <br /> <p>Oriental Plaza - 0.3 km / 0.2 mi <br /> Qianmen Dajie - 0.4 km / 0.3 mi <br /> National Museum of China - 0.6 km / 0.4 mi <br /> Wangfujing Street - 0.6 km / 0.4 mi <br /> Tiananmen Square - 0.8 km / 0.5 mi <br /> Intime Lotte Department Store - 1 km / 0.6 mi <br /> Monument to the People s Heroes - 1 km / 0.6 mi <br /> Tiananmen - 1 km / 0.6 mi <br /> China Museum of History - 1.1 km / 0.7 mi <br /> Peking Union Medical College - 1.1 km / 0.7 mi <br /> Chairman Mao Memorial Hall - 1.1 km / 0.7 mi <br /> Peninsula Beijing Shopping Arcade - 1.2 km / 0.8 mi <br /> Zhongnanhai - 1.3 km / 0.8 mi <br /> Zhengyangmen - 1.3 km / 0.8 mi <br /> Beijing Qianmen Street - 1.4 km / 0.9 mi <br /> </p><p>The nearest airports are:<br />Capital Intl. Airport (PEK) - 28.5 km / 17.7 mi<br /> Beijing (PKX-Daxing Intl.) - 51.8 km / 32.2 mi<br /> </p><p>The preferred airport for Beijing Hotel is Capital Intl. Airport (PEK). </p>",
@@ -87,7 +114,10 @@
     "Map": "39.906765|116.405208",
     "PhoneNumber": "+861065137766",
     "PinCode": "100004",
-    "HotelWebsiteUrl": "http://www.chinabeijinghotel.com.cn/"
+    "HotelWebsiteUrl": "http://www.chinabeijinghotel.com.cn/",
+    "star_rating": 5,
+    "latitude": 39.906765,
+    "longitude": 116.405208
   },
   {
     "countyCode": "CN",
@@ -105,7 +135,10 @@
     "Map": "39.940961|116.344011",
     "PhoneNumber": "",
     "PinCode": "100044",
-    "HotelWebsiteUrl": "http://www.beizhanhotel.com/"
+    "HotelWebsiteUrl": "http://www.beizhanhotel.com/",
+    "star_rating": 3,
+    "latitude": 39.940961,
+    "longitude": 116.344011
   },
   {
     "countyCode": "CN",
@@ -113,7 +146,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1018065",
-    "HotelName": "Royal Phoenix Hotel Beijing",
+    "HotelName": {
+      "zh_CN": "北京王府井凤凰酒店",
+      "en": "Royal Phoenix Hotel Beijing"
+    },
     "HotelRating": "ThreeStar",
     "Address": "17 Qianliang Lane Dong Cheng District Dongcheng District Dongchenng District100006 Beijing ",
     "Attractions": "Distances are displayed to the nearest 0.1 mile and kilometer. <br /> <p>Wangfujing Street - 0.4 km / 0.3 mi <br /> South Luogu Alley - 1.8 km / 1.1 mi <br /> Nanluoguxiang - 1.9 km / 1.2 mi <br /> Peking Union Medical College - 1.9 km / 1.2 mi <br /> Gui Street - 2.1 km / 1.3 mi <br /> Forbidden City - 2.3 km / 1.4 mi <br /> Zhongnanhai - 2.3 km / 1.4 mi <br /> Jingshan Park - 2.4 km / 1.5 mi <br /> The Palace Museum - 2.5 km / 1.5 mi <br /> Oriental Plaza - 2.7 km / 1.7 mi <br /> Beihai Park - 2.7 km / 1.7 mi <br /> Houhai Lake - 2.8 km / 1.7 mi <br /> Alien s Street Trade Market - 2.8 km / 1.8 mi <br /> Qianmen Dajie - 3 km / 1.9 mi <br /> Yonghe Temple - 3.1 km / 1.9 mi <br /> </p><p>The nearest airports are:<br />Capital Intl. Airport (PEK) - 25.9 km / 16.1 mi<br /> Beijing (PKX-Daxing Intl.) - 54.4 km / 33.8 mi<br /> </p><p>The preferred airport for Wangfujing Royal Phoenix Hotel is Capital Intl. Airport (PEK). </p>",
@@ -123,7 +159,10 @@
     "Map": "39.92593|116.41389",
     "PhoneNumber": "+861057642999",
     "PinCode": "100010",
-    "HotelWebsiteUrl": "http://www.royalphoenixhotelbeijing.com/"
+    "HotelWebsiteUrl": "http://www.royalphoenixhotelbeijing.com/",
+    "star_rating": 3,
+    "latitude": 39.92593,
+    "longitude": 116.41389
   },
   {
     "countyCode": "CN",
@@ -131,7 +170,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1019788",
-    "HotelName": "Super 8 Beijing Qian Men",
+    "HotelName": {
+      "zh_CN": "速8酒店北京前门店",
+      "en": "Super 8 Beijing Qian Men"
+    },
     "HotelRating": "ThreeStar",
     "Address": "65 Liang Shi Dian Street Xicheng DistrictBeijing ",
     "Attractions": "Beijing Capital Intl Airport1 : 34000mts",
@@ -141,7 +183,10 @@
     "Map": "39.89285|116.3975",
     "PhoneNumber": "86-104-001840018",
     "PinCode": "000000",
-    "HotelWebsiteUrl": "http://www.super8.com.cn/Hotel/HotelDetail.aspx?oid=196 http://www.super8.com/hotels/china/beijing/s"
+    "HotelWebsiteUrl": "http://www.super8.com.cn/Hotel/HotelDetail.aspx?oid=196 http://www.super8.com/hotels/china/beijing/s",
+    "star_rating": 3,
+    "latitude": 39.89285,
+    "longitude": 116.3975
   },
   {
     "countyCode": "CN",
@@ -159,7 +204,10 @@
     "Map": "40.028408|116.439956",
     "PhoneNumber": "86-10-84930055",
     "PinCode": "100012",
-    "HotelWebsiteUrl": "http://WWW.STEIGENBERGER.COM"
+    "HotelWebsiteUrl": "http://WWW.STEIGENBERGER.COM",
+    "star_rating": 4,
+    "latitude": 40.028408,
+    "longitude": 116.439956
   },
   {
     "countyCode": "CN",
@@ -167,7 +215,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1028313",
-    "HotelName": "Super 8 Hotel Beijing Fengtai Railway Station Dong",
+    "HotelName": {
+      "zh_CN": "速8酒店北京丰台火车站东大街店",
+      "en": "Super 8 Hotel Beijing Fengtai Railway Station Dong"
+    },
     "HotelRating": "ThreeStar",
     "Address": "42 Dong Avenue Fengtai DistrictBeijing ",
     "Attractions": "Beijing Intl Airport        1 : 50000mts",
@@ -177,7 +228,10 @@
     "Map": "39.914025|116.386816",
     "PhoneNumber": "00864001840018",
     "PinCode": "100071",
-    "HotelWebsiteUrl": "http://www.super8.com/hotels/china/beijing/super-8-hotel-beijing-fengtai-railway-station-dong-da-jie/hotel-overview"
+    "HotelWebsiteUrl": "http://www.super8.com/hotels/china/beijing/super-8-hotel-beijing-fengtai-railway-station-dong-da-jie/hotel-overview",
+    "star_rating": 3,
+    "latitude": 39.914025,
+    "longitude": 116.386816
   },
   {
     "countyCode": "CN",
@@ -185,7 +239,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1028315",
-    "HotelName": "Super 8 Hotel Beijing Guozhan Liu Fang",
+    "HotelName": {
+      "zh_CN": "速8酒店北京国展六方店",
+      "en": "Super 8 Hotel Beijing Guozhan Liu Fang"
+    },
     "HotelRating": "ThreeStar",
     "Address": "2 Xi Ba He South Road Chaoyang DistrictBeijing ",
     "Attractions": "",
@@ -195,7 +252,10 @@
     "Map": "39.958553314|116.43527222",
     "PhoneNumber": "00 86 40 01840018",
     "PinCode": "100028",
-    "HotelWebsiteUrl": "http://www.super8.com/hotels/china/beijing/super-8-hotel-beijing-guozhan-liu-fang/hotel-overview"
+    "HotelWebsiteUrl": "http://www.super8.com/hotels/china/beijing/super-8-hotel-beijing-guozhan-liu-fang/hotel-overview",
+    "star_rating": 3,
+    "latitude": 39.958553314,
+    "longitude": 116.43527222
   },
   {
     "countyCode": "CN",
@@ -203,7 +263,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1028317",
-    "HotelName": "Super 8 Hotel Beijing Lu Gu Tai Wan Jie",
+    "HotelName": {
+      "zh_CN": "速8酒店北京鲁谷台湾街店",
+      "en": "Super 8 Hotel Beijing Lu Gu Tai Wan Jie"
+    },
     "HotelRating": "ThreeStar",
     "Address": "74 Lu Gu Road South Yard Shijingshan DistrictBeijing ",
     "Attractions": "Capital International       1 : 42900mts",
@@ -213,7 +276,10 @@
     "Map": "39.903560638|116.24463654",
     "PhoneNumber": "00864001840018",
     "PinCode": "100040",
-    "HotelWebsiteUrl": "http://www.super8.com/hotels/china/beijing/super-8-hotel-beijing-lu-gu-tai-wan-jie/hotel-overview"
+    "HotelWebsiteUrl": "http://www.super8.com/hotels/china/beijing/super-8-hotel-beijing-lu-gu-tai-wan-jie/hotel-overview",
+    "star_rating": 3,
+    "latitude": 39.903560638,
+    "longitude": 116.24463654
   },
   {
     "countyCode": "CN",
@@ -221,7 +287,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1028319",
-    "HotelName": "Super 8 Hotel Beijing Prince Gongs Gong Wang Fu",
+    "HotelName": {
+      "zh_CN": "速8酒店北京恭王府店",
+      "en": "Super 8 Hotel Beijing Prince Gongs Gong Wang Fu"
+    },
     "HotelRating": "ThreeStar",
     "Address": "2 Wu Hu Lane Changqiao Beijing ",
     "Attractions": "",
@@ -231,7 +300,10 @@
     "Map": "39.91711|116.397057",
     "PhoneNumber": "00864001840018",
     "PinCode": "100009",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 39.91711,
+    "longitude": 116.397057
   },
   {
     "countyCode": "CN",
@@ -239,7 +311,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1028320",
-    "HotelName": "Super 8 Hotel Beijing Si Hui",
+    "HotelName": {
+      "zh_CN": "速8酒店北京四惠店",
+      "en": "Super 8 Hotel Beijing Si Hui"
+    },
     "HotelRating": "ThreeStar",
     "Address": "1 4F Block 18 No.11 Baziwan Rd 11 Baziwan RoadChaoyang District100022 Beijing ",
     "Attractions": "Capital Airport PEK         1 : 26000mts",
@@ -249,7 +324,10 @@
     "Map": "39.901086|116.500483",
     "PhoneNumber": "00864001840018",
     "PinCode": "100022",
-    "HotelWebsiteUrl": "http://www.super8.com/hotels/china/beijing/super-8-hotel-beijing-si-hui/hotel-overview"
+    "HotelWebsiteUrl": "http://www.super8.com/hotels/china/beijing/super-8-hotel-beijing-si-hui/hotel-overview",
+    "star_rating": 3,
+    "latitude": 39.901086,
+    "longitude": 116.500483
   },
   {
     "countyCode": "CN",
@@ -257,7 +335,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1028321",
-    "HotelName": "Super 8 Hotel Beijing West Railway Station Nan Lu",
+    "HotelName": {
+      "zh_CN": "速8酒店北京西客站南路店",
+      "en": "Super 8 Hotel Beijing West Railway Station Nan Lu"
+    },
     "HotelRating": "ThreeStar",
     "Address": "B 8 Taipingqiao Village Beijing ",
     "Attractions": "Capital Airport             1 : 39000mts",
@@ -267,7 +348,10 @@
     "Map": "39.917309|116.363531",
     "PhoneNumber": "+861059348666",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://www.super8.com/hotels/china/beijing/super-8"
+    "HotelWebsiteUrl": "http://www.super8.com/hotels/china/beijing/super-8",
+    "star_rating": 3,
+    "latitude": 39.917309,
+    "longitude": 116.363531
   },
   {
     "countyCode": "CN",
@@ -285,7 +369,10 @@
     "Map": "39.86917|116.389",
     "PhoneNumber": "1722102422296",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 39.86917,
+    "longitude": 116.389
   },
   {
     "countyCode": "CN",
@@ -303,7 +390,10 @@
     "Map": "38.5067706|-90.376663399999984",
     "PhoneNumber": "",
     "PinCode": "118305",
-    "HotelWebsiteUrl": "http://www.super8.com/hotels/china/beijing/super-8"
+    "HotelWebsiteUrl": "http://www.super8.com/hotels/china/beijing/super-8",
+    "star_rating": 3,
+    "latitude": 38.5067706,
+    "longitude": -90.37666339999998
   },
   {
     "countyCode": "CN",
@@ -321,7 +411,10 @@
     "Map": "40.04878|116.5906",
     "PhoneNumber": "",
     "PinCode": "101300",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 40.04878,
+    "longitude": 116.5906
   },
   {
     "countyCode": "CN",
@@ -329,7 +422,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1028359",
-    "HotelName": "Super 8 Hotel Beijing Yang Zha Huan Dao",
+    "HotelName": {
+      "zh_CN": "速8酒店北京杨闸环岛店",
+      "en": "Super 8 Hotel Beijing Yang Zha Huan Dao"
+    },
     "HotelRating": "ThreeStar",
     "Address": "46 Jing Tong Yuan Chaoyang DistrictBeijing ",
     "Attractions": "Capital Airport             1 : 10000mts",
@@ -339,7 +435,10 @@
     "Map": "39.922298431|116.48487091",
     "PhoneNumber": "00864001840018",
     "PinCode": "100024",
-    "HotelWebsiteUrl": "http://www.super8.com/hotels/china/beijing/super-8-hotel-beijing-yang-zha-huan-dao/hotel-overview"
+    "HotelWebsiteUrl": "http://www.super8.com/hotels/china/beijing/super-8-hotel-beijing-yang-zha-huan-dao/hotel-overview",
+    "star_rating": 3,
+    "latitude": 39.922298431,
+    "longitude": 116.48487091
   },
   {
     "countyCode": "CN",
@@ -357,7 +456,10 @@
     "Map": "39.90114|116.4168",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 39.90114,
+    "longitude": 116.4168
   },
   {
     "countyCode": "CN",
@@ -375,7 +477,10 @@
     "Map": "39.90323|116.4073",
     "PhoneNumber": "+861065124599",
     "PinCode": "100006",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 39.90323,
+    "longitude": 116.4073
   },
   {
     "countyCode": "CN",
@@ -383,7 +488,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1031675",
-    "HotelName": "Holiday Inn Beijing Shijingshan Parkview",
+    "HotelName": {
+      "zh_CN": "北京石景山假日酒店",
+      "en": "Holiday Inn Beijing Shijingshan Parkview"
+    },
     "HotelRating": "ThreeStar",
     "Address": "No.555 Tiancun Road Shijingshan Shijingshan District100049 Beijing ",
     "Attractions": "Distances are displayed to the nearest 0.1 mile and kilometer. <br /> <p>Beijing Shijingshan Amusement Park - 2.7 km / 1.7 mi <br /> Babaoshan Revolutionary Cemetery - 4.7 km / 2.9 mi <br /> China Central Television Tower - 11.2 km / 7 mi <br /> Beijing Garden Expo Park - 11.4 km / 7.1 mi <br /> Beijing Botanical Garden - 12.7 km / 7.9 mi <br /> Military Museum of the Chinese People s Revolution - 13.2 km / 8.2 mi <br /> Golden Resources Mall - 13.3 km / 8.3 mi <br /> Marco Polo Bridge - 14.1 km / 8.7 mi <br /> Purple Bamboo Park - 14.3 km / 8.9 mi <br /> Beijing Foreign Studies University - 14.4 km / 8.9 mi <br /> Beijing Financial Street - 14.5 km / 9 mi <br /> Fragrant Hills Park - 15 km / 9.3 mi <br /> Beijing International Exhibition Center - 15 km / 9.3 mi <br /> Capital Indoor Stadium - 15 km / 9.3 mi <br /> Renmin University of China - 15.6 km / 9.7 mi <br /> </p><p>The nearest airports are:<br />Capital Intl. Airport (PEK) - 52 km / 32.3 mi<br /> Beijing (PKX-Daxing Intl.) - 61.6 km / 38.3 mi<br /> </p><p></p>",
@@ -393,7 +501,10 @@
     "Map": "39.92996|116.20816",
     "PhoneNumber": "86-10-88770808",
     "PinCode": "100049",
-    "HotelWebsiteUrl": "http://www.ihg.com/holidayinn/hotels/us/en/beijing/pegpk/hoteldetail"
+    "HotelWebsiteUrl": "http://www.ihg.com/holidayinn/hotels/us/en/beijing/pegpk/hoteldetail",
+    "star_rating": 3,
+    "latitude": 39.92996,
+    "longitude": 116.20816
   },
   {
     "countyCode": "CN",
@@ -401,7 +512,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1031677",
-    "HotelName": "HNA Grand Hotel Shijingshan Beijing",
+    "HotelName": {
+      "zh_CN": "北京海航大酒店石景山店",
+      "en": "HNA Grand Hotel Shijingshan Beijing"
+    },
     "HotelRating": "FourStar",
     "Address": "11 Tiyuchang South Road Shijingshan District100043 Beijing ",
     "Attractions": "Distances are calculated in a straight line from the property&apos;s location to the point of interest or attraction  and may not reflect actual travel distance. &lt;br /&gt;&lt;br /&gt; Distances are displayed to the nearest 0.1 mile and kilometer. &lt;p&gt;Beijing Shijingshan Amusement Park - 0.7 km / 0.4 mi &lt;br /&gt;Beijing Garden Expo International Expo Garden - 4.6 km / 2.8 mi &lt;br /&gt;Fahai Temple - 4.8 km / 3 mi &lt;br /&gt;Lingguang Monastery - 5.3 km / 3.3 mi &lt;br /&gt;Eight Great Temples - 5.8 km / 3.6 mi &lt;br /&gt;Marco Polo Bridge - 6.6 km / 4.1 mi &lt;br /&gt;Chinese People&apos;s Anti-Japanese War Museum - 6.7 km / 4.2 mi &lt;br /&gt;Dinghui Temple - 7.5 km / 4.7 mi &lt;br /&gt;Beijing Moke Nunnery - 8.4 km / 5.2 mi &lt;br /&gt;China Central Television Tower - 9.8 km / 6.1 mi &lt;br /&gt;Fragrant Hills Park - 10 km / 6.2 mi &lt;br /&gt;Yuyuantan Park - 10 km / 6.2 mi &lt;br /&gt;Beijing Art Museum - 10.4 km / 6.4 mi &lt;br /&gt;Five Pagoda Temple - 10.4 km / 6.4 mi &lt;br /&gt;Beijing Botanical Garden - 10.5 km / 6.5 mi &lt;br /&gt;&lt;/p&gt;&lt;p&gt;The preferred airport for Hna Hotel Resort is Beijing (PEK-Capital Intl.) - 38.7 km / 24 mi. &lt;/p&gt;",
@@ -411,7 +525,10 @@
     "Map": "39.90617|116.19387",
     "PhoneNumber": "+861068876688",
     "PinCode": "100043",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 39.90617,
+    "longitude": 116.19387
   },
   {
     "countyCode": "CN",
@@ -429,7 +546,10 @@
     "Map": "39.95641|116.46777",
     "PhoneNumber": "+86(0)1084353678",
     "PinCode": "100000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/beijing-jiuduhui.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/beijing-jiuduhui.html",
+    "star_rating": 4,
+    "latitude": 39.95641,
+    "longitude": 116.46777
   },
   {
     "countyCode": "CN",
@@ -437,7 +557,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1031695",
-    "HotelName": "Kingrand Hotel Beijing",
+    "HotelName": {
+      "zh_CN": "北京金冠建国饭店",
+      "en": "Kingrand Hotel Beijing"
+    },
     "HotelRating": "FiveStar",
     "Address": "Zhushikou East Street, Dongcheng District, 18 BEI JING ",
     "Attractions": "",
@@ -447,7 +570,10 @@
     "Map": "39.89137|116.401453",
     "PhoneNumber": "",
     "PinCode": "100050",
-    "HotelWebsiteUrl": "http://www.kingrand.cn/en/"
+    "HotelWebsiteUrl": "http://www.kingrand.cn/en/",
+    "star_rating": 5,
+    "latitude": 39.89137,
+    "longitude": 116.401453
   },
   {
     "countyCode": "CN",
@@ -465,7 +591,10 @@
     "Map": "40.069602|116.586813",
     "PhoneNumber": "86-10-64508080",
     "PinCode": "100621",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 40.069602,
+    "longitude": 116.586813
   },
   {
     "countyCode": "CN",
@@ -473,7 +602,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1031701",
-    "HotelName": "The Imperial Mansion Beijing Marriott Executive Apartments",
+    "HotelName": {
+      "zh_CN": "北京王府井万豪行政公寓",
+      "en": "The Imperial Mansion Beijing Marriott Executive Apartments"
+    },
     "HotelRating": "FourStar",
     "Address": "North Gate, No.1 Xia Gong Fu Street Dongcheng District 1 Xiagongfu StreetDongcheng District100004 Peking ",
     "Attractions": "Distances are displayed to the nearest 0.1 mile and kilometer. <br /> <p>Wangfujing Street - 0.2 km / 0.1 mi <br /> Peking Union Medical College - 0.4 km / 0.3 mi <br /> Oriental Plaza - 0.5 km / 0.3 mi <br /> Peninsula Beijing Shopping Arcade - 0.8 km / 0.5 mi <br /> Intime Lotte Department Store - 0.9 km / 0.5 mi <br /> Huangchenggen Relic Site Park - 1 km / 0.6 mi <br /> Qianmen Dajie - 1.1 km / 0.7 mi <br /> Changpu River Park - 1.2 km / 0.8 mi <br /> Tiananmen Square - 1.3 km / 0.8 mi <br /> National Museum of China - 1.4 km / 0.9 mi <br /> Tiananmen - 1.6 km / 1 mi <br /> Monument to the People s Heroes - 1.7 km / 1.1 mi <br /> China Museum of History - 1.8 km / 1.1 mi <br /> Beijing New World Shopping Mall - 1.9 km / 1.2 mi <br /> Forbidden City - 1.9 km / 1.2 mi <br /> </p><p>The nearest airports are:<br />Capital Intl. Airport (PEK) - 28.4 km / 17.6 mi<br /> Beijing (PKX-Daxing Intl.) - 51.1 km / 31.7 mi<br /> </p><p></p>",
@@ -483,7 +615,10 @@
     "Map": "39.90991|116.40913",
     "PhoneNumber": "86-10-65649999",
     "PinCode": "100004",
-    "HotelWebsiteUrl": "http://www.marriott.com/hotels/travel/bjsim-the-imperial-mansion-beiji"
+    "HotelWebsiteUrl": "http://www.marriott.com/hotels/travel/bjsim-the-imperial-mansion-beiji",
+    "star_rating": 4,
+    "latitude": 39.90991,
+    "longitude": 116.40913
   },
   {
     "countyCode": "CN",
@@ -491,7 +626,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1031704",
-    "HotelName": "Rosewood Beijing",
+    "HotelName": {
+      "zh_CN": "北京瑰丽酒店",
+      "en": "Rosewood Beijing"
+    },
     "HotelRating": "FiveStar",
     "Address": "Jing Guang Centre Hujialou HujialouChaoyang District100020 Beijing ",
     "Attractions": "Distances are displayed to the nearest 0.1 mile and kilometer. <br /> <p>CCTV Headquarters - 1.1 km / 0.7 mi <br /> China World Trade Center - 1.3 km / 0.8 mi <br /> China World Mall - 1.4 km / 0.9 mi <br /> Silk Street Market - 1.5 km / 0.9 mi <br /> Sanlitun - 1.7 km / 1 mi <br /> Sanlitun Barstreet - 1.7 km / 1.1 mi <br /> Taikoo Li Sanlitun - Shopping & Life Style Centre - 2 km / 1.2 mi <br /> Nali Patio - 2 km / 1.2 mi <br /> Chaoyang Park - 2.6 km / 1.6 mi <br /> Beijing China Central Place - 2.8 km / 1.7 mi <br /> Workers Stadium - 3 km / 1.9 mi <br /> National Agricultural Exhibition Center - 3.6 km / 2.2 mi <br /> Peking Union Medical College - 4.2 km / 2.6 mi <br /> Yansha Youyi Shopping City - 4.5 km / 2.8 mi <br /> Gui Street - 4.6 km / 2.8 mi <br /> </p><p>The nearest airports are:<br />Capital Intl. Airport (PEK) - 23.8 km / 14.8 mi<br /> Beijing (PKX-Daxing Intl.) - 55.3 km / 34.4 mi<br /> </p><p>The preferred airport for Rosewood Beijing is Capital Intl. Airport (PEK). </p>",
@@ -501,7 +639,10 @@
     "Map": "39.918736|116.45509",
     "PhoneNumber": "86-10-65978888",
     "PinCode": "118305",
-    "HotelWebsiteUrl": "http://www.rosewoodhotels.com"
+    "HotelWebsiteUrl": "http://www.rosewoodhotels.com",
+    "star_rating": 5,
+    "latitude": 39.918736,
+    "longitude": 116.45509
   },
   {
     "countyCode": "CN",
@@ -509,7 +650,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1031710",
-    "HotelName": "New World Beijing Hotel",
+    "HotelName": {
+      "zh_CN": "北京新世界酒店",
+      "en": "New World Beijing Hotel"
+    },
     "HotelRating": "FiveStar",
     "Address": "Chongwenmen Dongcheng District 8 Qinian StreetDongcheng District100062 Beijing ",
     "Attractions": "Distances are displayed to the nearest 0.1 mile and kilometer. <br /> <p>Beijing New World Shopping Mall - 0.7 km / 0.4 mi <br /> Beijing Qianmen Street - 0.7 km / 0.4 mi <br /> Qianmen Dajie - 0.9 km / 0.6 mi <br /> Zhengyangmen - 1.1 km / 0.7 mi <br /> Chairman Mao Memorial Hall - 1.2 km / 0.8 mi <br /> Lao She Teahouse - 1.3 km / 0.8 mi <br /> National Museum of China - 1.3 km / 0.8 mi <br /> Oriental Plaza - 1.3 km / 0.8 mi <br /> Qianmen Street - 1.6 km / 1 mi <br /> Wangfujing Street - 1.7 km / 1.1 mi <br /> Tiananmen Square - 1.8 km / 1.1 mi <br /> Intime Lotte Department Store - 1.9 km / 1.2 mi <br /> Dashilan Street - 1.9 km / 1.2 mi <br /> Temple of Heaven Park - 2 km / 1.2 mi <br /> Monument to the People s Heroes - 2 km / 1.2 mi <br /> </p><p>The nearest airports are:<br />Capital Intl. Airport (PEK) - 29.8 km / 18.5 mi<br /> Beijing (PKX-Daxing Intl.) - 50.1 km / 31.1 mi<br /> </p><p>The preferred airport for New World Beijing Hotel is Capital Intl. Airport (PEK). </p>",
@@ -519,7 +663,10 @@
     "Map": "39.897316|116.40575",
     "PhoneNumber": "+861059608888",
     "PinCode": "100062",
-    "HotelWebsiteUrl": "http://beijing.newworldhotels.com/|http://beijing."
+    "HotelWebsiteUrl": "http://beijing.newworldhotels.com/|http://beijing.",
+    "star_rating": 5,
+    "latitude": 39.897316,
+    "longitude": 116.40575
   },
   {
     "countyCode": "CN",
@@ -527,7 +674,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1031715",
-    "HotelName": "Beijing Shouzhou Hotel",
+    "HotelName": {
+      "zh_CN": "北京首舟大酒店",
+      "en": "Beijing Shouzhou Hotel"
+    },
     "HotelRating": "FourStar",
     "Address": "No. 8 Beifengwo Road Haidian District Beijing C  ",
     "Attractions": "Distances are displayed to the nearest 0.1 mile and kilometer. <br /> <p>Capital Museum - 2.6 km / 1.6 mi <br /> Beijing Financial Street - 2.7 km / 1.7 mi <br /> Niujie Mosque - 4.9 km / 3 mi <br /> Cathedral of the Immaculate Conception - 5.2 km / 3.2 mi <br /> Beijing Concert Hall - 6 km / 3.8 mi <br /> National Centre for the Performing Arts - 6.7 km / 4.1 mi <br /> Beijing Museum of Natural History - 6.7 km / 4.2 mi <br /> Great Hall of the People - 6.9 km / 4.3 mi <br /> Tiananmen Square - 7.2 km / 4.5 mi <br /> China Museum of History - 7.5 km / 4.6 mi <br /> Beijing Foreign Studies University - 7.5 km / 4.7 mi <br /> Beijing Qianmen Street - 8 km / 4.9 mi <br /> Zhongnanhai - 8.1 km / 5.1 mi <br /> National Museum of China - 8.2 km / 5.1 mi <br /> Shichahai - 8.3 km / 5.2 mi <br /> </p><p>The preferred airport for Shouzhou Hotel is Beijing (PEK-Capital Intl.) - 36.8 km / 22.9 mi </p>",
@@ -537,7 +687,10 @@
     "Map": "39.89993|116.32277",
     "PhoneNumber": "86-10-52612222",
     "PinCode": "100038",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 39.89993,
+    "longitude": 116.32277
   },
   {
     "countyCode": "CN",
@@ -545,7 +698,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1031717",
-    "HotelName": "Super 8 Beijing Ma Jia Pu Jiao Men",
+    "HotelName": {
+      "zh_CN": "速8酒店北京马家堡角门店",
+      "en": "Super 8 Beijing Ma Jia Pu Jiao Men"
+    },
     "HotelRating": "ThreeStar",
     "Address": "16-20 North Jiao Men Road Fengtai District100068 Beijing ",
     "Attractions": "Beijing Capital Intl Airport1 : 37000mts",
@@ -555,7 +711,10 @@
     "Map": "39.84922|116.3704",
     "PhoneNumber": "00864001840018",
     "PinCode": "100068",
-    "HotelWebsiteUrl": "https://www.wyndhamhotels.com/super-8/beijing-china/super-8-beijing-ma-jia-pu-jiao-men/overview"
+    "HotelWebsiteUrl": "https://www.wyndhamhotels.com/super-8/beijing-china/super-8-beijing-ma-jia-pu-jiao-men/overview",
+    "star_rating": 3,
+    "latitude": 39.84922,
+    "longitude": 116.3704
   },
   {
     "countyCode": "CN",
@@ -573,7 +732,10 @@
     "Map": "39.918566|116.4153528",
     "PhoneNumber": "00864001840018",
     "PinCode": "100006",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 39.918566,
+    "longitude": 116.4153528
   },
   {
     "countyCode": "CN",
@@ -581,7 +743,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1031734",
-    "HotelName": "Super 8 Hotel Beijing Bei Hai Park South Gate",
+    "HotelName": {
+      "zh_CN": "速8酒店北京北海公园南门店",
+      "en": "Super 8 Hotel Beijing Bei Hai Park South Gate"
+    },
     "HotelRating": "ThreeStar",
     "Address": "The North Building A31 Xi Shi Ku Street (Xi Shi Ku Dajie)100034 Beijing ",
     "Attractions": "Beijing Capital Intl        1 : 30000mts",
@@ -591,7 +756,10 @@
     "Map": "39.923297882|116.35787964",
     "PhoneNumber": "00864001840018",
     "PinCode": "100034",
-    "HotelWebsiteUrl": "http://www.super8.com/hotels/china/beijing/super-8-hotel-beijing-bei-hai-park-south-gate/hotel-overview"
+    "HotelWebsiteUrl": "http://www.super8.com/hotels/china/beijing/super-8-hotel-beijing-bei-hai-park-south-gate/hotel-overview",
+    "star_rating": 3,
+    "latitude": 39.923297882,
+    "longitude": 116.35787964
   },
   {
     "countyCode": "CN",
@@ -599,7 +767,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1031736",
-    "HotelName": "Super8 Hotel Beijing Changping Gu Lou Dong Jie",
+    "HotelName": {
+      "zh_CN": "速8酒店北京昌平鼓楼东街店",
+      "en": "Super8 Hotel Beijing Changping Gu Lou Dong Jie"
+    },
     "HotelRating": "ThreeStar",
     "Address": "36 Of East Gu Lou Street 36 Changping Town102200 Beijing ",
     "Attractions": "",
@@ -609,7 +780,10 @@
     "Map": "40.215034485|116.23412323",
     "PhoneNumber": "+864001840018",
     "PinCode": "102200",
-    "HotelWebsiteUrl": "http://www.wyndhamhotels.com/super-8/beijing-china/super8-hotel-beijing-changping-gu-lou-dong-jie/overview"
+    "HotelWebsiteUrl": "http://www.wyndhamhotels.com/super-8/beijing-china/super8-hotel-beijing-changping-gu-lou-dong-jie/overview",
+    "star_rating": 3,
+    "latitude": 40.215034485,
+    "longitude": 116.23412323
   },
   {
     "countyCode": "CN",
@@ -617,7 +791,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1031754",
-    "HotelName": "Super 8 Hotel Beijing Gao Bei Dian Dian",
+    "HotelName": {
+      "zh_CN": "速8酒店北京高碑店店",
+      "en": "Super 8 Hotel Beijing Gao Bei Dian Dian"
+    },
     "HotelRating": "ThreeStar",
     "Address": "Fl.1 4 126 North Gaobeidian  ",
     "Attractions": "Beijing Capital Intl Airport1 : 28000mts",
@@ -627,7 +804,10 @@
     "Map": "39.918579102|116.46075439",
     "PhoneNumber": "86-10-40018",
     "PinCode": "100123",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 39.918579102,
+    "longitude": 116.46075439
   },
   {
     "countyCode": "CN",
@@ -635,7 +815,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1031756",
-    "HotelName": "Super 8 Hotel Beijing Gu Lou",
+    "HotelName": {
+      "zh_CN": "速8酒店北京鼓楼店",
+      "en": "Super 8 Hotel Beijing Gu Lou"
+    },
     "HotelRating": "ThreeStar",
     "Address": "245 An Ding Men Nei Street  ",
     "Attractions": "Beijing Capital Intl Airport1 : 25000mts",
@@ -645,7 +828,10 @@
     "Map": "39.94106|116.408274",
     "PhoneNumber": "00864001840018",
     "PinCode": "100009",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 39.94106,
+    "longitude": 116.408274
   },
   {
     "countyCode": "CN",
@@ -653,7 +839,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1031766",
-    "HotelName": "Super 8 Beijing Shijingshan Gu Cheng",
+    "HotelName": {
+      "zh_CN": "速8酒店北京石景山古城店",
+      "en": "Super 8 Beijing Shijingshan Gu Cheng"
+    },
     "HotelRating": "ThreeStar",
     "Address": "A8 West Gu Cheng Rd 100043 Beijing Shijingshan District100043 Beijing ",
     "Attractions": "Nanyuan Airport             1 : 37000mts",
@@ -663,7 +852,10 @@
     "Map": "39.91311264|116.17563629",
     "PhoneNumber": "00864001840018",
     "PinCode": "100043",
-    "HotelWebsiteUrl": "http://www.super8.com/hotels/china/beijing/super-8-hotel-beijing-shijingshan-gu-cheng/hotel-overview"
+    "HotelWebsiteUrl": "http://www.super8.com/hotels/china/beijing/super-8-hotel-beijing-shijingshan-gu-cheng/hotel-overview",
+    "star_rating": 3,
+    "latitude": 39.91311264,
+    "longitude": 116.17563629
   },
   {
     "countyCode": "CN",
@@ -671,7 +863,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1031773",
-    "HotelName": "Super 8 Hotel Beijing Tian Qia",
+    "HotelName": {
+      "zh_CN": "速8酒店北京天桥店",
+      "en": "Super 8 Hotel Beijing Tian Qia"
+    },
     "HotelRating": "ThreeStar",
     "Address": "2 Lu Chang Jie Tou Tiao ",
     "Attractions": "Nanyuan Airport            1 : 11600mts",
@@ -681,7 +876,10 @@
     "Map": "39.888476|116.398258",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 39.888476,
+    "longitude": 116.398258
   },
   {
     "countyCode": "CN",
@@ -689,7 +887,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1031774",
-    "HotelName": "Super 8 Hotel Beijing Wan Feng Lu",
+    "HotelName": {
+      "zh_CN": "速8酒店北京万丰路店",
+      "en": "Super 8 Hotel Beijing Wan Feng Lu"
+    },
     "HotelRating": "ThreeStar",
     "Address": "A288 Wanfeng Lu  ",
     "Attractions": "Beijing Capital Intl Airport1 : 35000mts",
@@ -699,7 +900,10 @@
     "Map": "39.8769397|116.2956031",
     "PhoneNumber": "00864001840018",
     "PinCode": "100161",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 39.8769397,
+    "longitude": 116.2956031
   },
   {
     "countyCode": "CN",
@@ -707,7 +911,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1031778",
-    "HotelName": "Super 8 Hotel Beijing Zhushiko",
+    "HotelName": {
+      "zh_CN": "速8酒店北京珠市口店",
+      "en": "Super 8 Hotel Beijing Zhushiko"
+    },
     "HotelRating": "ThreeStar",
     "Address": "Floor 1 and 2 16 Dong Da Jie ",
     "Attractions": "Beijing Capital Intl        : within 35000 metre ",
@@ -717,7 +924,10 @@
     "Map": "39.855651|116.289868",
     "PhoneNumber": "",
     "PinCode": "100050",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 39.855651,
+    "longitude": 116.289868
   },
   {
     "countyCode": "CN",
@@ -725,7 +935,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1031806",
-    "HotelName": "Beijing Vienna Hotel Shouti",
+    "HotelName": {
+      "zh_CN": "北京维也纳酒店首体店",
+      "en": "Beijing Vienna Hotel Shouti"
+    },
     "HotelRating": "FourStar",
     "Address": "No. 52 Zhongguancun South Street Zhongwaijiaoliudasha Haidian District  ",
     "Attractions": "",
@@ -735,7 +948,10 @@
     "Map": "39.94363|116.32634",
     "PhoneNumber": "86 10 62197778",
     "PinCode": "100086",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/vienna-shouti.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/vienna-shouti.html",
+    "star_rating": 4,
+    "latitude": 39.94363,
+    "longitude": 116.32634
   },
   {
     "countyCode": "CN",
@@ -753,7 +969,10 @@
     "Map": "39.93481|116.444156",
     "PhoneNumber": "86-10-64094389",
     "PinCode": "100005",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 39.93481,
+    "longitude": 116.444156
   },
   {
     "countyCode": "CN",
@@ -761,7 +980,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1037616",
-    "HotelName": "Yingcheng Business Hotel",
+    "HotelName": {
+      "zh_CN": "北京迎城商务酒店",
+      "en": "Yingcheng Business Hotel"
+    },
     "HotelRating": "FourStar",
     "Address": "No.80 Nanzhugan Hutong Chao Nei Nan Street Dongch  ",
     "Attractions": "",
@@ -771,7 +993,10 @@
     "Map": "39.92177|116.42699",
     "PhoneNumber": "010-65283366",
     "PinCode": "100000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 39.92177,
+    "longitude": 116.42699
   },
   {
     "countyCode": "CN",
@@ -779,7 +1004,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1037744",
-    "HotelName": "Beijing Shindom Inn Xinjiekou",
+    "HotelName": {
+      "zh_CN": "北京新街口欣燕都酒店",
+      "en": "Beijing Shindom Inn Xinjiekou"
+    },
     "HotelRating": "ThreeStar",
     "Address": "NO. 44, NAN DAJIE, XI CHENG DISTRICT BEIJING ",
     "Attractions": "",
@@ -789,7 +1017,10 @@
     "Map": "39.938624|116.373207",
     "PhoneNumber": "",
     "PinCode": "100035",
-    "HotelWebsiteUrl": "http://www.shindom.com/"
+    "HotelWebsiteUrl": "http://www.shindom.com/",
+    "star_rating": 3,
+    "latitude": 39.938624,
+    "longitude": 116.373207
   },
   {
     "countyCode": "CN",
@@ -797,7 +1028,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1037761",
-    "HotelName": "Starway Hotel Beijing West Railway Station",
+    "HotelName": {
+      "zh_CN": "北京西客站星程酒店",
+      "en": "Starway Hotel Beijing West Railway Station"
+    },
     "HotelRating": "ThreeStar",
     "Address": "No. 45 Wu Jia Chang Road Haidian District Haidian District100036 Beijing ",
     "Attractions": "",
@@ -807,7 +1041,10 @@
     "Map": "39.89765|116.30694839",
     "PhoneNumber": "+86(0)1063970916",
     "PinCode": "100161",
-    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=626094"
+    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=626094",
+    "star_rating": 3,
+    "latitude": 39.89765,
+    "longitude": 116.30694839
   },
   {
     "countyCode": "CN",
@@ -815,7 +1052,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1037923",
-    "HotelName": "Juyongguan Great Wall Hotel",
+    "HotelName": {
+      "zh_CN": "北京居庸关长城酒店",
+      "en": "Juyongguan Great Wall Hotel"
+    },
     "HotelRating": "FourStar",
     "Address": "Juyongguan Nankou Town102202 ChangpingBeijing ",
     "Attractions": "Distances are calculated in a straight line from the property&apos;s location to the point of interest or attraction  and may not reflect actual travel distance. &lt;br /&gt;&lt;br /&gt; Distances are displayed to the nearest 0.1 mile and kilometer. &lt;p&gt;Great Wall of China - 7.9 km / 4.9 mi &lt;br /&gt;Beijing Badaling Wildlife World - 10.2 km / 6.4 mi &lt;br /&gt;Ming Tombs - 13.6 km / 8.5 mi &lt;br /&gt;Xishan National Forest Park - 33.1 km / 20.6 mi &lt;br /&gt;Haidian Jingfu Temple - 33.6 km / 20.9 mi &lt;br /&gt;Temple of the Sleeping Buddha - 33.6 km / 20.9 mi &lt;br /&gt;Five Pagoda Temple - 34 km / 21.1 mi &lt;br /&gt;Fragrant Hills Park - 34.1 km / 21.2 mi &lt;br /&gt;Beijing Botanical Garden - 34.5 km / 21.4 mi &lt;br /&gt;Summer Palace - 36.3 km / 22.5 mi &lt;br /&gt;Hall of Dispelling Clouds - 36.7 km / 22.8 mi &lt;br /&gt;Dragon King Temple - 37.4 km / 23.3 mi &lt;br /&gt;17 Arch Bridge - 37.6 km / 23.4 mi &lt;br /&gt;Old Summer Palace - 37.7 km / 23.4 mi &lt;br /&gt;Zhengjue Temple - 38 km / 23.6 mi &lt;br /&gt;&lt;/p&gt;&lt;p&gt;The nearest major airport is Beijing (PEK-Capital Intl.) - 49.7 km / 30.9 mi. &lt;/p&gt;",
@@ -825,7 +1065,10 @@
     "Map": "40.292456767768|116.074166893959",
     "PhoneNumber": "",
     "PinCode": "102202",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 40.292456767768,
+    "longitude": 116.074166893959
   },
   {
     "countyCode": "CN",
@@ -833,7 +1076,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1038019",
-    "HotelName": "Yunfeng Treehouse",
+    "HotelName": {
+      "zh_CN": "北京云峰树屋酒店",
+      "en": "Yunfeng Treehouse"
+    },
     "HotelRating": "FourStar",
     "Address": "Yunfeng Mountain Scenic Area Yanluo VillageBulaotun Town101516 Miyun ",
     "Attractions": "Distances are displayed to the nearest 0.1 mile and kilometer. <br /> <p>Miyun Reservoir - 5.7 km / 3.6 mi <br /> Heilongtan Natural Scenic Area - 26.6 km / 16.5 mi <br /> Taoyuan Fairy Valley - 27.6 km / 17.2 mi <br /> Jiudaowan Canyon - 28 km / 17.4 mi <br /> Yunmeng Gorge - 29 km / 18 mi <br /> Taoyuanxiangu Scenic Area - 31 km / 19.2 mi <br /> Yunlongjian Scenic Area - 38.3 km / 23.8 mi <br /> </p><p>The nearest major airport is Beijing (PEK-Capital Intl.) - 112.7 km / 70 mi</p>",
@@ -843,7 +1089,10 @@
     "Map": "40.58549|116.949806",
     "PhoneNumber": "86-010-81098688",
     "PinCode": "101516",
-    "HotelWebsiteUrl": "http://www.yunfengshan.com"
+    "HotelWebsiteUrl": "http://www.yunfengshan.com",
+    "star_rating": 4,
+    "latitude": 40.58549,
+    "longitude": 116.949806
   },
   {
     "countyCode": "CN",
@@ -851,7 +1100,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1047366",
-    "HotelName": "International",
+    "HotelName": {
+      "zh_CN": "北京国际饭店",
+      "en": "International"
+    },
     "HotelRating": "FiveStar",
     "Address": "9 Jiangguo Mennei Road 100005 Beijing ",
     "Attractions": "",
@@ -861,7 +1113,10 @@
     "Map": "39.90981|116.42785",
     "PhoneNumber": "86-10-65126688",
     "PinCode": "100005",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/beijing-international.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/beijing-international.html",
+    "star_rating": 5,
+    "latitude": 39.90981,
+    "longitude": 116.42785
   },
   {
     "countyCode": "CN",
@@ -869,7 +1124,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1047382",
-    "HotelName": "Kempinski Hotel Beijing Lufthansa Center",
+    "HotelName": {
+      "zh_CN": "北京燕莎中心凯宾斯基饭店",
+      "en": "Kempinski Hotel Beijing Lufthansa Center"
+    },
     "HotelRating": "FiveStar",
     "Address": "50 Liangmaqiao Road Chaoyang District 100125 Chaoyang DistrictBeijing ",
     "Attractions": "Distances are displayed to the nearest 0.1 mile and kilometer. <br /> <p>Sanlitun - 0.9 km / 0.6 mi <br /> Yansha Youyi Shopping City - 1.1 km / 0.7 mi <br /> Chaoyang Park - 1.3 km / 0.8 mi <br /> National Agricultural Exhibition Center - 1.4 km / 0.9 mi <br /> Nali Patio - 1.5 km / 1 mi <br /> Taikoo Li Sanlitun - Shopping & Life Style Centre - 1.6 km / 1 mi <br /> Sanlitun Barstreet - 2.1 km / 1.3 mi <br /> China International Exhibition Center - 2.8 km / 1.7 mi <br /> Gui Street - 3 km / 1.9 mi <br /> Workers Stadium - 3 km / 1.9 mi <br /> Yonghe Temple - 4.3 km / 2.6 mi <br /> CCTV Headquarters - 4.7 km / 2.9 mi <br /> China World Trade Center - 4.7 km / 2.9 mi <br /> Ritan Park - 4.9 km / 3 mi <br /> China World Mall - 5.7 km / 3.5 mi <br /> </p><p>The nearest airports are:<br />Capital Intl. Airport (PEK) - 21 km / 13 mi<br /> Beijing (PKX-Daxing Intl.) - 63.5 km / 39.4 mi<br /> </p><p></p>",
@@ -879,7 +1137,10 @@
     "Map": "39.948631|116.457873",
     "PhoneNumber": "86-10-64653388",
     "PinCode": "100125",
-    "HotelWebsiteUrl": "http://www.kempinski.com/beijing"
+    "HotelWebsiteUrl": "http://www.kempinski.com/beijing",
+    "star_rating": 5,
+    "latitude": 39.948631,
+    "longitude": 116.457873
   },
   {
     "countyCode": "CN",
@@ -887,7 +1148,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1057786",
-    "HotelName": "Jin Jiang Inn Beijing Zoo",
+    "HotelName": {
+      "zh_CN": "北京锦江之星动物园店",
+      "en": "Jin Jiang Inn Beijing Zoo"
+    },
     "HotelRating": "ThreeStar",
     "Address": "11 Xiwaidajie Avenue Debao XinyuanXicheng District100044  Beijing ",
     "Attractions": "",
@@ -897,7 +1161,10 @@
     "Map": "39.94044|116.34562",
     "PhoneNumber": "+861088378883",
     "PinCode": "100044",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-beijing-zoo.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-beijing-zoo.html",
+    "star_rating": 3,
+    "latitude": 39.94044,
+    "longitude": 116.34562
   },
   {
     "countyCode": "CN",
@@ -905,7 +1172,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1057845",
-    "HotelName": "Beijing Hejing Palace Hotel",
+    "HotelName": {
+      "zh_CN": "北京和敬府宾馆",
+      "en": "Beijing Hejing Palace Hotel"
+    },
     "HotelRating": "ThreeStar",
     "Address": "NO.7 Zhangzizhong Road Dongcheng District Dongcheng District100007 Beijing ",
     "Attractions": "Distances are displayed to the nearest 0.1 mile and kilometer. <br /> <p>Gui Street - 0.2 km / 0.2 mi <br /> South Luogu Alley - 0.7 km / 0.5 mi <br /> Temple of Confucius - 1.2 km / 0.8 mi <br /> Nanluoguxiang - 1.5 km / 1 mi <br /> Houhai Lake - 1.6 km / 1 mi <br /> Yonghe Temple - 1.7 km / 1.1 mi <br /> Wangfujing Street - 1.7 km / 1.1 mi <br /> Sanlitun - 2.1 km / 1.3 mi <br /> National Art Museum of China - 2.2 km / 1.4 mi <br /> Bell and Drum Towers - 2.3 km / 1.4 mi <br /> Shichahai - 2.5 km / 1.5 mi <br /> Prince Gong Mansion - 2.6 km / 1.6 mi <br /> Jingshan Park - 2.7 km / 1.7 mi <br /> Memorial Hall of Guomoruo - 2.7 km / 1.7 mi <br /> Houhai Park - 2.9 km / 1.8 mi <br /> </p><p>The nearest major airport is Beijing (PEK-Capital Intl.) - 25.2 km / 15.7 mi</p>",
@@ -915,7 +1185,10 @@
     "Map": "39.93556|116.41224",
     "PhoneNumber": "86-010-64017744",
     "PinCode": "100007",
-    "HotelWebsiteUrl": "http://www.hejingfu.com"
+    "HotelWebsiteUrl": "http://www.hejingfu.com",
+    "star_rating": 3,
+    "latitude": 39.93556,
+    "longitude": 116.41224
   },
   {
     "countyCode": "CN",
@@ -923,7 +1196,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1057884",
-    "HotelName": "Qomolangma Hotel Beijing",
+    "HotelName": {
+      "zh_CN": "北京珠峰宾馆",
+      "en": "Qomolangma Hotel Beijing"
+    },
     "HotelRating": "ThreeStar",
     "Address": "No.149 Gulou West Street Xicheng  ",
     "Attractions": "Distances are displayed to the nearest 0.1 mile and kilometer. <br /> <p>Shichahai - 0.1 km / 0.1 mi <br /> Houhai Lake - 0.7 km / 0.4 mi <br /> Bell and Drum Towers - 0.7 km / 0.5 mi <br /> Houhai Park - 1.1 km / 0.7 mi <br /> Nanluoguxiang - 1.9 km / 1.2 mi <br /> Prince Gong Mansion - 1.9 km / 1.2 mi <br /> Lotus Market - 2 km / 1.2 mi <br /> Temple of Confucius - 2.2 km / 1.3 mi <br /> Lama Temple - 3.2 km / 2 mi <br /> Beijing Normal University - 3.2 km / 2 mi <br /> Ditan Park - 3.2 km / 2 mi <br /> Beihai Park - 3.3 km / 2 mi <br /> Jingshan Park - 3.4 km / 2.1 mi <br /> Zhongnanhai - 3.6 km / 2.3 mi <br /> Wangfujing Street - 4 km / 2.5 mi <br /> </p><p>The nearest major airport is Beijing (PEK-Capital Intl.) - 26.5 km / 16.4 mi</p>",
@@ -933,7 +1209,10 @@
     "Map": "39.94573|116.38596",
     "PhoneNumber": "(86) 01064018822",
     "PinCode": "100009",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 39.94573,
+    "longitude": 116.38596
   },
   {
     "countyCode": "CN",
@@ -951,7 +1230,10 @@
     "Map": "40.00029|116.42157",
     "PhoneNumber": "",
     "PinCode": "100010",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 40.00029,
+    "longitude": 116.42157
   },
   {
     "countyCode": "CN",
@@ -959,7 +1241,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1057937",
-    "HotelName": "Beijing Lanting Youth Hostel",
+    "HotelName": {
+      "zh_CN": "北京兰亭青年旅舍",
+      "en": "Beijing Lanting Youth Hostel"
+    },
     "HotelRating": "ThreeStar",
     "Address": "A 17 Area 3 Anhua Xili Chaoyang District  ",
     "Attractions": "",
@@ -969,7 +1254,10 @@
     "Map": "39.96459|116.40179",
     "PhoneNumber": "(86) 1064258738",
     "PinCode": "100011",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/beijing-lanting-youth.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/beijing-lanting-youth.html",
+    "star_rating": 3,
+    "latitude": 39.96459,
+    "longitude": 116.40179
   },
   {
     "countyCode": "CN",
@@ -977,7 +1265,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1058015",
-    "HotelName": "Guangzhou Hotel Beijing",
+    "HotelName": {
+      "zh_CN": "北京广州大厦",
+      "en": "Guangzhou Hotel Beijing"
+    },
     "HotelRating": "FourStar",
     "Address": "No. A3 Hengertiao Xicheng District Beijing Chin Beijing 100031 ",
     "Attractions": "",
@@ -987,7 +1278,10 @@
     "Map": "39.91106|116.37633",
     "PhoneNumber": "010-58559988",
     "PinCode": "118305",
-    "HotelWebsiteUrl": "http://www.guangzhouhotelbeijing.cn/"
+    "HotelWebsiteUrl": "http://www.guangzhouhotelbeijing.cn/",
+    "star_rating": 4,
+    "latitude": 39.91106,
+    "longitude": 116.37633
   },
   {
     "countyCode": "CN",
@@ -1005,7 +1299,10 @@
     "Map": "39.92476|116.43917",
     "PhoneNumber": "86-010-65802888",
     "PinCode": "100020",
-    "HotelWebsiteUrl": "http://www.guangyaohotel.com"
+    "HotelWebsiteUrl": "http://www.guangyaohotel.com",
+    "star_rating": 4,
+    "latitude": 39.92476,
+    "longitude": 116.43917
   },
   {
     "countyCode": "CN",
@@ -1023,7 +1320,10 @@
     "Map": "39.86364|116.45931",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 39.86364,
+    "longitude": 116.45931
   },
   {
     "countyCode": "CN",
@@ -1041,7 +1341,10 @@
     "Map": "39.85248|116.47587",
     "PhoneNumber": "(86) 1067486298",
     "PinCode": "100022",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 39.85248,
+    "longitude": 116.47587
   },
   {
     "countyCode": "CN",
@@ -1059,7 +1362,10 @@
     "Map": "39.89264737|116.4909999",
     "PhoneNumber": "",
     "PinCode": "100124",
-    "HotelWebsiteUrl": "www.dajiaotinghotel.com"
+    "HotelWebsiteUrl": "www.dajiaotinghotel.com",
+    "star_rating": 3,
+    "latitude": 39.89264737,
+    "longitude": 116.4909999
   },
   {
     "countyCode": "CN",
@@ -1077,7 +1383,10 @@
     "Map": "39.90013|116.4707",
     "PhoneNumber": "86-1-8301541054",
     "PinCode": "100000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 39.90013,
+    "longitude": 116.4707
   },
   {
     "countyCode": "CN",
@@ -1095,7 +1404,10 @@
     "Map": "39.948653|116.447404",
     "PhoneNumber": "+86 10 8777 6666",
     "PinCode": "100000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 39.948653,
+    "longitude": 116.447404
   },
   {
     "countyCode": "CN",
@@ -1113,7 +1425,10 @@
     "Map": "39.90906679|116.57727326",
     "PhoneNumber": "010-57063333",
     "PinCode": "100000",
-    "HotelWebsiteUrl": "http://www.hemeihuitong.com"
+    "HotelWebsiteUrl": "http://www.hemeihuitong.com",
+    "star_rating": 3,
+    "latitude": 39.90906679,
+    "longitude": 116.57727326
   },
   {
     "countyCode": "CN",
@@ -1121,7 +1436,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1058159",
-    "HotelName": "Palace International",
+    "HotelName": {
+      "zh_CN": "北京皇家大饭店",
+      "en": "Palace International"
+    },
     "HotelRating": "FiveStar",
     "Address": "155 Dongli Shifoying Chaoyang District ",
     "Attractions": "",
@@ -1131,7 +1449,10 @@
     "Map": "39.9325901890811|116.508201956749",
     "PhoneNumber": "",
     "PinCode": "100025",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 5,
+    "latitude": 39.9325901890811,
+    "longitude": 116.508201956749
   },
   {
     "countyCode": "CN",
@@ -1149,7 +1470,10 @@
     "Map": "39.90703|116.46496",
     "PhoneNumber": "010-65685566",
     "PinCode": "100022",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 39.90703,
+    "longitude": 116.46496
   },
   {
     "countyCode": "CN",
@@ -1157,7 +1481,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1058178",
-    "HotelName": "Fx Inn Chaoyang Park Beijing",
+    "HotelName": {
+      "zh_CN": "北京朝阳公园泛悦酒店",
+      "en": "Fx Inn Chaoyang Park Beijing"
+    },
     "HotelRating": "ThreeStar",
     "Address": "NO10 LIULITUNCHAOYANG DISTRICT BEIJING ",
     "Attractions": "",
@@ -1167,7 +1494,10 @@
     "Map": "39.94227|116.46881",
     "PhoneNumber": "",
     "PinCode": "100026",
-    "HotelWebsiteUrl": "http://www.fxhotels.com/en/Hotel.aspx?city=PEK&hotelId=PEKCYD&arrivalDate=2017-12-28&outDate=2017-12-29&days=1&comCode=Promotion+Code&adults=0&childre"
+    "HotelWebsiteUrl": "http://www.fxhotels.com/en/Hotel.aspx?city=PEK&hotelId=PEKCYD&arrivalDate=2017-12-28&outDate=2017-12-29&days=1&comCode=Promotion+Code&adults=0&childre",
+    "star_rating": 3,
+    "latitude": 39.94227,
+    "longitude": 116.46881
   },
   {
     "countyCode": "CN",
@@ -1185,7 +1515,10 @@
     "Map": "39.9533|116.45456",
     "PhoneNumber": "(86) 01084516611",
     "PinCode": "100027",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/shang-kang-cheng-jiu-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/shang-kang-cheng-jiu-dian.html",
+    "star_rating": 3,
+    "latitude": 39.9533,
+    "longitude": 116.45456
   },
   {
     "countyCode": "CN",
@@ -1193,7 +1526,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1058225",
-    "HotelName": "Jinjiang Inn Beijing International Exhibition Centre",
+    "HotelName": {
+      "zh_CN": "北京锦江之星国际展览中心店",
+      "en": "Jinjiang Inn Beijing International Exhibition Centre"
+    },
     "HotelRating": "ThreeStar",
     "Address": "No. 5 Zuojiazhuang Beili Chaoyang District Beijing  ",
     "Attractions": "",
@@ -1203,7 +1539,10 @@
     "Map": "39.95745|116.43995",
     "PhoneNumber": "(86) 1064668166",
     "PinCode": "100028",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-beijing-international-exhibition-centre.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-beijing-international-exhibition-centre.html",
+    "star_rating": 3,
+    "latitude": 39.95745,
+    "longitude": 116.43995
   },
   {
     "countyCode": "CN",
@@ -1211,7 +1550,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1058231",
-    "HotelName": "Jinjiang Inn Beijing Olympic Sports Center",
+    "HotelName": {
+      "zh_CN": "北京锦江之星奥体中心店",
+      "en": "Jinjiang Inn Beijing Olympic Sports Center"
+    },
     "HotelRating": "ThreeStar",
     "Address": "1 Yard Anyuanli AndingmenwaiChaoyang District100029 Peking ",
     "Attractions": "",
@@ -1221,7 +1563,10 @@
     "Map": "39.98895|116.41456",
     "PhoneNumber": "+861064917666",
     "PinCode": "100029",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-beijing-olympics-center.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-beijing-olympics-center.html",
+    "star_rating": 3,
+    "latitude": 39.98895,
+    "longitude": 116.41456
   },
   {
     "countyCode": "CN",
@@ -1239,7 +1584,10 @@
     "Map": "39.98043|116.38103",
     "PhoneNumber": "(86) 1082994588",
     "PinCode": "100029",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 39.98043,
+    "longitude": 116.38103
   },
   {
     "countyCode": "CN",
@@ -1247,7 +1595,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1058272",
-    "HotelName": "Beijing Xidan Hotel",
+    "HotelName": {
+      "zh_CN": "北京西单饭店",
+      "en": "Beijing Xidan Hotel"
+    },
     "HotelRating": "FourStar",
     "Address": "1 Damucang North First Lane (Damucang Bei Yi Xiang, 1? Beijing ",
     "Attractions": "",
@@ -1257,7 +1608,10 @@
     "Map": "39.912826|116.371453",
     "PhoneNumber": "+86 10 6603 2266",
     "PinCode": "100032",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 39.912826,
+    "longitude": 116.371453
   },
   {
     "countyCode": "CN",
@@ -1265,7 +1619,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1058288",
-    "HotelName": "Beijing Shindom Xian Men Hotel",
+    "HotelName": {
+      "zh_CN": "北京鲜面胡同欣燕都酒店",
+      "en": "Beijing Shindom Xian Men Hotel"
+    },
     "HotelRating": "ThreeStar",
     "Address": "2-2 DAHONGLUOCHANG STREET, XICHENG DISTRICT BEIJING ",
     "Attractions": "",
@@ -1275,7 +1632,10 @@
     "Map": "39.933164|116.379896",
     "PhoneNumber": "",
     "PinCode": "100034",
-    "HotelWebsiteUrl": "http://www.shindom.com/hotel/hoteldetail.php?hid=BJZY20080623017"
+    "HotelWebsiteUrl": "http://www.shindom.com/hotel/hoteldetail.php?hid=BJZY20080623017",
+    "star_rating": 3,
+    "latitude": 39.933164,
+    "longitude": 116.379896
   },
   {
     "countyCode": "CN",
@@ -1283,7 +1643,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1058307",
-    "HotelName": "Zhongyi Pengao Hotel",
+    "HotelName": {
+      "zh_CN": "北京中裔鹏翱酒店",
+      "en": "Zhongyi Pengao Hotel"
+    },
     "HotelRating": "FourStar",
     "Address": "No. 29 Fuxing Road, Haidian District  ",
     "Attractions": "",
@@ -1293,7 +1656,10 @@
     "Map": "39.9078|116.29626",
     "PhoneNumber": "10 8826 8899",
     "PinCode": "100036",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/zhong-yi-peng-ao-beijing.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/zhong-yi-peng-ao-beijing.html",
+    "star_rating": 4,
+    "latitude": 39.9078,
+    "longitude": 116.29626
   },
   {
     "countyCode": "CN",
@@ -1301,7 +1667,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1058506",
-    "HotelName": "Beijing Hyde Courtyard Hotel",
+    "HotelName": {
+      "zh_CN": "北京海德四合院酒店",
+      "en": "Beijing Hyde Courtyard Hotel"
+    },
     "HotelRating": "ThreeStar",
     "Address": "No. 11 Shijia Hutong Xicheng District Meishi StreetXicheng DistrictBeijing 100051 ",
     "Attractions": "Distances are displayed to the nearest 0.1 mile and kilometer. <br /> <p>Qianmen Street - 0.4 km / 0.2 mi <br /> Dashilan Street - 0.4 km / 0.2 mi <br /> Colored Glaze Factory Cultural Street - 0.8 km / 0.5 mi <br /> Beijing Qianmen Street - 1 km / 0.6 mi <br /> Lao She Teahouse - 1 km / 0.6 mi <br /> Beijing Financial Street - 1.3 km / 0.8 mi <br /> Great Hall of the People - 1.5 km / 0.9 mi <br /> Zhengyangmen - 1.5 km / 0.9 mi <br /> National Centre for the Performing Arts - 1.9 km / 1.2 mi <br /> Chairman Mao Memorial Hall - 2 km / 1.3 mi <br /> Shichahai - 2 km / 1.3 mi <br /> National Museum of China - 2.1 km / 1.3 mi <br /> Zhongnanhai - 2.1 km / 1.3 mi <br /> Monument to the People s Heroes - 2.2 km / 1.4 mi <br /> China Museum of History - 2.4 km / 1.5 mi <br /> </p><p>The nearest airports are:<br />Capital Intl. Airport (PEK) - 31.4 km / 19.5 mi<br /> Beijing (PKX-Daxing Intl.) - 53.3 km / 33.1 mi<br /> </p><p>The preferred airport for Beijing Hyde Courtyard Hotel is Capital Intl. Airport (PEK). </p>",
@@ -1311,7 +1680,10 @@
     "Map": "39.892594|116.390638",
     "PhoneNumber": "86-10-63186228",
     "PinCode": "100051",
-    "HotelWebsiteUrl": "https://de.hotels.com/ho419235/beijing-hyde-courtyard-hotel-peking-china/"
+    "HotelWebsiteUrl": "https://de.hotels.com/ho419235/beijing-hyde-courtyard-hotel-peking-china/",
+    "star_rating": 3,
+    "latitude": 39.892594,
+    "longitude": 116.390638
   },
   {
     "countyCode": "CN",
@@ -1319,7 +1691,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1058513",
-    "HotelName": "Qianmen Courtyard Hotel",
+    "HotelName": {
+      "zh_CN": "北京前门四合院酒店",
+      "en": "Qianmen Courtyard Hotel"
+    },
     "HotelRating": "ThreeStar",
     "Address": "4 Shijia Hutong Qianmen StreetXicheng District100051 Beijing ",
     "Attractions": "",
@@ -1329,7 +1704,10 @@
     "Map": "39.89388|116.39694",
     "PhoneNumber": "",
     "PinCode": "100051",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/beijing-jinxiu-courtyard.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/beijing-jinxiu-courtyard.html",
+    "star_rating": 3,
+    "latitude": 39.89388,
+    "longitude": 116.39694
   },
   {
     "countyCode": "CN",
@@ -1337,7 +1715,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1058519",
-    "HotelName": "Ji Hotel Xuanwumen Beijing",
+    "HotelName": {
+      "zh_CN": "北京全季酒店宣武门店",
+      "en": "Ji Hotel Xuanwumen Beijing"
+    },
     "HotelRating": "FourStar",
     "Address": "No 92 Xuanwumenwai Road  ",
     "Attractions": "",
@@ -1347,7 +1728,10 @@
     "Map": "39.8985|116.37489",
     "PhoneNumber": "+861063189988",
     "PinCode": "100052",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/beijing-allseason-xuanwumen.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/beijing-allseason-xuanwumen.html",
+    "star_rating": 4,
+    "latitude": 39.8985,
+    "longitude": 116.37489
   },
   {
     "countyCode": "CN",
@@ -1365,7 +1749,10 @@
     "Map": "39.88688|116.42256",
     "PhoneNumber": "00868610671155440086861067115544",
     "PinCode": "100061",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/bei-jing-jun-an-bin-guan.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/bei-jing-jun-an-bin-guan.html",
+    "star_rating": 3,
+    "latitude": 39.88688,
+    "longitude": 116.42256
   },
   {
     "countyCode": "CN",
@@ -1383,7 +1770,10 @@
     "Map": "39.895821499882132|116.42548192855838",
     "PhoneNumber": "",
     "PinCode": "100062",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 39.89582149988213,
+    "longitude": 116.42548192855838
   },
   {
     "countyCode": "CN",
@@ -1401,7 +1791,10 @@
     "Map": "39.86648|116.29374",
     "PhoneNumber": "",
     "PinCode": "100073",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 39.86648,
+    "longitude": 116.29374
   },
   {
     "countyCode": "CN",
@@ -1409,7 +1802,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1058689",
-    "HotelName": "Super 8 Beijing Ju Feng",
+    "HotelName": {
+      "zh_CN": "速8酒店北京巨峰店",
+      "en": "Super 8 Beijing Ju Feng"
+    },
     "HotelRating": "ThreeStar",
     "Address": "61-5 South Xisihuan Road Beijing ",
     "Attractions": "Beijing Capital Intl Airport: within 40000 metre ",
@@ -1419,7 +1815,10 @@
     "Map": "39.859739|116.27671",
     "PhoneNumber": "",
     "PinCode": "100071",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 39.859739,
+    "longitude": 116.27671
   },
   {
     "countyCode": "CN",
@@ -1427,7 +1826,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1058695",
-    "HotelName": "Nangong Spring Season Hotel Beijing",
+    "HotelName": {
+      "zh_CN": "北京南宫温泉酒店",
+      "en": "Nangong Spring Season Hotel Beijing"
+    },
     "HotelRating": "FiveStar",
     "Address": "No.39 Fugong Road Wangzuozhen Fengtai  ",
     "Attractions": "Distances are displayed to the nearest 0.1 mile and kilometer. <br /> <p>Zhengang Tower - 1.9 km / 1.2 mi <br /> Beijing Garden Expo International Expo Garden - 11.1 km / 6.9 mi <br /> Marco Polo Bridge - 11.2 km / 7 mi <br /> Chinese People's Anti-Japanese War Museum - 13 km / 8.1 mi <br /> Fangshan Luzu Temple - 15 km / 9.3 mi <br /> Yingshan Forest Park - 16.9 km / 10.5 mi <br /> Fangshan Yuzhuang Tower - 18.9 km / 11.8 mi <br /> Dabaotai Western Han Dynasty Mausoleum - 19.9 km / 12.4 mi <br /> Maliandao Tea Street - 20.5 km / 12.7 mi <br /> LeSports Center - 21.2 km / 13.2 mi <br /> Yuyuantan Park - 22.9 km / 14.2 mi <br /> Beijing Shijingshan Amusement Park - 22.9 km / 14.2 mi <br /> Beijing World Park - 23 km / 14.3 mi <br /> Women and Children Activity Center of Shijingshan District - 23 km / 14.3 mi <br /> Baiyun Guan - 23.6 km / 14.7 mi <br /> </p><p>The nearest major airport is Beijing (PEK-Capital Intl.) - 66.5 km / 41.3 mi</p>",
@@ -1437,7 +1839,10 @@
     "Map": "39.8047|116.15353",
     "PhoneNumber": "(86) 01083315566",
     "PinCode": "100074",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 5,
+    "latitude": 39.8047,
+    "longitude": 116.15353
   },
   {
     "countyCode": "CN",
@@ -1445,7 +1850,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1058726",
-    "HotelName": "Beijing Jinnian Hotel",
+    "HotelName": {
+      "zh_CN": "北京金年大酒店",
+      "en": "Beijing Jinnian Hotel"
+    },
     "HotelRating": "FourStar",
     "Address": "A-1 South Third Ring Yangqiaoxili, Fengtai Distric BEIJING ",
     "Attractions": "",
@@ -1455,7 +1863,10 @@
     "Map": "39.863792|116.389602",
     "PhoneNumber": "1087899999",
     "PinCode": "118305",
-    "HotelWebsiteUrl": "http://www.jdydb.com/hotel/1137"
+    "HotelWebsiteUrl": "http://www.jdydb.com/hotel/1137",
+    "star_rating": 4,
+    "latitude": 39.863792,
+    "longitude": 116.389602
   },
   {
     "countyCode": "CN",
@@ -1463,7 +1874,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1058774",
-    "HotelName": "Jinjiang Inn Beijing Zhongguancun",
+    "HotelName": {
+      "zh_CN": "北京锦江之星中关村店",
+      "en": "Jinjiang Inn Beijing Zhongguancun"
+    },
     "HotelRating": "ThreeStar",
     "Address": "No. 42 Haidian Avenue Haidian District Beijing  ",
     "Attractions": "",
@@ -1473,7 +1887,10 @@
     "Map": "39.98362|116.30544",
     "PhoneNumber": "(86) 01082623688",
     "PinCode": "100080",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-beijing-zhongguancun.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-beijing-zhongguancun.html",
+    "star_rating": 3,
+    "latitude": 39.98362,
+    "longitude": 116.30544
   },
   {
     "countyCode": "CN",
@@ -1491,7 +1908,10 @@
     "Map": "39.958636|116.341267",
     "PhoneNumber": "010-62289999",
     "PinCode": "100000",
-    "HotelWebsiteUrl": "http://www.royalking-rh.com/jdjj.htm"
+    "HotelWebsiteUrl": "http://www.royalking-rh.com/jdjj.htm",
+    "star_rating": 4,
+    "latitude": 39.958636,
+    "longitude": 116.341267
   },
   {
     "countyCode": "CN",
@@ -1499,7 +1919,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1058793",
-    "HotelName": "Holiday Inn Beijing Chang An West",
+    "HotelName": {
+      "zh_CN": "北京长安西假日酒店",
+      "en": "Holiday Inn Beijing Chang An West"
+    },
     "HotelRating": "FourStar",
     "Address": "No. 66 Yong Ding Road Haidian Dist. Haidian District100039 Beijing ",
     "Attractions": "Distances are displayed to the nearest 0.1 mile and kilometer. <br /> <p>Babaoshan Revolutionary Cemetery - 2.1 km / 1.3 mi <br /> China Central Television Tower - 6.2 km / 3.9 mi <br /> Beijing Shijingshan Amusement Park - 8.2 km / 5.1 mi <br /> Golden Resources Mall - 8.3 km / 5.2 mi <br /> Beijing Financial Street - 8.9 km / 5.5 mi <br /> Beijing International Exhibition Center - 9 km / 5.6 mi <br /> Marco Polo Bridge - 9 km / 5.6 mi <br /> Purple Bamboo Park - 9.3 km / 5.8 mi <br /> Cultural Palace Of The Nationalities - 9.4 km / 5.8 mi <br /> Beijing Foreign Studies University - 9.4 km / 5.8 mi <br /> Xibianmen Watchtower - 9.7 km / 6 mi <br /> Cathedral of the Immaculate Conception - 10.6 km / 6.6 mi <br /> Renmin University of China - 10.6 km / 6.6 mi <br /> XiDan Shopping District - 10.9 km / 6.7 mi <br /> Xidan Shopping Center - 10.9 km / 6.8 mi <br /> </p><p>The nearest airports are:<br />Capital Intl. Airport (PEK) - 46.5 km / 28.9 mi<br /> Beijing (PKX-Daxing Intl.) - 61.2 km / 38 mi<br /> </p><p>The preferred airport for Holiday Inn Beijing Chang An West  an IHG Hotel is Capital Intl. Airport (PEK). </p>",
@@ -1509,7 +1932,10 @@
     "Map": "39.907528|116.25864",
     "PhoneNumber": "86-10-68132299",
     "PinCode": "100039",
-    "HotelWebsiteUrl": "http://www.holiday-inn.com"
+    "HotelWebsiteUrl": "http://www.holiday-inn.com",
+    "star_rating": 4,
+    "latitude": 39.907528,
+    "longitude": 116.25864
   },
   {
     "countyCode": "CN",
@@ -1517,7 +1943,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1058802",
-    "HotelName": "Hilton Beijing",
+    "HotelName": {
+      "zh_CN": "北京希尔顿酒店",
+      "en": "Hilton Beijing"
+    },
     "HotelRating": "FiveStar",
     "Address": "1 Dong Fang Rd North Dong Sanhuan Rd Chaoyang District 100027 Beijing ",
     "Attractions": "Distances are displayed to the nearest 0.1 mile and kilometer. <br /> <p>Sanlitun - 1.2 km / 0.7 mi <br /> Yansha Youyi Shopping City - 1.6 km / 1 mi <br /> Nali Patio - 1.8 km / 1.1 mi <br /> Chaoyang Park - 1.8 km / 1.1 mi <br /> Taikoo Li Sanlitun - Shopping & Life Style Centre - 1.9 km / 1.2 mi <br /> National Agricultural Exhibition Center - 2 km / 1.2 mi <br /> China International Exhibition Center - 2.2 km / 1.4 mi <br /> Sanlitun Barstreet - 2.4 km / 1.5 mi <br /> Gui Street - 3.2 km / 2 mi <br /> Workers Stadium - 3.3 km / 2 mi <br /> Yonghe Temple - 4.1 km / 2.6 mi <br /> CCTV Headquarters - 5 km / 3.1 mi <br /> China World Trade Center - 5 km / 3.1 mi <br /> Ritan Park - 5.5 km / 3.4 mi <br /> China World Mall - 5.5 km / 3.4 mi <br /> </p><p>The nearest airports are:<br />Capital Intl. Airport (PEK) - 20.6 km / 12.8 mi<br /> Beijing (PKX-Daxing Intl.) - 59.2 km / 36.8 mi<br /> </p><p>The preferred airport for Hilton Beijing is Capital Intl. Airport (PEK). </p>",
@@ -1527,7 +1956,10 @@
     "Map": "39.951744|116.45534",
     "PhoneNumber": "86-10-5865 5000",
     "PinCode": "100027",
-    "HotelWebsiteUrl": "http://www.hilton.com"
+    "HotelWebsiteUrl": "http://www.hilton.com",
+    "star_rating": 5,
+    "latitude": 39.951744,
+    "longitude": 116.45534
   },
   {
     "countyCode": "CN",
@@ -1535,7 +1967,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1058819",
-    "HotelName": "Green Tree Inn Xueyuan Road",
+    "HotelName": {
+      "zh_CN": "北京学院路格林豪泰酒店",
+      "en": "Green Tree Inn Xueyuan Road"
+    },
     "HotelRating": "ThreeStar",
     "Address": "2 Zhanchunyuan West Road Haidian District100083 Beijing ",
     "Attractions": "",
@@ -1545,7 +1980,10 @@
     "Map": "39.9896074439166|116.340011358261",
     "PhoneNumber": "",
     "PinCode": "100083",
-    "HotelWebsiteUrl": "http://www.998.com/shtml/99/en/index.html"
+    "HotelWebsiteUrl": "http://www.998.com/shtml/99/en/index.html",
+    "star_rating": 3,
+    "latitude": 39.9896074439166,
+    "longitude": 116.340011358261
   },
   {
     "countyCode": "CN",
@@ -1553,7 +1991,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1058820",
-    "HotelName": "Metropark Lido Hotel Beijing",
+    "HotelName": {
+      "zh_CN": "北京丽都维景酒店",
+      "en": "Metropark Lido Hotel Beijing"
+    },
     "HotelRating": "FourStar",
     "Address": "Jiangtai Road Chaoyang District 6 Chaoyang DistrictBeijing ",
     "Attractions": "Distances are displayed to the nearest 0.1 mile and kilometer. <br /> <p>Chaoyang Park - 3 km / 1.9 mi <br /> China International Exhibition Center - 3.6 km / 2.2 mi <br /> 798 Art District - 3.9 km / 2.4 mi <br /> 798 Space - 3.9 km / 2.4 mi <br /> National Agricultural Exhibition Center - 4.2 km / 2.6 mi <br /> Yansha Youyi Shopping City - 4.3 km / 2.6 mi <br /> Sanlitun - 4.4 km / 2.7 mi <br /> Nali Patio - 4.9 km / 3.1 mi <br /> Taikoo Li Sanlitun - Shopping & Life Style Centre - 4.9 km / 3.1 mi <br /> Sanlitun Barstreet - 5.5 km / 3.4 mi <br /> Gui Street - 5.9 km / 3.7 mi <br /> Workers Stadium - 6 km / 3.7 mi <br /> Yonghe Temple - 7.7 km / 4.8 mi <br /> China National Film Museum - 7.8 km / 4.8 mi <br /> Ritan Park - 8 km / 4.9 mi <br /> </p><p>The preferred airport for Metropark Lido Hotel Beijing is Capital Intl. Airport (PEK) - 17.3 km / 10.8 mi </p>",
@@ -1563,7 +2004,10 @@
     "Map": "39.972908|116.47125",
     "PhoneNumber": "86-10-64376688",
     "PinCode": "100004",
-    "HotelWebsiteUrl": "http://www.hkctshotels.com"
+    "HotelWebsiteUrl": "http://www.hkctshotels.com",
+    "star_rating": 4,
+    "latitude": 39.972908,
+    "longitude": 116.47125
   },
   {
     "countyCode": "CN",
@@ -1571,7 +2015,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1058822",
-    "HotelName": "Jianguo Hotel Beijing",
+    "HotelName": {
+      "zh_CN": "北京建国饭店",
+      "en": "Jianguo Hotel Beijing"
+    },
     "HotelRating": "FourStar",
     "Address": "Jianguo Men Wai Da Jie, Chaoyang Dist. Chaoyang District100020 Beijing ",
     "Attractions": "",
@@ -1581,7 +2028,10 @@
     "Map": "39.90893|116.45333",
     "PhoneNumber": "86-10-65002233",
     "PinCode": "100020",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jianguo.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jianguo.html",
+    "star_rating": 4,
+    "latitude": 39.90893,
+    "longitude": 116.45333
   },
   {
     "countyCode": "CN",
@@ -1589,7 +2039,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1058824",
-    "HotelName": "Holiday Inn Downtown Beijing",
+    "HotelName": {
+      "zh_CN": "北京金融街假日酒店",
+      "en": "Holiday Inn Downtown Beijing"
+    },
     "HotelRating": "FourStar",
     "Address": "No. 98 Beilishilu Xichengqu100037 Beijing ",
     "Attractions": "                            Distances are displayed to the nearest 0.1 mile and kilometer. <br /> <p>Beijing Financial Street - 0.1 km / 0.1 mi <br /> Beijing Exhibition Center - 2.2 km / 1.3 mi <br /> Beijing Zoo - 2.8 km / 1.7 mi <br /> Beijing Aquarium - 3 km / 1.9 mi <br /> XiDan Shopping District - 3.1 km / 1.9 mi <br /> Zhongnanhai - 3.1 km / 1.9 mi <br /> Shichahai - 3.1 km / 1.9 mi <br /> Xidan Shopping Center - 3.7 km / 2.3 mi <br /> China Central Television Tower - 3.8 km / 2.3 mi <br /> Memorial Hall of Guomoruo - 3.9 km / 2.4 mi <br /> Beihai Park - 4.2 km / 2.6 mi <br /> Prince Gong Mansion - 4.4 km / 2.7 mi <br /> Jingshan Park - 4.5 km / 2.8 mi <br /> Houhai Lake - 4.8 km / 3 mi <br /> Houhai Park - 4.9 km / 3.1 mi <br /> </p><p>The preferred airport for Holiday Inn Beijing Downtown is Beijing (PEK-Capital Intl.) - 31.5 km / 19.6 mi </p>\n                        ",
@@ -1599,7 +2052,10 @@
     "Map": "39.923536|116.347082",
     "PhoneNumber": "86-106-8338822",
     "PinCode": "100037",
-    "HotelWebsiteUrl": "http://www.holiday-inn.com"
+    "HotelWebsiteUrl": "http://www.holiday-inn.com",
+    "star_rating": 4,
+    "latitude": 39.923536,
+    "longitude": 116.347082
   },
   {
     "countyCode": "CN",
@@ -1607,7 +2063,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1058826",
-    "HotelName": "China World Hotel, Beijing",
+    "HotelName": {
+      "zh_CN": "北京国贸大酒店",
+      "en": "China World Hotel, Beijing"
+    },
     "HotelRating": "FiveStar",
     "Address": "No. 1 Jian Guo Men Wai Avenue 100004 Beijing ",
     "Attractions": "Distances are displayed to the nearest 0.1 mile and kilometer. <br /> <p>Silk Street Market - 0.7 km / 0.4 mi <br /> China World Trade Center - 1.2 km / 0.7 mi <br /> China World Mall - 1.3 km / 0.8 mi <br /> CCTV Headquarters - 2 km / 1.3 mi <br /> Beijing China Central Place - 2.7 km / 1.7 mi <br /> Sanlitun Barstreet - 3.5 km / 2.2 mi <br /> Sanlitun - 3.5 km / 2.2 mi <br /> Taikoo Li Sanlitun - Shopping & Life Style Centre - 3.7 km / 2.3 mi <br /> Peking Union Medical College - 3.8 km / 2.3 mi <br /> Nali Patio - 3.8 km / 2.3 mi <br /> Wangfujing Street - 3.9 km / 2.4 mi <br /> Workers Stadium - 4.1 km / 2.5 mi <br /> Oriental Plaza - 4.2 km / 2.6 mi <br /> Chaoyang Park - 4.4 km / 2.7 mi <br /> Qianmen Dajie - 4.4 km / 2.8 mi <br /> </p><p>The nearest airports are:<br />Capital Intl. Airport (PEK) - 25.8 km / 16 mi<br /> Beijing (PKX-Daxing Intl.) - 54.9 km / 34.1 mi<br /> </p><p>The preferred airport for China World Hotel  Beijing is Capital Intl. Airport (PEK). </p>",
@@ -1617,7 +2076,10 @@
     "Map": "39.90846|116.45307",
     "PhoneNumber": "86-10-65052266",
     "PinCode": "100004",
-    "HotelWebsiteUrl": "http://www.shangri-la.com"
+    "HotelWebsiteUrl": "http://www.shangri-la.com",
+    "star_rating": 5,
+    "latitude": 39.90846,
+    "longitude": 116.45307
   },
   {
     "countyCode": "CN",
@@ -1625,7 +2087,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1058830",
-    "HotelName": "Crowne Plaza Beijing Wangfujing",
+    "HotelName": {
+      "zh_CN": "北京王府井皇冠假日酒店",
+      "en": "Crowne Plaza Beijing Wangfujing"
+    },
     "HotelRating": "FourStar",
     "Address": "48 Wangfujing Avenue Dongcheng District Dongcheng DistrictBeijing 100006 ",
     "Attractions": "Distances are displayed to the nearest 0.1 mile and kilometer. <br /> <p>Wangfujing Street - 0.8 km / 0.5 mi <br /> National Art Museum of China - 1.5 km / 0.9 mi <br /> Shichahai - 1.8 km / 1.1 mi <br /> Peninsula Beijing Shopping Arcade - 1.8 km / 1.1 mi <br /> Peking Union Medical College - 2 km / 1.2 mi <br /> Intime Lotte Department Store - 2.2 km / 1.4 mi <br /> South Luogu Alley - 2.6 km / 1.6 mi <br /> Gui Street - 2.6 km / 1.6 mi <br /> Nanluoguxiang - 2.6 km / 1.6 mi <br /> Zhongnanhai - 2.7 km / 1.7 mi <br /> Jingshan Park - 2.7 km / 1.7 mi <br /> Forbidden City - 2.7 km / 1.7 mi <br /> The Palace Museum - 2.8 km / 1.7 mi <br /> Oriental Plaza - 2.8 km / 1.7 mi <br /> Beihai Park - 3.1 km / 1.9 mi <br /> </p><p>The nearest airports are:<br />Capital Intl. Airport (PEK) - 26 km / 16.2 mi<br /> Beijing (PKX-Daxing Intl.) - 56.6 km / 35.2 mi<br /> </p><p></p>",
@@ -1635,7 +2100,10 @@
     "Map": "39.923704|116.415973",
     "PhoneNumber": "86-105-9119999",
     "PinCode": "100006",
-    "HotelWebsiteUrl": "http://www.crowneplaza.cn/beijingchn"
+    "HotelWebsiteUrl": "http://www.crowneplaza.cn/beijingchn",
+    "star_rating": 4,
+    "latitude": 39.923704,
+    "longitude": 116.415973
   },
   {
     "countyCode": "CN",
@@ -1643,7 +2111,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1058831",
-    "HotelName": "Holiday Inn Temple Of Heaven Beijing",
+    "HotelName": {
+      "zh_CN": "北京天坛假日酒店",
+      "en": "Holiday Inn Temple Of Heaven Beijing"
+    },
     "HotelRating": "FourStar",
     "Address": "No.1 Ding An Dong Li South 3Rd Ring Road South 3rd Ring Road Beijing 100075 ",
     "Attractions": "Distances are displayed to the nearest 0.1 mile and kilometer. <br /> <p>Temple of Heaven Park - 2.7 km / 1.7 mi <br /> Temple of Heaven - 3.5 km / 2.2 mi <br /> Beijing Qianmen Street - 4.2 km / 2.6 mi <br /> Beijing New World Shopping Mall - 4.7 km / 2.9 mi <br /> Qianmen Street - 5.4 km / 3.4 mi <br /> Beijing Financial Street - 5.5 km / 3.4 mi <br /> Dashilan Street - 5.7 km / 3.6 mi <br /> Oriental Plaza - 6.2 km / 3.8 mi <br /> Colored Glaze Factory Cultural Street - 6.2 km / 3.8 mi <br /> Wangfujing Street - 6.2 km / 3.9 mi <br /> Beijing Museum of Natural History - 6.3 km / 3.9 mi <br /> Panjiayuan Antique Market - 6.4 km / 4 mi <br /> Peking Union Medical College - 6.4 km / 4 mi <br /> Zhengyangmen - 6.5 km / 4 mi <br /> Shichahai - 6.5 km / 4 mi <br /> </p><p>The nearest airports are:<br />Capital Intl. Airport (PEK) - 34.4 km / 21.4 mi<br /> Beijing (PKX-Daxing Intl.) - 48 km / 29.8 mi<br /> </p><p>The preferred airport for Holiday Inn Temple Of Heaven  an IHG Hotel is Capital Intl. Airport (PEK). </p>",
@@ -1653,7 +2124,10 @@
     "Map": "39.86059|116.407715",
     "PhoneNumber": "86-10-6762 6688",
     "PinCode": "100075",
-    "HotelWebsiteUrl": "http://www.ihg.com"
+    "HotelWebsiteUrl": "http://www.ihg.com",
+    "star_rating": 4,
+    "latitude": 39.86059,
+    "longitude": 116.407715
   },
   {
     "countyCode": "CN",
@@ -1671,7 +2145,10 @@
     "Map": "40.03221|116.34803",
     "PhoneNumber": "",
     "PinCode": "100192",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 40.03221,
+    "longitude": 116.34803
   },
   {
     "countyCode": "CN",
@@ -1679,7 +2156,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1058900",
-    "HotelName": "Greentree Inn Qinghe Bridge Hotel",
+    "HotelName": {
+      "zh_CN": "北京清河桥格林豪泰酒店",
+      "en": "Greentree Inn Qinghe Bridge Hotel"
+    },
     "HotelRating": "ThreeStar",
     "Address": "No.95 Qinghe 3Rd Street Haidian District  ",
     "Attractions": "",
@@ -1689,7 +2169,10 @@
     "Map": "40.02827072143555|116.34693145751953",
     "PhoneNumber": "(86) 1062933366",
     "PinCode": "100085",
-    "HotelWebsiteUrl": "http://www.998.com/Reservations/Hotel_Detail.aspx?HotelCode=120323"
+    "HotelWebsiteUrl": "http://www.998.com/Reservations/Hotel_Detail.aspx?HotelCode=120323",
+    "star_rating": 3,
+    "latitude": 40.02827072143555,
+    "longitude": 116.34693145751953
   },
   {
     "countyCode": "CN",
@@ -1697,7 +2180,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1058903",
-    "HotelName": "Tianfang Hotel",
+    "HotelName": {
+      "zh_CN": "北京天放大酒店",
+      "en": "Tianfang Hotel"
+    },
     "HotelRating": "ThreeStar",
     "Address": "No.28 Xizhimen North Main Street Haidian QuBeijing ",
     "Attractions": "Distances are displayed to the nearest 0.1 mile and kilometer. <br /> <p>Beijing Aquarium - 1.8 km / 1.1 mi <br /> Beijing Exhibition Center - 2.5 km / 1.6 mi <br /> Beijing Normal University - 2.9 km / 1.8 mi <br /> Beijing Zoo - 3.1 km / 1.9 mi <br /> Beijing Financial Street - 3.8 km / 2.4 mi <br /> Beihang University - 3.9 km / 2.4 mi <br /> Birds Garden - 4.4 km / 2.8 mi <br /> Shichahai - 4.4 km / 2.8 mi <br /> Renmin University of China - 4.4 km / 2.8 mi <br /> Houhai Lake - 4.5 km / 2.8 mi <br /> Beijing Foreign Studies University - 4.5 km / 2.8 mi <br /> Houhai Park - 4.7 km / 2.9 mi <br /> Zhongguancun Electronics City - 5.7 km / 3.6 mi <br /> Beijing Language and Culture University - 6.1 km / 3.8 mi <br /> Lotus Market - 6.1 km / 3.8 mi <br /> </p><p>The nearest major airport is Beijing (PEK-Capital Intl.) - 31.4 km / 19.5 mi</p>",
@@ -1707,7 +2193,10 @@
     "Map": "39.95532|116.355865",
     "PhoneNumber": "(86) 010622355553008",
     "PinCode": "100088",
-    "HotelWebsiteUrl": "http://www.tianfanghotel.com"
+    "HotelWebsiteUrl": "http://www.tianfanghotel.com",
+    "star_rating": 3,
+    "latitude": 39.95532,
+    "longitude": 116.355865
   },
   {
     "countyCode": "CN",
@@ -1715,7 +2204,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1058904",
-    "HotelName": "Liaoning Hotel Beijing",
+    "HotelName": {
+      "zh_CN": "北京辽宁饭店",
+      "en": "Liaoning Hotel Beijing"
+    },
     "HotelRating": "ThreeStar",
     "Address": "No. 1 Deshengmenwai Avenue Xicheng  ",
     "Attractions": "Distances are displayed to the nearest 0.1 mile and kilometer. <br /> <p>Beijing Normal University - 2 km / 1.3 mi <br /> Shichahai - 2.1 km / 1.3 mi <br /> Houhai Lake - 2.5 km / 1.5 mi <br /> Birds Garden - 2.5 km / 1.6 mi <br /> Houhai Park - 2.9 km / 1.8 mi <br /> Bell and Drum Towers - 3.4 km / 2.1 mi <br /> Olympic Sports Center - 3.5 km / 2.2 mi <br /> National Aquatics Center - 3.6 km / 2.2 mi <br /> Beijing International Convention Center - 3.7 km / 2.3 mi <br /> Prince Gong Mansion - 3.8 km / 2.4 mi <br /> National Indoor Stadium - 4.1 km / 2.5 mi <br /> Lotus Market - 4.4 km / 2.7 mi <br /> Beijing National Stadium - 4.4 km / 2.7 mi <br /> Nanluoguxiang - 4.5 km / 2.8 mi <br /> Beihang University - 4.6 km / 2.8 mi <br /> </p><p>The nearest major airport is Beijing (PEK-Capital Intl.) - 28.1 km / 17.4 mi</p>",
@@ -1725,7 +2217,10 @@
     "Map": "39.96557|116.37931",
     "PhoneNumber": "(86) 01062015588",
     "PinCode": "100088",
-    "HotelWebsiteUrl": "http://www.bjlnhotel.cn/index.php"
+    "HotelWebsiteUrl": "http://www.bjlnhotel.cn/index.php",
+    "star_rating": 3,
+    "latitude": 39.96557,
+    "longitude": 116.37931
   },
   {
     "countyCode": "CN",
@@ -1733,7 +2228,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1058939",
-    "HotelName": "Beijing Wannianqing Hotel",
+    "HotelName": {
+      "zh_CN": "北京万年青宾馆",
+      "en": "Beijing Wannianqing Hotel"
+    },
     "HotelRating": "ThreeStar",
     "Address": "25 North Of West 3Rd Road Xizhimen and Beijing Exhibition Center Area100089 Beijing ",
     "Attractions": "Distances are displayed to the nearest 0.1 mile and kilometer. <br /> <p>Beijing Foreign Studies University - 1.2 km / 0.8 mi <br /> Beijing Zoo - 3.1 km / 2 mi <br /> Renmin University of China - 3.7 km / 2.3 mi <br /> Beijing Exhibition Center - 4.2 km / 2.6 mi <br /> Beijing Aquarium - 4.3 km / 2.6 mi <br /> Peking University - 6.5 km / 4.1 mi <br /> Beihang University - 6.9 km / 4.3 mi <br /> Zhongguancun Electronics City - 8.1 km / 5.1 mi <br /> Beijing Normal University - 8.4 km / 5.2 mi <br /> Summer Palace - 9.4 km / 5.9 mi <br /> Capital Museum - 9.8 km / 6.1 mi <br /> Tsinghua University - 10.1 km / 6.2 mi <br /> Beijing Financial Street - 10.3 km / 6.4 mi <br /> Shichahai - 10.4 km / 6.5 mi <br /> Houhai Lake - 10.4 km / 6.5 mi <br /> </p><p>The nearest major airport is Beijing (PEK-Capital Intl.) - 35.4 km / 22 mi</p>",
@@ -1743,7 +2241,10 @@
     "Map": "39.94817|116.30241",
     "PhoneNumber": "(86) 1068425154",
     "PinCode": "100089",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 39.94817,
+    "longitude": 116.30241
   },
   {
     "countyCode": "CN",
@@ -1751,7 +2252,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1058972",
-    "HotelName": "GreenTree Inn Beijing Xisanqi Bridge Business Hote",
+    "HotelName": {
+      "zh_CN": "北京西三旗桥格林豪泰商务酒店",
+      "en": "GreenTree Inn Beijing Xisanqi Bridge Business Hote"
+    },
     "HotelRating": "ThreeStar",
     "Address": "The Beijing West Two Flag Street And West Two Flag west of G6 Badaling highway, northwest corner of XiSanQi bridgenorth of the Longxingyuan southern districtBeijing ",
     "Attractions": "",
@@ -1761,7 +2265,10 @@
     "Map": "40.0642|116.32918",
     "PhoneNumber": "010-61190998",
     "PinCode": "100092",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-beijing-xisanqi-bridge-business.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-beijing-xisanqi-bridge-business.html",
+    "star_rating": 3,
+    "latitude": 40.0642,
+    "longitude": 116.32918
   },
   {
     "countyCode": "CN",
@@ -1779,7 +2286,10 @@
     "Map": "39.98035|116.40346",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 39.98035,
+    "longitude": 116.40346
   },
   {
     "countyCode": "CN",
@@ -1787,7 +2297,10 @@
     "cityCode": "144154",
     "cityName": "Beijing",
     "HotelCode": "1059027",
-    "HotelName": "Beijing Shindom Inn Li Zeqiao",
+    "HotelName": {
+      "zh_CN": "北京丽泽桥欣燕都酒店",
+      "en": "Beijing Shindom Inn Li Zeqiao"
+    },
     "HotelRating": "ThreeStar",
     "Address": "BEIJING FENGTAI BEI LU NO.47 BEIJING ",
     "Attractions": "",
@@ -1797,7 +2310,10 @@
     "Map": "39.8666281|116.30019560000005",
     "PhoneNumber": "",
     "PinCode": "100071",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 39.8666281,
+    "longitude": 116.30019560000005
   },
   {
     "countyCode": "CN",
@@ -1815,7 +2331,10 @@
     "Map": "39.897819|116.478337",
     "PhoneNumber": "86-10-87766078",
     "PinCode": "100124",
-    "HotelWebsiteUrl": "http://www.sunshineguomao.com/"
+    "HotelWebsiteUrl": "http://www.sunshineguomao.com/",
+    "star_rating": 3,
+    "latitude": 39.897819,
+    "longitude": 116.478337
   },
   {
     "countyCode": "CN",
@@ -1833,7 +2352,10 @@
     "Map": "39.90037|116.49218",
     "PhoneNumber": "",
     "PinCode": "100124",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 39.90037,
+    "longitude": 116.49218
   },
   {
     "countyCode": "CN",
@@ -1851,6 +2373,9 @@
     "Map": "39.85374996|116.4450373",
     "PhoneNumber": "",
     "PinCode": "100164",
-    "HotelWebsiteUrl": "http://www.shanshuihotel.com"
+    "HotelWebsiteUrl": "http://www.shanshuihotel.com",
+    "star_rating": 3,
+    "latitude": 39.85374996,
+    "longitude": 116.4450373
   }
 ]

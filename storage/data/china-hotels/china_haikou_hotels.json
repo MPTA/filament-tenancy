@@ -5,7 +5,10 @@
     "cityCode": "119536",
     "cityName": "Haikou",
     "HotelCode": "1011095",
-    "HotelName": "Pullman HAIKOU",
+    "HotelName": {
+      "zh_CN": "海口铂尔曼酒店",
+      "en": "Pullman HAIKOU"
+    },
     "HotelRating": "ThreeStar",
     "Address": "21 Xi Yuan Road Xin Bu Island Mei Lan District Mei Lan District570209 HaikouXin Bu Island ",
     "Attractions": "Distances are displayed to the nearest 0.1 mile and kilometer. <br /> <p>Hainan University - 3.7 km / 2.3 mi <br /> Haikou Clock Tower - 4.9 km / 3 mi <br /> Haikou Arcade Street - 6.6 km / 4.1 mi <br /> People s Park - 7.1 km / 4.4 mi <br /> Shiji Bridge - 8.1 km / 5 mi <br /> Temple of the Five Lords - 8.7 km / 5.4 mi <br /> Hainan Museum - 10.6 km / 6.6 mi <br /> Jiari Beach - 16 km / 9.9 mi <br /> Hainan Root Carving Cultural Art Association Display Center - 16.5 km / 10.2 mi <br /> Lingshan Amusement Park - 17.7 km / 11 mi <br /> Meishi Mayflower International Golf Club - 17.7 km / 11 mi <br /> Hainan Rare Plant Science Park - 18.4 km / 11.4 mi <br /> Hainan West Coast Golf Course - 18.7 km / 11.6 mi <br /> Holiday Beach - 19.8 km / 12.3 mi <br /> Movie Town Haikou - 20.1 km / 12.5 mi <br /> </p><p>The nearest major airport is Haikou (HAK-Meilan Intl.) - 22.5 km / 14 mi</p>",
@@ -15,7 +18,10 @@
     "Map": "20.074793|110.361404",
     "PhoneNumber": "86-898-66106666",
     "PinCode": "570209",
-    "HotelWebsiteUrl": "http://www.hojochina.com"
+    "HotelWebsiteUrl": "http://www.hojochina.com",
+    "star_rating": 3,
+    "latitude": 20.074793,
+    "longitude": 110.361404
   },
   {
     "countyCode": "CN",
@@ -23,7 +29,10 @@
     "cityCode": "119536",
     "cityName": "Haikou",
     "HotelCode": "1031961",
-    "HotelName": "Hilton Haikou Meilan",
+    "HotelName": {
+      "zh_CN": "海口美兰希尔顿酒店",
+      "en": "Hilton Haikou Meilan"
+    },
     "HotelRating": "FiveStar",
     "Address": "2 Qiongshan Road Meilan District MeilanHainan ",
     "Attractions": "Distances are displayed to the nearest 0.1 mile and kilometer. <br /> <p>Hainan University - 10 km / 6.2 mi <br /> Hainan Museum - 10.9 km / 6.7 mi <br /> Haikou Clock Tower - 11.3 km / 7 mi <br /> Temple of the Five Lords - 11.5 km / 7.1 mi <br /> People s Park - 12.1 km / 7.5 mi <br /> Haikou Arcade Street - 12.6 km / 7.9 mi <br /> Lingshan Amusement Park - 13.5 km / 8.4 mi <br /> Hainan Root Carving Cultural Art Association Display Center - 13.7 km / 8.5 mi <br /> Shiji Bridge - 14.1 km / 8.8 mi <br /> Hainan Rare Plant Science Park - 14.3 km / 8.9 mi <br /> Movie Town Haikou - 20.8 km / 12.9 mi <br /> Fanghua Courtyard - 21.1 km / 13.1 mi <br /> Hainan Delta Golf Club - 21.2 km / 13.2 mi <br /> Jiari Beach - 21.8 km / 13.5 mi <br /> Meishi Mayflower International Golf Club - 23.6 km / 14.7 mi <br /> </p><p>The preferred airport for Hilton Haikou Meilan is Haikou (HAK-Meilan Intl.) - 18.2 km / 11.3 mi </p>",
@@ -33,7 +42,10 @@
     "Map": "20.061945|110.40948",
     "PhoneNumber": "8689836398888",
     "PinCode": "571126",
-    "HotelWebsiteUrl": "http://www3.hilton.com/en/hotels/china/hilton-haikou-meilan-HAKMEHI/index.html"
+    "HotelWebsiteUrl": "http://www3.hilton.com/en/hotels/china/hilton-haikou-meilan-HAKMEHI/index.html",
+    "star_rating": 5,
+    "latitude": 20.061945,
+    "longitude": 110.40948
   },
   {
     "countyCode": "CN",
@@ -41,7 +53,10 @@
     "cityCode": "119536",
     "cityName": "Haikou",
     "HotelCode": "1031972",
-    "HotelName": "Shangri La Hotel Haikou",
+    "HotelName": {
+      "zh_CN": "海口香格里拉大酒店",
+      "en": "Shangri La Hotel Haikou"
+    },
     "HotelRating": "FourStar",
     "Address": "256 Binhai Road Xiuying District Xiuying570311 HakiouHainan ",
     "Attractions": "Distances are displayed to the nearest 0.1 mile and kilometer. <br /> <p>Hainan International Convention and Exhibition Center - 1.9 km / 1.2 mi <br /> Holiday Beach - 3.2 km / 2 mi <br /> Hainan West Coast Golf Course - 5.9 km / 3.7 mi <br /> Jiari Beach - 6.8 km / 4.2 mi <br /> Meishi Mayflower International Golf Club - 6.8 km / 4.2 mi <br /> Changying Global 100 Wonderland - 11 km / 6.8 mi <br /> Hainan Moonbay Golf Club - 15.8 km / 9.8 mi <br /> Leiqiong Geopark - 16.4 km / 10.2 mi <br /> Shiji Bridge - 16.4 km / 10.2 mi <br /> People s Park - 17.2 km / 10.7 mi <br /> Haikou Arcade Street - 17.5 km / 10.9 mi <br /> Haikou Clock Tower - 17.9 km / 11.1 mi <br /> Huoshankou National Geopark - 19.4 km / 12 mi <br /> Hainan University - 20.2 km / 12.5 mi <br /> Temple of the Five Lords - 20.3 km / 12.6 mi <br /> </p><p>The nearest major airport is Haikou (HAK-Meilan Intl.) - 39.5 km / 24.6 mi</p>",
@@ -51,7 +66,10 @@
     "Map": "20.057367|110.19783",
     "PhoneNumber": "86-898-68707799",
     "PinCode": "570311",
-    "HotelWebsiteUrl": "http://www.shangri-la.com"
+    "HotelWebsiteUrl": "http://www.shangri-la.com",
+    "star_rating": 4,
+    "latitude": 20.057367,
+    "longitude": 110.19783
   },
   {
     "countyCode": "CN",
@@ -59,7 +77,10 @@
     "cityCode": "119536",
     "cityName": "Haikou",
     "HotelCode": "1031975",
-    "HotelName": "Hainan Ya Tai Hot Spring Hotel",
+    "HotelName": {
+      "zh_CN": "海南亚泰温泉酒店",
+      "en": "Hainan Ya Tai Hot Spring Hotel"
+    },
     "HotelRating": "FiveStar",
     "Address": "No. 290 Binhai Avenue Ying Bin Peninsula West Coast Touristic Zone571924 Haikou ",
     "Attractions": "",
@@ -69,7 +90,10 @@
     "Map": "20.00309|110.13922",
     "PhoneNumber": "898 3696 7777",
     "PinCode": "571924",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/hai-nan-ya-tai-wen-quan-jiu-dian-haikou.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/hai-nan-ya-tai-wen-quan-jiu-dian-haikou.html",
+    "star_rating": 5,
+    "latitude": 20.00309,
+    "longitude": 110.13922
   },
   {
     "countyCode": "CN",
@@ -77,7 +101,10 @@
     "cityCode": "119536",
     "cityName": "Haikou",
     "HotelCode": "1039377",
-    "HotelName": "Mingguang International Grand Hotel Haikou",
+    "HotelName": {
+      "zh_CN": "海口明光国际大酒店",
+      "en": "Mingguang International Grand Hotel Haikou"
+    },
     "HotelRating": "ThreeStar",
     "Address": "No.9 Nanhai Road Qiongshan District 570216 HaikouHainan Province ",
     "Attractions": "Distances are displayed to the nearest 0.1 mile and kilometer. <br /> <p>Temple of the Five Lords - 2.7 km / 1.7 mi <br /> People s Park - 4.3 km / 2.7 mi <br /> Hainan Museum - 5.4 km / 3.3 mi <br /> Haikou Arcade Street - 5.9 km / 3.6 mi <br /> Haikou Clock Tower - 6.2 km / 3.8 mi <br /> Shiji Bridge - 7 km / 4.4 mi <br /> Hainan University - 7.9 km / 4.9 mi <br /> Hainan Root Carving Cultural Art Association Display Center - 10.5 km / 6.5 mi <br /> Fanghua Courtyard - 10.8 km / 6.7 mi <br /> Jiari Beach - 12.9 km / 8 mi <br /> Lingshan Amusement Park - 14 km / 8.7 mi <br /> Movie Town Haikou - 14.1 km / 8.8 mi <br /> Meishi Mayflower International Golf Club - 14.7 km / 9.1 mi <br /> Huoshankou National Geopark - 15.5 km / 9.6 mi <br /> Hainan West Coast Golf Course - 15.7 km / 9.8 mi <br /> </p><p>The preferred airport for Haikou Mingguang Shengyi Hotel is Haikou (HAK-Meilan Intl.) - 21.5 km / 13.3 mi </p>",
@@ -87,7 +114,10 @@
     "Map": "19.999596|110.336609",
     "PhoneNumber": "86-898-32166666",
     "PinCode": "570216",
-    "HotelWebsiteUrl": "http://www.mingguanghotel.com.cn/en_index.asp"
+    "HotelWebsiteUrl": "http://www.mingguanghotel.com.cn/en_index.asp",
+    "star_rating": 3,
+    "latitude": 19.999596,
+    "longitude": 110.336609
   },
   {
     "countyCode": "CN",
@@ -95,7 +125,10 @@
     "cityCode": "119536",
     "cityName": "Haikou",
     "HotelCode": "1039389",
-    "HotelName": "7 Days Inn Wuzhishan Road",
+    "HotelName": {
+      "zh_CN": "7天连锁酒店(海口五指山路店)",
+      "en": "7 Days Inn Wuzhishan Road"
+    },
     "HotelRating": "ThreeStar",
     "Address": "No. 31 Wu Zhi Shan Road  ",
     "Attractions": "",
@@ -105,6 +138,9 @@
     "Map": "20.0338549999999|110.356433999999",
     "PhoneNumber": "+86 898 6523 0777",
     "PinCode": "570203",
-    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=7033704"
+    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=7033704",
+    "star_rating": 3,
+    "latitude": 20.0338549999999,
+    "longitude": 110.356433999999
   }
 ]

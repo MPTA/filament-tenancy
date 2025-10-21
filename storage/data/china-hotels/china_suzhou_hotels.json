@@ -15,7 +15,10 @@
     "Map": "31.8655|120.5274",
     "PhoneNumber": "0512-35006615",
     "PinCode": "215600",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/zhang-jia-gang-zhong-lian-yue-hai-guo-ji-jiu-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/zhang-jia-gang-zhong-lian-yue-hai-guo-ji-jiu-dian.html",
+    "star_rating": 5,
+    "latitude": 31.8655,
+    "longitude": 120.5274
   },
   {
     "countyCode": "CN",
@@ -33,7 +36,10 @@
     "Map": "33.663868|116.94913",
     "PhoneNumber": "865576681999",
     "PinCode": "234000",
-    "HotelWebsiteUrl": "http://doubletree3.hilton.com/en/hotels/china/doubletree-by-hilton-hotel-anhui-suzhou-SZVASDI/index.html"
+    "HotelWebsiteUrl": "http://doubletree3.hilton.com/en/hotels/china/doubletree-by-hilton-hotel-anhui-suzhou-SZVASDI/index.html",
+    "star_rating": 4,
+    "latitude": 33.663868,
+    "longitude": 116.94913
   },
   {
     "countyCode": "CN",
@@ -51,7 +57,10 @@
     "Map": "31.31061|120.62962",
     "PhoneNumber": "86-512-67778888",
     "PinCode": "215005",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/garden-view-suzhou.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/garden-view-suzhou.html",
+    "star_rating": 4,
+    "latitude": 31.31061,
+    "longitude": 120.62962
   },
   {
     "countyCode": "CN",
@@ -69,7 +78,10 @@
     "Map": "31.295386|120.548018",
     "PhoneNumber": "",
     "PinCode": "215129",
-    "HotelWebsiteUrl": "http://www.accorhotels.com/es/hotel-8545-ibis-styles-suzhou-amusement-park/index.shtml"
+    "HotelWebsiteUrl": "http://www.accorhotels.com/es/hotel-8545-ibis-styles-suzhou-amusement-park/index.shtml",
+    "star_rating": 4,
+    "latitude": 31.295386,
+    "longitude": 120.548018
   },
   {
     "countyCode": "CN",
@@ -87,7 +99,10 @@
     "Map": "31.324646|120.730318",
     "PhoneNumber": "",
     "PinCode": "215004",
-    "HotelWebsiteUrl": "http://www.accorhotels.com/de/hotel-8546-ibis-suzhou-amusement-xuguan/index.shtml"
+    "HotelWebsiteUrl": "http://www.accorhotels.com/de/hotel-8546-ibis-suzhou-amusement-xuguan/index.shtml",
+    "star_rating": 3,
+    "latitude": 31.324646,
+    "longitude": 120.730318
   },
   {
     "countyCode": "CN",
@@ -105,7 +120,10 @@
     "Map": "31.422035|120.93129",
     "PhoneNumber": "86-512-80981777",
     "PinCode": "215127",
-    "HotelWebsiteUrl": "http://www.ramada.com/hotels/china/suzhou-city/ramada-suzhou-luzhi/hotel-overview"
+    "HotelWebsiteUrl": "http://www.ramada.com/hotels/china/suzhou-city/ramada-suzhou-luzhi/hotel-overview",
+    "star_rating": 3,
+    "latitude": 31.422035,
+    "longitude": 120.93129
   },
   {
     "countyCode": "CN",
@@ -123,7 +141,10 @@
     "Map": "31.321115494|120.54639435",
     "PhoneNumber": "(86) 51268710999",
     "PinCode": "215001",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.321115494,
+    "longitude": 120.54639435
   },
   {
     "countyCode": "CN",
@@ -141,7 +162,10 @@
     "Map": "31.254487|120.753393",
     "PhoneNumber": "+86 512 6282 5559",
     "PinCode": "215000",
-    "HotelWebsiteUrl": "https://www.wyndhamhotels.com/super-8/suzhou-china/super-8-hotel-suzhou-yuan-qu-che-fang/overview"
+    "HotelWebsiteUrl": "https://www.wyndhamhotels.com/super-8/suzhou-china/super-8-hotel-suzhou-yuan-qu-che-fang/overview",
+    "star_rating": 3,
+    "latitude": 31.254487,
+    "longitude": 120.753393
   },
   {
     "countyCode": "CN",
@@ -159,7 +183,10 @@
     "Map": "31.32712|120.42267",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 5,
+    "latitude": 31.32712,
+    "longitude": 120.42267
   },
   {
     "countyCode": "CN",
@@ -177,7 +204,10 @@
     "Map": "31.255995|121.01859",
     "PhoneNumber": "86-512-55109999",
     "PinCode": "215341",
-    "HotelWebsiteUrl": "http://www.ramada.com/hotels/china/kunshan/ramada-plaza-qiandeng-kunshan/hotel-overview"
+    "HotelWebsiteUrl": "http://www.ramada.com/hotels/china/kunshan/ramada-plaza-qiandeng-kunshan/hotel-overview",
+    "star_rating": 3,
+    "latitude": 31.255995,
+    "longitude": 121.01859
   },
   {
     "countyCode": "CN",
@@ -195,7 +225,10 @@
     "Map": "31.382374|120.953055",
     "PhoneNumber": "86-512-57119999",
     "PinCode": "215300",
-    "HotelWebsiteUrl": "http://www.tlhotelsgroup.com/kunshan/default-en.html"
+    "HotelWebsiteUrl": "http://www.tlhotelsgroup.com/kunshan/default-en.html",
+    "star_rating": 5,
+    "latitude": 31.382374,
+    "longitude": 120.953055
   },
   {
     "countyCode": "CN",
@@ -213,7 +246,10 @@
     "Map": "30.89691|120.65966",
     "PhoneNumber": "(86) 051263477777",
     "PinCode": "215228",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/shenghong-international-hotel.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/shenghong-international-hotel.html",
+    "star_rating": 4,
+    "latitude": 30.89691,
+    "longitude": 120.65966
   },
   {
     "countyCode": "CN",
@@ -231,7 +267,10 @@
     "Map": "31.29918|120.6386",
     "PhoneNumber": "(86) 51265193188",
     "PinCode": "215000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/my-mai-he-jiu-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/my-mai-he-jiu-dian.html",
+    "star_rating": 3,
+    "latitude": 31.29918,
+    "longitude": 120.6386
   },
   {
     "countyCode": "CN",
@@ -249,7 +288,10 @@
     "Map": "31.3795|120.96397",
     "PhoneNumber": "0512-57575688",
     "PinCode": "215314",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.3795,
+    "longitude": 120.96397
   },
   {
     "countyCode": "CN",
@@ -267,7 +309,10 @@
     "Map": "33.63926|116.9841",
     "PhoneNumber": "",
     "PinCode": "234000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 33.63926,
+    "longitude": 116.9841
   },
   {
     "countyCode": "CN",
@@ -285,7 +330,10 @@
     "Map": "31.36684|120.964895",
     "PhoneNumber": "86-189-62683529",
     "PinCode": "215300",
-    "HotelWebsiteUrl": "http://yxdjd.com.cn"
+    "HotelWebsiteUrl": "http://yxdjd.com.cn",
+    "star_rating": 3,
+    "latitude": 31.36684,
+    "longitude": 120.964895
   },
   {
     "countyCode": "CN",
@@ -303,7 +351,10 @@
     "Map": "26.86632|100.23843",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 26.86632,
+    "longitude": 100.23843
   },
   {
     "countyCode": "CN",
@@ -321,7 +372,10 @@
     "Map": "31.2891|120.568799",
     "PhoneNumber": "86-0512-68716888",
     "PinCode": "215011",
-    "HotelWebsiteUrl": "http://canal.gardenhotelsuzhou.com"
+    "HotelWebsiteUrl": "http://canal.gardenhotelsuzhou.com",
+    "star_rating": 3,
+    "latitude": 31.2891,
+    "longitude": 120.568799
   },
   {
     "countyCode": "CN",
@@ -339,7 +393,10 @@
     "Map": "31.30098|120.68227",
     "PhoneNumber": "+8651262726998",
     "PinCode": "215000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/warmly-boutique.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/warmly-boutique.html",
+    "star_rating": 3,
+    "latitude": 31.30098,
+    "longitude": 120.68227
   },
   {
     "countyCode": "CN",
@@ -357,7 +414,10 @@
     "Map": "31.31531|120.62023",
     "PhoneNumber": "",
     "PinCode": "215005",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-suzhou-humble-administrator-garden-guanqian-street.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-suzhou-humble-administrator-garden-guanqian-street.html",
+    "star_rating": 3,
+    "latitude": 31.31531,
+    "longitude": 120.62023
   },
   {
     "countyCode": "CN",
@@ -375,7 +435,10 @@
     "Map": "31.31415|120.62842",
     "PhoneNumber": "(86) 51267726666",
     "PinCode": "215001",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/hovle-mansion-club-hotel.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/hovle-mansion-club-hotel.html",
+    "star_rating": 5,
+    "latitude": 31.31415,
+    "longitude": 120.62842
   },
   {
     "countyCode": "CN",
@@ -393,7 +456,10 @@
     "Map": "31.29125|120.61083",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.29125,
+    "longitude": 120.61083
   },
   {
     "countyCode": "CN",
@@ -411,7 +477,10 @@
     "Map": "31.079407|120.292261",
     "PhoneNumber": "",
     "PinCode": "215100",
-    "HotelWebsiteUrl": "-"
+    "HotelWebsiteUrl": "-",
+    "star_rating": 4,
+    "latitude": 31.079407,
+    "longitude": 120.292261
   },
   {
     "countyCode": "CN",
@@ -429,7 +498,10 @@
     "Map": "31.30368042|120.82048035",
     "PhoneNumber": "+86(0)51262826688",
     "PinCode": "215126",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.30368042,
+    "longitude": 120.82048035
   },
   {
     "countyCode": "CN",
@@ -447,7 +519,10 @@
     "Map": "31.14428|120.32641",
     "PhoneNumber": "(86) 051266277111",
     "PinCode": "215111",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.14428,
+    "longitude": 120.32641
   },
   {
     "countyCode": "CN",
@@ -465,7 +540,10 @@
     "Map": "31.32167|120.71855",
     "PhoneNumber": "(86) 51262727999",
     "PinCode": "215123",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.32167,
+    "longitude": 120.71855
   },
   {
     "countyCode": "CN",
@@ -483,7 +561,10 @@
     "Map": "31.629940033|120.71035767",
     "PhoneNumber": "008651266830595008651266830595",
     "PinCode": "215137",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 31.629940033,
+    "longitude": 120.71035767
   },
   {
     "countyCode": "CN",
@@ -501,7 +582,10 @@
     "Map": "31.269674429|120.44365168",
     "PhoneNumber": "(86) 51266931888",
     "PinCode": "215000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 31.269674429,
+    "longitude": 120.44365168
   },
   {
     "countyCode": "CN",
@@ -519,7 +603,10 @@
     "Map": "31.27365|120.46661",
     "PhoneNumber": "(86) 51266242983",
     "PinCode": "215156",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.27365,
+    "longitude": 120.46661
   },
   {
     "countyCode": "CN",
@@ -537,7 +624,10 @@
     "Map": "31.30255|120.626",
     "PhoneNumber": "+8651268017888|+861064367570",
     "PinCode": "215006",
-    "HotelWebsiteUrl": "http://www.nanlin.cn/"
+    "HotelWebsiteUrl": "http://www.nanlin.cn/",
+    "star_rating": 4,
+    "latitude": 31.30255,
+    "longitude": 120.626
   },
   {
     "countyCode": "CN",
@@ -555,7 +645,10 @@
     "Map": "31.126468|120.842292",
     "PhoneNumber": "86-512-57220008",
     "PinCode": "215325",
-    "HotelWebsiteUrl": "http://www.blossomhillinn.com"
+    "HotelWebsiteUrl": "http://www.blossomhillinn.com",
+    "star_rating": 3,
+    "latitude": 31.126468,
+    "longitude": 120.842292
   },
   {
     "countyCode": "CN",
@@ -573,7 +666,10 @@
     "Map": "31.84557|120.56416",
     "PhoneNumber": "+86(0)51256313888",
     "PinCode": "215600",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.84557,
+    "longitude": 120.56416
   },
   {
     "countyCode": "CN",
@@ -591,7 +687,10 @@
     "Map": "31.319330215|121.03623199",
     "PhoneNumber": "",
     "PinCode": "215331",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.319330215,
+    "longitude": 121.03623199
   },
   {
     "countyCode": "CN",
@@ -609,7 +708,10 @@
     "Map": "31.358688807|120.95466582",
     "PhoneNumber": "0512-50103888",
     "PinCode": "215300",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.358688807,
+    "longitude": 120.95466582
   },
   {
     "countyCode": "CN",
@@ -627,7 +729,10 @@
     "Map": "31.3862|120.96949",
     "PhoneNumber": "(86) 51257357171",
     "PinCode": "215300",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.3862,
+    "longitude": 120.96949
   },
   {
     "countyCode": "CN",
@@ -645,6 +750,9 @@
     "Map": "31.44891|121.10722",
     "PhoneNumber": "",
     "PinCode": "215400",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-alliance-suzhou-taicang-south-changchun-road-liuyuan.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-alliance-suzhou-taicang-south-changchun-road-liuyuan.html",
+    "star_rating": 3,
+    "latitude": 31.44891,
+    "longitude": 121.10722
   }
 ]

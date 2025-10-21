@@ -15,7 +15,10 @@
     "Map": "30.243991|120.170611",
     "PhoneNumber": "",
     "PinCode": "310002",
-    "HotelWebsiteUrl": "http://www.ibis.com/gb/hotel-8110-ibis-hangzhou-song-dynasty-street/index.shtml"
+    "HotelWebsiteUrl": "http://www.ibis.com/gb/hotel-8110-ibis-hangzhou-song-dynasty-street/index.shtml",
+    "star_rating": 3,
+    "latitude": 30.243991,
+    "longitude": 120.170611
   },
   {
     "countyCode": "CN",
@@ -33,7 +36,10 @@
     "Map": "30.308536|120.382339",
     "PhoneNumber": "86-571-28080808",
     "PinCode": "310000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.308536,
+    "longitude": 120.382339
   },
   {
     "countyCode": "CN",
@@ -51,7 +57,10 @@
     "Map": "30.32043|120.0315",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.32043,
+    "longitude": 120.0315
   },
   {
     "countyCode": "CN",
@@ -69,7 +78,10 @@
     "Map": "30.33897261837787|120.18594454232789",
     "PhoneNumber": "",
     "PinCode": "310000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 30.33897261837787,
+    "longitude": 120.18594454232789
   },
   {
     "countyCode": "CN",
@@ -87,7 +99,10 @@
     "Map": "30.314192|120.32077",
     "PhoneNumber": "86-571-89898888",
     "PinCode": "310018",
-    "HotelWebsiteUrl": "http://WWW.DOUBLETREE3.HILTON.COM/EN/HOTELS/CHINA/DOUBLETREE-BY-HILTON"
+    "HotelWebsiteUrl": "http://WWW.DOUBLETREE3.HILTON.COM/EN/HOTELS/CHINA/DOUBLETREE-BY-HILTON",
+    "star_rating": 4,
+    "latitude": 30.314192,
+    "longitude": 120.32077
   },
   {
     "countyCode": "CN",
@@ -105,7 +120,10 @@
     "Map": "30.28599|120.19938",
     "PhoneNumber": "",
     "PinCode": "310015",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.28599,
+    "longitude": 120.19938
   },
   {
     "countyCode": "CN",
@@ -123,7 +141,10 @@
     "Map": "30.279057|120.128204",
     "PhoneNumber": "86-571-85892888",
     "PinCode": "310012",
-    "HotelWebsiteUrl": "http://www.accorhotels.com/de/hotel-8829-ibis-hangzhou-huanglong-sports-center/index.shtml"
+    "HotelWebsiteUrl": "http://www.accorhotels.com/de/hotel-8829-ibis-hangzhou-huanglong-sports-center/index.shtml",
+    "star_rating": 3,
+    "latitude": 30.279057,
+    "longitude": 120.128204
   },
   {
     "countyCode": "CN",
@@ -141,7 +162,10 @@
     "Map": "30.246741|120.108192",
     "PhoneNumber": "86-571-87987999",
     "PinCode": "310013",
-    "HotelWebsiteUrl": "http://www.pbhotel.cn"
+    "HotelWebsiteUrl": "http://www.pbhotel.cn",
+    "star_rating": 5,
+    "latitude": 30.246741,
+    "longitude": 120.108192
   },
   {
     "countyCode": "CN",
@@ -159,7 +183,10 @@
     "Map": "30.295844|120.151768",
     "PhoneNumber": "",
     "PinCode": "310005",
-    "HotelWebsiteUrl": "http://www.soocor.com/HZGS"
+    "HotelWebsiteUrl": "http://www.soocor.com/HZGS",
+    "star_rating": 4,
+    "latitude": 30.295844,
+    "longitude": 120.151768
   },
   {
     "countyCode": "CN",
@@ -177,7 +204,10 @@
     "Map": "30.1804332|120.2841845",
     "PhoneNumber": "008682808666008682808666",
     "PinCode": "310000",
-    "HotelWebsiteUrl": "https://de.hotels.com/ho425629/south-china-harbour-view-hotel-hangzhou-china/"
+    "HotelWebsiteUrl": "https://de.hotels.com/ho425629/south-china-harbour-view-hotel-hangzhou-china/",
+    "star_rating": 4,
+    "latitude": 30.1804332,
+    "longitude": 120.2841845
   },
   {
     "countyCode": "CN",
@@ -195,7 +225,10 @@
     "Map": "30.259758|120.1217913",
     "PhoneNumber": "00864001840018",
     "PinCode": "310013",
-    "HotelWebsiteUrl": "https://www.wyndhamhotels.com/en-uk/super-8/hangzhou-china/super-8-hangzhou-huanglong-yu-quan-xiao-qu/overview"
+    "HotelWebsiteUrl": "https://www.wyndhamhotels.com/en-uk/super-8/hangzhou-china/super-8-hangzhou-huanglong-yu-quan-xiao-qu/overview",
+    "star_rating": 3,
+    "latitude": 30.259758,
+    "longitude": 120.1217913
   },
   {
     "countyCode": "CN",
@@ -213,7 +246,10 @@
     "Map": "30.277757|120.112699",
     "PhoneNumber": "00864001840018",
     "PinCode": "310013",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.277757,
+    "longitude": 120.112699
   },
   {
     "countyCode": "CN",
@@ -231,7 +267,10 @@
     "Map": "30.25205|120.1615413",
     "PhoneNumber": "00864001840018",
     "PinCode": "310001",
-    "HotelWebsiteUrl": "https://www.wyndhamhotels.com/super-8/hangzhou-china/super-8-hotel-hangzhou-xi-hu-qing-nian-lu/overview"
+    "HotelWebsiteUrl": "https://www.wyndhamhotels.com/super-8/hangzhou-china/super-8-hotel-hangzhou-xi-hu-qing-nian-lu/overview",
+    "star_rating": 3,
+    "latitude": 30.25205,
+    "longitude": 120.1615413
   },
   {
     "countyCode": "CN",
@@ -249,7 +288,10 @@
     "Map": "29.485727|119.297044",
     "PhoneNumber": "86-0571-58318888",
     "PinCode": "311600",
-    "HotelWebsiteUrl": "http://wwww.bandaokaihaohotel.com"
+    "HotelWebsiteUrl": "http://wwww.bandaokaihaohotel.com",
+    "star_rating": 4,
+    "latitude": 29.485727,
+    "longitude": 119.297044
   },
   {
     "countyCode": "CN",
@@ -267,7 +309,10 @@
     "Map": "30.25791|120.18134",
     "PhoneNumber": "",
     "PinCode": "310009",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.25791,
+    "longitude": 120.18134
   },
   {
     "countyCode": "CN",
@@ -285,7 +330,10 @@
     "Map": "30.26051|120.12594",
     "PhoneNumber": "(86) 057187971456",
     "PinCode": "310013",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.26051,
+    "longitude": 120.12594
   },
   {
     "countyCode": "CN",
@@ -303,7 +351,10 @@
     "Map": "30.3067290553|120.0946659674",
     "PhoneNumber": "0571-89710000",
     "PinCode": "310030",
-    "HotelWebsiteUrl": "http://zjghotel.com.cn/"
+    "HotelWebsiteUrl": "http://zjghotel.com.cn/",
+    "star_rating": 4,
+    "latitude": 30.3067290553,
+    "longitude": 120.0946659674
   },
   {
     "countyCode": "CN",
@@ -321,7 +372,10 @@
     "Map": "30.30602|120.3469",
     "PhoneNumber": "+8657128068888|+864008206193",
     "PinCode": "310018",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.30602,
+    "longitude": 120.3469
   },
   {
     "countyCode": "CN",
@@ -339,7 +393,10 @@
     "Map": "30.17416|120.1638",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.17416,
+    "longitude": 120.1638
   },
   {
     "countyCode": "CN",
@@ -357,7 +414,10 @@
     "Map": "30.20083|120.20741",
     "PhoneNumber": "",
     "PinCode": "310051",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.20083,
+    "longitude": 120.20741
   },
   {
     "countyCode": "CN",
@@ -375,7 +435,10 @@
     "Map": "30.208285|120.207798",
     "PhoneNumber": "86-0571-88833002",
     "PinCode": "315000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.208285,
+    "longitude": 120.207798
   },
   {
     "countyCode": "CN",
@@ -393,7 +456,10 @@
     "Map": "30.2082133012|120.2080489877",
     "PhoneNumber": "",
     "PinCode": "310000",
-    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=285079"
+    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=285079",
+    "star_rating": 3,
+    "latitude": 30.2082133012,
+    "longitude": 120.2080489877
   },
   {
     "countyCode": "CN",
@@ -411,7 +477,10 @@
     "Map": "30.213439941|120.16902161",
     "PhoneNumber": "",
     "PinCode": "310000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.213439941,
+    "longitude": 120.16902161
   },
   {
     "countyCode": "CN",
@@ -429,7 +498,10 @@
     "Map": "30.22573|120.29405",
     "PhoneNumber": "(86) 57157576888",
     "PinCode": "310000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.22573,
+    "longitude": 120.29405
   },
   {
     "countyCode": "CN",
@@ -447,7 +519,10 @@
     "Map": "30.28691|120.07213",
     "PhoneNumber": "(86) 057185851555",
     "PinCode": "310012",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.28691,
+    "longitude": 120.07213
   },
   {
     "countyCode": "CN",
@@ -465,7 +540,10 @@
     "Map": "30.28705|120.11599",
     "PhoneNumber": "0571-28183333",
     "PinCode": "310017",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/yi-xiang-tu-shu-yin-le-jiu-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/yi-xiang-tu-shu-yin-le-jiu-dian.html",
+    "star_rating": 3,
+    "latitude": 30.28705,
+    "longitude": 120.11599
   },
   {
     "countyCode": "CN",
@@ -483,7 +561,10 @@
     "Map": "30.32663|120.08059",
     "PhoneNumber": "(86) 057188855008",
     "PinCode": "310030",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/hangzhou-pujing.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/hangzhou-pujing.html",
+    "star_rating": 4,
+    "latitude": 30.32663,
+    "longitude": 120.08059
   },
   {
     "countyCode": "CN",
@@ -501,7 +582,10 @@
     "Map": "30.3454540742041|120.147321224213",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 30.3454540742041,
+    "longitude": 120.147321224213
   },
   {
     "countyCode": "CN",
@@ -519,6 +603,9 @@
     "Map": "30.250031|120.177062",
     "PhoneNumber": "+862086009099",
     "PinCode": "310009",
-    "HotelWebsiteUrl": "http://www.holidayinnxiaoshan.com/en/"
+    "HotelWebsiteUrl": "http://www.holidayinnxiaoshan.com/en/",
+    "star_rating": 4,
+    "latitude": 30.250031,
+    "longitude": 120.177062
   }
 ]

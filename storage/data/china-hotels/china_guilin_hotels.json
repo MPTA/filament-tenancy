@@ -15,7 +15,10 @@
     "Map": "25.26873|110.312072",
     "PhoneNumber": "86-15277395318",
     "PinCode": "541004",
-    "HotelWebsiteUrl": "http://www.parkhtl.com/EN/Index.asp"
+    "HotelWebsiteUrl": "http://www.parkhtl.com/EN/Index.asp",
+    "star_rating": 3,
+    "latitude": 25.26873,
+    "longitude": 110.312072
   },
   {
     "countyCode": "CN",
@@ -33,7 +36,10 @@
     "Map": "25.281179428|110.33508301",
     "PhoneNumber": "86-773-5689999",
     "PinCode": "541010",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 25.281179428,
+    "longitude": 110.33508301
   },
   {
     "countyCode": "CN",
@@ -51,7 +57,10 @@
     "Map": "25.2811053|110.314847",
     "PhoneNumber": "",
     "PinCode": "541004",
-    "HotelWebsiteUrl": "www"
+    "HotelWebsiteUrl": "www",
+    "star_rating": 4,
+    "latitude": 25.2811053,
+    "longitude": 110.314847
   },
   {
     "countyCode": "CN",
@@ -69,7 +78,10 @@
     "Map": "24.76807|110.49547",
     "PhoneNumber": "+867736911666",
     "PinCode": "541000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/wei-ye-na-yang-shuo.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/wei-ye-na-yang-shuo.html",
+    "star_rating": 4,
+    "latitude": 24.76807,
+    "longitude": 110.49547
   },
   {
     "countyCode": "CN",
@@ -87,7 +99,10 @@
     "Map": "25.196|110.327",
     "PhoneNumber": "+867732869350",
     "PinCode": "541001",
-    "HotelWebsiteUrl": "http://www.jintoneguilin.info/"
+    "HotelWebsiteUrl": "http://www.jintoneguilin.info/",
+    "star_rating": 4,
+    "latitude": 25.196,
+    "longitude": 110.327
   },
   {
     "countyCode": "CN",
@@ -105,7 +120,10 @@
     "Map": "25.27776|110.30089",
     "PhoneNumber": "86 773 3111  111",
     "PinCode": "541001",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 25.27776,
+    "longitude": 110.30089
   },
   {
     "countyCode": "CN",
@@ -123,7 +141,10 @@
     "Map": "25.276996|110.283813",
     "PhoneNumber": "86-0773-2283265",
     "PinCode": "541001",
-    "HotelWebsiteUrl": "http://www.aroma-tea-house.com/"
+    "HotelWebsiteUrl": "http://www.aroma-tea-house.com/",
+    "star_rating": 4,
+    "latitude": 25.276996,
+    "longitude": 110.283813
   },
   {
     "countyCode": "CN",
@@ -141,7 +162,10 @@
     "Map": "25.25983|110.29369",
     "PhoneNumber": "(86) 07733810005",
     "PinCode": "541002",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 25.25983,
+    "longitude": 110.29369
   },
   {
     "countyCode": "CN",
@@ -159,7 +183,10 @@
     "Map": "25.26011|110.29522",
     "PhoneNumber": "(86) 07732268888",
     "PinCode": "GUANGXI",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 25.26011,
+    "longitude": 110.29522
   },
   {
     "countyCode": "CN",
@@ -177,7 +204,10 @@
     "Map": "25.263586|110.275704",
     "PhoneNumber": "86-0773-2588088",
     "PinCode": "541000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 25.263586,
+    "longitude": 110.275704
   },
   {
     "countyCode": "CN",
@@ -195,7 +225,10 @@
     "Map": "25.27093|110.29037",
     "PhoneNumber": "(86) 7732881278",
     "PinCode": "541002",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/guilin-oasis-inn.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/guilin-oasis-inn.html",
+    "star_rating": 3,
+    "latitude": 25.27093,
+    "longitude": 110.29037
   },
   {
     "countyCode": "CN",
@@ -213,7 +246,10 @@
     "Map": "25.27493|110.30029",
     "PhoneNumber": "(86) 07732834666",
     "PinCode": "541002",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 25.27493,
+    "longitude": 110.30029
   },
   {
     "countyCode": "CN",
@@ -231,7 +267,10 @@
     "Map": "25.196|110.327",
     "PhoneNumber": "",
     "PinCode": "541000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 25.196,
+    "longitude": 110.327
   },
   {
     "countyCode": "CN",
@@ -249,7 +288,10 @@
     "Map": "25.27773|110.31658",
     "PhoneNumber": "(86) 07735861555",
     "PinCode": "541000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 25.27773,
+    "longitude": 110.31658
   },
   {
     "countyCode": "CN",
@@ -267,7 +309,10 @@
     "Map": "25.4114|110.3294",
     "PhoneNumber": "+86(0)7736811789",
     "PinCode": "541000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 25.4114,
+    "longitude": 110.3294
   },
   {
     "countyCode": "CN",
@@ -285,7 +330,10 @@
     "Map": "24.779089|110.494907",
     "PhoneNumber": "86-0773-8880588",
     "PinCode": "541900",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 24.779089,
+    "longitude": 110.494907
   },
   {
     "countyCode": "CN",
@@ -303,7 +351,10 @@
     "Map": "24.73591|110.49466",
     "PhoneNumber": "",
     "PinCode": "541900",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/riverside-resort-yangshuo.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/riverside-resort-yangshuo.html",
+    "star_rating": 5,
+    "latitude": 24.73591,
+    "longitude": 110.49466
   },
   {
     "countyCode": "CN",
@@ -321,7 +372,10 @@
     "Map": "24.75918|110.50507",
     "PhoneNumber": "+867738889688",
     "PinCode": "541999",
-    "HotelWebsiteUrl": "http://www.ysbyhotel.com/,http://www.placereferenc"
+    "HotelWebsiteUrl": "http://www.ysbyhotel.com/,http://www.placereferenc",
+    "star_rating": 5,
+    "latitude": 24.75918,
+    "longitude": 110.50507
   },
   {
     "countyCode": "CN",
@@ -339,7 +393,10 @@
     "Map": "24.76837|110.49571",
     "PhoneNumber": "+867738888011",
     "PinCode": "541900",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 24.76837,
+    "longitude": 110.49571
   },
   {
     "countyCode": "CN",
@@ -357,7 +414,10 @@
     "Map": "24.7738570156252|110.491191744804",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 24.7738570156252,
+    "longitude": 110.491191744804
   },
   {
     "countyCode": "CN",
@@ -375,7 +435,10 @@
     "Map": "24.77528|110.4828",
     "PhoneNumber": "0773-2220366",
     "PinCode": "541900",
-    "HotelWebsiteUrl": "https://www.agoda.com/yangshuo-xiyue-hotel/hotel/yangshuo-cn.html?cid=-134"
+    "HotelWebsiteUrl": "https://www.agoda.com/yangshuo-xiyue-hotel/hotel/yangshuo-cn.html?cid=-134",
+    "star_rating": 3,
+    "latitude": 24.77528,
+    "longitude": 110.4828
   },
   {
     "countyCode": "CN",
@@ -393,7 +456,10 @@
     "Map": "24.7761072697426|110.496164560318",
     "PhoneNumber": "",
     "PinCode": "541900",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 24.7761072697426,
+    "longitude": 110.496164560318
   },
   {
     "countyCode": "CN",
@@ -411,7 +477,10 @@
     "Map": "24.77809|110.49082",
     "PhoneNumber": "+867736913636",
     "PinCode": "541900",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 24.77809,
+    "longitude": 110.49082
   },
   {
     "countyCode": "CN",
@@ -429,7 +498,10 @@
     "Map": "24.77701|110.4936",
     "PhoneNumber": "86-0773-8886851",
     "PinCode": "541900",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 24.77701,
+    "longitude": 110.4936
   },
   {
     "countyCode": "CN",
@@ -447,7 +519,10 @@
     "Map": "24.780442|110.504587",
     "PhoneNumber": "86-0773-8826879",
     "PinCode": "541900",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 24.780442,
+    "longitude": 110.504587
   },
   {
     "countyCode": "CN",
@@ -465,7 +540,10 @@
     "Map": "24.778692|110.490043",
     "PhoneNumber": "0086 773 8813918",
     "PinCode": "541900",
-    "HotelWebsiteUrl": "http://www.yangshuorosewoodinn.com"
+    "HotelWebsiteUrl": "http://www.yangshuorosewoodinn.com",
+    "star_rating": 3,
+    "latitude": 24.778692,
+    "longitude": 110.490043
   },
   {
     "countyCode": "CN",
@@ -483,7 +561,10 @@
     "Map": "24.775616|110.495264",
     "PhoneNumber": "86-0773-8813321",
     "PinCode": "541900",
-    "HotelWebsiteUrl": "http://www.yangshuorosewoodhotel.com/"
+    "HotelWebsiteUrl": "http://www.yangshuorosewoodhotel.com/",
+    "star_rating": 3,
+    "latitude": 24.775616,
+    "longitude": 110.495264
   },
   {
     "countyCode": "CN",
@@ -501,7 +582,10 @@
     "Map": "24.73257|110.47564",
     "PhoneNumber": "+867738778458",
     "PinCode": "541907",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/yangshuo-phoenix-pagoda-fonglou-retreat.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/yangshuo-phoenix-pagoda-fonglou-retreat.html",
+    "star_rating": 3,
+    "latitude": 24.73257,
+    "longitude": 110.47564
   },
   {
     "countyCode": "CN",
@@ -519,7 +603,10 @@
     "Map": "25.590719223|110.67684937",
     "PhoneNumber": "(86) 07736235888",
     "PinCode": "541400",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 25.590719223,
+    "longitude": 110.67684937
   },
   {
     "countyCode": "CN",
@@ -537,7 +624,10 @@
     "Map": "25.27711|110.281942",
     "PhoneNumber": "86-0773-2898888",
     "PinCode": "541002",
-    "HotelWebsiteUrl": "http://www.glbravohotel.com/"
+    "HotelWebsiteUrl": "http://www.glbravohotel.com/",
+    "star_rating": 5,
+    "latitude": 25.27711,
+    "longitude": 110.281942
   },
   {
     "countyCode": "CN",
@@ -555,7 +645,10 @@
     "Map": "25.244766|110.28636600000004",
     "PhoneNumber": "+86 773 311 9999",
     "PinCode": "541002",
-    "HotelWebsiteUrl": "http://www.dz-hotel.com"
+    "HotelWebsiteUrl": "http://www.dz-hotel.com",
+    "star_rating": 5,
+    "latitude": 25.244766,
+    "longitude": 110.28636600000004
   },
   {
     "countyCode": "CN",
@@ -573,7 +666,10 @@
     "Map": "25.28789|110.30231",
     "PhoneNumber": "86-773-2560000",
     "PinCode": "541001",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/dragonball.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/dragonball.html",
+    "star_rating": 4,
+    "latitude": 25.28789,
+    "longitude": 110.30231
   },
   {
     "countyCode": "CN",
@@ -591,7 +687,10 @@
     "Map": "25.27105|110.28918",
     "PhoneNumber": "86 773 2863388",
     "PinCode": "541002",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/gui-lin-lan-bao-shi-jiu-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/gui-lin-lan-bao-shi-jiu-dian.html",
+    "star_rating": 3,
+    "latitude": 25.27105,
+    "longitude": 110.28918
   },
   {
     "countyCode": "CN",
@@ -609,7 +708,10 @@
     "Map": "25.275240852|110.29803514",
     "PhoneNumber": "+86(0)7732156333",
     "PinCode": "541001",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 25.275240852,
+    "longitude": 110.29803514
   },
   {
     "countyCode": "CN",
@@ -627,7 +729,10 @@
     "Map": "24.75927|110.50421",
     "PhoneNumber": "+867738889688",
     "PinCode": "541900",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jasper-international-yangshuo.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jasper-international-yangshuo.html",
+    "star_rating": 4,
+    "latitude": 24.75927,
+    "longitude": 110.50421
   },
   {
     "countyCode": "CN",
@@ -645,7 +750,10 @@
     "Map": "24.781764|110.499864",
     "PhoneNumber": "86-0773-8888766",
     "PinCode": "541900",
-    "HotelWebsiteUrl": "http://www.yangshuo-village-retreat.com"
+    "HotelWebsiteUrl": "http://www.yangshuo-village-retreat.com",
+    "star_rating": 3,
+    "latitude": 24.781764,
+    "longitude": 110.499864
   },
   {
     "countyCode": "CN",
@@ -663,7 +771,10 @@
     "Map": "24.781723|110.503698",
     "PhoneNumber": "86-773-8887518",
     "PinCode": "541900",
-    "HotelWebsiteUrl": "http://www.dlzy.net"
+    "HotelWebsiteUrl": "http://www.dlzy.net",
+    "star_rating": 3,
+    "latitude": 24.781723,
+    "longitude": 110.503698
   },
   {
     "countyCode": "CN",
@@ -681,7 +792,10 @@
     "Map": "25.276492|110.292048",
     "PhoneNumber": "86-773-2822881",
     "PinCode": "541001",
-    "HotelWebsiteUrl": "http://www.waterfallguilin.com/"
+    "HotelWebsiteUrl": "http://www.waterfallguilin.com/",
+    "star_rating": 4,
+    "latitude": 25.276492,
+    "longitude": 110.292048
   },
   {
     "countyCode": "CN",
@@ -699,7 +813,10 @@
     "Map": "25.276318|110.29443",
     "PhoneNumber": "+867732825588",
     "PinCode": "541001",
-    "HotelWebsiteUrl": "http://www.sheraton.com/guilin"
+    "HotelWebsiteUrl": "http://www.sheraton.com/guilin",
+    "star_rating": 4,
+    "latitude": 25.276318,
+    "longitude": 110.29443
   },
   {
     "countyCode": "CN",
@@ -717,7 +834,10 @@
     "Map": "25.277909|110.295246",
     "PhoneNumber": "",
     "PinCode": "541001",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 25.277909,
+    "longitude": 110.295246
   },
   {
     "countyCode": "CN",
@@ -735,7 +855,10 @@
     "Map": "25.259993|110.312358",
     "PhoneNumber": "86-0773-5882826",
     "PinCode": "541004",
-    "HotelWebsiteUrl": "http://www.plazahotelguilin.cn/"
+    "HotelWebsiteUrl": "http://www.plazahotelguilin.cn/",
+    "star_rating": 4,
+    "latitude": 25.259993,
+    "longitude": 110.312358
   },
   {
     "countyCode": "CN",
@@ -753,7 +876,10 @@
     "Map": "25.2974469|110.29906249999999",
     "PhoneNumber": "",
     "PinCode": "541001",
-    "HotelWebsiteUrl": "http://www.ibis.com/es/hotel-9254-ibis-guilin-zhongshan-north-rd-opening-june-2015/index.shtml"
+    "HotelWebsiteUrl": "http://www.ibis.com/es/hotel-9254-ibis-guilin-zhongshan-north-rd-opening-june-2015/index.shtml",
+    "star_rating": 4,
+    "latitude": 25.2974469,
+    "longitude": 110.29906249999999
   },
   {
     "countyCode": "CN",
@@ -771,7 +897,10 @@
     "Map": "25.980220795|110.64096832",
     "PhoneNumber": "(86) 07737919999",
     "PinCode": "541402",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 25.980220795,
+    "longitude": 110.64096832
   },
   {
     "countyCode": "CN",
@@ -789,6 +918,9 @@
     "Map": "25.253405|110.220919",
     "PhoneNumber": "",
     "PinCode": "541100",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 25.253405,
+    "longitude": 110.220919
   }
 ]

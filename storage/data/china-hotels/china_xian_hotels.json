@@ -15,7 +15,10 @@
     "Map": "34.260404|108.941763",
     "PhoneNumber": "86-29-87600000",
     "PinCode": "710001",
-    "HotelWebsiteUrl": "http://www.belltowerhtl.com"
+    "HotelWebsiteUrl": "http://www.belltowerhtl.com",
+    "star_rating": 4,
+    "latitude": 34.260404,
+    "longitude": 108.941763
   },
   {
     "countyCode": "CN",
@@ -33,7 +36,10 @@
     "Map": "34.244216|108.905353",
     "PhoneNumber": "86-029-84263388",
     "PinCode": "710068",
-    "HotelWebsiteUrl": "http://www.legardens.com/english/index.asp"
+    "HotelWebsiteUrl": "http://www.legardens.com/english/index.asp",
+    "star_rating": 4,
+    "latitude": 34.244216,
+    "longitude": 108.905353
   },
   {
     "countyCode": "CN",
@@ -51,7 +57,10 @@
     "Map": "34.26834|108.99482",
     "PhoneNumber": "86-29-83232981",
     "PinCode": "710032",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/xi-an-shangri-la-golden-flower.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/xi-an-shangri-la-golden-flower.html",
+    "star_rating": 4,
+    "latitude": 34.26834,
+    "longitude": 108.99482
   },
   {
     "countyCode": "CN",
@@ -69,7 +78,10 @@
     "Map": "34.317494|108.727078",
     "PhoneNumber": "",
     "PinCode": "710001",
-    "HotelWebsiteUrl": "www.hkctshotels.com/hotels/XianGrandMetropark/"
+    "HotelWebsiteUrl": "www.hkctshotels.com/hotels/XianGrandMetropark/",
+    "star_rating": 5,
+    "latitude": 34.317494,
+    "longitude": 108.727078
   },
   {
     "countyCode": "CN",
@@ -87,7 +99,10 @@
     "Map": "34.24565|108.94763",
     "PhoneNumber": "",
     "PinCode": "710002",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 34.24565,
+    "longitude": 108.94763
   },
   {
     "countyCode": "CN",
@@ -105,7 +120,10 @@
     "Map": "34.25693|108.93444",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://www.lemonhotelxian.com/"
+    "HotelWebsiteUrl": "http://www.lemonhotelxian.com/",
+    "star_rating": 3,
+    "latitude": 34.25693,
+    "longitude": 108.93444
   },
   {
     "countyCode": "CN",
@@ -123,7 +141,10 @@
     "Map": "34.3776474|109.21962738",
     "PhoneNumber": "00864001840018",
     "PinCode": "710600",
-    "HotelWebsiteUrl": "https://www.wyndhamhotels.com/super-8/xian-china/super-8-xian-lintong-hua-qing-chi/overview"
+    "HotelWebsiteUrl": "https://www.wyndhamhotels.com/super-8/xian-china/super-8-xian-lintong-hua-qing-chi/overview",
+    "star_rating": 3,
+    "latitude": 34.3776474,
+    "longitude": 109.21962738
   },
   {
     "countyCode": "CN",
@@ -141,7 +162,10 @@
     "Map": "34.324019|108.947334",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 34.324019,
+    "longitude": 108.947334
   },
   {
     "countyCode": "CN",
@@ -159,7 +183,10 @@
     "Map": "34.22302|108.94424",
     "PhoneNumber": "",
     "PinCode": "710061",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-xi-an-xiaozhai-subway-station.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-xi-an-xiaozhai-subway-station.html",
+    "star_rating": 3,
+    "latitude": 34.22302,
+    "longitude": 108.94424
   },
   {
     "countyCode": "CN",
@@ -177,7 +204,10 @@
     "Map": "34.27005|108.91876",
     "PhoneNumber": "+862988653588",
     "PinCode": "710082",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 34.27005,
+    "longitude": 108.91876
   },
   {
     "countyCode": "CN",
@@ -195,6 +225,9 @@
     "Map": "34.2632|108.95144",
     "PhoneNumber": "",
     "PinCode": "710004",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 34.2632,
+    "longitude": 108.95144
   }
 ]

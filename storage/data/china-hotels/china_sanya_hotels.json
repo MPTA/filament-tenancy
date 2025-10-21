@@ -15,7 +15,10 @@
     "Map": "18.28576|109.4487",
     "PhoneNumber": "008689888388888",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/ocean-sonic-sanya.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/ocean-sonic-sanya.html",
+    "star_rating": 5,
+    "latitude": 18.28576,
+    "longitude": 109.4487
   },
   {
     "countyCode": "CN",
@@ -33,7 +36,10 @@
     "Map": "18.28911|109.43314",
     "PhoneNumber": "0898-88299999",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/san-ya-tian-tong-guo-ji-jiu-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/san-ya-tian-tong-guo-ji-jiu-dian.html",
+    "star_rating": 5,
+    "latitude": 18.28911,
+    "longitude": 109.43314
   },
   {
     "countyCode": "CN",
@@ -51,7 +57,10 @@
     "Map": "18.30426|109.72677",
     "PhoneNumber": "+8689838888855",
     "PinCode": "572014",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/haitang-bay-gloria-resort-sanya-e-block.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/haitang-bay-gloria-resort-sanya-e-block.html",
+    "star_rating": 5,
+    "latitude": 18.30426,
+    "longitude": 109.72677
   },
   {
     "countyCode": "CN",
@@ -69,7 +78,10 @@
     "Map": "18.22124|109.52061",
     "PhoneNumber": "+86(0)89888338800",
     "PinCode": "572000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 18.22124,
+    "longitude": 109.52061
   },
   {
     "countyCode": "CN",
@@ -87,7 +99,10 @@
     "Map": "18.21255|109.50609",
     "PhoneNumber": "(86) 89888558666",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/serenity-coast-resort-sanya.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/serenity-coast-resort-sanya.html",
+    "star_rating": 5,
+    "latitude": 18.21255,
+    "longitude": 109.50609
   },
   {
     "countyCode": "CN",
@@ -105,7 +120,10 @@
     "Map": "18.21052|109.49884",
     "PhoneNumber": "0898-88885088",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/sanya-anantara.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/sanya-anantara.html",
+    "star_rating": 5,
+    "latitude": 18.21052,
+    "longitude": 109.49884
   },
   {
     "countyCode": "CN",
@@ -123,7 +141,10 @@
     "Map": "18.2497|109.51116",
     "PhoneNumber": "+8689838819999",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/sanya-joya-international.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/sanya-joya-international.html",
+    "star_rating": 5,
+    "latitude": 18.2497,
+    "longitude": 109.51116
   },
   {
     "countyCode": "CN",
@@ -141,7 +162,10 @@
     "Map": "18.2433126232|109.5211091433",
     "PhoneNumber": "",
     "PinCode": "572000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 18.2433126232,
+    "longitude": 109.5211091433
   },
   {
     "countyCode": "CN",
@@ -159,7 +183,10 @@
     "Map": "18.239664|109.55395",
     "PhoneNumber": "86-898-38818888",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.ihg.com/crowneplaza/hotels/de/de/sanya/syxcc/hoteldetail"
+    "HotelWebsiteUrl": "http://www.ihg.com/crowneplaza/hotels/de/de/sanya/syxcc/hoteldetail",
+    "star_rating": 4,
+    "latitude": 18.239664,
+    "longitude": 109.55395
   },
   {
     "countyCode": "CN",
@@ -177,7 +204,10 @@
     "Map": "18.369514|109.74828",
     "PhoneNumber": "+8689888659999",
     "PinCode": "572013",
-    "HotelWebsiteUrl": "http://www.starwoodhotels.com/westin/property/overview/contact.html?propertyID=3682"
+    "HotelWebsiteUrl": "http://www.starwoodhotels.com/westin/property/overview/contact.html?propertyID=3682",
+    "star_rating": 5,
+    "latitude": 18.369514,
+    "longitude": 109.74828
   },
   {
     "countyCode": "CN",
@@ -195,7 +225,10 @@
     "Map": "18.2717094421387|109.511505126953",
     "PhoneNumber": "0898-88869999",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.yyxyhotel.com/index.html"
+    "HotelWebsiteUrl": "http://www.yyxyhotel.com/index.html",
+    "star_rating": 5,
+    "latitude": 18.2717094421387,
+    "longitude": 109.511505126953
   },
   {
     "countyCode": "CN",
@@ -213,7 +246,10 @@
     "Map": "18.230927|109.628525",
     "PhoneNumber": "+8689888558855",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.sheraton.com/sanya"
+    "HotelWebsiteUrl": "http://www.sheraton.com/sanya",
+    "star_rating": 5,
+    "latitude": 18.230927,
+    "longitude": 109.628525
   },
   {
     "countyCode": "CN",
@@ -231,7 +267,10 @@
     "Map": "18.2236497293535|109.521830677986",
     "PhoneNumber": "+8689838261907|+8689888207430",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 18.2236497293535,
+    "longitude": 109.521830677986
   },
   {
     "countyCode": "CN",
@@ -249,7 +288,10 @@
     "Map": "18.269350052|109.49256134",
     "PhoneNumber": "(86) 89888224931",
     "PinCode": "572000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 18.269350052,
+    "longitude": 109.49256134
   },
   {
     "countyCode": "CN",
@@ -267,7 +309,10 @@
     "Map": "18.2290174|109.49354070000004",
     "PhoneNumber": "",
     "PinCode": "572021?",
-    "HotelWebsiteUrl": "http://www.maruinahotel.com/en/"
+    "HotelWebsiteUrl": "http://www.maruinahotel.com/en/",
+    "star_rating": 5,
+    "latitude": 18.2290174,
+    "longitude": 109.49354070000004
   },
   {
     "countyCode": "CN",
@@ -285,7 +330,10 @@
     "Map": "18.23592|109.50675",
     "PhoneNumber": "+8689831892999",
     "PinCode": "572000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 18.23592,
+    "longitude": 109.50675
   },
   {
     "countyCode": "CN",
@@ -303,7 +351,10 @@
     "Map": "18.23713422|109.51321642",
     "PhoneNumber": "(86) 89838898877",
     "PinCode": "572000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 18.23713422,
+    "longitude": 109.51321642
   },
   {
     "countyCode": "CN",
@@ -321,7 +372,10 @@
     "Map": "18.245889664|109.56204987",
     "PhoneNumber": "(86) 89838215888",
     "PinCode": "572000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 18.245889664,
+    "longitude": 109.56204987
   },
   {
     "countyCode": "CN",
@@ -339,7 +393,10 @@
     "Map": "18.27792|109.51651",
     "PhoneNumber": "(86) 089838217777",
     "PinCode": "572000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 18.27792,
+    "longitude": 109.51651
   },
   {
     "countyCode": "CN",
@@ -357,7 +414,10 @@
     "Map": "18.292296|109.394243",
     "PhoneNumber": "86-898-88349599",
     "PinCode": "572000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 18.292296,
+    "longitude": 109.394243
   },
   {
     "countyCode": "CN",
@@ -375,7 +435,10 @@
     "Map": "18.299409866|109.15354919",
     "PhoneNumber": "89888821188",
     "PinCode": "572000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 18.299409866,
+    "longitude": 109.15354919
   },
   {
     "countyCode": "CN",
@@ -393,7 +456,10 @@
     "Map": "18.23268|109.65414",
     "PhoneNumber": "86 898 88566666",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/san-ya-ya-long-wan-huan-qiu-cheng-da-jiu-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/san-ya-ya-long-wan-huan-qiu-cheng-da-jiu-dian.html",
+    "star_rating": 5,
+    "latitude": 18.23268,
+    "longitude": 109.65414
   },
   {
     "countyCode": "CN",
@@ -411,7 +477,10 @@
     "Map": "18.23363|109.54259",
     "PhoneNumber": "(86) 089888286556",
     "PinCode": "572019",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 18.23363,
+    "longitude": 109.54259
   },
   {
     "countyCode": "CN",
@@ -429,7 +498,10 @@
     "Map": "18.2242764569121|109.523241519928",
     "PhoneNumber": "898 8822 7788",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=230775"
+    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=230775",
+    "star_rating": 4,
+    "latitude": 18.2242764569121,
+    "longitude": 109.523241519928
   },
   {
     "countyCode": "CN",
@@ -447,7 +519,10 @@
     "Map": "18.26747|109.48777",
     "PhoneNumber": "",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/sanya-fang-jie-holiday.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/sanya-fang-jie-holiday.html",
+    "star_rating": 3,
+    "latitude": 18.26747,
+    "longitude": 109.48777
   },
   {
     "countyCode": "CN",
@@ -465,7 +540,10 @@
     "Map": "18.230998|109.640664",
     "PhoneNumber": "86-15203077473",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://horizonsanya.com/hotel_news_5.html"
+    "HotelWebsiteUrl": "http://horizonsanya.com/hotel_news_5.html",
+    "star_rating": 5,
+    "latitude": 18.230998,
+    "longitude": 109.640664
   },
   {
     "countyCode": "CN",
@@ -483,7 +561,10 @@
     "Map": "18.22178|109.52045",
     "PhoneNumber": "86-898-88210888",
     "PinCode": "572021",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/resort-intime.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/resort-intime.html",
+    "star_rating": 5,
+    "latitude": 18.22178,
+    "longitude": 109.52045
   },
   {
     "countyCode": "CN",
@@ -501,7 +582,10 @@
     "Map": "18.28612|109.45634",
     "PhoneNumber": "(86) 89888955398",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/sanya-lan-hai-du-jia-jiu-dian-gong-yu.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/sanya-lan-hai-du-jia-jiu-dian-gong-yu.html",
+    "star_rating": 3,
+    "latitude": 18.28612,
+    "longitude": 109.45634
   },
   {
     "countyCode": "CN",
@@ -519,7 +603,10 @@
     "Map": "18.223350525|109.51139832",
     "PhoneNumber": "0086 89 888390998",
     "PinCode": "572000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 18.223350525,
+    "longitude": 109.51139832
   },
   {
     "countyCode": "CN",
@@ -537,7 +624,10 @@
     "Map": "18.252438|109.508631",
     "PhoneNumber": "86-0898-38218888",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://sanya-resort-pw.gloriahotels.com/"
+    "HotelWebsiteUrl": "http://sanya-resort-pw.gloriahotels.com/",
+    "star_rating": 4,
+    "latitude": 18.252438,
+    "longitude": 109.508631
   },
   {
     "countyCode": "CN",
@@ -555,7 +645,10 @@
     "Map": "18.229614|109.634762",
     "PhoneNumber": "86-898-88639999",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.mgmgrandsanya.com"
+    "HotelWebsiteUrl": "http://www.mgmgrandsanya.com",
+    "star_rating": 5,
+    "latitude": 18.229614,
+    "longitude": 109.634762
   },
   {
     "countyCode": "CN",
@@ -573,7 +666,10 @@
     "Map": "18.229609|109.625313",
     "PhoneNumber": "+8689888568888",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.marriott.com/hotels/travel/syxmc-sanya-marriott-resort-and-spa/"
+    "HotelWebsiteUrl": "http://www.marriott.com/hotels/travel/syxmc-sanya-marriott-resort-and-spa/",
+    "star_rating": 5,
+    "latitude": 18.229609,
+    "longitude": 109.625313
   },
   {
     "countyCode": "CN",
@@ -591,7 +687,10 @@
     "Map": "18.24168|109.50657",
     "PhoneNumber": "8689888616100",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/sanya-baosheng.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/sanya-baosheng.html",
+    "star_rating": 4,
+    "latitude": 18.24168,
+    "longitude": 109.50657
   },
   {
     "countyCode": "CN",
@@ -609,7 +708,10 @@
     "Map": "18.289886913812|109.425426721573",
     "PhoneNumber": "+8689838293118",
     "PinCode": "572000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 18.289886913812,
+    "longitude": 109.425426721573
   },
   {
     "countyCode": "CN",
@@ -627,7 +729,10 @@
     "Map": "18.23665|109.50575",
     "PhoneNumber": "",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/san-ya-dong-gang-hai-jing-jiu-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/san-ya-dong-gang-hai-jing-jiu-dian.html",
+    "star_rating": 3,
+    "latitude": 18.23665,
+    "longitude": 109.50575
   },
   {
     "countyCode": "CN",
@@ -645,7 +750,10 @@
     "Map": "18.23314|109.64083",
     "PhoneNumber": "+86 898 8856 3333",
     "PinCode": "572000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 5,
+    "latitude": 18.23314,
+    "longitude": 109.64083
   },
   {
     "countyCode": "CN",
@@ -663,7 +771,10 @@
     "Map": "18.2236614227295|109.527626037598",
     "PhoneNumber": "0898-88225888",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=194515"
+    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=194515",
+    "star_rating": 3,
+    "latitude": 18.2236614227295,
+    "longitude": 109.527626037598
   },
   {
     "countyCode": "CN",
@@ -681,7 +792,10 @@
     "Map": "18.299744|109.449713",
     "PhoneNumber": "86-0898-31897666",
     "PinCode": "572000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 18.299744,
+    "longitude": 109.449713
   },
   {
     "countyCode": "CN",
@@ -699,7 +813,10 @@
     "Map": "18.2878|109.4853",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 18.2878,
+    "longitude": 109.4853
   },
   {
     "countyCode": "CN",
@@ -717,7 +834,10 @@
     "Map": "18.223645|109.523692",
     "PhoneNumber": "00864001840018",
     "PinCode": "572000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 18.223645,
+    "longitude": 109.523692
   },
   {
     "countyCode": "CN",
@@ -735,7 +855,10 @@
     "Map": "18.37994|109.749574",
     "PhoneNumber": "86-898-88658888",
     "PinCode": "572013",
-    "HotelWebsiteUrl": "HTTP://WWW.IHG.COM"
+    "HotelWebsiteUrl": "HTTP://WWW.IHG.COM",
+    "star_rating": 4,
+    "latitude": 18.37994,
+    "longitude": 109.749574
   },
   {
     "countyCode": "CN",
@@ -753,7 +876,10 @@
     "Map": "18.22842|109.623024",
     "PhoneNumber": "86-898-88588888",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://WWW.HILTONSANYA.CN"
+    "HotelWebsiteUrl": "http://WWW.HILTONSANYA.CN",
+    "star_rating": 5,
+    "latitude": 18.22842,
+    "longitude": 109.623024
   },
   {
     "countyCode": "CN",
@@ -771,7 +897,10 @@
     "Map": "18.233|109.654",
     "PhoneNumber": "",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.ihg.com/holidayinnresorts/hotels/us/en/sanya/syxrt/hoteldetail"
+    "HotelWebsiteUrl": "http://www.ihg.com/holidayinnresorts/hotels/us/en/sanya/syxrt/hoteldetail",
+    "star_rating": 5,
+    "latitude": 18.233,
+    "longitude": 109.654
   },
   {
     "countyCode": "CN",
@@ -789,7 +918,10 @@
     "Map": "18.2321230986928|109.643039703369",
     "PhoneNumber": "0086 89 888555888",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.huayuresortyalongbay.com"
+    "HotelWebsiteUrl": "http://www.huayuresortyalongbay.com",
+    "star_rating": 5,
+    "latitude": 18.2321230986928,
+    "longitude": 109.643039703369
   },
   {
     "countyCode": "CN",
@@ -807,7 +939,10 @@
     "Map": "18.216404|109.50953",
     "PhoneNumber": "86-898-88211688",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.sanyamarriottdadonghaibay.com"
+    "HotelWebsiteUrl": "http://www.sanyamarriottdadonghaibay.com",
+    "star_rating": 5,
+    "latitude": 18.216404,
+    "longitude": 109.50953
   },
   {
     "countyCode": "CN",
@@ -825,7 +960,10 @@
     "Map": "18.28721|109.45045",
     "PhoneNumber": "(86) 89888331188",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/sanya-jinglilai-resort.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/sanya-jinglilai-resort.html",
+    "star_rating": 5,
+    "latitude": 18.28721,
+    "longitude": 109.45045
   },
   {
     "countyCode": "CN",
@@ -843,7 +981,10 @@
     "Map": "18.230121|109.63156",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 5,
+    "latitude": 18.230121,
+    "longitude": 109.63156
   },
   {
     "countyCode": "CN",
@@ -861,7 +1002,10 @@
     "Map": "18.336063|109.73093",
     "PhoneNumber": "8689888208888",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://m.conrad.com.cn/hotel.html?citycon=SYXCICI"
+    "HotelWebsiteUrl": "http://m.conrad.com.cn/hotel.html?citycon=SYXCICI",
+    "star_rating": 5,
+    "latitude": 18.336063,
+    "longitude": 109.73093
   },
   {
     "countyCode": "CN",
@@ -879,7 +1023,10 @@
     "Map": "18.25241|109.51196",
     "PhoneNumber": "0086 898 88398188",
     "PinCode": "572000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 18.25241,
+    "longitude": 109.51196
   },
   {
     "countyCode": "CN",
@@ -897,7 +1044,10 @@
     "Map": "18.225250244|109.52368164",
     "PhoneNumber": "0086 898 38226688",
     "PinCode": "572000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 18.225250244,
+    "longitude": 109.52368164
   },
   {
     "countyCode": "CN",
@@ -915,7 +1065,10 @@
     "Map": "18.288900375|109.37529755",
     "PhoneNumber": "898 3889 9000",
     "PinCode": "572000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 18.288900375,
+    "longitude": 109.37529755
   },
   {
     "countyCode": "CN",
@@ -933,7 +1086,10 @@
     "Map": "18.21802|109.5135",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 18.21802,
+    "longitude": 109.5135
   },
   {
     "countyCode": "CN",
@@ -951,7 +1107,10 @@
     "Map": "18.308538|109.424072",
     "PhoneNumber": "86-0898-88698888",
     "PinCode": "572000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 18.308538,
+    "longitude": 109.424072
   },
   {
     "countyCode": "CN",
@@ -969,7 +1128,10 @@
     "Map": "18.29748|109.44239",
     "PhoneNumber": "898 3151 1000",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.eryuehaihotel.com/"
+    "HotelWebsiteUrl": "http://www.eryuehaihotel.com/",
+    "star_rating": 3,
+    "latitude": 18.29748,
+    "longitude": 109.44239
   },
   {
     "countyCode": "CN",
@@ -987,7 +1149,10 @@
     "Map": "18.270502|109.48031",
     "PhoneNumber": "86-898-88288888",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.pullmanhotels.com"
+    "HotelWebsiteUrl": "http://www.pullmanhotels.com",
+    "star_rating": 4,
+    "latitude": 18.270502,
+    "longitude": 109.48031
   },
   {
     "countyCode": "CN",
@@ -1005,7 +1170,10 @@
     "Map": "18.335482|109.730877",
     "PhoneNumber": "86-898-88826666",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://doubletree3.hilton.com/en/hotels/china/doubletree-resort-by-hilton-hotel-sanya-haitang-bay-SYXDTDI/index.html"
+    "HotelWebsiteUrl": "http://doubletree3.hilton.com/en/hotels/china/doubletree-resort-by-hilton-hotel-sanya-haitang-bay-SYXDTDI/index.html",
+    "star_rating": 4,
+    "latitude": 18.335482,
+    "longitude": 109.730877
   },
   {
     "countyCode": "CN",
@@ -1023,7 +1191,10 @@
     "Map": "18.357098|109.73661",
     "PhoneNumber": "86-898-38858888",
     "PinCode": "572013",
-    "HotelWebsiteUrl": "http://www.marriott.com/hotels/travel/syxbr-renaissance-sanya-resort-and-spa/"
+    "HotelWebsiteUrl": "http://www.marriott.com/hotels/travel/syxbr-renaissance-sanya-resort-and-spa/",
+    "star_rating": 5,
+    "latitude": 18.357098,
+    "longitude": 109.73661
   },
   {
     "countyCode": "CN",
@@ -1041,7 +1212,10 @@
     "Map": "18.22184|109.5271",
     "PhoneNumber": "868988821988",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/san-ya-nan-zhong-guo-da-jiu-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/san-ya-nan-zhong-guo-da-jiu-dian.html",
+    "star_rating": 4,
+    "latitude": 18.22184,
+    "longitude": 109.5271
   },
   {
     "countyCode": "CN",
@@ -1059,7 +1233,10 @@
     "Map": "18.22147|109.52102",
     "PhoneNumber": "008689888677666",
     "PinCode": "572021",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/herton-seaview.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/herton-seaview.html",
+    "star_rating": 4,
+    "latitude": 18.22147,
+    "longitude": 109.52102
   },
   {
     "countyCode": "CN",
@@ -1077,7 +1254,10 @@
     "Map": "18.23579|109.60785",
     "PhoneNumber": "(86) 089888564880",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/yalongbay-farinn-sanya.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/yalongbay-farinn-sanya.html",
+    "star_rating": 3,
+    "latitude": 18.23579,
+    "longitude": 109.60785
   },
   {
     "countyCode": "CN",
@@ -1095,7 +1275,10 @@
     "Map": "18.281183|109.586473",
     "PhoneNumber": "86-898-88825800",
     "PinCode": "572000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 18.281183,
+    "longitude": 109.586473
   },
   {
     "countyCode": "CN",
@@ -1113,7 +1296,10 @@
     "Map": "18.349962|109.734344",
     "PhoneNumber": "+8689838859999",
     "PinCode": "572013",
-    "HotelWebsiteUrl": "http://www.starwoodhotels.com/luxury/property/overview/index.html?propertyID=3524&language=zh_CN&localeCode=zh_CN"
+    "HotelWebsiteUrl": "http://www.starwoodhotels.com/luxury/property/overview/index.html?propertyID=3524&language=zh_CN&localeCode=zh_CN",
+    "star_rating": 5,
+    "latitude": 18.349962,
+    "longitude": 109.734344
   },
   {
     "countyCode": "CN",
@@ -1131,7 +1317,10 @@
     "Map": "18.337427|109.735695",
     "PhoneNumber": "86-898-32998888",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.sofitel.com/en/hotel-8167-sofitel-sanya-leeman-resort-/index.shtml"
+    "HotelWebsiteUrl": "http://www.sofitel.com/en/hotel-8167-sofitel-sanya-leeman-resort-/index.shtml",
+    "star_rating": 5,
+    "latitude": 18.337427,
+    "longitude": 109.735695
   },
   {
     "countyCode": "CN",
@@ -1149,7 +1338,10 @@
     "Map": "18.26265|109.4889",
     "PhoneNumber": "+8689888888588",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.fourpoints.com/hainansanya"
+    "HotelWebsiteUrl": "http://www.fourpoints.com/hainansanya",
+    "star_rating": 4,
+    "latitude": 18.26265,
+    "longitude": 109.4889
   },
   {
     "countyCode": "CN",
@@ -1167,7 +1359,10 @@
     "Map": "18.223085|109.612434",
     "PhoneNumber": "+8689888555555",
     "PinCode": "572016",
-    "HotelWebsiteUrl": "http://www.stregis.com/sanya"
+    "HotelWebsiteUrl": "http://www.stregis.com/sanya",
+    "star_rating": 5,
+    "latitude": 18.223085,
+    "longitude": 109.612434
   },
   {
     "countyCode": "CN",
@@ -1185,7 +1380,10 @@
     "Map": "18.34691|109.73326",
     "PhoneNumber": "+8689838851111",
     "PinCode": "572013",
-    "HotelWebsiteUrl": "http://www.starwoodhotels.com/sheraton/property/overview/index.html?propertyID=3507"
+    "HotelWebsiteUrl": "http://www.starwoodhotels.com/sheraton/property/overview/index.html?propertyID=3507",
+    "star_rating": 4,
+    "latitude": 18.34691,
+    "longitude": 109.73326
   },
   {
     "countyCode": "CN",
@@ -1203,7 +1401,10 @@
     "Map": "18.290325|109.4085",
     "PhoneNumber": "86-898-88339988",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.hi-sanyabay.com"
+    "HotelWebsiteUrl": "http://www.hi-sanyabay.com",
+    "star_rating": 4,
+    "latitude": 18.290325,
+    "longitude": 109.4085
   },
   {
     "countyCode": "CN",
@@ -1221,7 +1422,10 @@
     "Map": "18.232935|109.635749",
     "PhoneNumber": "86-0898-88569971",
     "PinCode": "572016",
-    "HotelWebsiteUrl": "http://www.resortgp.com/index_en.aspx"
+    "HotelWebsiteUrl": "http://www.resortgp.com/index_en.aspx",
+    "star_rating": 4,
+    "latitude": 18.232935,
+    "longitude": 109.635749
   },
   {
     "countyCode": "CN",
@@ -1239,7 +1443,10 @@
     "Map": "18.253635|109.507136",
     "PhoneNumber": "",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.leparkerhotel.com"
+    "HotelWebsiteUrl": "http://www.leparkerhotel.com",
+    "star_rating": 4,
+    "latitude": 18.253635,
+    "longitude": 109.507136
   },
   {
     "countyCode": "CN",
@@ -1257,7 +1464,10 @@
     "Map": "18.3887370844346|109.723720550537",
     "PhoneNumber": "",
     "PinCode": "572013",
-    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=237114"
+    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=237114",
+    "star_rating": 5,
+    "latitude": 18.3887370844346,
+    "longitude": 109.723720550537
   },
   {
     "countyCode": "CN",
@@ -1275,7 +1485,10 @@
     "Map": "18.285200119|109.45189667",
     "PhoneNumber": "008689838889999008689838889999",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.9ddf.com/hotel/10726.html"
+    "HotelWebsiteUrl": "http://www.9ddf.com/hotel/10726.html",
+    "star_rating": 4,
+    "latitude": 18.285200119,
+    "longitude": 109.45189667
   },
   {
     "countyCode": "CN",
@@ -1293,7 +1506,10 @@
     "Map": "18.274311|109.475154",
     "PhoneNumber": "86-0898-8833 3999",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.hyholiday.com/"
+    "HotelWebsiteUrl": "http://www.hyholiday.com/",
+    "star_rating": 3,
+    "latitude": 18.274311,
+    "longitude": 109.475154
   },
   {
     "countyCode": "CN",
@@ -1311,7 +1527,10 @@
     "Map": "18.324829|109.731054",
     "PhoneNumber": "86-0898-88655555",
     "PinCode": "572013",
-    "HotelWebsiteUrl": "http://www.wandahotels.com"
+    "HotelWebsiteUrl": "http://www.wandahotels.com",
+    "star_rating": 5,
+    "latitude": 18.324829,
+    "longitude": 109.731054
   },
   {
     "countyCode": "CN",
@@ -1329,7 +1548,10 @@
     "Map": "18.239358|109.555128",
     "PhoneNumber": "",
     "PinCode": "572000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 18.239358,
+    "longitude": 109.555128
   },
   {
     "countyCode": "CN",
@@ -1347,7 +1569,10 @@
     "Map": "18.224623|109.530258",
     "PhoneNumber": "",
     "PinCode": "572021",
-    "HotelWebsiteUrl": "http://www.hyton.com"
+    "HotelWebsiteUrl": "http://www.hyton.com",
+    "star_rating": 4,
+    "latitude": 18.224623,
+    "longitude": 109.530258
   },
   {
     "countyCode": "CN",
@@ -1365,7 +1590,10 @@
     "Map": "18.223953|109.518266",
     "PhoneNumber": "+8689888558899",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.baohonghotel.com/en-us/index.html"
+    "HotelWebsiteUrl": "http://www.baohonghotel.com/en-us/index.html",
+    "star_rating": 4,
+    "latitude": 18.223953,
+    "longitude": 109.518266
   },
   {
     "countyCode": "CN",
@@ -1383,7 +1611,10 @@
     "Map": "18.292316|109.418313",
     "PhoneNumber": "86-0898-88331888",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.pbresortspa.com"
+    "HotelWebsiteUrl": "http://www.pbresortspa.com",
+    "star_rating": 3,
+    "latitude": 18.292316,
+    "longitude": 109.418313
   },
   {
     "countyCode": "CN",
@@ -1401,7 +1632,10 @@
     "Map": "18.291474|109.381604",
     "PhoneNumber": "86-0898-88332666",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.hnahotels.com/ghsyyt/locations-attractions/index.html"
+    "HotelWebsiteUrl": "http://www.hnahotels.com/ghsyyt/locations-attractions/index.html",
+    "star_rating": 4,
+    "latitude": 18.291474,
+    "longitude": 109.381604
   },
   {
     "countyCode": "CN",
@@ -1419,7 +1653,10 @@
     "Map": "18.225148|109.521312",
     "PhoneNumber": "0898-88228666",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://en.sanyaliking.com/about.php|http://www.san"
+    "HotelWebsiteUrl": "http://en.sanyaliking.com/about.php|http://www.san",
+    "star_rating": 4,
+    "latitude": 18.225148,
+    "longitude": 109.521312
   },
   {
     "countyCode": "CN",
@@ -1437,7 +1674,10 @@
     "Map": "18.22196|109.5209",
     "PhoneNumber": "86-898-88216888",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.syasgard.com"
+    "HotelWebsiteUrl": "http://www.syasgard.com",
+    "star_rating": 3,
+    "latitude": 18.22196,
+    "longitude": 109.5209
   },
   {
     "countyCode": "CN",
@@ -1455,7 +1695,10 @@
     "Map": "18.27251|109.488246",
     "PhoneNumber": "86-0898-88298080",
     "PinCode": "572000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 18.27251,
+    "longitude": 109.488246
   },
   {
     "countyCode": "CN",
@@ -1473,7 +1716,10 @@
     "Map": "18.21433|109.53241",
     "PhoneNumber": "86-898-88209999",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.mandarinoriental.com"
+    "HotelWebsiteUrl": "http://www.mandarinoriental.com",
+    "star_rating": 5,
+    "latitude": 18.21433,
+    "longitude": 109.53241
   },
   {
     "countyCode": "CN",
@@ -1491,7 +1737,10 @@
     "Map": "18.291134795353|109.36580657959",
     "PhoneNumber": "",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "https://www.clubmed.de/r/Sanya/y"
+    "HotelWebsiteUrl": "https://www.clubmed.de/r/Sanya/y",
+    "star_rating": 5,
+    "latitude": 18.291134795353,
+    "longitude": 109.36580657959
   },
   {
     "countyCode": "CN",
@@ -1509,7 +1758,10 @@
     "Map": "18.28881|109.44979",
     "PhoneNumber": "",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/sanya-junran.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/sanya-junran.html",
+    "star_rating": 5,
+    "latitude": 18.28881,
+    "longitude": 109.44979
   },
   {
     "countyCode": "CN",
@@ -1527,7 +1779,10 @@
     "Map": "18.59422|108.7056",
     "PhoneNumber": "+8689885598888",
     "PinCode": "572541",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/wyndham-grand-plaza-royale-hainan-longmu-bay.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/wyndham-grand-plaza-royale-hainan-longmu-bay.html",
+    "star_rating": 5,
+    "latitude": 18.59422,
+    "longitude": 108.7056
   },
   {
     "countyCode": "CN",
@@ -1545,7 +1800,10 @@
     "Map": "18.233773|109.63221",
     "PhoneNumber": "",
     "PinCode": "5272000",
-    "HotelWebsiteUrl": "http://www.iaegean.com/"
+    "HotelWebsiteUrl": "http://www.iaegean.com/",
+    "star_rating": 5,
+    "latitude": 18.233773,
+    "longitude": 109.63221
   },
   {
     "countyCode": "CN",
@@ -1563,7 +1821,10 @@
     "Map": "18.22951|109.63866",
     "PhoneNumber": "0086 898 88558888",
     "PinCode": "527000",
-    "HotelWebsiteUrl": "http://www.mangrovetreeresort.com"
+    "HotelWebsiteUrl": "http://www.mangrovetreeresort.com",
+    "star_rating": 5,
+    "latitude": 18.22951,
+    "longitude": 109.63866
   },
   {
     "countyCode": "CN",
@@ -1581,7 +1842,10 @@
     "Map": "18.22769|109.62211",
     "PhoneNumber": "86-898-88988888",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.ritzcarlton.com"
+    "HotelWebsiteUrl": "http://www.ritzcarlton.com",
+    "star_rating": 5,
+    "latitude": 18.22769,
+    "longitude": 109.62211
   },
   {
     "countyCode": "CN",
@@ -1599,7 +1863,10 @@
     "Map": "18.238987|109.499233",
     "PhoneNumber": "86-0898-31088888",
     "PinCode": "572000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 18.238987,
+    "longitude": 109.499233
   },
   {
     "countyCode": "CN",
@@ -1617,7 +1884,10 @@
     "Map": "18.29181|109.42807",
     "PhoneNumber": "",
     "PinCode": "572000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 18.29181,
+    "longitude": 109.42807
   },
   {
     "countyCode": "CN",
@@ -1635,7 +1905,10 @@
     "Map": "18.25515|109.496",
     "PhoneNumber": "86-0898-88893888",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.jmlhotel.com/skin_index_42201026_4_en"
+    "HotelWebsiteUrl": "http://www.jmlhotel.com/skin_index_42201026_4_en",
+    "star_rating": 3,
+    "latitude": 18.25515,
+    "longitude": 109.496
   },
   {
     "countyCode": "CN",
@@ -1653,7 +1926,10 @@
     "Map": "18.22896|109.53515",
     "PhoneNumber": "(86) 89888815888",
     "PinCode": "572000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 18.22896,
+    "longitude": 109.53515
   },
   {
     "countyCode": "CN",
@@ -1671,7 +1947,10 @@
     "Map": "18.291624|109.403028",
     "PhoneNumber": "",
     "PinCode": "572021",
-    "HotelWebsiteUrl": "http://sy.tianfuyuan.com/index.html"
+    "HotelWebsiteUrl": "http://sy.tianfuyuan.com/index.html",
+    "star_rating": 4,
+    "latitude": 18.291624,
+    "longitude": 109.403028
   },
   {
     "countyCode": "CN",
@@ -1689,7 +1968,10 @@
     "Map": "18.2330847913|109.5125681354",
     "PhoneNumber": "",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.eadryresort.com"
+    "HotelWebsiteUrl": "http://www.eadryresort.com",
+    "star_rating": 4,
+    "latitude": 18.2330847913,
+    "longitude": 109.5125681354
   },
   {
     "countyCode": "CN",
@@ -1707,7 +1989,10 @@
     "Map": "18.28661|109.4467",
     "PhoneNumber": "86-898-88918888",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/san-ya-jing-li-lai-jiu-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/san-ya-jing-li-lai-jiu-dian.html",
+    "star_rating": 5,
+    "latitude": 18.28661,
+    "longitude": 109.4467
   },
   {
     "countyCode": "CN",
@@ -1725,7 +2010,10 @@
     "Map": "18.22072029|109.5099716",
     "PhoneNumber": "",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.pearlresort.com/English/en-index1.htm"
+    "HotelWebsiteUrl": "http://www.pearlresort.com/English/en-index1.htm",
+    "star_rating": 4,
+    "latitude": 18.22072029,
+    "longitude": 109.5099716
   },
   {
     "countyCode": "CN",
@@ -1743,7 +2031,10 @@
     "Map": "18.311338|109.766813",
     "PhoneNumber": "+8689888811121",
     "PinCode": "572000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 5,
+    "latitude": 18.311338,
+    "longitude": 109.766813
   },
   {
     "countyCode": "CN",
@@ -1761,7 +2052,10 @@
     "Map": "18.26937|109.50002",
     "PhoneNumber": "86-898-88681200",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/san-ya-xin-xing-hua-yuan-da-jiu-dian-sanya1234567.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/san-ya-xin-xing-hua-yuan-da-jiu-dian-sanya1234567.html",
+    "star_rating": 4,
+    "latitude": 18.26937,
+    "longitude": 109.50002
   },
   {
     "countyCode": "CN",
@@ -1779,7 +2073,10 @@
     "Map": "18.28922|109.39648",
     "PhoneNumber": "0898-88336088",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/xing-cheng-jiu-dian-san-ya-san-ya-wan-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/xing-cheng-jiu-dian-san-ya-san-ya-wan-dian.html",
+    "star_rating": 4,
+    "latitude": 18.28922,
+    "longitude": 109.39648
   },
   {
     "countyCode": "CN",
@@ -1797,7 +2094,10 @@
     "Map": "18.267110825|109.4935379",
     "PhoneNumber": "(86) 89838862666",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.ctrip.sg/hotels/sanya-hotel-detail-443622/sanya-zhouheng-hotel/"
+    "HotelWebsiteUrl": "http://www.ctrip.sg/hotels/sanya-hotel-detail-443622/sanya-zhouheng-hotel/",
+    "star_rating": 3,
+    "latitude": 18.267110825,
+    "longitude": 109.4935379
   },
   {
     "countyCode": "CN",
@@ -1815,7 +2115,10 @@
     "Map": "18.4113|109.72787",
     "PhoneNumber": "",
     "PinCode": "572013",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/zhujiang-nantian-resort.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/zhujiang-nantian-resort.html",
+    "star_rating": 5,
+    "latitude": 18.4113,
+    "longitude": 109.72787
   },
   {
     "countyCode": "CN",
@@ -1833,7 +2136,10 @@
     "Map": "18.227558|109.524908",
     "PhoneNumber": "",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.hnlinda.com"
+    "HotelWebsiteUrl": "http://www.hnlinda.com",
+    "star_rating": 4,
+    "latitude": 18.227558,
+    "longitude": 109.524908
   },
   {
     "countyCode": "CN",
@@ -1851,7 +2157,10 @@
     "Map": "18.29022|109.39981",
     "PhoneNumber": "86-898-88336688",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/days-suites-sanya-resort.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/days-suites-sanya-resort.html",
+    "star_rating": 5,
+    "latitude": 18.29022,
+    "longitude": 109.39981
   },
   {
     "countyCode": "CN",
@@ -1869,7 +2178,10 @@
     "Map": "18.227952|109.516981",
     "PhoneNumber": "86-0898-88224218",
     "PinCode": "572021",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 18.227952,
+    "longitude": 109.516981
   },
   {
     "countyCode": "CN",
@@ -1887,7 +2199,10 @@
     "Map": "18.222577|109.509642",
     "PhoneNumber": "86-0-88228768",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.sanyagardenresort-hainan.com/index.php"
+    "HotelWebsiteUrl": "http://www.sanyagardenresort-hainan.com/index.php",
+    "star_rating": 3,
+    "latitude": 18.222577,
+    "longitude": 109.509642
   },
   {
     "countyCode": "CN",
@@ -1905,7 +2220,10 @@
     "Map": "18.220991|109.495964",
     "PhoneNumber": "86-898-88609988",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.banyantree.com"
+    "HotelWebsiteUrl": "http://www.banyantree.com",
+    "star_rating": 5,
+    "latitude": 18.220991,
+    "longitude": 109.495964
   },
   {
     "countyCode": "CN",
@@ -1923,7 +2241,10 @@
     "Map": "18.288574|109.44606",
     "PhoneNumber": "86-0898-88599999",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.soluxesanya.com/"
+    "HotelWebsiteUrl": "http://www.soluxesanya.com/",
+    "star_rating": 4,
+    "latitude": 18.288574,
+    "longitude": 109.44606
   },
   {
     "countyCode": "CN",
@@ -1941,7 +2262,10 @@
     "Map": "18.257801|109.49407",
     "PhoneNumber": "86-89-888898333",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.holidayvillasanya.com"
+    "HotelWebsiteUrl": "http://www.holidayvillasanya.com",
+    "star_rating": 4,
+    "latitude": 18.257801,
+    "longitude": 109.49407
   },
   {
     "countyCode": "CN",
@@ -1959,7 +2283,10 @@
     "Map": "18.23127|109.63975",
     "PhoneNumber": "+8689888559999",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/sanya-wu-hao-du-jia-bie-shu-jiu-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/sanya-wu-hao-du-jia-bie-shu-jiu-dian.html",
+    "star_rating": 5,
+    "latitude": 18.23127,
+    "longitude": 109.63975
   },
   {
     "countyCode": "CN",
@@ -1977,7 +2304,10 @@
     "Map": "18.253759384|109.49936676",
     "PhoneNumber": "0086898882798880086898882798",
     "PinCode": "572000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 5,
+    "latitude": 18.253759384,
+    "longitude": 109.49936676
   },
   {
     "countyCode": "CN",
@@ -1995,7 +2325,10 @@
     "Map": "18.2375|109.64527",
     "PhoneNumber": "+8689888568866",
     "PinCode": "572016",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/cactus-resort-sanya.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/cactus-resort-sanya.html",
+    "star_rating": 5,
+    "latitude": 18.2375,
+    "longitude": 109.64527
   },
   {
     "countyCode": "CN",
@@ -2013,7 +2346,10 @@
     "Map": "18.23363|109.65686",
     "PhoneNumber": "008689888565588008689888565588",
     "PinCode": "572016",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 18.23363,
+    "longitude": 109.65686
   },
   {
     "countyCode": "CN",
@@ -2031,7 +2367,10 @@
     "Map": "18.227997|109.62817",
     "PhoneNumber": "86-898-88555588",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.pullmanhotels.com"
+    "HotelWebsiteUrl": "http://www.pullmanhotels.com",
+    "star_rating": 4,
+    "latitude": 18.227997,
+    "longitude": 109.62817
   },
   {
     "countyCode": "CN",
@@ -2049,7 +2388,10 @@
     "Map": "18.234543|109.651739",
     "PhoneNumber": "86-0898-88550088",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.tianhongresort.com"
+    "HotelWebsiteUrl": "http://www.tianhongresort.com",
+    "star_rating": 4,
+    "latitude": 18.234543,
+    "longitude": 109.651739
   },
   {
     "countyCode": "CN",
@@ -2067,7 +2409,10 @@
     "Map": "18.235132584|109.63684201",
     "PhoneNumber": "(86) 089888565888",
     "PinCode": "572016",
-    "HotelWebsiteUrl": "http://www.yalongbaygolfclub.com"
+    "HotelWebsiteUrl": "http://www.yalongbaygolfclub.com",
+    "star_rating": 4,
+    "latitude": 18.235132584,
+    "longitude": 109.63684201
   },
   {
     "countyCode": "CN",
@@ -2085,7 +2430,10 @@
     "Map": "18.2269|109.520245",
     "PhoneNumber": "",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=947866"
+    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=947866",
+    "star_rating": 4,
+    "latitude": 18.2269,
+    "longitude": 109.520245
   },
   {
     "countyCode": "CN",
@@ -2103,7 +2451,10 @@
     "Map": "18.2913|109.19964",
     "PhoneNumber": "+8689888838088",
     "PinCode": "572025",
-    "HotelWebsiteUrl": "http://www.nanshan.com/en/index.php/jpjd/"
+    "HotelWebsiteUrl": "http://www.nanshan.com/en/index.php/jpjd/",
+    "star_rating": 4,
+    "latitude": 18.2913,
+    "longitude": 109.19964
   },
   {
     "countyCode": "CN",
@@ -2121,7 +2472,10 @@
     "Map": "18.2987499237061|109.200401306152",
     "PhoneNumber": "(86) 89888837888",
     "PinCode": "572025",
-    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=489480"
+    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=489480",
+    "star_rating": 4,
+    "latitude": 18.2987499237061,
+    "longitude": 109.200401306152
   },
   {
     "countyCode": "CN",
@@ -2139,7 +2493,10 @@
     "Map": "18.290068|109.44198",
     "PhoneNumber": "86-898-38888888",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.hojosy.com"
+    "HotelWebsiteUrl": "http://www.hojosy.com",
+    "star_rating": 5,
+    "latitude": 18.290068,
+    "longitude": 109.44198
   },
   {
     "countyCode": "CN",
@@ -2157,7 +2514,10 @@
     "Map": "18.25161|109.51147",
     "PhoneNumber": "0898-88988999",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.harvestqilin.com/"
+    "HotelWebsiteUrl": "http://www.harvestqilin.com/",
+    "star_rating": 3,
+    "latitude": 18.25161,
+    "longitude": 109.51147
   },
   {
     "countyCode": "CN",
@@ -2175,7 +2535,10 @@
     "Map": "18.22185|109.5242",
     "PhoneNumber": "+17379776424843",
     "PinCode": "572021",
-    "HotelWebsiteUrl": "http://de.hotels.com/ho213144/pearl-river-garden-hotel-sanya-china/ http://www.booking.com/hotel/cn/"
+    "HotelWebsiteUrl": "http://de.hotels.com/ho213144/pearl-river-garden-hotel-sanya-china/ http://www.booking.com/hotel/cn/",
+    "star_rating": 3,
+    "latitude": 18.22185,
+    "longitude": 109.5242
   },
   {
     "countyCode": "CN",
@@ -2193,7 +2556,10 @@
     "Map": "18.29155|109.43381",
     "PhoneNumber": "",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/san-ya-da-wei-chuan-qi-ai-qing-du-jia-jiu-dian-sanya.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/san-ya-da-wei-chuan-qi-ai-qing-du-jia-jiu-dian-sanya.html",
+    "star_rating": 5,
+    "latitude": 18.29155,
+    "longitude": 109.43381
   },
   {
     "countyCode": "CN",
@@ -2211,7 +2577,10 @@
     "Map": "18.26655|109.4963",
     "PhoneNumber": "(86) 89888866999",
     "PinCode": "572000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 18.26655,
+    "longitude": 109.4963
   },
   {
     "countyCode": "CN",
@@ -2229,7 +2598,10 @@
     "Map": "18.261865|109.491003",
     "PhoneNumber": "86-898-88661960",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://sygpsvhotel.com/index.html"
+    "HotelWebsiteUrl": "http://sygpsvhotel.com/index.html",
+    "star_rating": 4,
+    "latitude": 18.261865,
+    "longitude": 109.491003
   },
   {
     "countyCode": "CN",
@@ -2247,7 +2619,10 @@
     "Map": "18.290313|109.433518",
     "PhoneNumber": "",
     "PinCode": "572000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 18.290313,
+    "longitude": 109.433518
   },
   {
     "countyCode": "CN",
@@ -2265,7 +2640,10 @@
     "Map": "18.2511217147955|109.504390954971",
     "PhoneNumber": "",
     "PinCode": "572000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 18.2511217147955,
+    "longitude": 109.504390954971
   },
   {
     "countyCode": "CN",
@@ -2283,7 +2661,10 @@
     "Map": "18.291379|109.429919",
     "PhoneNumber": "+86 898-88334178",
     "PinCode": "572000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 18.291379,
+    "longitude": 109.429919
   },
   {
     "countyCode": "CN",
@@ -2301,7 +2682,10 @@
     "Map": "18.29083|109.4311",
     "PhoneNumber": "",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/san-ya-li-he-jiu-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/san-ya-li-he-jiu-dian.html",
+    "star_rating": 5,
+    "latitude": 18.29083,
+    "longitude": 109.4311
   },
   {
     "countyCode": "CN",
@@ -2319,7 +2703,10 @@
     "Map": "18.21635|109.49879",
     "PhoneNumber": "86-898-88668866",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/san-ya-lu-hui-tou-guo-bin-guan.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/san-ya-lu-hui-tou-guo-bin-guan.html",
+    "star_rating": 5,
+    "latitude": 18.21635,
+    "longitude": 109.49879
   },
   {
     "countyCode": "CN",
@@ -2337,7 +2724,10 @@
     "Map": "18.221668|109.500944",
     "PhoneNumber": "",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.msgolfresort.com"
+    "HotelWebsiteUrl": "http://www.msgolfresort.com",
+    "star_rating": 4,
+    "latitude": 18.221668,
+    "longitude": 109.500944
   },
   {
     "countyCode": "CN",
@@ -2355,7 +2745,10 @@
     "Map": "18.21378|109.497826",
     "PhoneNumber": "86-898-88618888",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://WWW.INTERCONTINENTAL.COM"
+    "HotelWebsiteUrl": "http://WWW.INTERCONTINENTAL.COM",
+    "star_rating": 5,
+    "latitude": 18.21378,
+    "longitude": 109.497826
   },
   {
     "countyCode": "CN",
@@ -2373,7 +2766,10 @@
     "Map": "18.408512|109.72924",
     "PhoneNumber": "",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.nantian-hot-spring.com/enu/index.asp"
+    "HotelWebsiteUrl": "http://www.nantian-hot-spring.com/enu/index.asp",
+    "star_rating": 4,
+    "latitude": 18.408512,
+    "longitude": 109.72924
   },
   {
     "countyCode": "CN",
@@ -2391,7 +2787,10 @@
     "Map": "18.286782|109.446705",
     "PhoneNumber": "",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "https://www.lacostaseasideresortsanya.com/en-gb"
+    "HotelWebsiteUrl": "https://www.lacostaseasideresortsanya.com/en-gb",
+    "star_rating": 4,
+    "latitude": 18.286782,
+    "longitude": 109.446705
   },
   {
     "countyCode": "CN",
@@ -2409,7 +2808,10 @@
     "Map": "18.2901|109.4174",
     "PhoneNumber": "",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.yelanbay.com/en/index.asp"
+    "HotelWebsiteUrl": "http://www.yelanbay.com/en/index.asp",
+    "star_rating": 3,
+    "latitude": 18.2901,
+    "longitude": 109.4174
   },
   {
     "countyCode": "CN",
@@ -2427,7 +2829,10 @@
     "Map": "18.233498|109.645787",
     "PhoneNumber": "86-898-38279927",
     "PinCode": "572000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 18.233498,
+    "longitude": 109.645787
   },
   {
     "countyCode": "CN",
@@ -2445,7 +2850,10 @@
     "Map": "18.23504|109.63228",
     "PhoneNumber": "(86) 89888598888",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/grand-metropark-resort-sanya.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/grand-metropark-resort-sanya.html",
+    "star_rating": 5,
+    "latitude": 18.23504,
+    "longitude": 109.63228
   },
   {
     "countyCode": "CN",
@@ -2463,7 +2871,10 @@
     "Map": "18.26012|109.50144",
     "PhoneNumber": "",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/san-ya-guo-xi-da-jiu-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/san-ya-guo-xi-da-jiu-dian.html",
+    "star_rating": 4,
+    "latitude": 18.26012,
+    "longitude": 109.50144
   },
   {
     "countyCode": "CN",
@@ -2481,7 +2892,10 @@
     "Map": "18.35259|109.73515",
     "PhoneNumber": "86-898-88758888",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.shangri-la.com/sanya/shangrilasanya"
+    "HotelWebsiteUrl": "http://www.shangri-la.com/sanya/shangrilasanya",
+    "star_rating": 5,
+    "latitude": 18.35259,
+    "longitude": 109.73515
   },
   {
     "countyCode": "CN",
@@ -2499,7 +2913,10 @@
     "Map": "18.263035|109.506395",
     "PhoneNumber": "00864001840018",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.super8.com/hotels/china/sanya/super-8-hotel-sanya-sanyawan-ji-xiang-jie/hotel-overview"
+    "HotelWebsiteUrl": "http://www.super8.com/hotels/china/sanya/super-8-hotel-sanya-sanyawan-ji-xiang-jie/hotel-overview",
+    "star_rating": 3,
+    "latitude": 18.263035,
+    "longitude": 109.506395
   },
   {
     "countyCode": "CN",
@@ -2517,7 +2934,10 @@
     "Map": "18.31214|109.76111",
     "PhoneNumber": "(86) 89888853666",
     "PinCode": "572014",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/wuzhizhou-coral-hotel.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/wuzhizhou-coral-hotel.html",
+    "star_rating": 5,
+    "latitude": 18.31214,
+    "longitude": 109.76111
   },
   {
     "countyCode": "CN",
@@ -2535,7 +2955,10 @@
     "Map": "18.227369|109.516643",
     "PhoneNumber": "+8689838251888",
     "PinCode": "572021",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 18.227369,
+    "longitude": 109.516643
   },
   {
     "countyCode": "CN",
@@ -2553,7 +2976,10 @@
     "Map": "18.228|109.511323",
     "PhoneNumber": "+8689888368888",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.visunyachthotel.com"
+    "HotelWebsiteUrl": "http://www.visunyachthotel.com",
+    "star_rating": 4,
+    "latitude": 18.228,
+    "longitude": 109.511323
   },
   {
     "countyCode": "CN",
@@ -2571,7 +2997,10 @@
     "Map": "18.290254|109.487383",
     "PhoneNumber": "86-0898-88203777",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://ktrwangfusanya.com"
+    "HotelWebsiteUrl": "http://ktrwangfusanya.com",
+    "star_rating": 3,
+    "latitude": 18.290254,
+    "longitude": 109.487383
   },
   {
     "countyCode": "CN",
@@ -2589,7 +3018,10 @@
     "Map": "18.28915|109.38786",
     "PhoneNumber": "+8689838873887",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.sanyatangla.com"
+    "HotelWebsiteUrl": "http://www.sanyatangla.com",
+    "star_rating": 5,
+    "latitude": 18.28915,
+    "longitude": 109.38786
   },
   {
     "countyCode": "CN",
@@ -2607,7 +3039,10 @@
     "Map": "18.28647|109.44829",
     "PhoneNumber": "(86) 89888331133",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.syresort.com/index.php"
+    "HotelWebsiteUrl": "http://www.syresort.com/index.php",
+    "star_rating": 3,
+    "latitude": 18.28647,
+    "longitude": 109.44829
   },
   {
     "countyCode": "CN",
@@ -2625,7 +3060,10 @@
     "Map": "18.19041|109.605934",
     "PhoneNumber": "86-898-88201234",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://sanya.park.hyatt.com/"
+    "HotelWebsiteUrl": "http://sanya.park.hyatt.com/",
+    "star_rating": 5,
+    "latitude": 18.19041,
+    "longitude": 109.605934
   },
   {
     "countyCode": "CN",
@@ -2643,7 +3081,10 @@
     "Map": "18.352304|109.73978",
     "PhoneNumber": "86-898-88811234",
     "PinCode": "572013",
-    "HotelWebsiteUrl": "https://sanya.grand.hyatt.com/en/hotel/home.htmll"
+    "HotelWebsiteUrl": "https://sanya.grand.hyatt.com/en/hotel/home.htmll",
+    "star_rating": 5,
+    "latitude": 18.352304,
+    "longitude": 109.73978
   },
   {
     "countyCode": "CN",
@@ -2661,7 +3102,10 @@
     "Map": "18.24178|109.49519",
     "PhoneNumber": "+86(0)89832997777",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/san-ya-feng-huang-dao-du-jia-jiu-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/san-ya-feng-huang-dao-du-jia-jiu-dian.html",
+    "star_rating": 5,
+    "latitude": 18.24178,
+    "longitude": 109.49519
   },
   {
     "countyCode": "CN",
@@ -2679,7 +3123,10 @@
     "Map": "18.240133|109.561958",
     "PhoneNumber": "86-0898-38275555",
     "PinCode": "572000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 18.240133,
+    "longitude": 109.561958
   },
   {
     "countyCode": "CN",
@@ -2697,7 +3144,10 @@
     "Map": "18.2389809775379|109.491773843765",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 18.2389809775379,
+    "longitude": 109.491773843765
   },
   {
     "countyCode": "CN",
@@ -2715,7 +3165,10 @@
     "Map": "18.22343|109.52107",
     "PhoneNumber": "0086 898 88888808",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/barry-boutique-hotel-sanya.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/barry-boutique-hotel-sanya.html",
+    "star_rating": 5,
+    "latitude": 18.22343,
+    "longitude": 109.52107
   },
   {
     "countyCode": "CN",
@@ -2733,7 +3186,10 @@
     "Map": "18.26185|109.49507",
     "PhoneNumber": "86-15500991199",
     "PinCode": "572000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 18.26185,
+    "longitude": 109.49507
   },
   {
     "countyCode": "CN",
@@ -2751,7 +3207,10 @@
     "Map": "18.29369|109.47141",
     "PhoneNumber": "0898 8838 9800",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/kangte-wangfu-hotel-of-resort-and-conference.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/kangte-wangfu-hotel-of-resort-and-conference.html",
+    "star_rating": 5,
+    "latitude": 18.29369,
+    "longitude": 109.47141
   },
   {
     "countyCode": "CN",
@@ -2769,7 +3228,10 @@
     "Map": "18.234875|109.515286",
     "PhoneNumber": "86-0898-88882255",
     "PinCode": "572000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 18.234875,
+    "longitude": 109.515286
   },
   {
     "countyCode": "CN",
@@ -2787,7 +3249,10 @@
     "Map": "18.29006|109.394469",
     "PhoneNumber": "86-0898-88886688",
     "PinCode": "572000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 18.29006,
+    "longitude": 109.394469
   },
   {
     "countyCode": "CN",
@@ -2805,7 +3270,10 @@
     "Map": "18.258279|109.500808",
     "PhoneNumber": "+89888227722",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 18.258279,
+    "longitude": 109.500808
   },
   {
     "countyCode": "CN",
@@ -2823,7 +3291,10 @@
     "Map": "18.2543|109.5008",
     "PhoneNumber": "",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/sanya-meidu.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/sanya-meidu.html",
+    "star_rating": 3,
+    "latitude": 18.2543,
+    "longitude": 109.5008
   },
   {
     "countyCode": "CN",
@@ -2841,7 +3312,10 @@
     "Map": "18.292014|109.423133",
     "PhoneNumber": "86-0898-88883888",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://seacubesanyahotel.com/"
+    "HotelWebsiteUrl": "http://seacubesanyahotel.com/",
+    "star_rating": 4,
+    "latitude": 18.292014,
+    "longitude": 109.423133
   },
   {
     "countyCode": "CN",
@@ -2859,7 +3333,10 @@
     "Map": "18.23689|109.6478",
     "PhoneNumber": "(86) 089888881100",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/san-ya-ya-long-wan-xin-te-la-tao-fang-du-jia-jiu-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/san-ya-ya-long-wan-xin-te-la-tao-fang-du-jia-jiu-dian.html",
+    "star_rating": 4,
+    "latitude": 18.23689,
+    "longitude": 109.6478
   },
   {
     "countyCode": "CN",
@@ -2877,7 +3354,10 @@
     "Map": "18.29131|109.43197",
     "PhoneNumber": "",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/sanya-yelanwan.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/sanya-yelanwan.html",
+    "star_rating": 4,
+    "latitude": 18.29131,
+    "longitude": 109.43197
   },
   {
     "countyCode": "CN",
@@ -2895,7 +3375,10 @@
     "Map": "18.227942|109.504691",
     "PhoneNumber": "86-0898-88619999",
     "PinCode": "572000",
-    "HotelWebsiteUrl": "http://www.hwwjhotel.com/"
+    "HotelWebsiteUrl": "http://www.hwwjhotel.com/",
+    "star_rating": 4,
+    "latitude": 18.227942,
+    "longitude": 109.504691
   },
   {
     "countyCode": "CN",
@@ -2913,7 +3396,10 @@
     "Map": "18.23517|109.51492",
     "PhoneNumber": "",
     "PinCode": "572000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 18.23517,
+    "longitude": 109.51492
   },
   {
     "countyCode": "CN",
@@ -2931,7 +3417,10 @@
     "Map": "18.2208|109.51372",
     "PhoneNumber": "",
     "PinCode": "575000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/san-ya-yu-hua-yuan-hai-jing-jiu-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/san-ya-yu-hua-yuan-hai-jing-jiu-dian.html",
+    "star_rating": 4,
+    "latitude": 18.2208,
+    "longitude": 109.51372
   },
   {
     "countyCode": "CN",
@@ -2949,7 +3438,10 @@
     "Map": "18.254186|109.500104",
     "PhoneNumber": "86-89-888883188",
     "PinCode": "572000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 18.254186,
+    "longitude": 109.500104
   },
   {
     "countyCode": "CN",
@@ -2967,7 +3459,10 @@
     "Map": "18.275279|109.50468",
     "PhoneNumber": "86-0898-88886669",
     "PinCode": "572000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 18.275279,
+    "longitude": 109.50468
   },
   {
     "countyCode": "CN",
@@ -2985,6 +3480,9 @@
     "Map": "18.24434|109.50142",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 18.24434,
+    "longitude": 109.50142
   }
 ]

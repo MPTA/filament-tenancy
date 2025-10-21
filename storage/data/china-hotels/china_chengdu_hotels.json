@@ -15,7 +15,10 @@
     "Map": "30.658253|104.068903",
     "PhoneNumber": "86 28-8600 6666",
     "PinCode": "610015",
-    "HotelWebsiteUrl": "http://www.minyouncentralhotelchengdu.com/"
+    "HotelWebsiteUrl": "http://www.minyouncentralhotelchengdu.com/",
+    "star_rating": 4,
+    "latitude": 30.658253,
+    "longitude": 104.068903
   },
   {
     "countyCode": "CN",
@@ -33,7 +36,10 @@
     "Map": "30.70592233612059|104.00699783791504",
     "PhoneNumber": "",
     "PinCode": "610036",
-    "HotelWebsiteUrl": "http://www.jinjianghotels.com/jjhotel/hotel/searchHotel/639/"
+    "HotelWebsiteUrl": "http://www.jinjianghotels.com/jjhotel/hotel/searchHotel/639/",
+    "star_rating": 4,
+    "latitude": 30.70592233612059,
+    "longitude": 104.00699783791504
   },
   {
     "countyCode": "CN",
@@ -51,7 +57,10 @@
     "Map": "30.56752|103.97369",
     "PhoneNumber": "86 28 81516555",
     "PinCode": "610200",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/chengdu-baigang.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/chengdu-baigang.html",
+    "star_rating": 4,
+    "latitude": 30.56752,
+    "longitude": 103.97369
   },
   {
     "countyCode": "CN",
@@ -69,7 +78,10 @@
     "Map": "30.62205|104.09498",
     "PhoneNumber": "028-65513399",
     "PinCode": "610000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 30.62205,
+    "longitude": 104.09498
   },
   {
     "countyCode": "CN",
@@ -87,7 +99,10 @@
     "Map": "30.65999|104.03258",
     "PhoneNumber": "86-28-83328666",
     "PinCode": "610000",
-    "HotelWebsiteUrl": "http://www.dorsetthotels.com/chengdu/?utm_source=dorsett&utm_medium=simpwebsite&utm_campaign=ourhote"
+    "HotelWebsiteUrl": "http://www.dorsetthotels.com/chengdu/?utm_source=dorsett&utm_medium=simpwebsite&utm_campaign=ourhote",
+    "star_rating": 5,
+    "latitude": 30.65999,
+    "longitude": 104.03258
   },
   {
     "countyCode": "CN",
@@ -105,7 +120,10 @@
     "Map": "30.560362|104.06175",
     "PhoneNumber": "86-28-88008888",
     "PinCode": "610093",
-    "HotelWebsiteUrl": "http://www3.hilton.com/en/hotels/china/hilton-chengdu-CTUCCHI/maps-directions/index.html"
+    "HotelWebsiteUrl": "http://www3.hilton.com/en/hotels/china/hilton-chengdu-CTUCCHI/maps-directions/index.html",
+    "star_rating": 4,
+    "latitude": 30.560362,
+    "longitude": 104.06175
   },
   {
     "countyCode": "CN",
@@ -123,7 +141,10 @@
     "Map": "30.996170044|103.94927979",
     "PhoneNumber": "+86 28 8388 6668",
     "PinCode": "611930",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.996170044,
+    "longitude": 103.94927979
   },
   {
     "countyCode": "CN",
@@ -141,7 +162,10 @@
     "Map": "30.599756|104.058425",
     "PhoneNumber": "",
     "PinCode": "610041",
-    "HotelWebsiteUrl": "www.mhotelchengdu.com"
+    "HotelWebsiteUrl": "www.mhotelchengdu.com",
+    "star_rating": 4,
+    "latitude": 30.599756,
+    "longitude": 104.058425
   },
   {
     "countyCode": "CN",
@@ -159,7 +183,10 @@
     "Map": "30.717665|104.04023",
     "PhoneNumber": "86-288-7748888",
     "PinCode": "610000",
-    "HotelWebsiteUrl": "http://www.ramada.com/hotels/china/chengdu/ramada-chengdu-north/hotel-overview"
+    "HotelWebsiteUrl": "http://www.ramada.com/hotels/china/chengdu/ramada-chengdu-north/hotel-overview",
+    "star_rating": 3,
+    "latitude": 30.717665,
+    "longitude": 104.04023
   },
   {
     "countyCode": "CN",
@@ -177,7 +204,10 @@
     "Map": "30.6535|104.058",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.6535,
+    "longitude": 104.058
   },
   {
     "countyCode": "CN",
@@ -195,7 +225,10 @@
     "Map": "30.671936|104.084217",
     "PhoneNumber": "00864001840018",
     "PinCode": "610017",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.671936,
+    "longitude": 104.084217
   },
   {
     "countyCode": "CN",
@@ -213,7 +246,10 @@
     "Map": "30.67889023|104.06833649",
     "PhoneNumber": "86-28-65206666",
     "PinCode": "610000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 30.67889023,
+    "longitude": 104.06833649
   },
   {
     "countyCode": "CN",
@@ -231,7 +267,10 @@
     "Map": "30.628759|104.029252",
     "PhoneNumber": "00864001840018",
     "PinCode": "610047",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.628759,
+    "longitude": 104.029252
   },
   {
     "countyCode": "CN",
@@ -249,7 +288,10 @@
     "Map": "30.62981136008|104.025818109512",
     "PhoneNumber": "",
     "PinCode": "610041",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.62981136008,
+    "longitude": 104.025818109512
   },
   {
     "countyCode": "CN",
@@ -267,7 +309,10 @@
     "Map": "30.62061|104.06945",
     "PhoneNumber": "",
     "PinCode": "610041",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 30.62061,
+    "longitude": 104.06945
   },
   {
     "countyCode": "CN",
@@ -285,7 +330,10 @@
     "Map": "30.683708|104.087925",
     "PhoneNumber": "028-83389988",
     "PinCode": "610081",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.683708,
+    "longitude": 104.087925
   },
   {
     "countyCode": "CN",
@@ -303,7 +351,10 @@
     "Map": "30.68157959|104.0324707",
     "PhoneNumber": "0086 286 6157979",
     "PinCode": "610031",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.68157959,
+    "longitude": 104.0324707
   },
   {
     "countyCode": "CN",
@@ -321,7 +372,10 @@
     "Map": "30.67387|104.04572",
     "PhoneNumber": "(86) 02862839999",
     "PinCode": "610031",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.67387,
+    "longitude": 104.04572
   },
   {
     "countyCode": "CN",
@@ -339,7 +393,10 @@
     "Map": "30.6608|104.046436",
     "PhoneNumber": "86-28-86138884",
     "PinCode": "610072",
-    "HotelWebsiteUrl": "https://www.wenjunhotel.com/de-de"
+    "HotelWebsiteUrl": "https://www.wenjunhotel.com/de-de",
+    "star_rating": 3,
+    "latitude": 30.6608,
+    "longitude": 104.046436
   },
   {
     "countyCode": "CN",
@@ -357,7 +414,10 @@
     "Map": "30.57563|104.05890",
     "PhoneNumber": "",
     "PinCode": "610041",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.57563,
+    "longitude": 104.0589
   },
   {
     "countyCode": "CN",
@@ -375,7 +435,10 @@
     "Map": "30.66599|104.13889",
     "PhoneNumber": "(86) 02865581888",
     "PinCode": "610000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.66599,
+    "longitude": 104.13889
   },
   {
     "countyCode": "CN",
@@ -393,7 +456,10 @@
     "Map": "30.67389|104.00492",
     "PhoneNumber": "",
     "PinCode": "610000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.67389,
+    "longitude": 104.00492
   },
   {
     "countyCode": "CN",
@@ -411,7 +477,10 @@
     "Map": "30.65363|104.06023",
     "PhoneNumber": "86-028-62050333",
     "PinCode": "610015",
-    "HotelWebsiteUrl": "http://www.fsdhotel.com"
+    "HotelWebsiteUrl": "http://www.fsdhotel.com",
+    "star_rating": 3,
+    "latitude": 30.65363,
+    "longitude": 104.06023
   },
   {
     "countyCode": "CN",
@@ -429,7 +498,10 @@
     "Map": "30.65422|104.06152",
     "PhoneNumber": "(86) 02886113111",
     "PinCode": "610000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.65422,
+    "longitude": 104.06152
   },
   {
     "countyCode": "CN",
@@ -447,7 +519,10 @@
     "Map": "30.672301|104.087036",
     "PhoneNumber": "+86 28 8676 1315",
     "PinCode": "610000",
-    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=6533047"
+    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=6533047",
+    "star_rating": 4,
+    "latitude": 30.672301,
+    "longitude": 104.087036
   },
   {
     "countyCode": "CN",
@@ -465,7 +540,10 @@
     "Map": "30.673689939|104.0738216",
     "PhoneNumber": "2886956688",
     "PinCode": "610017",
-    "HotelWebsiteUrl": "http://www.oldchengduclubhotel.com/"
+    "HotelWebsiteUrl": "http://www.oldchengduclubhotel.com/",
+    "star_rating": 4,
+    "latitude": 30.673689939,
+    "longitude": 104.0738216
   },
   {
     "countyCode": "CN",
@@ -483,7 +561,10 @@
     "Map": "30.65667|104.0767",
     "PhoneNumber": "(86) 2868811111",
     "PinCode": "610000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/youke-chengdu.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/youke-chengdu.html",
+    "star_rating": 3,
+    "latitude": 30.65667,
+    "longitude": 104.0767
   },
   {
     "countyCode": "CN",
@@ -501,7 +582,10 @@
     "Map": "30.69143|104.04254",
     "PhoneNumber": "(86) 02865500655",
     "PinCode": "610031",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.69143,
+    "longitude": 104.04254
   },
   {
     "countyCode": "CN",
@@ -519,7 +603,10 @@
     "Map": "30.69869|104.00824",
     "PhoneNumber": "+86 28655266660",
     "PinCode": "610000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.69869,
+    "longitude": 104.00824
   },
   {
     "countyCode": "CN",
@@ -537,7 +624,10 @@
     "Map": "30.62032|104.06284",
     "PhoneNumber": "",
     "PinCode": "610041",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 30.62032,
+    "longitude": 104.06284
   },
   {
     "countyCode": "CN",
@@ -555,7 +645,10 @@
     "Map": "30.63941|104.01915",
     "PhoneNumber": "(86) 2887020137",
     "PinCode": "610041",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.63941,
+    "longitude": 104.01915
   },
   {
     "countyCode": "CN",
@@ -573,7 +666,10 @@
     "Map": "30.643648|104.058303",
     "PhoneNumber": "86-028-65593366",
     "PinCode": "610000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.643648,
+    "longitude": 104.058303
   },
   {
     "countyCode": "CN",
@@ -591,7 +687,10 @@
     "Map": "30.644300461|104.04979706",
     "PhoneNumber": "+86(0)2866311333",
     "PinCode": "610031",
-    "HotelWebsiteUrl": "http://www.cdjinli.com"
+    "HotelWebsiteUrl": "http://www.cdjinli.com",
+    "star_rating": 3,
+    "latitude": 30.644300461,
+    "longitude": 104.04979706
   },
   {
     "countyCode": "CN",
@@ -609,7 +708,10 @@
     "Map": "30.65154|104.01328",
     "PhoneNumber": "(86) 2865510555",
     "PinCode": "610041",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.65154,
+    "longitude": 104.01328
   },
   {
     "countyCode": "CN",
@@ -627,7 +729,10 @@
     "Map": "30.64934|104.05979",
     "PhoneNumber": "86-028-86210836",
     "PinCode": "610000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.64934,
+    "longitude": 104.05979
   },
   {
     "countyCode": "CN",
@@ -645,7 +750,10 @@
     "Map": "30.64842|104.11262",
     "PhoneNumber": "(86) 2866315008",
     "PinCode": "610050",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.64842,
+    "longitude": 104.11262
   },
   {
     "countyCode": "CN",
@@ -663,7 +771,10 @@
     "Map": "30.6684|104.09998",
     "PhoneNumber": "86-028-84333983",
     "PinCode": "610051",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.6684,
+    "longitude": 104.09998
   },
   {
     "countyCode": "CN",
@@ -681,7 +792,10 @@
     "Map": "30.67055|104.1073",
     "PhoneNumber": "(86) 2884361888",
     "PinCode": "610051",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.67055,
+    "longitude": 104.1073
   },
   {
     "countyCode": "CN",
@@ -699,7 +813,10 @@
     "Map": "30.68055|104.12617",
     "PhoneNumber": "(86) 2884427888",
     "PinCode": "610000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.68055,
+    "longitude": 104.12617
   },
   {
     "countyCode": "CN",
@@ -717,7 +834,10 @@
     "Map": "30.67425|104.13937",
     "PhoneNumber": "(86) 028655611118101",
     "PinCode": "610059",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 30.67425,
+    "longitude": 104.13937
   },
   {
     "countyCode": "CN",
@@ -735,7 +855,10 @@
     "Map": "30.6916|104.08358",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.6916,
+    "longitude": 104.08358
   },
   {
     "countyCode": "CN",
@@ -753,7 +876,10 @@
     "Map": "30.69491|104.08315",
     "PhoneNumber": "0535-3321555",
     "PinCode": "265100",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.69491,
+    "longitude": 104.08315
   },
   {
     "countyCode": "CN",
@@ -771,7 +897,10 @@
     "Map": "30.56108|103.91766",
     "PhoneNumber": "(86) 02885803555",
     "PinCode": "610200",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/cheng-du-shuang-liu-ji-chang-ming-kang-shi-shang-jiu-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/cheng-du-shuang-liu-ji-chang-ming-kang-shi-shang-jiu-dian.html",
+    "star_rating": 3,
+    "latitude": 30.56108,
+    "longitude": 103.91766
   },
   {
     "countyCode": "CN",
@@ -789,7 +918,10 @@
     "Map": "30.5749|103.95899",
     "PhoneNumber": "+864006366636",
     "PinCode": "610101",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/chengdu-kong-gang.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/chengdu-kong-gang.html",
+    "star_rating": 5,
+    "latitude": 30.5749,
+    "longitude": 103.95899
   },
   {
     "countyCode": "CN",
@@ -807,7 +939,10 @@
     "Map": "30.521270954|103.97753835",
     "PhoneNumber": "86-2869936688",
     "PinCode": "610207",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 30.521270954,
+    "longitude": 103.97753835
   },
   {
     "countyCode": "CN",
@@ -825,7 +960,10 @@
     "Map": "30.5210722450471|104.052897691727",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 30.5210722450471,
+    "longitude": 104.052897691727
   },
   {
     "countyCode": "CN",
@@ -843,7 +981,10 @@
     "Map": "30.63274|103.67304",
     "PhoneNumber": "(86) 2882209066",
     "PinCode": "611230",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.63274,
+    "longitude": 103.67304
   },
   {
     "countyCode": "CN",
@@ -861,7 +1002,10 @@
     "Map": "30.81214|104.176054",
     "PhoneNumber": "86-28-8888 5888",
     "PinCode": "610500",
-    "HotelWebsiteUrl": "http://www.ihg.com/holidayinn/hotels/de/de/chengdu"
+    "HotelWebsiteUrl": "http://www.ihg.com/holidayinn/hotels/de/de/chengdu",
+    "star_rating": 4,
+    "latitude": 30.81214,
+    "longitude": 104.176054
   },
   {
     "countyCode": "CN",
@@ -879,7 +1023,10 @@
     "Map": "30.9872|103.61724",
     "PhoneNumber": "(86) 2867628288",
     "PinCode": "611830",
-    "HotelWebsiteUrl": "http://www.sagehotel.cn/index.asp"
+    "HotelWebsiteUrl": "http://www.sagehotel.cn/index.asp",
+    "star_rating": 3,
+    "latitude": 30.9872,
+    "longitude": 103.61724
   },
   {
     "countyCode": "CN",
@@ -897,7 +1044,10 @@
     "Map": "30.99211|103.62813",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.99211,
+    "longitude": 103.62813
   },
   {
     "countyCode": "CN",
@@ -915,7 +1065,10 @@
     "Map": "30.66681|104.03884",
     "PhoneNumber": "(86) 02887783888",
     "PinCode": "610000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/chengdu-ao-ting-hua-yuan.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/chengdu-ao-ting-hua-yuan.html",
+    "star_rating": 4,
+    "latitude": 30.66681,
+    "longitude": 104.03884
   },
   {
     "countyCode": "CN",
@@ -933,7 +1086,10 @@
     "Map": "30.684045792|103.96258545",
     "PhoneNumber": "86 28 87078888",
     "PinCode": "610091",
-    "HotelWebsiteUrl": "http://acmehotelchengdu.com/"
+    "HotelWebsiteUrl": "http://acmehotelchengdu.com/",
+    "star_rating": 4,
+    "latitude": 30.684045792,
+    "longitude": 103.96258545
   },
   {
     "countyCode": "CN",
@@ -951,7 +1107,10 @@
     "Map": "30.62744|104.04776",
     "PhoneNumber": "",
     "PinCode": "610200",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.62744,
+    "longitude": 104.04776
   },
   {
     "countyCode": "CN",
@@ -969,7 +1128,10 @@
     "Map": "30.674030304|104.13928223",
     "PhoneNumber": "86 28 65561111",
     "PinCode": "610059",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 30.674030304,
+    "longitude": 104.13928223
   },
   {
     "countyCode": "CN",
@@ -987,7 +1149,10 @@
     "Map": "30.82356|104.15534",
     "PhoneNumber": "(86) 2867338858",
     "PinCode": "610500",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/cheng-du-gui-hu-guo-ji-da-jiu-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/cheng-du-gui-hu-guo-ji-da-jiu-dian.html",
+    "star_rating": 4,
+    "latitude": 30.82356,
+    "longitude": 104.15534
   },
   {
     "countyCode": "CN",
@@ -1005,7 +1170,10 @@
     "Map": "30.640309|104.086384",
     "PhoneNumber": "86-028-86088822",
     "PinCode": "610041",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.640309,
+    "longitude": 104.086384
   },
   {
     "countyCode": "CN",
@@ -1023,7 +1191,10 @@
     "Map": "30.616432|104.07627",
     "PhoneNumber": "86-28-85355999",
     "PinCode": "610041",
-    "HotelWebsiteUrl": "http://www.ibis.com/gb/hotel-6450-ibis-chengdu-kehua/index.shtml"
+    "HotelWebsiteUrl": "http://www.ibis.com/gb/hotel-6450-ibis-chengdu-kehua/index.shtml",
+    "star_rating": 3,
+    "latitude": 30.616432,
+    "longitude": 104.07627
   },
   {
     "countyCode": "CN",
@@ -1041,7 +1212,10 @@
     "Map": "30.61624|104.0024",
     "PhoneNumber": "(86) 2885066969",
     "PinCode": "610000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 30.61624,
+    "longitude": 104.0024
   },
   {
     "countyCode": "CN",
@@ -1059,7 +1233,10 @@
     "Map": "30.62557|104.04786",
     "PhoneNumber": "86-28-87688888",
     "PinCode": "610040",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/cheng-du-ming-yue-da-jiu-dian-zhu-lou.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/cheng-du-ming-yue-da-jiu-dian-zhu-lou.html",
+    "star_rating": 5,
+    "latitude": 30.62557,
+    "longitude": 104.04786
   },
   {
     "countyCode": "CN",
@@ -1077,7 +1254,10 @@
     "Map": "30.647498|104.060199",
     "PhoneNumber": "86 28-8887 6666",
     "PinCode": "610041",
-    "HotelWebsiteUrl": "http://minyounsuniyahotelchengdu.com/"
+    "HotelWebsiteUrl": "http://minyounsuniyahotelchengdu.com/",
+    "star_rating": 4,
+    "latitude": 30.647498,
+    "longitude": 104.060199
   },
   {
     "countyCode": "CN",
@@ -1095,7 +1275,10 @@
     "Map": "30.615607|104.071226",
     "PhoneNumber": "",
     "PinCode": "610041",
-    "HotelWebsiteUrl": "www.oakwoodasia.com"
+    "HotelWebsiteUrl": "www.oakwoodasia.com",
+    "star_rating": 5,
+    "latitude": 30.615607,
+    "longitude": 104.071226
   },
   {
     "countyCode": "CN",
@@ -1113,7 +1296,10 @@
     "Map": "30.60123|103.90562",
     "PhoneNumber": "028-85899999",
     "PinCode": "610000",
-    "HotelWebsiteUrl": "http://www.sichuantennisinternationalhotel.com/"
+    "HotelWebsiteUrl": "http://www.sichuantennisinternationalhotel.com/",
+    "star_rating": 5,
+    "latitude": 30.60123,
+    "longitude": 103.90562
   },
   {
     "countyCode": "CN",
@@ -1131,7 +1317,10 @@
     "Map": "30.589176|104.066123",
     "PhoneNumber": "86-028-65006868",
     "PinCode": "610000",
-    "HotelWebsiteUrl": "http://www.huaminsovereigncd.com"
+    "HotelWebsiteUrl": "http://www.huaminsovereigncd.com",
+    "star_rating": 4,
+    "latitude": 30.589176,
+    "longitude": 104.066123
   },
   {
     "countyCode": "CN",
@@ -1149,6 +1338,9 @@
     "Map": "30.670064926|104.0712738",
     "PhoneNumber": "00864001840018",
     "PinCode": "610065",
-    "HotelWebsiteUrl": "https://www.wyndhamhotels.com/super-8/chengdu-china/super-8-hotel-chengdu-haijiao-city/overview"
+    "HotelWebsiteUrl": "https://www.wyndhamhotels.com/super-8/chengdu-china/super-8-hotel-chengdu-haijiao-city/overview",
+    "star_rating": 3,
+    "latitude": 30.670064926,
+    "longitude": 104.0712738
   }
 ]

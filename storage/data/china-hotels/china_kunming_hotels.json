@@ -15,7 +15,10 @@
     "Map": "25.430737|103.250488",
     "PhoneNumber": "86-871-67996888",
     "PinCode": "650011",
-    "HotelWebsiteUrl": "http://www.ramada.com/hotels/china/kunming/ramada-kunming-north/hotel-overview"
+    "HotelWebsiteUrl": "http://www.ramada.com/hotels/china/kunming/ramada-kunming-north/hotel-overview",
+    "star_rating": 3,
+    "latitude": 25.430737,
+    "longitude": 103.250488
   },
   {
     "countyCode": "CN",
@@ -33,7 +36,10 @@
     "Map": "25.013586|102.683556",
     "PhoneNumber": "86-871-68177777",
     "PinCode": "650011",
-    "HotelWebsiteUrl": "http://www.wyndhamhotels.com/wyndham-grand/kunming-china/wyndham-grand-plaza-royale-colorful-yunnan-kunming/overview"
+    "HotelWebsiteUrl": "http://www.wyndhamhotels.com/wyndham-grand/kunming-china/wyndham-grand-plaza-royale-colorful-yunnan-kunming/overview",
+    "star_rating": 4,
+    "latitude": 25.013586,
+    "longitude": 102.683556
   },
   {
     "countyCode": "CN",
@@ -51,7 +57,10 @@
     "Map": "25.038734436|102.68695831",
     "PhoneNumber": "0871-65336788",
     "PinCode": "650118",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 25.038734436,
+    "longitude": 102.68695831
   },
   {
     "countyCode": "CN",
@@ -69,7 +78,10 @@
     "Map": "25.03944|102.71364",
     "PhoneNumber": "(86) 87166343777",
     "PinCode": "650000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 25.03944,
+    "longitude": 102.71364
   },
   {
     "countyCode": "CN",
@@ -87,7 +99,10 @@
     "Map": "25.03248|102.71884",
     "PhoneNumber": "",
     "PinCode": "650000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 25.03248,
+    "longitude": 102.71884
   },
   {
     "countyCode": "CN",
@@ -105,7 +120,10 @@
     "Map": "25.020449581|102.72339642",
     "PhoneNumber": "8713566111",
     "PinCode": "650011",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 25.020449581,
+    "longitude": 102.72339642
   },
   {
     "countyCode": "CN",
@@ -123,7 +141,10 @@
     "Map": "25.02506|102.72241",
     "PhoneNumber": "(86) 087166221888",
     "PinCode": "654000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/kun-ming-chun-yue-jiu-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/kun-ming-chun-yue-jiu-dian.html",
+    "star_rating": 3,
+    "latitude": 25.02506,
+    "longitude": 102.72241
   },
   {
     "countyCode": "CN",
@@ -141,7 +162,10 @@
     "Map": "25.03266|102.69301",
     "PhoneNumber": "",
     "PinCode": "650011",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 25.03266,
+    "longitude": 102.69301
   },
   {
     "countyCode": "CN",
@@ -159,7 +183,10 @@
     "Map": "25.0391|102.71987",
     "PhoneNumber": "(86) 087166308777",
     "PinCode": "650000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/yun-shang-si-ji-jiu-dian-dong-feng-guang-chang-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/yun-shang-si-ji-jiu-dian-dong-feng-guang-chang-dian.html",
+    "star_rating": 3,
+    "latitude": 25.0391,
+    "longitude": 102.71987
   },
   {
     "countyCode": "CN",
@@ -177,7 +204,10 @@
     "Map": "25.0242|102.64412",
     "PhoneNumber": "86-871-68171666",
     "PinCode": "650100",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/kun-ming-yun-an-hui-du-jiu-dian-kunming.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/kun-ming-yun-an-hui-du-jiu-dian-kunming.html",
+    "star_rating": 5,
+    "latitude": 25.0242,
+    "longitude": 102.64412
   },
   {
     "countyCode": "CN",
@@ -195,7 +225,10 @@
     "Map": "25.04488|102.6738",
     "PhoneNumber": "0871-66158888",
     "PinCode": "650031",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 25.04488,
+    "longitude": 102.6738
   },
   {
     "countyCode": "CN",
@@ -213,7 +246,10 @@
     "Map": "25.044553|102.698913",
     "PhoneNumber": "8687165335588",
     "PinCode": "650031",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 25.044553,
+    "longitude": 102.698913
   },
   {
     "countyCode": "CN",
@@ -231,7 +267,10 @@
     "Map": "25.0468|102.719",
     "PhoneNumber": "(86) 087166296666",
     "PinCode": "650051",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/kun-ming-chun-cheng-zhi-xing-ji-feng-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/kun-ming-chun-cheng-zhi-xing-ji-feng-dian.html",
+    "star_rating": 3,
+    "latitude": 25.0468,
+    "longitude": 102.719
   },
   {
     "countyCode": "CN",
@@ -249,7 +288,10 @@
     "Map": "25.01618|102.75052",
     "PhoneNumber": "",
     "PinCode": "650200",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 25.01618,
+    "longitude": 102.75052
   },
   {
     "countyCode": "CN",
@@ -267,7 +309,10 @@
     "Map": "25.0354|102.69765",
     "PhoneNumber": "(86) 87166260888",
     "PinCode": "650032",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/chun-cheng-hua-yuan-tian-hong-jiu-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/chun-cheng-hua-yuan-tian-hong-jiu-dian.html",
+    "star_rating": 4,
+    "latitude": 25.0354,
+    "longitude": 102.69765
   },
   {
     "countyCode": "CN",
@@ -285,7 +330,10 @@
     "Map": "25.03786|102.73659",
     "PhoneNumber": "",
     "PinCode": "650041",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 25.03786,
+    "longitude": 102.73659
   },
   {
     "countyCode": "CN",
@@ -303,7 +351,10 @@
     "Map": "24.97988|102.71914",
     "PhoneNumber": "(86) 087166326666",
     "PinCode": "650200",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/kun-ming-hai-li-bin-yabo-fo-lun-si-du-jia-jiu-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/kun-ming-hai-li-bin-yabo-fo-lun-si-du-jia-jiu-dian.html",
+    "star_rating": 5,
+    "latitude": 24.97988,
+    "longitude": 102.71914
   },
   {
     "countyCode": "CN",
@@ -321,7 +372,10 @@
     "Map": "24.9997|102.76117",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 24.9997,
+    "longitude": 102.76117
   },
   {
     "countyCode": "CN",
@@ -339,7 +393,10 @@
     "Map": "25.020819016|102.73763359",
     "PhoneNumber": "(86) 087166283777",
     "PinCode": "650000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 25.020819016,
+    "longitude": 102.73763359
   },
   {
     "countyCode": "CN",
@@ -357,7 +414,10 @@
     "Map": "24.98544|102.76036",
     "PhoneNumber": "",
     "PinCode": "650214",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 24.98544,
+    "longitude": 102.76036
   },
   {
     "countyCode": "CN",
@@ -375,7 +435,10 @@
     "Map": "24.95623|102.7545",
     "PhoneNumber": "",
     "PinCode": "650220",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 24.95623,
+    "longitude": 102.7545
   },
   {
     "countyCode": "CN",
@@ -393,7 +456,10 @@
     "Map": "24.9604238|102.6694993",
     "PhoneNumber": "+8687164317666",
     "PinCode": "650011",
-    "HotelWebsiteUrl": "http://www.lakeviewgolfhotel.com/English/index.asp"
+    "HotelWebsiteUrl": "http://www.lakeviewgolfhotel.com/English/index.asp",
+    "star_rating": 3,
+    "latitude": 24.9604238,
+    "longitude": 102.6694993
   },
   {
     "countyCode": "CN",
@@ -411,7 +477,10 @@
     "Map": "25.05641|102.73006",
     "PhoneNumber": "(86) 087165691999",
     "PinCode": "650051",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 25.05641,
+    "longitude": 102.73006
   },
   {
     "countyCode": "CN",
@@ -429,7 +498,10 @@
     "Map": "25.04714|102.74203",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 25.04714,
+    "longitude": 102.74203
   },
   {
     "countyCode": "CN",
@@ -447,7 +519,10 @@
     "Map": "24.95268|102.44948",
     "PhoneNumber": "",
     "PinCode": "650307",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/kun-ming-wen-quan-xin-jing-hua-yuan-jiu-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/kun-ming-wen-quan-xin-jing-hua-yuan-jiu-dian.html",
+    "star_rating": 5,
+    "latitude": 24.95268,
+    "longitude": 102.44948
   },
   {
     "countyCode": "CN",
@@ -465,7 +540,10 @@
     "Map": "24.8891716|102.79743195",
     "PhoneNumber": "(86) 87167485599",
     "PinCode": "650500",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 24.8891716,
+    "longitude": 102.79743195
   },
   {
     "countyCode": "CN",
@@ -483,7 +561,10 @@
     "Map": "25.031949790211|102.73716878261",
     "PhoneNumber": "",
     "PinCode": "650041",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 25.031949790211,
+    "longitude": 102.73716878261
   },
   {
     "countyCode": "CN",
@@ -501,7 +582,10 @@
     "Map": "25.043423|102.711801",
     "PhoneNumber": "86-871-65098888",
     "PinCode": "650000",
-    "HotelWebsiteUrl": "http://www.goldeneagle-hotel.com/"
+    "HotelWebsiteUrl": "http://www.goldeneagle-hotel.com/",
+    "star_rating": 4,
+    "latitude": 25.043423,
+    "longitude": 102.711801
   },
   {
     "countyCode": "CN",
@@ -519,7 +603,10 @@
     "Map": "25.00473|102.73122",
     "PhoneNumber": "86-871-6712333",
     "PinCode": "650200",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 25.00473,
+    "longitude": 102.73122
   },
   {
     "countyCode": "CN",
@@ -537,7 +624,10 @@
     "Map": "25.06244|102.69779",
     "PhoneNumber": "86-871-65526868",
     "PinCode": "650093",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 25.06244,
+    "longitude": 102.69779
   },
   {
     "countyCode": "CN",
@@ -555,7 +645,10 @@
     "Map": "25.042137465571|102.72321939468",
     "PhoneNumber": "",
     "PinCode": "650011",
-    "HotelWebsiteUrl": "http://www.kmhotel.cn/EN/"
+    "HotelWebsiteUrl": "http://www.kmhotel.cn/EN/",
+    "star_rating": 4,
+    "latitude": 25.042137465571,
+    "longitude": 102.72321939468
   },
   {
     "countyCode": "CN",
@@ -573,7 +666,10 @@
     "Map": "24.98472|102.657425",
     "PhoneNumber": "86-871-63188888",
     "PinCode": "650228",
-    "HotelWebsiteUrl": "https://cn.ihg.com/intercontinental"
+    "HotelWebsiteUrl": "https://cn.ihg.com/intercontinental",
+    "star_rating": 4,
+    "latitude": 24.98472,
+    "longitude": 102.657425
   },
   {
     "countyCode": "CN",
@@ -591,7 +687,10 @@
     "Map": "25.03717|102.715225",
     "PhoneNumber": "86-871-63158888",
     "PinCode": "650011",
-    "HotelWebsiteUrl": "https://www.ihg.com/crowneplaza/hotels/us/en/kunming/kmgcc/hoteldetail"
+    "HotelWebsiteUrl": "https://www.ihg.com/crowneplaza/hotels/us/en/kunming/kmgcc/hoteldetail",
+    "star_rating": 4,
+    "latitude": 25.03717,
+    "longitude": 102.715225
   },
   {
     "countyCode": "CN",
@@ -609,7 +708,10 @@
     "Map": "25.024167|102.721478",
     "PhoneNumber": "86-871-63133015",
     "PinCode": "650000",
-    "HotelWebsiteUrl": "http://www.gdhotel.com.cn/"
+    "HotelWebsiteUrl": "http://www.gdhotel.com.cn/",
+    "star_rating": 4,
+    "latitude": 25.024167,
+    "longitude": 102.721478
   },
   {
     "countyCode": "CN",
@@ -627,7 +729,10 @@
     "Map": "25.02538|102.70062",
     "PhoneNumber": "86-871-68639888",
     "PinCode": "650011",
-    "HotelWebsiteUrl": "http://www.sofitel.com/es/hotel-8529-sofitel-kunming/events.shtml"
+    "HotelWebsiteUrl": "http://www.sofitel.com/es/hotel-8529-sofitel-kunming/events.shtml",
+    "star_rating": 5,
+    "latitude": 25.02538,
+    "longitude": 102.70062
   },
   {
     "countyCode": "CN",
@@ -645,7 +750,10 @@
     "Map": "24.891405|102.83725",
     "PhoneNumber": "86-871-65918888",
     "PinCode": "650500",
-    "HotelWebsiteUrl": "http://plazakunminggarden.hojochina.com/plazagarden-km-home.html"
+    "HotelWebsiteUrl": "http://plazakunminggarden.hojochina.com/plazagarden-km-home.html",
+    "star_rating": 4,
+    "latitude": 24.891405,
+    "longitude": 102.83725
   },
   {
     "countyCode": "CN",
@@ -663,7 +771,10 @@
     "Map": "25.031278|102.725756",
     "PhoneNumber": "",
     "PinCode": "650011",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 25.031278,
+    "longitude": 102.725756
   },
   {
     "countyCode": "CN",
@@ -681,7 +792,10 @@
     "Map": "25.02178|102.72153",
     "PhoneNumber": "86-871-63562828",
     "PinCode": "650011",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jia-hua-guang-chang-jiu-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jia-hua-guang-chang-jiu-dian.html",
+    "star_rating": 5,
+    "latitude": 25.02178,
+    "longitude": 102.72153
   },
   {
     "countyCode": "CN",
@@ -699,7 +813,10 @@
     "Map": "25.04956|102.71553",
     "PhoneNumber": "86-871-65116666",
     "PinCode": "650021",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/kun-ming-xi-qiao-jiu-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/kun-ming-xi-qiao-jiu-dian.html",
+    "star_rating": 4,
+    "latitude": 25.04956,
+    "longitude": 102.71553
   },
   {
     "countyCode": "CN",
@@ -717,7 +834,10 @@
     "Map": "25.07593|102.75462",
     "PhoneNumber": "86-871-65012666",
     "PinCode": "650224",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/yun-nan-shi-bo-hua-yuan-jiu-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/yun-nan-shi-bo-hua-yuan-jiu-dian.html",
+    "star_rating": 4,
+    "latitude": 25.07593,
+    "longitude": 102.75462
   },
   {
     "countyCode": "CN",
@@ -735,7 +855,10 @@
     "Map": "25.0455|102.7191",
     "PhoneNumber": "(86) 087163016661",
     "PinCode": "650224",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 25.0455,
+    "longitude": 102.7191
   },
   {
     "countyCode": "CN",
@@ -753,7 +876,10 @@
     "Map": "24.75321|103.2741",
     "PhoneNumber": "",
     "PinCode": "650041",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 24.75321,
+    "longitude": 103.2741
   },
   {
     "countyCode": "CN",
@@ -771,7 +897,10 @@
     "Map": "24.97464|102.7653",
     "PhoneNumber": "+868717388888",
     "PinCode": "650214",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/kun-ming-shi-ji-jin-yuan-da-fan-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/kun-ming-shi-ji-jin-yuan-da-fan-dian.html",
+    "star_rating": 5,
+    "latitude": 24.97464,
+    "longitude": 102.7653
   },
   {
     "countyCode": "CN",
@@ -789,7 +918,10 @@
     "Map": "25.051004|102.702011",
     "PhoneNumber": "",
     "PinCode": "650041",
-    "HotelWebsiteUrl": "www.mercure.com;www.accorhotels.com.cn"
+    "HotelWebsiteUrl": "www.mercure.com;www.accorhotels.com.cn",
+    "star_rating": 4,
+    "latitude": 25.051004,
+    "longitude": 102.702011
   },
   {
     "countyCode": "CN",
@@ -807,7 +939,10 @@
     "Map": "25.05246|102.7385",
     "PhoneNumber": "+868713346688",
     "PinCode": "650233",
-    "HotelWebsiteUrl": "http://www.guanfang.com.cn/main.html?method=into&a"
+    "HotelWebsiteUrl": "http://www.guanfang.com.cn/main.html?method=into&a",
+    "star_rating": 3,
+    "latitude": 25.05246,
+    "longitude": 102.7385
   },
   {
     "countyCode": "CN",
@@ -825,7 +960,10 @@
     "Map": "25.042008|102.724329",
     "PhoneNumber": "+868716161666",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 25.042008,
+    "longitude": 102.724329
   },
   {
     "countyCode": "CN",
@@ -843,7 +981,10 @@
     "Map": "25.0440375|102.71537250000006",
     "PhoneNumber": "",
     "PinCode": "650021",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 25.0440375,
+    "longitude": 102.71537250000006
   },
   {
     "countyCode": "CN",
@@ -861,7 +1002,10 @@
     "Map": "25.00951|102.73501",
     "PhoneNumber": "+8687167155188",
     "PinCode": "650200",
-    "HotelWebsiteUrl": "http://www.kmzyjd.com/"
+    "HotelWebsiteUrl": "http://www.kmzyjd.com/",
+    "star_rating": 3,
+    "latitude": 25.00951,
+    "longitude": 102.73501
   },
   {
     "countyCode": "CN",
@@ -879,7 +1023,10 @@
     "Map": "24.96205556|102.6649389",
     "PhoneNumber": "86 871 64334666",
     "PinCode": "650228",
-    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=61830"
+    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=61830",
+    "star_rating": 4,
+    "latitude": 24.96205556,
+    "longitude": 102.6649389
   },
   {
     "countyCode": "CN",
@@ -897,7 +1044,10 @@
     "Map": "24.95245|103.00498",
     "PhoneNumber": "+868717671666",
     "PinCode": "652103",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/brilliant-resort-spa.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/brilliant-resort-spa.html",
+    "star_rating": 5,
+    "latitude": 24.95245,
+    "longitude": 103.00498
   },
   {
     "countyCode": "CN",
@@ -915,7 +1065,10 @@
     "Map": "25.0240369494693|102.722994089127",
     "PhoneNumber": "86-871-3305295",
     "PinCode": "650000",
-    "HotelWebsiteUrl": "http://telhotel.cn"
+    "HotelWebsiteUrl": "http://telhotel.cn",
+    "star_rating": 4,
+    "latitude": 25.0240369494693,
+    "longitude": 102.722994089127
   },
   {
     "countyCode": "CN",
@@ -933,7 +1086,10 @@
     "Map": "25.01191|102.73626",
     "PhoneNumber": "+86(0)8717157999",
     "PinCode": "650200",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 25.01191,
+    "longitude": 102.73626
   },
   {
     "countyCode": "CN",
@@ -951,7 +1107,10 @@
     "Map": "25.05584|102.6679",
     "PhoneNumber": "1737436233215",
     "PinCode": "650106",
-    "HotelWebsiteUrl": "http://www.ynhdhotel.com/ http://www.ynhdhotel.com/eng/index.aspx"
+    "HotelWebsiteUrl": "http://www.ynhdhotel.com/ http://www.ynhdhotel.com/eng/index.aspx",
+    "star_rating": 3,
+    "latitude": 25.05584,
+    "longitude": 102.6679
   },
   {
     "countyCode": "CN",
@@ -969,7 +1128,10 @@
     "Map": "25.03597|102.70911",
     "PhoneNumber": "86-871-3624999",
     "PinCode": "650021",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/kunming-xinjiyuan-jiudian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/kunming-xinjiyuan-jiudian.html",
+    "star_rating": 4,
+    "latitude": 25.03597,
+    "longitude": 102.70911
   },
   {
     "countyCode": "CN",
@@ -987,7 +1149,10 @@
     "Map": "25.048018|102.69938",
     "PhoneNumber": "86-871-65386688",
     "PinCode": "650031",
-    "HotelWebsiteUrl": "http://www.parkhotelgroup.com/en/kunming"
+    "HotelWebsiteUrl": "http://www.parkhotelgroup.com/en/kunming",
+    "star_rating": 5,
+    "latitude": 25.048018,
+    "longitude": 102.69938
   },
   {
     "countyCode": "CN",
@@ -1005,7 +1170,10 @@
     "Map": "25.01628|102.69385",
     "PhoneNumber": "(86) 087166118666",
     "PinCode": "650228",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/de-hong-jiu-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/de-hong-jiu-dian.html",
+    "star_rating": 3,
+    "latitude": 25.01628,
+    "longitude": 102.69385
   },
   {
     "countyCode": "CN",
@@ -1023,7 +1191,10 @@
     "Map": "24.98725|102.66263",
     "PhoneNumber": "87164312067",
     "PinCode": "650228",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 24.98725,
+    "longitude": 102.66263
   },
   {
     "countyCode": "CN",
@@ -1041,7 +1212,10 @@
     "Map": "25.052009|102.705514",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 25.052009,
+    "longitude": 102.705514
   },
   {
     "countyCode": "CN",
@@ -1059,7 +1233,10 @@
     "Map": "25.03845|102.71597",
     "PhoneNumber": "(86) 087165705525",
     "PinCode": "650000",
-    "HotelWebsiteUrl": "http://www.agoda.com/de-de/kunming-pankun-business-hotel/hotel/kunming-cn.html"
+    "HotelWebsiteUrl": "http://www.agoda.com/de-de/kunming-pankun-business-hotel/hotel/kunming-cn.html",
+    "star_rating": 3,
+    "latitude": 25.03845,
+    "longitude": 102.71597
   },
   {
     "countyCode": "CN",
@@ -1077,7 +1254,10 @@
     "Map": "25.130117|102.751232",
     "PhoneNumber": "0871-65238666",
     "PinCode": "650000",
-    "HotelWebsiteUrl": "http://www.shengshiqianhehotel.com"
+    "HotelWebsiteUrl": "http://www.shengshiqianhehotel.com",
+    "star_rating": 5,
+    "latitude": 25.130117,
+    "longitude": 102.751232
   },
   {
     "countyCode": "CN",
@@ -1095,7 +1275,10 @@
     "Map": "25.03321|102.71809",
     "PhoneNumber": "+868713133588",
     "PinCode": "650011",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/kun-ming-hai-tian-jiu-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/kun-ming-hai-tian-jiu-dian.html",
+    "star_rating": 4,
+    "latitude": 25.03321,
+    "longitude": 102.71809
   },
   {
     "countyCode": "CN",
@@ -1113,6 +1296,9 @@
     "Map": "25.02288|102.71981",
     "PhoneNumber": "+868713516666",
     "PinCode": "650041",
-    "HotelWebsiteUrl": "http://www.jldhotel.cn/index.asp"
+    "HotelWebsiteUrl": "http://www.jldhotel.cn/index.asp",
+    "star_rating": 4,
+    "latitude": 25.02288,
+    "longitude": 102.71981
   }
 ]

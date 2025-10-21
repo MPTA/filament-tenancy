@@ -15,7 +15,10 @@
     "Map": "31.29245|121.49119",
     "PhoneNumber": "",
     "PinCode": "200437",
-    "HotelWebsiteUrl": "www.lanshenghotel.com"
+    "HotelWebsiteUrl": "www.lanshenghotel.com",
+    "star_rating": 4,
+    "latitude": 31.29245,
+    "longitude": 121.49119
   },
   {
     "countyCode": "CN",
@@ -33,7 +36,10 @@
     "Map": "31.4574917542589|121.349492669106",
     "PhoneNumber": "",
     "PinCode": "200949",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.4574917542589,
+    "longitude": 121.349492669106
   },
   {
     "countyCode": "CN",
@@ -51,7 +57,10 @@
     "Map": "31.017030716|121.26280212",
     "PhoneNumber": "021-61678107",
     "PinCode": "201600",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.017030716,
+    "longitude": 121.26280212
   },
   {
     "countyCode": "CN",
@@ -69,7 +78,10 @@
     "Map": "31.039659|121.217022",
     "PhoneNumber": "862137668888",
     "PinCode": "201620",
-    "HotelWebsiteUrl": "http://songjiang.newcenturygrandhotel.com/"
+    "HotelWebsiteUrl": "http://songjiang.newcenturygrandhotel.com/",
+    "star_rating": 4,
+    "latitude": 31.039659,
+    "longitude": 121.217022
   },
   {
     "countyCode": "CN",
@@ -87,7 +99,10 @@
     "Map": "31.01897|121.2614",
     "PhoneNumber": "862151790666",
     "PinCode": "201613",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.01897,
+    "longitude": 121.2614
   },
   {
     "countyCode": "CN",
@@ -105,7 +120,10 @@
     "Map": "31.352291|121.58436",
     "PhoneNumber": "+862131219999",
     "PinCode": "200131",
-    "HotelWebsiteUrl": "http://sheraton.com/shanghaiwaigaoqiao"
+    "HotelWebsiteUrl": "http://sheraton.com/shanghaiwaigaoqiao",
+    "star_rating": 4,
+    "latitude": 31.352291,
+    "longitude": 121.58436
   },
   {
     "countyCode": "CN",
@@ -123,7 +141,10 @@
     "Map": "31.205181|121.44572",
     "PhoneNumber": "+862133383888",
     "PinCode": "200031",
-    "HotelWebsiteUrl": "http://luxurycollection.com/12hengshan"
+    "HotelWebsiteUrl": "http://luxurycollection.com/12hengshan",
+    "star_rating": 5,
+    "latitude": 31.205181,
+    "longitude": 121.44572
   },
   {
     "countyCode": "CN",
@@ -141,7 +162,10 @@
     "Map": "31.15011|121.421574",
     "PhoneNumber": "+862154649797",
     "PinCode": "200237",
-    "HotelWebsiteUrl": "http://www.lotelchina.com/en/"
+    "HotelWebsiteUrl": "http://www.lotelchina.com/en/",
+    "star_rating": 3,
+    "latitude": 31.15011,
+    "longitude": 121.421574
   },
   {
     "countyCode": "CN",
@@ -159,7 +183,10 @@
     "Map": "30.814702|121.521153",
     "PhoneNumber": "+86 86-2157121777",
     "PinCode": "201418",
-    "HotelWebsiteUrl": "http://resortpalmshanghai.hojochina.com/resortpalm-sh-home.html"
+    "HotelWebsiteUrl": "http://resortpalmshanghai.hojochina.com/resortpalm-sh-home.html",
+    "star_rating": 5,
+    "latitude": 30.814702,
+    "longitude": 121.521153
   },
   {
     "countyCode": "CN",
@@ -177,7 +204,10 @@
     "Map": "30.916727382|121.45814091",
     "PhoneNumber": "(86) 2167199009",
     "PinCode": "200000",
-    "HotelWebsiteUrl": "http://www.998.com"
+    "HotelWebsiteUrl": "http://www.998.com",
+    "star_rating": 3,
+    "latitude": 30.916727382,
+    "longitude": 121.45814091
   },
   {
     "countyCode": "CN",
@@ -195,7 +225,10 @@
     "Map": "31.199239|121.585342",
     "PhoneNumber": "86-21-51333666",
     "PinCode": "201203",
-    "HotelWebsiteUrl": "http://www.ztehotel.com"
+    "HotelWebsiteUrl": "http://www.ztehotel.com",
+    "star_rating": 3,
+    "latitude": 31.199239,
+    "longitude": 121.585342
   },
   {
     "countyCode": "CN",
@@ -213,7 +246,10 @@
     "Map": "31.22884|121.45787",
     "PhoneNumber": "86-21-62568888",
     "PinCode": "200041",
-    "HotelWebsiteUrl": "http://www.fourseasons.com/shanghai"
+    "HotelWebsiteUrl": "http://www.fourseasons.com/shanghai",
+    "star_rating": 5,
+    "latitude": 31.22884,
+    "longitude": 121.45787
   },
   {
     "countyCode": "CN",
@@ -231,7 +267,10 @@
     "Map": "31.22817|121.44756",
     "PhoneNumber": "+862162798888",
     "PinCode": "200040",
-    "HotelWebsiteUrl": "http://www.ritzcarlton.com"
+    "HotelWebsiteUrl": "http://www.ritzcarlton.com",
+    "star_rating": 5,
+    "latitude": 31.22817,
+    "longitude": 121.44756
   },
   {
     "countyCode": "CN",
@@ -249,7 +288,10 @@
     "Map": "31.24784|121.45028",
     "PhoneNumber": "86-216-0167777",
     "PinCode": "200070",
-    "HotelWebsiteUrl": "https://www.ihg.com/holidayinn/hotels/de/de/shangh"
+    "HotelWebsiteUrl": "https://www.ihg.com/holidayinn/hotels/de/de/shangh",
+    "star_rating": 4,
+    "latitude": 31.24784,
+    "longitude": 121.45028
   },
   {
     "countyCode": "CN",
@@ -267,7 +309,10 @@
     "Map": "31.22006|121.43893",
     "PhoneNumber": "+862162480088",
     "PinCode": "200042",
-    "HotelWebsiteUrl": "http://shanghai.jinjianghotels.com/"
+    "HotelWebsiteUrl": "http://shanghai.jinjianghotels.com/",
+    "star_rating": 3,
+    "latitude": 31.22006,
+    "longitude": 121.43893
   },
   {
     "countyCode": "CN",
@@ -285,7 +330,10 @@
     "Map": "31.203601|121.405536",
     "PhoneNumber": "86-21-62758888",
     "PinCode": "200336",
-    "HotelWebsiteUrl": "http://www.starwoodhotels.com/sheraton/property/overview/index.html?propertyID=1056"
+    "HotelWebsiteUrl": "http://www.starwoodhotels.com/sheraton/property/overview/index.html?propertyID=1056",
+    "star_rating": 5,
+    "latitude": 31.203601,
+    "longitude": 121.405536
   },
   {
     "countyCode": "CN",
@@ -303,7 +351,10 @@
     "Map": "31.234074|121.510544",
     "PhoneNumber": "86-21-20368888",
     "PinCode": "200120",
-    "HotelWebsiteUrl": "http://www.fourseasons.com/pudong"
+    "HotelWebsiteUrl": "http://www.fourseasons.com/pudong",
+    "star_rating": 5,
+    "latitude": 31.234074,
+    "longitude": 121.510544
   },
   {
     "countyCode": "CN",
@@ -321,7 +372,10 @@
     "Map": "31.234205|121.48185",
     "PhoneNumber": "862163351888",
     "PinCode": "200002",
-    "HotelWebsiteUrl": "http://www.westin.com/shanghai"
+    "HotelWebsiteUrl": "http://www.westin.com/shanghai",
+    "star_rating": 5,
+    "latitude": 31.234205,
+    "longitude": 121.48185
   },
   {
     "countyCode": "CN",
@@ -339,7 +393,10 @@
     "Map": "31.239334|121.36288",
     "PhoneNumber": "86-21-60561899",
     "PinCode": "200333",
-    "HotelWebsiteUrl": "http://www.hiexpress.com.cn"
+    "HotelWebsiteUrl": "http://www.hiexpress.com.cn",
+    "star_rating": 3,
+    "latitude": 31.239334,
+    "longitude": 121.36288
   },
   {
     "countyCode": "CN",
@@ -357,7 +414,10 @@
     "Map": "31.18269|121.4295",
     "PhoneNumber": "86-21-64396000",
     "PinCode": "200030",
-    "HotelWebsiteUrl": "http://huating.jinjianghotels.com"
+    "HotelWebsiteUrl": "http://huating.jinjianghotels.com",
+    "star_rating": 4,
+    "latitude": 31.18269,
+    "longitude": 121.4295
   },
   {
     "countyCode": "CN",
@@ -375,7 +435,10 @@
     "Map": "31.22184|121.45585",
     "PhoneNumber": "86-21-64151111",
     "PinCode": "200020",
-    "HotelWebsiteUrl": "http://www.gardenhotelshanghai.com/"
+    "HotelWebsiteUrl": "http://www.gardenhotelshanghai.com/",
+    "star_rating": 5,
+    "latitude": 31.22184,
+    "longitude": 121.45585
   },
   {
     "countyCode": "CN",
@@ -393,7 +456,10 @@
     "Map": "31.234884|121.45977",
     "PhoneNumber": "86-21-61571688",
     "PinCode": "200041",
-    "HotelWebsiteUrl": "http://www.kaibinskihotel.com/rooms-and-suites/"
+    "HotelWebsiteUrl": "http://www.kaibinskihotel.com/rooms-and-suites/",
+    "star_rating": 5,
+    "latitude": 31.234884,
+    "longitude": 121.45977
   },
   {
     "countyCode": "CN",
@@ -411,7 +477,10 @@
     "Map": "31.087763|121.339133",
     "PhoneNumber": "86-21-23098888",
     "PinCode": "201612",
-    "HotelWebsiteUrl": "http://www.thequbehotelxinqiao.com/"
+    "HotelWebsiteUrl": "http://www.thequbehotelxinqiao.com/",
+    "star_rating": 4,
+    "latitude": 31.087763,
+    "longitude": 121.339133
   },
   {
     "countyCode": "CN",
@@ -429,7 +498,10 @@
     "Map": "31.18055|121.5211",
     "PhoneNumber": "021-50869200",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.18055,
+    "longitude": 121.5211
   },
   {
     "countyCode": "CN",
@@ -447,7 +519,10 @@
     "Map": "31.6298|121.38612",
     "PhoneNumber": "(86) 2159611111",
     "PinCode": "202150",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/shanghai-greentreeinn-chongming-nanmen.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/shanghai-greentreeinn-chongming-nanmen.html",
+    "star_rating": 3,
+    "latitude": 31.6298,
+    "longitude": 121.38612
   },
   {
     "countyCode": "CN",
@@ -465,7 +540,10 @@
     "Map": "31.161169052|121.38220215",
     "PhoneNumber": "+86 529677",
     "PinCode": "200010",
-    "HotelWebsiteUrl": "http://WWW.SUPER8.COM.CN"
+    "HotelWebsiteUrl": "http://WWW.SUPER8.COM.CN",
+    "star_rating": 3,
+    "latitude": 31.161169052,
+    "longitude": 121.38220215
   },
   {
     "countyCode": "CN",
@@ -483,7 +561,10 @@
     "Map": "31.28577|121.4827",
     "PhoneNumber": "+864006038888",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.super8.com/hotels/china/shanghai/super-8-hotel-shanghai-zhong-shan-bei-yi-lu/hotel-overvi"
+    "HotelWebsiteUrl": "http://www.super8.com/hotels/china/shanghai/super-8-hotel-shanghai-zhong-shan-bei-yi-lu/hotel-overvi",
+    "star_rating": 3,
+    "latitude": 31.28577,
+    "longitude": 121.4827
   },
   {
     "countyCode": "CN",
@@ -501,7 +582,10 @@
     "Map": "30.903178|121.469001",
     "PhoneNumber": "86-104-001840018",
     "PinCode": "000000",
-    "HotelWebsiteUrl": "http://www.ramada.co.uk/hotels/china/shanghai/super-8-hotel-shanghai-fengxian-sports-center/hotel-ov"
+    "HotelWebsiteUrl": "http://www.ramada.co.uk/hotels/china/shanghai/super-8-hotel-shanghai-fengxian-sports-center/hotel-ov",
+    "star_rating": 3,
+    "latitude": 30.903178,
+    "longitude": 121.469001
   },
   {
     "countyCode": "CN",
@@ -519,7 +603,10 @@
     "Map": "31.331352|121.491325",
     "PhoneNumber": "+86 51670333",
     "PinCode": "200085",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.331352,
+    "longitude": 121.491325
   },
   {
     "countyCode": "CN",
@@ -537,7 +624,10 @@
     "Map": "31.18351|121.44794",
     "PhoneNumber": "(86) 2164681777",
     "PinCode": "200030",
-    "HotelWebsiteUrl": "http://www.jinjianginns.com/CityInnHotel/jChainHotelInfo----0148---3100.html"
+    "HotelWebsiteUrl": "http://www.jinjianginns.com/CityInnHotel/jChainHotelInfo----0148---3100.html",
+    "star_rating": 3,
+    "latitude": 31.18351,
+    "longitude": 121.44794
   },
   {
     "countyCode": "CN",
@@ -555,7 +645,10 @@
     "Map": "31.23631|121.5214",
     "PhoneNumber": "021-58887618",
     "PinCode": "200120",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jingjiang-inn-shanghai-oriental-pearl-tower.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jingjiang-inn-shanghai-oriental-pearl-tower.html",
+    "star_rating": 3,
+    "latitude": 31.23631,
+    "longitude": 121.5214
   },
   {
     "countyCode": "CN",
@@ -573,7 +666,10 @@
     "Map": "31.17599|121.51348",
     "PhoneNumber": "86-21-61561177",
     "PinCode": "200125",
-    "HotelWebsiteUrl": "http://www.accorhotels.com/de/hotel-7505-ibis-shanghai-world-expo/index.shtml"
+    "HotelWebsiteUrl": "http://www.accorhotels.com/de/hotel-7505-ibis-shanghai-world-expo/index.shtml",
+    "star_rating": 3,
+    "latitude": 31.17599,
+    "longitude": 121.51348
   },
   {
     "countyCode": "CN",
@@ -591,7 +687,10 @@
     "Map": "31.19378|121.3517",
     "PhoneNumber": "2586488066147",
     "PinCode": "200335",
-    "HotelWebsiteUrl": "http://www.siah.com/en/index.asp"
+    "HotelWebsiteUrl": "http://www.siah.com/en/index.asp",
+    "star_rating": 3,
+    "latitude": 31.19378,
+    "longitude": 121.3517
   },
   {
     "countyCode": "CN",
@@ -609,7 +708,10 @@
     "Map": "31.20965|121.39851",
     "PhoneNumber": "862162332929",
     "PinCode": "200336",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-shanghai-maotai-road.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-shanghai-maotai-road.html",
+    "star_rating": 3,
+    "latitude": 31.20965,
+    "longitude": 121.39851
   },
   {
     "countyCode": "CN",
@@ -627,7 +729,10 @@
     "Map": "31.45362|121.40575",
     "PhoneNumber": "(86) 2166036818",
     "PinCode": "200942",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jingjiang-inn-baoshan-shengqiao.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jingjiang-inn-baoshan-shengqiao.html",
+    "star_rating": 3,
+    "latitude": 31.45362,
+    "longitude": 121.40575
   },
   {
     "countyCode": "CN",
@@ -645,7 +750,10 @@
     "Map": "31.11117|121.3833",
     "PhoneNumber": "862154132358",
     "PinCode": "201100",
-    "HotelWebsiteUrl": "http://www.jinjianginns.com/CityInnHotel/jChainHotelInfo----0013---3100.html http://www.tripadvisor."
+    "HotelWebsiteUrl": "http://www.jinjianginns.com/CityInnHotel/jChainHotelInfo----0013---3100.html http://www.tripadvisor.",
+    "star_rating": 3,
+    "latitude": 31.11117,
+    "longitude": 121.3833
   },
   {
     "countyCode": "CN",
@@ -663,7 +771,10 @@
     "Map": "31.185654|121.591341",
     "PhoneNumber": "",
     "PinCode": "200120",
-    "HotelWebsiteUrl": "http://www.pditchotel.com"
+    "HotelWebsiteUrl": "http://www.pditchotel.com",
+    "star_rating": 4,
+    "latitude": 31.185654,
+    "longitude": 121.591341
   },
   {
     "countyCode": "CN",
@@ -681,7 +792,10 @@
     "Map": "31.24048|121.6082",
     "PhoneNumber": "1724290319385",
     "PinCode": "201206",
-    "HotelWebsiteUrl": "http://www.shruibang.com.cn/en/hotelinfo.html"
+    "HotelWebsiteUrl": "http://www.shruibang.com.cn/en/hotelinfo.html",
+    "star_rating": 3,
+    "latitude": 31.24048,
+    "longitude": 121.6082
   },
   {
     "countyCode": "CN",
@@ -699,7 +813,10 @@
     "Map": "31.05055|121.7631",
     "PhoneNumber": "(86) 2160891618",
     "PinCode": "201300",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jingjiang-inn-shanghai-international-tourist-holiday-resort-pudong-huinan-subway.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jingjiang-inn-shanghai-international-tourist-holiday-resort-pudong-huinan-subway.html",
+    "star_rating": 3,
+    "latitude": 31.05055,
+    "longitude": 121.7631
   },
   {
     "countyCode": "CN",
@@ -717,7 +834,10 @@
     "Map": "31.03762|121.24067",
     "PhoneNumber": "1724275583710",
     "PinCode": "200000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/vienna-international-shanghai-songjiang.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/vienna-international-shanghai-songjiang.html",
+    "star_rating": 3,
+    "latitude": 31.03762,
+    "longitude": 121.24067
   },
   {
     "countyCode": "CN",
@@ -735,7 +855,10 @@
     "Map": "31.03901|121.21201",
     "PhoneNumber": "86- 21- 6779- 9988",
     "PinCode": "201613",
-    "HotelWebsiteUrl": "http://el10201168.auyou.com/"
+    "HotelWebsiteUrl": "http://el10201168.auyou.com/",
+    "star_rating": 3,
+    "latitude": 31.03901,
+    "longitude": 121.21201
   },
   {
     "countyCode": "CN",
@@ -753,7 +876,10 @@
     "Map": "31.02837|121.2047",
     "PhoneNumber": "3448568396999",
     "PinCode": "201620",
-    "HotelWebsiteUrl": "http://de.hotels.com/ho377623/baolong-garden-hotel-shanghai-china/ http://www.blgardenhotel.com/ htt"
+    "HotelWebsiteUrl": "http://de.hotels.com/ho377623/baolong-garden-hotel-shanghai-china/ http://www.blgardenhotel.com/ htt",
+    "star_rating": 3,
+    "latitude": 31.02837,
+    "longitude": 121.2047
   },
   {
     "countyCode": "CN",
@@ -771,7 +897,10 @@
     "Map": "31.16781|121.27646",
     "PhoneNumber": "862169769999",
     "PinCode": "201702",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jingjiang-inn-shanghai-xujing.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jingjiang-inn-shanghai-xujing.html",
+    "star_rating": 3,
+    "latitude": 31.16781,
+    "longitude": 121.27646
   },
   {
     "countyCode": "CN",
@@ -789,7 +918,10 @@
     "Map": "31.22871|121.52203",
     "PhoneNumber": "86-21-58355555",
     "PinCode": "200000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/ji-lujiazui-babaiban.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/ji-lujiazui-babaiban.html",
+    "star_rating": 4,
+    "latitude": 31.22871,
+    "longitude": 121.52203
   },
   {
     "countyCode": "CN",
@@ -807,7 +939,10 @@
     "Map": "31.19596|121.5066",
     "PhoneNumber": "1724277165110",
     "PinCode": "unknown",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.19596,
+    "longitude": 121.5066
   },
   {
     "countyCode": "CN",
@@ -825,7 +960,10 @@
     "Map": "31.244920731|121.35900116",
     "PhoneNumber": "+86(21)-6919-6868",
     "PinCode": "201824",
-    "HotelWebsiteUrl": "http://998.com/Reservations/Hotel_Detail.aspx?hotelcode=170401"
+    "HotelWebsiteUrl": "http://998.com/Reservations/Hotel_Detail.aspx?hotelcode=170401",
+    "star_rating": 3,
+    "latitude": 31.244920731,
+    "longitude": 121.35900116
   },
   {
     "countyCode": "CN",
@@ -843,7 +981,10 @@
     "Map": "31.16361|121.5624",
     "PhoneNumber": "1724302694236",
     "PinCode": "201318",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.16361,
+    "longitude": 121.5624
   },
   {
     "countyCode": "CN",
@@ -861,7 +1002,10 @@
     "Map": "31.216244|121.438244",
     "PhoneNumber": "+862162256111|+862162252292",
     "PinCode": "200040",
-    "HotelWebsiteUrl": "http://ailixuan.ypb.cn/,http://www.shanghai-today."
+    "HotelWebsiteUrl": "http://ailixuan.ypb.cn/,http://www.shanghai-today.",
+    "star_rating": 3,
+    "latitude": 31.216244,
+    "longitude": 121.438244
   },
   {
     "countyCode": "CN",
@@ -879,7 +1023,10 @@
     "Map": "31.0343|121.205749",
     "PhoneNumber": "86-21-37662733",
     "PinCode": "201620",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.0343,
+    "longitude": 121.205749
   },
   {
     "countyCode": "CN",
@@ -897,7 +1044,10 @@
     "Map": "31.249459|121.452451",
     "PhoneNumber": "(86) 02151235566",
     "PinCode": "200070",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.249459,
+    "longitude": 121.452451
   },
   {
     "countyCode": "CN",
@@ -915,7 +1065,10 @@
     "Map": "31.24697|121.4289",
     "PhoneNumber": "1724305894023",
     "PinCode": "200061",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.24697,
+    "longitude": 121.4289
   },
   {
     "countyCode": "CN",
@@ -933,7 +1086,10 @@
     "Map": "31.17414|121.4485",
     "PhoneNumber": "864006186388",
     "PinCode": "200030",
-    "HotelWebsiteUrl": "http://www.9ddf.com/hotel/10938.html"
+    "HotelWebsiteUrl": "http://www.9ddf.com/hotel/10938.html",
+    "star_rating": 3,
+    "latitude": 31.17414,
+    "longitude": 121.4485
   },
   {
     "countyCode": "CN",
@@ -951,7 +1107,10 @@
     "Map": "31.246095|121.699106",
     "PhoneNumber": "86-021-38139888",
     "PinCode": "201201",
-    "HotelWebsiteUrl": "http://www.gardenviewhotelshanghai.com/"
+    "HotelWebsiteUrl": "http://www.gardenviewhotelshanghai.com/",
+    "star_rating": 4,
+    "latitude": 31.246095,
+    "longitude": 121.699106
   },
   {
     "countyCode": "CN",
@@ -969,7 +1128,10 @@
     "Map": "31.03238002|121.24700546",
     "PhoneNumber": "021-67693666",
     "PinCode": "201613",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 31.03238002,
+    "longitude": 121.24700546
   },
   {
     "countyCode": "CN",
@@ -987,7 +1149,10 @@
     "Map": "30.8228560562724|121.513595581055",
     "PhoneNumber": "",
     "PinCode": "201418",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 5,
+    "latitude": 30.8228560562724,
+    "longitude": 121.513595581055
   },
   {
     "countyCode": "CN",
@@ -1005,7 +1170,10 @@
     "Map": "31.19329|121.70807",
     "PhoneNumber": "86 21 58982888",
     "PinCode": "201299",
-    "HotelWebsiteUrl": "http://hotels.huazhu.com/hotel/detail/2001206"
+    "HotelWebsiteUrl": "http://hotels.huazhu.com/hotel/detail/2001206",
+    "star_rating": 3,
+    "latitude": 31.19329,
+    "longitude": 121.70807
   },
   {
     "countyCode": "CN",
@@ -1023,7 +1191,10 @@
     "Map": "31.168009|121.39233",
     "PhoneNumber": "86-21-33258888",
     "PinCode": "200233",
-    "HotelWebsiteUrl": "http://cn.renaissancecaohejing.com"
+    "HotelWebsiteUrl": "http://cn.renaissancecaohejing.com",
+    "star_rating": 5,
+    "latitude": 31.168009,
+    "longitude": 121.39233
   },
   {
     "countyCode": "CN",
@@ -1041,7 +1212,10 @@
     "Map": "30.92797|121.45209",
     "PhoneNumber": "",
     "PinCode": "201400",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 30.92797,
+    "longitude": 121.45209
   },
   {
     "countyCode": "CN",
@@ -1059,7 +1233,10 @@
     "Map": "31.10585|121.045781",
     "PhoneNumber": "",
     "PinCode": "201713",
-    "HotelWebsiteUrl": "www.royaltuliphotel.cn"
+    "HotelWebsiteUrl": "www.royaltuliphotel.cn",
+    "star_rating": 5,
+    "latitude": 31.10585,
+    "longitude": 121.045781
   },
   {
     "countyCode": "CN",
@@ -1077,7 +1254,10 @@
     "Map": "31.264052065432566|121.46021752841944",
     "PhoneNumber": "",
     "PinCode": "200070",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.264052065432566,
+    "longitude": 121.46021752841943
   },
   {
     "countyCode": "CN",
@@ -1095,7 +1275,10 @@
     "Map": "31.2466|121.58709",
     "PhoneNumber": "86-21-60368888",
     "PinCode": "201206",
-    "HotelWebsiteUrl": "http://www.marriott.com/shapd"
+    "HotelWebsiteUrl": "http://www.marriott.com/shapd",
+    "star_rating": 5,
+    "latitude": 31.2466,
+    "longitude": 121.58709
   },
   {
     "countyCode": "CN",
@@ -1113,7 +1296,10 @@
     "Map": "31.28637|121.46547",
     "PhoneNumber": "021-55088336",
     "PinCode": "200000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/vienna-international-shanghai-hongkou-guangyue-road.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/vienna-international-shanghai-hongkou-guangyue-road.html",
+    "star_rating": 3,
+    "latitude": 31.28637,
+    "longitude": 121.46547
   },
   {
     "countyCode": "CN",
@@ -1131,7 +1317,10 @@
     "Map": "31.292680004993496|121.533066873233",
     "PhoneNumber": "",
     "PinCode": "200433",
-    "HotelWebsiteUrl": "www.whminghotel.com"
+    "HotelWebsiteUrl": "www.whminghotel.com",
+    "star_rating": 5,
+    "latitude": 31.292680004993496,
+    "longitude": 121.533066873233
   },
   {
     "countyCode": "CN",
@@ -1149,7 +1338,10 @@
     "Map": "31.11865|121.05269",
     "PhoneNumber": "0215924888802159249314",
     "PinCode": "201713",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.11865,
+    "longitude": 121.05269
   },
   {
     "countyCode": "CN",
@@ -1167,7 +1359,10 @@
     "Map": "31.22258|121.49849",
     "PhoneNumber": "(86) 2163309918",
     "PinCode": "200010",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/ge-lin-lian-meng-shang-hai-shi-wai-tan-yu-yuan-jiu-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/ge-lin-lian-meng-shang-hai-shi-wai-tan-yu-yuan-jiu-dian.html",
+    "star_rating": 3,
+    "latitude": 31.22258,
+    "longitude": 121.49849
   },
   {
     "countyCode": "CN",
@@ -1185,7 +1380,10 @@
     "Map": "31.190196|121.446974",
     "PhoneNumber": "",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://hotels.huazhu.com/hotel/detail/2002325"
+    "HotelWebsiteUrl": "http://hotels.huazhu.com/hotel/detail/2002325",
+    "star_rating": 3,
+    "latitude": 31.190196,
+    "longitude": 121.446974
   },
   {
     "countyCode": "CN",
@@ -1203,7 +1401,10 @@
     "Map": "31.234472|121.47672",
     "PhoneNumber": "862163500000",
     "PinCode": "200001",
-    "HotelWebsiteUrl": "http://www.majestyplazashanghai.com/"
+    "HotelWebsiteUrl": "http://www.majestyplazashanghai.com/",
+    "star_rating": 4,
+    "latitude": 31.234472,
+    "longitude": 121.47672
   },
   {
     "countyCode": "CN",
@@ -1221,7 +1422,10 @@
     "Map": "31.15075|121.805944",
     "PhoneNumber": "+862138799999|+862168852526",
     "PinCode": "201202",
-    "HotelWebsiteUrl": "http://dazhong.airporthotelshanghai.com|http://www"
+    "HotelWebsiteUrl": "http://dazhong.airporthotelshanghai.com|http://www",
+    "star_rating": 4,
+    "latitude": 31.15075,
+    "longitude": 121.805944
   },
   {
     "countyCode": "CN",
@@ -1239,7 +1443,10 @@
     "Map": "31.234362|121.47962",
     "PhoneNumber": "86-21-3313 4888",
     "PinCode": "200001",
-    "HotelWebsiteUrl": "http://www.howardjohnsonplazahotel.cn/"
+    "HotelWebsiteUrl": "http://www.howardjohnsonplazahotel.cn/",
+    "star_rating": 4,
+    "latitude": 31.234362,
+    "longitude": 121.47962
   },
   {
     "countyCode": "CN",
@@ -1257,7 +1464,10 @@
     "Map": "31.249126139999|121.48449897766",
     "PhoneNumber": "",
     "PinCode": "200080",
-    "HotelWebsiteUrl": "http://www.hs-peninsulahotel.com/index_en.php"
+    "HotelWebsiteUrl": "http://www.hs-peninsulahotel.com/index_en.php",
+    "star_rating": 4,
+    "latitude": 31.249126139999,
+    "longitude": 121.48449897766
   },
   {
     "countyCode": "CN",
@@ -1275,7 +1485,10 @@
     "Map": "31.17526|121.43139",
     "PhoneNumber": "+862154976058",
     "PinCode": "200233",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-shanghai-guangdahuizhan-express.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-shanghai-guangdahuizhan-express.html",
+    "star_rating": 3,
+    "latitude": 31.17526,
+    "longitude": 121.43139
   },
   {
     "countyCode": "CN",
@@ -1293,7 +1506,10 @@
     "Map": "31.23537|121.4895",
     "PhoneNumber": "0086 21 63235053",
     "PinCode": "200002",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/shanghai-captainhostel.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/shanghai-captainhostel.html",
+    "star_rating": 3,
+    "latitude": 31.23537,
+    "longitude": 121.4895
   },
   {
     "countyCode": "CN",
@@ -1311,7 +1527,10 @@
     "Map": "31.2427500337426|121.487020254135",
     "PhoneNumber": "+862163020898",
     "PinCode": "200001",
-    "HotelWebsiteUrl": "http://www.bmhostel.com/en/gyls-dock.html"
+    "HotelWebsiteUrl": "http://www.bmhostel.com/en/gyls-dock.html",
+    "star_rating": 3,
+    "latitude": 31.2427500337426,
+    "longitude": 121.487020254135
   },
   {
     "countyCode": "CN",
@@ -1329,7 +1548,10 @@
     "Map": "31.21317|121.48551",
     "PhoneNumber": "(86) 2161907777",
     "PinCode": "200011",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/hanting-express-shanghai-south-xizang-road.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/hanting-express-shanghai-south-xizang-road.html",
+    "star_rating": 3,
+    "latitude": 31.21317,
+    "longitude": 121.48551
   },
   {
     "countyCode": "CN",
@@ -1347,7 +1569,10 @@
     "Map": "31.2254|121.482",
     "PhoneNumber": "",
     "PinCode": "200021",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 31.2254,
+    "longitude": 121.482
   },
   {
     "countyCode": "CN",
@@ -1365,7 +1590,10 @@
     "Map": "31.20981|121.48338",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.20981,
+    "longitude": 121.48338
   },
   {
     "countyCode": "CN",
@@ -1383,7 +1611,10 @@
     "Map": "31.207973|121.484311",
     "PhoneNumber": "",
     "PinCode": "200023",
-    "HotelWebsiteUrl": "www.lb228.com"
+    "HotelWebsiteUrl": "www.lb228.com",
+    "star_rating": 3,
+    "latitude": 31.207973,
+    "longitude": 121.484311
   },
   {
     "countyCode": "CN",
@@ -1401,7 +1632,10 @@
     "Map": "31.23964|121.48127",
     "PhoneNumber": "862133661561",
     "PinCode": "200001",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/shanghai-blue-mountain-bund-youth-hostel.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/shanghai-blue-mountain-bund-youth-hostel.html",
+    "star_rating": 3,
+    "latitude": 31.23964,
+    "longitude": 121.48127
   },
   {
     "countyCode": "CN",
@@ -1419,7 +1653,10 @@
     "Map": "31.179438|121.43889",
     "PhoneNumber": "+862154524788",
     "PinCode": "200030",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.179438,
+    "longitude": 121.43889
   },
   {
     "countyCode": "CN",
@@ -1437,7 +1674,10 @@
     "Map": "31.19449|121.44189",
     "PhoneNumber": "+862160823000",
     "PinCode": "200030",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/htinns-xujiahui-shanghai.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/htinns-xujiahui-shanghai.html",
+    "star_rating": 4,
+    "latitude": 31.19449,
+    "longitude": 121.44189
   },
   {
     "countyCode": "CN",
@@ -1455,7 +1695,10 @@
     "Map": "31.23073|121.43731",
     "PhoneNumber": "",
     "PinCode": "200042",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/htinns-jingansi-shanghai.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/htinns-jingansi-shanghai.html",
+    "star_rating": 4,
+    "latitude": 31.23073,
+    "longitude": 121.43731
   },
   {
     "countyCode": "CN",
@@ -1473,7 +1716,10 @@
     "Map": "31.23325|121.45635",
     "PhoneNumber": "(86) 2161353899",
     "PinCode": "200041",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/hanting-express-shanghai-plaza-66.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/hanting-express-shanghai-plaza-66.html",
+    "star_rating": 3,
+    "latitude": 31.23325,
+    "longitude": 121.45635
   },
   {
     "countyCode": "CN",
@@ -1491,7 +1737,10 @@
     "Map": "31.262285232543945|121.43122100830078",
     "PhoneNumber": "(86) 02151627272",
     "PinCode": "200065",
-    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=2175616"
+    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=2175616",
+    "star_rating": 3,
+    "latitude": 31.262285232543945,
+    "longitude": 121.43122100830078
   },
   {
     "countyCode": "CN",
@@ -1509,7 +1758,10 @@
     "Map": "31.24151|121.45491",
     "PhoneNumber": "(86) 2151001998",
     "PinCode": "200070",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jitai-shanghai-train-station-branch.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jitai-shanghai-train-station-branch.html",
+    "star_rating": 3,
+    "latitude": 31.24151,
+    "longitude": 121.45491
   },
   {
     "countyCode": "CN",
@@ -1527,7 +1779,10 @@
     "Map": "31.261059|121.450086",
     "PhoneNumber": "86-2156525888",
     "PinCode": "200070",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.261059,
+    "longitude": 121.450086
   },
   {
     "countyCode": "CN",
@@ -1545,7 +1800,10 @@
     "Map": "31.281549|121.471058",
     "PhoneNumber": "86-21-65360077",
     "PinCode": "200080",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.281549,
+    "longitude": 121.471058
   },
   {
     "countyCode": "CN",
@@ -1563,7 +1821,10 @@
     "Map": "31.26438|121.52271",
     "PhoneNumber": "(86) 2165353999",
     "PinCode": "200082",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/green-tree-chang-yang-business-shanghai.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/green-tree-chang-yang-business-shanghai.html",
+    "star_rating": 3,
+    "latitude": 31.26438,
+    "longitude": 121.52271
   },
   {
     "countyCode": "CN",
@@ -1581,7 +1842,10 @@
     "Map": "31.28171|121.51103",
     "PhoneNumber": "(86) 2165016969",
     "PinCode": "200092",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.28171,
+    "longitude": 121.51103
   },
   {
     "countyCode": "CN",
@@ -1599,7 +1863,10 @@
     "Map": "31.13258|121.45272",
     "PhoneNumber": "(86) 2151500618",
     "PinCode": "200231",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-shanghai-xupu-bridge-business.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-shanghai-xupu-bridge-business.html",
+    "star_rating": 3,
+    "latitude": 31.13258,
+    "longitude": 121.45272
   },
   {
     "countyCode": "CN",
@@ -1617,7 +1884,10 @@
     "Map": "31.1757|121.41756",
     "PhoneNumber": "",
     "PinCode": "200233",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/shanghai-all-season-tianlin.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/shanghai-all-season-tianlin.html",
+    "star_rating": 4,
+    "latitude": 31.1757,
+    "longitude": 121.41756
   },
   {
     "countyCode": "CN",
@@ -1635,7 +1905,10 @@
     "Map": "31.19418|121.34632",
     "PhoneNumber": "021-62689999",
     "PinCode": "200085",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.19418,
+    "longitude": 121.34632
   },
   {
     "countyCode": "CN",
@@ -1653,7 +1926,10 @@
     "Map": "31.2038614922632|121.380507275449",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.2038614922632,
+    "longitude": 121.380507275449
   },
   {
     "countyCode": "CN",
@@ -1671,7 +1947,10 @@
     "Map": "30.729442|121.352409",
     "PhoneNumber": "+862137991888",
     "PinCode": "200540",
-    "HotelWebsiteUrl": "http://jsseagullhotel.com/en/index.asp"
+    "HotelWebsiteUrl": "http://jsseagullhotel.com/en/index.asp",
+    "star_rating": 4,
+    "latitude": 30.729442,
+    "longitude": 121.352409
   },
   {
     "countyCode": "CN",
@@ -1689,7 +1968,10 @@
     "Map": "31.12496|121.36938",
     "PhoneNumber": "(86) 2164980088",
     "PinCode": "201100",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.12496,
+    "longitude": 121.36938
   },
   {
     "countyCode": "CN",
@@ -1707,7 +1989,10 @@
     "Map": "31.16279|121.33965",
     "PhoneNumber": "",
     "PinCode": "201101",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-hongqiao-huqingping-highway-second.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-hongqiao-huqingping-highway-second.html",
+    "star_rating": 3,
+    "latitude": 31.16279,
+    "longitude": 121.33965
   },
   {
     "countyCode": "CN",
@@ -1725,7 +2010,10 @@
     "Map": "31.169702|121.389163",
     "PhoneNumber": "(86) 2161205666",
     "PinCode": "201103",
-    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=519392"
+    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=519392",
+    "star_rating": 5,
+    "latitude": 31.169702,
+    "longitude": 121.389163
   },
   {
     "countyCode": "CN",
@@ -1743,7 +2031,10 @@
     "Map": "31.07212|121.39758",
     "PhoneNumber": "00862153559588",
     "PinCode": "201108",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-shanghai-minhang-zhuanqiao.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-shanghai-minhang-zhuanqiao.html",
+    "star_rating": 3,
+    "latitude": 31.07212,
+    "longitude": 121.39758
   },
   {
     "countyCode": "CN",
@@ -1761,7 +2052,10 @@
     "Map": "31.195129395|121.70291138",
     "PhoneNumber": "(86) 2158981971",
     "PinCode": "201299",
-    "HotelWebsiteUrl": "http://www.shchuanshahotel.com"
+    "HotelWebsiteUrl": "http://www.shchuanshahotel.com",
+    "star_rating": 3,
+    "latitude": 31.195129395,
+    "longitude": 121.70291138
   },
   {
     "countyCode": "CN",
@@ -1779,7 +2073,10 @@
     "Map": "31.180076|121.692963",
     "PhoneNumber": "86-21-60897000",
     "PinCode": "1",
-    "HotelWebsiteUrl": "http://www.wyn88.com/"
+    "HotelWebsiteUrl": "http://www.wyn88.com/",
+    "star_rating": 3,
+    "latitude": 31.180076,
+    "longitude": 121.692963
   },
   {
     "countyCode": "CN",
@@ -1797,7 +2094,10 @@
     "Map": "31.00544|121.89391",
     "PhoneNumber": "+862158058800",
     "PinCode": "201302",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.00544,
+    "longitude": 121.89391
   },
   {
     "countyCode": "CN",
@@ -1815,7 +2115,10 @@
     "Map": "31.10827|121.57267",
     "PhoneNumber": "(86) 2138010101",
     "PinCode": "201315",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/shanghai-leisure-hotel.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/shanghai-leisure-hotel.html",
+    "star_rating": 4,
+    "latitude": 31.10827,
+    "longitude": 121.57267
   },
   {
     "countyCode": "CN",
@@ -1833,7 +2136,10 @@
     "Map": "30.92788|121.47912",
     "PhoneNumber": "+862167105888",
     "PinCode": "201400",
-    "HotelWebsiteUrl": "http://www.nanjiaohotel.net"
+    "HotelWebsiteUrl": "http://www.nanjiaohotel.net",
+    "star_rating": 4,
+    "latitude": 30.92788,
+    "longitude": 121.47912
   },
   {
     "countyCode": "CN",
@@ -1851,7 +2157,10 @@
     "Map": "30.89998|121.74081",
     "PhoneNumber": "",
     "PinCode": "201413",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 30.89998,
+    "longitude": 121.74081
   },
   {
     "countyCode": "CN",
@@ -1869,7 +2178,10 @@
     "Map": "31.0535696|121.1861163",
     "PhoneNumber": "",
     "PinCode": "201600",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.0535696,
+    "longitude": 121.1861163
   },
   {
     "countyCode": "CN",
@@ -1887,7 +2199,10 @@
     "Map": "31.09777|121.35192",
     "PhoneNumber": "(86) 2157688999",
     "PinCode": "201612",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.09777,
+    "longitude": 121.35192
   },
   {
     "countyCode": "CN",
@@ -1905,7 +2220,10 @@
     "Map": "31.412029266|121.19288635",
     "PhoneNumber": "0086 21 39967777",
     "PinCode": "201815",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.412029266,
+    "longitude": 121.19288635
   },
   {
     "countyCode": "CN",
@@ -1923,7 +2241,10 @@
     "Map": "31.2615919933866|121.339535236621",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 31.2615919933866,
+    "longitude": 121.339535236621
   },
   {
     "countyCode": "CN",
@@ -1941,7 +2262,10 @@
     "Map": "31.673747831|121.37829761",
     "PhoneNumber": "021-59679888",
     "PinCode": "200000",
-    "HotelWebsiteUrl": "http://www.honghua.me"
+    "HotelWebsiteUrl": "http://www.honghua.me",
+    "star_rating": 4,
+    "latitude": 31.673747831,
+    "longitude": 121.37829761
   },
   {
     "countyCode": "CN",
@@ -1959,7 +2283,10 @@
     "Map": "31.407979965|121.49008942",
     "PhoneNumber": "(86) 2156780101",
     "PinCode": "200009",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 31.407979965,
+    "longitude": 121.49008942
   },
   {
     "countyCode": "CN",
@@ -1977,7 +2304,10 @@
     "Map": "31.218697|121.445097",
     "PhoneNumber": "862162480000",
     "PinCode": "200040",
-    "HotelWebsiteUrl": "http://www3.hilton.com/en/hotels/china/hilton-shanghai-SHAHITW/index.html"
+    "HotelWebsiteUrl": "http://www3.hilton.com/en/hotels/china/hilton-shanghai-SHAHITW/index.html",
+    "star_rating": 4,
+    "latitude": 31.218697,
+    "longitude": 121.445097
   },
   {
     "countyCode": "CN",
@@ -1995,7 +2325,10 @@
     "Map": "31.21367|121.52892",
     "PhoneNumber": "862150504888",
     "PinCode": "200127",
-    "HotelWebsiteUrl": "http://www.shanghaipudong.doubletree.com"
+    "HotelWebsiteUrl": "http://www.shanghaipudong.doubletree.com",
+    "star_rating": 5,
+    "latitude": 31.21367,
+    "longitude": 121.52892
   },
   {
     "countyCode": "CN",
@@ -2013,7 +2346,10 @@
     "Map": "31.22922|121.521835",
     "PhoneNumber": "86-21-58356666",
     "PinCode": "200120",
-    "HotelWebsiteUrl": "http://www.intercontinental.com"
+    "HotelWebsiteUrl": "http://www.intercontinental.com",
+    "star_rating": 4,
+    "latitude": 31.22922,
+    "longitude": 121.521835
   },
   {
     "countyCode": "CN",
@@ -2031,7 +2367,10 @@
     "Map": "31.22314|121.45821",
     "PhoneNumber": "86-21-64151188",
     "PinCode": "200020",
-    "HotelWebsiteUrl": "http://www.jinjiangtower.com/en/"
+    "HotelWebsiteUrl": "http://www.jinjiangtower.com/en/",
+    "star_rating": 4,
+    "latitude": 31.22314,
+    "longitude": 121.45821
   },
   {
     "countyCode": "CN",
@@ -2049,7 +2388,10 @@
     "Map": "31.253828|121.491769",
     "PhoneNumber": "86-021-65418228",
     "PinCode": "200080",
-    "HotelWebsiteUrl": "http://www.jiulonghotel.net/"
+    "HotelWebsiteUrl": "http://www.jiulonghotel.net/",
+    "star_rating": 4,
+    "latitude": 31.253828,
+    "longitude": 121.491769
   },
   {
     "countyCode": "CN",
@@ -2067,7 +2409,10 @@
     "Map": "31.24709|121.48927",
     "PhoneNumber": "",
     "PinCode": "200080",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.24709,
+    "longitude": 121.48927
   },
   {
     "countyCode": "CN",
@@ -2085,7 +2430,10 @@
     "Map": "31.23019|121.5082",
     "PhoneNumber": "+862158824022",
     "PinCode": "200120",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/aquaspace-shanghai.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/aquaspace-shanghai.html",
+    "star_rating": 4,
+    "latitude": 31.23019,
+    "longitude": 121.5082
   },
   {
     "countyCode": "CN",
@@ -2103,7 +2451,10 @@
     "Map": "31.2084248|121.438272",
     "PhoneNumber": "+862164677171",
     "PinCode": "200031",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 5,
+    "latitude": 31.2084248,
+    "longitude": 121.438272
   },
   {
     "countyCode": "CN",
@@ -2121,7 +2472,10 @@
     "Map": "31.208264|121.512141",
     "PhoneNumber": "86-21-38770698",
     "PinCode": "200127",
-    "HotelWebsiteUrl": "http://www.huijiale.com/"
+    "HotelWebsiteUrl": "http://www.huijiale.com/",
+    "star_rating": 3,
+    "latitude": 31.208264,
+    "longitude": 121.512141
   },
   {
     "countyCode": "CN",
@@ -2139,7 +2493,10 @@
     "Map": "31.285869598|121.47022247",
     "PhoneNumber": "86-21-61732288",
     "PinCode": "200083",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.285869598,
+    "longitude": 121.47022247
   },
   {
     "countyCode": "CN",
@@ -2157,7 +2514,10 @@
     "Map": "31.21051|121.4525",
     "PhoneNumber": "021-54669335",
     "PinCode": "200031",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.21051,
+    "longitude": 121.4525
   },
   {
     "countyCode": "CN",
@@ -2175,7 +2535,10 @@
     "Map": "31.229205|121.450274",
     "PhoneNumber": "021-32586588?62999520",
     "PinCode": "200040",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 31.229205,
+    "longitude": 121.450274
   },
   {
     "countyCode": "CN",
@@ -2193,7 +2556,10 @@
     "Map": "31.223372|121.478574",
     "PhoneNumber": "",
     "PinCode": "512000",
-    "HotelWebsiteUrl": "."
+    "HotelWebsiteUrl": ".",
+    "star_rating": 3,
+    "latitude": 31.223372,
+    "longitude": 121.478574
   },
   {
     "countyCode": "CN",
@@ -2211,7 +2577,10 @@
     "Map": "31.19409|121.37165",
     "PhoneNumber": "86-21-60106000",
     "PinCode": "200336",
-    "HotelWebsiteUrl": "http://WWW.MARRIOTTHOTELS.COM"
+    "HotelWebsiteUrl": "http://WWW.MARRIOTTHOTELS.COM",
+    "star_rating": 4,
+    "latitude": 31.19409,
+    "longitude": 121.37165
   },
   {
     "countyCode": "CN",
@@ -2229,7 +2598,10 @@
     "Map": "31.20515|121.40208",
     "PhoneNumber": "86-21-62750000",
     "PinCode": "200336",
-    "HotelWebsiteUrl": "http://www.renaissanceshanghai.com"
+    "HotelWebsiteUrl": "http://www.renaissanceshanghai.com",
+    "star_rating": 5,
+    "latitude": 31.20515,
+    "longitude": 121.40208
   },
   {
     "countyCode": "CN",
@@ -2247,7 +2619,10 @@
     "Map": "31.204194|121.409643",
     "PhoneNumber": "862162753388",
     "PinCode": "200051",
-    "HotelWebsiteUrl": "http://www.rainbow.jinjianghotels.com"
+    "HotelWebsiteUrl": "http://www.rainbow.jinjianghotels.com",
+    "star_rating": 5,
+    "latitude": 31.204194,
+    "longitude": 121.409643
   },
   {
     "countyCode": "CN",
@@ -2265,7 +2640,10 @@
     "Map": "31.24511|121.48486",
     "PhoneNumber": "+862163242210",
     "PinCode": "200085",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-metropolo-classiq-shanghai-xinya-bund.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-metropolo-classiq-shanghai-xinya-bund.html",
+    "star_rating": 4,
+    "latitude": 31.24511,
+    "longitude": 121.48486
   },
   {
     "countyCode": "CN",
@@ -2283,7 +2661,10 @@
     "Map": "31.30185|121.48261",
     "PhoneNumber": "86-21-55589888",
     "PinCode": "200434",
-    "HotelWebsiteUrl": "http://www.guangdonghotelshanghai.cn/"
+    "HotelWebsiteUrl": "http://www.guangdonghotelshanghai.cn/",
+    "star_rating": 4,
+    "latitude": 31.30185,
+    "longitude": 121.48261
   },
   {
     "countyCode": "CN",
@@ -2301,7 +2682,10 @@
     "Map": "31.212866|121.42946",
     "PhoneNumber": "+862162129998",
     "PinCode": "200052",
-    "HotelWebsiteUrl": "http://www.radissonasiapacific.com"
+    "HotelWebsiteUrl": "http://www.radissonasiapacific.com",
+    "star_rating": 4,
+    "latitude": 31.212866,
+    "longitude": 121.42946
   },
   {
     "countyCode": "CN",
@@ -2319,7 +2703,10 @@
     "Map": "31.283114|121.47593",
     "PhoneNumber": "86-21-55519988",
     "PinCode": "200083",
-    "HotelWebsiteUrl": "http://www.skyrainbowhotel.com/en/index.aspx"
+    "HotelWebsiteUrl": "http://www.skyrainbowhotel.com/en/index.aspx",
+    "star_rating": 5,
+    "latitude": 31.283114,
+    "longitude": 121.47593
   },
   {
     "countyCode": "CN",
@@ -2337,7 +2724,10 @@
     "Map": "31.254579|121.575398",
     "PhoneNumber": "86-021-20207765",
     "PinCode": "200136",
-    "HotelWebsiteUrl": "http://jinqiao.lansonplace.com"
+    "HotelWebsiteUrl": "http://jinqiao.lansonplace.com",
+    "star_rating": 4,
+    "latitude": 31.254579,
+    "longitude": 121.575398
   },
   {
     "countyCode": "CN",
@@ -2355,7 +2745,10 @@
     "Map": "31.19469|121.50237",
     "PhoneNumber": "",
     "PinCode": "200085",
-    "HotelWebsiteUrl": "http://www.fxhotels.com/en/Hotel.aspx?hotelId=SHAE"
+    "HotelWebsiteUrl": "http://www.fxhotels.com/en/Hotel.aspx?hotelId=SHAE",
+    "star_rating": 3,
+    "latitude": 31.19469,
+    "longitude": 121.50237
   },
   {
     "countyCode": "CN",
@@ -2373,7 +2766,10 @@
     "Map": "31.2246325|121.19656331",
     "PhoneNumber": "",
     "PinCode": "Shanghai",
-    "HotelWebsiteUrl": "http://www.glxskhotel.com/"
+    "HotelWebsiteUrl": "http://www.glxskhotel.com/",
+    "star_rating": 3,
+    "latitude": 31.2246325,
+    "longitude": 121.19656331
   },
   {
     "countyCode": "CN",
@@ -2391,7 +2787,10 @@
     "Map": "31.07948|121.49407",
     "PhoneNumber": "",
     "PinCode": "201400",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 31.07948,
+    "longitude": 121.49407
   },
   {
     "countyCode": "CN",
@@ -2409,7 +2808,10 @@
     "Map": "31.120189|121.37083",
     "PhoneNumber": "",
     "PinCode": "201100",
-    "HotelWebsiteUrl": "http://www.h-f-hotel.com/"
+    "HotelWebsiteUrl": "http://www.h-f-hotel.com/",
+    "star_rating": 3,
+    "latitude": 31.120189,
+    "longitude": 121.37083
   },
   {
     "countyCode": "CN",
@@ -2427,7 +2829,10 @@
     "Map": "31.167160034|121.3344574",
     "PhoneNumber": "0086 216 4785678",
     "PinCode": "201105",
-    "HotelWebsiteUrl": "http://www.yitel.com"
+    "HotelWebsiteUrl": "http://www.yitel.com",
+    "star_rating": 4,
+    "latitude": 31.167160034,
+    "longitude": 121.3344574
   },
   {
     "countyCode": "CN",
@@ -2445,7 +2850,10 @@
     "Map": "31.120734|121.049841",
     "PhoneNumber": "862139277888",
     "PinCode": "200085",
-    "HotelWebsiteUrl": "http://www.jinjianghotels.com/hotel/2049/"
+    "HotelWebsiteUrl": "http://www.jinjianghotels.com/hotel/2049/",
+    "star_rating": 4,
+    "latitude": 31.120734,
+    "longitude": 121.049841
   },
   {
     "countyCode": "CN",
@@ -2463,7 +2871,10 @@
     "Map": "31.16221|121.4234",
     "PhoneNumber": "86-21-24268888",
     "PinCode": "200235",
-    "HotelWebsiteUrl": "http://www.pullmanhotels.com/gb/hotel-7564-pullman-shanghai-south-/ind"
+    "HotelWebsiteUrl": "http://www.pullmanhotels.com/gb/hotel-7564-pullman-shanghai-south-/ind",
+    "star_rating": 4,
+    "latitude": 31.16221,
+    "longitude": 121.4234
   },
   {
     "countyCode": "CN",
@@ -2481,7 +2892,10 @@
     "Map": "31.24151|121.52001",
     "PhoneNumber": "86-21-50366666",
     "PinCode": "200120",
-    "HotelWebsiteUrl": "http://www.accorhotels-asia.com"
+    "HotelWebsiteUrl": "http://www.accorhotels-asia.com",
+    "star_rating": 4,
+    "latitude": 31.24151,
+    "longitude": 121.52001
   },
   {
     "countyCode": "CN",
@@ -2499,7 +2913,10 @@
     "Map": "31.016768|121.269185",
     "PhoneNumber": "",
     "PinCode": "200085",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.016768,
+    "longitude": 121.269185
   },
   {
     "countyCode": "CN",
@@ -2517,7 +2934,10 @@
     "Map": "31.22609|121.54858",
     "PhoneNumber": "86-21-38714888",
     "PinCode": "200134",
-    "HotelWebsiteUrl": "http://www.renaissancepudong.com"
+    "HotelWebsiteUrl": "http://www.renaissancepudong.com",
+    "star_rating": 4,
+    "latitude": 31.22609,
+    "longitude": 121.54858
   },
   {
     "countyCode": "CN",
@@ -2535,7 +2955,10 @@
     "Map": "31.290065|121.16326",
     "PhoneNumber": "86-13761703467",
     "PinCode": "201805",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 5,
+    "latitude": 31.290065,
+    "longitude": 121.16326
   },
   {
     "countyCode": "CN",
@@ -2553,7 +2976,10 @@
     "Map": "31.235188|121.483742",
     "PhoneNumber": "",
     "PinCode": "201512",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.235188,
+    "longitude": 121.483742
   },
   {
     "countyCode": "CN",
@@ -2571,7 +2997,10 @@
     "Map": "31.241611|121.226318",
     "PhoneNumber": "86-21-39777888",
     "PinCode": "201708",
-    "HotelWebsiteUrl": "http://www.delightelhotel.com"
+    "HotelWebsiteUrl": "http://www.delightelhotel.com",
+    "star_rating": 3,
+    "latitude": 31.241611,
+    "longitude": 121.226318
   },
   {
     "countyCode": "CN",
@@ -2589,7 +3018,10 @@
     "Map": "31.23622|121.46847",
     "PhoneNumber": "+862163599999",
     "PinCode": "200003",
-    "HotelWebsiteUrl": "https://www.radissonblu.com/en/newworldhotel-shang"
+    "HotelWebsiteUrl": "https://www.radissonblu.com/en/newworldhotel-shang",
+    "star_rating": 5,
+    "latitude": 31.23622,
+    "longitude": 121.46847
   },
   {
     "countyCode": "CN",
@@ -2607,7 +3039,10 @@
     "Map": "31.26539|121.5148",
     "PhoneNumber": "+862161001888",
     "PinCode": "200082",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/shanghai-golden-jade-sunshine.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/shanghai-golden-jade-sunshine.html",
+    "star_rating": 4,
+    "latitude": 31.26539,
+    "longitude": 121.5148
   },
   {
     "countyCode": "CN",
@@ -2625,7 +3060,10 @@
     "Map": "31.234957|121.480606",
     "PhoneNumber": "86-21-53965000",
     "PinCode": "200001",
-    "HotelWebsiteUrl": "http://www.centralhotelshanghai.com"
+    "HotelWebsiteUrl": "http://www.centralhotelshanghai.com",
+    "star_rating": 4,
+    "latitude": 31.234957,
+    "longitude": 121.480606
   },
   {
     "countyCode": "CN",
@@ -2643,7 +3081,10 @@
     "Map": "31.29755|121.49746",
     "PhoneNumber": "86-21-55529999",
     "PinCode": "200433",
-    "HotelWebsiteUrl": "http://www.crowneplaza.com"
+    "HotelWebsiteUrl": "http://www.crowneplaza.com",
+    "star_rating": 4,
+    "latitude": 31.29755,
+    "longitude": 121.49746
   },
   {
     "countyCode": "CN",
@@ -2661,7 +3102,10 @@
     "Map": "31.232036|121.481363",
     "PhoneNumber": "",
     "PinCode": "200001",
-    "HotelWebsiteUrl": "www.thebundhotel.com"
+    "HotelWebsiteUrl": "www.thebundhotel.com",
+    "star_rating": 4,
+    "latitude": 31.232036,
+    "longitude": 121.481363
   },
   {
     "countyCode": "CN",
@@ -2679,7 +3123,10 @@
     "Map": "31.2615698300265|121.48907482624",
     "PhoneNumber": "",
     "PinCode": "200081",
-    "HotelWebsiteUrl": "http://www.newcenturyhotelsh.com/en/index.htm"
+    "HotelWebsiteUrl": "http://www.newcenturyhotelsh.com/en/index.htm",
+    "star_rating": 4,
+    "latitude": 31.2615698300265,
+    "longitude": 121.48907482624
   },
   {
     "countyCode": "CN",
@@ -2697,7 +3144,10 @@
     "Map": "31.222998|121.52888",
     "PhoneNumber": "86-21-58306666",
     "PinCode": "200122",
-    "HotelWebsiteUrl": "http://www.holidayinn.com"
+    "HotelWebsiteUrl": "http://www.holidayinn.com",
+    "star_rating": 4,
+    "latitude": 31.222998,
+    "longitude": 121.52888
   },
   {
     "countyCode": "CN",
@@ -2715,7 +3165,10 @@
     "Map": "31.232437|121.484672",
     "PhoneNumber": "",
     "PinCode": "200001",
-    "HotelWebsiteUrl": "http://www.salvohotelshanghai.cn/"
+    "HotelWebsiteUrl": "http://www.salvohotelshanghai.cn/",
+    "star_rating": 4,
+    "latitude": 31.232437,
+    "longitude": 121.484672
   },
   {
     "countyCode": "CN",
@@ -2733,7 +3186,10 @@
     "Map": "31.22243|121.44006",
     "PhoneNumber": "86-21-62481688",
     "PinCode": "200040",
-    "HotelWebsiteUrl": "https://shanghai.equatorial.com/"
+    "HotelWebsiteUrl": "https://shanghai.equatorial.com/",
+    "star_rating": 4,
+    "latitude": 31.22243,
+    "longitude": 121.44006
   },
   {
     "countyCode": "CN",
@@ -2751,7 +3207,10 @@
     "Map": "31.237682|121.50312",
     "PhoneNumber": "86-21-5049 1234",
     "PinCode": "200121",
-    "HotelWebsiteUrl": "http://WWW.SHANGHAI.GRAND.HYATT.COM"
+    "HotelWebsiteUrl": "http://WWW.SHANGHAI.GRAND.HYATT.COM",
+    "star_rating": 5,
+    "latitude": 31.237682,
+    "longitude": 121.50312
   },
   {
     "countyCode": "CN",
@@ -2769,7 +3228,10 @@
     "Map": "31.234829042112377|121.47490628836067",
     "PhoneNumber": "",
     "PinCode": "200040",
-    "HotelWebsiteUrl": "www.jcmandarinltd.com"
+    "HotelWebsiteUrl": "www.jcmandarinltd.com",
+    "star_rating": 5,
+    "latitude": 31.234829042112377,
+    "longitude": 121.47490628836067
   },
   {
     "countyCode": "CN",
@@ -2787,7 +3249,10 @@
     "Map": "31.22102|121.45616",
     "PhoneNumber": "86-21-32189888",
     "PinCode": "200020",
-    "HotelWebsiteUrl": "http://jj.jinjianghotels.com"
+    "HotelWebsiteUrl": "http://jj.jinjianghotels.com",
+    "star_rating": 4,
+    "latitude": 31.22102,
+    "longitude": 121.45616
   },
   {
     "countyCode": "CN",
@@ -2805,7 +3270,10 @@
     "Map": "31.223221|121.442982",
     "PhoneNumber": "011-86-216 248 1125",
     "PinCode": "200040",
-    "HotelWebsiteUrl": "http://www.ladollserviceapartment.com/"
+    "HotelWebsiteUrl": "http://www.ladollserviceapartment.com/",
+    "star_rating": 3,
+    "latitude": 31.223221,
+    "longitude": 121.442982
   },
   {
     "countyCode": "CN",
@@ -2823,7 +3291,10 @@
     "Map": "31.21276|121.45494",
     "PhoneNumber": "(86) 2154569888",
     "PinCode": "210008",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/shang-hai-fen-yang-hua-yuan-jiu-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/shang-hai-fen-yang-hua-yuan-jiu-dian.html",
+    "star_rating": 5,
+    "latitude": 31.21276,
+    "longitude": 121.45494
   },
   {
     "countyCode": "CN",
@@ -2841,7 +3312,10 @@
     "Map": "31.162477|121.498318",
     "PhoneNumber": "86-21-68329990",
     "PinCode": "200126",
-    "HotelWebsiteUrl": "http://www.wyn88.com/resv/hotel_2001261.html"
+    "HotelWebsiteUrl": "http://www.wyn88.com/resv/hotel_2001261.html",
+    "star_rating": 4,
+    "latitude": 31.162477,
+    "longitude": 121.498318
   },
   {
     "countyCode": "CN",
@@ -2859,7 +3333,10 @@
     "Map": "31.197527|121.505291",
     "PhoneNumber": "",
     "PinCode": "200120",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 31.197527,
+    "longitude": 121.505291
   },
   {
     "countyCode": "CN",
@@ -2877,7 +3354,10 @@
     "Map": "31.184523|121.707749",
     "PhoneNumber": "86-21-50509500",
     "PinCode": "201200",
-    "HotelWebsiteUrl": "http://www.agoda.com/asia/china/shanghai/royal_international_hotel.html"
+    "HotelWebsiteUrl": "http://www.agoda.com/asia/china/shanghai/royal_international_hotel.html",
+    "star_rating": 4,
+    "latitude": 31.184523,
+    "longitude": 121.707749
   },
   {
     "countyCode": "CN",
@@ -2895,7 +3375,10 @@
     "Map": "31.226014|121.410913",
     "PhoneNumber": "",
     "PinCode": "200050",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.226014,
+    "longitude": 121.410913
   },
   {
     "countyCode": "CN",
@@ -2913,7 +3396,10 @@
     "Map": "31.008884|121.23108",
     "PhoneNumber": "86-213-7859999",
     "PinCode": "201600",
-    "HotelWebsiteUrl": "http://www.holidayinn.com"
+    "HotelWebsiteUrl": "http://www.holidayinn.com",
+    "star_rating": 4,
+    "latitude": 31.008884,
+    "longitude": 121.23108
   },
   {
     "countyCode": "CN",
@@ -2931,7 +3417,10 @@
     "Map": "31.20779|121.510057",
     "PhoneNumber": "86-21-61769598",
     "PinCode": "200127",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.20779,
+    "longitude": 121.510057
   },
   {
     "countyCode": "CN",
@@ -2949,7 +3438,10 @@
     "Map": "31.240164|121.466441",
     "PhoneNumber": "86-21-61371111",
     "PinCode": "200003",
-    "HotelWebsiteUrl": "http://www.kingtownplaza.com/"
+    "HotelWebsiteUrl": "http://www.kingtownplaza.com/",
+    "star_rating": 3,
+    "latitude": 31.240164,
+    "longitude": 121.466441
   },
   {
     "countyCode": "CN",
@@ -2967,7 +3459,10 @@
     "Map": "31.253114|121.498047",
     "PhoneNumber": "86-21-55589999",
     "PinCode": "200080",
-    "HotelWebsiteUrl": "http://www.sunrisesha.com/cn/index.html"
+    "HotelWebsiteUrl": "http://www.sunrisesha.com/cn/index.html",
+    "star_rating": 4,
+    "latitude": 31.253114,
+    "longitude": 121.498047
   },
   {
     "countyCode": "CN",
@@ -2985,7 +3480,10 @@
     "Map": "31.3695|121.25346",
     "PhoneNumber": "+862139916888",
     "PinCode": "201821",
-    "HotelWebsiteUrl": "http://www.marriott.com/hotels/travel/shajd-courtyard-shanghai-jiading/"
+    "HotelWebsiteUrl": "http://www.marriott.com/hotels/travel/shajd-courtyard-shanghai-jiading/",
+    "star_rating": 4,
+    "latitude": 31.3695,
+    "longitude": 121.25346
   },
   {
     "countyCode": "CN",
@@ -3003,7 +3501,10 @@
     "Map": "31.268721|121.478809",
     "PhoneNumber": "",
     "PinCode": "200083",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.268721,
+    "longitude": 121.478809
   },
   {
     "countyCode": "CN",
@@ -3021,7 +3522,10 @@
     "Map": "31.180194|121.450928",
     "PhoneNumber": "",
     "PinCode": "200030",
-    "HotelWebsiteUrl": "http://www.starwayhotel.com/StarWay/OnLine/ShowHot"
+    "HotelWebsiteUrl": "http://www.starwayhotel.com/StarWay/OnLine/ShowHot",
+    "star_rating": 3,
+    "latitude": 31.180194,
+    "longitude": 121.450928
   },
   {
     "countyCode": "CN",
@@ -3039,7 +3543,10 @@
     "Map": "31.16835|121.26724",
     "PhoneNumber": "86-21-3976 6666",
     "PinCode": "201702",
-    "HotelWebsiteUrl": "http://www.holidayinnexpress.com"
+    "HotelWebsiteUrl": "http://www.holidayinnexpress.com",
+    "star_rating": 3,
+    "latitude": 31.16835,
+    "longitude": 121.26724
   },
   {
     "countyCode": "CN",
@@ -3057,7 +3564,10 @@
     "Map": "31.252481|121.509951",
     "PhoneNumber": "",
     "PinCode": "200082",
-    "HotelWebsiteUrl": "http://www.oceanhotel.sh.cn/eng/index.html"
+    "HotelWebsiteUrl": "http://www.oceanhotel.sh.cn/eng/index.html",
+    "star_rating": 4,
+    "latitude": 31.252481,
+    "longitude": 121.509951
   },
   {
     "countyCode": "CN",
@@ -3075,7 +3585,10 @@
     "Map": "31.249104|121.489246",
     "PhoneNumber": "86-21-63938686",
     "PinCode": "200080",
-    "HotelWebsiteUrl": "http://www.hotel-pravo.com/"
+    "HotelWebsiteUrl": "http://www.hotel-pravo.com/",
+    "star_rating": 4,
+    "latitude": 31.249104,
+    "longitude": 121.489246
   },
   {
     "countyCode": "CN",
@@ -3093,7 +3606,10 @@
     "Map": "31.23896|121.48956",
     "PhoneNumber": "862161386888",
     "PinCode": "200002",
-    "HotelWebsiteUrl": "http://www.fairmont.com"
+    "HotelWebsiteUrl": "http://www.fairmont.com",
+    "star_rating": 5,
+    "latitude": 31.23896,
+    "longitude": 121.48956
   },
   {
     "countyCode": "CN",
@@ -3111,7 +3627,10 @@
     "Map": "31.235527|121.49907",
     "PhoneNumber": "86-21-6882 8888",
     "PinCode": "200120",
-    "HotelWebsiteUrl": "http://www.shangri-la.com"
+    "HotelWebsiteUrl": "http://www.shangri-la.com",
+    "star_rating": 5,
+    "latitude": 31.235527,
+    "longitude": 121.49907
   },
   {
     "countyCode": "CN",
@@ -3129,7 +3648,10 @@
     "Map": "31.222779|121.442812",
     "PhoneNumber": "86-21-62489754",
     "PinCode": "200040",
-    "HotelWebsiteUrl": "http://www.worldunion-sh.com/en"
+    "HotelWebsiteUrl": "http://www.worldunion-sh.com/en",
+    "star_rating": 3,
+    "latitude": 31.222779,
+    "longitude": 121.442812
   },
   {
     "countyCode": "CN",
@@ -3147,7 +3669,10 @@
     "Map": "31.21157|121.5047",
     "PhoneNumber": "1724312181369",
     "PinCode": "200070",
-    "HotelWebsiteUrl": "http://www.bljj.net.cn/cn/index.html"
+    "HotelWebsiteUrl": "http://www.bljj.net.cn/cn/index.html",
+    "star_rating": 3,
+    "latitude": 31.21157,
+    "longitude": 121.5047
   },
   {
     "countyCode": "CN",
@@ -3165,7 +3690,10 @@
     "Map": "31.22356|121.39223",
     "PhoneNumber": "86-21-22156666",
     "PinCode": "200062",
-    "HotelWebsiteUrl": "http://www.marriott.com/shacp"
+    "HotelWebsiteUrl": "http://www.marriott.com/shacp",
+    "star_rating": 5,
+    "latitude": 31.22356,
+    "longitude": 121.39223
   },
   {
     "countyCode": "CN",
@@ -3183,7 +3711,10 @@
     "Map": "31.251818|121.587898",
     "PhoneNumber": "86-21-20326666",
     "PinCode": "200136",
-    "HotelWebsiteUrl": "http://www.benjoyhotels.com"
+    "HotelWebsiteUrl": "http://www.benjoyhotels.com",
+    "star_rating": 3,
+    "latitude": 31.251818,
+    "longitude": 121.587898
   },
   {
     "countyCode": "CN",
@@ -3201,7 +3732,10 @@
     "Map": "31.253373|121.387044",
     "PhoneNumber": "86-21-52651999",
     "PinCode": "200333",
-    "HotelWebsiteUrl": "http://www.insunhotel.com"
+    "HotelWebsiteUrl": "http://www.insunhotel.com",
+    "star_rating": 3,
+    "latitude": 31.253373,
+    "longitude": 121.387044
   },
   {
     "countyCode": "CN",
@@ -3219,7 +3753,10 @@
     "Map": "31.235933|121.48075",
     "PhoneNumber": "86-21-63515888",
     "PinCode": "200001",
-    "HotelWebsiteUrl": "http://www.sofitel.com.cn"
+    "HotelWebsiteUrl": "http://www.sofitel.com.cn",
+    "star_rating": 4,
+    "latitude": 31.235933,
+    "longitude": 121.48075
   },
   {
     "countyCode": "CN",
@@ -3237,7 +3774,10 @@
     "Map": "31.236465|121.47304",
     "PhoneNumber": "86-21-23129888",
     "PinCode": "200003",
-    "HotelWebsiteUrl": "http://www.shanghaimarriott.com"
+    "HotelWebsiteUrl": "http://www.shanghaimarriott.com",
+    "star_rating": 5,
+    "latitude": 31.236465,
+    "longitude": 121.47304
   },
   {
     "countyCode": "CN",
@@ -3255,7 +3795,10 @@
     "Map": "31.14845|121.39294",
     "PhoneNumber": "0086 2154168555",
     "PinCode": "200000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/vienna-shanghai-jiuxing-market.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/vienna-shanghai-jiuxing-market.html",
+    "star_rating": 3,
+    "latitude": 31.14845,
+    "longitude": 121.39294
   },
   {
     "countyCode": "CN",
@@ -3273,7 +3816,10 @@
     "Map": "31.24381|121.504654",
     "PhoneNumber": "+862120829888",
     "PinCode": "200120",
-    "HotelWebsiteUrl": "http://www.mandarinoriental.com/shanghai/"
+    "HotelWebsiteUrl": "http://www.mandarinoriental.com/shanghai/",
+    "star_rating": 5,
+    "latitude": 31.24381,
+    "longitude": 121.504654
   },
   {
     "countyCode": "CN",
@@ -3291,7 +3837,10 @@
     "Map": "31.253578|121.50235",
     "PhoneNumber": "86-212-5091188",
     "PinCode": "200082",
-    "HotelWebsiteUrl": "http://www.banyantree.com/en/shanghai_on_the_bund/"
+    "HotelWebsiteUrl": "http://www.banyantree.com/en/shanghai_on_the_bund/",
+    "star_rating": 5,
+    "latitude": 31.253578,
+    "longitude": 121.50235
   },
   {
     "countyCode": "CN",
@@ -3309,7 +3858,10 @@
     "Map": "31.264334|121.21191",
     "PhoneNumber": "86-21-60568888",
     "PinCode": "201804",
-    "HotelWebsiteUrl": "https://www.ihg.com/crowneplaza/hotels/us/en/shanghai/shgat/"
+    "HotelWebsiteUrl": "https://www.ihg.com/crowneplaza/hotels/us/en/shanghai/shgat/",
+    "star_rating": 4,
+    "latitude": 31.264334,
+    "longitude": 121.21191
   },
   {
     "countyCode": "CN",
@@ -3327,7 +3879,10 @@
     "Map": "30.892724|121.933308",
     "PhoneNumber": "86-21-20339999",
     "PinCode": "201306",
-    "HotelWebsiteUrl": "http://www.crowneplaza.com/hotels/us/en/shanghai/shgwr/hoteldetail?sicreative=7879734149&dp=true&sicontent=0&sitrackingid=304158602&siclientid=3567"
+    "HotelWebsiteUrl": "http://www.crowneplaza.com/hotels/us/en/shanghai/shgwr/hoteldetail?sicreative=7879734149&dp=true&sicontent=0&sitrackingid=304158602&siclientid=3567",
+    "star_rating": 4,
+    "latitude": 30.892724,
+    "longitude": 121.933308
   },
   {
     "countyCode": "CN",
@@ -3345,7 +3900,10 @@
     "Map": "31.151718|121.13746",
     "PhoneNumber": "86-212-2130000",
     "PinCode": "2001700",
-    "HotelWebsiteUrl": "http://www.crowneplaza.com"
+    "HotelWebsiteUrl": "http://www.crowneplaza.com",
+    "star_rating": 4,
+    "latitude": 31.151718,
+    "longitude": 121.13746
   },
   {
     "countyCode": "CN",
@@ -3363,7 +3921,10 @@
     "Map": "31.221783|121.475815",
     "PhoneNumber": "86-21-23101234",
     "PinCode": "200021",
-    "HotelWebsiteUrl": "http://andaz.com"
+    "HotelWebsiteUrl": "http://andaz.com",
+    "star_rating": 4,
+    "latitude": 31.221783,
+    "longitude": 121.475815
   },
   {
     "countyCode": "CN",
@@ -3381,7 +3942,10 @@
     "Map": "31.22794|121.45083",
     "PhoneNumber": "+862162897878",
     "PinCode": "200040",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/garden-mansion.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/garden-mansion.html",
+    "star_rating": 5,
+    "latitude": 31.22794,
+    "longitude": 121.45083
   },
   {
     "countyCode": "CN",
@@ -3399,7 +3963,10 @@
     "Map": "31.263746|121.511574",
     "PhoneNumber": "",
     "PinCode": "200092",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.263746,
+    "longitude": 121.511574
   },
   {
     "countyCode": "CN",
@@ -3417,7 +3984,10 @@
     "Map": "31.194338|121.4679",
     "PhoneNumber": "86-21-53188888",
     "PinCode": "200023",
-    "HotelWebsiteUrl": "http://www.marriott.com"
+    "HotelWebsiteUrl": "http://www.marriott.com",
+    "star_rating": 5,
+    "latitude": 31.194338,
+    "longitude": 121.4679
   },
   {
     "countyCode": "CN",
@@ -3435,7 +4005,10 @@
     "Map": "31.210901|121.433278",
     "PhoneNumber": "",
     "PinCode": "200052",
-    "HotelWebsiteUrl": "http://www.lesunchine.com/index.php/home/main"
+    "HotelWebsiteUrl": "http://www.lesunchine.com/index.php/home/main",
+    "star_rating": 4,
+    "latitude": 31.210901,
+    "longitude": 121.433278
   },
   {
     "countyCode": "CN",
@@ -3453,7 +4026,10 @@
     "Map": "31.22004|121.50542",
     "PhoneNumber": "86-21-60802988",
     "PinCode": "200010",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/waterhouse-shanghai.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/waterhouse-shanghai.html",
+    "star_rating": 4,
+    "latitude": 31.22004,
+    "longitude": 121.50542
   },
   {
     "countyCode": "CN",
@@ -3471,7 +4047,10 @@
     "Map": "31.203093|121.449966",
     "PhoneNumber": "86-021-33686888",
     "PinCode": "200031",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.203093,
+    "longitude": 121.449966
   },
   {
     "countyCode": "CN",
@@ -3489,7 +4068,10 @@
     "Map": "31.22469|121.50022",
     "PhoneNumber": "00862163306060",
     "PinCode": "200010",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/shang-hai-bin-jiang-xin-jing-da-jiu-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/shang-hai-bin-jiang-xin-jing-da-jiu-dian.html",
+    "star_rating": 4,
+    "latitude": 31.22469,
+    "longitude": 121.50022
   },
   {
     "countyCode": "CN",
@@ -3507,7 +4089,10 @@
     "Map": "31.2198982|121.35533520000001",
     "PhoneNumber": "",
     "PinCode": "200335",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 31.2198982,
+    "longitude": 121.35533520000001
   },
   {
     "countyCode": "CN",
@@ -3525,7 +4110,10 @@
     "Map": "31.23768|121.4691",
     "PhoneNumber": "0086 21 63598176",
     "PinCode": "200040",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.23768,
+    "longitude": 121.4691
   },
   {
     "countyCode": "CN",
@@ -3543,7 +4131,10 @@
     "Map": "31.178496|121.752569",
     "PhoneNumber": "86-21-20213333",
     "PinCode": "201202",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.178496,
+    "longitude": 121.752569
   },
   {
     "countyCode": "CN",
@@ -3561,7 +4152,10 @@
     "Map": "31.374308799999991|121.46549649999997",
     "PhoneNumber": "",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.goldenrichhotel.com/en/hotelinfo.html"
+    "HotelWebsiteUrl": "http://www.goldenrichhotel.com/en/hotelinfo.html",
+    "star_rating": 4,
+    "latitude": 31.37430879999999,
+    "longitude": 121.46549649999997
   },
   {
     "countyCode": "CN",
@@ -3579,7 +4173,10 @@
     "Map": "31.18337|121.43537",
     "PhoneNumber": "86-21-60576888",
     "PinCode": "200030",
-    "HotelWebsiteUrl": "http://www.regal-eastasia.com"
+    "HotelWebsiteUrl": "http://www.regal-eastasia.com",
+    "star_rating": 4,
+    "latitude": 31.18337,
+    "longitude": 121.43537
   },
   {
     "countyCode": "CN",
@@ -3597,7 +4194,10 @@
     "Map": "31.17188|121.4495",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.17188,
+    "longitude": 121.4495
   },
   {
     "countyCode": "CN",
@@ -3615,7 +4215,10 @@
     "Map": "31.176839828|121.4280014",
     "PhoneNumber": "+86 21 5175 2988",
     "PinCode": "200000",
-    "HotelWebsiteUrl": "http://www.7daysinn.cn"
+    "HotelWebsiteUrl": "http://www.7daysinn.cn",
+    "star_rating": 3,
+    "latitude": 31.176839828,
+    "longitude": 121.4280014
   },
   {
     "countyCode": "CN",
@@ -3633,7 +4236,10 @@
     "Map": "31.2618|121.52288",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.2618,
+    "longitude": 121.52288
   },
   {
     "countyCode": "CN",
@@ -3651,7 +4257,10 @@
     "Map": "31.232645|121.45198",
     "PhoneNumber": "86-21-62579999",
     "PinCode": "200041",
-    "HotelWebsiteUrl": "http://www.starwoodhotels.com/stregis/property/photos/index.html?prope"
+    "HotelWebsiteUrl": "http://www.starwoodhotels.com/stregis/property/photos/index.html?prope",
+    "star_rating": 5,
+    "latitude": 31.232645,
+    "longitude": 121.45198
   },
   {
     "countyCode": "CN",
@@ -3669,7 +4278,10 @@
     "Map": "31.180626|121.422978",
     "PhoneNumber": "86-021-64082999",
     "PinCode": "200233",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.180626,
+    "longitude": 121.422978
   },
   {
     "countyCode": "CN",
@@ -3687,7 +4299,10 @@
     "Map": "31.232525|121.413514",
     "PhoneNumber": "",
     "PinCode": "200063",
-    "HotelWebsiteUrl": "http://www.accorhotels.com/de/hotel-7932-ibis-shanghai-jinshajiang/index.shtml"
+    "HotelWebsiteUrl": "http://www.accorhotels.com/de/hotel-7932-ibis-shanghai-jinshajiang/index.shtml",
+    "star_rating": 4,
+    "latitude": 31.232525,
+    "longitude": 121.413514
   },
   {
     "countyCode": "CN",
@@ -3705,7 +4320,10 @@
     "Map": "31.2849007|121.5159988",
     "PhoneNumber": "",
     "PinCode": "200093",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.2849007,
+    "longitude": 121.5159988
   },
   {
     "countyCode": "CN",
@@ -3723,7 +4341,10 @@
     "Map": "31.176524|121.750129",
     "PhoneNumber": "86-021-58382818",
     "PinCode": "201202",
-    "HotelWebsiteUrl": "http://www.xingcheng.com/online/showhotelinfo.aspx?hotel=90065"
+    "HotelWebsiteUrl": "http://www.xingcheng.com/online/showhotelinfo.aspx?hotel=90065",
+    "star_rating": 3,
+    "latitude": 31.176524,
+    "longitude": 121.750129
   },
   {
     "countyCode": "CN",
@@ -3741,7 +4362,10 @@
     "Map": "31.317249298|121.60919952",
     "PhoneNumber": "",
     "PinCode": "200131",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.317249298,
+    "longitude": 121.60919952
   },
   {
     "countyCode": "CN",
@@ -3759,7 +4383,10 @@
     "Map": "31.22431|121.44018",
     "PhoneNumber": "86-21-5253 9888",
     "PinCode": "200040",
-    "HotelWebsiteUrl": "http://www.blmlyhotel.com/"
+    "HotelWebsiteUrl": "http://www.blmlyhotel.com/",
+    "star_rating": 4,
+    "latitude": 31.22431,
+    "longitude": 121.44018
   },
   {
     "countyCode": "CN",
@@ -3777,7 +4404,10 @@
     "Map": "31.27974|121.5291",
     "PhoneNumber": "+86 21 5182 3118",
     "PinCode": "200093",
-    "HotelWebsiteUrl": "http://www.7daysinn.cn"
+    "HotelWebsiteUrl": "http://www.7daysinn.cn",
+    "star_rating": 3,
+    "latitude": 31.27974,
+    "longitude": 121.5291
   },
   {
     "countyCode": "CN",
@@ -3795,7 +4425,10 @@
     "Map": "31.198663|121.423827",
     "PhoneNumber": "86-21-62838800",
     "PinCode": "200030",
-    "HotelWebsiteUrl": "http://www.ibis.cn/7949/detail/default.aspx"
+    "HotelWebsiteUrl": "http://www.ibis.cn/7949/detail/default.aspx",
+    "star_rating": 3,
+    "latitude": 31.198663,
+    "longitude": 121.423827
   },
   {
     "countyCode": "CN",
@@ -3813,7 +4446,10 @@
     "Map": "31.20405|121.54388",
     "PhoneNumber": "+862136174888",
     "PinCode": "201204",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/ge-lin-hao-tai-shi-ji-gong-yuan.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/ge-lin-hao-tai-shi-ji-gong-yuan.html",
+    "star_rating": 3,
+    "latitude": 31.20405,
+    "longitude": 121.54388
   },
   {
     "countyCode": "CN",
@@ -3831,6 +4467,9 @@
     "Map": "31.2149116|121.28",
     "PhoneNumber": "",
     "PinCode": "200001",
-    "HotelWebsiteUrl": "N/A"
+    "HotelWebsiteUrl": "N/A",
+    "star_rating": 3,
+    "latitude": 31.2149116,
+    "longitude": 121.28
   }
 ]

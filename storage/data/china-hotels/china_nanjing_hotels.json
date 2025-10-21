@@ -15,7 +15,10 @@
     "Map": "31.97756958|118.78211212",
     "PhoneNumber": "86-25-88011888",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "http://www.ztehotel.com/welcome_nj.html"
+    "HotelWebsiteUrl": "http://www.ztehotel.com/welcome_nj.html",
+    "star_rating": 4,
+    "latitude": 31.97756958,
+    "longitude": 118.78211212
   },
   {
     "countyCode": "CN",
@@ -33,7 +36,10 @@
     "Map": "32.07641|118.75143",
     "PhoneNumber": "+862558802888",
     "PinCode": "210003",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/parkview-dingshan-nanjing.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/parkview-dingshan-nanjing.html",
+    "star_rating": 5,
+    "latitude": 32.07641,
+    "longitude": 118.75143
   },
   {
     "countyCode": "CN",
@@ -51,7 +57,10 @@
     "Map": "32.040267|118.8057",
     "PhoneNumber": "00864001840018",
     "PinCode": "210002",
-    "HotelWebsiteUrl": "http://www.super8.com/hotels/china/nanjing/super-8-hotel-nanjing-shun-tian-presidential-palace/hotel-overview"
+    "HotelWebsiteUrl": "http://www.super8.com/hotels/china/nanjing/super-8-hotel-nanjing-shun-tian-presidential-palace/hotel-overview",
+    "star_rating": 3,
+    "latitude": 32.040267,
+    "longitude": 118.8057
   },
   {
     "countyCode": "CN",
@@ -69,7 +78,10 @@
     "Map": "32.09604|118.78606",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.09604,
+    "longitude": 118.78606
   },
   {
     "countyCode": "CN",
@@ -87,7 +99,10 @@
     "Map": "32.01928|118.77142",
     "PhoneNumber": "86 25 82231888",
     "PinCode": "210006",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 32.01928,
+    "longitude": 118.77142
   },
   {
     "countyCode": "CN",
@@ -105,7 +120,10 @@
     "Map": "32.041077|118.811462",
     "PhoneNumber": "",
     "PinCode": "210016",
-    "HotelWebsiteUrl": "http://hotel.elong.net/31101035/"
+    "HotelWebsiteUrl": "http://hotel.elong.net/31101035/",
+    "star_rating": 3,
+    "latitude": 32.041077,
+    "longitude": 118.811462
   },
   {
     "countyCode": "CN",
@@ -123,7 +141,10 @@
     "Map": "32.154397|118.707975",
     "PhoneNumber": "+864006038888",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://www.super8.com/hotels/china/nanjing/super-8"
+    "HotelWebsiteUrl": "http://www.super8.com/hotels/china/nanjing/super-8",
+    "star_rating": 3,
+    "latitude": 32.154397,
+    "longitude": 118.707975
   },
   {
     "countyCode": "CN",
@@ -141,7 +162,10 @@
     "Map": "32.000423|118.71877",
     "PhoneNumber": "862586728888",
     "PinCode": "210005",
-    "HotelWebsiteUrl": "http://www.fairmont.com/nanjing/|https://www.accor"
+    "HotelWebsiteUrl": "http://www.fairmont.com/nanjing/|https://www.accor",
+    "star_rating": 5,
+    "latitude": 32.000423,
+    "longitude": 118.71877
   },
   {
     "countyCode": "CN",
@@ -159,7 +183,10 @@
     "Map": "32.09346|118.73897",
     "PhoneNumber": "025-58581155/58581329",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 32.09346,
+    "longitude": 118.73897
   },
   {
     "countyCode": "CN",
@@ -177,7 +204,10 @@
     "Map": "32.025230810255806|118.76152328760531",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.025230810255806,
+    "longitude": 118.76152328760531
   },
   {
     "countyCode": "CN",
@@ -195,7 +225,10 @@
     "Map": "32.04973|118.78263",
     "PhoneNumber": "",
     "PinCode": "210008",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.04973,
+    "longitude": 118.78263
   },
   {
     "countyCode": "CN",
@@ -213,7 +246,10 @@
     "Map": "32.043892|118.777469",
     "PhoneNumber": "86-258-4711888",
     "PinCode": "210005",
-    "HotelWebsiteUrl": "http://www.jinlinghotels.com/Chinese/index.html"
+    "HotelWebsiteUrl": "http://www.jinlinghotels.com/Chinese/index.html",
+    "star_rating": 5,
+    "latitude": 32.043892,
+    "longitude": 118.777469
   },
   {
     "countyCode": "CN",
@@ -231,7 +267,10 @@
     "Map": "31.98688|118.73003",
     "PhoneNumber": "(86) 2585815998",
     "PinCode": "210019",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-jiangsu-nanjing-olympic-sports-center-express.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-jiangsu-nanjing-olympic-sports-center-express.html",
+    "star_rating": 3,
+    "latitude": 31.98688,
+    "longitude": 118.73003
   },
   {
     "countyCode": "CN",
@@ -249,7 +288,10 @@
     "Map": "31.994|118.74028",
     "PhoneNumber": "(86) 2587775999",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 31.994,
+    "longitude": 118.74028
   },
   {
     "countyCode": "CN",
@@ -267,7 +309,10 @@
     "Map": "32.03236|118.78467",
     "PhoneNumber": "(86) 2581515122",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "http://www.kb-apartment.cn"
+    "HotelWebsiteUrl": "http://www.kb-apartment.cn",
+    "star_rating": 3,
+    "latitude": 32.03236,
+    "longitude": 118.78467
   },
   {
     "countyCode": "CN",
@@ -285,7 +330,10 @@
     "Map": "32.0473|118.786",
     "PhoneNumber": "",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.0473,
+    "longitude": 118.786
   },
   {
     "countyCode": "CN",
@@ -303,7 +351,10 @@
     "Map": "32.03979|118.81955",
     "PhoneNumber": "(86) 2558581888",
     "PinCode": "210016",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/nan-jing-jin-yao-chi-shang-wu-jiu-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/nan-jing-jin-yao-chi-shang-wu-jiu-dian.html",
+    "star_rating": 3,
+    "latitude": 32.03979,
+    "longitude": 118.81955
   },
   {
     "countyCode": "CN",
@@ -321,7 +372,10 @@
     "Map": "32.10544|118.81015",
     "PhoneNumber": "(86) 2557033999",
     "PinCode": "210049",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-nanjing-maigao-bridge.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-nanjing-maigao-bridge.html",
+    "star_rating": 3,
+    "latitude": 32.10544,
+    "longitude": 118.81015
   },
   {
     "countyCode": "CN",
@@ -339,7 +393,10 @@
     "Map": "32.091901|118.77289",
     "PhoneNumber": "86-25-83599999",
     "PinCode": "210037",
-    "HotelWebsiteUrl": "http://huamaonanjing.com/"
+    "HotelWebsiteUrl": "http://huamaonanjing.com/",
+    "star_rating": 3,
+    "latitude": 32.091901,
+    "longitude": 118.77289
   },
   {
     "countyCode": "CN",
@@ -357,7 +414,10 @@
     "Map": "32.06526|118.74046",
     "PhoneNumber": "862586295050",
     "PinCode": "211110",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/starway-nanjing-hexiding-huaimen.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/starway-nanjing-hexiding-huaimen.html",
+    "star_rating": 3,
+    "latitude": 32.06526,
+    "longitude": 118.74046
   },
   {
     "countyCode": "CN",
@@ -375,7 +435,10 @@
     "Map": "32.04668|118.78574",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.04668,
+    "longitude": 118.78574
   },
   {
     "countyCode": "CN",
@@ -393,7 +456,10 @@
     "Map": "32.00664|118.78662",
     "PhoneNumber": "",
     "PinCode": "210006",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.00664,
+    "longitude": 118.78662
   },
   {
     "countyCode": "CN",
@@ -411,7 +477,10 @@
     "Map": "32.04618|118.80801",
     "PhoneNumber": "",
     "PinCode": "210018",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.04618,
+    "longitude": 118.80801
   },
   {
     "countyCode": "CN",
@@ -429,7 +498,10 @@
     "Map": "32.004188|118.729933",
     "PhoneNumber": "868602587776888",
     "PinCode": "210019",
-    "HotelWebsiteUrl": "http://www.accorhotels.com/gb/hotel-B373-mercure-n"
+    "HotelWebsiteUrl": "http://www.accorhotels.com/gb/hotel-B373-mercure-n",
+    "star_rating": 3,
+    "latitude": 32.004188,
+    "longitude": 118.729933
   },
   {
     "countyCode": "CN",
@@ -447,7 +519,10 @@
     "Map": "32.06568|118.75045",
     "PhoneNumber": "+862586263999",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/vienna-nanjing-longjiang.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/vienna-nanjing-longjiang.html",
+    "star_rating": 3,
+    "latitude": 32.06568,
+    "longitude": 118.75045
   },
   {
     "countyCode": "CN",
@@ -465,7 +540,10 @@
     "Map": "32.04659|118.75053",
     "PhoneNumber": "0086 2586560168",
     "PinCode": "210036",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jingjiang-inn-nanjing-qingliangmen.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jingjiang-inn-nanjing-qingliangmen.html",
+    "star_rating": 3,
+    "latitude": 32.04659,
+    "longitude": 118.75053
   },
   {
     "countyCode": "CN",
@@ -483,7 +561,10 @@
     "Map": "32.2068|118.72452",
     "PhoneNumber": "(86) 02558699888",
     "PinCode": "210044",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.2068,
+    "longitude": 118.72452
   },
   {
     "countyCode": "CN",
@@ -501,7 +582,10 @@
     "Map": "32.0735|118.89665",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 32.0735,
+    "longitude": 118.89665
   },
   {
     "countyCode": "CN",
@@ -519,7 +603,10 @@
     "Map": "31.94705|118.86315",
     "PhoneNumber": "(86) 2552391166",
     "PinCode": "211100",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-nanjing-jiangning-tianyin-avenue.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-nanjing-jiangning-tianyin-avenue.html",
+    "star_rating": 3,
+    "latitude": 31.94705,
+    "longitude": 118.86315
   },
   {
     "countyCode": "CN",
@@ -537,7 +624,10 @@
     "Map": "32.04797|119.06749",
     "PhoneNumber": "(86) 2584109999",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "http://www.yuhaospringhotel.com"
+    "HotelWebsiteUrl": "http://www.yuhaospringhotel.com",
+    "star_rating": 4,
+    "latitude": 32.04797,
+    "longitude": 119.06749
   },
   {
     "countyCode": "CN",
@@ -555,7 +645,10 @@
     "Map": "32.07107|118.6413",
     "PhoneNumber": "(86) 2558138888",
     "PinCode": "211800",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.07107,
+    "longitude": 118.6413
   },
   {
     "countyCode": "CN",
@@ -573,7 +666,10 @@
     "Map": "32.09039|118.51602",
     "PhoneNumber": "025-58248888",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.09039,
+    "longitude": 118.51602
   },
   {
     "countyCode": "CN",
@@ -591,7 +687,10 @@
     "Map": "32.04999|118.78252",
     "PhoneNumber": "",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/nanjing-365-service-apartment.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/nanjing-365-service-apartment.html",
+    "star_rating": 3,
+    "latitude": 32.04999,
+    "longitude": 118.78252
   },
   {
     "countyCode": "CN",
@@ -609,7 +708,10 @@
     "Map": "32.038009644|118.77271271",
     "PhoneNumber": "0086 25 66070667",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "http://www.kb-apartment.com"
+    "HotelWebsiteUrl": "http://www.kb-apartment.com",
+    "star_rating": 3,
+    "latitude": 32.038009644,
+    "longitude": 118.77271271
   },
   {
     "countyCode": "CN",
@@ -627,7 +729,10 @@
     "Map": "32.03395|118.78666",
     "PhoneNumber": "+862585162322",
     "PinCode": "210002",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/nan-jing-365-jiu-dian-gong-yu-cheng-kai.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/nan-jing-365-jiu-dian-gong-yu-cheng-kai.html",
+    "star_rating": 3,
+    "latitude": 32.03395,
+    "longitude": 118.78666
   },
   {
     "countyCode": "CN",
@@ -645,7 +750,10 @@
     "Map": "32.033787|118.786438",
     "PhoneNumber": "86-25-81515122",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.033787,
+    "longitude": 118.786438
   },
   {
     "countyCode": "CN",
@@ -663,7 +771,10 @@
     "Map": "32.046197|118.784598",
     "PhoneNumber": "86-25-68518811",
     "PinCode": "210005",
-    "HotelWebsiteUrl": "http://www.cumberland.com.cn"
+    "HotelWebsiteUrl": "http://www.cumberland.com.cn",
+    "star_rating": 4,
+    "latitude": 32.046197,
+    "longitude": 118.784598
   },
   {
     "countyCode": "CN",
@@ -681,7 +792,10 @@
     "Map": "32.037393|118.776452",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.037393,
+    "longitude": 118.776452
   },
   {
     "countyCode": "CN",
@@ -699,7 +813,10 @@
     "Map": "32.0454216|118.78130341",
     "PhoneNumber": "0086 25 83575999",
     "PinCode": "210002",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.0454216,
+    "longitude": 118.78130341
   },
   {
     "countyCode": "CN",
@@ -717,7 +834,10 @@
     "Map": "32.037391663|118.81832886",
     "PhoneNumber": "(86) 2586952088",
     "PinCode": "210002",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.037391663,
+    "longitude": 118.81832886
   },
   {
     "countyCode": "CN",
@@ -735,7 +855,10 @@
     "Map": "32.046758|118.784196",
     "PhoneNumber": "86-25815-15122",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.046758,
+    "longitude": 118.784196
   },
   {
     "countyCode": "CN",
@@ -753,7 +876,10 @@
     "Map": "32.050066|118.787307",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.050066,
+    "longitude": 118.787307
   },
   {
     "countyCode": "CN",
@@ -771,7 +897,10 @@
     "Map": "32.04844|118.78455",
     "PhoneNumber": "86-258-1515122",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.04844,
+    "longitude": 118.78455
   },
   {
     "countyCode": "CN",
@@ -789,7 +918,10 @@
     "Map": "32.04837|118.7689",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.04837,
+    "longitude": 118.7689
   },
   {
     "countyCode": "CN",
@@ -807,7 +939,10 @@
     "Map": "31.938097|118.856471",
     "PhoneNumber": "86-25-68121088",
     "PinCode": "211112",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.938097,
+    "longitude": 118.856471
   },
   {
     "countyCode": "CN",
@@ -825,7 +960,10 @@
     "Map": "32.094249725|118.75759888",
     "PhoneNumber": "+861085502288",
     "PinCode": "000000",
-    "HotelWebsiteUrl": "http://www.super8.com/hotels/china/nanjing/super-8-hotel-nanjing-jianninglu/hotel-overview"
+    "HotelWebsiteUrl": "http://www.super8.com/hotels/china/nanjing/super-8-hotel-nanjing-jianninglu/hotel-overview",
+    "star_rating": 3,
+    "latitude": 32.094249725,
+    "longitude": 118.75759888
   },
   {
     "countyCode": "CN",
@@ -843,7 +981,10 @@
     "Map": "32.03876|118.8103",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://www.super8.com/hotels/china/nanjing/super-8"
+    "HotelWebsiteUrl": "http://www.super8.com/hotels/china/nanjing/super-8",
+    "star_rating": 3,
+    "latitude": 32.03876,
+    "longitude": 118.8103
   },
   {
     "countyCode": "CN",
@@ -861,7 +1002,10 @@
     "Map": "32.06863|118.7656",
     "PhoneNumber": "+861085502288",
     "PinCode": "210009",
-    "HotelWebsiteUrl": "http://www.super8.com/hotels/china/nanjing/super-8-hotel-nanjing-shan-xi-lu/hotel-overview?hotel_id="
+    "HotelWebsiteUrl": "http://www.super8.com/hotels/china/nanjing/super-8-hotel-nanjing-shan-xi-lu/hotel-overview?hotel_id=",
+    "star_rating": 3,
+    "latitude": 32.06863,
+    "longitude": 118.7656
   },
   {
     "countyCode": "CN",
@@ -879,7 +1023,10 @@
     "Map": "32.060617|118.807834",
     "PhoneNumber": "86-10-855036418",
     "PinCode": "210016",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.060617,
+    "longitude": 118.807834
   },
   {
     "countyCode": "CN",
@@ -897,7 +1044,10 @@
     "Map": "32.03011|118.736374",
     "PhoneNumber": "862586658888",
     "PinCode": "210019",
-    "HotelWebsiteUrl": "http://www3.hilton.com/en/hotels/china/hilton-nanjing-NKGJFHI/index.html"
+    "HotelWebsiteUrl": "http://www3.hilton.com/en/hotels/china/hilton-nanjing-NKGJFHI/index.html",
+    "star_rating": 5,
+    "latitude": 32.03011,
+    "longitude": 118.736374
   },
   {
     "countyCode": "CN",
@@ -915,7 +1065,10 @@
     "Map": "32.09499|118.79691",
     "PhoneNumber": "",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.09499,
+    "longitude": 118.79691
   },
   {
     "countyCode": "CN",
@@ -933,7 +1086,10 @@
     "Map": "32.087814|118.88692",
     "PhoneNumber": "86-25-85208888",
     "PinCode": "210042",
-    "HotelWebsiteUrl": "http://www.novotel.com/es/hotel-7548-novotel-nanjing-east-suning/index.shtml"
+    "HotelWebsiteUrl": "http://www.novotel.com/es/hotel-7548-novotel-nanjing-east-suning/index.shtml",
+    "star_rating": 4,
+    "latitude": 32.087814,
+    "longitude": 118.88692
   },
   {
     "countyCode": "CN",
@@ -951,7 +1107,10 @@
     "Map": "32.00754|118.7886",
     "PhoneNumber": "",
     "PinCode": "210006",
-    "HotelWebsiteUrl": "http://www.rhgresorts.com/rqhr/en-us/contact_hotel.html"
+    "HotelWebsiteUrl": "http://www.rhgresorts.com/rqhr/en-us/contact_hotel.html",
+    "star_rating": 4,
+    "latitude": 32.00754,
+    "longitude": 118.7886
   },
   {
     "countyCode": "CN",
@@ -969,7 +1128,10 @@
     "Map": "32.063207|118.884171",
     "PhoneNumber": "86-25-58288888",
     "PinCode": "211800",
-    "HotelWebsiteUrl": "http://job.veryeast.cn/1165676"
+    "HotelWebsiteUrl": "http://job.veryeast.cn/1165676",
+    "star_rating": 4,
+    "latitude": 32.063207,
+    "longitude": 118.884171
   },
   {
     "countyCode": "CN",
@@ -987,7 +1149,10 @@
     "Map": "32.02436|118.78241",
     "PhoneNumber": "86-25-52202555",
     "PinCode": "210001",
-    "HotelWebsiteUrl": "http://www.njzyl-hotel.com"
+    "HotelWebsiteUrl": "http://www.njzyl-hotel.com",
+    "star_rating": 4,
+    "latitude": 32.02436,
+    "longitude": 118.78241
   },
   {
     "countyCode": "CN",
@@ -1005,7 +1170,10 @@
     "Map": "32.08369|118.80039",
     "PhoneNumber": "025-86888888",
     "PinCode": "210037",
-    "HotelWebsiteUrl": "http://www.jsnch.com/"
+    "HotelWebsiteUrl": "http://www.jsnch.com/",
+    "star_rating": 4,
+    "latitude": 32.08369,
+    "longitude": 118.80039
   },
   {
     "countyCode": "CN",
@@ -1023,7 +1191,10 @@
     "Map": "32.04764|119.04965",
     "PhoneNumber": "",
     "PinCode": "211131",
-    "HotelWebsiteUrl": "http://www.regalia.com.cn/en/locations/regalia-tangshan/home/index.aspx"
+    "HotelWebsiteUrl": "http://www.regalia.com.cn/en/locations/regalia-tangshan/home/index.aspx",
+    "star_rating": 5,
+    "latitude": 32.04764,
+    "longitude": 119.04965
   },
   {
     "countyCode": "CN",
@@ -1041,7 +1212,10 @@
     "Map": "32.09283284|118.75567339",
     "PhoneNumber": "+862584047777",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "http://www.vogue-hotel.com"
+    "HotelWebsiteUrl": "http://www.vogue-hotel.com",
+    "star_rating": 3,
+    "latitude": 32.09283284,
+    "longitude": 118.75567339
   },
   {
     "countyCode": "CN",
@@ -1059,7 +1233,10 @@
     "Map": "31.949235|118.661141",
     "PhoneNumber": "+862551828888",
     "PinCode": "210039",
-    "HotelWebsiteUrl": "http://www.jinlinghotels.com/EN/memberhotels/NJguorui/portal.asp"
+    "HotelWebsiteUrl": "http://www.jinlinghotels.com/EN/memberhotels/NJguorui/portal.asp",
+    "star_rating": 4,
+    "latitude": 31.949235,
+    "longitude": 118.661141
   },
   {
     "countyCode": "CN",
@@ -1077,7 +1254,10 @@
     "Map": "32.070861|118.783893",
     "PhoneNumber": "86-25-83358888",
     "PinCode": "210009",
-    "HotelWebsiteUrl": "http://www.xuanwu.com.cn"
+    "HotelWebsiteUrl": "http://www.xuanwu.com.cn",
+    "star_rating": 5,
+    "latitude": 32.070861,
+    "longitude": 118.783893
   },
   {
     "countyCode": "CN",
@@ -1095,7 +1275,10 @@
     "Map": "32.07477|118.77887",
     "PhoneNumber": "+862585568888",
     "PinCode": "210009",
-    "HotelWebsiteUrl": "http://www.westin.com/nanjing"
+    "HotelWebsiteUrl": "http://www.westin.com/nanjing",
+    "star_rating": 5,
+    "latitude": 32.07477,
+    "longitude": 118.77887
   },
   {
     "countyCode": "CN",
@@ -1113,7 +1296,10 @@
     "Map": "32.08048|118.78424",
     "PhoneNumber": "+86 25 8658 9966",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/home-inn-selected-nanjing-xuanwu-lake-new-model-road-subway-station.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/home-inn-selected-nanjing-xuanwu-lake-new-model-road-subway-station.html",
+    "star_rating": 3,
+    "latitude": 32.08048,
+    "longitude": 118.78424
   },
   {
     "countyCode": "CN",
@@ -1131,7 +1317,10 @@
     "Map": "32.08911|118.79124",
     "PhoneNumber": "",
     "PinCode": "210037",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.08911,
+    "longitude": 118.79124
   },
   {
     "countyCode": "CN",
@@ -1149,7 +1338,10 @@
     "Map": "32.025611877|118.80966187",
     "PhoneNumber": "(86) 2585559900",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.025611877,
+    "longitude": 118.80966187
   },
   {
     "countyCode": "CN",
@@ -1167,7 +1359,10 @@
     "Map": "32.05097|118.776",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.05097,
+    "longitude": 118.776
   },
   {
     "countyCode": "CN",
@@ -1185,7 +1380,10 @@
     "Map": "32.0689|118.78536",
     "PhoneNumber": "(86) 2583310101",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-jiangsu-nanjing-gulou-business.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-jiangsu-nanjing-gulou-business.html",
+    "star_rating": 3,
+    "latitude": 32.0689,
+    "longitude": 118.78536
   },
   {
     "countyCode": "CN",
@@ -1203,7 +1401,10 @@
     "Map": "32.07727|118.82534",
     "PhoneNumber": "+862585282266",
     "PinCode": "210042",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-nanjing-east-bus-station.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-nanjing-east-bus-station.html",
+    "star_rating": 3,
+    "latitude": 32.07727,
+    "longitude": 118.82534
   },
   {
     "countyCode": "CN",
@@ -1221,7 +1422,10 @@
     "Map": "32.02975|118.78075",
     "PhoneNumber": "86-25-66660660",
     "PinCode": "210001",
-    "HotelWebsiteUrl": "http://www.ibishotel.com/gb/hotel-6575-ibis-nanjing-zhonghua/index.shtml"
+    "HotelWebsiteUrl": "http://www.ibishotel.com/gb/hotel-6575-ibis-nanjing-zhonghua/index.shtml",
+    "star_rating": 3,
+    "latitude": 32.02975,
+    "longitude": 118.78075
   },
   {
     "countyCode": "CN",
@@ -1239,7 +1443,10 @@
     "Map": "32.00459|118.76538",
     "PhoneNumber": "86-255-2898888",
     "PinCode": "210012",
-    "HotelWebsiteUrl": "http://de.hotels.com/ho347664/days-hotel-nanjing-nanjing-china/ http://www.daysinn.cn/english/hotel/"
+    "HotelWebsiteUrl": "http://de.hotels.com/ho347664/days-hotel-nanjing-nanjing-china/ http://www.daysinn.cn/english/hotel/",
+    "star_rating": 4,
+    "latitude": 32.00459,
+    "longitude": 118.76538
   },
   {
     "countyCode": "CN",
@@ -1257,7 +1464,10 @@
     "Map": "31.900116|118.769565",
     "PhoneNumber": "86-400-6520777",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "http://www.vogue-hotel.com/love/"
+    "HotelWebsiteUrl": "http://www.vogue-hotel.com/love/",
+    "star_rating": 4,
+    "latitude": 31.900116,
+    "longitude": 118.769565
   },
   {
     "countyCode": "CN",
@@ -1275,7 +1485,10 @@
     "Map": "32.078102|118.72729",
     "PhoneNumber": "862583158888",
     "PinCode": "210011",
-    "HotelWebsiteUrl": "http://nanjingriverside.hilton.com"
+    "HotelWebsiteUrl": "http://nanjingriverside.hilton.com",
+    "star_rating": 5,
+    "latitude": 32.078102,
+    "longitude": 118.72729
   },
   {
     "countyCode": "CN",
@@ -1293,7 +1506,10 @@
     "Map": "32.07034|118.77062",
     "PhoneNumber": "(86) 2583208800",
     "PinCode": "210001",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-nanjing-shanxi-road-cloth-city.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-nanjing-shanxi-road-cloth-city.html",
+    "star_rating": 3,
+    "latitude": 32.07034,
+    "longitude": 118.77062
   },
   {
     "countyCode": "CN",
@@ -1311,7 +1527,10 @@
     "Map": "32.050571|119.008187",
     "PhoneNumber": "86-25-84110777",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "http://www.vogue-hotel.com"
+    "HotelWebsiteUrl": "http://www.vogue-hotel.com",
+    "star_rating": 5,
+    "latitude": 32.050571,
+    "longitude": 119.008187
   },
   {
     "countyCode": "CN",
@@ -1329,7 +1548,10 @@
     "Map": "32.12116|118.8216",
     "PhoneNumber": "+862586955055",
     "PinCode": "210028",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-jiangsu-nanjing-heyan-road-xiaozhuang-square-express.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-jiangsu-nanjing-heyan-road-xiaozhuang-square-express.html",
+    "star_rating": 3,
+    "latitude": 32.12116,
+    "longitude": 118.8216
   },
   {
     "countyCode": "CN",
@@ -1347,7 +1569,10 @@
     "Map": "32.03676|118.79679",
     "PhoneNumber": "0086 25 84559266",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-jiangsu-nanjing-confucius-temple-south-taiping-road-express.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-jiangsu-nanjing-confucius-temple-south-taiping-road-express.html",
+    "star_rating": 3,
+    "latitude": 32.03676,
+    "longitude": 118.79679
   },
   {
     "countyCode": "CN",
@@ -1365,7 +1590,10 @@
     "Map": "32.05353|118.80755",
     "PhoneNumber": "(86) 2583198222",
     "PinCode": "210018",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jj-inns-nanjing-beijing-east-road.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jj-inns-nanjing-beijing-east-road.html",
+    "star_rating": 3,
+    "latitude": 32.05353,
+    "longitude": 118.80755
   },
   {
     "countyCode": "CN",
@@ -1383,7 +1611,10 @@
     "Map": "31.98434|118.79985",
     "PhoneNumber": "(86) 2552811777",
     "PinCode": "210012",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jj-inns-nanjing-kazimen-street.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jj-inns-nanjing-kazimen-street.html",
+    "star_rating": 3,
+    "latitude": 31.98434,
+    "longitude": 118.79985
   },
   {
     "countyCode": "CN",
@@ -1401,7 +1632,10 @@
     "Map": "31.95418|118.84643",
     "PhoneNumber": "",
     "PinCode": "211100",
-    "HotelWebsiteUrl": "http://www.998.com/Reservations/Hotel_Detail.aspx?"
+    "HotelWebsiteUrl": "http://www.998.com/Reservations/Hotel_Detail.aspx?",
+    "star_rating": 3,
+    "latitude": 31.95418,
+    "longitude": 118.84643
   },
   {
     "countyCode": "CN",
@@ -1419,7 +1653,10 @@
     "Map": "32.04475|118.7861",
     "PhoneNumber": "",
     "PinCode": "210005",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.04475,
+    "longitude": 118.7861
   },
   {
     "countyCode": "CN",
@@ -1437,7 +1674,10 @@
     "Map": "32.07718|118.7819",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.07718,
+    "longitude": 118.7819
   },
   {
     "countyCode": "CN",
@@ -1455,7 +1695,10 @@
     "Map": "32.051622|118.773421",
     "PhoneNumber": "",
     "PinCode": "210024",
-    "HotelWebsiteUrl": "http://www.nanjinggrandhotel.com/"
+    "HotelWebsiteUrl": "http://www.nanjinggrandhotel.com/",
+    "star_rating": 5,
+    "latitude": 32.051622,
+    "longitude": 118.773421
   },
   {
     "countyCode": "CN",
@@ -1473,7 +1716,10 @@
     "Map": "32.03846|118.7804",
     "PhoneNumber": "862584+11",
     "PinCode": "210002",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.03846,
+    "longitude": 118.7804
   },
   {
     "countyCode": "CN",
@@ -1491,7 +1737,10 @@
     "Map": "32.05541229|118.778183",
     "PhoneNumber": "",
     "PinCode": "210008",
-    "HotelWebsiteUrl": "http://www.newerahotel.com/"
+    "HotelWebsiteUrl": "http://www.newerahotel.com/",
+    "star_rating": 4,
+    "latitude": 32.05541229,
+    "longitude": 118.778183
   },
   {
     "countyCode": "CN",
@@ -1509,7 +1758,10 @@
     "Map": "32.06676|118.7709",
     "PhoneNumber": "1725166257787",
     "PinCode": "210009",
-    "HotelWebsiteUrl": "http://www.jsjinghuahotel.com/main.html"
+    "HotelWebsiteUrl": "http://www.jsjinghuahotel.com/main.html",
+    "star_rating": 3,
+    "latitude": 32.06676,
+    "longitude": 118.7709
   },
   {
     "countyCode": "CN",
@@ -1527,7 +1779,10 @@
     "Map": "32.04421|118.80558",
     "PhoneNumber": "86-25-84811888",
     "PinCode": "210018",
-    "HotelWebsiteUrl": "http://www.ssgh.com/index.php?Locale=en-us"
+    "HotelWebsiteUrl": "http://www.ssgh.com/index.php?Locale=en-us",
+    "star_rating": 4,
+    "latitude": 32.04421,
+    "longitude": 118.80558
   },
   {
     "countyCode": "CN",
@@ -1545,7 +1800,10 @@
     "Map": "32.01956|118.79036",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.01956,
+    "longitude": 118.79036
   },
   {
     "countyCode": "CN",
@@ -1563,7 +1821,10 @@
     "Map": "32.07063|118.7865",
     "PhoneNumber": "1725166560111",
     "PinCode": "210033",
-    "HotelWebsiteUrl": "http://metro.nanjinggrandhotel.com/"
+    "HotelWebsiteUrl": "http://metro.nanjinggrandhotel.com/",
+    "star_rating": 3,
+    "latitude": 32.07063,
+    "longitude": 118.7865
   },
   {
     "countyCode": "CN",
@@ -1581,7 +1842,10 @@
     "Map": "32.04046|118.8026",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.04046,
+    "longitude": 118.8026
   },
   {
     "countyCode": "CN",
@@ -1599,7 +1863,10 @@
     "Map": "31.9012|118.84934",
     "PhoneNumber": "",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-jiangsu-nanjing-jiangning-southeast-university-express.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-jiangsu-nanjing-jiangning-southeast-university-express.html",
+    "star_rating": 3,
+    "latitude": 31.9012,
+    "longitude": 118.84934
   },
   {
     "countyCode": "CN",
@@ -1617,7 +1884,10 @@
     "Map": "32.0235954365704|118.788004517555",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.0235954365704,
+    "longitude": 118.788004517555
   },
   {
     "countyCode": "CN",
@@ -1635,7 +1905,10 @@
     "Map": "32.06263|118.7746",
     "PhoneNumber": "",
     "PinCode": "210008",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.06263,
+    "longitude": 118.7746
   },
   {
     "countyCode": "CN",
@@ -1653,7 +1926,10 @@
     "Map": "32.050028|118.784386",
     "PhoneNumber": "+862583361888",
     "PinCode": "210008",
-    "HotelWebsiteUrl": "http://www.zhongshan-hotel.com/,http://nanjing.zho"
+    "HotelWebsiteUrl": "http://www.zhongshan-hotel.com/,http://nanjing.zho",
+    "star_rating": 3,
+    "latitude": 32.050028,
+    "longitude": 118.784386
   },
   {
     "countyCode": "CN",
@@ -1671,7 +1947,10 @@
     "Map": "32.044403|118.76642",
     "PhoneNumber": "+862586668888",
     "PinCode": "210029",
-    "HotelWebsiteUrl": "http://www.starwoodhotels.com/sheraton/property/overview/index.html?propertyID=180&language=en_US"
+    "HotelWebsiteUrl": "http://www.starwoodhotels.com/sheraton/property/overview/index.html?propertyID=180&language=en_US",
+    "star_rating": 4,
+    "latitude": 32.044403,
+    "longitude": 118.76642
   },
   {
     "countyCode": "CN",
@@ -1689,7 +1968,10 @@
     "Map": "32.047786|119.041388",
     "PhoneNumber": "86-25-84107777",
     "PinCode": "211131",
-    "HotelWebsiteUrl": "http://kayumanis.com/kayumanis_nanjing/kayumanis_nanjing.htm"
+    "HotelWebsiteUrl": "http://kayumanis.com/kayumanis_nanjing/kayumanis_nanjing.htm",
+    "star_rating": 4,
+    "latitude": 32.047786,
+    "longitude": 119.041388
   },
   {
     "countyCode": "CN",
@@ -1707,7 +1989,10 @@
     "Map": "31.944052|118.81294",
     "PhoneNumber": "86-25-81038888",
     "PinCode": "211100",
-    "HotelWebsiteUrl": "http://ichotelsgroup.com/redirect?path=hd&localeCode=en&hotelCode=NKGNJ"
+    "HotelWebsiteUrl": "http://ichotelsgroup.com/redirect?path=hd&localeCode=en&hotelCode=NKGNJ",
+    "star_rating": 4,
+    "latitude": 31.944052,
+    "longitude": 118.81294
   },
   {
     "countyCode": "CN",
@@ -1725,7 +2010,10 @@
     "Map": "31.9527|118.83988",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://www.wandarealm.com/publish/wdjheng/index.ht"
+    "HotelWebsiteUrl": "http://www.wandarealm.com/publish/wdjheng/index.ht",
+    "star_rating": 5,
+    "latitude": 31.9527,
+    "longitude": 118.83988
   },
   {
     "countyCode": "CN",
@@ -1743,7 +2031,10 @@
     "Map": "32.057074|118.855067",
     "PhoneNumber": "86-025-84430888",
     "PinCode": "210014",
-    "HotelWebsiteUrl": "http://www.nic-hotel.com/index.htm"
+    "HotelWebsiteUrl": "http://www.nic-hotel.com/index.htm",
+    "star_rating": 4,
+    "latitude": 32.057074,
+    "longitude": 118.855067
   },
   {
     "countyCode": "CN",
@@ -1761,7 +2052,10 @@
     "Map": "32.074161|118.764321",
     "PhoneNumber": "86-25-86826666",
     "PinCode": "210005",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.074161,
+    "longitude": 118.764321
   },
   {
     "countyCode": "CN",
@@ -1779,7 +2073,10 @@
     "Map": "31.95945|118.76214",
     "PhoneNumber": "0086 25 52382998",
     "PinCode": "210022",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/nanjing-greentreeinn-ruanjiangu-sanjiangxueyuan.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/nanjing-greentreeinn-ruanjiangu-sanjiangxueyuan.html",
+    "star_rating": 3,
+    "latitude": 31.95945,
+    "longitude": 118.76214
   },
   {
     "countyCode": "CN",
@@ -1797,7 +2094,10 @@
     "Map": "32.025253|118.77991",
     "PhoneNumber": "86-25-82233888",
     "PinCode": "210001",
-    "HotelWebsiteUrl": "http://www.holidayinn.com/hotels/de/de/nanjing/nkg"
+    "HotelWebsiteUrl": "http://www.holidayinn.com/hotels/de/de/nanjing/nkg",
+    "star_rating": 4,
+    "latitude": 32.025253,
+    "longitude": 118.77991
   },
   {
     "countyCode": "CN",
@@ -1815,7 +2115,10 @@
     "Map": "32.00414|118.77148",
     "PhoneNumber": "0086 2552451111",
     "PinCode": "210012",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-nanjing-zhonghuamen.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-nanjing-zhonghuamen.html",
+    "star_rating": 3,
+    "latitude": 32.00414,
+    "longitude": 118.77148
   },
   {
     "countyCode": "CN",
@@ -1833,7 +2136,10 @@
     "Map": "31.990444|118.714938",
     "PhoneNumber": "86-25-87708883",
     "PinCode": "210019",
-    "HotelWebsiteUrl": "http://260.jinlinghotels.com/English/index.html"
+    "HotelWebsiteUrl": "http://260.jinlinghotels.com/English/index.html",
+    "star_rating": 3,
+    "latitude": 31.990444,
+    "longitude": 118.714938
   },
   {
     "countyCode": "CN",
@@ -1851,7 +2157,10 @@
     "Map": "32.236465|118.742932",
     "PhoneNumber": "86-25-57018666",
     "PinCode": "210048",
-    "HotelWebsiteUrl": "http://031.jinlinghotels.com/English/index.html"
+    "HotelWebsiteUrl": "http://031.jinlinghotels.com/English/index.html",
+    "star_rating": 4,
+    "latitude": 32.236465,
+    "longitude": 118.742932
   },
   {
     "countyCode": "CN",
@@ -1869,7 +2178,10 @@
     "Map": "31.97787095|118.7999833",
     "PhoneNumber": "",
     "PinCode": "210012",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 5,
+    "latitude": 31.97787095,
+    "longitude": 118.7999833
   },
   {
     "countyCode": "CN",
@@ -1887,7 +2199,10 @@
     "Map": "32.05154|118.76955",
     "PhoneNumber": "+862583292905",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://hotel.nnu.cn/nanshan/index.asp"
+    "HotelWebsiteUrl": "http://hotel.nnu.cn/nanshan/index.asp",
+    "star_rating": 3,
+    "latitude": 32.05154,
+    "longitude": 118.76955
   },
   {
     "countyCode": "CN",
@@ -1905,7 +2220,10 @@
     "Map": "32.070006|118.771653",
     "PhoneNumber": "86-25-84868888",
     "PinCode": "210009",
-    "HotelWebsiteUrl": "https://www.relaischateaux.com/gb/china/good-to-know-yihe"
+    "HotelWebsiteUrl": "https://www.relaischateaux.com/gb/china/good-to-know-yihe",
+    "star_rating": 5,
+    "latitude": 32.070006,
+    "longitude": 118.771653
   },
   {
     "countyCode": "CN",
@@ -1923,7 +2241,10 @@
     "Map": "32.04821|118.76832",
     "PhoneNumber": "+862584209888",
     "PinCode": "210004",
-    "HotelWebsiteUrl": "http://jstianshenghotel.com/"
+    "HotelWebsiteUrl": "http://jstianshenghotel.com/",
+    "star_rating": 4,
+    "latitude": 32.04821,
+    "longitude": 118.76832
   },
   {
     "countyCode": "CN",
@@ -1941,7 +2262,10 @@
     "Map": "32.03822|118.75866",
     "PhoneNumber": "(86) 4008289966",
     "PinCode": "210029",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinling-mansion-nanjing.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinling-mansion-nanjing.html",
+    "star_rating": 4,
+    "latitude": 32.03822,
+    "longitude": 118.75866
   },
   {
     "countyCode": "CN",
@@ -1959,7 +2283,10 @@
     "Map": "32.067447|118.770972",
     "PhoneNumber": "86-25-83108888",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "http://www.yishiyuanhotel.com/index_en.htm"
+    "HotelWebsiteUrl": "http://www.yishiyuanhotel.com/index_en.htm",
+    "star_rating": 5,
+    "latitude": 32.067447,
+    "longitude": 118.770972
   },
   {
     "countyCode": "CN",
@@ -1977,7 +2304,10 @@
     "Map": "32.03959|118.82323",
     "PhoneNumber": "86-25-84808888",
     "PinCode": "210016",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/nanjing-grand-metropark.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/nanjing-grand-metropark.html",
+    "star_rating": 5,
+    "latitude": 32.03959,
+    "longitude": 118.82323
   },
   {
     "countyCode": "CN",
@@ -1995,7 +2325,10 @@
     "Map": "32.04001|118.81172",
     "PhoneNumber": "+862584818888",
     "PinCode": "210016",
-    "HotelWebsiteUrl": "https://air2016.org/venue/"
+    "HotelWebsiteUrl": "https://air2016.org/venue/",
+    "star_rating": 5,
+    "latitude": 32.04001,
+    "longitude": 118.81172
   },
   {
     "countyCode": "CN",
@@ -2013,7 +2346,10 @@
     "Map": "32.05871|118.7794",
     "PhoneNumber": "1725169947454",
     "PinCode": "210008",
-    "HotelWebsiteUrl": "http://www.jinglihotel.com"
+    "HotelWebsiteUrl": "http://www.jinglihotel.com",
+    "star_rating": 3,
+    "latitude": 32.05871,
+    "longitude": 118.7794
   },
   {
     "countyCode": "CN",
@@ -2031,7 +2367,10 @@
     "Map": "32.065381|118.734101",
     "PhoneNumber": "86-25-84763008",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "http://110.jinlinghotels.com/index.html"
+    "HotelWebsiteUrl": "http://110.jinlinghotels.com/index.html",
+    "star_rating": 4,
+    "latitude": 32.065381,
+    "longitude": 118.734101
   },
   {
     "countyCode": "CN",
@@ -2049,7 +2388,10 @@
     "Map": "32.04058|118.7873",
     "PhoneNumber": "2587754313750",
     "PinCode": "210005",
-    "HotelWebsiteUrl": "http://www.tianfenghotel.com/"
+    "HotelWebsiteUrl": "http://www.tianfenghotel.com/",
+    "star_rating": 3,
+    "latitude": 32.04058,
+    "longitude": 118.7873
   },
   {
     "countyCode": "CN",
@@ -2067,7 +2409,10 @@
     "Map": "32.0626413|118.7807783",
     "PhoneNumber": "86-025-83123333",
     "PinCode": "210008",
-    "HotelWebsiteUrl": "http://www.celebritycityhotel.com/"
+    "HotelWebsiteUrl": "http://www.celebritycityhotel.com/",
+    "star_rating": 5,
+    "latitude": 32.0626413,
+    "longitude": 118.7807783
   },
   {
     "countyCode": "CN",
@@ -2085,7 +2430,10 @@
     "Map": "32.04926|118.79561",
     "PhoneNumber": "86 25 86883888",
     "PinCode": "210018",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/dong-fang-zhen-zhu-fan-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/dong-fang-zhen-zhu-fan-dian.html",
+    "star_rating": 5,
+    "latitude": 32.04926,
+    "longitude": 118.79561
   },
   {
     "countyCode": "CN",
@@ -2103,7 +2451,10 @@
     "Map": "32.08024|118.873673",
     "PhoneNumber": "86-25-85408888",
     "PinCode": "210042",
-    "HotelWebsiteUrl": "http://www.sofitel.com"
+    "HotelWebsiteUrl": "http://www.sofitel.com",
+    "star_rating": 5,
+    "latitude": 32.08024,
+    "longitude": 118.873673
   },
   {
     "countyCode": "CN",
@@ -2121,7 +2472,10 @@
     "Map": "32.050798|118.774745",
     "PhoneNumber": "",
     "PinCode": "210024",
-    "HotelWebsiteUrl": "http://www.suningsuitehotel.com"
+    "HotelWebsiteUrl": "http://www.suningsuitehotel.com",
+    "star_rating": 5,
+    "latitude": 32.050798,
+    "longitude": 118.774745
   },
   {
     "countyCode": "CN",
@@ -2139,7 +2493,10 @@
     "Map": "32.045818|118.791123",
     "PhoneNumber": "",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "http://www.shangmaohotel.com"
+    "HotelWebsiteUrl": "http://www.shangmaohotel.com",
+    "star_rating": 5,
+    "latitude": 32.045818,
+    "longitude": 118.791123
   },
   {
     "countyCode": "CN",
@@ -2157,7 +2514,10 @@
     "Map": "32.088734|118.788239",
     "PhoneNumber": "86-25-68888888",
     "PinCode": "210037",
-    "HotelWebsiteUrl": "http://www.shuguanginternationalhotel.com/"
+    "HotelWebsiteUrl": "http://www.shuguanginternationalhotel.com/",
+    "star_rating": 4,
+    "latitude": 32.088734,
+    "longitude": 118.788239
   },
   {
     "countyCode": "CN",
@@ -2175,7 +2535,10 @@
     "Map": "32.05723|118.81343",
     "PhoneNumber": "86-025-69596666",
     "PinCode": "210016",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/siya-garden.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/siya-garden.html",
+    "star_rating": 4,
+    "latitude": 32.05723,
+    "longitude": 118.81343
   },
   {
     "countyCode": "CN",
@@ -2193,7 +2556,10 @@
     "Map": "32.06801|118.81029",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.06801,
+    "longitude": 118.81029
   },
   {
     "countyCode": "CN",
@@ -2211,7 +2577,10 @@
     "Map": "32.04753|118.79027",
     "PhoneNumber": "(86) 02586819999",
     "PinCode": "210005",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 32.04753,
+    "longitude": 118.79027
   },
   {
     "countyCode": "CN",
@@ -2229,7 +2598,10 @@
     "Map": "32.02376|118.78882",
     "PhoneNumber": "+862566777168",
     "PinCode": "210001",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/ji-nanjing-confucius-temple-center.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/ji-nanjing-confucius-temple-center.html",
+    "star_rating": 4,
+    "latitude": 32.02376,
+    "longitude": 118.78882
   },
   {
     "countyCode": "CN",
@@ -2247,7 +2619,10 @@
     "Map": "32.01042|118.7935",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.01042,
+    "longitude": 118.7935
   },
   {
     "countyCode": "CN",
@@ -2265,7 +2640,10 @@
     "Map": "32.041431|118.780383",
     "PhoneNumber": "",
     "PinCode": "210029",
-    "HotelWebsiteUrl": "http://www.crowneplaza.com/h/d/cp/394/de/hd/nkgge?"
+    "HotelWebsiteUrl": "http://www.crowneplaza.com/h/d/cp/394/de/hd/nkgge?",
+    "star_rating": 5,
+    "latitude": 32.041431,
+    "longitude": 118.780383
   },
   {
     "countyCode": "CN",
@@ -2283,7 +2661,10 @@
     "Map": "32.073|118.81258",
     "PhoneNumber": "025-86891888",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "http://www.metroparkhotels.com/hotel/eng/index.php?hotel=jinling"
+    "HotelWebsiteUrl": "http://www.metroparkhotels.com/hotel/eng/index.php?hotel=jinling",
+    "star_rating": 4,
+    "latitude": 32.073,
+    "longitude": 118.81258
   },
   {
     "countyCode": "CN",
@@ -2301,7 +2682,10 @@
     "Map": "32.03414|118.82961",
     "PhoneNumber": "(86) 2584270666",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 32.03414,
+    "longitude": 118.82961
   },
   {
     "countyCode": "CN",
@@ -2319,7 +2703,10 @@
     "Map": "32.09243|118.77464",
     "PhoneNumber": "+862086009099|+862086044281",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://www.hotelincn.com/28055/en/index.html"
+    "HotelWebsiteUrl": "http://www.hotelincn.com/28055/en/index.html",
+    "star_rating": 3,
+    "latitude": 32.09243,
+    "longitude": 118.77464
   },
   {
     "countyCode": "CN",
@@ -2337,7 +2724,10 @@
     "Map": "32.081156|118.748356",
     "PhoneNumber": "86-25-83129888",
     "PinCode": "210003",
-    "HotelWebsiteUrl": "http://www.jinlinghotels.com/EN/memberho"
+    "HotelWebsiteUrl": "http://www.jinlinghotels.com/EN/memberho",
+    "star_rating": 3,
+    "latitude": 32.081156,
+    "longitude": 118.748356
   },
   {
     "countyCode": "CN",
@@ -2355,7 +2745,10 @@
     "Map": "32.075455|118.765236",
     "PhoneNumber": "86-25-3400888",
     "PinCode": "210005",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.075455,
+    "longitude": 118.765236
   },
   {
     "countyCode": "CN",
@@ -2373,7 +2766,10 @@
     "Map": "32.045245|118.783431",
     "PhoneNumber": "86-25-83155888",
     "PinCode": "210005",
-    "HotelWebsiteUrl": "http://www.centralhotelnanjing.com/"
+    "HotelWebsiteUrl": "http://www.centralhotelnanjing.com/",
+    "star_rating": 4,
+    "latitude": 32.045245,
+    "longitude": 118.783431
   },
   {
     "countyCode": "CN",
@@ -2391,7 +2787,10 @@
     "Map": "32.0473|118.786",
     "PhoneNumber": "025-84700999",
     "PinCode": "210005",
-    "HotelWebsiteUrl": "http://www.futureinn.com"
+    "HotelWebsiteUrl": "http://www.futureinn.com",
+    "star_rating": 4,
+    "latitude": 32.0473,
+    "longitude": 118.786
   },
   {
     "countyCode": "CN",
@@ -2409,7 +2808,10 @@
     "Map": "32.01158|118.70486",
     "PhoneNumber": "86-25-51872888",
     "PinCode": "641309",
-    "HotelWebsiteUrl": "http://www.jinlingriversidehotel.com/"
+    "HotelWebsiteUrl": "http://www.jinlingriversidehotel.com/",
+    "star_rating": 4,
+    "latitude": 32.01158,
+    "longitude": 118.70486
   },
   {
     "countyCode": "CN",
@@ -2427,7 +2829,10 @@
     "Map": "32.00598|118.733",
     "PhoneNumber": "86-25-87773777",
     "PinCode": "210019",
-    "HotelWebsiteUrl": "https://nanjing.frasershospitality.com/en"
+    "HotelWebsiteUrl": "https://nanjing.frasershospitality.com/en",
+    "star_rating": 5,
+    "latitude": 32.00598,
+    "longitude": 118.733
   },
   {
     "countyCode": "CN",
@@ -2445,7 +2850,10 @@
     "Map": "32.059241159|118.76185834",
     "PhoneNumber": "025-83120888",
     "PinCode": "210024",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 32.059241159,
+    "longitude": 118.76185834
   },
   {
     "countyCode": "CN",
@@ -2463,7 +2871,10 @@
     "Map": "32.091533|118.783991",
     "PhoneNumber": "(86) 02585659363",
     "PinCode": "210037",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.091533,
+    "longitude": 118.783991
   },
   {
     "countyCode": "CN",
@@ -2481,7 +2892,10 @@
     "Map": "32.078584|118.87222",
     "PhoneNumber": "86-25-84858888",
     "PinCode": "210005",
-    "HotelWebsiteUrl": "http://www.nanjingpurplepalace.com/"
+    "HotelWebsiteUrl": "http://www.nanjingpurplepalace.com/",
+    "star_rating": 4,
+    "latitude": 32.078584,
+    "longitude": 118.87222
   },
   {
     "countyCode": "CN",
@@ -2499,7 +2913,10 @@
     "Map": "31.942978|118.812884",
     "PhoneNumber": "86-25-52107666",
     "PinCode": "211100",
-    "HotelWebsiteUrl": "http://www.jinlinghotels.com/EN/memberhotels/hubin/portal.asp"
+    "HotelWebsiteUrl": "http://www.jinlinghotels.com/EN/memberhotels/hubin/portal.asp",
+    "star_rating": 4,
+    "latitude": 31.942978,
+    "longitude": 118.812884
   },
   {
     "countyCode": "CN",
@@ -2517,7 +2934,10 @@
     "Map": "32.027166|118.794647",
     "PhoneNumber": "025-84570888/84570115",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 32.027166,
+    "longitude": 118.794647
   },
   {
     "countyCode": "CN",
@@ -2535,7 +2955,10 @@
     "Map": "32.01749754|118.78321611",
     "PhoneNumber": "00864001840018",
     "PinCode": "210006",
-    "HotelWebsiteUrl": "http://www.super8.com/hotels/china/nanjing/super-8-nanjing-hua-guan-confucius-temple/hotel-overview"
+    "HotelWebsiteUrl": "http://www.super8.com/hotels/china/nanjing/super-8-nanjing-hua-guan-confucius-temple/hotel-overview",
+    "star_rating": 3,
+    "latitude": 32.01749754,
+    "longitude": 118.78321611
   },
   {
     "countyCode": "CN",
@@ -2553,7 +2976,10 @@
     "Map": "32.036869049|118.78404236",
     "PhoneNumber": "86-4001-840018",
     "PinCode": "210005",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.036869049,
+    "longitude": 118.78404236
   },
   {
     "countyCode": "CN",
@@ -2571,7 +2997,10 @@
     "Map": "32.0198|118.7665",
     "PhoneNumber": "",
     "PinCode": "210008",
-    "HotelWebsiteUrl": "http://www.yihuahotelnanjing.com/"
+    "HotelWebsiteUrl": "http://www.yihuahotelnanjing.com/",
+    "star_rating": 4,
+    "latitude": 32.0198,
+    "longitude": 118.7665
   },
   {
     "countyCode": "CN",
@@ -2589,7 +3018,10 @@
     "Map": "32.069775|118.76856",
     "PhoneNumber": "86-25-83718888",
     "PinCode": "210009",
-    "HotelWebsiteUrl": "http://www.accorhotels.com/asia"
+    "HotelWebsiteUrl": "http://www.accorhotels.com/asia",
+    "star_rating": 5,
+    "latitude": 32.069775,
+    "longitude": 118.76856
   },
   {
     "countyCode": "CN",
@@ -2607,7 +3039,10 @@
     "Map": "32.09297|118.7545",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.09297,
+    "longitude": 118.7545
   },
   {
     "countyCode": "CN",
@@ -2625,7 +3060,10 @@
     "Map": "32.07513|118.49252",
     "PhoneNumber": "(86) 02558166666",
     "PinCode": "211802",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 32.07513,
+    "longitude": 118.49252
   },
   {
     "countyCode": "CN",
@@ -2643,7 +3081,10 @@
     "Map": "32.04524|118.782867",
     "PhoneNumber": "86-025-69771888",
     "PinCode": "210029",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.04524,
+    "longitude": 118.782867
   },
   {
     "countyCode": "CN",
@@ -2661,7 +3102,10 @@
     "Map": "32.053586|118.779739",
     "PhoneNumber": "86-25-83218888",
     "PinCode": "210008",
-    "HotelWebsiteUrl": "http://www.goldstar-hotel.com/en/chain01_hotelinfo.html"
+    "HotelWebsiteUrl": "http://www.goldstar-hotel.com/en/chain01_hotelinfo.html",
+    "star_rating": 4,
+    "latitude": 32.053586,
+    "longitude": 118.779739
   },
   {
     "countyCode": "CN",
@@ -2679,7 +3123,10 @@
     "Map": "32.05955713|118.75122607",
     "PhoneNumber": "",
     "PinCode": "210013",
-    "HotelWebsiteUrl": "http://www.998.com/eng/Booking/HotelDetails.aspx?h"
+    "HotelWebsiteUrl": "http://www.998.com/eng/Booking/HotelDetails.aspx?h",
+    "star_rating": 3,
+    "latitude": 32.05955713,
+    "longitude": 118.75122607
   },
   {
     "countyCode": "CN",
@@ -2697,7 +3144,10 @@
     "Map": "32.0801|118.78441",
     "PhoneNumber": "+86(0)2583615866",
     "PinCode": "210037",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/hanting-express-nanjing-xuanwumen.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/hanting-express-nanjing-xuanwumen.html",
+    "star_rating": 3,
+    "latitude": 32.0801,
+    "longitude": 118.78441
   },
   {
     "countyCode": "CN",
@@ -2715,7 +3165,10 @@
     "Map": "31.928352|118.796358",
     "PhoneNumber": "86-25-52427896",
     "PinCode": "211100",
-    "HotelWebsiteUrl": "http://www.jscpshotel.com/"
+    "HotelWebsiteUrl": "http://www.jscpshotel.com/",
+    "star_rating": 4,
+    "latitude": 31.928352,
+    "longitude": 118.796358
   },
   {
     "countyCode": "CN",
@@ -2733,7 +3186,10 @@
     "Map": "32.09139|118.7952",
     "PhoneNumber": "+00000000000",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.09139,
+    "longitude": 118.7952
   },
   {
     "countyCode": "CN",
@@ -2751,7 +3207,10 @@
     "Map": "32.03497|118.77361",
     "PhoneNumber": "(86) 2586602588",
     "PinCode": "210004",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-nanjing-xinjiekou-west-chaotiangong-street.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-nanjing-xinjiekou-west-chaotiangong-street.html",
+    "star_rating": 3,
+    "latitude": 32.03497,
+    "longitude": 118.77361
   },
   {
     "countyCode": "CN",
@@ -2769,7 +3228,10 @@
     "Map": "32.1196|118.66103",
     "PhoneNumber": "86 25 58611888",
     "PinCode": "210031",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/nan-jing-ming-fa-zhen-zhu-quan-da-jiu-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/nan-jing-ming-fa-zhen-zhu-quan-da-jiu-dian.html",
+    "star_rating": 5,
+    "latitude": 32.1196,
+    "longitude": 118.66103
   },
   {
     "countyCode": "CN",
@@ -2787,7 +3249,10 @@
     "Map": "31.736309052|118.87175751",
     "PhoneNumber": "0086 255 2488668",
     "PinCode": "211113",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.736309052,
+    "longitude": 118.87175751
   },
   {
     "countyCode": "CN",
@@ -2805,7 +3270,10 @@
     "Map": "32.04625|118.81493",
     "PhoneNumber": "(86) 02584669181",
     "PinCode": "210016",
-    "HotelWebsiteUrl": "http://www.hotel168.com.cn"
+    "HotelWebsiteUrl": "http://www.hotel168.com.cn",
+    "star_rating": 3,
+    "latitude": 32.04625,
+    "longitude": 118.81493
   },
   {
     "countyCode": "CN",
@@ -2823,7 +3291,10 @@
     "Map": "32.062763|118.77887",
     "PhoneNumber": "86-25-83538888",
     "PinCode": "210008",
-    "HotelWebsiteUrl": "http://www.intercontinental.com"
+    "HotelWebsiteUrl": "http://www.intercontinental.com",
+    "star_rating": 5,
+    "latitude": 32.062763,
+    "longitude": 118.77887
   },
   {
     "countyCode": "CN",
@@ -2841,7 +3312,10 @@
     "Map": "32.02247|118.7868",
     "PhoneNumber": "1725110327864",
     "PinCode": "210001",
-    "HotelWebsiteUrl": "http://www.njgrandgroup.com/jd3.asp"
+    "HotelWebsiteUrl": "http://www.njgrandgroup.com/jd3.asp",
+    "star_rating": 3,
+    "latitude": 32.02247,
+    "longitude": 118.7868
   },
   {
     "countyCode": "CN",
@@ -2859,7 +3333,10 @@
     "Map": "32.022818|118.787253",
     "PhoneNumber": "",
     "PinCode": "210001",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.022818,
+    "longitude": 118.787253
   },
   {
     "countyCode": "CN",
@@ -2877,7 +3354,10 @@
     "Map": "32.04251|118.7748",
     "PhoneNumber": "0086 25 66629555",
     "PinCode": "210029",
-    "HotelWebsiteUrl": "http://www.njgrandgroup.com"
+    "HotelWebsiteUrl": "http://www.njgrandgroup.com",
+    "star_rating": 3,
+    "latitude": 32.04251,
+    "longitude": 118.7748
   },
   {
     "countyCode": "CN",
@@ -2895,7 +3375,10 @@
     "Map": "31.97802|118.87765",
     "PhoneNumber": "(86) 2587111818",
     "PinCode": "211103",
-    "HotelWebsiteUrl": "http://www.jiangling-hotel.com"
+    "HotelWebsiteUrl": "http://www.jiangling-hotel.com",
+    "star_rating": 4,
+    "latitude": 31.97802,
+    "longitude": 118.87765
   },
   {
     "countyCode": "CN",
@@ -2913,7 +3396,10 @@
     "Map": "31.731316|118.87268",
     "PhoneNumber": "86-25-69836888",
     "PinCode": "211113",
-    "HotelWebsiteUrl": "http://www.pullmanhotels.com/gb/hotel-8737-pullman-nanjing-lukou-airport/index.shtml"
+    "HotelWebsiteUrl": "http://www.pullmanhotels.com/gb/hotel-8737-pullman-nanjing-lukou-airport/index.shtml",
+    "star_rating": 5,
+    "latitude": 31.731316,
+    "longitude": 118.87268
   },
   {
     "countyCode": "CN",
@@ -2931,7 +3417,10 @@
     "Map": "32.081123|118.77881",
     "PhoneNumber": "86-25-86308888",
     "PinCode": "210037",
-    "HotelWebsiteUrl": "http://www.shangri-la.com/nanjing/shangrila/"
+    "HotelWebsiteUrl": "http://www.shangri-la.com/nanjing/shangrila/",
+    "star_rating": 5,
+    "latitude": 32.081123,
+    "longitude": 118.77881
   },
   {
     "countyCode": "CN",
@@ -2949,7 +3438,10 @@
     "Map": "32.039574|118.7811",
     "PhoneNumber": "86-25-5879 8888",
     "PinCode": "210005",
-    "HotelWebsiteUrl": "http://www.novotel.com/es/hotel-7870-novotel-nanjing-central-suning/index.shtml"
+    "HotelWebsiteUrl": "http://www.novotel.com/es/hotel-7870-novotel-nanjing-central-suning/index.shtml",
+    "star_rating": 4,
+    "latitude": 32.039574,
+    "longitude": 118.7811
   },
   {
     "countyCode": "CN",
@@ -2967,7 +3459,10 @@
     "Map": "32.044418|118.789731",
     "PhoneNumber": "862584355888",
     "PinCode": "210018",
-    "HotelWebsiteUrl": "http://www.starwoodhotels.com/luxury/property/overview/index.html?propertyID=4144&language=es_ES"
+    "HotelWebsiteUrl": "http://www.starwoodhotels.com/luxury/property/overview/index.html?propertyID=4144&language=es_ES",
+    "star_rating": 5,
+    "latitude": 32.044418,
+    "longitude": 118.789731
   },
   {
     "countyCode": "CN",
@@ -2985,7 +3480,10 @@
     "Map": "31.659067154|119.03327942",
     "PhoneNumber": "+864001840018",
     "PinCode": "0",
-    "HotelWebsiteUrl": "https://www.wyndhamhotels.com/super-8/nanjing-chin"
+    "HotelWebsiteUrl": "https://www.wyndhamhotels.com/super-8/nanjing-chin",
+    "star_rating": 3,
+    "latitude": 31.659067154,
+    "longitude": 119.03327942
   },
   {
     "countyCode": "CN",
@@ -3003,7 +3501,10 @@
     "Map": "32.03672|118.77263",
     "PhoneNumber": "+862584676999",
     "PinCode": "021000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-nanjing-xinjiekou.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-nanjing-xinjiekou.html",
+    "star_rating": 3,
+    "latitude": 32.03672,
+    "longitude": 118.77263
   },
   {
     "countyCode": "CN",
@@ -3021,7 +3522,10 @@
     "Map": "32.08901|118.77007",
     "PhoneNumber": "+862552200128",
     "PinCode": "210003",
-    "HotelWebsiteUrl": "http://www.998.com/HotelDetail?hotelCode=161826"
+    "HotelWebsiteUrl": "http://www.998.com/HotelDetail?hotelCode=161826",
+    "star_rating": 3,
+    "latitude": 32.08901,
+    "longitude": 118.77007
   },
   {
     "countyCode": "CN",
@@ -3039,7 +3543,10 @@
     "Map": "32.031639|118.784393",
     "PhoneNumber": "",
     "PinCode": "210001",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.031639,
+    "longitude": 118.784393
   },
   {
     "countyCode": "CN",
@@ -3057,7 +3564,10 @@
     "Map": "32.007934|118.732109",
     "PhoneNumber": "86-25-68176000",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "http://www.capellahotelgroup.com"
+    "HotelWebsiteUrl": "http://www.capellahotelgroup.com",
+    "star_rating": 4,
+    "latitude": 32.007934,
+    "longitude": 118.732109
   },
   {
     "countyCode": "CN",
@@ -3075,7 +3585,10 @@
     "Map": "32.08104|118.785154",
     "PhoneNumber": "025-86808855",
     "PinCode": "210037",
-    "HotelWebsiteUrl": "http://www.yaduo.com"
+    "HotelWebsiteUrl": "http://www.yaduo.com",
+    "star_rating": 4,
+    "latitude": 32.08104,
+    "longitude": 118.785154
   },
   {
     "countyCode": "CN",
@@ -3093,7 +3606,10 @@
     "Map": "31.87061|118.81181",
     "PhoneNumber": "86-25-84918888",
     "PinCode": "211111",
-    "HotelWebsiteUrl": "http://ichotelsgroup.com/redirect?path=hd&localeCode=en&hotelCode=NKGHI"
+    "HotelWebsiteUrl": "http://ichotelsgroup.com/redirect?path=hd&localeCode=en&hotelCode=NKGHI",
+    "star_rating": 4,
+    "latitude": 31.87061,
+    "longitude": 118.81181
   },
   {
     "countyCode": "CN",
@@ -3111,7 +3627,10 @@
     "Map": "32.23863|118.77266",
     "PhoneNumber": "21-3617-4888",
     "PinCode": "210048",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-jiangsu-nanjing-dachang-xinhua-road-express.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-jiangsu-nanjing-dachang-xinhua-road-express.html",
+    "star_rating": 3,
+    "latitude": 32.23863,
+    "longitude": 118.77266
   },
   {
     "countyCode": "CN",
@@ -3129,7 +3648,10 @@
     "Map": "31.343558061988|118.940611481667",
     "PhoneNumber": "",
     "PinCode": "211306",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.343558061988,
+    "longitude": 118.940611481667
   },
   {
     "countyCode": "CN",
@@ -3147,7 +3669,10 @@
     "Map": "32.03882|118.82123",
     "PhoneNumber": "025-85553939",
     "PinCode": "210005",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.03882,
+    "longitude": 118.82123
   },
   {
     "countyCode": "CN",
@@ -3165,7 +3690,10 @@
     "Map": "32.03637|118.78702",
     "PhoneNumber": "025 5119 0666",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/nan-jing-quan-ji-jiu-dian-xin-jie-kou-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/nan-jing-quan-ji-jiu-dian-xin-jie-kou-dian.html",
+    "star_rating": 4,
+    "latitude": 32.03637,
+    "longitude": 118.78702
   },
   {
     "countyCode": "CN",
@@ -3183,7 +3711,10 @@
     "Map": "32.07094|118.76937",
     "PhoneNumber": "025 6600 0388",
     "PinCode": "210003",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/quan-ji-nan-jing-hong-qiao-zhong-shan-bei-lu.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/quan-ji-nan-jing-hong-qiao-zhong-shan-bei-lu.html",
+    "star_rating": 4,
+    "latitude": 32.07094,
+    "longitude": 118.76937
   },
   {
     "countyCode": "CN",
@@ -3201,7 +3732,10 @@
     "Map": "32.00991|118.7318",
     "PhoneNumber": "",
     "PinCode": "210004",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 5,
+    "latitude": 32.00991,
+    "longitude": 118.7318
   },
   {
     "countyCode": "CN",
@@ -3219,7 +3753,10 @@
     "Map": "32.00396|118.72325",
     "PhoneNumber": "",
     "PinCode": "210019",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/hanting-express-nanjing-olympic-sports-centre.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/hanting-express-nanjing-olympic-sports-centre.html",
+    "star_rating": 4,
+    "latitude": 32.00396,
+    "longitude": 118.72325
   },
   {
     "countyCode": "CN",
@@ -3237,7 +3774,10 @@
     "Map": "31.775615692|118.85813904",
     "PhoneNumber": "+86 25 5277 1322",
     "PinCode": "211156",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.775615692,
+    "longitude": 118.85813904
   },
   {
     "countyCode": "CN",
@@ -3255,7 +3795,10 @@
     "Map": "32.04017|118.80273",
     "PhoneNumber": "",
     "PinCode": "210002",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 32.04017,
+    "longitude": 118.80273
   },
   {
     "countyCode": "CN",
@@ -3273,7 +3816,10 @@
     "Map": "32.038635254|118.7804718",
     "PhoneNumber": "",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 32.038635254,
+    "longitude": 118.7804718
   },
   {
     "countyCode": "CN",
@@ -3291,7 +3837,10 @@
     "Map": "32.02694|118.81571",
     "PhoneNumber": "",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.02694,
+    "longitude": 118.81571
   },
   {
     "countyCode": "CN",
@@ -3309,7 +3858,10 @@
     "Map": "32.041061|118.78775",
     "PhoneNumber": "+86(0)2584709618",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.041061,
+    "longitude": 118.78775
   },
   {
     "countyCode": "CN",
@@ -3327,7 +3879,10 @@
     "Map": "32.043|118.78031",
     "PhoneNumber": "+86(0)7563632066",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.043,
+    "longitude": 118.78031
   },
   {
     "countyCode": "CN",
@@ -3345,7 +3900,10 @@
     "Map": "32.07529|118.749",
     "PhoneNumber": "+862558771988",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.07529,
+    "longitude": 118.749
   },
   {
     "countyCode": "CN",
@@ -3363,7 +3921,10 @@
     "Map": "31.927|118.8766",
     "PhoneNumber": "+862552395998",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.927,
+    "longitude": 118.8766
   },
   {
     "countyCode": "CN",
@@ -3381,7 +3942,10 @@
     "Map": "31.99357|118.74356",
     "PhoneNumber": "+86 25 8677 2777",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://sg.hotels.com/ho638817600"
+    "HotelWebsiteUrl": "https://sg.hotels.com/ho638817600",
+    "star_rating": 4,
+    "latitude": 31.99357,
+    "longitude": 118.74356
   },
   {
     "countyCode": "CN",
@@ -3399,7 +3963,10 @@
     "Map": "31.63972|119.00344",
     "PhoneNumber": "+862556615888",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/nan-jing-yue-han-hua-yuan-da-jiu-dian-you-xian-gong-si.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/nan-jing-yue-han-hua-yuan-da-jiu-dian-you-xian-gong-si.html",
+    "star_rating": 4,
+    "latitude": 31.63972,
+    "longitude": 119.00344
   },
   {
     "countyCode": "CN",
@@ -3417,7 +3984,10 @@
     "Map": "31.90764|118.83078",
     "PhoneNumber": "025 5219 5988",
     "PinCode": "211100",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.90764,
+    "longitude": 118.83078
   },
   {
     "countyCode": "CN",
@@ -3435,7 +4005,10 @@
     "Map": "32.11227|118.77563",
     "PhoneNumber": "",
     "PinCode": "210005",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 32.11227,
+    "longitude": 118.77563
   },
   {
     "countyCode": "CN",
@@ -3453,7 +4026,10 @@
     "Map": "31.944259644|118.78462982",
     "PhoneNumber": "02587121399",
     "PinCode": "211106",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.944259644,
+    "longitude": 118.78462982
   },
   {
     "countyCode": "CN",
@@ -3471,7 +4047,10 @@
     "Map": "32.08403|118.767166",
     "PhoneNumber": "025 8535 3666",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.08403,
+    "longitude": 118.767166
   },
   {
     "countyCode": "CN",
@@ -3489,7 +4068,10 @@
     "Map": "32.08789|118.78568",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 32.08789,
+    "longitude": 118.78568
   },
   {
     "countyCode": "CN",
@@ -3507,7 +4089,10 @@
     "Map": "32.06792|118.64003",
     "PhoneNumber": "025-58286555?58131999",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.06792,
+    "longitude": 118.64003
   },
   {
     "countyCode": "CN",
@@ -3525,7 +4110,10 @@
     "Map": "32.12531|118.94133",
     "PhoneNumber": "(86) 02568151111",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.12531,
+    "longitude": 118.94133
   },
   {
     "countyCode": "CN",
@@ -3543,7 +4131,10 @@
     "Map": "31.6569|119.02628",
     "PhoneNumber": "",
     "PinCode": "211200",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 31.6569,
+    "longitude": 119.02628
   },
   {
     "countyCode": "CN",
@@ -3561,7 +4152,10 @@
     "Map": "32.0688|118.77676",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.0688,
+    "longitude": 118.77676
   },
   {
     "countyCode": "CN",
@@ -3579,7 +4173,10 @@
     "Map": "32.05751|118.79049",
     "PhoneNumber": "",
     "PinCode": "210008",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.05751,
+    "longitude": 118.79049
   },
   {
     "countyCode": "CN",
@@ -3597,7 +4194,10 @@
     "Map": "32.02419|118.79205",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.02419,
+    "longitude": 118.79205
   },
   {
     "countyCode": "CN",
@@ -3615,7 +4215,10 @@
     "Map": "32.04455|118.81855",
     "PhoneNumber": "",
     "PinCode": "210016",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.04455,
+    "longitude": 118.81855
   },
   {
     "countyCode": "CN",
@@ -3633,7 +4236,10 @@
     "Map": "31.999868|118.726113",
     "PhoneNumber": "025 8778 0808",
     "PinCode": "210001",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.999868,
+    "longitude": 118.726113
   },
   {
     "countyCode": "CN",
@@ -3651,7 +4257,10 @@
     "Map": "31.9962|118.73326",
     "PhoneNumber": "025-52218588",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.9962,
+    "longitude": 118.73326
   },
   {
     "countyCode": "CN",
@@ -3669,7 +4278,10 @@
     "Map": "32.10849|118.83395",
     "PhoneNumber": "0519 8287 5000",
     "PinCode": "210028",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.10849,
+    "longitude": 118.83395
   },
   {
     "countyCode": "CN",
@@ -3687,7 +4299,10 @@
     "Map": "32.024108887|118.79245758",
     "PhoneNumber": "+86 2558612068",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.hotels.com/ho498248/nanjing-haoting-hotel-apartment-nanjing-china/"
+    "HotelWebsiteUrl": "https://www.hotels.com/ho498248/nanjing-haoting-hotel-apartment-nanjing-china/",
+    "star_rating": 3,
+    "latitude": 32.024108887,
+    "longitude": 118.79245758
   },
   {
     "countyCode": "CN",
@@ -3705,7 +4320,10 @@
     "Map": "31.93927|118.87151",
     "PhoneNumber": "",
     "PinCode": "211100",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.93927,
+    "longitude": 118.87151
   },
   {
     "countyCode": "CN",
@@ -3723,7 +4341,10 @@
     "Map": "31.90322|118.83921",
     "PhoneNumber": "",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.90322,
+    "longitude": 118.83921
   },
   {
     "countyCode": "CN",
@@ -3741,7 +4362,10 @@
     "Map": "31.99435|118.94906",
     "PhoneNumber": "+862587121888",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 31.99435,
+    "longitude": 118.94906
   },
   {
     "countyCode": "CN",
@@ -3759,7 +4383,10 @@
     "Map": "31.73831|118.88386",
     "PhoneNumber": "",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.73831,
+    "longitude": 118.88386
   },
   {
     "countyCode": "CN",
@@ -3777,7 +4404,10 @@
     "Map": "32.09463|118.78957",
     "PhoneNumber": "+86(0)2558828035",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-jiangsu-nanjing-railway-station-bus-station-business.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-jiangsu-nanjing-railway-station-bus-station-business.html",
+    "star_rating": 3,
+    "latitude": 32.09463,
+    "longitude": 118.78957
   },
   {
     "countyCode": "CN",
@@ -3795,7 +4425,10 @@
     "Map": "32.001957|118.7281",
     "PhoneNumber": "86-25-83388888",
     "PinCode": "210019",
-    "HotelWebsiteUrl": "https://www.marriott.com/hotels/travel/nkgbr-renaissance-nanjing-olympic-centre-hotel/"
+    "HotelWebsiteUrl": "https://www.marriott.com/hotels/travel/nkgbr-renaissance-nanjing-olympic-centre-hotel/",
+    "star_rating": 5,
+    "latitude": 32.001957,
+    "longitude": 118.7281
   },
   {
     "countyCode": "CN",
@@ -3813,7 +4446,10 @@
     "Map": "31.742361|118.8792",
     "PhoneNumber": "86-25-52482888",
     "PinCode": "211113",
-    "HotelWebsiteUrl": "http://www.ramada.com/hotels/china/nanjing/ramada-nanjing/hotel-overview"
+    "HotelWebsiteUrl": "http://www.ramada.com/hotels/china/nanjing/ramada-nanjing/hotel-overview",
+    "star_rating": 3,
+    "latitude": 31.742361,
+    "longitude": 118.8792
   },
   {
     "countyCode": "CN",
@@ -3831,7 +4467,10 @@
     "Map": "31.7732543945313|118.859153747559",
     "PhoneNumber": "862552771588",
     "PinCode": "211113",
-    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=479239"
+    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=479239",
+    "star_rating": 3,
+    "latitude": 31.7732543945313,
+    "longitude": 118.859153747559
   },
   {
     "countyCode": "CN",
@@ -3849,7 +4488,10 @@
     "Map": "31.93917|118.82148",
     "PhoneNumber": "86-25-52108111",
     "PinCode": "211100",
-    "HotelWebsiteUrl": "http://www.lakehomenanjing.com/"
+    "HotelWebsiteUrl": "http://www.lakehomenanjing.com/",
+    "star_rating": 5,
+    "latitude": 31.93917,
+    "longitude": 118.82148
   },
   {
     "countyCode": "CN",
@@ -3867,7 +4509,10 @@
     "Map": "32.038709|118.782142",
     "PhoneNumber": "86-25-85661666",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "http://www.suning-auraya-suites-nanjing.site/"
+    "HotelWebsiteUrl": "http://www.suning-auraya-suites-nanjing.site/",
+    "star_rating": 4,
+    "latitude": 32.038709,
+    "longitude": 118.782142
   },
   {
     "countyCode": "CN",
@@ -3885,7 +4530,10 @@
     "Map": "32.02213|118.75523",
     "PhoneNumber": "+862582280099",
     "PinCode": "210019",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-nanjing-olympics-center-huangshan-road.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-nanjing-olympics-center-huangshan-road.html",
+    "star_rating": 3,
+    "latitude": 32.02213,
+    "longitude": 118.75523
   },
   {
     "countyCode": "CN",
@@ -3903,7 +4551,10 @@
     "Map": "32.0476|118.78528",
     "PhoneNumber": "",
     "PinCode": "210005",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/nanjing-city-tribe-boutique-kairunjincheng.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/nanjing-city-tribe-boutique-kairunjincheng.html",
+    "star_rating": 4,
+    "latitude": 32.0476,
+    "longitude": 118.78528
   },
   {
     "countyCode": "CN",
@@ -3921,7 +4572,10 @@
     "Map": "32.081657|118.80094",
     "PhoneNumber": "86-25-84270888",
     "PinCode": "210042",
-    "HotelWebsiteUrl": "https://www.ihg.com/holidayinn/hotels/us/en/nanjing/nkgxl/hoteldetail"
+    "HotelWebsiteUrl": "https://www.ihg.com/holidayinn/hotels/us/en/nanjing/nkgxl/hoteldetail",
+    "star_rating": 4,
+    "latitude": 32.081657,
+    "longitude": 118.80094
   },
   {
     "countyCode": "CN",
@@ -3939,7 +4593,10 @@
     "Map": "32.0430107116699|118.769393920898",
     "PhoneNumber": "(86) 02586600948",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=283881"
+    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=283881",
+    "star_rating": 3,
+    "latitude": 32.0430107116699,
+    "longitude": 118.769393920898
   },
   {
     "countyCode": "CN",
@@ -3957,7 +4614,10 @@
     "Map": "32.03398|118.7469",
     "PhoneNumber": "+862586601777|+864008209999",
     "PinCode": "210017",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jingjiang-inn-nanjing-mochou-lake.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jingjiang-inn-nanjing-mochou-lake.html",
+    "star_rating": 3,
+    "latitude": 32.03398,
+    "longitude": 118.7469
   },
   {
     "countyCode": "CN",
@@ -3975,7 +4635,10 @@
     "Map": "32.03294|118.784372",
     "PhoneNumber": "",
     "PinCode": "21000",
-    "HotelWebsiteUrl": "http://www.kyriad.com/es/hotels/jinjiang-inn-nanjing-xinjiekou"
+    "HotelWebsiteUrl": "http://www.kyriad.com/es/hotels/jinjiang-inn-nanjing-xinjiekou",
+    "star_rating": 3,
+    "latitude": 32.03294,
+    "longitude": 118.784372
   },
   {
     "countyCode": "CN",
@@ -3993,7 +4656,10 @@
     "Map": "32.04175|118.7796",
     "PhoneNumber": "",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.gesummithotels.com/njjygj_en.html"
+    "HotelWebsiteUrl": "http://www.gesummithotels.com/njjygj_en.html",
+    "star_rating": 5,
+    "latitude": 32.04175,
+    "longitude": 118.7796
   },
   {
     "countyCode": "CN",
@@ -4011,7 +4677,10 @@
     "Map": "31.734098434|118.87700653",
     "PhoneNumber": "+86(0)2552488666",
     "PinCode": "211100",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.734098434,
+    "longitude": 118.87700653
   },
   {
     "countyCode": "CN",
@@ -4029,7 +4698,10 @@
     "Map": "31.878179|118.834785",
     "PhoneNumber": "86-258-4908888",
     "PinCode": "211111",
-    "HotelWebsiteUrl": "https://www.ihg.com/holidayinn/hotels/us/en/nanjing/nkgnq/hoteldetail#"
+    "HotelWebsiteUrl": "https://www.ihg.com/holidayinn/hotels/us/en/nanjing/nkgnq/hoteldetail#",
+    "star_rating": 4,
+    "latitude": 31.878179,
+    "longitude": 118.834785
   },
   {
     "countyCode": "CN",
@@ -4047,7 +4719,10 @@
     "Map": "32.13665|118.73644",
     "PhoneNumber": "",
     "PinCode": "210031",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-alliance-jiangsu-nanjing-hongyang-square-qiaobei-passenger-station.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-alliance-jiangsu-nanjing-hongyang-square-qiaobei-passenger-station.html",
+    "star_rating": 3,
+    "latitude": 32.13665,
+    "longitude": 118.73644
   },
   {
     "countyCode": "CN",
@@ -4065,7 +4740,10 @@
     "Map": "31.897196|118.630394",
     "PhoneNumber": "025-58051366",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 31.897196,
+    "longitude": 118.630394
   },
   {
     "countyCode": "CN",
@@ -4083,7 +4761,10 @@
     "Map": "32.07001|118.66038",
     "PhoneNumber": "025-68106666-0",
     "PinCode": "211800",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.07001,
+    "longitude": 118.66038
   },
   {
     "countyCode": "CN",
@@ -4101,7 +4782,10 @@
     "Map": "32.02577|118.8056",
     "PhoneNumber": "025 8967 9998",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 32.02577,
+    "longitude": 118.8056
   },
   {
     "countyCode": "CN",
@@ -4119,7 +4803,10 @@
     "Map": "32.03433|118.81004",
     "PhoneNumber": "",
     "PinCode": "210016",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.03433,
+    "longitude": 118.81004
   },
   {
     "countyCode": "CN",
@@ -4137,7 +4824,10 @@
     "Map": "31.701441|119.061458",
     "PhoneNumber": "86-25-57208888",
     "PinCode": "211200",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 31.701441,
+    "longitude": 119.061458
   },
   {
     "countyCode": "CN",
@@ -4155,7 +4845,10 @@
     "Map": "32.006256|118.731986",
     "PhoneNumber": "86-25-57700010",
     "PinCode": "2100019",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.006256,
+    "longitude": 118.731986
   },
   {
     "countyCode": "CN",
@@ -4173,7 +4866,10 @@
     "Map": "32.072044373|118.78377533",
     "PhoneNumber": "",
     "PinCode": "233300",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 32.072044373,
+    "longitude": 118.78377533
   },
   {
     "countyCode": "CN",
@@ -4191,7 +4887,10 @@
     "Map": "32.022491455|118.79704285",
     "PhoneNumber": "",
     "PinCode": "048360",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.022491455,
+    "longitude": 118.79704285
   },
   {
     "countyCode": "CN",
@@ -4209,7 +4908,10 @@
     "Map": "31.936279297|118.813591",
     "PhoneNumber": "8625000000",
     "PinCode": "211100",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.936279297,
+    "longitude": 118.813591
   },
   {
     "countyCode": "CN",
@@ -4227,7 +4929,10 @@
     "Map": "32.043741|118.637852",
     "PhoneNumber": "86-025-58409999",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 32.043741,
+    "longitude": 118.637852
   },
   {
     "countyCode": "CN",
@@ -4245,7 +4950,10 @@
     "Map": "31.934233|118.815843",
     "PhoneNumber": "86-25-85678888",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 31.934233,
+    "longitude": 118.815843
   },
   {
     "countyCode": "CN",
@@ -4263,7 +4971,10 @@
     "Map": "32.33586|118.87126",
     "PhoneNumber": "025-57130333",
     "PinCode": "211500",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.33586,
+    "longitude": 118.87126
   },
   {
     "countyCode": "CN",
@@ -4281,7 +4992,10 @@
     "Map": "32.082254|118.823063",
     "PhoneNumber": "86-25-58165188",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.082254,
+    "longitude": 118.823063
   },
   {
     "countyCode": "CN",
@@ -4299,7 +5013,10 @@
     "Map": "32.03061|118.78495",
     "PhoneNumber": "",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.03061,
+    "longitude": 118.78495
   },
   {
     "countyCode": "CN",
@@ -4317,7 +5034,10 @@
     "Map": "32.034279|118.723855",
     "PhoneNumber": "86-25-69690099",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "http://www.auraya-by-suning-nanjing-hexi.cn/"
+    "HotelWebsiteUrl": "http://www.auraya-by-suning-nanjing-hexi.cn/",
+    "star_rating": 4,
+    "latitude": 32.034279,
+    "longitude": 118.723855
   },
   {
     "countyCode": "CN",
@@ -4335,7 +5055,10 @@
     "Map": "32.063553|118.781167",
     "PhoneNumber": "",
     "PinCode": "210008",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.063553,
+    "longitude": 118.781167
   },
   {
     "countyCode": "CN",
@@ -4353,7 +5076,10 @@
     "Map": "31.912837|118.831329",
     "PhoneNumber": "862552081188",
     "PinCode": "211102",
-    "HotelWebsiteUrl": "https://english.ctrip.com/hotels/nanjing-hotel-detail-8719717/metropolo-jinjiang-hotels-nanjing"
+    "HotelWebsiteUrl": "https://english.ctrip.com/hotels/nanjing-hotel-detail-8719717/metropolo-jinjiang-hotels-nanjing",
+    "star_rating": 3,
+    "latitude": 31.912837,
+    "longitude": 118.831329
   },
   {
     "countyCode": "CN",
@@ -4371,7 +5097,10 @@
     "Map": "31.946912|118.806744",
     "PhoneNumber": "86-25-52112111",
     "PinCode": "211100",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.946912,
+    "longitude": 118.806744
   },
   {
     "countyCode": "CN",
@@ -4389,7 +5118,10 @@
     "Map": "32.06411|118.92093",
     "PhoneNumber": "025-85668000",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-jiangsu-nanjing-maqun-street-ningzhi-road-shell.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-jiangsu-nanjing-maqun-street-ningzhi-road-shell.html",
+    "star_rating": 3,
+    "latitude": 32.06411,
+    "longitude": 118.92093
   },
   {
     "countyCode": "CN",
@@ -4407,7 +5139,10 @@
     "Map": "31.94809|118.87191",
     "PhoneNumber": "+86(25)-8498-4998",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "http://www.998.com/HotelDetail?hotelCode=121379"
+    "HotelWebsiteUrl": "http://www.998.com/HotelDetail?hotelCode=121379",
+    "star_rating": 3,
+    "latitude": 31.94809,
+    "longitude": 118.87191
   },
   {
     "countyCode": "CN",
@@ -4425,7 +5160,10 @@
     "Map": "32.03058|118.78948",
     "PhoneNumber": "025-8626-6666",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-jiangsu-nanjing-confucius-temple-sanshan-street-subway-station-exp.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-jiangsu-nanjing-confucius-temple-sanshan-street-subway-station-exp.html",
+    "star_rating": 3,
+    "latitude": 32.03058,
+    "longitude": 118.78948
   },
   {
     "countyCode": "CN",
@@ -4443,7 +5181,10 @@
     "Map": "32.017894|118.788881",
     "PhoneNumber": "86-25-68276666",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.017894,
+    "longitude": 118.788881
   },
   {
     "countyCode": "CN",
@@ -4461,7 +5202,10 @@
     "Map": "31.33007|118.89386",
     "PhoneNumber": "025-57399998",
     "PinCode": "211300",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-jiangsu-nanjing-gaochun-baota-road-baota-park-express.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-jiangsu-nanjing-gaochun-baota-road-baota-park-express.html",
+    "star_rating": 3,
+    "latitude": 31.33007,
+    "longitude": 118.89386
   },
   {
     "countyCode": "CN",
@@ -4479,7 +5223,10 @@
     "Map": "32.039423|118.722521",
     "PhoneNumber": "86-25-68889888",
     "PinCode": "210004",
-    "HotelWebsiteUrl": "http://nj.thelalu.com/"
+    "HotelWebsiteUrl": "http://nj.thelalu.com/",
+    "star_rating": 4,
+    "latitude": 32.039423,
+    "longitude": 118.722521
   },
   {
     "countyCode": "CN",
@@ -4497,7 +5244,10 @@
     "Map": "32.034160614|118.81027222",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.034160614,
+    "longitude": 118.81027222
   },
   {
     "countyCode": "CN",
@@ -4515,7 +5265,10 @@
     "Map": "31.937775|118.82162",
     "PhoneNumber": "86-25-86106888",
     "PinCode": "211100",
-    "HotelWebsiteUrl": "http://www.marriott.com/hotels/travel/nkgsc-marriott-nanjing-south-hotel/"
+    "HotelWebsiteUrl": "http://www.marriott.com/hotels/travel/nkgsc-marriott-nanjing-south-hotel/",
+    "star_rating": 4,
+    "latitude": 31.937775,
+    "longitude": 118.82162
   },
   {
     "countyCode": "CN",
@@ -4533,7 +5286,10 @@
     "Map": "32.03397|118.7869",
     "PhoneNumber": "86-025-86517756",
     "PinCode": "0",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.03397,
+    "longitude": 118.7869
   },
   {
     "countyCode": "CN",
@@ -4551,7 +5307,10 @@
     "Map": "31.933257|118.820426",
     "PhoneNumber": "86-025-52122480",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.933257,
+    "longitude": 118.820426
   },
   {
     "countyCode": "CN",
@@ -4569,7 +5328,10 @@
     "Map": "31.81266|118.70226",
     "PhoneNumber": "",
     "PinCode": "211164",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.81266,
+    "longitude": 118.70226
   },
   {
     "countyCode": "CN",
@@ -4587,7 +5349,10 @@
     "Map": "31.99165|118.70805",
     "PhoneNumber": "",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/guo-ji-qing-nian-hui-yi-jiu-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/guo-ji-qing-nian-hui-yi-jiu-dian.html",
+    "star_rating": 5,
+    "latitude": 31.99165,
+    "longitude": 118.70805
   },
   {
     "countyCode": "CN",
@@ -4605,7 +5370,10 @@
     "Map": "32.03599|118.78443",
     "PhoneNumber": "025-83226248",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-jiangsu-nanjing-xinjiekou-subway-station-express.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-jiangsu-nanjing-xinjiekou-subway-station-express.html",
+    "star_rating": 3,
+    "latitude": 32.03599,
+    "longitude": 118.78443
   },
   {
     "countyCode": "CN",
@@ -4623,7 +5391,10 @@
     "Map": "31.8983|118.7908",
     "PhoneNumber": "8602551195500",
     "PinCode": "21000",
-    "HotelWebsiteUrl": "http://www.campanile-nanjing-jiangning.com/fr"
+    "HotelWebsiteUrl": "http://www.campanile-nanjing-jiangning.com/fr",
+    "star_rating": 3,
+    "latitude": 31.8983,
+    "longitude": 118.7908
   },
   {
     "countyCode": "CN",
@@ -4641,7 +5412,10 @@
     "Map": "31.65568|119.03185",
     "PhoneNumber": "862556223888",
     "PinCode": "211299",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-nanjing-lishui-zhenzhu-road.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-nanjing-lishui-zhenzhu-road.html",
+    "star_rating": 3,
+    "latitude": 31.65568,
+    "longitude": 119.03185
   },
   {
     "countyCode": "CN",
@@ -4659,7 +5433,10 @@
     "Map": "32.06312|119.06809",
     "PhoneNumber": "+862584106777|+862584105808",
     "PinCode": "211131",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-jiangsu-nanjing-tangshan-hot-spring-express.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-jiangsu-nanjing-tangshan-hot-spring-express.html",
+    "star_rating": 3,
+    "latitude": 32.06312,
+    "longitude": 119.06809
   },
   {
     "countyCode": "CN",
@@ -4677,7 +5454,10 @@
     "Map": "31.78838|118.80881",
     "PhoneNumber": "+862584111998",
     "PinCode": "211100",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-nanjing-konggang-development-zone-express.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-nanjing-konggang-development-zone-express.html",
+    "star_rating": 3,
+    "latitude": 31.78838,
+    "longitude": 118.80881
   },
   {
     "countyCode": "CN",
@@ -4695,7 +5475,10 @@
     "Map": "29.2314|91.77209",
     "PhoneNumber": "",
     "PinCode": "856000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/xi-cang-shan-nan-yu-long-jia-ri-da-jiu-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/xi-cang-shan-nan-yu-long-jia-ri-da-jiu-dian.html",
+    "star_rating": 3,
+    "latitude": 29.2314,
+    "longitude": 91.77209
   },
   {
     "countyCode": "CN",
@@ -4713,7 +5496,10 @@
     "Map": "32.07974|118.77242",
     "PhoneNumber": "+86(0)2583533666",
     "PinCode": "210003",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/starway-nanjing-fenghuang-huanqiu.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/starway-nanjing-fenghuang-huanqiu.html",
+    "star_rating": 3,
+    "latitude": 32.07974,
+    "longitude": 118.77242
   },
   {
     "countyCode": "CN",
@@ -4731,7 +5517,10 @@
     "Map": "32.03857|118.7874",
     "PhoneNumber": "",
     "PinCode": "210002",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/7days-premium-nanjing-xinjiekou-subway-station.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/7days-premium-nanjing-xinjiekou-subway-station.html",
+    "star_rating": 3,
+    "latitude": 32.03857,
+    "longitude": 118.7874
   },
   {
     "countyCode": "CN",
@@ -4749,7 +5538,10 @@
     "Map": "32.05703|118.62365",
     "PhoneNumber": "+862556676699",
     "PinCode": "211800",
-    "HotelWebsiteUrl": "http://www.998.com/HotelDetail?hotelCode=172159"
+    "HotelWebsiteUrl": "http://www.998.com/HotelDetail?hotelCode=172159",
+    "star_rating": 3,
+    "latitude": 32.05703,
+    "longitude": 118.62365
   },
   {
     "countyCode": "CN",
@@ -4767,7 +5559,10 @@
     "Map": "32.02867|118.83916",
     "PhoneNumber": "",
     "PinCode": "210007",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-nanjing-houbaoying-road.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-nanjing-houbaoying-road.html",
+    "star_rating": 3,
+    "latitude": 32.02867,
+    "longitude": 118.83916
   },
   {
     "countyCode": "CN",
@@ -4785,7 +5580,10 @@
     "Map": "32.04574|118.78558",
     "PhoneNumber": "+862558371777",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "http://www.bthhotels.com/hotel/J25002"
+    "HotelWebsiteUrl": "http://www.bthhotels.com/hotel/J25002",
+    "star_rating": 4,
+    "latitude": 32.04574,
+    "longitude": 118.78558
   },
   {
     "countyCode": "CN",
@@ -4803,7 +5601,10 @@
     "Map": "32.04858|118.8495",
     "PhoneNumber": "",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/wei-jian-shan-zi-jin-shan-ren-wen-xing-lu.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/wei-jian-shan-zi-jin-shan-ren-wen-xing-lu.html",
+    "star_rating": 3,
+    "latitude": 32.04858,
+    "longitude": 118.8495
   },
   {
     "countyCode": "CN",
@@ -4821,7 +5622,10 @@
     "Map": "32.0573|118.80182",
     "PhoneNumber": "",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-alliance-jiangsu-nanjing-fuqiao-subway-station-chengxian-road.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-alliance-jiangsu-nanjing-fuqiao-subway-station-chengxian-road.html",
+    "star_rating": 3,
+    "latitude": 32.0573,
+    "longitude": 118.80182
   },
   {
     "countyCode": "CN",
@@ -4839,7 +5643,10 @@
     "Map": "32.0308|118.765",
     "PhoneNumber": "",
     "PinCode": "210017",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 32.0308,
+    "longitude": 118.765
   },
   {
     "countyCode": "CN",
@@ -4857,7 +5664,10 @@
     "Map": "32.07881|118.76159",
     "PhoneNumber": "+862566106620",
     "PinCode": "210003",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-nanjing-zhongshan-north-road-hongqiao-centre.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-nanjing-zhongshan-north-road-hongqiao-centre.html",
+    "star_rating": 3,
+    "latitude": 32.07881,
+    "longitude": 118.76159
   },
   {
     "countyCode": "CN",
@@ -4875,7 +5685,10 @@
     "Map": "32.08709|118.73893",
     "PhoneNumber": "",
     "PinCode": "210011",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/yi-he-yang-zi-fan-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/yi-he-yang-zi-fan-dian.html",
+    "star_rating": 5,
+    "latitude": 32.08709,
+    "longitude": 118.73893
   },
   {
     "countyCode": "CN",
@@ -4893,7 +5706,10 @@
     "Map": "31.94235|118.82964",
     "PhoneNumber": "025-87179798",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/vienna-nanjing-baijiahu-ximenzi.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/vienna-nanjing-baijiahu-ximenzi.html",
+    "star_rating": 4,
+    "latitude": 31.94235,
+    "longitude": 118.82964
   },
   {
     "countyCode": "CN",
@@ -4911,7 +5727,10 @@
     "Map": "32.13325|118.73898",
     "PhoneNumber": "+862558170777",
     "PinCode": "210032",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-nanjing-north-daqiao-road.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-nanjing-north-daqiao-road.html",
+    "star_rating": 3,
+    "latitude": 32.13325,
+    "longitude": 118.73898
   },
   {
     "countyCode": "CN",
@@ -4929,7 +5748,10 @@
     "Map": "32.07104|118.74649",
     "PhoneNumber": "+862558371788",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/home-inn-plus-nanjing-longjiang-dinghuaimen.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/home-inn-plus-nanjing-longjiang-dinghuaimen.html",
+    "star_rating": 4,
+    "latitude": 32.07104,
+    "longitude": 118.74649
   },
   {
     "countyCode": "CN",
@@ -4947,7 +5769,10 @@
     "Map": "31.34812|119.02939",
     "PhoneNumber": "",
     "PinCode": "211300",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 31.34812,
+    "longitude": 119.02939
   },
   {
     "countyCode": "CN",
@@ -4965,7 +5790,10 @@
     "Map": "32.0359|118.774",
     "PhoneNumber": "+862584199988",
     "PinCode": "210004",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/ji-nanjing-chaotian-temple.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/ji-nanjing-chaotian-temple.html",
+    "star_rating": 4,
+    "latitude": 32.0359,
+    "longitude": 118.774
   },
   {
     "countyCode": "CN",
@@ -4983,7 +5811,10 @@
     "Map": "31.924026489257812|118.83848571777344",
     "PhoneNumber": "+862552729977",
     "PinCode": "211100",
-    "HotelWebsiteUrl": "http://www.998.com/HotelDetail?hotelCode=002859"
+    "HotelWebsiteUrl": "http://www.998.com/HotelDetail?hotelCode=002859",
+    "star_rating": 3,
+    "latitude": 31.924026489257812,
+    "longitude": 118.83848571777344
   },
   {
     "countyCode": "CN",
@@ -5001,7 +5832,10 @@
     "Map": "31.65187|119.04459",
     "PhoneNumber": "+862556201599",
     "PinCode": "211200",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-jiangsu-nanjing-lishui-county-qinhuai-avenue-qingnian-road-busines.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-jiangsu-nanjing-lishui-county-qinhuai-avenue-qingnian-road-busines.html",
+    "star_rating": 3,
+    "latitude": 31.65187,
+    "longitude": 119.04459
   },
   {
     "countyCode": "CN",
@@ -5019,7 +5853,10 @@
     "Map": "31.96219|118.84022",
     "PhoneNumber": "+862552397266|+862552397299",
     "PinCode": "211199",
-    "HotelWebsiteUrl": "http://www.998.com/HotelDetail?hotelCode=121400"
+    "HotelWebsiteUrl": "http://www.998.com/HotelDetail?hotelCode=121400",
+    "star_rating": 3,
+    "latitude": 31.96219,
+    "longitude": 118.84022
   },
   {
     "countyCode": "CN",
@@ -5037,7 +5874,10 @@
     "Map": "32.091182708740234|118.77537536621094",
     "PhoneNumber": "+862585600966+862558058385",
     "PinCode": "210037",
-    "HotelWebsiteUrl": "http://www.998.com/HotelDetail?hotelcode=120530"
+    "HotelWebsiteUrl": "http://www.998.com/HotelDetail?hotelcode=120530",
+    "star_rating": 3,
+    "latitude": 32.091182708740234,
+    "longitude": 118.77537536621094
   },
   {
     "countyCode": "CN",
@@ -5055,7 +5895,10 @@
     "Map": "32.1102|118.69097",
     "PhoneNumber": "+862583405777",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "http://www.wyn88.com/resv/hotel_2100311.html?pageN"
+    "HotelWebsiteUrl": "http://www.wyn88.com/resv/hotel_2100311.html?pageN",
+    "star_rating": 4,
+    "latitude": 32.1102,
+    "longitude": 118.69097
   },
   {
     "countyCode": "CN",
@@ -5073,7 +5916,10 @@
     "Map": "32.04043|118.76475",
     "PhoneNumber": "",
     "PinCode": "210029",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-select-nanjing-hanzhongmen.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-select-nanjing-hanzhongmen.html",
+    "star_rating": 3,
+    "latitude": 32.04043,
+    "longitude": 118.76475
   },
   {
     "countyCode": "CN",
@@ -5091,7 +5937,10 @@
     "Map": "31.95258|118.81262",
     "PhoneNumber": "025-87179777",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/wei-ye-na-guo-ji-nanjing-nanzhan.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/wei-ye-na-guo-ji-nanjing-nanzhan.html",
+    "star_rating": 4,
+    "latitude": 31.95258,
+    "longitude": 118.81262
   },
   {
     "countyCode": "CN",
@@ -5109,7 +5958,10 @@
     "Map": "31.32812|118.8845",
     "PhoneNumber": "025-58363000",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/vienna-nanjing-gaochun-yinjiang-internation.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/vienna-nanjing-gaochun-yinjiang-internation.html",
+    "star_rating": 3,
+    "latitude": 31.32812,
+    "longitude": 118.8845
   },
   {
     "countyCode": "CN",
@@ -5127,7 +5979,10 @@
     "Map": "31.97647|118.79332",
     "PhoneNumber": "",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-select-nanjing-south-railway-station-north-square.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jinjiang-inn-select-nanjing-south-railway-station-north-square.html",
+    "star_rating": 3,
+    "latitude": 31.97647,
+    "longitude": 118.79332
   },
   {
     "countyCode": "CN",
@@ -5145,7 +6000,10 @@
     "Map": "32.0878|118.80061",
     "PhoneNumber": "",
     "PinCode": "210028",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/ji-nanjing-railway-station.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/ji-nanjing-railway-station.html",
+    "star_rating": 4,
+    "latitude": 32.0878,
+    "longitude": 118.80061
   },
   {
     "countyCode": "CN",
@@ -5163,7 +6021,10 @@
     "Map": "31.33331|118.89067",
     "PhoneNumber": "",
     "PinCode": "211399",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/7days-sunshine-nanjing-gaochun-bus-station.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/7days-sunshine-nanjing-gaochun-bus-station.html",
+    "star_rating": 3,
+    "latitude": 31.33331,
+    "longitude": 118.89067
   },
   {
     "countyCode": "CN",
@@ -5181,7 +6042,10 @@
     "Map": "31.975982|118.761874",
     "PhoneNumber": "+862558578777",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "http://www.jinjianginns.com/21979.html"
+    "HotelWebsiteUrl": "http://www.jinjianginns.com/21979.html",
+    "star_rating": 3,
+    "latitude": 31.975982,
+    "longitude": 118.761874
   },
   {
     "countyCode": "CN",
@@ -5199,7 +6063,10 @@
     "Map": "32.07285|118.89991",
     "PhoneNumber": "+86(0)2558369898",
     "PinCode": "211000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-nanjing-xianlin-road-jinmaroad-subway-station-shell.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-nanjing-xianlin-road-jinmaroad-subway-station-shell.html",
+    "star_rating": 3,
+    "latitude": 32.07285,
+    "longitude": 118.89991
   },
   {
     "countyCode": "CN",
@@ -5217,7 +6084,10 @@
     "Map": "32.10467|118.83702",
     "PhoneNumber": "",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-jiangsu-nanjing-jingwu-road-yueyuan-express.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-jiangsu-nanjing-jingwu-road-yueyuan-express.html",
+    "star_rating": 3,
+    "latitude": 32.10467,
+    "longitude": 118.83702
   },
   {
     "countyCode": "CN",
@@ -5235,7 +6105,10 @@
     "Map": "32.007052|118.859888",
     "PhoneNumber": "86-2586516088",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.007052,
+    "longitude": 118.859888
   },
   {
     "countyCode": "CN",
@@ -5253,7 +6126,10 @@
     "Map": "31.98097|118.88031",
     "PhoneNumber": "",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/vienna-international-donglin-road.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/vienna-international-donglin-road.html",
+    "star_rating": 4,
+    "latitude": 31.98097,
+    "longitude": 118.88031
   },
   {
     "countyCode": "CN",
@@ -5271,7 +6147,10 @@
     "Map": "32.23878|118.75813",
     "PhoneNumber": "+862557018000",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-jiangsu-nanjing-dachang-getang-metro-station-express.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-inn-jiangsu-nanjing-dachang-getang-metro-station-express.html",
+    "star_rating": 3,
+    "latitude": 32.23878,
+    "longitude": 118.75813
   },
   {
     "countyCode": "CN",
@@ -5289,7 +6168,10 @@
     "Map": "32.09901|118.76217",
     "PhoneNumber": "+862558827777+862558827777",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/vienna-jiangsu-nanjing-changjiang-bridge-yuejianglou.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/vienna-jiangsu-nanjing-changjiang-bridge-yuejianglou.html",
+    "star_rating": 3,
+    "latitude": 32.09901,
+    "longitude": 118.76217
   },
   {
     "countyCode": "CN",
@@ -5307,7 +6189,10 @@
     "Map": "32.03744|118.78181",
     "PhoneNumber": "",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/home-inn-selected-nanjing-xinjiekou-center.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/home-inn-selected-nanjing-xinjiekou-center.html",
+    "star_rating": 3,
+    "latitude": 32.03744,
+    "longitude": 118.78181
   },
   {
     "countyCode": "CN",
@@ -5325,7 +6210,10 @@
     "Map": "32.0677223205566|118.815208435059",
     "PhoneNumber": "",
     "PinCode": "210042",
-    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=1329095"
+    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=1329095",
+    "star_rating": 3,
+    "latitude": 32.0677223205566,
+    "longitude": 118.815208435059
   },
   {
     "countyCode": "CN",
@@ -5343,7 +6231,10 @@
     "Map": "31.981685|118.810688",
     "PhoneNumber": "+862586982888",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "http://wyn88.com/resv/hotel_2100221.html"
+    "HotelWebsiteUrl": "http://wyn88.com/resv/hotel_2100221.html",
+    "star_rating": 4,
+    "latitude": 31.981685,
+    "longitude": 118.810688
   },
   {
     "countyCode": "CN",
@@ -5361,7 +6252,10 @@
     "Map": "32.32561|118.82859",
     "PhoneNumber": "",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/vienna-nanjing-liuhe-longchi-station.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/vienna-nanjing-liuhe-longchi-station.html",
+    "star_rating": 4,
+    "latitude": 32.32561,
+    "longitude": 118.82859
   },
   {
     "countyCode": "CN",
@@ -5379,7 +6273,10 @@
     "Map": "32.0209|118.781",
     "PhoneNumber": "",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=25969763"
+    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=25969763",
+    "star_rating": 3,
+    "latitude": 32.0209,
+    "longitude": 118.781
   },
   {
     "countyCode": "CN",
@@ -5397,7 +6294,10 @@
     "Map": "32.03167|118.82014",
     "PhoneNumber": "",
     "PinCode": "210014",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/ji-nanjing-houbiao-ying.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/ji-nanjing-houbiao-ying.html",
+    "star_rating": 4,
+    "latitude": 32.03167,
+    "longitude": 118.82014
   },
   {
     "countyCode": "CN",
@@ -5415,7 +6315,10 @@
     "Map": "32.01653|118.78321",
     "PhoneNumber": "025-52201388",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/vienna-nanjing-confucius-temple-yuhua-road.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/vienna-nanjing-confucius-temple-yuhua-road.html",
+    "star_rating": 4,
+    "latitude": 32.01653,
+    "longitude": 118.78321
   },
   {
     "countyCode": "CN",
@@ -5433,7 +6336,10 @@
     "Map": "32.02237|118.78672",
     "PhoneNumber": "",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/yi-ju-nanjing.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/yi-ju-nanjing.html",
+    "star_rating": 3,
+    "latitude": 32.02237,
+    "longitude": 118.78672
   },
   {
     "countyCode": "CN",
@@ -5451,7 +6357,10 @@
     "Map": "31.91878|118.66437",
     "PhoneNumber": "+862586738899",
     "PinCode": "210039",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/ji-nanjing-banqiao.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/ji-nanjing-banqiao.html",
+    "star_rating": 4,
+    "latitude": 31.91878,
+    "longitude": 118.66437
   },
   {
     "countyCode": "CN",
@@ -5469,7 +6378,10 @@
     "Map": "31.86858|118.79855",
     "PhoneNumber": "",
     "PinCode": "211153",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/starway-nanjing-jiangjun-avenue.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/starway-nanjing-jiangjun-avenue.html",
+    "star_rating": 3,
+    "latitude": 31.86858,
+    "longitude": 118.79855
   },
   {
     "countyCode": "CN",
@@ -5487,7 +6399,10 @@
     "Map": "31.93498|118.80588",
     "PhoneNumber": "",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/pai-nanjing-west-shengtai-road-subway-station.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/pai-nanjing-west-shengtai-road-subway-station.html",
+    "star_rating": 3,
+    "latitude": 31.93498,
+    "longitude": 118.80588
   },
   {
     "countyCode": "CN",
@@ -5505,7 +6420,10 @@
     "Map": "32.041175|118.780974",
     "PhoneNumber": "86-025-84718888",
     "PinCode": "210029",
-    "HotelWebsiteUrl": "http://goldeagleapartment.cn/"
+    "HotelWebsiteUrl": "http://goldeagleapartment.cn/",
+    "star_rating": 4,
+    "latitude": 32.041175,
+    "longitude": 118.780974
   },
   {
     "countyCode": "CN",
@@ -5523,7 +6441,10 @@
     "Map": "32.069988251|118.75776672",
     "PhoneNumber": "",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.069988251,
+    "longitude": 118.75776672
   },
   {
     "countyCode": "CN",
@@ -5541,7 +6462,10 @@
     "Map": "32.114014|118.64444",
     "PhoneNumber": "862558609999",
     "PinCode": "210031",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.114014,
+    "longitude": 118.64444
   },
   {
     "countyCode": "CN",
@@ -5559,7 +6483,10 @@
     "Map": "32.16339|118.86765",
     "PhoneNumber": "86-25-69578888",
     "PinCode": "210038",
-    "HotelWebsiteUrl": "http://www.holidayinn.com/hotels/gb/en/nanjing/nkg"
+    "HotelWebsiteUrl": "http://www.holidayinn.com/hotels/gb/en/nanjing/nkg",
+    "star_rating": 3,
+    "latitude": 32.16339,
+    "longitude": 118.86765
   },
   {
     "countyCode": "CN",
@@ -5577,7 +6504,10 @@
     "Map": "31.95675|118.71705",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.95675,
+    "longitude": 118.71705
   },
   {
     "countyCode": "CN",
@@ -5595,7 +6525,10 @@
     "Map": "32.0676|118.78443",
     "PhoneNumber": "",
     "PinCode": "0",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.0676,
+    "longitude": 118.78443
   },
   {
     "countyCode": "CN",
@@ -5613,7 +6546,10 @@
     "Map": "32.0434|118.81902",
     "PhoneNumber": "+86(0)2584647678",
     "PinCode": "210016",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.0434,
+    "longitude": 118.81902
   },
   {
     "countyCode": "CN",
@@ -5631,7 +6567,10 @@
     "Map": "31.906469345|118.79254913",
     "PhoneNumber": "",
     "PinCode": "0",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.906469345,
+    "longitude": 118.79254913
   },
   {
     "countyCode": "CN",
@@ -5649,7 +6588,10 @@
     "Map": "31.979929|118.6928",
     "PhoneNumber": "86-25-58780888",
     "PinCode": "210019",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 5,
+    "latitude": 31.979929,
+    "longitude": 118.6928
   },
   {
     "countyCode": "CN",
@@ -5667,7 +6609,10 @@
     "Map": "31.713859558|118.89071655",
     "PhoneNumber": "",
     "PinCode": "0",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.713859558,
+    "longitude": 118.89071655
   },
   {
     "countyCode": "CN",
@@ -5685,7 +6630,10 @@
     "Map": "31.914720535|118.90080261",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.914720535,
+    "longitude": 118.90080261
   },
   {
     "countyCode": "CN",
@@ -5703,7 +6651,10 @@
     "Map": "32.12998|118.71759",
     "PhoneNumber": "025-58868777",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.12998,
+    "longitude": 118.71759
   },
   {
     "countyCode": "CN",
@@ -5721,7 +6672,10 @@
     "Map": "32.00713|118.7166",
     "PhoneNumber": "02552261988",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.00713,
+    "longitude": 118.7166
   },
   {
     "countyCode": "CN",
@@ -5739,7 +6693,10 @@
     "Map": "32.20994|118.73849",
     "PhoneNumber": "025-68161777",
     "PinCode": "210048",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.20994,
+    "longitude": 118.73849
   },
   {
     "countyCode": "CN",
@@ -5757,7 +6714,10 @@
     "Map": "31.98506|118.79985",
     "PhoneNumber": "025-85766888",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.98506,
+    "longitude": 118.79985
   },
   {
     "countyCode": "CN",
@@ -5775,7 +6735,10 @@
     "Map": "31.852008|118.722038",
     "PhoneNumber": "86-133-05191240",
     "PinCode": "211100",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.852008,
+    "longitude": 118.722038
   },
   {
     "countyCode": "CN",
@@ -5793,7 +6756,10 @@
     "Map": "32.318130493|118.80419922",
     "PhoneNumber": "",
     "PinCode": "0",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.318130493,
+    "longitude": 118.80419922
   },
   {
     "countyCode": "CN",
@@ -5811,7 +6777,10 @@
     "Map": "31.965893|118.80303",
     "PhoneNumber": "86-025-69567888",
     "PinCode": "210012",
-    "HotelWebsiteUrl": "http://www.ihg.com/holidayinn/hotels/us/en/nanjing"
+    "HotelWebsiteUrl": "http://www.ihg.com/holidayinn/hotels/us/en/nanjing",
+    "star_rating": 3,
+    "latitude": 31.965893,
+    "longitude": 118.80303
   },
   {
     "countyCode": "CN",
@@ -5829,7 +6798,10 @@
     "Map": "31.686966|118.877868",
     "PhoneNumber": "86-13770974721",
     "PinCode": "211156",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.686966,
+    "longitude": 118.877868
   },
   {
     "countyCode": "CN",
@@ -5847,7 +6819,10 @@
     "Map": "32.339379|118.866057",
     "PhoneNumber": "",
     "PinCode": "211500",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.339379,
+    "longitude": 118.866057
   },
   {
     "countyCode": "CN",
@@ -5865,7 +6840,10 @@
     "Map": "32.06674|118.78043",
     "PhoneNumber": "025-86300599",
     "PinCode": "210009",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.06674,
+    "longitude": 118.78043
   },
   {
     "countyCode": "CN",
@@ -5883,7 +6861,10 @@
     "Map": "31.723932|119.05528",
     "PhoneNumber": "86-25-69781888",
     "PinCode": "211200",
-    "HotelWebsiteUrl": "http://www.wyndhamhotels.com/wyndham-grand/nanjing"
+    "HotelWebsiteUrl": "http://www.wyndhamhotels.com/wyndham-grand/nanjing",
+    "star_rating": 4,
+    "latitude": 31.723932,
+    "longitude": 119.05528
   },
   {
     "countyCode": "CN",
@@ -5901,7 +6882,10 @@
     "Map": "32.03669|118.79376",
     "PhoneNumber": "",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/gu-nan-du-yi-ju-jiu-dian-nan-jing-xin-jie-kou-da-xing-gong-di-tie-zhan-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/gu-nan-du-yi-ju-jiu-dian-nan-jing-xin-jie-kou-da-xing-gong-di-tie-zhan-dian.html",
+    "star_rating": 4,
+    "latitude": 32.03669,
+    "longitude": 118.79376
   },
   {
     "countyCode": "CN",
@@ -5919,7 +6903,10 @@
     "Map": "32.01207|118.7888",
     "PhoneNumber": "",
     "PinCode": "210006",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/yi-he-jie-zi-yuan-nanjing1.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/yi-he-jie-zi-yuan-nanjing1.html",
+    "star_rating": 5,
+    "latitude": 32.01207,
+    "longitude": 118.7888
   },
   {
     "countyCode": "CN",
@@ -5937,7 +6924,10 @@
     "Map": "32.01343|118.71947",
     "PhoneNumber": "+862586882888",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "http://wyn88.com/resv/hotel_2100191.html"
+    "HotelWebsiteUrl": "http://wyn88.com/resv/hotel_2100191.html",
+    "star_rating": 4,
+    "latitude": 32.01343,
+    "longitude": 118.71947
   },
   {
     "countyCode": "CN",
@@ -5955,7 +6945,10 @@
     "Map": "23.25343|113.14639",
     "PhoneNumber": "+8675785103666",
     "PinCode": "528000",
-    "HotelWebsiteUrl": "http://wyn88.com/resv/hotel_5282441.html"
+    "HotelWebsiteUrl": "http://wyn88.com/resv/hotel_5282441.html",
+    "star_rating": 4,
+    "latitude": 23.25343,
+    "longitude": 113.14639
   },
   {
     "countyCode": "CN",
@@ -5973,7 +6966,10 @@
     "Map": "31.91929|118.79172",
     "PhoneNumber": "",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/vienna-international-nanjing-hehai-university-station.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/vienna-international-nanjing-hehai-university-station.html",
+    "star_rating": 4,
+    "latitude": 31.91929,
+    "longitude": 118.79172
   },
   {
     "countyCode": "CN",
@@ -5991,7 +6987,10 @@
     "Map": "31.98157|118.76301",
     "PhoneNumber": "",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jin-feng-hui-da-jiu-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/jin-feng-hui-da-jiu-dian.html",
+    "star_rating": 4,
+    "latitude": 31.98157,
+    "longitude": 118.76301
   },
   {
     "countyCode": "CN",
@@ -6009,7 +7008,10 @@
     "Map": "31.918895|118.791696",
     "PhoneNumber": "",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=5492805"
+    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=5492805",
+    "star_rating": 3,
+    "latitude": 31.918895,
+    "longitude": 118.791696
   },
   {
     "countyCode": "CN",
@@ -6027,7 +7029,10 @@
     "Map": "31.951932|118.832951",
     "PhoneNumber": "86-25-52711188",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 31.951932,
+    "longitude": 118.832951
   },
   {
     "countyCode": "CN",
@@ -6045,7 +7050,10 @@
     "Map": "32.059315|119.064686",
     "PhoneNumber": "86-0-18511364796",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.059315,
+    "longitude": 119.064686
   },
   {
     "countyCode": "CN",
@@ -6063,7 +7071,10 @@
     "Map": "32.09728494194074|118.88711689977413",
     "PhoneNumber": "",
     "PinCode": "210042",
-    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=6068148"
+    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=6068148",
+    "star_rating": 4,
+    "latitude": 32.09728494194074,
+    "longitude": 118.88711689977413
   },
   {
     "countyCode": "CN",
@@ -6081,7 +7092,10 @@
     "Map": "31.682146072387695|119.04300689697266",
     "PhoneNumber": "",
     "PinCode": "211200",
-    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=3587072"
+    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=3587072",
+    "star_rating": 3,
+    "latitude": 31.682146072387695,
+    "longitude": 119.04300689697266
   },
   {
     "countyCode": "CN",
@@ -6099,7 +7113,10 @@
     "Map": "32.146398|118.891361",
     "PhoneNumber": "86-25-58521777",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 32.146398,
+    "longitude": 118.891361
   },
   {
     "countyCode": "CN",
@@ -6117,7 +7134,10 @@
     "Map": "32.02192|118.79198",
     "PhoneNumber": "",
     "PinCode": "210001",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/nan-jing-ye-bo-qin-huai-jun-ting-jiu-dian-da-xi-yuan-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/nan-jing-ye-bo-qin-huai-jun-ting-jiu-dian-da-xi-yuan-dian.html",
+    "star_rating": 5,
+    "latitude": 32.02192,
+    "longitude": 118.79198
   },
   {
     "countyCode": "CN",
@@ -6135,7 +7155,10 @@
     "Map": "32.03529|118.802976",
     "PhoneNumber": "+86 25 8695 0888",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=9187889"
+    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=9187889",
+    "star_rating": 5,
+    "latitude": 32.03529,
+    "longitude": 118.802976
   },
   {
     "countyCode": "CN",
@@ -6153,7 +7176,10 @@
     "Map": "31.65455|119.02758",
     "PhoneNumber": "86-2566658000",
     "PinCode": "211200",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.65455,
+    "longitude": 119.02758
   },
   {
     "countyCode": "CN",
@@ -6171,7 +7197,10 @@
     "Map": "32.045074|118.66611",
     "PhoneNumber": "86-25-68981111",
     "PinCode": "000000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 32.045074,
+    "longitude": 118.66611
   },
   {
     "countyCode": "CN",
@@ -6189,7 +7218,10 @@
     "Map": "32.04507|118.66611",
     "PhoneNumber": "86-25-68981118",
     "PinCode": "21000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 32.04507,
+    "longitude": 118.66611
   },
   {
     "countyCode": "CN",
@@ -6207,7 +7239,10 @@
     "Map": "32.05723|118.81343",
     "PhoneNumber": "",
     "PinCode": "210016",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/siya-garden.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/siya-garden.html",
+    "star_rating": 4,
+    "latitude": 32.05723,
+    "longitude": 118.81343
   },
   {
     "countyCode": "CN",
@@ -6225,7 +7260,10 @@
     "Map": "31.975419|118.875456",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 31.975419,
+    "longitude": 118.875456
   },
   {
     "countyCode": "CN",
@@ -6243,7 +7281,10 @@
     "Map": "32.07467|119.00936",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/radisson-collection-resort-nanjing.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/radisson-collection-resort-nanjing.html",
+    "star_rating": 5,
+    "latitude": 32.07467,
+    "longitude": 119.00936
   },
   {
     "countyCode": "CN",
@@ -6261,7 +7302,10 @@
     "Map": "32.07372|118.99954",
     "PhoneNumber": "86-25-87130000",
     "PinCode": "211131",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 32.07372,
+    "longitude": 118.99954
   },
   {
     "countyCode": "CN",
@@ -6279,7 +7323,10 @@
     "Map": "32.05838|118.79647",
     "PhoneNumber": "86-2552262688",
     "PinCode": "211113",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 32.05838,
+    "longitude": 118.79647
   },
   {
     "countyCode": "CN",
@@ -6297,7 +7344,10 @@
     "Map": "31.93364|118.849",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.93364,
+    "longitude": 118.849
   },
   {
     "countyCode": "CN",
@@ -6315,7 +7365,10 @@
     "Map": "31.942074|118.811679",
     "PhoneNumber": "86-25-52200888",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 31.942074,
+    "longitude": 118.811679
   },
   {
     "countyCode": "CN",
@@ -6333,7 +7386,10 @@
     "Map": "32.130401|118.958391",
     "PhoneNumber": "86-25-86808855",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 32.130401,
+    "longitude": 118.958391
   },
   {
     "countyCode": "CN",
@@ -6351,7 +7407,10 @@
     "Map": "32.01121|118.812267",
     "PhoneNumber": "86-25-83225999",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 32.01121,
+    "longitude": 118.812267
   },
   {
     "countyCode": "CN",
@@ -6369,7 +7428,10 @@
     "Map": "31.9284|118.84749",
     "PhoneNumber": "86-25-52399990",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 31.9284,
+    "longitude": 118.84749
   },
   {
     "countyCode": "CN",
@@ -6387,7 +7449,10 @@
     "Map": "32.023753|118.791897",
     "PhoneNumber": "86-25-58801666",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 32.023753,
+    "longitude": 118.791897
   },
   {
     "countyCode": "CN",
@@ -6405,7 +7470,10 @@
     "Map": "31.98334|118.80441",
     "PhoneNumber": "",
     "PinCode": "210012",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-alliance-nanjing-yuhuatai-district-nanjing-south-station.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-alliance-nanjing-yuhuatai-district-nanjing-south-station.html",
+    "star_rating": 3,
+    "latitude": 31.98334,
+    "longitude": 118.80441
   },
   {
     "countyCode": "CN",
@@ -6423,7 +7491,10 @@
     "Map": "32.12771|118.99288",
     "PhoneNumber": "",
     "PinCode": "210046",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-eastern-nanjing-xianlin-university-city.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-eastern-nanjing-xianlin-university-city.html",
+    "star_rating": 3,
+    "latitude": 32.12771,
+    "longitude": 118.99288
   },
   {
     "countyCode": "CN",
@@ -6441,7 +7512,10 @@
     "Map": "31.963165|118.861967",
     "PhoneNumber": "",
     "PinCode": "211100",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.963165,
+    "longitude": 118.861967
   },
   {
     "countyCode": "CN",
@@ -6459,7 +7533,10 @@
     "Map": "",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": null,
+    "longitude": null
   },
   {
     "countyCode": "CN",
@@ -6477,7 +7554,10 @@
     "Map": "",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 5,
+    "latitude": null,
+    "longitude": null
   },
   {
     "countyCode": "CN",
@@ -6495,7 +7575,10 @@
     "Map": "32.06167|118.77778",
     "PhoneNumber": "+8613020156698",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 32.06167,
+    "longitude": 118.77778
   },
   {
     "countyCode": "CN",
@@ -6513,7 +7596,10 @@
     "Map": "31.91518|118.80615",
     "PhoneNumber": "",
     "PinCode": "211106",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/nan-jing-jiu-long-hu-jin-ling-jia-chen-jiu-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/nan-jing-jiu-long-hu-jin-ling-jia-chen-jiu-dian.html",
+    "star_rating": 4,
+    "latitude": 31.91518,
+    "longitude": 118.80615
   },
   {
     "countyCode": "CN",
@@ -6531,7 +7617,10 @@
     "Map": "32.07723|119.02205",
     "PhoneNumber": "",
     "PinCode": "211000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/nan-jing-yuan-bo-yuan-yue-rong-zhuang.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/nan-jing-yuan-bo-yuan-yue-rong-zhuang.html",
+    "star_rating": 5,
+    "latitude": 32.07723,
+    "longitude": 119.02205
   },
   {
     "countyCode": "CN",
@@ -6549,7 +7638,10 @@
     "Map": "32.02867|118.83916",
     "PhoneNumber": "+86 25 8661 6777",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/atour-light-nanjing-agricultural-university.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/atour-light-nanjing-agricultural-university.html",
+    "star_rating": 3,
+    "latitude": 32.02867,
+    "longitude": 118.83916
   },
   {
     "countyCode": "CN",
@@ -6567,7 +7659,10 @@
     "Map": "31.93376|118.821382",
     "PhoneNumber": "86-025-58990395",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.93376,
+    "longitude": 118.821382
   },
   {
     "countyCode": "CN",
@@ -6585,7 +7680,10 @@
     "Map": "32.138805|118.724432",
     "PhoneNumber": "025-68824520",
     "PinCode": "210031",
-    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=1196420"
+    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=1196420",
+    "star_rating": 4,
+    "latitude": 32.138805,
+    "longitude": 118.724432
   },
   {
     "countyCode": "CN",
@@ -6603,7 +7701,10 @@
     "Map": "32.044051|119.064353",
     "PhoneNumber": "86-2584159188",
     "PinCode": "211131",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.044051,
+    "longitude": 119.064353
   },
   {
     "countyCode": "CN",
@@ -6621,7 +7722,10 @@
     "Map": "32.01512|118.77864",
     "PhoneNumber": "025-52300558",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/nanjing-qinguoli.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/nanjing-qinguoli.html",
+    "star_rating": 3,
+    "latitude": 32.01512,
+    "longitude": 118.77864
   },
   {
     "countyCode": "CN",
@@ -6639,7 +7743,10 @@
     "Map": "31.993684|118.743665",
     "PhoneNumber": "86-025-86772777",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 31.993684,
+    "longitude": 118.743665
   },
   {
     "countyCode": "CN",
@@ -6657,7 +7764,10 @@
     "Map": "31.80557|118.70757",
     "PhoneNumber": "+862586139908",
     "PinCode": "211164",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 5,
+    "latitude": 31.80557,
+    "longitude": 118.70757
   },
   {
     "countyCode": "CN",
@@ -6675,7 +7785,10 @@
     "Map": "32.006257|118.731984",
     "PhoneNumber": "86-25-57700010",
     "PinCode": "2100019",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.006257,
+    "longitude": 118.731984
   },
   {
     "countyCode": "CN",
@@ -6693,7 +7806,10 @@
     "Map": "32.068956|118.776728",
     "PhoneNumber": "025-85307777",
     "PinCode": "210009",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 32.068956,
+    "longitude": 118.776728
   },
   {
     "countyCode": "CN",
@@ -6711,7 +7827,10 @@
     "Map": "31.637004|119.045633",
     "PhoneNumber": "86-025-56615199",
     "PinCode": "0",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 31.637004,
+    "longitude": 119.045633
   },
   {
     "countyCode": "CN",
@@ -6729,7 +7848,10 @@
     "Map": "31.98426|118.868345",
     "PhoneNumber": "025-52482280",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 31.98426,
+    "longitude": 118.868345
   },
   {
     "countyCode": "CN",
@@ -6747,7 +7869,10 @@
     "Map": "31.964728|118.803926",
     "PhoneNumber": "86-13505152058",
     "PinCode": "211106",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.964728,
+    "longitude": 118.803926
   },
   {
     "countyCode": "CN",
@@ -6765,7 +7890,10 @@
     "Map": "31.97154|118.799473",
     "PhoneNumber": "86-25-66086566",
     "PinCode": "210006",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.97154,
+    "longitude": 118.799473
   },
   {
     "countyCode": "CN",
@@ -6783,7 +7911,10 @@
     "Map": "32.04764|118.7842",
     "PhoneNumber": "86-25-58825689",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.04764,
+    "longitude": 118.7842
   },
   {
     "countyCode": "CN",
@@ -6801,7 +7932,10 @@
     "Map": "32.039388|118.841009",
     "PhoneNumber": "025-83197999",
     "PinCode": "210014",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 32.039388,
+    "longitude": 118.841009
   },
   {
     "countyCode": "CN",
@@ -6819,7 +7953,10 @@
     "Map": "31.9654776738|118.7014427877",
     "PhoneNumber": "",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=5577698"
+    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=5577698",
+    "star_rating": 3,
+    "latitude": 31.9654776738,
+    "longitude": 118.7014427877
   },
   {
     "countyCode": "CN",
@@ -6837,7 +7974,10 @@
     "Map": "32.023818|118.788961",
     "PhoneNumber": "025-85588799",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=5492794"
+    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=5492794",
+    "star_rating": 4,
+    "latitude": 32.023818,
+    "longitude": 118.788961
   },
   {
     "countyCode": "CN",
@@ -6855,7 +7995,10 @@
     "Map": "31.987989877129873|118.87537003708667",
     "PhoneNumber": "",
     "PinCode": "211100",
-    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=4437089"
+    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=4437089",
+    "star_rating": 3,
+    "latitude": 31.987989877129873,
+    "longitude": 118.87537003708667
   },
   {
     "countyCode": "CN",
@@ -6873,7 +8016,10 @@
     "Map": "32.03753|118.77019",
     "PhoneNumber": "",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-alliance-nanjing-jianye-district-mochou-lake-park-subway-station.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/greentree-alliance-nanjing-jianye-district-mochou-lake-park-subway-station.html",
+    "star_rating": 3,
+    "latitude": 32.03753,
+    "longitude": 118.77019
   },
   {
     "countyCode": "CN",
@@ -6891,7 +8037,10 @@
     "Map": "32.0353|118.791",
     "PhoneNumber": "025-66771818",
     "PinCode": "210000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/ji-nanjing-hubu-street.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/ji-nanjing-hubu-street.html",
+    "star_rating": 4,
+    "latitude": 32.0353,
+    "longitude": 118.791
   },
   {
     "countyCode": "CN",
@@ -6909,7 +8058,10 @@
     "Map": "32.01817|118.7883",
     "PhoneNumber": "",
     "PinCode": "210001",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/nan-jing-ye-bo-qin-huai-jun-ting-jiu-dian-qi-feng-shi-guan.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/cn/nan-jing-ye-bo-qin-huai-jun-ting-jiu-dian-qi-feng-shi-guan.html",
+    "star_rating": 5,
+    "latitude": 32.01817,
+    "longitude": 118.7883
   },
   {
     "countyCode": "CN",
@@ -6927,7 +8079,10 @@
     "Map": "31.65455|119.02758",
     "PhoneNumber": "86-2566658000",
     "PinCode": "211200",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.65455,
+    "longitude": 119.02758
   },
   {
     "countyCode": "CN",
@@ -6945,7 +8100,10 @@
     "Map": "31.984487|118.876656",
     "PhoneNumber": "86-25-52197555",
     "PinCode": "211100",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 31.984487,
+    "longitude": 118.876656
   },
   {
     "countyCode": "CN",
@@ -6963,7 +8121,10 @@
     "Map": "31.909863|118.650907",
     "PhoneNumber": "86-25-52773688",
     "PinCode": "210000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 31.909863,
+    "longitude": 118.650907
   },
   {
     "countyCode": "CN",
@@ -6981,7 +8142,10 @@
     "Map": "32.012908|118.784009",
     "PhoneNumber": "86-025-86696505",
     "PinCode": "210001",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 32.012908,
+    "longitude": 118.784009
   },
   {
     "countyCode": "CN",
@@ -6999,6 +8163,9 @@
     "Map": "32.042681|118.78415",
     "PhoneNumber": "86-25-69788888",
     "PinCode": "210018",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 5,
+    "latitude": 32.042681,
+    "longitude": 118.78415
   }
 ]

@@ -15,7 +15,10 @@
     "Map": "22.278126|114.184615",
     "PhoneNumber": "852-39791199",
     "PinCode": "N A",
-    "HotelWebsiteUrl": "http://www.minihotel.hk/index.php?sk=1"
+    "HotelWebsiteUrl": "http://www.minihotel.hk/index.php?sk=1",
+    "star_rating": 3,
+    "latitude": 22.278126,
+    "longitude": 114.184615
   },
   {
     "countyCode": "HK",
@@ -33,7 +36,10 @@
     "Map": "22.306604|114.171641",
     "PhoneNumber": "852-2121-9888",
     "PinCode": "00852",
-    "HotelWebsiteUrl": "http://www.maderagroup.com/hotel_madera"
+    "HotelWebsiteUrl": "http://www.maderagroup.com/hotel_madera",
+    "star_rating": 4,
+    "latitude": 22.306604,
+    "longitude": 114.171641
   },
   {
     "countyCode": "HK",
@@ -51,7 +57,10 @@
     "Map": "22.28679|114.15252",
     "PhoneNumber": "+85234263333",
     "PinCode": "",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/the-bauhinia-hong-kong.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/the-bauhinia-hong-kong.html",
+    "star_rating": 3,
+    "latitude": 22.28679,
+    "longitude": 114.15252
   },
   {
     "countyCode": "HK",
@@ -69,7 +78,10 @@
     "Map": "22.283642|114.153948",
     "PhoneNumber": "852-3962-1688",
     "PinCode": "CENTRAL",
-    "HotelWebsiteUrl": "http://www.butterflyhk.com/eng/our-hotels/on-wellington/index.php"
+    "HotelWebsiteUrl": "http://www.butterflyhk.com/eng/our-hotels/on-wellington/index.php",
+    "star_rating": 3,
+    "latitude": 22.283642,
+    "longitude": 114.153948
   },
   {
     "countyCode": "HK",
@@ -87,7 +99,10 @@
     "Map": "22.280249|114.154499",
     "PhoneNumber": "+852-3755-3000",
     "PinCode": "N A",
-    "HotelWebsiteUrl": "http://www.ovologroup.com"
+    "HotelWebsiteUrl": "http://www.ovologroup.com",
+    "star_rating": 4,
+    "latitude": 22.280249,
+    "longitude": 114.154499
   },
   {
     "countyCode": "HK",
@@ -105,7 +120,10 @@
     "Map": "22.28292|114.1281",
     "PhoneNumber": "+85237522988",
     "PinCode": "999077",
-    "HotelWebsiteUrl": "http://miacasa.com.hk/"
+    "HotelWebsiteUrl": "http://miacasa.com.hk/",
+    "star_rating": 3,
+    "latitude": 22.28292,
+    "longitude": 114.1281
   },
   {
     "countyCode": "HK",
@@ -123,7 +141,10 @@
     "Map": "22.280387|114.156177",
     "PhoneNumber": "852-21030999",
     "PinCode": "N A",
-    "HotelWebsiteUrl": "http://www.minihotel.hk"
+    "HotelWebsiteUrl": "http://www.minihotel.hk",
+    "star_rating": 3,
+    "latitude": 22.280387,
+    "longitude": 114.156177
   },
   {
     "countyCode": "HK",
@@ -141,7 +162,10 @@
     "Map": "22.24303|114.15387",
     "PhoneNumber": "(852) 35538412",
     "PinCode": "0000",
-    "HotelWebsiteUrl": "http://www.bthhotel.com"
+    "HotelWebsiteUrl": "http://www.bthhotel.com",
+    "star_rating": 3,
+    "latitude": 22.24303,
+    "longitude": 114.15387
   },
   {
     "countyCode": "HK",
@@ -159,7 +183,10 @@
     "Map": "22.2861|114.15157",
     "PhoneNumber": "",
     "PinCode": "A",
-    "HotelWebsiteUrl": "http://www.mingleplace.com"
+    "HotelWebsiteUrl": "http://www.mingleplace.com",
+    "star_rating": 3,
+    "latitude": 22.2861,
+    "longitude": 114.15157
   },
   {
     "countyCode": "HK",
@@ -177,7 +204,10 @@
     "Map": "22.298815|114.177499",
     "PhoneNumber": "852--27215215",
     "PinCode": "N A",
-    "HotelWebsiteUrl": "http://www.rghk.com.hk"
+    "HotelWebsiteUrl": "http://www.rghk.com.hk",
+    "star_rating": 5,
+    "latitude": 22.298815,
+    "longitude": 114.177499
   },
   {
     "countyCode": "HK",
@@ -195,7 +225,10 @@
     "Map": "22.281311|114.191956",
     "PhoneNumber": "852--26001000",
     "PinCode": "A52",
-    "HotelWebsiteUrl": "http://www.metroparkhotel.com"
+    "HotelWebsiteUrl": "http://www.metroparkhotel.com",
+    "star_rating": 4,
+    "latitude": 22.281311,
+    "longitude": 114.191956
   },
   {
     "countyCode": "HK",
@@ -213,7 +246,10 @@
     "Map": "22.337011|114.199772",
     "PhoneNumber": "852-311-28222",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.pentahotels.com"
+    "HotelWebsiteUrl": "http://www.pentahotels.com",
+    "star_rating": 4,
+    "latitude": 22.337011,
+    "longitude": 114.199772
   },
   {
     "countyCode": "HK",
@@ -231,7 +267,10 @@
     "Map": "22.296179|114.170064",
     "PhoneNumber": "852-2375-1133",
     "PinCode": "1",
-    "HotelWebsiteUrl": "http://hongkong.langhamhotels.com/"
+    "HotelWebsiteUrl": "http://hongkong.langhamhotels.com/",
+    "star_rating": 5,
+    "latitude": 22.296179,
+    "longitude": 114.170064
   },
   {
     "countyCode": "HK",
@@ -249,7 +288,10 @@
     "Map": "22.279774|114.179556",
     "PhoneNumber": "852-2643-8888",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.miramoonhotel.com"
+    "HotelWebsiteUrl": "http://www.miramoonhotel.com",
+    "star_rating": 4,
+    "latitude": 22.279774,
+    "longitude": 114.179556
   },
   {
     "countyCode": "HK",
@@ -267,7 +309,10 @@
     "Map": "22.3011|114.183065",
     "PhoneNumber": "852-31-606888",
     "PinCode": "1",
-    "HotelWebsiteUrl": "http://www.harbour-plaza.com/metropolis/Index-en.htm"
+    "HotelWebsiteUrl": "http://www.harbour-plaza.com/metropolis/Index-en.htm",
+    "star_rating": 4,
+    "latitude": 22.3011,
+    "longitude": 114.183065
   },
   {
     "countyCode": "HK",
@@ -285,7 +330,10 @@
     "Map": "22.308165|114.224467",
     "PhoneNumber": "85239896888",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.dorsetthotels.com/hongkong/kwuntong"
+    "HotelWebsiteUrl": "http://www.dorsetthotels.com/hongkong/kwuntong",
+    "star_rating": 4,
+    "latitude": 22.308165,
+    "longitude": 114.224467
   },
   {
     "countyCode": "HK",
@@ -303,7 +351,10 @@
     "Map": "22.284133|114.192554",
     "PhoneNumber": "",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "www.butterflyhk.com"
+    "HotelWebsiteUrl": "www.butterflyhk.com",
+    "star_rating": 4,
+    "latitude": 22.284133,
+    "longitude": 114.192554
   },
   {
     "countyCode": "HK",
@@ -321,7 +372,10 @@
     "Map": "22.314024|114.219229",
     "PhoneNumber": "85-2-39688666",
     "PinCode": "NULL",
-    "HotelWebsiteUrl": "http://www.lhotelelan.com"
+    "HotelWebsiteUrl": "http://www.lhotelelan.com",
+    "star_rating": 4,
+    "latitude": 22.314024,
+    "longitude": 114.219229
   },
   {
     "countyCode": "HK",
@@ -339,7 +393,10 @@
     "Map": "22.26676|114.1875",
     "PhoneNumber": "170464849180",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://www.thev.hk/p.php?s=/Show/vhv"
+    "HotelWebsiteUrl": "http://www.thev.hk/p.php?s=/Show/vhv",
+    "star_rating": 3,
+    "latitude": 22.26676,
+    "longitude": 114.1875
   },
   {
     "countyCode": "HK",
@@ -357,7 +414,10 @@
     "Map": "22.278776|114.188631",
     "PhoneNumber": "852-360-22388",
     "PinCode": "NA",
-    "HotelWebsiteUrl": "http://www.thev.hk/en/serviced-apartment/cwb2-serviced-apartment.php#gallery"
+    "HotelWebsiteUrl": "http://www.thev.hk/en/serviced-apartment/cwb2-serviced-apartment.php#gallery",
+    "star_rating": 4,
+    "latitude": 22.278776,
+    "longitude": 114.188631
   },
   {
     "countyCode": "HK",
@@ -375,7 +435,10 @@
     "Map": "22.279859|114.186153",
     "PhoneNumber": "+85236022388",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://www.thev.hk/en/serviced-apartment/cwb-servi"
+    "HotelWebsiteUrl": "http://www.thev.hk/en/serviced-apartment/cwb-servi",
+    "star_rating": 4,
+    "latitude": 22.279859,
+    "longitude": 114.186153
   },
   {
     "countyCode": "HK",
@@ -393,7 +456,10 @@
     "Map": "22.278772354|114.17500925",
     "PhoneNumber": "00852 3761 3600",
     "PinCode": "852",
-    "HotelWebsiteUrl": "http://www.thevhotels.com"
+    "HotelWebsiteUrl": "http://www.thevhotels.com",
+    "star_rating": 4,
+    "latitude": 22.278772354,
+    "longitude": 114.17500925
   },
   {
     "countyCode": "HK",
@@ -411,7 +477,10 @@
     "Map": "22.30668|114.168",
     "PhoneNumber": "170464933806",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://www.thev.hk/lodge/"
+    "HotelWebsiteUrl": "http://www.thev.hk/lodge/",
+    "star_rating": 3,
+    "latitude": 22.30668,
+    "longitude": 114.168
   },
   {
     "countyCode": "HK",
@@ -429,7 +498,10 @@
     "Map": "22.280549|114.171174",
     "PhoneNumber": "852-2-8020111",
     "PinCode": "n a",
-    "HotelWebsiteUrl": "http://www.theharbourview.com.hk/"
+    "HotelWebsiteUrl": "http://www.theharbourview.com.hk/",
+    "star_rating": 4,
+    "latitude": 22.280549,
+    "longitude": 114.171174
   },
   {
     "countyCode": "HK",
@@ -447,7 +519,10 @@
     "Map": "22.27961|114.17811",
     "PhoneNumber": "",
     "PinCode": "A",
-    "HotelWebsiteUrl": "www.hongkongkingshotel.com"
+    "HotelWebsiteUrl": "www.hongkongkingshotel.com",
+    "star_rating": 3,
+    "latitude": 22.27961,
+    "longitude": 114.17811
   },
   {
     "countyCode": "HK",
@@ -465,7 +540,10 @@
     "Map": "22.28765|114.1513",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.28765,
+    "longitude": 114.1513
   },
   {
     "countyCode": "HK",
@@ -483,7 +561,10 @@
     "Map": "22.30293|114.172",
     "PhoneNumber": "852-3760 8999",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.sunnydayhotel.com"
+    "HotelWebsiteUrl": "http://www.sunnydayhotel.com",
+    "star_rating": 3,
+    "latitude": 22.30293,
+    "longitude": 114.172
   },
   {
     "countyCode": "HK",
@@ -501,7 +582,10 @@
     "Map": "22.29531|114.1755",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.29531,
+    "longitude": 114.1755
   },
   {
     "countyCode": "HK",
@@ -519,7 +603,10 @@
     "Map": "22.3111|114.17157",
     "PhoneNumber": "852-39793748",
     "PinCode": "Island",
-    "HotelWebsiteUrl": "http://boothlodge.salvation.org.hk/ENG/index.htm"
+    "HotelWebsiteUrl": "http://boothlodge.salvation.org.hk/ENG/index.htm",
+    "star_rating": 3,
+    "latitude": 22.3111,
+    "longitude": 114.17157
   },
   {
     "countyCode": "HK",
@@ -537,7 +624,10 @@
     "Map": "22.30392|114.17",
     "PhoneNumber": "170454742454",
     "PinCode": "999077",
-    "HotelWebsiteUrl": "http://www.sandiego-hotel.com.hk"
+    "HotelWebsiteUrl": "http://www.sandiego-hotel.com.hk",
+    "star_rating": 3,
+    "latitude": 22.30392,
+    "longitude": 114.17
   },
   {
     "countyCode": "HK",
@@ -555,7 +645,10 @@
     "Map": "22.390631|114.206878",
     "PhoneNumber": "852-39-408888",
     "PinCode": "0000",
-    "HotelWebsiteUrl": "http://www.courtyardshatin.com"
+    "HotelWebsiteUrl": "http://www.courtyardshatin.com",
+    "star_rating": 4,
+    "latitude": 22.390631,
+    "longitude": 114.206878
   },
   {
     "countyCode": "HK",
@@ -573,7 +666,10 @@
     "Map": "22.2773|114.17513",
     "PhoneNumber": "852-29054888",
     "PinCode": "0000",
-    "HotelWebsiteUrl": "http://www.thev.hk"
+    "HotelWebsiteUrl": "http://www.thev.hk",
+    "star_rating": 3,
+    "latitude": 22.2773,
+    "longitude": 114.17513
   },
   {
     "countyCode": "HK",
@@ -591,7 +687,10 @@
     "Map": "22.286416|114.14722",
     "PhoneNumber": "852-2681-9388",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.hotellbp.com.hk/"
+    "HotelWebsiteUrl": "http://www.hotellbp.com.hk/",
+    "star_rating": 3,
+    "latitude": 22.286416,
+    "longitude": 114.14722
   },
   {
     "countyCode": "HK",
@@ -609,7 +708,10 @@
     "Map": "22.278608|114.186154",
     "PhoneNumber": "852-39-700688",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.hotelpennington.com.hk"
+    "HotelWebsiteUrl": "http://www.hotelpennington.com.hk",
+    "star_rating": 4,
+    "latitude": 22.278608,
+    "longitude": 114.186154
   },
   {
     "countyCode": "HK",
@@ -627,7 +729,10 @@
     "Map": "22.321321|114.166686",
     "PhoneNumber": "852-3-9687777",
     "PinCode": "000000",
-    "HotelWebsiteUrl": "http://www.lodgewood.com.hk/en/mongkok"
+    "HotelWebsiteUrl": "http://www.lodgewood.com.hk/en/mongkok",
+    "star_rating": 4,
+    "latitude": 22.321321,
+    "longitude": 114.166686
   },
   {
     "countyCode": "HK",
@@ -645,7 +750,10 @@
     "Map": "22.307056|114.172354",
     "PhoneNumber": "852-31996199",
     "PinCode": "000",
-    "HotelWebsiteUrl": "http://www.travelodgehotels.asia"
+    "HotelWebsiteUrl": "http://www.travelodgehotels.asia",
+    "star_rating": 3,
+    "latitude": 22.307056,
+    "longitude": 114.172354
   },
   {
     "countyCode": "HK",
@@ -663,7 +771,10 @@
     "Map": "22.286112|114.13501",
     "PhoneNumber": "852-2974-1234",
     "PinCode": "00001",
-    "HotelWebsiteUrl": "http://www.hoteljen.com"
+    "HotelWebsiteUrl": "http://www.hoteljen.com",
+    "star_rating": 4,
+    "latitude": 22.286112,
+    "longitude": 114.13501
   },
   {
     "countyCode": "HK",
@@ -681,7 +792,10 @@
     "Map": "22.303107|114.174681",
     "PhoneNumber": "852-3122-6222",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.bestwesterngrandhotel.com"
+    "HotelWebsiteUrl": "http://www.bestwesterngrandhotel.com",
+    "star_rating": 3,
+    "latitude": 22.303107,
+    "longitude": 114.174681
   },
   {
     "countyCode": "HK",
@@ -699,7 +813,10 @@
     "Map": "22.286863|114.143524",
     "PhoneNumber": "852-25-999888",
     "PinCode": "N A",
-    "HotelWebsiteUrl": "http://www.bestwesternhotelharbourview.com/tc/"
+    "HotelWebsiteUrl": "http://www.bestwesternhotelharbourview.com/tc/",
+    "star_rating": 4,
+    "latitude": 22.286863,
+    "longitude": 114.143524
   },
   {
     "countyCode": "HK",
@@ -717,7 +834,10 @@
     "Map": "22.277035|114.165146",
     "PhoneNumber": "85225213838",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.conradhotels.com"
+    "HotelWebsiteUrl": "http://www.conradhotels.com",
+    "star_rating": 5,
+    "latitude": 22.277035,
+    "longitude": 114.165146
   },
   {
     "countyCode": "HK",
@@ -735,7 +855,10 @@
     "Map": "22.372413|113.989508",
     "PhoneNumber": "852-2452-8888",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.goldcoasthotel.com.hk"
+    "HotelWebsiteUrl": "http://www.goldcoasthotel.com.hk",
+    "star_rating": 4,
+    "latitude": 22.372413,
+    "longitude": 113.989508
   },
   {
     "countyCode": "HK",
@@ -753,7 +876,10 @@
     "Map": "22.32316|114.167905",
     "PhoneNumber": "852-23976683",
     "PinCode": "Hong Kong",
-    "HotelWebsiteUrl": "http://www.metroparkhotelmongkok.com/eng/index.php"
+    "HotelWebsiteUrl": "http://www.metroparkhotelmongkok.com/eng/index.php",
+    "star_rating": 4,
+    "latitude": 22.32316,
+    "longitude": 114.167905
   },
   {
     "countyCode": "HK",
@@ -771,7 +897,10 @@
     "Map": "22.27396|114.1738",
     "PhoneNumber": "852-2833-8688",
     "PinCode": "N A",
-    "HotelWebsiteUrl": "http://www.eatonresidences.com.hk/en/"
+    "HotelWebsiteUrl": "http://www.eatonresidences.com.hk/en/",
+    "star_rating": 4,
+    "latitude": 22.27396,
+    "longitude": 114.1738
   },
   {
     "countyCode": "HK",
@@ -789,7 +918,10 @@
     "Map": "22.317649|114.167958",
     "PhoneNumber": "852-35-523552",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.cordishotels.com/en/hong-kong/"
+    "HotelWebsiteUrl": "http://www.cordishotels.com/en/hong-kong/",
+    "star_rating": 5,
+    "latitude": 22.317649,
+    "longitude": 114.167958
   },
   {
     "countyCode": "HK",
@@ -807,7 +939,10 @@
     "Map": "22.313478|114.171258",
     "PhoneNumber": "852--27833888",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.thecityview.com.hk"
+    "HotelWebsiteUrl": "http://www.thecityview.com.hk",
+    "star_rating": 4,
+    "latitude": 22.313478,
+    "longitude": 114.171258
   },
   {
     "countyCode": "HK",
@@ -825,7 +960,10 @@
     "Map": "22.310257|114.169919",
     "PhoneNumber": "852-2782-0882",
     "PinCode": "1",
-    "HotelWebsiteUrl": "http://www.silkahotels.com/seaview"
+    "HotelWebsiteUrl": "http://www.silkahotels.com/seaview",
+    "star_rating": 3,
+    "latitude": 22.310257,
+    "longitude": 114.169919
   },
   {
     "countyCode": "HK",
@@ -843,7 +981,10 @@
     "Map": "22.330075|114.192768",
     "PhoneNumber": "852-27-180333",
     "PinCode": "N A",
-    "HotelWebsiteUrl": "http://www.regaloriental.com"
+    "HotelWebsiteUrl": "http://www.regaloriental.com",
+    "star_rating": 4,
+    "latitude": 22.330075,
+    "longitude": 114.192768
   },
   {
     "countyCode": "HK",
@@ -861,7 +1002,10 @@
     "Map": "22.303968|114.17177",
     "PhoneNumber": "852-2-3118222",
     "PinCode": "1",
-    "HotelWebsiteUrl": "http://www.prudentialhotel.com"
+    "HotelWebsiteUrl": "http://www.prudentialhotel.com",
+    "star_rating": 4,
+    "latitude": 22.303968,
+    "longitude": 114.17177
   },
   {
     "countyCode": "HK",
@@ -879,7 +1023,10 @@
     "Map": "22.274539|114.178908",
     "PhoneNumber": "852-35-521111",
     "PinCode": "Hong Kong",
-    "HotelWebsiteUrl": "http://www.wanchai.dorsetthotels.com"
+    "HotelWebsiteUrl": "http://www.wanchai.dorsetthotels.com",
+    "star_rating": 4,
+    "latitude": 22.274539,
+    "longitude": 114.178908
   },
   {
     "countyCode": "HK",
@@ -897,7 +1044,10 @@
     "Map": "22.277816|114.178934",
     "PhoneNumber": "+85228335566",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://hongkonghotel.charterhouse.com/eng/"
+    "HotelWebsiteUrl": "http://hongkonghotel.charterhouse.com/eng/",
+    "star_rating": 3,
+    "latitude": 22.277816,
+    "longitude": 114.178934
   },
   {
     "countyCode": "HK",
@@ -915,7 +1065,10 @@
     "Map": "22.292444|114.20072",
     "PhoneNumber": "+85225881111",
     "PinCode": "null",
-    "HotelWebsiteUrl": "https://www.accorhotels.com/gb/hotel-3563-ibis-hong-kong-north-point/index.shtml"
+    "HotelWebsiteUrl": "https://www.accorhotels.com/gb/hotel-3563-ibis-hong-kong-north-point/index.shtml",
+    "star_rating": 3,
+    "latitude": 22.292444,
+    "longitude": 114.20072
   },
   {
     "countyCode": "HK",
@@ -933,7 +1086,10 @@
     "Map": "22.288037|114.142376",
     "PhoneNumber": "852-2131-1188",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.islandpacifichote.com.hk"
+    "HotelWebsiteUrl": "http://www.islandpacifichote.com.hk",
+    "star_rating": 4,
+    "latitude": 22.288037,
+    "longitude": 114.142376
   },
   {
     "countyCode": "HK",
@@ -951,7 +1107,10 @@
     "Map": "22.278452|114.15316",
     "PhoneNumber": "852-286-80828",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.bishopleihtl.com.hk/"
+    "HotelWebsiteUrl": "http://www.bishopleihtl.com.hk/",
+    "star_rating": 4,
+    "latitude": 22.278452,
+    "longitude": 114.15316
   },
   {
     "countyCode": "HK",
@@ -969,7 +1128,10 @@
     "Map": "22.295474|114.171024",
     "PhoneNumber": "852-2-2687000",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.ymcahk.org.hk"
+    "HotelWebsiteUrl": "http://www.ymcahk.org.hk",
+    "star_rating": 4,
+    "latitude": 22.295474,
+    "longitude": 114.171024
   },
   {
     "countyCode": "HK",
@@ -987,7 +1149,10 @@
     "Map": "22.30818|114.013855",
     "PhoneNumber": "852-229-58288",
     "PinCode": "-",
-    "HotelWebsiteUrl": "http://www.aubergediscoverybay.com"
+    "HotelWebsiteUrl": "http://www.aubergediscoverybay.com",
+    "star_rating": 4,
+    "latitude": 22.30818,
+    "longitude": 114.013855
   },
   {
     "countyCode": "HK",
@@ -1005,7 +1170,10 @@
     "Map": "22.307853|114.171665",
     "PhoneNumber": "852-23-885141",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.nathanhotel.com"
+    "HotelWebsiteUrl": "http://www.nathanhotel.com",
+    "star_rating": 4,
+    "latitude": 22.307853,
+    "longitude": 114.171665
   },
   {
     "countyCode": "HK",
@@ -1023,7 +1191,10 @@
     "Map": "22.280663|114.15747",
     "PhoneNumber": "8522-132-0188",
     "PinCode": "852",
-    "HotelWebsiteUrl": "http://www.mandarinoriental.com"
+    "HotelWebsiteUrl": "http://www.mandarinoriental.com",
+    "star_rating": 5,
+    "latitude": 22.280663,
+    "longitude": 114.15747
   },
   {
     "countyCode": "HK",
@@ -1041,7 +1212,10 @@
     "Map": "22.28673|114.15614",
     "PhoneNumber": "852-31-968888",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.fourseasons.com/hongkong/"
+    "HotelWebsiteUrl": "http://www.fourseasons.com/hongkong/",
+    "star_rating": 5,
+    "latitude": 22.28673,
+    "longitude": 114.15614
   },
   {
     "countyCode": "HK",
@@ -1059,7 +1233,10 @@
     "Map": "22.27606|114.1559",
     "PhoneNumber": "85221322132",
     "PinCode": "031103",
-    "HotelWebsiteUrl": "http://twomr.com.hk"
+    "HotelWebsiteUrl": "http://twomr.com.hk",
+    "star_rating": 4,
+    "latitude": 22.27606,
+    "longitude": 114.1559
   },
   {
     "countyCode": "HK",
@@ -1077,7 +1254,10 @@
     "Map": "22.262206|114.129364",
     "PhoneNumber": "+85229807788",
     "PinCode": "X",
-    "HotelWebsiteUrl": "http://www.hongkong.lemeridien.com"
+    "HotelWebsiteUrl": "http://www.hongkong.lemeridien.com",
+    "star_rating": 5,
+    "latitude": 22.262206,
+    "longitude": 114.129364
   },
   {
     "countyCode": "HK",
@@ -1095,7 +1275,10 @@
     "Map": "22.344291|114.109228",
     "PhoneNumber": "852-21297888",
     "PinCode": "000000",
-    "HotelWebsiteUrl": "http://www.mexan-harbour.com/index.html"
+    "HotelWebsiteUrl": "http://www.mexan-harbour.com/index.html",
+    "star_rating": 3,
+    "latitude": 22.344291,
+    "longitude": 114.109228
   },
   {
     "countyCode": "HK",
@@ -1113,7 +1296,10 @@
     "Map": "22.211897|114.027852",
     "PhoneNumber": "+852 29869990",
     "PinCode": "999077",
-    "HotelWebsiteUrl": "http://www.bbcheungchau.com.hk"
+    "HotelWebsiteUrl": "http://www.bbcheungchau.com.hk",
+    "star_rating": 3,
+    "latitude": 22.211897,
+    "longitude": 114.027852
   },
   {
     "countyCode": "HK",
@@ -1131,7 +1317,10 @@
     "Map": "22.249789|114.149389",
     "PhoneNumber": "1-852-29030111",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.caritas-chs.org.hk/chi/index.asp"
+    "HotelWebsiteUrl": "http://www.caritas-chs.org.hk/chi/index.asp",
+    "star_rating": 3,
+    "latitude": 22.249789,
+    "longitude": 114.149389
   },
   {
     "countyCode": "HK",
@@ -1149,7 +1338,10 @@
     "Map": "22.263256|114.237012",
     "PhoneNumber": "85-2-37218989",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://www.youthsquare.hk/"
+    "HotelWebsiteUrl": "http://www.youthsquare.hk/",
+    "star_rating": 3,
+    "latitude": 22.263256,
+    "longitude": 114.237012
   },
   {
     "countyCode": "HK",
@@ -1167,7 +1359,10 @@
     "Map": "22.326467|114.164171",
     "PhoneNumber": "852-23932289",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.landerhotel.com.hk"
+    "HotelWebsiteUrl": "http://www.landerhotel.com.hk",
+    "star_rating": 3,
+    "latitude": 22.326467,
+    "longitude": 114.164171
   },
   {
     "countyCode": "HK",
@@ -1185,7 +1380,10 @@
     "Map": "22.31136|114.17086",
     "PhoneNumber": "(852) 31038988",
     "PinCode": "000000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/casa-deluxe.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/casa-deluxe.html",
+    "star_rating": 3,
+    "latitude": 22.31136,
+    "longitude": 114.17086
   },
   {
     "countyCode": "HK",
@@ -1203,7 +1401,10 @@
     "Map": "22.278042|114.172577",
     "PhoneNumber": "852-37937700",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://brightonhotel.com.hk/"
+    "HotelWebsiteUrl": "http://brightonhotel.com.hk/",
+    "star_rating": 3,
+    "latitude": 22.278042,
+    "longitude": 114.172577
   },
   {
     "countyCode": "HK",
@@ -1221,7 +1422,10 @@
     "Map": "22.291898|114.208433",
     "PhoneNumber": "852-218-78888",
     "PinCode": "Hong Kong",
-    "HotelWebsiteUrl": "http://www.harbour-plaza.com/northpoint/Index-en.htm"
+    "HotelWebsiteUrl": "http://www.harbour-plaza.com/northpoint/Index-en.htm",
+    "star_rating": 4,
+    "latitude": 22.291898,
+    "longitude": 114.208433
   },
   {
     "countyCode": "HK",
@@ -1239,7 +1443,10 @@
     "Map": "22.308746|114.259894",
     "PhoneNumber": "852-3199-5588",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.hiexpress.com"
+    "HotelWebsiteUrl": "http://www.hiexpress.com",
+    "star_rating": 3,
+    "latitude": 22.308746,
+    "longitude": 114.259894
   },
   {
     "countyCode": "HK",
@@ -1257,7 +1464,10 @@
     "Map": "22.327599|114.1589",
     "PhoneNumber": "",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.ovologroup.com/hotels/256TCS/en/"
+    "HotelWebsiteUrl": "http://www.ovologroup.com/hotels/256TCS/en/",
+    "star_rating": 4,
+    "latitude": 22.327599,
+    "longitude": 114.1589
   },
   {
     "countyCode": "HK",
@@ -1275,7 +1485,10 @@
     "Map": "22.321025|114.161993",
     "PhoneNumber": "852-3919-8888",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.rosedalehotels.com"
+    "HotelWebsiteUrl": "http://www.rosedalehotels.com",
+    "star_rating": 4,
+    "latitude": 22.321025,
+    "longitude": 114.161993
   },
   {
     "countyCode": "HK",
@@ -1293,7 +1506,10 @@
     "Map": "22.320371|114.162696",
     "PhoneNumber": "852-23802223",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.silkahotels.com/westkowloon"
+    "HotelWebsiteUrl": "http://www.silkahotels.com/westkowloon",
+    "star_rating": 3,
+    "latitude": 22.320371,
+    "longitude": 114.162696
   },
   {
     "countyCode": "HK",
@@ -1311,7 +1527,10 @@
     "Map": "22.277702|114.18176",
     "PhoneNumber": "85-23-5586688",
     "PinCode": "1",
-    "HotelWebsiteUrl": "http://www.hiexpresscw.com.cn"
+    "HotelWebsiteUrl": "http://www.hiexpresscw.com.cn",
+    "star_rating": 3,
+    "latitude": 22.277702,
+    "longitude": 114.18176
   },
   {
     "countyCode": "HK",
@@ -1329,7 +1548,10 @@
     "Map": "22.279035|114.172223",
     "PhoneNumber": "852-28-662166",
     "PinCode": "0000",
-    "HotelWebsiteUrl": "http://www.gloucesterlukkwok.com.hk"
+    "HotelWebsiteUrl": "http://www.gloucesterlukkwok.com.hk",
+    "star_rating": 4,
+    "latitude": 22.279035,
+    "longitude": 114.172223
   },
   {
     "countyCode": "HK",
@@ -1347,7 +1569,10 @@
     "Map": "22.283253|114.192827",
     "PhoneNumber": "852-3553-2898",
     "PinCode": "N A",
-    "HotelWebsiteUrl": "http://www.lhotelcausewaybayhv.com"
+    "HotelWebsiteUrl": "http://www.lhotelcausewaybayhv.com",
+    "star_rating": 4,
+    "latitude": 22.283253,
+    "longitude": 114.192827
   },
   {
     "countyCode": "HK",
@@ -1365,7 +1590,10 @@
     "Map": "22.380223|114.187905",
     "PhoneNumber": "+85226012111",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.royalpark.com.hk"
+    "HotelWebsiteUrl": "http://www.royalpark.com.hk",
+    "star_rating": 4,
+    "latitude": 22.380223,
+    "longitude": 114.187905
   },
   {
     "countyCode": "HK",
@@ -1383,7 +1611,10 @@
     "Map": "22.31892|114.17627",
     "PhoneNumber": "852-27001688",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 22.31892,
+    "longitude": 114.17627
   },
   {
     "countyCode": "HK",
@@ -1401,7 +1632,10 @@
     "Map": "22.276171|114.155749",
     "PhoneNumber": "852-28773737",
     "PinCode": "Hong Kong",
-    "HotelWebsiteUrl": "http://www.yhk.com.hk"
+    "HotelWebsiteUrl": "http://www.yhk.com.hk",
+    "star_rating": 4,
+    "latitude": 22.276171,
+    "longitude": 114.155749
   },
   {
     "countyCode": "HK",
@@ -1419,7 +1653,10 @@
     "Map": "22.278422|114.186785",
     "PhoneNumber": "85234776888",
     "PinCode": "1",
-    "HotelWebsiteUrl": "http://hongkong.lansonplace.com/"
+    "HotelWebsiteUrl": "http://hongkong.lansonplace.com/",
+    "star_rating": 5,
+    "latitude": 22.278422,
+    "longitude": 114.186785
   },
   {
     "countyCode": "HK",
@@ -1437,7 +1674,10 @@
     "Map": "22.291027|113.9424",
     "PhoneNumber": "+85236028888",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.novotel.com"
+    "HotelWebsiteUrl": "http://www.novotel.com",
+    "star_rating": 4,
+    "latitude": 22.291027,
+    "longitude": 113.9424
   },
   {
     "countyCode": "HK",
@@ -1455,7 +1695,10 @@
     "Map": "22.274741|114.178415",
     "PhoneNumber": "852-35-528388",
     "PinCode": "Hong Kong",
-    "HotelWebsiteUrl": "http://www.cosmohotel.com.hk"
+    "HotelWebsiteUrl": "http://www.cosmohotel.com.hk",
+    "star_rating": 4,
+    "latitude": 22.274741,
+    "longitude": 114.178415
   },
   {
     "countyCode": "HK",
@@ -1473,7 +1716,10 @@
     "Map": "22.291925|114.198314",
     "PhoneNumber": "1-852-25031168",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.southchinahotel.com.hk/"
+    "HotelWebsiteUrl": "http://www.southchinahotel.com.hk/",
+    "star_rating": 3,
+    "latitude": 22.291925,
+    "longitude": 114.198314
   },
   {
     "countyCode": "HK",
@@ -1491,7 +1737,10 @@
     "Map": "22.29655|114.17226",
     "PhoneNumber": "852-23693111",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.holidayinn.com/hongkong-gldn"
+    "HotelWebsiteUrl": "http://www.holidayinn.com/hongkong-gldn",
+    "star_rating": 4,
+    "latitude": 22.29655,
+    "longitude": 114.17226
   },
   {
     "countyCode": "HK",
@@ -1509,7 +1758,10 @@
     "Map": "22.324869|114.173326",
     "PhoneNumber": "852-29-288822",
     "PinCode": "610012",
-    "HotelWebsiteUrl": "http://www.royalplaza.com.hk"
+    "HotelWebsiteUrl": "http://www.royalplaza.com.hk",
+    "star_rating": 4,
+    "latitude": 22.324869,
+    "longitude": 114.173326
   },
   {
     "countyCode": "HK",
@@ -1527,7 +1779,10 @@
     "Map": "22.31675|114.17373",
     "PhoneNumber": "852-2-7811881",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.stanfordhongkong.com"
+    "HotelWebsiteUrl": "http://www.stanfordhongkong.com",
+    "star_rating": 4,
+    "latitude": 22.31675,
+    "longitude": 114.17373
   },
   {
     "countyCode": "HK",
@@ -1545,7 +1800,10 @@
     "Map": "22.30277|114.16937",
     "PhoneNumber": "852-852-23787611",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.bpih.com.hk"
+    "HotelWebsiteUrl": "http://www.bpih.com.hk",
+    "star_rating": 4,
+    "latitude": 22.30277,
+    "longitude": 114.16937
   },
   {
     "countyCode": "HK",
@@ -1563,7 +1821,10 @@
     "Map": "22.279005|114.17638",
     "PhoneNumber": "+85225988888",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.novotelhongkongcentury.com/"
+    "HotelWebsiteUrl": "http://www.novotelhongkongcentury.com/",
+    "star_rating": 4,
+    "latitude": 22.279005,
+    "longitude": 114.17638
   },
   {
     "countyCode": "HK",
@@ -1581,7 +1842,10 @@
     "Map": "22.290064|114.193893",
     "PhoneNumber": "852-2887-2888",
     "PinCode": "HKG",
-    "HotelWebsiteUrl": "http://www.citygarden.com.hk"
+    "HotelWebsiteUrl": "http://www.citygarden.com.hk",
+    "star_rating": 4,
+    "latitude": 22.290064,
+    "longitude": 114.193893
   },
   {
     "countyCode": "HK",
@@ -1599,7 +1863,10 @@
     "Map": "22.308089|114.171801",
     "PhoneNumber": "852-2782-1818",
     "PinCode": "Kowloon",
-    "HotelWebsiteUrl": "http://www.eatonhongkong.com"
+    "HotelWebsiteUrl": "http://www.eatonhongkong.com",
+    "star_rating": 4,
+    "latitude": 22.308089,
+    "longitude": 114.171801
   },
   {
     "countyCode": "HK",
@@ -1617,7 +1884,10 @@
     "Map": "22.30104|114.17506",
     "PhoneNumber": "852-3692-2222",
     "PinCode": "12345",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/the-empire-kowloon.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/the-empire-kowloon.html",
+    "star_rating": 4,
+    "latitude": 22.30104,
+    "longitude": 114.17506
   },
   {
     "countyCode": "HK",
@@ -1635,7 +1905,10 @@
     "Map": "22.280548|114.17198",
     "PhoneNumber": "852-2588 1234",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.hongkong.hyatt.com"
+    "HotelWebsiteUrl": "http://www.hongkong.hyatt.com",
+    "star_rating": 5,
+    "latitude": 22.280548,
+    "longitude": 114.17198
   },
   {
     "countyCode": "HK",
@@ -1653,7 +1926,10 @@
     "Map": "22.299437|114.17925",
     "PhoneNumber": "852-27215161",
     "PinCode": "000000",
-    "HotelWebsiteUrl": "http://www.hongkong.intercontinental.com"
+    "HotelWebsiteUrl": "http://www.hongkong.intercontinental.com",
+    "star_rating": 5,
+    "latitude": 22.299437,
+    "longitude": 114.17925
   },
   {
     "countyCode": "HK",
@@ -1671,7 +1947,10 @@
     "Map": "22.297709|114.17399",
     "PhoneNumber": "852-2311-1234",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://hyattregencyhongkongtsimshatsui.com"
+    "HotelWebsiteUrl": "http://hyattregencyhongkongtsimshatsui.com",
+    "star_rating": 4,
+    "latitude": 22.297709,
+    "longitude": 114.17399
   },
   {
     "countyCode": "HK",
@@ -1689,7 +1968,10 @@
     "Map": "22.277222|114.164665",
     "PhoneNumber": "852-28-773838",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.shangri-la.com/hongkong/islandshangrila/"
+    "HotelWebsiteUrl": "http://www.shangri-la.com/hongkong/islandshangrila/",
+    "star_rating": 5,
+    "latitude": 22.277222,
+    "longitude": 114.164665
   },
   {
     "countyCode": "HK",
@@ -1707,7 +1989,10 @@
     "Map": "22.27744|114.16605",
     "PhoneNumber": "852-28-108366",
     "PinCode": "N A",
-    "HotelWebsiteUrl": "http://www.jwmarriotthongkong.com"
+    "HotelWebsiteUrl": "http://www.jwmarriotthongkong.com",
+    "star_rating": 5,
+    "latitude": 22.27744,
+    "longitude": 114.16605
   },
   {
     "countyCode": "HK",
@@ -1725,7 +2010,10 @@
     "Map": "22.295581|114.172006",
     "PhoneNumber": "852-29292888",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.harbour-plaza.com/kowloon/Index-en.htm"
+    "HotelWebsiteUrl": "http://www.harbour-plaza.com/kowloon/Index-en.htm",
+    "star_rating": 4,
+    "latitude": 22.295581,
+    "longitude": 114.172006
   },
   {
     "countyCode": "HK",
@@ -1743,7 +2031,10 @@
     "Map": "22.297382|114.17681",
     "PhoneNumber": "852-2721-2111",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.shangri-la.com/hongkong/kowloonshangrila/"
+    "HotelWebsiteUrl": "http://www.shangri-la.com/hongkong/kowloonshangrila/",
+    "star_rating": 5,
+    "latitude": 22.297382,
+    "longitude": 114.17681
   },
   {
     "countyCode": "HK",
@@ -1761,7 +2052,10 @@
     "Map": "22.277252|114.18064",
     "PhoneNumber": "852-24-966666",
     "PinCode": "Hong Kong",
-    "HotelWebsiteUrl": "http://www.bestwesternhotelhongkong.com"
+    "HotelWebsiteUrl": "http://www.bestwesternhotelhongkong.com",
+    "star_rating": 3,
+    "latitude": 22.277252,
+    "longitude": 114.18064
   },
   {
     "countyCode": "HK",
@@ -1779,7 +2073,10 @@
     "Map": "22.300557|114.179336",
     "PhoneNumber": "852-340-01000",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.hotel-icon.com"
+    "HotelWebsiteUrl": "http://www.hotel-icon.com",
+    "star_rating": 5,
+    "latitude": 22.300557,
+    "longitude": 114.179336
   },
   {
     "countyCode": "HK",
@@ -1797,7 +2094,10 @@
     "Map": "22.288364|114.145474",
     "PhoneNumber": "852-35599988",
     "PinCode": "Hong Kong",
-    "HotelWebsiteUrl": "http://www.butterflyhk.com/eng/our-hotels/on-waterfront/index.php"
+    "HotelWebsiteUrl": "http://www.butterflyhk.com/eng/our-hotels/on-waterfront/index.php",
+    "star_rating": 3,
+    "latitude": 22.288364,
+    "longitude": 114.145474
   },
   {
     "countyCode": "HK",
@@ -1815,7 +2115,10 @@
     "Map": "22.284986|114.152107",
     "PhoneNumber": "852 2922 9988",
     "PinCode": "N A",
-    "HotelWebsiteUrl": "http://www2.citadines.com/en/china/hong_kong/mercer.html"
+    "HotelWebsiteUrl": "http://www2.citadines.com/en/china/hong_kong/mercer.html",
+    "star_rating": 4,
+    "latitude": 22.284986,
+    "longitude": 114.152107
   },
   {
     "countyCode": "HK",
@@ -1833,7 +2136,10 @@
     "Map": "22.307068|114.172116",
     "PhoneNumber": "+85239658888",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.accorhotels.com/gb/hotel-6771-novotel-hong-kong-nathan-road-kowloon/index.shtml"
+    "HotelWebsiteUrl": "http://www.accorhotels.com/gb/hotel-6771-novotel-hong-kong-nathan-road-kowloon/index.shtml",
+    "star_rating": 4,
+    "latitude": 22.307068,
+    "longitude": 114.172116
   },
   {
     "countyCode": "HK",
@@ -1851,7 +2157,10 @@
     "Map": "22.282194|114.15966",
     "PhoneNumber": "852-2522-0111",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.mandarinoriental.com/hongkong/"
+    "HotelWebsiteUrl": "http://www.mandarinoriental.com/hongkong/",
+    "star_rating": 5,
+    "latitude": 22.282194,
+    "longitude": 114.15966
   },
   {
     "countyCode": "HK",
@@ -1869,7 +2178,10 @@
     "Map": "22.295251|114.168845",
     "PhoneNumber": "85-22-1130088",
     "PinCode": "Hong Kong",
-    "HotelWebsiteUrl": "http://www.marcopolohotels.com"
+    "HotelWebsiteUrl": "http://www.marcopolohotels.com",
+    "star_rating": 5,
+    "latitude": 22.295251,
+    "longitude": 114.168845
   },
   {
     "countyCode": "HK",
@@ -1887,7 +2199,10 @@
     "Map": "22.319247|114.175901",
     "PhoneNumber": "+85227611711",
     "PinCode": "999077",
-    "HotelWebsiteUrl": "http://www.metroparkhotelkowloon.com"
+    "HotelWebsiteUrl": "http://www.metroparkhotelkowloon.com",
+    "star_rating": 4,
+    "latitude": 22.319247,
+    "longitude": 114.175901
   },
   {
     "countyCode": "HK",
@@ -1905,7 +2220,10 @@
     "Map": "22.316241|114.167783",
     "PhoneNumber": "852-852-21170033",
     "PinCode": "000",
-    "HotelWebsiteUrl": "http://www.minimalhotels.com.hk/bazaar"
+    "HotelWebsiteUrl": "http://www.minimalhotels.com.hk/bazaar",
+    "star_rating": 3,
+    "latitude": 22.316241,
+    "longitude": 114.167783
   },
   {
     "countyCode": "HK",
@@ -1923,7 +2241,10 @@
     "Map": "22.294397441903|114.17483568191",
     "PhoneNumber": "",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://renaissance-kowloon.hongkonghotelchina.com/ko/"
+    "HotelWebsiteUrl": "http://renaissance-kowloon.hongkonghotelchina.com/ko/",
+    "star_rating": 4,
+    "latitude": 22.294397441903,
+    "longitude": 114.17483568191
   },
   {
     "countyCode": "HK",
@@ -1941,7 +2262,10 @@
     "Map": "22.312052|114.219534",
     "PhoneNumber": "852-37668668",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.eibt-intl.com/eng/newton/nph/index.html"
+    "HotelWebsiteUrl": "http://www.eibt-intl.com/eng/newton/nph/index.html",
+    "star_rating": 3,
+    "latitude": 22.312052,
+    "longitude": 114.219534
   },
   {
     "countyCode": "HK",
@@ -1959,7 +2283,10 @@
     "Map": "22.299681|114.179497",
     "PhoneNumber": "852-2739-1111",
     "PinCode": "Kowloon",
-    "HotelWebsiteUrl": "http://www.newworldmillenniumhotel.com"
+    "HotelWebsiteUrl": "http://www.newworldmillenniumhotel.com",
+    "star_rating": 5,
+    "latitude": 22.299681,
+    "longitude": 114.179497
   },
   {
     "countyCode": "HK",
@@ -1977,7 +2304,10 @@
     "Map": "22.282102585|114.12689972",
     "PhoneNumber": "852-2-6555526",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.dorsettregency.com/hongkong/index.php"
+    "HotelWebsiteUrl": "http://www.dorsettregency.com/hongkong/index.php",
+    "star_rating": 4,
+    "latitude": 22.282102585,
+    "longitude": 114.12689972
   },
   {
     "countyCode": "HK",
@@ -1995,7 +2325,10 @@
     "Map": "22.299728|114.175902",
     "PhoneNumber": "852-2731-2100",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.parkhotelgroup.com"
+    "HotelWebsiteUrl": "http://www.parkhotelgroup.com",
+    "star_rating": 4,
+    "latitude": 22.299728,
+    "longitude": 114.175902
   },
   {
     "countyCode": "HK",
@@ -2013,7 +2346,10 @@
     "Map": "22.281256|114.18663",
     "PhoneNumber": "+85222938888",
     "PinCode": "Hong Kong",
-    "HotelWebsiteUrl": "http://www.parklane.com.hk"
+    "HotelWebsiteUrl": "http://www.parklane.com.hk",
+    "star_rating": 5,
+    "latitude": 22.281256,
+    "longitude": 114.18663
   },
   {
     "countyCode": "HK",
@@ -2031,7 +2367,10 @@
     "Map": "22.30629|114.17247",
     "PhoneNumber": "852-852-27838233",
     "PinCode": "S N",
-    "HotelWebsiteUrl": "http://www.largos.com.hk/home.php"
+    "HotelWebsiteUrl": "http://www.largos.com.hk/home.php",
+    "star_rating": 3,
+    "latitude": 22.30629,
+    "longitude": 114.17247
   },
   {
     "countyCode": "HK",
@@ -2049,7 +2388,10 @@
     "Map": "22.300314|114.175934",
     "PhoneNumber": "+85223111100",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.bestwesternplushotelkowloon.com/"
+    "HotelWebsiteUrl": "http://www.bestwesternplushotelkowloon.com/",
+    "star_rating": 3,
+    "latitude": 22.300314,
+    "longitude": 114.175934
   },
   {
     "countyCode": "HK",
@@ -2067,7 +2409,10 @@
     "Map": "22.319438|113.934443",
     "PhoneNumber": "852-22-868888",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://regalhotel.com"
+    "HotelWebsiteUrl": "http://regalhotel.com",
+    "star_rating": 5,
+    "latitude": 22.319438,
+    "longitude": 113.934443
   },
   {
     "countyCode": "HK",
@@ -2085,7 +2430,10 @@
     "Map": "22.279132|114.186814",
     "PhoneNumber": "852-28-906633",
     "PinCode": "N A",
-    "HotelWebsiteUrl": "http://www.regalhongkong.com"
+    "HotelWebsiteUrl": "http://www.regalhongkong.com",
+    "star_rating": 5,
+    "latitude": 22.279132,
+    "longitude": 114.186814
   },
   {
     "countyCode": "HK",
@@ -2103,7 +2451,10 @@
     "Map": "22.298849|114.178026",
     "PhoneNumber": "852-27-221818",
     "PinCode": "N A",
-    "HotelWebsiteUrl": "http://www.regalkowloon.com"
+    "HotelWebsiteUrl": "http://www.regalkowloon.com",
+    "star_rating": 4,
+    "latitude": 22.298849,
+    "longitude": 114.178026
   },
   {
     "countyCode": "HK",
@@ -2121,7 +2472,10 @@
     "Map": "22.382334|114.196554",
     "PhoneNumber": "852-2649-7878",
     "PinCode": "N A",
-    "HotelWebsiteUrl": "http://www.regalhotel.com"
+    "HotelWebsiteUrl": "http://www.regalhotel.com",
+    "star_rating": 4,
+    "latitude": 22.382334,
+    "longitude": 114.196554
   },
   {
     "countyCode": "HK",
@@ -2139,7 +2493,10 @@
     "Map": "22.287617|114.14732",
     "PhoneNumber": "+85222522929",
     "PinCode": "null",
-    "HotelWebsiteUrl": "http://www.ibis.com/gb/hotel-7606-ibis-hong-kong-central-and-sheung-wa"
+    "HotelWebsiteUrl": "http://www.ibis.com/gb/hotel-7606-ibis-hong-kong-central-and-sheung-wa",
+    "star_rating": 3,
+    "latitude": 22.287617,
+    "longitude": 114.14732
   },
   {
     "countyCode": "HK",
@@ -2157,7 +2514,10 @@
     "Map": "22.28461|114.15057",
     "PhoneNumber": "+852-3423-3286",
     "PinCode": "N A",
-    "HotelWebsiteUrl": "http://www.ovologroup.com"
+    "HotelWebsiteUrl": "http://www.ovologroup.com",
+    "star_rating": 3,
+    "latitude": 22.28461,
+    "longitude": 114.15057
   },
   {
     "countyCode": "HK",
@@ -2175,7 +2535,10 @@
     "Map": "22.278712|114.182104",
     "PhoneNumber": "",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.shama.com"
+    "HotelWebsiteUrl": "http://www.shama.com",
+    "star_rating": 4,
+    "latitude": 22.278712,
+    "longitude": 114.182104
   },
   {
     "countyCode": "HK",
@@ -2193,7 +2556,10 @@
     "Map": "22.281067|114.17311",
     "PhoneNumber": "852-280-28888",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://RENAISSANCEHOTELS.COM/HKGHV"
+    "HotelWebsiteUrl": "http://RENAISSANCEHOTELS.COM/HKGHV",
+    "star_rating": 4,
+    "latitude": 22.281067,
+    "longitude": 114.17311
   },
   {
     "countyCode": "HK",
@@ -2211,7 +2577,10 @@
     "Map": "22.41239|114.21121",
     "PhoneNumber": "852-3723-1234",
     "PinCode": "00001",
-    "HotelWebsiteUrl": "http://www.hongkong.shatin.hyatt.com"
+    "HotelWebsiteUrl": "http://www.hongkong.shatin.hyatt.com",
+    "star_rating": 4,
+    "latitude": 22.41239,
+    "longitude": 114.21121
   },
   {
     "countyCode": "HK",
@@ -2229,7 +2598,10 @@
     "Map": "22.298559|114.174984",
     "PhoneNumber": "852-3962-8888",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.butterflyhk.com"
+    "HotelWebsiteUrl": "http://www.butterflyhk.com",
+    "star_rating": 3,
+    "latitude": 22.298559,
+    "longitude": 114.174984
   },
   {
     "countyCode": "HK",
@@ -2247,7 +2619,10 @@
     "Map": "22.294825|114.172905",
     "PhoneNumber": "+85223691111",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.sheraton.com/hongkong"
+    "HotelWebsiteUrl": "http://www.sheraton.com/hongkong",
+    "star_rating": 5,
+    "latitude": 22.294825,
+    "longitude": 114.172905
   },
   {
     "countyCode": "HK",
@@ -2265,7 +2640,10 @@
     "Map": "22.28852|114.1442",
     "PhoneNumber": "+85236073333",
     "PinCode": "1",
-    "HotelWebsiteUrl": "http://www2.citadines.com/en/china/hongkong/citadines_harbourview.html"
+    "HotelWebsiteUrl": "http://www2.citadines.com/en/china/hongkong/citadines_harbourview.html",
+    "star_rating": 3,
+    "latitude": 22.28852,
+    "longitude": 114.1442
   },
   {
     "countyCode": "HK",
@@ -2283,7 +2661,10 @@
     "Map": "22.285138|114.150985",
     "PhoneNumber": "852-3417-8888",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.hiexpress.com.cn"
+    "HotelWebsiteUrl": "http://www.hiexpress.com.cn",
+    "star_rating": 3,
+    "latitude": 22.285138,
+    "longitude": 114.150985
   },
   {
     "countyCode": "HK",
@@ -2301,7 +2682,10 @@
     "Map": "22.308662|114.25951",
     "PhoneNumber": "852-3983-0388",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.crowneplaza.com"
+    "HotelWebsiteUrl": "http://www.crowneplaza.com",
+    "star_rating": 4,
+    "latitude": 22.308662,
+    "longitude": 114.25951
   },
   {
     "countyCode": "HK",
@@ -2319,7 +2703,10 @@
     "Map": "22.277439|114.180079",
     "PhoneNumber": "852-2-5723838",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.southpacifichotel.com.hk/"
+    "HotelWebsiteUrl": "http://www.southpacifichotel.com.hk/",
+    "star_rating": 3,
+    "latitude": 22.277439,
+    "longitude": 114.180079
   },
   {
     "countyCode": "HK",
@@ -2337,7 +2724,10 @@
     "Map": "22.30136|114.17444",
     "PhoneNumber": "852-27227822",
     "PinCode": "1",
-    "HotelWebsiteUrl": "http://www.stanfordhillview.com"
+    "HotelWebsiteUrl": "http://www.stanfordhillview.com",
+    "star_rating": 4,
+    "latitude": 22.30136,
+    "longitude": 114.17444
   },
   {
     "countyCode": "HK",
@@ -2355,7 +2745,10 @@
     "Map": "22.27444|114.17315",
     "PhoneNumber": "852-39-263888",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.hotelindigo.com/hongkong"
+    "HotelWebsiteUrl": "http://www.hotelindigo.com/hongkong",
+    "star_rating": 4,
+    "latitude": 22.27444,
+    "longitude": 114.17315
   },
   {
     "countyCode": "HK",
@@ -2373,7 +2766,10 @@
     "Map": "22.27874|114.1843",
     "PhoneNumber": "85228305753",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://lg.leegardens.com.hk/contact.aspx http://offices.leegardens.com.hk/lee_gardens/img/lee_garden"
+    "HotelWebsiteUrl": "http://lg.leegardens.com.hk/contact.aspx http://offices.leegardens.com.hk/lee_gardens/img/lee_garden",
+    "star_rating": 3,
+    "latitude": 22.27874,
+    "longitude": 114.1843
   },
   {
     "countyCode": "HK",
@@ -2391,7 +2787,10 @@
     "Map": "22.282343|114.184309",
     "PhoneNumber": "",
     "PinCode": "35301",
-    "HotelWebsiteUrl": "www.mandarinoriental.com/excelsior"
+    "HotelWebsiteUrl": "www.mandarinoriental.com/excelsior",
+    "star_rating": 4,
+    "latitude": 22.282343,
+    "longitude": 114.184309
   },
   {
     "countyCode": "HK",
@@ -2409,7 +2808,10 @@
     "Map": "22.302602|114.191849",
     "PhoneNumber": "852--26213188",
     "PinCode": "HUNGHOM",
-    "HotelWebsiteUrl": "http://www.harbourgrand.com/kowloon"
+    "HotelWebsiteUrl": "http://www.harbourgrand.com/kowloon",
+    "star_rating": 5,
+    "latitude": 22.302602,
+    "longitude": 114.191849
   },
   {
     "countyCode": "HK",
@@ -2427,7 +2829,10 @@
     "Map": "22.30062|114.17355",
     "PhoneNumber": "852-27-233888",
     "PinCode": "Kowloon",
-    "HotelWebsiteUrl": "http://www.kimberleyhotel.com.hk"
+    "HotelWebsiteUrl": "http://www.kimberleyhotel.com.hk",
+    "star_rating": 4,
+    "latitude": 22.30062,
+    "longitude": 114.17355
   },
   {
     "countyCode": "HK",
@@ -2445,7 +2850,10 @@
     "Map": "22.298502|114.167631",
     "PhoneNumber": "852--21130888",
     "PinCode": "Hong Kong",
-    "HotelWebsiteUrl": "http://www.marcopolohotels.com/en/marco_polo/hotels/hongkong/kowloon/gateway"
+    "HotelWebsiteUrl": "http://www.marcopolohotels.com/en/marco_polo/hotels/hongkong/kowloon/gateway",
+    "star_rating": 4,
+    "latitude": 22.298502,
+    "longitude": 114.167631
   },
   {
     "countyCode": "HK",
@@ -2463,7 +2871,10 @@
     "Map": "22.295251|114.168845",
     "PhoneNumber": "852-2113 1888",
     "PinCode": "Hong Kong",
-    "HotelWebsiteUrl": "http://www.marcopolohotels.com"
+    "HotelWebsiteUrl": "http://www.marcopolohotels.com",
+    "star_rating": 4,
+    "latitude": 22.295251,
+    "longitude": 114.168845
   },
   {
     "countyCode": "HK",
@@ -2481,7 +2892,10 @@
     "Map": "22.294718|114.171974",
     "PhoneNumber": "852 2920 2888",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.peninsula.com"
+    "HotelWebsiteUrl": "http://www.peninsula.com",
+    "star_rating": 5,
+    "latitude": 22.294718,
+    "longitude": 114.171974
   },
   {
     "countyCode": "HK",
@@ -2499,7 +2913,10 @@
     "Map": "22.30005|114.16828",
     "PhoneNumber": "+85227361188",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://www.sino-hotels.com/The_Royal_Pacific_Hotel"
+    "HotelWebsiteUrl": "http://www.sino-hotels.com/The_Royal_Pacific_Hotel",
+    "star_rating": 4,
+    "latitude": 22.30005,
+    "longitude": 114.16828
   },
   {
     "countyCode": "HK",
@@ -2517,7 +2934,10 @@
     "Map": "22.278169|114.171099",
     "PhoneNumber": "852-286-11000",
     "PinCode": "852",
-    "HotelWebsiteUrl": "http://www.wharney.com"
+    "HotelWebsiteUrl": "http://www.wharney.com",
+    "star_rating": 4,
+    "latitude": 22.278169,
+    "longitude": 114.171099
   },
   {
     "countyCode": "HK",
@@ -2535,7 +2955,10 @@
     "Map": "22.310609|114.037968",
     "PhoneNumber": "852-3510-5000",
     "PinCode": "0000",
-    "HotelWebsiteUrl": "https://www.hongkongdisneyland.com/hotels/disneys-hollywood-hotel"
+    "HotelWebsiteUrl": "https://www.hongkongdisneyland.com/hotels/disneys-hollywood-hotel",
+    "star_rating": 4,
+    "latitude": 22.310609,
+    "longitude": 114.037968
   },
   {
     "countyCode": "HK",
@@ -2553,7 +2976,10 @@
     "Map": "22.275682|114.180092",
     "PhoneNumber": "+85237551755",
     "PinCode": "852",
-    "HotelWebsiteUrl": "http://www.thevela.hk/"
+    "HotelWebsiteUrl": "http://www.thevela.hk/",
+    "star_rating": 4,
+    "latitude": 22.275682,
+    "longitude": 114.180092
   },
   {
     "countyCode": "HK",
@@ -2571,7 +2997,10 @@
     "Map": "22.267957|113.99763",
     "PhoneNumber": "852-68100111",
     "PinCode": "0000",
-    "HotelWebsiteUrl": "http://www.silvermineresort.com/"
+    "HotelWebsiteUrl": "http://www.silvermineresort.com/",
+    "star_rating": 4,
+    "latitude": 22.267957,
+    "longitude": 113.99763
   },
   {
     "countyCode": "HK",
@@ -2589,7 +3018,10 @@
     "Map": "22.28077|114.1761",
     "PhoneNumber": "852-852-25860400",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.kapokapartment.com/htm/About%20Us/news-20120620-1.html"
+    "HotelWebsiteUrl": "http://www.kapokapartment.com/htm/About%20Us/news-20120620-1.html",
+    "star_rating": 3,
+    "latitude": 22.28077,
+    "longitude": 114.1761
   },
   {
     "countyCode": "HK",
@@ -2607,7 +3039,10 @@
     "Map": "22.287707|114.146548",
     "PhoneNumber": "852-852-36166300",
     "PinCode": "999077",
-    "HotelWebsiteUrl": "http://www.60west.com.hk/en/"
+    "HotelWebsiteUrl": "http://www.60west.com.hk/en/",
+    "star_rating": 3,
+    "latitude": 22.287707,
+    "longitude": 114.146548
   },
   {
     "countyCode": "HK",
@@ -2625,7 +3060,10 @@
     "Map": "22.219112|114.119201",
     "PhoneNumber": "+852 29821668",
     "PinCode": "NULL",
-    "HotelWebsiteUrl": "http://www.concertoinn.com.hk/"
+    "HotelWebsiteUrl": "http://www.concertoinn.com.hk/",
+    "star_rating": 3,
+    "latitude": 22.219112,
+    "longitude": 114.119201
   },
   {
     "countyCode": "HK",
@@ -2643,7 +3081,10 @@
     "Map": "22.29468|114.173602",
     "PhoneNumber": "852-27-211211",
     "PinCode": "n a",
-    "HotelWebsiteUrl": "http://www.intercontinental.com"
+    "HotelWebsiteUrl": "http://www.intercontinental.com",
+    "star_rating": 5,
+    "latitude": 22.29468,
+    "longitude": 114.173602
   },
   {
     "countyCode": "HK",
@@ -2661,7 +3102,10 @@
     "Map": "22.30048|114.172371",
     "PhoneNumber": "852-2368-1111",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.themirahotel.com/"
+    "HotelWebsiteUrl": "http://www.themirahotel.com/",
+    "star_rating": 5,
+    "latitude": 22.30048,
+    "longitude": 114.172371
   },
   {
     "countyCode": "HK",
@@ -2679,7 +3123,10 @@
     "Map": "22.2975|114.174489",
     "PhoneNumber": "",
     "PinCode": "00",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.2975,
+    "longitude": 114.174489
   },
   {
     "countyCode": "HK",
@@ -2697,7 +3144,10 @@
     "Map": "22.29552|114.17",
     "PhoneNumber": "852-39880000",
     "PinCode": "000",
-    "HotelWebsiteUrl": "http://www.hulletthouse.com/#/hotel/roomlist"
+    "HotelWebsiteUrl": "http://www.hulletthouse.com/#/hotel/roomlist",
+    "star_rating": 5,
+    "latitude": 22.29552,
+    "longitude": 114.17
   },
   {
     "countyCode": "HK",
@@ -2715,7 +3165,10 @@
     "Map": "22.3018|114.1747",
     "PhoneNumber": "+852 3106 3366",
     "PinCode": "A",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/the-bauhinia.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/the-bauhinia.html",
+    "star_rating": 3,
+    "latitude": 22.3018,
+    "longitude": 114.1747
   },
   {
     "countyCode": "HK",
@@ -2733,7 +3186,10 @@
     "Map": "22.279273|114.188487",
     "PhoneNumber": "852-21278888",
     "PinCode": "00",
-    "HotelWebsiteUrl": "http://www.rosedale.com.hk"
+    "HotelWebsiteUrl": "http://www.rosedale.com.hk",
+    "star_rating": 4,
+    "latitude": 22.279273,
+    "longitude": 114.188487
   },
   {
     "countyCode": "HK",
@@ -2751,7 +3207,10 @@
     "Map": "22.457757|114.004462",
     "PhoneNumber": "852-21806688",
     "PinCode": "00001",
-    "HotelWebsiteUrl": "http://www.harbour-plaza.com/resortcity"
+    "HotelWebsiteUrl": "http://www.harbour-plaza.com/resortcity",
+    "star_rating": 3,
+    "latitude": 22.457757,
+    "longitude": 114.004462
   },
   {
     "countyCode": "HK",
@@ -2769,7 +3228,10 @@
     "Map": "22.308865|114.04217",
     "PhoneNumber": "+85235106000",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.hongkongdisneyland.com"
+    "HotelWebsiteUrl": "http://www.hongkongdisneyland.com",
+    "star_rating": 4,
+    "latitude": 22.308865,
+    "longitude": 114.04217
   },
   {
     "countyCode": "HK",
@@ -2787,7 +3249,10 @@
     "Map": "22.285522|114.147833",
     "PhoneNumber": "00-852-28508899",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "https://www.travelodgehotels.asia/travelodge/hongkong/central-hollywood-road"
+    "HotelWebsiteUrl": "https://www.travelodgehotels.asia/travelodge/hongkong/central-hollywood-road",
+    "star_rating": 3,
+    "latitude": 22.285522,
+    "longitude": 114.147833
   },
   {
     "countyCode": "HK",
@@ -2805,7 +3270,10 @@
     "Map": "22.284314|114.153089",
     "PhoneNumber": "852--36500000",
     "PinCode": "000000",
-    "HotelWebsiteUrl": "http://www.lankwaifonghotel.com.hk/default-zh.html"
+    "HotelWebsiteUrl": "http://www.lankwaifonghotel.com.hk/default-zh.html",
+    "star_rating": 4,
+    "latitude": 22.284314,
+    "longitude": 114.153089
   },
   {
     "countyCode": "HK",
@@ -2823,7 +3291,10 @@
     "Map": "22.28725|114.13914",
     "PhoneNumber": "852-3410-3333",
     "PinCode": "Hong Kong",
-    "HotelWebsiteUrl": "http://www.ramadahongkong.com"
+    "HotelWebsiteUrl": "http://www.ramadahongkong.com",
+    "star_rating": 3,
+    "latitude": 22.28725,
+    "longitude": 114.13914
   },
   {
     "countyCode": "HK",
@@ -2841,7 +3312,10 @@
     "Map": "22.30739|114.17069",
     "PhoneNumber": "852-27-804222",
     "PinCode": "1",
-    "HotelWebsiteUrl": "http://www.evergreenhotel.com"
+    "HotelWebsiteUrl": "http://www.evergreenhotel.com",
+    "star_rating": 3,
+    "latitude": 22.30739,
+    "longitude": 114.17069
   },
   {
     "countyCode": "HK",
@@ -2859,7 +3333,10 @@
     "Map": "22.207931|114.032179",
     "PhoneNumber": "852-31766312",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.warwickhotel.com.hk/"
+    "HotelWebsiteUrl": "http://www.warwickhotel.com.hk/",
+    "star_rating": 3,
+    "latitude": 22.207931,
+    "longitude": 114.032179
   },
   {
     "countyCode": "HK",
@@ -2877,7 +3354,10 @@
     "Map": "22.30409|114.17145",
     "PhoneNumber": "+85227352271",
     "PinCode": "999077",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/shamrock.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/shamrock.html",
+    "star_rating": 3,
+    "latitude": 22.30409,
+    "longitude": 114.17145
   },
   {
     "countyCode": "HK",
@@ -2895,7 +3375,10 @@
     "Map": "22.315843|114.169656",
     "PhoneNumber": "852-31-889680",
     "PinCode": "000",
-    "HotelWebsiteUrl": "http://www.hotelmk.com.hk/"
+    "HotelWebsiteUrl": "http://www.hotelmk.com.hk/",
+    "star_rating": 3,
+    "latitude": 22.315843,
+    "longitude": 114.169656
   },
   {
     "countyCode": "HK",
@@ -2913,7 +3396,10 @@
     "Map": "22.274897|114.178198",
     "PhoneNumber": "+85228933693",
     "PinCode": "852",
-    "HotelWebsiteUrl": "http://www.emperorhotel.com.hk/?lang=en"
+    "HotelWebsiteUrl": "http://www.emperorhotel.com.hk/?lang=en",
+    "star_rating": 4,
+    "latitude": 22.274897,
+    "longitude": 114.178198
   },
   {
     "countyCode": "HK",
@@ -2931,7 +3417,10 @@
     "Map": "22.31866|114.16765",
     "PhoneNumber": "(852) 23806830",
     "PinCode": "A",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/h1-hotel.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/h1-hotel.html",
+    "star_rating": 3,
+    "latitude": 22.31866,
+    "longitude": 114.16765
   },
   {
     "countyCode": "HK",
@@ -2949,7 +3438,10 @@
     "Map": "22.308123|114.18521",
     "PhoneNumber": "852-852-23641212",
     "PinCode": "852",
-    "HotelWebsiteUrl": "http://www.bridalteahouse.com"
+    "HotelWebsiteUrl": "http://www.bridalteahouse.com",
+    "star_rating": 3,
+    "latitude": 22.308123,
+    "longitude": 114.18521
   },
   {
     "countyCode": "HK",
@@ -2967,7 +3459,10 @@
     "Map": "22.28778|114.1387",
     "PhoneNumber": "852-37-178888",
     "PinCode": "00",
-    "HotelWebsiteUrl": "http://www.courtyardhongkong.com"
+    "HotelWebsiteUrl": "http://www.courtyardhongkong.com",
+    "star_rating": 4,
+    "latitude": 22.28778,
+    "longitude": 114.1387
   },
   {
     "countyCode": "HK",
@@ -2985,7 +3480,10 @@
     "Map": "22.300868|114.173874",
     "PhoneNumber": "852-3763-8880",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.theluxemanor.com"
+    "HotelWebsiteUrl": "http://www.theluxemanor.com",
+    "star_rating": 4,
+    "latitude": 22.300868,
+    "longitude": 114.173874
   },
   {
     "countyCode": "HK",
@@ -3003,7 +3501,10 @@
     "Map": "22.28584|114.131929",
     "PhoneNumber": "852-2-8192358",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.cosco.com.hk/en/intro/property/hotel.as"
+    "HotelWebsiteUrl": "http://www.cosco.com.hk/en/intro/property/hotel.as",
+    "star_rating": 3,
+    "latitude": 22.28584,
+    "longitude": 114.131929
   },
   {
     "countyCode": "HK",
@@ -3021,7 +3522,10 @@
     "Map": "22.304379|114.16013",
     "PhoneNumber": "+85237172222",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.whotels.com/hongkong"
+    "HotelWebsiteUrl": "http://www.whotels.com/hongkong",
+    "star_rating": 5,
+    "latitude": 22.304379,
+    "longitude": 114.16013
   },
   {
     "countyCode": "HK",
@@ -3039,7 +3543,10 @@
     "Map": "22.324260712|114.18947601",
     "PhoneNumber": "(852) 27687253",
     "PinCode": "N A",
-    "HotelWebsiteUrl": "http://www.bthhotel.com"
+    "HotelWebsiteUrl": "http://www.bthhotel.com",
+    "star_rating": 3,
+    "latitude": 22.324260712,
+    "longitude": 114.18947601
   },
   {
     "countyCode": "HK",
@@ -3057,7 +3564,10 @@
     "Map": "22.311029|114.170539",
     "PhoneNumber": "852-23889591",
     "PinCode": "999077",
-    "HotelWebsiteUrl": "http://www.bthhotel.com/"
+    "HotelWebsiteUrl": "http://www.bthhotel.com/",
+    "star_rating": 3,
+    "latitude": 22.311029,
+    "longitude": 114.170539
   },
   {
     "countyCode": "HK",
@@ -3075,7 +3585,10 @@
     "Map": "22.286801|114.139169",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://www.bthhotel.com/BTH/en/Access"
+    "HotelWebsiteUrl": "http://www.bthhotel.com/BTH/en/Access",
+    "star_rating": 3,
+    "latitude": 22.286801,
+    "longitude": 114.139169
   },
   {
     "countyCode": "HK",
@@ -3093,7 +3606,10 @@
     "Map": "22.370771|114.129528",
     "PhoneNumber": "852-3996-6666",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.dorsetthotels.com/hongkong/tsuenwan/"
+    "HotelWebsiteUrl": "http://www.dorsetthotels.com/hongkong/tsuenwan/",
+    "star_rating": 4,
+    "latitude": 22.370771,
+    "longitude": 114.129528
   },
   {
     "countyCode": "HK",
@@ -3111,7 +3627,10 @@
     "Map": "22.282867|114.155419",
     "PhoneNumber": "852-2308-3188",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.thepottinger.com"
+    "HotelWebsiteUrl": "http://www.thepottinger.com",
+    "star_rating": 4,
+    "latitude": 22.282867,
+    "longitude": 114.155419
   },
   {
     "countyCode": "HK",
@@ -3129,7 +3648,10 @@
     "Map": "22.306596756|114.18347931",
     "PhoneNumber": "(852) 27731120",
     "PinCode": "852",
-    "HotelWebsiteUrl": "http://www.bridalteahouse.com"
+    "HotelWebsiteUrl": "http://www.bridalteahouse.com",
+    "star_rating": 3,
+    "latitude": 22.306596756,
+    "longitude": 114.18347931
   },
   {
     "countyCode": "HK",
@@ -3147,7 +3669,10 @@
     "Map": "22.289174|114.191951",
     "PhoneNumber": "852-21-212688",
     "PinCode": "18569",
-    "HotelWebsiteUrl": "http://www.harbourgrand.com/hongkong"
+    "HotelWebsiteUrl": "http://www.harbourgrand.com/hongkong",
+    "star_rating": 4,
+    "latitude": 22.289174,
+    "longitude": 114.191951
   },
   {
     "countyCode": "HK",
@@ -3165,7 +3690,10 @@
     "Map": "22.297075|114.170527",
     "PhoneNumber": "852-2-2623062",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www2.citadines.com/en/china/hongkong/ashley.html"
+    "HotelWebsiteUrl": "http://www2.citadines.com/en/china/hongkong/ashley.html",
+    "star_rating": 3,
+    "latitude": 22.297075,
+    "longitude": 114.170527
   },
   {
     "countyCode": "HK",
@@ -3183,7 +3711,10 @@
     "Map": "22.27895|114.174636",
     "PhoneNumber": "852-3607-2288",
     "PinCode": "999077",
-    "HotelWebsiteUrl": "http://thefleming.com/en/"
+    "HotelWebsiteUrl": "http://thefleming.com/en/",
+    "star_rating": 4,
+    "latitude": 22.27895,
+    "longitude": 114.174636
   },
   {
     "countyCode": "HK",
@@ -3201,7 +3732,10 @@
     "Map": "22.286373|114.149209",
     "PhoneNumber": "852-39636100",
     "PinCode": "852",
-    "HotelWebsiteUrl": "https://www.iclub-hotels.com/iclub-sheung-wan-hotel/en/home/home.html"
+    "HotelWebsiteUrl": "https://www.iclub-hotels.com/iclub-sheung-wan-hotel/en/home/home.html",
+    "star_rating": 3,
+    "latitude": 22.286373,
+    "longitude": 114.149209
   },
   {
     "countyCode": "HK",
@@ -3219,7 +3753,10 @@
     "Map": "22.28058|114.15508",
     "PhoneNumber": "+85225360808",
     "PinCode": "",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/knight-on-wyndham-apartment.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/knight-on-wyndham-apartment.html",
+    "star_rating": 4,
+    "latitude": 22.28058,
+    "longitude": 114.15508
   },
   {
     "countyCode": "HK",
@@ -3237,7 +3774,10 @@
     "Map": "22.297732|114.171715",
     "PhoneNumber": "+852 3691 9021",
     "PinCode": "0000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.297732,
+    "longitude": 114.171715
   },
   {
     "countyCode": "HK",
@@ -3255,7 +3795,10 @@
     "Map": "22.244171|114.156022",
     "PhoneNumber": "852-35538412",
     "PinCode": "000000",
-    "HotelWebsiteUrl": "http://www.bthhotel.com/BTH/es/GetHotel"
+    "HotelWebsiteUrl": "http://www.bthhotel.com/BTH/es/GetHotel",
+    "star_rating": 3,
+    "latitude": 22.244171,
+    "longitude": 114.156022
   },
   {
     "countyCode": "HK",
@@ -3273,7 +3816,10 @@
     "Map": "22.2787|114.179232",
     "PhoneNumber": "852-8200 33 08",
     "PinCode": "WAN CHAI",
-    "HotelWebsiteUrl": "http://www.walden-hotel.com"
+    "HotelWebsiteUrl": "http://www.walden-hotel.com",
+    "star_rating": 3,
+    "latitude": 22.2787,
+    "longitude": 114.179232
   },
   {
     "countyCode": "HK",
@@ -3291,7 +3837,10 @@
     "Map": "22.319822|113.94358",
     "PhoneNumber": "852-39691888",
     "PinCode": "Hong Kong",
-    "HotelWebsiteUrl": "http://www.marriott.com/hkgap"
+    "HotelWebsiteUrl": "http://www.marriott.com/hkgap",
+    "star_rating": 4,
+    "latitude": 22.319822,
+    "longitude": 113.94358
   },
   {
     "countyCode": "HK",
@@ -3309,7 +3858,10 @@
     "Map": "22.27699|114.17715",
     "PhoneNumber": "(852) 2904 - 7300",
     "PinCode": "00",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/jj.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/jj.html",
+    "star_rating": 3,
+    "latitude": 22.27699,
+    "longitude": 114.17715
   },
   {
     "countyCode": "HK",
@@ -3327,7 +3879,10 @@
     "Map": "22.320100784|114.16400146",
     "PhoneNumber": "(852) 23903355",
     "PinCode": "null",
-    "HotelWebsiteUrl": "http://www.bthhotel.cn/BTHChina/landing.jsp"
+    "HotelWebsiteUrl": "http://www.bthhotel.cn/BTHChina/landing.jsp",
+    "star_rating": 3,
+    "latitude": 22.320100784,
+    "longitude": 114.16400146
   },
   {
     "countyCode": "HK",
@@ -3345,7 +3900,10 @@
     "Map": "22.320962|114.161036",
     "PhoneNumber": "",
     "PinCode": "852",
-    "HotelWebsiteUrl": "http://www.bthhotel.com/BTH/en/Home"
+    "HotelWebsiteUrl": "http://www.bthhotel.com/BTH/en/Home",
+    "star_rating": 3,
+    "latitude": 22.320962,
+    "longitude": 114.161036
   },
   {
     "countyCode": "HK",
@@ -3363,7 +3921,10 @@
     "Map": "22.277724|114.17998",
     "PhoneNumber": "852-35-186688",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.minimalhotels.com.hk/urban"
+    "HotelWebsiteUrl": "http://www.minimalhotels.com.hk/urban",
+    "star_rating": 3,
+    "latitude": 22.277724,
+    "longitude": 114.17998
   },
   {
     "countyCode": "HK",
@@ -3381,7 +3942,10 @@
     "Map": "22.311|114.17082",
     "PhoneNumber": "",
     "PinCode": "A",
-    "HotelWebsiteUrl": "http://www.kingsdenathan.com/"
+    "HotelWebsiteUrl": "http://www.kingsdenathan.com/",
+    "star_rating": 3,
+    "latitude": 22.311,
+    "longitude": 114.17082
   },
   {
     "countyCode": "HK",
@@ -3399,7 +3963,10 @@
     "Map": "22.342345|114.109602",
     "PhoneNumber": "011-852-21291188",
     "PinCode": "NPA",
-    "HotelWebsiteUrl": "http://www.ramblerhotels.com/oasis/Index-en.htm"
+    "HotelWebsiteUrl": "http://www.ramblerhotels.com/oasis/Index-en.htm",
+    "star_rating": 3,
+    "latitude": 22.342345,
+    "longitude": 114.109602
   },
   {
     "countyCode": "HK",
@@ -3417,7 +3984,10 @@
     "Map": "22.287034|114.192449",
     "PhoneNumber": "852-852-39636300",
     "PinCode": "NA",
-    "HotelWebsiteUrl": "https://www.iclub-hotels.com/iclub-fortress-hill-hotel/en/home/home.html"
+    "HotelWebsiteUrl": "https://www.iclub-hotels.com/iclub-fortress-hill-hotel/en/home/home.html",
+    "star_rating": 3,
+    "latitude": 22.287034,
+    "longitude": 114.192449
   },
   {
     "countyCode": "HK",
@@ -3435,7 +4005,10 @@
     "Map": "22.32656|114.1702198",
     "PhoneNumber": "",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.newtonkln.com/"
+    "HotelWebsiteUrl": "http://www.newtonkln.com/",
+    "star_rating": 3,
+    "latitude": 22.32656,
+    "longitude": 114.1702198
   },
   {
     "countyCode": "HK",
@@ -3453,7 +4026,10 @@
     "Map": "22.295991|114.172333",
     "PhoneNumber": "85-22-366 22 01",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.imperialhotel.com.hk"
+    "HotelWebsiteUrl": "http://www.imperialhotel.com.hk",
+    "star_rating": 3,
+    "latitude": 22.295991,
+    "longitude": 114.172333
   },
   {
     "countyCode": "HK",
@@ -3471,7 +4047,10 @@
     "Map": "22.288600057943839|114.19311405625194",
     "PhoneNumber": "",
     "PinCode": "1",
-    "HotelWebsiteUrl": "http://www.newtonhk.com"
+    "HotelWebsiteUrl": "http://www.newtonhk.com",
+    "star_rating": 4,
+    "latitude": 22.28860005794384,
+    "longitude": 114.19311405625194
   },
   {
     "countyCode": "HK",
@@ -3489,7 +4068,10 @@
     "Map": "22.28517|114.19213",
     "PhoneNumber": "852-3692-2333",
     "PinCode": "00852",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/the-empire-hong-kong-causeway-bay.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/the-empire-hong-kong-causeway-bay.html",
+    "star_rating": 4,
+    "latitude": 22.28517,
+    "longitude": 114.19213
   },
   {
     "countyCode": "HK",
@@ -3507,7 +4089,10 @@
     "Map": "22.286275|114.149086",
     "PhoneNumber": "852-28518818",
     "PinCode": "00",
-    "HotelWebsiteUrl": "http://www.sohotel.com.hk"
+    "HotelWebsiteUrl": "http://www.sohotel.com.hk",
+    "star_rating": 4,
+    "latitude": 22.286275,
+    "longitude": 114.149086
   },
   {
     "countyCode": "HK",
@@ -3525,7 +4110,10 @@
     "Map": "22.31154|114.17079",
     "PhoneNumber": "852 3758 7777",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/casa.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/casa.html",
+    "star_rating": 3,
+    "latitude": 22.31154,
+    "longitude": 114.17079
   },
   {
     "countyCode": "HK",
@@ -3543,7 +4131,10 @@
     "Map": "22.306872|114.167746",
     "PhoneNumber": "852-852-27707710",
     "PinCode": "N A",
-    "HotelWebsiteUrl": "http://www.westhotel.com.hk"
+    "HotelWebsiteUrl": "http://www.westhotel.com.hk",
+    "star_rating": 3,
+    "latitude": 22.306872,
+    "longitude": 114.167746
   },
   {
     "countyCode": "HK",
@@ -3561,7 +4152,10 @@
     "Map": "22.29875|114.17461",
     "PhoneNumber": "852-3-4108888",
     "PinCode": "99999",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/guangdong.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/guangdong.html",
+    "star_rating": 4,
+    "latitude": 22.29875,
+    "longitude": 114.17461
   },
   {
     "countyCode": "HK",
@@ -3579,7 +4173,10 @@
     "Map": "22.2788173|114.18630940000003",
     "PhoneNumber": "",
     "PinCode": "000",
-    "HotelWebsiteUrl": "www.jplushongkong.com"
+    "HotelWebsiteUrl": "www.jplushongkong.com",
+    "star_rating": 5,
+    "latitude": 22.2788173,
+    "longitude": 114.18630940000003
   },
   {
     "countyCode": "HK",
@@ -3597,7 +4194,10 @@
     "Map": "22.277044|114.18265",
     "PhoneNumber": "852-3980-3980",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.cphongkong.com"
+    "HotelWebsiteUrl": "http://www.cphongkong.com",
+    "star_rating": 4,
+    "latitude": 22.277044,
+    "longitude": 114.18265
   },
   {
     "countyCode": "HK",
@@ -3615,7 +4215,10 @@
     "Map": "22.279209|114.179277",
     "PhoneNumber": "852-3-9612288",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.wifihotel.com.hk"
+    "HotelWebsiteUrl": "http://www.wifihotel.com.hk",
+    "star_rating": 3,
+    "latitude": 22.279209,
+    "longitude": 114.179277
   },
   {
     "countyCode": "HK",
@@ -3633,7 +4236,10 @@
     "Map": "22.317091|114.17278",
     "PhoneNumber": "852-3120-3600",
     "PinCode": "0",
-    "HotelWebsiteUrl": "https://www.mosaic-collection.com/hotel108-hongkong/"
+    "HotelWebsiteUrl": "https://www.mosaic-collection.com/hotel108-hongkong/",
+    "star_rating": 3,
+    "latitude": 22.317091,
+    "longitude": 114.17278
   },
   {
     "countyCode": "HK",
@@ -3651,7 +4257,10 @@
     "Map": "22.29107|114.19736",
     "PhoneNumber": "852-2130-3388",
     "PinCode": "852",
-    "HotelWebsiteUrl": "http://www.grandviewhotelhongkong.com/en/index.html"
+    "HotelWebsiteUrl": "http://www.grandviewhotelhongkong.com/en/index.html",
+    "star_rating": 3,
+    "latitude": 22.29107,
+    "longitude": 114.19736
   },
   {
     "countyCode": "HK",
@@ -3669,7 +4278,10 @@
     "Map": "22.280407|114.154967",
     "PhoneNumber": "",
     "PinCode": "0",
-    "HotelWebsiteUrl": "www.hotel-LKF.com.hk"
+    "HotelWebsiteUrl": "www.hotel-LKF.com.hk",
+    "star_rating": 5,
+    "latitude": 22.280407,
+    "longitude": 114.154967
   },
   {
     "countyCode": "HK",
@@ -3687,7 +4299,10 @@
     "Map": "22.27624|114.17205",
     "PhoneNumber": "",
     "PinCode": "A",
-    "HotelWebsiteUrl": "http://www.thejohnstonsuites.com"
+    "HotelWebsiteUrl": "http://www.thejohnstonsuites.com",
+    "star_rating": 5,
+    "latitude": 22.27624,
+    "longitude": 114.17205
   },
   {
     "countyCode": "HK",
@@ -3705,7 +4320,10 @@
     "Map": "22.27767|114.17056",
     "PhoneNumber": "852-2861-1166",
     "PinCode": "Hong Kong",
-    "HotelWebsiteUrl": "http://www.kewgreenhotelwanchai.com/"
+    "HotelWebsiteUrl": "http://www.kewgreenhotelwanchai.com/",
+    "star_rating": 4,
+    "latitude": 22.27767,
+    "longitude": 114.17056
   },
   {
     "countyCode": "HK",
@@ -3723,7 +4341,10 @@
     "Map": "22.297611|114.174567",
     "PhoneNumber": "852-35-500333",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.hotelpanorama.com.hk"
+    "HotelWebsiteUrl": "http://www.hotelpanorama.com.hk",
+    "star_rating": 4,
+    "latitude": 22.297611,
+    "longitude": 114.174567
   },
   {
     "countyCode": "HK",
@@ -3741,7 +4362,10 @@
     "Map": "22.27799|114.17008",
     "PhoneNumber": "852-3692-2111",
     "PinCode": "1",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/empire.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/empire.html",
+    "star_rating": 4,
+    "latitude": 22.27799,
+    "longitude": 114.17008
   },
   {
     "countyCode": "HK",
@@ -3759,7 +4383,10 @@
     "Map": "22.322742|114.190492",
     "PhoneNumber": "852 2126 1988",
     "PinCode": "Hong Kong",
-    "HotelWebsiteUrl": "http://www.harbour-plaza.com/8degrees/Index-en.htm"
+    "HotelWebsiteUrl": "http://www.harbour-plaza.com/8degrees/Index-en.htm",
+    "star_rating": 4,
+    "latitude": 22.322742,
+    "longitude": 114.190492
   },
   {
     "countyCode": "HK",
@@ -3777,7 +4404,10 @@
     "Map": "22.296889|114.174208",
     "PhoneNumber": "+852 273 977 77",
     "PinCode": "N A",
-    "HotelWebsiteUrl": "http://www.xihotel.com.hk"
+    "HotelWebsiteUrl": "http://www.xihotel.com.hk",
+    "star_rating": 3,
+    "latitude": 22.296889,
+    "longitude": 114.174208
   },
   {
     "countyCode": "HK",
@@ -3795,7 +4425,10 @@
     "Map": "22.324227|114.164995",
     "PhoneNumber": "852-2-3912911",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.olihotel.com.hk"
+    "HotelWebsiteUrl": "http://www.olihotel.com.hk",
+    "star_rating": 3,
+    "latitude": 22.324227,
+    "longitude": 114.164995
   },
   {
     "countyCode": "HK",
@@ -3813,7 +4446,10 @@
     "Map": "22.277379|114.165995",
     "PhoneNumber": "852-3968-1111",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.upperhouse.com"
+    "HotelWebsiteUrl": "http://www.upperhouse.com",
+    "star_rating": 5,
+    "latitude": 22.277379,
+    "longitude": 114.165995
   },
   {
     "countyCode": "HK",
@@ -3831,7 +4467,10 @@
     "Map": "22.34373|114.111213",
     "PhoneNumber": "011-852-21299988",
     "PinCode": "NPA",
-    "HotelWebsiteUrl": "http://www.ramblerhotels.com"
+    "HotelWebsiteUrl": "http://www.ramblerhotels.com",
+    "star_rating": 3,
+    "latitude": 22.34373,
+    "longitude": 114.111213
   },
   {
     "countyCode": "HK",
@@ -3849,7 +4488,10 @@
     "Map": "22.29899|114.17304",
     "PhoneNumber": "0085223850125",
     "PinCode": "Hong Kong",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/benito.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/benito.html",
+    "star_rating": 3,
+    "latitude": 22.29899,
+    "longitude": 114.17304
   },
   {
     "countyCode": "HK",
@@ -3867,7 +4509,10 @@
     "Map": "22.276909|114.180308",
     "PhoneNumber": "852-3962-8333",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.butterflyhk.com"
+    "HotelWebsiteUrl": "http://www.butterflyhk.com",
+    "star_rating": 3,
+    "latitude": 22.276909,
+    "longitude": 114.180308
   },
   {
     "countyCode": "HK",
@@ -3885,7 +4530,10 @@
     "Map": "22.310977|114.17174",
     "PhoneNumber": "852-852-27102503",
     "PinCode": "N A",
-    "HotelWebsiteUrl": "http://www.caritas-chs.org.hk"
+    "HotelWebsiteUrl": "http://www.caritas-chs.org.hk",
+    "star_rating": 3,
+    "latitude": 22.310977,
+    "longitude": 114.17174
   },
   {
     "countyCode": "HK",
@@ -3903,7 +4551,10 @@
     "Map": "22.31049777948766|114.1696683524467",
     "PhoneNumber": "+8528685234436888",
     "PinCode": "HONG KONG",
-    "HotelWebsiteUrl": "http://www.chi-residences.com/en/serviced-apartments/chi-279/overview"
+    "HotelWebsiteUrl": "http://www.chi-residences.com/en/serviced-apartments/chi-279/overview",
+    "star_rating": 4,
+    "latitude": 22.31049777948766,
+    "longitude": 114.1696683524467
   },
   {
     "countyCode": "HK",
@@ -3921,7 +4572,10 @@
     "Map": "22.30621|114.171601",
     "PhoneNumber": "852-3406 9999",
     "PinCode": "Nathan Road Jordan K",
-    "HotelWebsiteUrl": "http://www.chi-residences.com/en/residences/314"
+    "HotelWebsiteUrl": "http://www.chi-residences.com/en/residences/314",
+    "star_rating": 4,
+    "latitude": 22.30621,
+    "longitude": 114.171601
   },
   {
     "countyCode": "HK",
@@ -3939,7 +4593,10 @@
     "Map": "22.277647|114.169004",
     "PhoneNumber": "852-2292-3000",
     "PinCode": "NULL",
-    "HotelWebsiteUrl": "http://www.ozohotels.com"
+    "HotelWebsiteUrl": "http://www.ozohotels.com",
+    "star_rating": 3,
+    "latitude": 22.277647,
+    "longitude": 114.169004
   },
   {
     "countyCode": "HK",
@@ -3957,7 +4614,10 @@
     "Map": "22.286155|114.215975",
     "PhoneNumber": "852-39-683968",
     "PinCode": "Hong Kong",
-    "HotelWebsiteUrl": "http://www.east-hongkong.com"
+    "HotelWebsiteUrl": "http://www.east-hongkong.com",
+    "star_rating": 4,
+    "latitude": 22.286155,
+    "longitude": 114.215975
   },
   {
     "countyCode": "HK",
@@ -3975,7 +4635,10 @@
     "Map": "22.303984|114.159966",
     "PhoneNumber": "852-2263-2263",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.ritzcarlton.com/en/Properties/HongKong/Default.htm"
+    "HotelWebsiteUrl": "http://www.ritzcarlton.com/en/Properties/HongKong/Default.htm",
+    "star_rating": 5,
+    "latitude": 22.303984,
+    "longitude": 114.159966
   },
   {
     "countyCode": "HK",
@@ -3993,7 +4656,10 @@
     "Map": "22.249573|114.168211",
     "PhoneNumber": "852-3968 8888",
     "PinCode": "3968 8888",
-    "HotelWebsiteUrl": "http://www.lhotelgroup.com/en/hotel/lhotel-island-south"
+    "HotelWebsiteUrl": "http://www.lhotelgroup.com/en/hotel/lhotel-island-south",
+    "star_rating": 4,
+    "latitude": 22.249573,
+    "longitude": 114.168211
   },
   {
     "countyCode": "HK",
@@ -4011,7 +4677,10 @@
     "Map": "22.316666|114.167699",
     "PhoneNumber": "852 27713300-",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.harbourhotel.com.hk/html/en/mainpage.html"
+    "HotelWebsiteUrl": "http://www.harbourhotel.com.hk/html/en/mainpage.html",
+    "star_rating": 3,
+    "latitude": 22.316666,
+    "longitude": 114.167699
   },
   {
     "countyCode": "HK",
@@ -4029,7 +4698,10 @@
     "Map": "22.27739|114.17595",
     "PhoneNumber": "852-39636000",
     "PinCode": "n.a",
-    "HotelWebsiteUrl": "https://www.iclub-hotels.com/iclub-wan-chai-hotel/en/home/home.html"
+    "HotelWebsiteUrl": "https://www.iclub-hotels.com/iclub-wan-chai-hotel/en/home/home.html",
+    "star_rating": 3,
+    "latitude": 22.27739,
+    "longitude": 114.17595
   },
   {
     "countyCode": "HK",
@@ -4047,7 +4719,10 @@
     "Map": "22.321277|114.161999",
     "PhoneNumber": "852-39-872288",
     "PinCode": "0000",
-    "HotelWebsiteUrl": "http://www.mongkok.dorsetthotels.com"
+    "HotelWebsiteUrl": "http://www.mongkok.dorsetthotels.com",
+    "star_rating": 4,
+    "latitude": 22.321277,
+    "longitude": 114.161999
   },
   {
     "countyCode": "HK",
@@ -4065,7 +4740,10 @@
     "Map": "22.312478|114.170155",
     "PhoneNumber": "011-852-27106662",
     "PinCode": "Hong Kong",
-    "HotelWebsiteUrl": "http://www.m1hotel.hk/"
+    "HotelWebsiteUrl": "http://www.m1hotel.hk/",
+    "star_rating": 3,
+    "latitude": 22.312478,
+    "longitude": 114.170155
   },
   {
     "countyCode": "HK",
@@ -4083,7 +4761,10 @@
     "Map": "22.2497|114.168964",
     "PhoneNumber": "852-3460-8100",
     "PinCode": "N A",
-    "HotelWebsiteUrl": "http://www.ovolohotels.com"
+    "HotelWebsiteUrl": "http://www.ovolohotels.com",
+    "star_rating": 4,
+    "latitude": 22.2497,
+    "longitude": 114.168964
   },
   {
     "countyCode": "HK",
@@ -4101,7 +4782,10 @@
     "Map": "22.307068|114.186229",
     "PhoneNumber": "852--22758888",
     "PinCode": "852",
-    "HotelWebsiteUrl": "http://www.hotelsav.com"
+    "HotelWebsiteUrl": "http://www.hotelsav.com",
+    "star_rating": 4,
+    "latitude": 22.307068,
+    "longitude": 114.186229
   },
   {
     "countyCode": "HK",
@@ -4119,7 +4803,10 @@
     "Map": "22.337821|114.141785",
     "PhoneNumber": "+85221002888",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.heritagelodgehk.com"
+    "HotelWebsiteUrl": "http://www.heritagelodgehk.com",
+    "star_rating": 3,
+    "latitude": 22.337821,
+    "longitude": 114.141785
   },
   {
     "countyCode": "HK",
@@ -4137,7 +4824,10 @@
     "Map": "22.284706|114.192336",
     "PhoneNumber": "852-39958800",
     "PinCode": "Tin Hau",
-    "HotelWebsiteUrl": "http://www.tuve.hk"
+    "HotelWebsiteUrl": "http://www.tuve.hk",
+    "star_rating": 4,
+    "latitude": 22.284706,
+    "longitude": 114.192336
   },
   {
     "countyCode": "HK",
@@ -4155,7 +4845,10 @@
     "Map": "22.301128|114.173631",
     "PhoneNumber": "852-3602-3888",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.theperkinhotel.com"
+    "HotelWebsiteUrl": "http://www.theperkinhotel.com",
+    "star_rating": 3,
+    "latitude": 22.301128,
+    "longitude": 114.173631
   },
   {
     "countyCode": "HK",
@@ -4173,7 +4866,10 @@
     "Map": "22.28294|114.15335",
     "PhoneNumber": "852-2103-1713",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/shama-central.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/shama-central.html",
+    "star_rating": 4,
+    "latitude": 22.28294,
+    "longitude": 114.15335
   },
   {
     "countyCode": "HK",
@@ -4191,7 +4887,10 @@
     "Map": "22.314873|114.16735",
     "PhoneNumber": "852-2200-3888",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://holidayinnexpress.com/mongkok"
+    "HotelWebsiteUrl": "http://holidayinnexpress.com/mongkok",
+    "star_rating": 3,
+    "latitude": 22.314873,
+    "longitude": 114.16735
   },
   {
     "countyCode": "HK",
@@ -4209,7 +4908,10 @@
     "Map": "22.302004|114.176656",
     "PhoneNumber": "852-23558888",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.residenceghongkong.com"
+    "HotelWebsiteUrl": "http://www.residenceghongkong.com",
+    "star_rating": 4,
+    "latitude": 22.302004,
+    "longitude": 114.176656
   },
   {
     "countyCode": "HK",
@@ -4227,7 +4929,10 @@
     "Map": "22.27984079178357|114.18619246826165",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": "www.theV.hk"
+    "HotelWebsiteUrl": "www.theV.hk",
+    "star_rating": 4,
+    "latitude": 22.27984079178357,
+    "longitude": 114.18619246826165
   },
   {
     "countyCode": "HK",
@@ -4245,7 +4950,10 @@
     "Map": "22.291249|114.197785",
     "PhoneNumber": "852-21168888",
     "PinCode": "042473",
-    "HotelWebsiteUrl": "http://www.m1hotel.hk/np-en-index.php"
+    "HotelWebsiteUrl": "http://www.m1hotel.hk/np-en-index.php",
+    "star_rating": 3,
+    "latitude": 22.291249,
+    "longitude": 114.197785
   },
   {
     "countyCode": "HK",
@@ -4263,7 +4971,10 @@
     "Map": "22.285185|114.191548",
     "PhoneNumber": "852-36-538088",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.somerset.com/en/china/hong_kong/somerset_victoria_park_hongkong.html"
+    "HotelWebsiteUrl": "http://www.somerset.com/en/china/hong_kong/somerset_victoria_park_hongkong.html",
+    "star_rating": 3,
+    "latitude": 22.285185,
+    "longitude": 114.191548
   },
   {
     "countyCode": "HK",
@@ -4281,7 +4992,10 @@
     "Map": "22.301323|114.187316",
     "PhoneNumber": "852--21869036",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.harbour-plaza.com"
+    "HotelWebsiteUrl": "http://www.harbour-plaza.com",
+    "star_rating": 4,
+    "latitude": 22.301323,
+    "longitude": 114.187316
   },
   {
     "countyCode": "HK",
@@ -4299,7 +5013,10 @@
     "Map": "22.32672|114.17785",
     "PhoneNumber": "",
     "PinCode": "A",
-    "HotelWebsiteUrl": "www.caritas-chs.org.hk"
+    "HotelWebsiteUrl": "www.caritas-chs.org.hk",
+    "star_rating": 3,
+    "latitude": 22.32672,
+    "longitude": 114.17785
   },
   {
     "countyCode": "HK",
@@ -4317,7 +5034,10 @@
     "Map": "22.31352|114.169894",
     "PhoneNumber": "852-36100095",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://hongkong.innhotel.com/en/"
+    "HotelWebsiteUrl": "http://hongkong.innhotel.com/en/",
+    "star_rating": 3,
+    "latitude": 22.31352,
+    "longitude": 114.169894
   },
   {
     "countyCode": "HK",
@@ -4335,7 +5055,10 @@
     "Map": "22.286947|114.1412",
     "PhoneNumber": "852-21921222",
     "PinCode": "n a",
-    "HotelWebsiteUrl": "http://www.grandcityhotelhongkong.com"
+    "HotelWebsiteUrl": "http://www.grandcityhotelhongkong.com",
+    "star_rating": 3,
+    "latitude": 22.286947,
+    "longitude": 114.1412
   },
   {
     "countyCode": "HK",
@@ -4353,7 +5076,10 @@
     "Map": "22.323449|114.167861",
     "PhoneNumber": "852-852-22631263",
     "PinCode": "852",
-    "HotelWebsiteUrl": "http://www.leprabelle.com/"
+    "HotelWebsiteUrl": "http://www.leprabelle.com/",
+    "star_rating": 3,
+    "latitude": 22.323449,
+    "longitude": 114.167861
   },
   {
     "countyCode": "HK",
@@ -4371,7 +5097,10 @@
     "Map": "22.33506|114.17701",
     "PhoneNumber": "852-23389191",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.33506,
+    "longitude": 114.17701
   },
   {
     "countyCode": "HK",
@@ -4389,7 +5118,10 @@
     "Map": "22.3051|114.172",
     "PhoneNumber": "852-3578-8788",
     "PinCode": "00000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.3051,
+    "longitude": 114.172
   },
   {
     "countyCode": "HK",
@@ -4407,7 +5139,10 @@
     "Map": "22.276189804|114.16992188",
     "PhoneNumber": "00852 36966888",
     "PinCode": "100000",
-    "HotelWebsiteUrl": "http://cue-hotel.com"
+    "HotelWebsiteUrl": "http://cue-hotel.com",
+    "star_rating": 3,
+    "latitude": 22.276189804,
+    "longitude": 114.16992188
   },
   {
     "countyCode": "HK",
@@ -4425,7 +5160,10 @@
     "Map": "22.32062|114.1701",
     "PhoneNumber": "+85236588000",
     "PinCode": "N A",
-    "HotelWebsiteUrl": "http://www.m1hotel.hk/mk-en-index.php"
+    "HotelWebsiteUrl": "http://www.m1hotel.hk/mk-en-index.php",
+    "star_rating": 3,
+    "latitude": 22.32062,
+    "longitude": 114.1701
   },
   {
     "countyCode": "HK",
@@ -4443,7 +5181,10 @@
     "Map": "22.30749|114.17188",
     "PhoneNumber": "0085221921222",
     "PinCode": "00852",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/noble-park.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/noble-park.html",
+    "star_rating": 3,
+    "latitude": 22.30749,
+    "longitude": 114.17188
   },
   {
     "countyCode": "HK",
@@ -4461,7 +5202,10 @@
     "Map": "22.296512|114.170735",
     "PhoneNumber": "852-3-1887888",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://hotelpravo.com/"
+    "HotelWebsiteUrl": "http://hotelpravo.com/",
+    "star_rating": 4,
+    "latitude": 22.296512,
+    "longitude": 114.170735
   },
   {
     "countyCode": "HK",
@@ -4479,7 +5223,10 @@
     "Map": "22.328713|114.160543",
     "PhoneNumber": "+852 3899 0500",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.328713,
+    "longitude": 114.160543
   },
   {
     "countyCode": "HK",
@@ -4497,7 +5244,10 @@
     "Map": "22.278186|114.183952",
     "PhoneNumber": "+852 2618 9920",
     "PinCode": "0000",
-    "HotelWebsiteUrl": "http://www.9boutiquehotel.com/"
+    "HotelWebsiteUrl": "http://www.9boutiquehotel.com/",
+    "star_rating": 3,
+    "latitude": 22.278186,
+    "longitude": 114.183952
   },
   {
     "countyCode": "HK",
@@ -4515,7 +5265,10 @@
     "Map": "22.307925|114.169928",
     "PhoneNumber": "852-852-27706788",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.mingleplace.com"
+    "HotelWebsiteUrl": "http://www.mingleplace.com",
+    "star_rating": 3,
+    "latitude": 22.307925,
+    "longitude": 114.169928
   },
   {
     "countyCode": "HK",
@@ -4533,7 +5286,10 @@
     "Map": "22.280534|114.179716",
     "PhoneNumber": "852-39962888",
     "PinCode": "Causeway Bay",
-    "HotelWebsiteUrl": "http://www.gloucesterhotel.hk"
+    "HotelWebsiteUrl": "http://www.gloucesterhotel.hk",
+    "star_rating": 4,
+    "latitude": 22.280534,
+    "longitude": 114.179716
   },
   {
     "countyCode": "HK",
@@ -4551,7 +5307,10 @@
     "Map": "22.333744|114.163436",
     "PhoneNumber": "852-37283553",
     "PinCode": "000000",
-    "HotelWebsiteUrl": "https://www.yha.org.hk/en/hostel/yha-mei-ho-house-youth-hostel"
+    "HotelWebsiteUrl": "https://www.yha.org.hk/en/hostel/yha-mei-ho-house-youth-hostel",
+    "star_rating": 3,
+    "latitude": 22.333744,
+    "longitude": 114.163436
   },
   {
     "countyCode": "HK",
@@ -4569,7 +5328,10 @@
     "Map": "22.28484|114.1522",
     "PhoneNumber": "+11 852 22332233",
     "PinCode": "00",
-    "HotelWebsiteUrl": "http://www.theputman.com"
+    "HotelWebsiteUrl": "http://www.theputman.com",
+    "star_rating": 4,
+    "latitude": 22.28484,
+    "longitude": 114.1522
   },
   {
     "countyCode": "HK",
@@ -4587,7 +5349,10 @@
     "Map": "22.285993|114.151074",
     "PhoneNumber": "011-852-39401111",
     "PinCode": "00000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 22.285993,
+    "longitude": 114.151074
   },
   {
     "countyCode": "HK",
@@ -4605,7 +5370,10 @@
     "Map": "22.28541|114.1505",
     "PhoneNumber": "011-852-39949000",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.thejervois.com"
+    "HotelWebsiteUrl": "http://www.thejervois.com",
+    "star_rating": 3,
+    "latitude": 22.28541,
+    "longitude": 114.1505
   },
   {
     "countyCode": "HK",
@@ -4623,7 +5391,10 @@
     "Map": "22.286|114.1903",
     "PhoneNumber": "011-852-39948585",
     "PinCode": "000000",
-    "HotelWebsiteUrl": "http://twentyonewhitfield.com/"
+    "HotelWebsiteUrl": "http://twentyonewhitfield.com/",
+    "star_rating": 3,
+    "latitude": 22.286,
+    "longitude": 114.1903
   },
   {
     "countyCode": "HK",
@@ -4641,7 +5412,10 @@
     "Map": "22.301708|114.176601",
     "PhoneNumber": "852-21173838",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.popway.com.hk/"
+    "HotelWebsiteUrl": "http://www.popway.com.hk/",
+    "star_rating": 3,
+    "latitude": 22.301708,
+    "longitude": 114.176601
   },
   {
     "countyCode": "HK",
@@ -4659,7 +5433,10 @@
     "Map": "22.281209946|114.15550232",
     "PhoneNumber": "008 52 28678890",
     "PinCode": "000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.281209946,
+    "longitude": 114.15550232
   },
   {
     "countyCode": "HK",
@@ -4677,7 +5454,10 @@
     "Map": "22.296856|114.174257",
     "PhoneNumber": "852-852-21547933",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://www.harbourbayhotel.com/"
+    "HotelWebsiteUrl": "http://www.harbourbayhotel.com/",
+    "star_rating": 3,
+    "latitude": 22.296856,
+    "longitude": 114.174257
   },
   {
     "countyCode": "HK",
@@ -4695,7 +5475,10 @@
     "Map": "22.284895|114.152281",
     "PhoneNumber": "+011 852 35196196",
     "PinCode": "00",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 22.284895,
+    "longitude": 114.152281
   },
   {
     "countyCode": "HK",
@@ -4713,7 +5496,10 @@
     "Map": "22.28392|114.14665",
     "PhoneNumber": "852-03-6079000",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://www.mier.com.hk/"
+    "HotelWebsiteUrl": "http://www.mier.com.hk/",
+    "star_rating": 3,
+    "latitude": 22.28392,
+    "longitude": 114.14665
   },
   {
     "countyCode": "HK",
@@ -4731,7 +5517,10 @@
     "Map": "22.28084|114.18239",
     "PhoneNumber": "+85228383211",
     "PinCode": "",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/causeway-corner.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/causeway-corner.html",
+    "star_rating": 3,
+    "latitude": 22.28084,
+    "longitude": 114.18239
   },
   {
     "countyCode": "HK",
@@ -4749,7 +5538,10 @@
     "Map": "22.2837|114.154",
     "PhoneNumber": "",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.xin.com.hk/yin-serviced-apartments/"
+    "HotelWebsiteUrl": "http://www.xin.com.hk/yin-serviced-apartments/",
+    "star_rating": 4,
+    "latitude": 22.2837,
+    "longitude": 114.154
   },
   {
     "countyCode": "HK",
@@ -4767,7 +5559,10 @@
     "Map": "22.318259|114.156719",
     "PhoneNumber": "852--31998888",
     "PinCode": "852",
-    "HotelWebsiteUrl": "https://www.theolympianhotel.com/zh-hant/"
+    "HotelWebsiteUrl": "https://www.theolympianhotel.com/zh-hant/",
+    "star_rating": 5,
+    "latitude": 22.318259,
+    "longitude": 114.156719
   },
   {
     "countyCode": "HK",
@@ -4785,7 +5580,10 @@
     "Map": "22.307681|114.172492",
     "PhoneNumber": "85239532222",
     "PinCode": "852",
-    "HotelWebsiteUrl": "http://www.hotelstage.com"
+    "HotelWebsiteUrl": "http://www.hotelstage.com",
+    "star_rating": 4,
+    "latitude": 22.307681,
+    "longitude": 114.172492
   },
   {
     "countyCode": "HK",
@@ -4803,7 +5601,10 @@
     "Map": "22.282655|114.152947",
     "PhoneNumber": "+852 39132888",
     "PinCode": "852",
-    "HotelWebsiteUrl": "http://www.maderagroup.com/hollywood"
+    "HotelWebsiteUrl": "http://www.maderagroup.com/hollywood",
+    "star_rating": 3,
+    "latitude": 22.282655,
+    "longitude": 114.152947
   },
   {
     "countyCode": "HK",
@@ -4821,7 +5622,10 @@
     "Map": "22.304685|114.171742",
     "PhoneNumber": "+852 2730 3963",
     "PinCode": "0000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.304685,
+    "longitude": 114.171742
   },
   {
     "countyCode": "HK",
@@ -4839,7 +5643,10 @@
     "Map": "22.302804|114.185226",
     "PhoneNumber": "3157 8888",
     "PinCode": "12",
-    "HotelWebsiteUrl": "horizonhotels.com.hk"
+    "HotelWebsiteUrl": "horizonhotels.com.hk",
+    "star_rating": 4,
+    "latitude": 22.302804,
+    "longitude": 114.185226
   },
   {
     "countyCode": "HK",
@@ -4857,7 +5664,10 @@
     "Map": "22.285684996318913|114.19202938773151",
     "PhoneNumber": "",
     "PinCode": "A",
-    "HotelWebsiteUrl": "http://www.equinox-serviced-apt.com/tinhau/index.html"
+    "HotelWebsiteUrl": "http://www.equinox-serviced-apt.com/tinhau/index.html",
+    "star_rating": 3,
+    "latitude": 22.285684996318913,
+    "longitude": 114.19202938773151
   },
   {
     "countyCode": "HK",
@@ -4875,7 +5685,10 @@
     "Map": "22.299768|114.173694",
     "PhoneNumber": "852-2105-3888",
     "PinCode": "N A",
-    "HotelWebsiteUrl": "http://www.attitudegranville.com/en/home"
+    "HotelWebsiteUrl": "http://www.attitudegranville.com/en/home",
+    "star_rating": 3,
+    "latitude": 22.299768,
+    "longitude": 114.173694
   },
   {
     "countyCode": "HK",
@@ -4893,7 +5706,10 @@
     "Map": "22.317575|114.1705",
     "PhoneNumber": "",
     "PinCode": "0000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.317575,
+    "longitude": 114.1705
   },
   {
     "countyCode": "HK",
@@ -4911,7 +5727,10 @@
     "Map": "22.316032|114.16694",
     "PhoneNumber": "852--22013688",
     "PinCode": "1007",
-    "HotelWebsiteUrl": "http://hiltongardeninn3.hilton.com/en/hotels/hong-kong/hilton-garden-inn-hong-kong-mongkok-HKGMSGI/index.html"
+    "HotelWebsiteUrl": "http://hiltongardeninn3.hilton.com/en/hotels/hong-kong/hilton-garden-inn-hong-kong-mongkok-HKGMSGI/index.html",
+    "star_rating": 4,
+    "latitude": 22.316032,
+    "longitude": 114.16694
   },
   {
     "countyCode": "HK",
@@ -4929,7 +5748,10 @@
     "Map": "22.311173|114.171053",
     "PhoneNumber": "852-3755-0300",
     "PinCode": "",
-    "HotelWebsiteUrl": "https://app-apac.thebookingbutton.com/properties/m"
+    "HotelWebsiteUrl": "https://app-apac.thebookingbutton.com/properties/m",
+    "star_rating": 3,
+    "latitude": 22.311173,
+    "longitude": 114.171053
   },
   {
     "countyCode": "HK",
@@ -4947,7 +5769,10 @@
     "Map": "22.279212|114.189227",
     "PhoneNumber": "852-31638888",
     "PinCode": "1",
-    "HotelWebsiteUrl": "http://lepetithk.rosedalehotels.com"
+    "HotelWebsiteUrl": "http://lepetithk.rosedalehotels.com",
+    "star_rating": 4,
+    "latitude": 22.279212,
+    "longitude": 114.189227
   },
   {
     "countyCode": "HK",
@@ -4965,7 +5790,10 @@
     "Map": "22.301528|114.187981",
     "PhoneNumber": "852-2-252 5888",
     "PinCode": "000000",
-    "HotelWebsiteUrl": "http://www.shangri-la.com/hongkong/kerry/"
+    "HotelWebsiteUrl": "http://www.shangri-la.com/hongkong/kerry/",
+    "star_rating": 5,
+    "latitude": 22.301528,
+    "longitude": 114.187981
   },
   {
     "countyCode": "HK",
@@ -4983,7 +5811,10 @@
     "Map": "22.28619|114.15154",
     "PhoneNumber": "+852 8100 0189",
     "PinCode": "00",
-    "HotelWebsiteUrl": "http://www.homyinn.com.hk/"
+    "HotelWebsiteUrl": "http://www.homyinn.com.hk/",
+    "star_rating": 3,
+    "latitude": 22.28619,
+    "longitude": 114.15154
   },
   {
     "countyCode": "HK",
@@ -5001,7 +5832,10 @@
     "Map": "22.287849|114.144187",
     "PhoneNumber": "1-852-22171888",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://ecotreehotel.com.hk/"
+    "HotelWebsiteUrl": "http://ecotreehotel.com.hk/",
+    "star_rating": 3,
+    "latitude": 22.287849,
+    "longitude": 114.144187
   },
   {
     "countyCode": "HK",
@@ -5019,7 +5853,10 @@
     "Map": "22.32831|114.16453",
     "PhoneNumber": "85236210688",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.minimalhotels.com.hk/"
+    "HotelWebsiteUrl": "http://www.minimalhotels.com.hk/",
+    "star_rating": 3,
+    "latitude": 22.32831,
+    "longitude": 114.16453
   },
   {
     "countyCode": "HK",
@@ -5037,7 +5874,10 @@
     "Map": "22.27768|114.1707",
     "PhoneNumber": "+85237001000",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.burlington-hk.com/"
+    "HotelWebsiteUrl": "http://www.burlington-hk.com/",
+    "star_rating": 3,
+    "latitude": 22.27768,
+    "longitude": 114.1707
   },
   {
     "countyCode": "HK",
@@ -5055,7 +5895,10 @@
     "Map": "22.328532|114.16055",
     "PhoneNumber": "852-38990500",
     "PinCode": "00",
-    "HotelWebsiteUrl": "https://www.agoda.com/metroplace-boutique-hotel/hotel/hong-kong-hk.html"
+    "HotelWebsiteUrl": "https://www.agoda.com/metroplace-boutique-hotel/hotel/hong-kong-hk.html",
+    "star_rating": 3,
+    "latitude": 22.328532,
+    "longitude": 114.16055
   },
   {
     "countyCode": "HK",
@@ -5073,7 +5916,10 @@
     "Map": "22.260715|114.136183",
     "PhoneNumber": "852-37177388",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.thotel.edu.hk"
+    "HotelWebsiteUrl": "http://www.thotel.edu.hk",
+    "star_rating": 4,
+    "latitude": 22.260715,
+    "longitude": 114.136183
   },
   {
     "countyCode": "HK",
@@ -5091,7 +5937,10 @@
     "Map": "22.369114|114.138821",
     "PhoneNumber": "852-37003800",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.silkahotels.com/tsuenwan"
+    "HotelWebsiteUrl": "http://www.silkahotels.com/tsuenwan",
+    "star_rating": 4,
+    "latitude": 22.369114,
+    "longitude": 114.138821
   },
   {
     "countyCode": "HK",
@@ -5109,7 +5958,10 @@
     "Map": "22.29791|114.17462",
     "PhoneNumber": "+852 2991 0000",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://www.hotelhart.com/"
+    "HotelWebsiteUrl": "http://www.hotelhart.com/",
+    "star_rating": 3,
+    "latitude": 22.29791,
+    "longitude": 114.17462
   },
   {
     "countyCode": "HK",
@@ -5127,7 +5979,10 @@
     "Map": "22.31618|114.18872",
     "PhoneNumber": "852-39636600",
     "PinCode": "10000",
-    "HotelWebsiteUrl": "http://www.iclub-hotels.com/iclub-ma-tau-wai-hotel/en/home/home.html"
+    "HotelWebsiteUrl": "http://www.iclub-hotels.com/iclub-ma-tau-wai-hotel/en/home/home.html",
+    "star_rating": 3,
+    "latitude": 22.31618,
+    "longitude": 114.18872
   },
   {
     "countyCode": "HK",
@@ -5145,7 +6000,10 @@
     "Map": "22.309075|114.039824",
     "PhoneNumber": "852-3510-2000",
     "PinCode": "N A",
-    "HotelWebsiteUrl": "http://www.hongkongdisneyland.com"
+    "HotelWebsiteUrl": "http://www.hongkongdisneyland.com",
+    "star_rating": 4,
+    "latitude": 22.309075,
+    "longitude": 114.039824
   },
   {
     "countyCode": "HK",
@@ -5163,7 +6021,10 @@
     "Map": "22.31043|114.17052",
     "PhoneNumber": "8.52852 +13",
     "PinCode": "A",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/kings-de-nathan.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/kings-de-nathan.html",
+    "star_rating": 3,
+    "latitude": 22.31043,
+    "longitude": 114.17052
   },
   {
     "countyCode": "HK",
@@ -5181,7 +6042,10 @@
     "Map": "22.32101|114.161",
     "PhoneNumber": "852-21510500",
     "PinCode": "0",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.32101,
+    "longitude": 114.161
   },
   {
     "countyCode": "HK",
@@ -5199,7 +6063,10 @@
     "Map": "22.31328|114.17039",
     "PhoneNumber": "852-852-25772128",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.31328,
+    "longitude": 114.17039
   },
   {
     "countyCode": "HK",
@@ -5217,7 +6084,10 @@
     "Map": "22.27932|114.180727",
     "PhoneNumber": "852-96949844",
     "PinCode": "999077",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.27932,
+    "longitude": 114.180727
   },
   {
     "countyCode": "HK",
@@ -5235,7 +6105,10 @@
     "Map": "22.368382|114.137182",
     "PhoneNumber": "852-3958-8333",
     "PinCode": "1",
-    "HotelWebsiteUrl": "http://www.hotelease.hk/en"
+    "HotelWebsiteUrl": "http://www.hotelease.hk/en",
+    "star_rating": 4,
+    "latitude": 22.368382,
+    "longitude": 114.137182
   },
   {
     "countyCode": "HK",
@@ -5253,7 +6126,10 @@
     "Map": "22.3238|114.20592",
     "PhoneNumber": "852-852-2593 2828",
     "PinCode": "852",
-    "HotelWebsiteUrl": "http://www.camluxhotel.com/"
+    "HotelWebsiteUrl": "http://www.camluxhotel.com/",
+    "star_rating": 4,
+    "latitude": 22.3238,
+    "longitude": 114.20592
   },
   {
     "countyCode": "HK",
@@ -5271,7 +6147,10 @@
     "Map": "22.28639|114.14614",
     "PhoneNumber": "852-27801982",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://www.largos-residences.com.hk"
+    "HotelWebsiteUrl": "http://www.largos-residences.com.hk",
+    "star_rating": 3,
+    "latitude": 22.28639,
+    "longitude": 114.14614
   },
   {
     "countyCode": "HK",
@@ -5289,7 +6168,10 @@
     "Map": "22.2997|114.1731",
     "PhoneNumber": "852-68261878",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.2997,
+    "longitude": 114.1731
   },
   {
     "countyCode": "HK",
@@ -5307,7 +6189,10 @@
     "Map": "22.27806|114.16029",
     "PhoneNumber": "011-852-31418888",
     "PinCode": "N A",
-    "HotelWebsiteUrl": "http://www.themurrayaniccolohotel.com"
+    "HotelWebsiteUrl": "http://www.themurrayaniccolohotel.com",
+    "star_rating": 5,
+    "latitude": 22.27806,
+    "longitude": 114.16029
   },
   {
     "countyCode": "HK",
@@ -5325,7 +6210,10 @@
     "Map": "22.279322|114.179766",
     "PhoneNumber": "+85239580988",
     "PinCode": "N A",
-    "HotelWebsiteUrl": "http://www.hotelease.com.hk/heawc"
+    "HotelWebsiteUrl": "http://www.hotelease.com.hk/heawc",
+    "star_rating": 3,
+    "latitude": 22.279322,
+    "longitude": 114.179766
   },
   {
     "countyCode": "HK",
@@ -5343,7 +6231,10 @@
     "Map": "22.30009|114.174",
     "PhoneNumber": "852-852-21053827",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.soravitgranville.com"
+    "HotelWebsiteUrl": "http://www.soravitgranville.com",
+    "star_rating": 3,
+    "latitude": 22.30009,
+    "longitude": 114.174
   },
   {
     "countyCode": "HK",
@@ -5361,7 +6252,10 @@
     "Map": "22.312582|114.22295",
     "PhoneNumber": "852-38-902888",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.ihg.com/holidayinnexpress/hotels/us/en/hong-kong/hkgkk/hoteldetail"
+    "HotelWebsiteUrl": "http://www.ihg.com/holidayinnexpress/hotels/us/en/hong-kong/hkgkk/hoteldetail",
+    "star_rating": 3,
+    "latitude": 22.312582,
+    "longitude": 114.22295
   },
   {
     "countyCode": "HK",
@@ -5379,7 +6273,10 @@
     "Map": "22.29259|114.19935",
     "PhoneNumber": "852-3896-9800",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.hotelvic.com"
+    "HotelWebsiteUrl": "http://www.hotelvic.com",
+    "star_rating": 5,
+    "latitude": 22.29259,
+    "longitude": 114.19935
   },
   {
     "countyCode": "HK",
@@ -5397,7 +6294,10 @@
     "Map": "22.29859|114.17287",
     "PhoneNumber": "852-35516833",
     "PinCode": "0000",
-    "HotelWebsiteUrl": "http://theotto.hk"
+    "HotelWebsiteUrl": "http://theotto.hk",
+    "star_rating": 3,
+    "latitude": 22.29859,
+    "longitude": 114.17287
   },
   {
     "countyCode": "HK",
@@ -5415,7 +6315,10 @@
     "Map": "22.316346|114.21554",
     "PhoneNumber": "852-852-27220002",
     "PinCode": "0",
-    "HotelWebsiteUrl": "https://www.indhotel.com/"
+    "HotelWebsiteUrl": "https://www.indhotel.com/",
+    "star_rating": 3,
+    "latitude": 22.316346,
+    "longitude": 114.21554
   },
   {
     "countyCode": "HK",
@@ -5433,7 +6336,10 @@
     "Map": "22.27954|114.18519",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.27954,
+    "longitude": 114.18519
   },
   {
     "countyCode": "HK",
@@ -5451,7 +6357,10 @@
     "Map": "22.31605|114.21512",
     "PhoneNumber": "852-31886655",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://iwhotels.hk/"
+    "HotelWebsiteUrl": "http://iwhotels.hk/",
+    "star_rating": 3,
+    "latitude": 22.31605,
+    "longitude": 114.21512
   },
   {
     "countyCode": "HK",
@@ -5469,7 +6378,10 @@
     "Map": "22.28749|114.14369",
     "PhoneNumber": "852 3975 0088",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://www.wehotel.hk"
+    "HotelWebsiteUrl": "http://www.wehotel.hk",
+    "star_rating": 3,
+    "latitude": 22.28749,
+    "longitude": 114.14369
   },
   {
     "countyCode": "HK",
@@ -5487,7 +6399,10 @@
     "Map": "22.31378|114.17103",
     "PhoneNumber": "852 9888 4880",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://www.savills.com.hk/property-showcase/invest"
+    "HotelWebsiteUrl": "http://www.savills.com.hk/property-showcase/invest",
+    "star_rating": 3,
+    "latitude": 22.31378,
+    "longitude": 114.17103
   },
   {
     "countyCode": "HK",
@@ -5505,7 +6420,10 @@
     "Map": "22.28508|114.15143",
     "PhoneNumber": "34287000",
     "PinCode": "",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/akvo.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/akvo.html",
+    "star_rating": 4,
+    "latitude": 22.28508,
+    "longitude": 114.15143
   },
   {
     "countyCode": "HK",
@@ -5523,7 +6441,10 @@
     "Map": "22.32245|114.19052",
     "PhoneNumber": "86-13316899909",
     "PinCode": "999077",
-    "HotelWebsiteUrl": "http://www.cruisehotel.com.hk"
+    "HotelWebsiteUrl": "http://www.cruisehotel.com.hk",
+    "star_rating": 3,
+    "latitude": 22.32245,
+    "longitude": 114.19052
   },
   {
     "countyCode": "HK",
@@ -5541,7 +6462,10 @@
     "Map": "22.28571|114.19217",
     "PhoneNumber": "85223171788",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://causewaybay.ecotreehotel.com.hk/home/"
+    "HotelWebsiteUrl": "http://causewaybay.ecotreehotel.com.hk/home/",
+    "star_rating": 3,
+    "latitude": 22.28571,
+    "longitude": 114.19217
   },
   {
     "countyCode": "HK",
@@ -5559,7 +6483,10 @@
     "Map": "22.287658|114.149691",
     "PhoneNumber": "852-25895302",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://cmplus.com.hk"
+    "HotelWebsiteUrl": "http://cmplus.com.hk",
+    "star_rating": 3,
+    "latitude": 22.287658,
+    "longitude": 114.149691
   },
   {
     "countyCode": "HK",
@@ -5577,7 +6504,10 @@
     "Map": "22.26791|114.18335",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/eaton-residences-village-road.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/eaton-residences-village-road.html",
+    "star_rating": 4,
+    "latitude": 22.26791,
+    "longitude": 114.18335
   },
   {
     "countyCode": "HK",
@@ -5595,7 +6525,10 @@
     "Map": "22.24728|114.17631",
     "PhoneNumber": "+85235551688",
     "PinCode": "00000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 22.24728,
+    "longitude": 114.17631
   },
   {
     "countyCode": "HK",
@@ -5613,7 +6546,10 @@
     "Map": "22.21929|114.11941",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://www.hotel.com.au/hong-kong/bayshore-inn.htm"
+    "HotelWebsiteUrl": "http://www.hotel.com.au/hong-kong/bayshore-inn.htm",
+    "star_rating": 3,
+    "latitude": 22.21929,
+    "longitude": 114.11941
   },
   {
     "countyCode": "HK",
@@ -5631,7 +6567,10 @@
     "Map": "22.21942|114.11945",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/dayan-pets-friendly-resort.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/dayan-pets-friendly-resort.html",
+    "star_rating": 3,
+    "latitude": 22.21942,
+    "longitude": 114.11945
   },
   {
     "countyCode": "HK",
@@ -5649,7 +6588,10 @@
     "Map": "22.28559|114.15195",
     "PhoneNumber": "+85237528808",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://www.lemanndi.com/"
+    "HotelWebsiteUrl": "http://www.lemanndi.com/",
+    "star_rating": 4,
+    "latitude": 22.28559,
+    "longitude": 114.15195
   },
   {
     "countyCode": "HK",
@@ -5667,7 +6609,10 @@
     "Map": "22.31944|114.17189",
     "PhoneNumber": "+85229602888",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://www.thebeaconhotel.com.hk/"
+    "HotelWebsiteUrl": "http://www.thebeaconhotel.com.hk/",
+    "star_rating": 4,
+    "latitude": 22.31944,
+    "longitude": 114.17189
   },
   {
     "countyCode": "HK",
@@ -5685,7 +6630,10 @@
     "Map": "22.3136853|114.17006140000001",
     "PhoneNumber": "+85237087788",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://tungnamlou.com/"
+    "HotelWebsiteUrl": "http://tungnamlou.com/",
+    "star_rating": 3,
+    "latitude": 22.3136853,
+    "longitude": 114.17006140000001
   },
   {
     "countyCode": "HK",
@@ -5703,7 +6651,10 @@
     "Map": "22.2811414703221|114.155333276681",
     "PhoneNumber": "",
     "PinCode": "5180000",
-    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=5780802"
+    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=5780802",
+    "star_rating": 4,
+    "latitude": 22.2811414703221,
+    "longitude": 114.155333276681
   },
   {
     "countyCode": "HK",
@@ -5721,7 +6672,10 @@
     "Map": "22.294|114.17433",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://www.rosewoodhotels.com/en/hong-kong"
+    "HotelWebsiteUrl": "http://www.rosewoodhotels.com/en/hong-kong",
+    "star_rating": 5,
+    "latitude": 22.294,
+    "longitude": 114.17433
   },
   {
     "countyCode": "HK",
@@ -5739,7 +6693,10 @@
     "Map": "22.296911267974632|114.17397709159718",
     "PhoneNumber": "+85236027600",
     "PinCode": "99907",
-    "HotelWebsiteUrl": "http://hotel.dashsuites.com/minden"
+    "HotelWebsiteUrl": "http://hotel.dashsuites.com/minden",
+    "star_rating": 3,
+    "latitude": 22.296911267974632,
+    "longitude": 114.17397709159718
   },
   {
     "countyCode": "HK",
@@ -5757,7 +6714,10 @@
     "Map": "22.31338004087643|114.16874127620224",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=5925378"
+    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=5925378",
+    "star_rating": 3,
+    "latitude": 22.31338004087643,
+    "longitude": 114.16874127620224
   },
   {
     "countyCode": "HK",
@@ -5775,7 +6735,10 @@
     "Map": "22.30323|114.17471",
     "PhoneNumber": "+85221326108",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://pagehotels.com/en/page148"
+    "HotelWebsiteUrl": "http://pagehotels.com/en/page148",
+    "star_rating": 4,
+    "latitude": 22.30323,
+    "longitude": 114.17471
   },
   {
     "countyCode": "HK",
@@ -5793,7 +6756,10 @@
     "Map": "22.289932|113.93909",
     "PhoneNumber": "852-3602 8989",
     "PinCode": "0",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 22.289932,
+    "longitude": 113.93909
   },
   {
     "countyCode": "HK",
@@ -5811,7 +6777,10 @@
     "Map": "22.278933|114.178458",
     "PhoneNumber": "852-21290388",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 22.278933,
+    "longitude": 114.178458
   },
   {
     "countyCode": "HK",
@@ -5829,7 +6798,10 @@
     "Map": "22.286696|114.149141",
     "PhoneNumber": "852-3963 6388",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.286696,
+    "longitude": 114.149141
   },
   {
     "countyCode": "HK",
@@ -5847,7 +6819,10 @@
     "Map": "22.280172|114.174866",
     "PhoneNumber": "852-21386888",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 5,
+    "latitude": 22.280172,
+    "longitude": 114.174866
   },
   {
     "countyCode": "HK",
@@ -5865,7 +6840,10 @@
     "Map": "22.279324|114.17688",
     "PhoneNumber": "+852 2121 5000",
     "PinCode": "0",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 22.279324,
+    "longitude": 114.17688
   },
   {
     "countyCode": "HK",
@@ -5883,7 +6861,10 @@
     "Map": "22.31918|113.94206",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/regala-skycity.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/regala-skycity.html",
+    "star_rating": 4,
+    "latitude": 22.31918,
+    "longitude": 113.94206
   },
   {
     "countyCode": "HK",
@@ -5901,7 +6882,10 @@
     "Map": "22.324101|114.170263",
     "PhoneNumber": "852-38951936",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.324101,
+    "longitude": 114.170263
   },
   {
     "countyCode": "HK",
@@ -5919,7 +6903,10 @@
     "Map": "22.28129|114.18646",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/the-park-lane-hong-kong.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/the-park-lane-hong-kong.html",
+    "star_rating": 5,
+    "latitude": 22.28129,
+    "longitude": 114.18646
   },
   {
     "countyCode": "HK",
@@ -5937,7 +6924,10 @@
     "Map": "22.295339|113.946131",
     "PhoneNumber": "852-25350000",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 22.295339,
+    "longitude": 113.946131
   },
   {
     "countyCode": "HK",
@@ -5955,7 +6945,10 @@
     "Map": "22.295339|113.946131",
     "PhoneNumber": "852-25350000",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 22.295339,
+    "longitude": 113.946131
   },
   {
     "countyCode": "HK",
@@ -5973,7 +6966,10 @@
     "Map": "22.2964|114.173",
     "PhoneNumber": "",
     "PinCode": "00000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.2964,
+    "longitude": 114.173
   },
   {
     "countyCode": "HK",
@@ -5991,7 +6987,10 @@
     "Map": "22.28533|114.19082",
     "PhoneNumber": "+1 732-716-7353",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.28533,
+    "longitude": 114.19082
   },
   {
     "countyCode": "HK",
@@ -6009,7 +7008,10 @@
     "Map": "22.2984|114.173",
     "PhoneNumber": "",
     "PinCode": "00000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.2984,
+    "longitude": 114.173
   },
   {
     "countyCode": "HK",
@@ -6027,7 +7029,10 @@
     "Map": "22.30431|114.16057",
     "PhoneNumber": "+852 3718 8000",
     "PinCode": "",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/the-harbourview-place-the-icc-megalopolis.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/the-harbourview-place-the-icc-megalopolis.html",
+    "star_rating": 5,
+    "latitude": 22.30431,
+    "longitude": 114.16057
   },
   {
     "countyCode": "HK",
@@ -6045,7 +7050,10 @@
     "Map": "22.319929|114.17065",
     "PhoneNumber": "",
     "PinCode": "0000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.319929,
+    "longitude": 114.17065
   },
   {
     "countyCode": "HK",
@@ -6063,7 +7071,10 @@
     "Map": "22.319918|114.170715",
     "PhoneNumber": "",
     "PinCode": "00000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.319918,
+    "longitude": 114.170715
   },
   {
     "countyCode": "HK",
@@ -6081,7 +7092,10 @@
     "Map": "22.29009|114.19612",
     "PhoneNumber": "852-3605-3088",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.29009,
+    "longitude": 114.19612
   },
   {
     "countyCode": "HK",
@@ -6099,7 +7113,10 @@
     "Map": "22.3016147613525|114.176063537598",
     "PhoneNumber": "852 2735 1882",
     "PinCode": "",
-    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=295551"
+    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=295551",
+    "star_rating": 4,
+    "latitude": 22.3016147613525,
+    "longitude": 114.176063537598
   },
   {
     "countyCode": "HK",
@@ -6117,7 +7134,10 @@
     "Map": "22.2982|114.172",
     "PhoneNumber": "852-60600329",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.2982,
+    "longitude": 114.172
   },
   {
     "countyCode": "HK",
@@ -6135,7 +7155,10 @@
     "Map": "22.2776|114.175",
     "PhoneNumber": "",
     "PinCode": "00000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.2776,
+    "longitude": 114.175
   },
   {
     "countyCode": "HK",
@@ -6153,7 +7176,10 @@
     "Map": "22.2487465|114.1490817",
     "PhoneNumber": "",
     "PinCode": "000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.2487465,
+    "longitude": 114.1490817
   },
   {
     "countyCode": "HK",
@@ -6171,7 +7197,10 @@
     "Map": "22.319793|114.1707",
     "PhoneNumber": "",
     "PinCode": "00000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.319793,
+    "longitude": 114.1707
   },
   {
     "countyCode": "HK",
@@ -6189,7 +7218,10 @@
     "Map": "22.34|114.155",
     "PhoneNumber": "",
     "PinCode": "00000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.34,
+    "longitude": 114.155
   },
   {
     "countyCode": "HK",
@@ -6207,7 +7239,10 @@
     "Map": "22.316837|114.1697",
     "PhoneNumber": "",
     "PinCode": "0000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.316837,
+    "longitude": 114.1697
   },
   {
     "countyCode": "HK",
@@ -6225,7 +7260,10 @@
     "Map": "22.28508|114.151433",
     "PhoneNumber": "852-34287098",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.28508,
+    "longitude": 114.151433
   },
   {
     "countyCode": "HK",
@@ -6243,7 +7281,10 @@
     "Map": "22.293879|114.174299",
     "PhoneNumber": "852-21077800",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 5,
+    "latitude": 22.293879,
+    "longitude": 114.174299
   },
   {
     "countyCode": "HK",
@@ -6261,7 +7302,10 @@
     "Map": "22.2964|114.173",
     "PhoneNumber": "",
     "PinCode": "00000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.2964,
+    "longitude": 114.173
   },
   {
     "countyCode": "HK",
@@ -6279,7 +7323,10 @@
     "Map": "22.3202|114.165",
     "PhoneNumber": "+852 3963 6800",
     "PinCode": "NA",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.3202,
+    "longitude": 114.165
   },
   {
     "countyCode": "HK",
@@ -6297,7 +7344,10 @@
     "Map": "22.395697|113.97229",
     "PhoneNumber": "852-3899 9288",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 22.395697,
+    "longitude": 113.97229
   },
   {
     "countyCode": "HK",
@@ -6315,7 +7365,10 @@
     "Map": "22.298|114.172",
     "PhoneNumber": "",
     "PinCode": "00000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.298,
+    "longitude": 114.172
   },
   {
     "countyCode": "HK",
@@ -6333,7 +7386,10 @@
     "Map": "22.2974|114.172",
     "PhoneNumber": "",
     "PinCode": "852",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.2974,
+    "longitude": 114.172
   },
   {
     "countyCode": "HK",
@@ -6351,7 +7407,10 @@
     "Map": "22.327|114.16077",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/kactus.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/kactus.html",
+    "star_rating": 3,
+    "latitude": 22.327,
+    "longitude": 114.16077
   },
   {
     "countyCode": "HK",
@@ -6369,7 +7428,10 @@
     "Map": "22.2964836|114.1725213",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.2964836,
+    "longitude": 114.1725213
   },
   {
     "countyCode": "HK",
@@ -6387,7 +7449,10 @@
     "Map": "22.319817|114.170802",
     "PhoneNumber": "852-97927297",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.319817,
+    "longitude": 114.170802
   },
   {
     "countyCode": "HK",
@@ -6405,7 +7470,10 @@
     "Map": "22.284818|114.151507",
     "PhoneNumber": "852-61102426",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.284818,
+    "longitude": 114.151507
   },
   {
     "countyCode": "HK",
@@ -6423,7 +7491,10 @@
     "Map": "22.308604|114.220118",
     "PhoneNumber": "852-97929390",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.308604,
+    "longitude": 114.220118
   },
   {
     "countyCode": "HK",
@@ -6441,7 +7512,10 @@
     "Map": "22.3106|114.17",
     "PhoneNumber": "852-81000189",
     "PinCode": "00000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.3106,
+    "longitude": 114.17
   },
   {
     "countyCode": "HK",
@@ -6459,7 +7533,10 @@
     "Map": "22.2851441|114.19210169999997",
     "PhoneNumber": "+85222513000",
     "PinCode": "999077",
-    "HotelWebsiteUrl": "https://www.citadines.com/en/china/hong-kong/hotel-purple-hong-kong.html"
+    "HotelWebsiteUrl": "https://www.citadines.com/en/china/hong-kong/hotel-purple-hong-kong.html",
+    "star_rating": 4,
+    "latitude": 22.2851441,
+    "longitude": 114.19210169999997
   },
   {
     "countyCode": "HK",
@@ -6477,7 +7554,10 @@
     "Map": "22.306604|114.171641",
     "PhoneNumber": "852-2121-9888",
     "PinCode": "00852",
-    "HotelWebsiteUrl": "http://www.maderagroup.com/hotel_madera"
+    "HotelWebsiteUrl": "http://www.maderagroup.com/hotel_madera",
+    "star_rating": 4,
+    "latitude": 22.306604,
+    "longitude": 114.171641
   },
   {
     "countyCode": "HK",
@@ -6495,7 +7575,10 @@
     "Map": "22.298815|114.177499",
     "PhoneNumber": "852--27215215",
     "PinCode": "N A",
-    "HotelWebsiteUrl": "http://www.rghk.com.hk"
+    "HotelWebsiteUrl": "http://www.rghk.com.hk",
+    "star_rating": 5,
+    "latitude": 22.298815,
+    "longitude": 114.177499
   },
   {
     "countyCode": "HK",
@@ -6513,7 +7596,10 @@
     "Map": "22.337011|114.199772",
     "PhoneNumber": "852-311-28222",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.pentahotels.com"
+    "HotelWebsiteUrl": "http://www.pentahotels.com",
+    "star_rating": 4,
+    "latitude": 22.337011,
+    "longitude": 114.199772
   },
   {
     "countyCode": "HK",
@@ -6531,7 +7617,10 @@
     "Map": "22.296179|114.170064",
     "PhoneNumber": "852-2375-1133",
     "PinCode": "1",
-    "HotelWebsiteUrl": "http://hongkong.langhamhotels.com/"
+    "HotelWebsiteUrl": "http://hongkong.langhamhotels.com/",
+    "star_rating": 5,
+    "latitude": 22.296179,
+    "longitude": 114.170064
   },
   {
     "countyCode": "HK",
@@ -6549,7 +7638,10 @@
     "Map": "22.3011|114.183065",
     "PhoneNumber": "852-31-606888",
     "PinCode": "1",
-    "HotelWebsiteUrl": "http://www.harbour-plaza.com/metropolis/Index-en.htm"
+    "HotelWebsiteUrl": "http://www.harbour-plaza.com/metropolis/Index-en.htm",
+    "star_rating": 4,
+    "latitude": 22.3011,
+    "longitude": 114.183065
   },
   {
     "countyCode": "HK",
@@ -6567,7 +7659,10 @@
     "Map": "22.308165|114.224467",
     "PhoneNumber": "85239896888",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.dorsetthotels.com/hongkong/kwuntong"
+    "HotelWebsiteUrl": "http://www.dorsetthotels.com/hongkong/kwuntong",
+    "star_rating": 4,
+    "latitude": 22.308165,
+    "longitude": 114.224467
   },
   {
     "countyCode": "HK",
@@ -6585,7 +7680,10 @@
     "Map": "22.314024|114.219229",
     "PhoneNumber": "85-2-39688666",
     "PinCode": "NULL",
-    "HotelWebsiteUrl": "http://www.lhotelelan.com"
+    "HotelWebsiteUrl": "http://www.lhotelelan.com",
+    "star_rating": 4,
+    "latitude": 22.314024,
+    "longitude": 114.219229
   },
   {
     "countyCode": "HK",
@@ -6603,7 +7701,10 @@
     "Map": "22.30668|114.168",
     "PhoneNumber": "170464933806",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://www.thev.hk/lodge/"
+    "HotelWebsiteUrl": "http://www.thev.hk/lodge/",
+    "star_rating": 3,
+    "latitude": 22.30668,
+    "longitude": 114.168
   },
   {
     "countyCode": "HK",
@@ -6621,7 +7722,10 @@
     "Map": "22.30293|114.172",
     "PhoneNumber": "852-3760 8999",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.sunnydayhotel.com"
+    "HotelWebsiteUrl": "http://www.sunnydayhotel.com",
+    "star_rating": 3,
+    "latitude": 22.30293,
+    "longitude": 114.172
   },
   {
     "countyCode": "HK",
@@ -6639,7 +7743,10 @@
     "Map": "22.29531|114.1755",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.29531,
+    "longitude": 114.1755
   },
   {
     "countyCode": "HK",
@@ -6657,7 +7764,10 @@
     "Map": "22.3111|114.17157",
     "PhoneNumber": "852-39793748",
     "PinCode": "Island",
-    "HotelWebsiteUrl": "http://boothlodge.salvation.org.hk/ENG/index.htm"
+    "HotelWebsiteUrl": "http://boothlodge.salvation.org.hk/ENG/index.htm",
+    "star_rating": 3,
+    "latitude": 22.3111,
+    "longitude": 114.17157
   },
   {
     "countyCode": "HK",
@@ -6675,7 +7785,10 @@
     "Map": "22.30392|114.17",
     "PhoneNumber": "170454742454",
     "PinCode": "999077",
-    "HotelWebsiteUrl": "http://www.sandiego-hotel.com.hk"
+    "HotelWebsiteUrl": "http://www.sandiego-hotel.com.hk",
+    "star_rating": 3,
+    "latitude": 22.30392,
+    "longitude": 114.17
   },
   {
     "countyCode": "HK",
@@ -6693,7 +7806,10 @@
     "Map": "22.321321|114.166686",
     "PhoneNumber": "852-3-9687777",
     "PinCode": "000000",
-    "HotelWebsiteUrl": "http://www.lodgewood.com.hk/en/mongkok"
+    "HotelWebsiteUrl": "http://www.lodgewood.com.hk/en/mongkok",
+    "star_rating": 4,
+    "latitude": 22.321321,
+    "longitude": 114.166686
   },
   {
     "countyCode": "HK",
@@ -6711,7 +7827,10 @@
     "Map": "22.307056|114.172354",
     "PhoneNumber": "852-31996199",
     "PinCode": "000",
-    "HotelWebsiteUrl": "http://www.travelodgehotels.asia"
+    "HotelWebsiteUrl": "http://www.travelodgehotels.asia",
+    "star_rating": 3,
+    "latitude": 22.307056,
+    "longitude": 114.172354
   },
   {
     "countyCode": "HK",
@@ -6729,7 +7848,10 @@
     "Map": "22.303107|114.174681",
     "PhoneNumber": "852-3122-6222",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.bestwesterngrandhotel.com"
+    "HotelWebsiteUrl": "http://www.bestwesterngrandhotel.com",
+    "star_rating": 3,
+    "latitude": 22.303107,
+    "longitude": 114.174681
   },
   {
     "countyCode": "HK",
@@ -6747,7 +7869,10 @@
     "Map": "22.32316|114.167905",
     "PhoneNumber": "852-23976683",
     "PinCode": "Hong Kong",
-    "HotelWebsiteUrl": "http://www.metroparkhotelmongkok.com/eng/index.php"
+    "HotelWebsiteUrl": "http://www.metroparkhotelmongkok.com/eng/index.php",
+    "star_rating": 4,
+    "latitude": 22.32316,
+    "longitude": 114.167905
   },
   {
     "countyCode": "HK",
@@ -6765,7 +7890,10 @@
     "Map": "22.317649|114.167958",
     "PhoneNumber": "852-35-523552",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.cordishotels.com/en/hong-kong/"
+    "HotelWebsiteUrl": "http://www.cordishotels.com/en/hong-kong/",
+    "star_rating": 5,
+    "latitude": 22.317649,
+    "longitude": 114.167958
   },
   {
     "countyCode": "HK",
@@ -6783,7 +7911,10 @@
     "Map": "22.313478|114.171258",
     "PhoneNumber": "852--27833888",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.thecityview.com.hk"
+    "HotelWebsiteUrl": "http://www.thecityview.com.hk",
+    "star_rating": 4,
+    "latitude": 22.313478,
+    "longitude": 114.171258
   },
   {
     "countyCode": "HK",
@@ -6801,7 +7932,10 @@
     "Map": "22.310257|114.169919",
     "PhoneNumber": "852-2782-0882",
     "PinCode": "1",
-    "HotelWebsiteUrl": "http://www.silkahotels.com/seaview"
+    "HotelWebsiteUrl": "http://www.silkahotels.com/seaview",
+    "star_rating": 3,
+    "latitude": 22.310257,
+    "longitude": 114.169919
   },
   {
     "countyCode": "HK",
@@ -6819,7 +7953,10 @@
     "Map": "22.330075|114.192768",
     "PhoneNumber": "852-27-180333",
     "PinCode": "N A",
-    "HotelWebsiteUrl": "http://www.regaloriental.com"
+    "HotelWebsiteUrl": "http://www.regaloriental.com",
+    "star_rating": 4,
+    "latitude": 22.330075,
+    "longitude": 114.192768
   },
   {
     "countyCode": "HK",
@@ -6837,7 +7974,10 @@
     "Map": "22.303968|114.17177",
     "PhoneNumber": "852-2-3118222",
     "PinCode": "1",
-    "HotelWebsiteUrl": "http://www.prudentialhotel.com"
+    "HotelWebsiteUrl": "http://www.prudentialhotel.com",
+    "star_rating": 4,
+    "latitude": 22.303968,
+    "longitude": 114.17177
   },
   {
     "countyCode": "HK",
@@ -6855,7 +7995,10 @@
     "Map": "22.295474|114.171024",
     "PhoneNumber": "852-2-2687000",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.ymcahk.org.hk"
+    "HotelWebsiteUrl": "http://www.ymcahk.org.hk",
+    "star_rating": 4,
+    "latitude": 22.295474,
+    "longitude": 114.171024
   },
   {
     "countyCode": "HK",
@@ -6873,7 +8016,10 @@
     "Map": "22.307853|114.171665",
     "PhoneNumber": "852-23-885141",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.nathanhotel.com"
+    "HotelWebsiteUrl": "http://www.nathanhotel.com",
+    "star_rating": 4,
+    "latitude": 22.307853,
+    "longitude": 114.171665
   },
   {
     "countyCode": "HK",
@@ -6891,7 +8037,10 @@
     "Map": "22.326467|114.164171",
     "PhoneNumber": "852-23932289",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.landerhotel.com.hk"
+    "HotelWebsiteUrl": "http://www.landerhotel.com.hk",
+    "star_rating": 3,
+    "latitude": 22.326467,
+    "longitude": 114.164171
   },
   {
     "countyCode": "HK",
@@ -6909,7 +8058,10 @@
     "Map": "22.31136|114.17086",
     "PhoneNumber": "(852) 31038988",
     "PinCode": "000000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/casa-deluxe.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/casa-deluxe.html",
+    "star_rating": 3,
+    "latitude": 22.31136,
+    "longitude": 114.17086
   },
   {
     "countyCode": "HK",
@@ -6927,7 +8079,10 @@
     "Map": "22.308746|114.259894",
     "PhoneNumber": "852-3199-5588",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.hiexpress.com"
+    "HotelWebsiteUrl": "http://www.hiexpress.com",
+    "star_rating": 3,
+    "latitude": 22.308746,
+    "longitude": 114.259894
   },
   {
     "countyCode": "HK",
@@ -6945,7 +8100,10 @@
     "Map": "22.327599|114.1589",
     "PhoneNumber": "",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.ovologroup.com/hotels/256TCS/en/"
+    "HotelWebsiteUrl": "http://www.ovologroup.com/hotels/256TCS/en/",
+    "star_rating": 4,
+    "latitude": 22.327599,
+    "longitude": 114.1589
   },
   {
     "countyCode": "HK",
@@ -6963,7 +8121,10 @@
     "Map": "22.321025|114.161993",
     "PhoneNumber": "852-3919-8888",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.rosedalehotels.com"
+    "HotelWebsiteUrl": "http://www.rosedalehotels.com",
+    "star_rating": 4,
+    "latitude": 22.321025,
+    "longitude": 114.161993
   },
   {
     "countyCode": "HK",
@@ -6981,7 +8142,10 @@
     "Map": "22.320371|114.162696",
     "PhoneNumber": "852-23802223",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.silkahotels.com/westkowloon"
+    "HotelWebsiteUrl": "http://www.silkahotels.com/westkowloon",
+    "star_rating": 3,
+    "latitude": 22.320371,
+    "longitude": 114.162696
   },
   {
     "countyCode": "HK",
@@ -6999,7 +8163,10 @@
     "Map": "22.31892|114.17627",
     "PhoneNumber": "852-27001688",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 22.31892,
+    "longitude": 114.17627
   },
   {
     "countyCode": "HK",
@@ -7017,7 +8184,10 @@
     "Map": "22.29655|114.17226",
     "PhoneNumber": "852-23693111",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.holidayinn.com/hongkong-gldn"
+    "HotelWebsiteUrl": "http://www.holidayinn.com/hongkong-gldn",
+    "star_rating": 4,
+    "latitude": 22.29655,
+    "longitude": 114.17226
   },
   {
     "countyCode": "HK",
@@ -7035,7 +8205,10 @@
     "Map": "22.324869|114.173326",
     "PhoneNumber": "852-29-288822",
     "PinCode": "610012",
-    "HotelWebsiteUrl": "http://www.royalplaza.com.hk"
+    "HotelWebsiteUrl": "http://www.royalplaza.com.hk",
+    "star_rating": 4,
+    "latitude": 22.324869,
+    "longitude": 114.173326
   },
   {
     "countyCode": "HK",
@@ -7053,7 +8226,10 @@
     "Map": "22.31675|114.17373",
     "PhoneNumber": "852-2-7811881",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.stanfordhongkong.com"
+    "HotelWebsiteUrl": "http://www.stanfordhongkong.com",
+    "star_rating": 4,
+    "latitude": 22.31675,
+    "longitude": 114.17373
   },
   {
     "countyCode": "HK",
@@ -7071,7 +8247,10 @@
     "Map": "22.30277|114.16937",
     "PhoneNumber": "852-852-23787611",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.bpih.com.hk"
+    "HotelWebsiteUrl": "http://www.bpih.com.hk",
+    "star_rating": 4,
+    "latitude": 22.30277,
+    "longitude": 114.16937
   },
   {
     "countyCode": "HK",
@@ -7089,7 +8268,10 @@
     "Map": "22.308089|114.171801",
     "PhoneNumber": "852-2782-1818",
     "PinCode": "Kowloon",
-    "HotelWebsiteUrl": "http://www.eatonhongkong.com"
+    "HotelWebsiteUrl": "http://www.eatonhongkong.com",
+    "star_rating": 4,
+    "latitude": 22.308089,
+    "longitude": 114.171801
   },
   {
     "countyCode": "HK",
@@ -7107,7 +8289,10 @@
     "Map": "22.30104|114.17506",
     "PhoneNumber": "852-3692-2222",
     "PinCode": "12345",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/the-empire-kowloon.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/the-empire-kowloon.html",
+    "star_rating": 4,
+    "latitude": 22.30104,
+    "longitude": 114.17506
   },
   {
     "countyCode": "HK",
@@ -7125,7 +8310,10 @@
     "Map": "22.299437|114.17925",
     "PhoneNumber": "852-27215161",
     "PinCode": "000000",
-    "HotelWebsiteUrl": "http://www.hongkong.intercontinental.com"
+    "HotelWebsiteUrl": "http://www.hongkong.intercontinental.com",
+    "star_rating": 5,
+    "latitude": 22.299437,
+    "longitude": 114.17925
   },
   {
     "countyCode": "HK",
@@ -7143,7 +8331,10 @@
     "Map": "22.297709|114.17399",
     "PhoneNumber": "852-2311-1234",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://hyattregencyhongkongtsimshatsui.com"
+    "HotelWebsiteUrl": "http://hyattregencyhongkongtsimshatsui.com",
+    "star_rating": 4,
+    "latitude": 22.297709,
+    "longitude": 114.17399
   },
   {
     "countyCode": "HK",
@@ -7161,7 +8352,10 @@
     "Map": "22.295581|114.172006",
     "PhoneNumber": "852-29292888",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.harbour-plaza.com/kowloon/Index-en.htm"
+    "HotelWebsiteUrl": "http://www.harbour-plaza.com/kowloon/Index-en.htm",
+    "star_rating": 4,
+    "latitude": 22.295581,
+    "longitude": 114.172006
   },
   {
     "countyCode": "HK",
@@ -7179,7 +8373,10 @@
     "Map": "22.297382|114.17681",
     "PhoneNumber": "852-2721-2111",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.shangri-la.com/hongkong/kowloonshangrila/"
+    "HotelWebsiteUrl": "http://www.shangri-la.com/hongkong/kowloonshangrila/",
+    "star_rating": 5,
+    "latitude": 22.297382,
+    "longitude": 114.17681
   },
   {
     "countyCode": "HK",
@@ -7197,7 +8394,10 @@
     "Map": "22.300557|114.179336",
     "PhoneNumber": "852-340-01000",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.hotel-icon.com"
+    "HotelWebsiteUrl": "http://www.hotel-icon.com",
+    "star_rating": 5,
+    "latitude": 22.300557,
+    "longitude": 114.179336
   },
   {
     "countyCode": "HK",
@@ -7215,7 +8415,10 @@
     "Map": "22.307068|114.172116",
     "PhoneNumber": "+85239658888",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.accorhotels.com/gb/hotel-6771-novotel-hong-kong-nathan-road-kowloon/index.shtml"
+    "HotelWebsiteUrl": "http://www.accorhotels.com/gb/hotel-6771-novotel-hong-kong-nathan-road-kowloon/index.shtml",
+    "star_rating": 4,
+    "latitude": 22.307068,
+    "longitude": 114.172116
   },
   {
     "countyCode": "HK",
@@ -7233,7 +8436,10 @@
     "Map": "22.295251|114.168845",
     "PhoneNumber": "85-22-1130088",
     "PinCode": "Hong Kong",
-    "HotelWebsiteUrl": "http://www.marcopolohotels.com"
+    "HotelWebsiteUrl": "http://www.marcopolohotels.com",
+    "star_rating": 5,
+    "latitude": 22.295251,
+    "longitude": 114.168845
   },
   {
     "countyCode": "HK",
@@ -7251,7 +8457,10 @@
     "Map": "22.319247|114.175901",
     "PhoneNumber": "+85227611711",
     "PinCode": "999077",
-    "HotelWebsiteUrl": "http://www.metroparkhotelkowloon.com"
+    "HotelWebsiteUrl": "http://www.metroparkhotelkowloon.com",
+    "star_rating": 4,
+    "latitude": 22.319247,
+    "longitude": 114.175901
   },
   {
     "countyCode": "HK",
@@ -7269,7 +8478,10 @@
     "Map": "22.316241|114.167783",
     "PhoneNumber": "852-852-21170033",
     "PinCode": "000",
-    "HotelWebsiteUrl": "http://www.minimalhotels.com.hk/bazaar"
+    "HotelWebsiteUrl": "http://www.minimalhotels.com.hk/bazaar",
+    "star_rating": 3,
+    "latitude": 22.316241,
+    "longitude": 114.167783
   },
   {
     "countyCode": "HK",
@@ -7287,7 +8499,10 @@
     "Map": "22.294397441903|114.17483568191",
     "PhoneNumber": "",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://renaissance-kowloon.hongkonghotelchina.com/ko/"
+    "HotelWebsiteUrl": "http://renaissance-kowloon.hongkonghotelchina.com/ko/",
+    "star_rating": 4,
+    "latitude": 22.294397441903,
+    "longitude": 114.17483568191
   },
   {
     "countyCode": "HK",
@@ -7305,7 +8520,10 @@
     "Map": "22.312052|114.219534",
     "PhoneNumber": "852-37668668",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.eibt-intl.com/eng/newton/nph/index.html"
+    "HotelWebsiteUrl": "http://www.eibt-intl.com/eng/newton/nph/index.html",
+    "star_rating": 3,
+    "latitude": 22.312052,
+    "longitude": 114.219534
   },
   {
     "countyCode": "HK",
@@ -7323,7 +8541,10 @@
     "Map": "22.299681|114.179497",
     "PhoneNumber": "852-2739-1111",
     "PinCode": "Kowloon",
-    "HotelWebsiteUrl": "http://www.newworldmillenniumhotel.com"
+    "HotelWebsiteUrl": "http://www.newworldmillenniumhotel.com",
+    "star_rating": 5,
+    "latitude": 22.299681,
+    "longitude": 114.179497
   },
   {
     "countyCode": "HK",
@@ -7341,7 +8562,10 @@
     "Map": "22.299728|114.175902",
     "PhoneNumber": "852-2731-2100",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.parkhotelgroup.com"
+    "HotelWebsiteUrl": "http://www.parkhotelgroup.com",
+    "star_rating": 4,
+    "latitude": 22.299728,
+    "longitude": 114.175902
   },
   {
     "countyCode": "HK",
@@ -7359,7 +8583,10 @@
     "Map": "22.30629|114.17247",
     "PhoneNumber": "852-852-27838233",
     "PinCode": "S N",
-    "HotelWebsiteUrl": "http://www.largos.com.hk/home.php"
+    "HotelWebsiteUrl": "http://www.largos.com.hk/home.php",
+    "star_rating": 3,
+    "latitude": 22.30629,
+    "longitude": 114.17247
   },
   {
     "countyCode": "HK",
@@ -7377,7 +8604,10 @@
     "Map": "22.300314|114.175934",
     "PhoneNumber": "+85223111100",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.bestwesternplushotelkowloon.com/"
+    "HotelWebsiteUrl": "http://www.bestwesternplushotelkowloon.com/",
+    "star_rating": 3,
+    "latitude": 22.300314,
+    "longitude": 114.175934
   },
   {
     "countyCode": "HK",
@@ -7395,7 +8625,10 @@
     "Map": "22.298849|114.178026",
     "PhoneNumber": "852-27-221818",
     "PinCode": "N A",
-    "HotelWebsiteUrl": "http://www.regalkowloon.com"
+    "HotelWebsiteUrl": "http://www.regalkowloon.com",
+    "star_rating": 4,
+    "latitude": 22.298849,
+    "longitude": 114.178026
   },
   {
     "countyCode": "HK",
@@ -7413,7 +8646,10 @@
     "Map": "22.298559|114.174984",
     "PhoneNumber": "852-3962-8888",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.butterflyhk.com"
+    "HotelWebsiteUrl": "http://www.butterflyhk.com",
+    "star_rating": 3,
+    "latitude": 22.298559,
+    "longitude": 114.174984
   },
   {
     "countyCode": "HK",
@@ -7431,7 +8667,10 @@
     "Map": "22.294825|114.172905",
     "PhoneNumber": "+85223691111",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.sheraton.com/hongkong"
+    "HotelWebsiteUrl": "http://www.sheraton.com/hongkong",
+    "star_rating": 5,
+    "latitude": 22.294825,
+    "longitude": 114.172905
   },
   {
     "countyCode": "HK",
@@ -7449,7 +8688,10 @@
     "Map": "22.308662|114.25951",
     "PhoneNumber": "852-3983-0388",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.crowneplaza.com"
+    "HotelWebsiteUrl": "http://www.crowneplaza.com",
+    "star_rating": 4,
+    "latitude": 22.308662,
+    "longitude": 114.25951
   },
   {
     "countyCode": "HK",
@@ -7467,7 +8709,10 @@
     "Map": "22.30136|114.17444",
     "PhoneNumber": "852-27227822",
     "PinCode": "1",
-    "HotelWebsiteUrl": "http://www.stanfordhillview.com"
+    "HotelWebsiteUrl": "http://www.stanfordhillview.com",
+    "star_rating": 4,
+    "latitude": 22.30136,
+    "longitude": 114.17444
   },
   {
     "countyCode": "HK",
@@ -7485,7 +8730,10 @@
     "Map": "22.302602|114.191849",
     "PhoneNumber": "852--26213188",
     "PinCode": "HUNGHOM",
-    "HotelWebsiteUrl": "http://www.harbourgrand.com/kowloon"
+    "HotelWebsiteUrl": "http://www.harbourgrand.com/kowloon",
+    "star_rating": 5,
+    "latitude": 22.302602,
+    "longitude": 114.191849
   },
   {
     "countyCode": "HK",
@@ -7503,7 +8751,10 @@
     "Map": "22.30062|114.17355",
     "PhoneNumber": "852-27-233888",
     "PinCode": "Kowloon",
-    "HotelWebsiteUrl": "http://www.kimberleyhotel.com.hk"
+    "HotelWebsiteUrl": "http://www.kimberleyhotel.com.hk",
+    "star_rating": 4,
+    "latitude": 22.30062,
+    "longitude": 114.17355
   },
   {
     "countyCode": "HK",
@@ -7521,7 +8772,10 @@
     "Map": "22.298502|114.167631",
     "PhoneNumber": "852--21130888",
     "PinCode": "Hong Kong",
-    "HotelWebsiteUrl": "http://www.marcopolohotels.com/en/marco_polo/hotels/hongkong/kowloon/gateway"
+    "HotelWebsiteUrl": "http://www.marcopolohotels.com/en/marco_polo/hotels/hongkong/kowloon/gateway",
+    "star_rating": 4,
+    "latitude": 22.298502,
+    "longitude": 114.167631
   },
   {
     "countyCode": "HK",
@@ -7539,7 +8793,10 @@
     "Map": "22.295251|114.168845",
     "PhoneNumber": "852-2113 1888",
     "PinCode": "Hong Kong",
-    "HotelWebsiteUrl": "http://www.marcopolohotels.com"
+    "HotelWebsiteUrl": "http://www.marcopolohotels.com",
+    "star_rating": 4,
+    "latitude": 22.295251,
+    "longitude": 114.168845
   },
   {
     "countyCode": "HK",
@@ -7557,7 +8814,10 @@
     "Map": "22.294718|114.171974",
     "PhoneNumber": "852 2920 2888",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.peninsula.com"
+    "HotelWebsiteUrl": "http://www.peninsula.com",
+    "star_rating": 5,
+    "latitude": 22.294718,
+    "longitude": 114.171974
   },
   {
     "countyCode": "HK",
@@ -7575,7 +8835,10 @@
     "Map": "22.30005|114.16828",
     "PhoneNumber": "+85227361188",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://www.sino-hotels.com/The_Royal_Pacific_Hotel"
+    "HotelWebsiteUrl": "http://www.sino-hotels.com/The_Royal_Pacific_Hotel",
+    "star_rating": 4,
+    "latitude": 22.30005,
+    "longitude": 114.16828
   },
   {
     "countyCode": "HK",
@@ -7593,7 +8856,10 @@
     "Map": "22.29468|114.173602",
     "PhoneNumber": "852-27-211211",
     "PinCode": "n a",
-    "HotelWebsiteUrl": "http://www.intercontinental.com"
+    "HotelWebsiteUrl": "http://www.intercontinental.com",
+    "star_rating": 5,
+    "latitude": 22.29468,
+    "longitude": 114.173602
   },
   {
     "countyCode": "HK",
@@ -7611,7 +8877,10 @@
     "Map": "22.30048|114.172371",
     "PhoneNumber": "852-2368-1111",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.themirahotel.com/"
+    "HotelWebsiteUrl": "http://www.themirahotel.com/",
+    "star_rating": 5,
+    "latitude": 22.30048,
+    "longitude": 114.172371
   },
   {
     "countyCode": "HK",
@@ -7629,7 +8898,10 @@
     "Map": "22.2975|114.174489",
     "PhoneNumber": "",
     "PinCode": "00",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.2975,
+    "longitude": 114.174489
   },
   {
     "countyCode": "HK",
@@ -7647,7 +8919,10 @@
     "Map": "22.29552|114.17",
     "PhoneNumber": "852-39880000",
     "PinCode": "000",
-    "HotelWebsiteUrl": "http://www.hulletthouse.com/#/hotel/roomlist"
+    "HotelWebsiteUrl": "http://www.hulletthouse.com/#/hotel/roomlist",
+    "star_rating": 5,
+    "latitude": 22.29552,
+    "longitude": 114.17
   },
   {
     "countyCode": "HK",
@@ -7665,7 +8940,10 @@
     "Map": "22.3018|114.1747",
     "PhoneNumber": "+852 3106 3366",
     "PinCode": "A",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/the-bauhinia.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/the-bauhinia.html",
+    "star_rating": 3,
+    "latitude": 22.3018,
+    "longitude": 114.1747
   },
   {
     "countyCode": "HK",
@@ -7683,7 +8961,10 @@
     "Map": "22.30739|114.17069",
     "PhoneNumber": "852-27-804222",
     "PinCode": "1",
-    "HotelWebsiteUrl": "http://www.evergreenhotel.com"
+    "HotelWebsiteUrl": "http://www.evergreenhotel.com",
+    "star_rating": 3,
+    "latitude": 22.30739,
+    "longitude": 114.17069
   },
   {
     "countyCode": "HK",
@@ -7701,7 +8982,10 @@
     "Map": "22.30409|114.17145",
     "PhoneNumber": "+85227352271",
     "PinCode": "999077",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/shamrock.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/shamrock.html",
+    "star_rating": 3,
+    "latitude": 22.30409,
+    "longitude": 114.17145
   },
   {
     "countyCode": "HK",
@@ -7719,7 +9003,10 @@
     "Map": "22.315843|114.169656",
     "PhoneNumber": "852-31-889680",
     "PinCode": "000",
-    "HotelWebsiteUrl": "http://www.hotelmk.com.hk/"
+    "HotelWebsiteUrl": "http://www.hotelmk.com.hk/",
+    "star_rating": 3,
+    "latitude": 22.315843,
+    "longitude": 114.169656
   },
   {
     "countyCode": "HK",
@@ -7737,7 +9024,10 @@
     "Map": "22.31866|114.16765",
     "PhoneNumber": "(852) 23806830",
     "PinCode": "A",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/h1-hotel.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/h1-hotel.html",
+    "star_rating": 3,
+    "latitude": 22.31866,
+    "longitude": 114.16765
   },
   {
     "countyCode": "HK",
@@ -7755,7 +9045,10 @@
     "Map": "22.308123|114.18521",
     "PhoneNumber": "852-852-23641212",
     "PinCode": "852",
-    "HotelWebsiteUrl": "http://www.bridalteahouse.com"
+    "HotelWebsiteUrl": "http://www.bridalteahouse.com",
+    "star_rating": 3,
+    "latitude": 22.308123,
+    "longitude": 114.18521
   },
   {
     "countyCode": "HK",
@@ -7773,7 +9066,10 @@
     "Map": "22.300868|114.173874",
     "PhoneNumber": "852-3763-8880",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.theluxemanor.com"
+    "HotelWebsiteUrl": "http://www.theluxemanor.com",
+    "star_rating": 4,
+    "latitude": 22.300868,
+    "longitude": 114.173874
   },
   {
     "countyCode": "HK",
@@ -7791,7 +9087,10 @@
     "Map": "22.304379|114.16013",
     "PhoneNumber": "+85237172222",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.whotels.com/hongkong"
+    "HotelWebsiteUrl": "http://www.whotels.com/hongkong",
+    "star_rating": 5,
+    "latitude": 22.304379,
+    "longitude": 114.16013
   },
   {
     "countyCode": "HK",
@@ -7809,7 +9108,10 @@
     "Map": "22.324260712|114.18947601",
     "PhoneNumber": "(852) 27687253",
     "PinCode": "N A",
-    "HotelWebsiteUrl": "http://www.bthhotel.com"
+    "HotelWebsiteUrl": "http://www.bthhotel.com",
+    "star_rating": 3,
+    "latitude": 22.324260712,
+    "longitude": 114.18947601
   },
   {
     "countyCode": "HK",
@@ -7827,7 +9129,10 @@
     "Map": "22.311029|114.170539",
     "PhoneNumber": "852-23889591",
     "PinCode": "999077",
-    "HotelWebsiteUrl": "http://www.bthhotel.com/"
+    "HotelWebsiteUrl": "http://www.bthhotel.com/",
+    "star_rating": 3,
+    "latitude": 22.311029,
+    "longitude": 114.170539
   },
   {
     "countyCode": "HK",
@@ -7845,7 +9150,10 @@
     "Map": "22.370771|114.129528",
     "PhoneNumber": "852-3996-6666",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.dorsetthotels.com/hongkong/tsuenwan/"
+    "HotelWebsiteUrl": "http://www.dorsetthotels.com/hongkong/tsuenwan/",
+    "star_rating": 4,
+    "latitude": 22.370771,
+    "longitude": 114.129528
   },
   {
     "countyCode": "HK",
@@ -7863,7 +9171,10 @@
     "Map": "22.306596756|114.18347931",
     "PhoneNumber": "(852) 27731120",
     "PinCode": "852",
-    "HotelWebsiteUrl": "http://www.bridalteahouse.com"
+    "HotelWebsiteUrl": "http://www.bridalteahouse.com",
+    "star_rating": 3,
+    "latitude": 22.306596756,
+    "longitude": 114.18347931
   },
   {
     "countyCode": "HK",
@@ -7881,7 +9192,10 @@
     "Map": "22.297075|114.170527",
     "PhoneNumber": "852-2-2623062",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www2.citadines.com/en/china/hongkong/ashley.html"
+    "HotelWebsiteUrl": "http://www2.citadines.com/en/china/hongkong/ashley.html",
+    "star_rating": 3,
+    "latitude": 22.297075,
+    "longitude": 114.170527
   },
   {
     "countyCode": "HK",
@@ -7899,7 +9213,10 @@
     "Map": "22.297732|114.171715",
     "PhoneNumber": "+852 3691 9021",
     "PinCode": "0000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.297732,
+    "longitude": 114.171715
   },
   {
     "countyCode": "HK",
@@ -7917,7 +9234,10 @@
     "Map": "22.320100784|114.16400146",
     "PhoneNumber": "(852) 23903355",
     "PinCode": "null",
-    "HotelWebsiteUrl": "http://www.bthhotel.cn/BTHChina/landing.jsp"
+    "HotelWebsiteUrl": "http://www.bthhotel.cn/BTHChina/landing.jsp",
+    "star_rating": 3,
+    "latitude": 22.320100784,
+    "longitude": 114.16400146
   },
   {
     "countyCode": "HK",
@@ -7935,7 +9255,10 @@
     "Map": "22.320962|114.161036",
     "PhoneNumber": "",
     "PinCode": "852",
-    "HotelWebsiteUrl": "http://www.bthhotel.com/BTH/en/Home"
+    "HotelWebsiteUrl": "http://www.bthhotel.com/BTH/en/Home",
+    "star_rating": 3,
+    "latitude": 22.320962,
+    "longitude": 114.161036
   },
   {
     "countyCode": "HK",
@@ -7953,7 +9276,10 @@
     "Map": "22.311|114.17082",
     "PhoneNumber": "",
     "PinCode": "A",
-    "HotelWebsiteUrl": "http://www.kingsdenathan.com/"
+    "HotelWebsiteUrl": "http://www.kingsdenathan.com/",
+    "star_rating": 3,
+    "latitude": 22.311,
+    "longitude": 114.17082
   },
   {
     "countyCode": "HK",
@@ -7971,7 +9297,10 @@
     "Map": "22.32656|114.1702198",
     "PhoneNumber": "",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.newtonkln.com/"
+    "HotelWebsiteUrl": "http://www.newtonkln.com/",
+    "star_rating": 3,
+    "latitude": 22.32656,
+    "longitude": 114.1702198
   },
   {
     "countyCode": "HK",
@@ -7989,7 +9318,10 @@
     "Map": "22.295991|114.172333",
     "PhoneNumber": "85-22-366 22 01",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.imperialhotel.com.hk"
+    "HotelWebsiteUrl": "http://www.imperialhotel.com.hk",
+    "star_rating": 3,
+    "latitude": 22.295991,
+    "longitude": 114.172333
   },
   {
     "countyCode": "HK",
@@ -8007,7 +9339,10 @@
     "Map": "22.31154|114.17079",
     "PhoneNumber": "852 3758 7777",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/casa.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/casa.html",
+    "star_rating": 3,
+    "latitude": 22.31154,
+    "longitude": 114.17079
   },
   {
     "countyCode": "HK",
@@ -8025,7 +9360,10 @@
     "Map": "22.306872|114.167746",
     "PhoneNumber": "852-852-27707710",
     "PinCode": "N A",
-    "HotelWebsiteUrl": "http://www.westhotel.com.hk"
+    "HotelWebsiteUrl": "http://www.westhotel.com.hk",
+    "star_rating": 3,
+    "latitude": 22.306872,
+    "longitude": 114.167746
   },
   {
     "countyCode": "HK",
@@ -8043,7 +9381,10 @@
     "Map": "22.29875|114.17461",
     "PhoneNumber": "852-3-4108888",
     "PinCode": "99999",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/guangdong.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/guangdong.html",
+    "star_rating": 4,
+    "latitude": 22.29875,
+    "longitude": 114.17461
   },
   {
     "countyCode": "HK",
@@ -8061,7 +9402,10 @@
     "Map": "22.317091|114.17278",
     "PhoneNumber": "852-3120-3600",
     "PinCode": "0",
-    "HotelWebsiteUrl": "https://www.mosaic-collection.com/hotel108-hongkong/"
+    "HotelWebsiteUrl": "https://www.mosaic-collection.com/hotel108-hongkong/",
+    "star_rating": 3,
+    "latitude": 22.317091,
+    "longitude": 114.17278
   },
   {
     "countyCode": "HK",
@@ -8079,7 +9423,10 @@
     "Map": "22.297611|114.174567",
     "PhoneNumber": "852-35-500333",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.hotelpanorama.com.hk"
+    "HotelWebsiteUrl": "http://www.hotelpanorama.com.hk",
+    "star_rating": 4,
+    "latitude": 22.297611,
+    "longitude": 114.174567
   },
   {
     "countyCode": "HK",
@@ -8097,7 +9444,10 @@
     "Map": "22.322742|114.190492",
     "PhoneNumber": "852 2126 1988",
     "PinCode": "Hong Kong",
-    "HotelWebsiteUrl": "http://www.harbour-plaza.com/8degrees/Index-en.htm"
+    "HotelWebsiteUrl": "http://www.harbour-plaza.com/8degrees/Index-en.htm",
+    "star_rating": 4,
+    "latitude": 22.322742,
+    "longitude": 114.190492
   },
   {
     "countyCode": "HK",
@@ -8115,7 +9465,10 @@
     "Map": "22.296889|114.174208",
     "PhoneNumber": "+852 273 977 77",
     "PinCode": "N A",
-    "HotelWebsiteUrl": "http://www.xihotel.com.hk"
+    "HotelWebsiteUrl": "http://www.xihotel.com.hk",
+    "star_rating": 3,
+    "latitude": 22.296889,
+    "longitude": 114.174208
   },
   {
     "countyCode": "HK",
@@ -8133,7 +9486,10 @@
     "Map": "22.324227|114.164995",
     "PhoneNumber": "852-2-3912911",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.olihotel.com.hk"
+    "HotelWebsiteUrl": "http://www.olihotel.com.hk",
+    "star_rating": 3,
+    "latitude": 22.324227,
+    "longitude": 114.164995
   },
   {
     "countyCode": "HK",
@@ -8151,7 +9507,10 @@
     "Map": "22.29899|114.17304",
     "PhoneNumber": "0085223850125",
     "PinCode": "Hong Kong",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/benito.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/benito.html",
+    "star_rating": 3,
+    "latitude": 22.29899,
+    "longitude": 114.17304
   },
   {
     "countyCode": "HK",
@@ -8169,7 +9528,10 @@
     "Map": "22.310977|114.17174",
     "PhoneNumber": "852-852-27102503",
     "PinCode": "N A",
-    "HotelWebsiteUrl": "http://www.caritas-chs.org.hk"
+    "HotelWebsiteUrl": "http://www.caritas-chs.org.hk",
+    "star_rating": 3,
+    "latitude": 22.310977,
+    "longitude": 114.17174
   },
   {
     "countyCode": "HK",
@@ -8187,7 +9549,10 @@
     "Map": "22.31049777948766|114.1696683524467",
     "PhoneNumber": "+8528685234436888",
     "PinCode": "HONG KONG",
-    "HotelWebsiteUrl": "http://www.chi-residences.com/en/serviced-apartments/chi-279/overview"
+    "HotelWebsiteUrl": "http://www.chi-residences.com/en/serviced-apartments/chi-279/overview",
+    "star_rating": 4,
+    "latitude": 22.31049777948766,
+    "longitude": 114.1696683524467
   },
   {
     "countyCode": "HK",
@@ -8205,7 +9570,10 @@
     "Map": "22.30621|114.171601",
     "PhoneNumber": "852-3406 9999",
     "PinCode": "Nathan Road Jordan K",
-    "HotelWebsiteUrl": "http://www.chi-residences.com/en/residences/314"
+    "HotelWebsiteUrl": "http://www.chi-residences.com/en/residences/314",
+    "star_rating": 4,
+    "latitude": 22.30621,
+    "longitude": 114.171601
   },
   {
     "countyCode": "HK",
@@ -8223,7 +9591,10 @@
     "Map": "22.303984|114.159966",
     "PhoneNumber": "852-2263-2263",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.ritzcarlton.com/en/Properties/HongKong/Default.htm"
+    "HotelWebsiteUrl": "http://www.ritzcarlton.com/en/Properties/HongKong/Default.htm",
+    "star_rating": 5,
+    "latitude": 22.303984,
+    "longitude": 114.159966
   },
   {
     "countyCode": "HK",
@@ -8241,7 +9612,10 @@
     "Map": "22.316666|114.167699",
     "PhoneNumber": "852 27713300-",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.harbourhotel.com.hk/html/en/mainpage.html"
+    "HotelWebsiteUrl": "http://www.harbourhotel.com.hk/html/en/mainpage.html",
+    "star_rating": 3,
+    "latitude": 22.316666,
+    "longitude": 114.167699
   },
   {
     "countyCode": "HK",
@@ -8259,7 +9633,10 @@
     "Map": "22.321277|114.161999",
     "PhoneNumber": "852-39-872288",
     "PinCode": "0000",
-    "HotelWebsiteUrl": "http://www.mongkok.dorsetthotels.com"
+    "HotelWebsiteUrl": "http://www.mongkok.dorsetthotels.com",
+    "star_rating": 4,
+    "latitude": 22.321277,
+    "longitude": 114.161999
   },
   {
     "countyCode": "HK",
@@ -8277,7 +9654,10 @@
     "Map": "22.312478|114.170155",
     "PhoneNumber": "011-852-27106662",
     "PinCode": "Hong Kong",
-    "HotelWebsiteUrl": "http://www.m1hotel.hk/"
+    "HotelWebsiteUrl": "http://www.m1hotel.hk/",
+    "star_rating": 3,
+    "latitude": 22.312478,
+    "longitude": 114.170155
   },
   {
     "countyCode": "HK",
@@ -8295,7 +9675,10 @@
     "Map": "22.307068|114.186229",
     "PhoneNumber": "852--22758888",
     "PinCode": "852",
-    "HotelWebsiteUrl": "http://www.hotelsav.com"
+    "HotelWebsiteUrl": "http://www.hotelsav.com",
+    "star_rating": 4,
+    "latitude": 22.307068,
+    "longitude": 114.186229
   },
   {
     "countyCode": "HK",
@@ -8313,7 +9696,10 @@
     "Map": "22.337821|114.141785",
     "PhoneNumber": "+85221002888",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.heritagelodgehk.com"
+    "HotelWebsiteUrl": "http://www.heritagelodgehk.com",
+    "star_rating": 3,
+    "latitude": 22.337821,
+    "longitude": 114.141785
   },
   {
     "countyCode": "HK",
@@ -8331,7 +9717,10 @@
     "Map": "22.301128|114.173631",
     "PhoneNumber": "852-3602-3888",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.theperkinhotel.com"
+    "HotelWebsiteUrl": "http://www.theperkinhotel.com",
+    "star_rating": 3,
+    "latitude": 22.301128,
+    "longitude": 114.173631
   },
   {
     "countyCode": "HK",
@@ -8349,7 +9738,10 @@
     "Map": "22.314873|114.16735",
     "PhoneNumber": "852-2200-3888",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://holidayinnexpress.com/mongkok"
+    "HotelWebsiteUrl": "http://holidayinnexpress.com/mongkok",
+    "star_rating": 3,
+    "latitude": 22.314873,
+    "longitude": 114.16735
   },
   {
     "countyCode": "HK",
@@ -8367,7 +9759,10 @@
     "Map": "22.302004|114.176656",
     "PhoneNumber": "852-23558888",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.residenceghongkong.com"
+    "HotelWebsiteUrl": "http://www.residenceghongkong.com",
+    "star_rating": 4,
+    "latitude": 22.302004,
+    "longitude": 114.176656
   },
   {
     "countyCode": "HK",
@@ -8385,7 +9780,10 @@
     "Map": "22.301323|114.187316",
     "PhoneNumber": "852--21869036",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.harbour-plaza.com"
+    "HotelWebsiteUrl": "http://www.harbour-plaza.com",
+    "star_rating": 4,
+    "latitude": 22.301323,
+    "longitude": 114.187316
   },
   {
     "countyCode": "HK",
@@ -8403,7 +9801,10 @@
     "Map": "22.32672|114.17785",
     "PhoneNumber": "",
     "PinCode": "A",
-    "HotelWebsiteUrl": "www.caritas-chs.org.hk"
+    "HotelWebsiteUrl": "www.caritas-chs.org.hk",
+    "star_rating": 3,
+    "latitude": 22.32672,
+    "longitude": 114.17785
   },
   {
     "countyCode": "HK",
@@ -8421,7 +9822,10 @@
     "Map": "22.31352|114.169894",
     "PhoneNumber": "852-36100095",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://hongkong.innhotel.com/en/"
+    "HotelWebsiteUrl": "http://hongkong.innhotel.com/en/",
+    "star_rating": 3,
+    "latitude": 22.31352,
+    "longitude": 114.169894
   },
   {
     "countyCode": "HK",
@@ -8439,7 +9843,10 @@
     "Map": "22.323449|114.167861",
     "PhoneNumber": "852-852-22631263",
     "PinCode": "852",
-    "HotelWebsiteUrl": "http://www.leprabelle.com/"
+    "HotelWebsiteUrl": "http://www.leprabelle.com/",
+    "star_rating": 3,
+    "latitude": 22.323449,
+    "longitude": 114.167861
   },
   {
     "countyCode": "HK",
@@ -8457,7 +9864,10 @@
     "Map": "22.33506|114.17701",
     "PhoneNumber": "852-23389191",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.33506,
+    "longitude": 114.17701
   },
   {
     "countyCode": "HK",
@@ -8475,7 +9885,10 @@
     "Map": "22.3051|114.172",
     "PhoneNumber": "852-3578-8788",
     "PinCode": "00000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.3051,
+    "longitude": 114.172
   },
   {
     "countyCode": "HK",
@@ -8493,7 +9906,10 @@
     "Map": "22.32062|114.1701",
     "PhoneNumber": "+85236588000",
     "PinCode": "N A",
-    "HotelWebsiteUrl": "http://www.m1hotel.hk/mk-en-index.php"
+    "HotelWebsiteUrl": "http://www.m1hotel.hk/mk-en-index.php",
+    "star_rating": 3,
+    "latitude": 22.32062,
+    "longitude": 114.1701
   },
   {
     "countyCode": "HK",
@@ -8511,7 +9927,10 @@
     "Map": "22.30749|114.17188",
     "PhoneNumber": "0085221921222",
     "PinCode": "00852",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/noble-park.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/noble-park.html",
+    "star_rating": 3,
+    "latitude": 22.30749,
+    "longitude": 114.17188
   },
   {
     "countyCode": "HK",
@@ -8529,7 +9948,10 @@
     "Map": "22.296512|114.170735",
     "PhoneNumber": "852-3-1887888",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://hotelpravo.com/"
+    "HotelWebsiteUrl": "http://hotelpravo.com/",
+    "star_rating": 4,
+    "latitude": 22.296512,
+    "longitude": 114.170735
   },
   {
     "countyCode": "HK",
@@ -8547,7 +9969,10 @@
     "Map": "22.328713|114.160543",
     "PhoneNumber": "+852 3899 0500",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.328713,
+    "longitude": 114.160543
   },
   {
     "countyCode": "HK",
@@ -8565,7 +9990,10 @@
     "Map": "22.307925|114.169928",
     "PhoneNumber": "852-852-27706788",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.mingleplace.com"
+    "HotelWebsiteUrl": "http://www.mingleplace.com",
+    "star_rating": 3,
+    "latitude": 22.307925,
+    "longitude": 114.169928
   },
   {
     "countyCode": "HK",
@@ -8583,7 +10011,10 @@
     "Map": "22.333744|114.163436",
     "PhoneNumber": "852-37283553",
     "PinCode": "000000",
-    "HotelWebsiteUrl": "https://www.yha.org.hk/en/hostel/yha-mei-ho-house-youth-hostel"
+    "HotelWebsiteUrl": "https://www.yha.org.hk/en/hostel/yha-mei-ho-house-youth-hostel",
+    "star_rating": 3,
+    "latitude": 22.333744,
+    "longitude": 114.163436
   },
   {
     "countyCode": "HK",
@@ -8601,7 +10032,10 @@
     "Map": "22.301708|114.176601",
     "PhoneNumber": "852-21173838",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.popway.com.hk/"
+    "HotelWebsiteUrl": "http://www.popway.com.hk/",
+    "star_rating": 3,
+    "latitude": 22.301708,
+    "longitude": 114.176601
   },
   {
     "countyCode": "HK",
@@ -8619,7 +10053,10 @@
     "Map": "22.296856|114.174257",
     "PhoneNumber": "852-852-21547933",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://www.harbourbayhotel.com/"
+    "HotelWebsiteUrl": "http://www.harbourbayhotel.com/",
+    "star_rating": 3,
+    "latitude": 22.296856,
+    "longitude": 114.174257
   },
   {
     "countyCode": "HK",
@@ -8637,7 +10074,10 @@
     "Map": "22.318259|114.156719",
     "PhoneNumber": "852--31998888",
     "PinCode": "852",
-    "HotelWebsiteUrl": "https://www.theolympianhotel.com/zh-hant/"
+    "HotelWebsiteUrl": "https://www.theolympianhotel.com/zh-hant/",
+    "star_rating": 5,
+    "latitude": 22.318259,
+    "longitude": 114.156719
   },
   {
     "countyCode": "HK",
@@ -8655,7 +10095,10 @@
     "Map": "22.307681|114.172492",
     "PhoneNumber": "85239532222",
     "PinCode": "852",
-    "HotelWebsiteUrl": "http://www.hotelstage.com"
+    "HotelWebsiteUrl": "http://www.hotelstage.com",
+    "star_rating": 4,
+    "latitude": 22.307681,
+    "longitude": 114.172492
   },
   {
     "countyCode": "HK",
@@ -8673,7 +10116,10 @@
     "Map": "22.304685|114.171742",
     "PhoneNumber": "+852 2730 3963",
     "PinCode": "0000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.304685,
+    "longitude": 114.171742
   },
   {
     "countyCode": "HK",
@@ -8691,7 +10137,10 @@
     "Map": "22.302804|114.185226",
     "PhoneNumber": "3157 8888",
     "PinCode": "12",
-    "HotelWebsiteUrl": "horizonhotels.com.hk"
+    "HotelWebsiteUrl": "horizonhotels.com.hk",
+    "star_rating": 4,
+    "latitude": 22.302804,
+    "longitude": 114.185226
   },
   {
     "countyCode": "HK",
@@ -8709,7 +10158,10 @@
     "Map": "22.299768|114.173694",
     "PhoneNumber": "852-2105-3888",
     "PinCode": "N A",
-    "HotelWebsiteUrl": "http://www.attitudegranville.com/en/home"
+    "HotelWebsiteUrl": "http://www.attitudegranville.com/en/home",
+    "star_rating": 3,
+    "latitude": 22.299768,
+    "longitude": 114.173694
   },
   {
     "countyCode": "HK",
@@ -8727,7 +10179,10 @@
     "Map": "22.317575|114.1705",
     "PhoneNumber": "",
     "PinCode": "0000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.317575,
+    "longitude": 114.1705
   },
   {
     "countyCode": "HK",
@@ -8745,7 +10200,10 @@
     "Map": "22.316032|114.16694",
     "PhoneNumber": "852--22013688",
     "PinCode": "1007",
-    "HotelWebsiteUrl": "http://hiltongardeninn3.hilton.com/en/hotels/hong-kong/hilton-garden-inn-hong-kong-mongkok-HKGMSGI/index.html"
+    "HotelWebsiteUrl": "http://hiltongardeninn3.hilton.com/en/hotels/hong-kong/hilton-garden-inn-hong-kong-mongkok-HKGMSGI/index.html",
+    "star_rating": 4,
+    "latitude": 22.316032,
+    "longitude": 114.16694
   },
   {
     "countyCode": "HK",
@@ -8763,7 +10221,10 @@
     "Map": "22.311173|114.171053",
     "PhoneNumber": "852-3755-0300",
     "PinCode": "",
-    "HotelWebsiteUrl": "https://app-apac.thebookingbutton.com/properties/m"
+    "HotelWebsiteUrl": "https://app-apac.thebookingbutton.com/properties/m",
+    "star_rating": 3,
+    "latitude": 22.311173,
+    "longitude": 114.171053
   },
   {
     "countyCode": "HK",
@@ -8781,7 +10242,10 @@
     "Map": "22.301528|114.187981",
     "PhoneNumber": "852-2-252 5888",
     "PinCode": "000000",
-    "HotelWebsiteUrl": "http://www.shangri-la.com/hongkong/kerry/"
+    "HotelWebsiteUrl": "http://www.shangri-la.com/hongkong/kerry/",
+    "star_rating": 5,
+    "latitude": 22.301528,
+    "longitude": 114.187981
   },
   {
     "countyCode": "HK",
@@ -8799,7 +10263,10 @@
     "Map": "22.32831|114.16453",
     "PhoneNumber": "85236210688",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.minimalhotels.com.hk/"
+    "HotelWebsiteUrl": "http://www.minimalhotels.com.hk/",
+    "star_rating": 3,
+    "latitude": 22.32831,
+    "longitude": 114.16453
   },
   {
     "countyCode": "HK",
@@ -8817,7 +10284,10 @@
     "Map": "22.328532|114.16055",
     "PhoneNumber": "852-38990500",
     "PinCode": "00",
-    "HotelWebsiteUrl": "https://www.agoda.com/metroplace-boutique-hotel/hotel/hong-kong-hk.html"
+    "HotelWebsiteUrl": "https://www.agoda.com/metroplace-boutique-hotel/hotel/hong-kong-hk.html",
+    "star_rating": 3,
+    "latitude": 22.328532,
+    "longitude": 114.16055
   },
   {
     "countyCode": "HK",
@@ -8835,7 +10305,10 @@
     "Map": "22.369114|114.138821",
     "PhoneNumber": "852-37003800",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.silkahotels.com/tsuenwan"
+    "HotelWebsiteUrl": "http://www.silkahotels.com/tsuenwan",
+    "star_rating": 4,
+    "latitude": 22.369114,
+    "longitude": 114.138821
   },
   {
     "countyCode": "HK",
@@ -8853,7 +10326,10 @@
     "Map": "22.29791|114.17462",
     "PhoneNumber": "+852 2991 0000",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://www.hotelhart.com/"
+    "HotelWebsiteUrl": "http://www.hotelhart.com/",
+    "star_rating": 3,
+    "latitude": 22.29791,
+    "longitude": 114.17462
   },
   {
     "countyCode": "HK",
@@ -8871,7 +10347,10 @@
     "Map": "22.31618|114.18872",
     "PhoneNumber": "852-39636600",
     "PinCode": "10000",
-    "HotelWebsiteUrl": "http://www.iclub-hotels.com/iclub-ma-tau-wai-hotel/en/home/home.html"
+    "HotelWebsiteUrl": "http://www.iclub-hotels.com/iclub-ma-tau-wai-hotel/en/home/home.html",
+    "star_rating": 3,
+    "latitude": 22.31618,
+    "longitude": 114.18872
   },
   {
     "countyCode": "HK",
@@ -8889,7 +10368,10 @@
     "Map": "22.31043|114.17052",
     "PhoneNumber": "8.52852 +13",
     "PinCode": "A",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/kings-de-nathan.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/kings-de-nathan.html",
+    "star_rating": 3,
+    "latitude": 22.31043,
+    "longitude": 114.17052
   },
   {
     "countyCode": "HK",
@@ -8907,7 +10389,10 @@
     "Map": "22.32101|114.161",
     "PhoneNumber": "852-21510500",
     "PinCode": "0",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.32101,
+    "longitude": 114.161
   },
   {
     "countyCode": "HK",
@@ -8925,7 +10410,10 @@
     "Map": "22.31328|114.17039",
     "PhoneNumber": "852-852-25772128",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.31328,
+    "longitude": 114.17039
   },
   {
     "countyCode": "HK",
@@ -8943,7 +10431,10 @@
     "Map": "22.3238|114.20592",
     "PhoneNumber": "852-852-2593 2828",
     "PinCode": "852",
-    "HotelWebsiteUrl": "http://www.camluxhotel.com/"
+    "HotelWebsiteUrl": "http://www.camluxhotel.com/",
+    "star_rating": 4,
+    "latitude": 22.3238,
+    "longitude": 114.20592
   },
   {
     "countyCode": "HK",
@@ -8961,7 +10452,10 @@
     "Map": "22.2997|114.1731",
     "PhoneNumber": "852-68261878",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.2997,
+    "longitude": 114.1731
   },
   {
     "countyCode": "HK",
@@ -8979,7 +10473,10 @@
     "Map": "22.30009|114.174",
     "PhoneNumber": "852-852-21053827",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.soravitgranville.com"
+    "HotelWebsiteUrl": "http://www.soravitgranville.com",
+    "star_rating": 3,
+    "latitude": 22.30009,
+    "longitude": 114.174
   },
   {
     "countyCode": "HK",
@@ -8997,7 +10494,10 @@
     "Map": "22.312582|114.22295",
     "PhoneNumber": "852-38-902888",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.ihg.com/holidayinnexpress/hotels/us/en/hong-kong/hkgkk/hoteldetail"
+    "HotelWebsiteUrl": "http://www.ihg.com/holidayinnexpress/hotels/us/en/hong-kong/hkgkk/hoteldetail",
+    "star_rating": 3,
+    "latitude": 22.312582,
+    "longitude": 114.22295
   },
   {
     "countyCode": "HK",
@@ -9015,7 +10515,10 @@
     "Map": "22.29859|114.17287",
     "PhoneNumber": "852-35516833",
     "PinCode": "0000",
-    "HotelWebsiteUrl": "http://theotto.hk"
+    "HotelWebsiteUrl": "http://theotto.hk",
+    "star_rating": 3,
+    "latitude": 22.29859,
+    "longitude": 114.17287
   },
   {
     "countyCode": "HK",
@@ -9033,7 +10536,10 @@
     "Map": "22.316346|114.21554",
     "PhoneNumber": "852-852-27220002",
     "PinCode": "0",
-    "HotelWebsiteUrl": "https://www.indhotel.com/"
+    "HotelWebsiteUrl": "https://www.indhotel.com/",
+    "star_rating": 3,
+    "latitude": 22.316346,
+    "longitude": 114.21554
   },
   {
     "countyCode": "HK",
@@ -9051,7 +10557,10 @@
     "Map": "22.31605|114.21512",
     "PhoneNumber": "852-31886655",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://iwhotels.hk/"
+    "HotelWebsiteUrl": "http://iwhotels.hk/",
+    "star_rating": 3,
+    "latitude": 22.31605,
+    "longitude": 114.21512
   },
   {
     "countyCode": "HK",
@@ -9069,7 +10578,10 @@
     "Map": "22.31378|114.17103",
     "PhoneNumber": "852 9888 4880",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://www.savills.com.hk/property-showcase/invest"
+    "HotelWebsiteUrl": "http://www.savills.com.hk/property-showcase/invest",
+    "star_rating": 3,
+    "latitude": 22.31378,
+    "longitude": 114.17103
   },
   {
     "countyCode": "HK",
@@ -9087,7 +10599,10 @@
     "Map": "22.32245|114.19052",
     "PhoneNumber": "86-13316899909",
     "PinCode": "999077",
-    "HotelWebsiteUrl": "http://www.cruisehotel.com.hk"
+    "HotelWebsiteUrl": "http://www.cruisehotel.com.hk",
+    "star_rating": 3,
+    "latitude": 22.32245,
+    "longitude": 114.19052
   },
   {
     "countyCode": "HK",
@@ -9105,7 +10620,10 @@
     "Map": "22.31944|114.17189",
     "PhoneNumber": "+85229602888",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://www.thebeaconhotel.com.hk/"
+    "HotelWebsiteUrl": "http://www.thebeaconhotel.com.hk/",
+    "star_rating": 4,
+    "latitude": 22.31944,
+    "longitude": 114.17189
   },
   {
     "countyCode": "HK",
@@ -9123,7 +10641,10 @@
     "Map": "22.3136853|114.17006140000001",
     "PhoneNumber": "+85237087788",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://tungnamlou.com/"
+    "HotelWebsiteUrl": "http://tungnamlou.com/",
+    "star_rating": 3,
+    "latitude": 22.3136853,
+    "longitude": 114.17006140000001
   },
   {
     "countyCode": "HK",
@@ -9141,7 +10662,10 @@
     "Map": "22.294|114.17433",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://www.rosewoodhotels.com/en/hong-kong"
+    "HotelWebsiteUrl": "http://www.rosewoodhotels.com/en/hong-kong",
+    "star_rating": 5,
+    "latitude": 22.294,
+    "longitude": 114.17433
   },
   {
     "countyCode": "HK",
@@ -9159,7 +10683,10 @@
     "Map": "22.296911267974632|114.17397709159718",
     "PhoneNumber": "+85236027600",
     "PinCode": "99907",
-    "HotelWebsiteUrl": "http://hotel.dashsuites.com/minden"
+    "HotelWebsiteUrl": "http://hotel.dashsuites.com/minden",
+    "star_rating": 3,
+    "latitude": 22.296911267974632,
+    "longitude": 114.17397709159718
   },
   {
     "countyCode": "HK",
@@ -9177,7 +10704,10 @@
     "Map": "22.31338004087643|114.16874127620224",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=5925378"
+    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=5925378",
+    "star_rating": 3,
+    "latitude": 22.31338004087643,
+    "longitude": 114.16874127620224
   },
   {
     "countyCode": "HK",
@@ -9195,7 +10725,10 @@
     "Map": "22.30323|114.17471",
     "PhoneNumber": "+85221326108",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://pagehotels.com/en/page148"
+    "HotelWebsiteUrl": "http://pagehotels.com/en/page148",
+    "star_rating": 4,
+    "latitude": 22.30323,
+    "longitude": 114.17471
   },
   {
     "countyCode": "HK",
@@ -9213,7 +10746,10 @@
     "Map": "22.2964|114.173",
     "PhoneNumber": "",
     "PinCode": "00000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.2964,
+    "longitude": 114.173
   },
   {
     "countyCode": "HK",
@@ -9231,7 +10767,10 @@
     "Map": "22.2984|114.173",
     "PhoneNumber": "",
     "PinCode": "00000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.2984,
+    "longitude": 114.173
   },
   {
     "countyCode": "HK",
@@ -9249,7 +10788,10 @@
     "Map": "22.30431|114.16057",
     "PhoneNumber": "+852 3718 8000",
     "PinCode": "",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/the-harbourview-place-the-icc-megalopolis.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/the-harbourview-place-the-icc-megalopolis.html",
+    "star_rating": 5,
+    "latitude": 22.30431,
+    "longitude": 114.16057
   },
   {
     "countyCode": "HK",
@@ -9267,7 +10809,10 @@
     "Map": "22.319929|114.17065",
     "PhoneNumber": "",
     "PinCode": "0000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.319929,
+    "longitude": 114.17065
   },
   {
     "countyCode": "HK",
@@ -9285,7 +10830,10 @@
     "Map": "22.319918|114.170715",
     "PhoneNumber": "",
     "PinCode": "00000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.319918,
+    "longitude": 114.170715
   },
   {
     "countyCode": "HK",
@@ -9303,7 +10851,10 @@
     "Map": "22.3016147613525|114.176063537598",
     "PhoneNumber": "852 2735 1882",
     "PinCode": "",
-    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=295551"
+    "HotelWebsiteUrl": "https://www.agoda.com/partners/partnersearch.aspx?hid=295551",
+    "star_rating": 4,
+    "latitude": 22.3016147613525,
+    "longitude": 114.176063537598
   },
   {
     "countyCode": "HK",
@@ -9321,7 +10872,10 @@
     "Map": "22.2982|114.172",
     "PhoneNumber": "852-60600329",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.2982,
+    "longitude": 114.172
   },
   {
     "countyCode": "HK",
@@ -9339,7 +10893,10 @@
     "Map": "22.319793|114.1707",
     "PhoneNumber": "",
     "PinCode": "00000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.319793,
+    "longitude": 114.1707
   },
   {
     "countyCode": "HK",
@@ -9357,7 +10914,10 @@
     "Map": "22.34|114.155",
     "PhoneNumber": "",
     "PinCode": "00000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.34,
+    "longitude": 114.155
   },
   {
     "countyCode": "HK",
@@ -9375,7 +10935,10 @@
     "Map": "22.316837|114.1697",
     "PhoneNumber": "",
     "PinCode": "0000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.316837,
+    "longitude": 114.1697
   },
   {
     "countyCode": "HK",
@@ -9393,7 +10956,10 @@
     "Map": "22.293879|114.174299",
     "PhoneNumber": "852-21077800",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 5,
+    "latitude": 22.293879,
+    "longitude": 114.174299
   },
   {
     "countyCode": "HK",
@@ -9411,7 +10977,10 @@
     "Map": "22.2964|114.173",
     "PhoneNumber": "",
     "PinCode": "00000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.2964,
+    "longitude": 114.173
   },
   {
     "countyCode": "HK",
@@ -9429,7 +10998,10 @@
     "Map": "22.3202|114.165",
     "PhoneNumber": "+852 3963 6800",
     "PinCode": "NA",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.3202,
+    "longitude": 114.165
   },
   {
     "countyCode": "HK",
@@ -9447,7 +11019,10 @@
     "Map": "22.298|114.172",
     "PhoneNumber": "",
     "PinCode": "00000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.298,
+    "longitude": 114.172
   },
   {
     "countyCode": "HK",
@@ -9465,7 +11040,10 @@
     "Map": "22.2974|114.172",
     "PhoneNumber": "",
     "PinCode": "852",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.2974,
+    "longitude": 114.172
   },
   {
     "countyCode": "HK",
@@ -9483,7 +11061,10 @@
     "Map": "22.327|114.16077",
     "PhoneNumber": "",
     "PinCode": "",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/kactus.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/hk/kactus.html",
+    "star_rating": 3,
+    "latitude": 22.327,
+    "longitude": 114.16077
   },
   {
     "countyCode": "HK",
@@ -9501,7 +11082,10 @@
     "Map": "22.319817|114.170802",
     "PhoneNumber": "852-97927297",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.319817,
+    "longitude": 114.170802
   },
   {
     "countyCode": "HK",
@@ -9519,6 +11103,9 @@
     "Map": "22.308604|114.220118",
     "PhoneNumber": "852-97929390",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.308604,
+    "longitude": 114.220118
   }
 ]

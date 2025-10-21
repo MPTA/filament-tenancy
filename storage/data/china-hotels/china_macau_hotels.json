@@ -15,7 +15,10 @@
     "Map": "22.185713|113.5234269",
     "PhoneNumber": "86 756 8923333",
     "PinCode": "519000",
-    "HotelWebsiteUrl": "http://www.yinhuahotel.com"
+    "HotelWebsiteUrl": "http://www.yinhuahotel.com",
+    "star_rating": 3,
+    "latitude": 22.185713,
+    "longitude": 113.5234269
   },
   {
     "countyCode": "CN",
@@ -33,7 +36,10 @@
     "Map": "22.19072|113.54503",
     "PhoneNumber": "8-53-8590 8888",
     "PinCode": "00000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.19072,
+    "longitude": 113.54503
   },
   {
     "countyCode": "CN",
@@ -51,7 +57,10 @@
     "Map": "22.214|113.54426",
     "PhoneNumber": "",
     "PinCode": "999078",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/mo/ao-men-jin-jiang-zhi-xing-jiu-dian.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/mo/ao-men-jin-jiang-zhi-xing-jiu-dian.html",
+    "star_rating": 3,
+    "latitude": 22.214,
+    "longitude": 113.54426
   },
   {
     "countyCode": "MO",
@@ -69,7 +78,10 @@
     "Map": "22.145334|113.56379",
     "PhoneNumber": "85328802000",
     "PinCode": "NULL",
-    "HotelWebsiteUrl": "http://www.sheratongrandmacao.com/"
+    "HotelWebsiteUrl": "http://www.sheratongrandmacao.com/",
+    "star_rating": 4,
+    "latitude": 22.145334,
+    "longitude": 113.56379
   },
   {
     "countyCode": "MO",
@@ -87,7 +99,10 @@
     "Map": "22.195052|113.537347",
     "PhoneNumber": "85-32-8938818",
     "PinCode": "853",
-    "HotelWebsiteUrl": "http://oletaisamunhotel.com"
+    "HotelWebsiteUrl": "http://oletaisamunhotel.com",
+    "star_rating": 3,
+    "latitude": 22.195052,
+    "longitude": 113.537347
   },
   {
     "countyCode": "MO",
@@ -105,7 +120,10 @@
     "Map": "22.197775|113.543617",
     "PhoneNumber": "",
     "PinCode": "00000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.197775,
+    "longitude": 113.543617
   },
   {
     "countyCode": "MO",
@@ -123,7 +141,10 @@
     "Map": "22.191542|113.547264",
     "PhoneNumber": "853-2878-3333",
     "PinCode": "33460",
-    "HotelWebsiteUrl": "http://www.holidayinn.com/macaumacau"
+    "HotelWebsiteUrl": "http://www.holidayinn.com/macaumacau",
+    "star_rating": 4,
+    "latitude": 22.191542,
+    "longitude": 113.547264
   },
   {
     "countyCode": "MO",
@@ -141,7 +162,10 @@
     "Map": "22.125391|113.575936",
     "PhoneNumber": "853-2887-1111",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.grandcoloane.com"
+    "HotelWebsiteUrl": "http://www.grandcoloane.com",
+    "star_rating": 4,
+    "latitude": 22.125391,
+    "longitude": 113.575936
   },
   {
     "countyCode": "MO",
@@ -159,7 +183,10 @@
     "Map": "22.188334|113.545006",
     "PhoneNumber": "853-2888-9966",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.wynnmacau.com/en/about_us"
+    "HotelWebsiteUrl": "http://www.wynnmacau.com/en/about_us",
+    "star_rating": 5,
+    "latitude": 22.188334,
+    "longitude": 113.545006
   },
   {
     "countyCode": "MO",
@@ -177,7 +204,10 @@
     "Map": "22.193366|113.552944",
     "PhoneNumber": "",
     "PinCode": "0",
-    "HotelWebsiteUrl": "www.waldohotel.com"
+    "HotelWebsiteUrl": "www.waldohotel.com",
+    "star_rating": 3,
+    "latitude": 22.193366,
+    "longitude": 113.552944
   },
   {
     "countyCode": "MO",
@@ -195,7 +225,10 @@
     "Map": "22.189178|113.544039",
     "PhoneNumber": "853-2888-3888",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.hotelisboa.com/"
+    "HotelWebsiteUrl": "http://www.hotelisboa.com/",
+    "star_rating": 5,
+    "latitude": 22.189178,
+    "longitude": 113.544039
   },
   {
     "countyCode": "MO",
@@ -213,7 +246,10 @@
     "Map": "22.162348|113.55384",
     "PhoneNumber": "853-2883-1234",
     "PinCode": "3008",
-    "HotelWebsiteUrl": "http://www.regencyhotel.com.mo"
+    "HotelWebsiteUrl": "http://www.regencyhotel.com.mo",
+    "star_rating": 4,
+    "latitude": 22.162348,
+    "longitude": 113.55384
   },
   {
     "countyCode": "MO",
@@ -231,7 +267,10 @@
     "Map": "22.183992|113.547295",
     "PhoneNumber": "853-8805-8888",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.mandarinoriental.com"
+    "HotelWebsiteUrl": "http://www.mandarinoriental.com",
+    "star_rating": 5,
+    "latitude": 22.183992,
+    "longitude": 113.547295
   },
   {
     "countyCode": "MO",
@@ -249,7 +288,10 @@
     "Map": "22.192663|113.553205",
     "PhoneNumber": "853-2856-7888",
     "PinCode": "Macau",
-    "HotelWebsiteUrl": "http://www.grandlapa.com"
+    "HotelWebsiteUrl": "http://www.grandlapa.com",
+    "star_rating": 4,
+    "latitude": 22.192663,
+    "longitude": 113.553205
   },
   {
     "countyCode": "MO",
@@ -267,7 +309,10 @@
     "Map": "22.15111|113.553743",
     "PhoneNumber": "853-88831228",
     "PinCode": "999078",
-    "HotelWebsiteUrl": "http://www.galaxymacau.com/en/stay/galaxy-hotel"
+    "HotelWebsiteUrl": "http://www.galaxymacau.com/en/stay/galaxy-hotel",
+    "star_rating": 5,
+    "latitude": 22.15111,
+    "longitude": 113.553743
   },
   {
     "countyCode": "MO",
@@ -285,7 +330,10 @@
     "Map": "22.188396|113.548183",
     "PhoneNumber": "853 2880 8888",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.aotmacau.com/en/main.php"
+    "HotelWebsiteUrl": "http://www.aotmacau.com/en/main.php",
+    "star_rating": 4,
+    "latitude": 22.188396,
+    "longitude": 113.548183
   },
   {
     "countyCode": "MO",
@@ -303,7 +351,10 @@
     "Map": "22.144934|113.563796",
     "PhoneNumber": "853-81139988",
     "PinCode": "NULL",
-    "HotelWebsiteUrl": "http://www.holidayinn.com/macao"
+    "HotelWebsiteUrl": "http://www.holidayinn.com/macao",
+    "star_rating": 4,
+    "latitude": 22.144934,
+    "longitude": 113.563796
   },
   {
     "countyCode": "MO",
@@ -321,7 +372,10 @@
     "Map": "22.146608|113.564766",
     "PhoneNumber": "853-2-8829000",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.conradmacao.com"
+    "HotelWebsiteUrl": "http://www.conradmacao.com",
+    "star_rating": 5,
+    "latitude": 22.146608,
+    "longitude": 113.564766
   },
   {
     "countyCode": "MO",
@@ -339,7 +393,10 @@
     "Map": "22.1904|113.546",
     "PhoneNumber": "",
     "PinCode": "0000",
-    "HotelWebsiteUrl": "http://www.hotelfortuna.com.mo/"
+    "HotelWebsiteUrl": "http://www.hotelfortuna.com.mo/",
+    "star_rating": 4,
+    "latitude": 22.1904,
+    "longitude": 113.546
   },
   {
     "countyCode": "MO",
@@ -357,7 +414,10 @@
     "Map": "22.18221|113.53055",
     "PhoneNumber": "(86) 0085328378111",
     "PinCode": "unknown",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/mo/pousada-de-sao-tiago.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/mo/pousada-de-sao-tiago.html",
+    "star_rating": 5,
+    "latitude": 22.18221,
+    "longitude": 113.53055
   },
   {
     "countyCode": "MO",
@@ -375,7 +435,10 @@
     "Map": "22.1901|113.54343",
     "PhoneNumber": "853-28-283838",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.grandlisboa.com"
+    "HotelWebsiteUrl": "http://www.grandlisboa.com",
+    "star_rating": 5,
+    "latitude": 22.1901,
+    "longitude": 113.54343
   },
   {
     "countyCode": "MO",
@@ -393,7 +456,10 @@
     "Map": "22.113829|113.561669",
     "PhoneNumber": "853-28-882143",
     "PinCode": "000000",
-    "HotelWebsiteUrl": "http://www.hotelpcoloane.com.mo/ (??? ???)"
+    "HotelWebsiteUrl": "http://www.hotelpcoloane.com.mo/ (??? ???)",
+    "star_rating": 3,
+    "latitude": 22.113829,
+    "longitude": 113.561669
   },
   {
     "countyCode": "MO",
@@ -411,7 +477,10 @@
     "Map": "22.14665|113.5519",
     "PhoneNumber": "",
     "PinCode": "000000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 5,
+    "latitude": 22.14665,
+    "longitude": 113.5519
   },
   {
     "countyCode": "MO",
@@ -429,7 +498,10 @@
     "Map": "22.14822|113.56049",
     "PhoneNumber": "853-28-828888",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/mo/the-venetian-macao-resort.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/mo/the-venetian-macao-resort.html",
+    "star_rating": 5,
+    "latitude": 22.14822,
+    "longitude": 113.56049
   },
   {
     "countyCode": "MO",
@@ -447,7 +519,10 @@
     "Map": "22.190452|113.540769",
     "PhoneNumber": "853-28889988",
     "PinCode": "1",
-    "HotelWebsiteUrl": "http://www.grandemperor.com/"
+    "HotelWebsiteUrl": "http://www.grandemperor.com/",
+    "star_rating": 4,
+    "latitude": 22.190452,
+    "longitude": 113.540769
   },
   {
     "countyCode": "MO",
@@ -465,7 +540,10 @@
     "Map": "22.156809|113.560198",
     "PhoneNumber": "853-2882-1666",
     "PinCode": "000853",
-    "HotelWebsiteUrl": "http://macau.innhotel.com/index.php/en/"
+    "HotelWebsiteUrl": "http://macau.innhotel.com/index.php/en/",
+    "star_rating": 3,
+    "latitude": 22.156809,
+    "longitude": 113.560198
   },
   {
     "countyCode": "MO",
@@ -483,7 +561,10 @@
     "Map": "22.191026|113.547961",
     "PhoneNumber": "+853 2878 1888",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.emperorhotel.com.mo"
+    "HotelWebsiteUrl": "http://www.emperorhotel.com.mo",
+    "star_rating": 3,
+    "latitude": 22.191026,
+    "longitude": 113.547961
   },
   {
     "countyCode": "MO",
@@ -501,7 +582,10 @@
     "Map": "22.191153|113.545549",
     "PhoneNumber": "853-28782288",
     "PinCode": "999999",
-    "HotelWebsiteUrl": "http://www.beverlyplaza.com.mo/"
+    "HotelWebsiteUrl": "http://www.beverlyplaza.com.mo/",
+    "star_rating": 3,
+    "latitude": 22.191153,
+    "longitude": 113.545549
   },
   {
     "countyCode": "MO",
@@ -519,7 +603,10 @@
     "Map": "22.191963|113.548453",
     "PhoneNumber": "85328781233",
     "PinCode": "33460",
-    "HotelWebsiteUrl": "http://www.metroparkmacau.com"
+    "HotelWebsiteUrl": "http://www.metroparkmacau.com",
+    "star_rating": 3,
+    "latitude": 22.191963,
+    "longitude": 113.548453
   },
   {
     "countyCode": "MO",
@@ -537,7 +624,10 @@
     "Map": "22.192082|113.540313",
     "PhoneNumber": "853-28388166",
     "PinCode": "493 501",
-    "HotelWebsiteUrl": "http://www.macauctshotel.com"
+    "HotelWebsiteUrl": "http://www.macauctshotel.com",
+    "star_rating": 3,
+    "latitude": 22.192082,
+    "longitude": 113.540313
   },
   {
     "countyCode": "MO",
@@ -555,7 +645,10 @@
     "Map": "22.192635|113.549512",
     "PhoneNumber": "853-28718766",
     "PinCode": "1118",
-    "HotelWebsiteUrl": "http://www.riomacau.com"
+    "HotelWebsiteUrl": "http://www.riomacau.com",
+    "star_rating": 4,
+    "latitude": 22.192635,
+    "longitude": 113.549512
   },
   {
     "countyCode": "MO",
@@ -573,7 +666,10 @@
     "Map": "22.190878|113.541608",
     "PhoneNumber": "853-28710111",
     "PinCode": "1",
-    "HotelWebsiteUrl": "http://www.hotelsintra.com/"
+    "HotelWebsiteUrl": "http://www.hotelsintra.com/",
+    "star_rating": 3,
+    "latitude": 22.190878,
+    "longitude": 113.541608
   },
   {
     "countyCode": "MO",
@@ -591,7 +687,10 @@
     "Map": "22.190064|113.547037",
     "PhoneNumber": "853-28-553888",
     "PinCode": "33460",
-    "HotelWebsiteUrl": "http://www.hotelpresident.com.mo/mo/home.html"
+    "HotelWebsiteUrl": "http://www.hotelpresident.com.mo/mo/home.html",
+    "star_rating": 4,
+    "latitude": 22.190064,
+    "longitude": 113.547037
   },
   {
     "countyCode": "MO",
@@ -609,7 +708,10 @@
     "Map": "22.14875|113.55175",
     "PhoneNumber": "0085328850288",
     "PinCode": "MO",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/mo/pousada-marina-infante.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/mo/pousada-marina-infante.html",
+    "star_rating": 4,
+    "latitude": 22.14875,
+    "longitude": 113.55175
   },
   {
     "countyCode": "MO",
@@ -627,7 +729,10 @@
     "Map": "22.20248|113.546796",
     "PhoneNumber": "853-28553838",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.fuhuahotelmacau.com"
+    "HotelWebsiteUrl": "http://www.fuhuahotelmacau.com",
+    "star_rating": 3,
+    "latitude": 22.20248,
+    "longitude": 113.546796
   },
   {
     "countyCode": "MO",
@@ -645,7 +750,10 @@
     "Map": "22.196301|113.547065",
     "PhoneNumber": "+85 3 28552222",
     "PinCode": "99999",
-    "HotelWebsiteUrl": "http://www.hotelroyal.com.mo/"
+    "HotelWebsiteUrl": "http://www.hotelroyal.com.mo/",
+    "star_rating": 5,
+    "latitude": 22.196301,
+    "longitude": 113.547065
   },
   {
     "countyCode": "MO",
@@ -663,7 +771,10 @@
     "Map": "22.16299|113.5558",
     "PhoneNumber": "170657663333",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://www.newcenturyhotel-macau.com/"
+    "HotelWebsiteUrl": "http://www.newcenturyhotel-macau.com/",
+    "star_rating": 3,
+    "latitude": 22.16299,
+    "longitude": 113.5558
   },
   {
     "countyCode": "MO",
@@ -681,7 +792,10 @@
     "Map": "22.195824|113.548478",
     "PhoneNumber": "853-285-13888",
     "PinCode": "1",
-    "HotelWebsiteUrl": "http://www.hotelguiamacau.com"
+    "HotelWebsiteUrl": "http://www.hotelguiamacau.com",
+    "star_rating": 3,
+    "latitude": 22.195824,
+    "longitude": 113.548478
   },
   {
     "countyCode": "MO",
@@ -699,7 +813,10 @@
     "Map": "22.189685|113.557919",
     "PhoneNumber": "85-3-28782782",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.rockshotel.com.mo"
+    "HotelWebsiteUrl": "http://www.rockshotel.com.mo",
+    "star_rating": 3,
+    "latitude": 22.189685,
+    "longitude": 113.557919
   },
   {
     "countyCode": "MO",
@@ -717,7 +834,10 @@
     "Map": "22.186347|113.536265",
     "PhoneNumber": "+85328339955",
     "PinCode": "000000",
-    "HotelWebsiteUrl": "http://www.rivierahotel.com.mo"
+    "HotelWebsiteUrl": "http://www.rivierahotel.com.mo",
+    "star_rating": 3,
+    "latitude": 22.186347,
+    "longitude": 113.536265
   },
   {
     "countyCode": "MO",
@@ -735,7 +855,10 @@
     "Map": "22.157882|113.551504",
     "PhoneNumber": "853-28839933",
     "PinCode": "NULL",
-    "HotelWebsiteUrl": "http://www.taipasquare.com.mo"
+    "HotelWebsiteUrl": "http://www.taipasquare.com.mo",
+    "star_rating": 4,
+    "latitude": 22.157882,
+    "longitude": 113.551504
   },
   {
     "countyCode": "MO",
@@ -753,7 +876,10 @@
     "Map": "22.19688|113.55336",
     "PhoneNumber": "853-28-726288",
     "PinCode": "N A",
-    "HotelWebsiteUrl": "http://www.casarealhotel.com.mo"
+    "HotelWebsiteUrl": "http://www.casarealhotel.com.mo",
+    "star_rating": 4,
+    "latitude": 22.19688,
+    "longitude": 113.55336
   },
   {
     "countyCode": "MO",
@@ -771,7 +897,10 @@
     "Map": "22.145843|113.563581",
     "PhoneNumber": "853-2881-8888",
     "PinCode": "Taipa Macau",
-    "HotelWebsiteUrl": "http://www.fourseasons.com/macau/"
+    "HotelWebsiteUrl": "http://www.fourseasons.com/macau/",
+    "star_rating": 5,
+    "latitude": 22.145843,
+    "longitude": 113.563581
   },
   {
     "countyCode": "MO",
@@ -789,7 +918,10 @@
     "Map": "22.197235|113.53654",
     "PhoneNumber": "+85388610016",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.ponte16.com.mo/home"
+    "HotelWebsiteUrl": "http://www.ponte16.com.mo/home",
+    "star_rating": 4,
+    "latitude": 22.197235,
+    "longitude": 113.53654
   },
   {
     "countyCode": "MO",
@@ -807,7 +939,10 @@
     "Map": "22.21016|113.54815",
     "PhoneNumber": "0085328829000",
     "PinCode": "1",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/mo/the-victoria-macau.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/mo/the-victoria-macau.html",
+    "star_rating": 3,
+    "latitude": 22.21016,
+    "longitude": 113.54815
   },
   {
     "countyCode": "MO",
@@ -825,7 +960,10 @@
     "Map": "22.158642|113.573715",
     "PhoneNumber": "85-3-28851166",
     "PinCode": "MO",
-    "HotelWebsiteUrl": "https://www.htlchina.com.mo/html/en/index.html"
+    "HotelWebsiteUrl": "https://www.htlchina.com.mo/html/en/index.html",
+    "star_rating": 3,
+    "latitude": 22.158642,
+    "longitude": 113.573715
   },
   {
     "countyCode": "MO",
@@ -843,7 +981,10 @@
     "Map": "22.21148|113.557632",
     "PhoneNumber": "853-2888-6888",
     "PinCode": "046707",
-    "HotelWebsiteUrl": "http://www.crowneplaza.com"
+    "HotelWebsiteUrl": "http://www.crowneplaza.com",
+    "star_rating": 5,
+    "latitude": 22.21148,
+    "longitude": 113.557632
   },
   {
     "countyCode": "MO",
@@ -861,7 +1002,10 @@
     "Map": "22.1899333|113.5478573",
     "PhoneNumber": "",
     "PinCode": "00853",
-    "HotelWebsiteUrl": "http://starworldmacau.com/en"
+    "HotelWebsiteUrl": "http://starworldmacau.com/en",
+    "star_rating": 5,
+    "latitude": 22.1899333,
+    "longitude": 113.5478573
   },
   {
     "countyCode": "MO",
@@ -879,7 +1023,10 @@
     "Map": "22.19285|113.552246",
     "PhoneNumber": "853-28800888",
     "PinCode": "230",
-    "HotelWebsiteUrl": "http://www.macaulkf.com/"
+    "HotelWebsiteUrl": "http://www.macaulkf.com/",
+    "star_rating": 3,
+    "latitude": 22.19285,
+    "longitude": 113.552246
   },
   {
     "countyCode": "MO",
@@ -897,7 +1044,10 @@
     "Map": "22.190774|113.548905",
     "PhoneNumber": "853-287-81781",
     "PinCode": "999078",
-    "HotelWebsiteUrl": "http://www.landmarkhotel.com.mo/"
+    "HotelWebsiteUrl": "http://www.landmarkhotel.com.mo/",
+    "star_rating": 4,
+    "latitude": 22.190774,
+    "longitude": 113.548905
   },
   {
     "countyCode": "MO",
@@ -915,7 +1065,10 @@
     "Map": "22.149123|113.564022",
     "PhoneNumber": "853-88686888",
     "PinCode": "000",
-    "HotelWebsiteUrl": "http://www.cityofdreamsmacau.com/en/hotels/detail/nuwa"
+    "HotelWebsiteUrl": "http://www.cityofdreamsmacau.com/en/hotels/detail/nuwa",
+    "star_rating": 5,
+    "latitude": 22.149123,
+    "longitude": 113.564022
   },
   {
     "countyCode": "MO",
@@ -933,7 +1086,10 @@
     "Map": "22.195503|113.554585",
     "PhoneNumber": "853-28-361999",
     "PinCode": "25609",
-    "HotelWebsiteUrl": "http://www.goldendragon.com.mo"
+    "HotelWebsiteUrl": "http://www.goldendragon.com.mo",
+    "star_rating": 4,
+    "latitude": 22.195503,
+    "longitude": 113.554585
   },
   {
     "countyCode": "MO",
@@ -951,7 +1107,10 @@
     "Map": "22.18546|113.548386",
     "PhoneNumber": "853-8802-8888",
     "PinCode": "n a",
-    "HotelWebsiteUrl": "http://www.mgmgrandmacau.com"
+    "HotelWebsiteUrl": "http://www.mgmgrandmacau.com",
+    "star_rating": 5,
+    "latitude": 22.18546,
+    "longitude": 113.548386
   },
   {
     "countyCode": "MO",
@@ -969,7 +1128,10 @@
     "Map": "22.161779|113.554682",
     "PhoneNumber": "853-2886-8888",
     "PinCode": "1",
-    "HotelWebsiteUrl": "http://www.altiramacau.com"
+    "HotelWebsiteUrl": "http://www.altiramacau.com",
+    "star_rating": 5,
+    "latitude": 22.161779,
+    "longitude": 113.554682
   },
   {
     "countyCode": "MO",
@@ -987,7 +1149,10 @@
     "Map": "22.193482|113.536325",
     "PhoneNumber": "853-28939393",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://book.bestwestern.com/bestwestern/CN/Macau-hotels/BEST-WESTERN-Hotel-Sun-Sun/Hotel-Overview.do?propertyCode=99804"
+    "HotelWebsiteUrl": "http://book.bestwestern.com/bestwestern/CN/Macau-hotels/BEST-WESTERN-Hotel-Sun-Sun/Hotel-Overview.do?propertyCode=99804",
+    "star_rating": 3,
+    "latitude": 22.193482,
+    "longitude": 113.536325
   },
   {
     "countyCode": "MO",
@@ -1005,7 +1170,10 @@
     "Map": "22.157108|113.551552",
     "PhoneNumber": "853-2883 7788",
     "PinCode": "0",
-    "HotelWebsiteUrl": "http://www.grandview-hotel.com/"
+    "HotelWebsiteUrl": "http://www.grandview-hotel.com/",
+    "star_rating": 4,
+    "latitude": 22.157108,
+    "longitude": 113.551552
   },
   {
     "countyCode": "MO",
@@ -1023,7 +1191,10 @@
     "Map": "22.147875|113.565166",
     "PhoneNumber": "853-88683333",
     "PinCode": "na",
-    "HotelWebsiteUrl": "http://www.cityofdreamsmacau.com/"
+    "HotelWebsiteUrl": "http://www.cityofdreamsmacau.com/",
+    "star_rating": 4,
+    "latitude": 22.147875,
+    "longitude": 113.565166
   },
   {
     "countyCode": "MO",
@@ -1041,7 +1212,10 @@
     "Map": "22.19257|113.55484",
     "PhoneNumber": "(86) 0085328883388",
     "PinCode": "999078",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/mo/sands-macao.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/mo/sands-macao.html",
+    "star_rating": 5,
+    "latitude": 22.19257,
+    "longitude": 113.55484
   },
   {
     "countyCode": "MO",
@@ -1059,7 +1233,10 @@
     "Map": "22.193631|113.536183",
     "PhoneNumber": "85-32-8937761",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://olelondonhotel.com/en/index.aspx"
+    "HotelWebsiteUrl": "http://olelondonhotel.com/en/index.aspx",
+    "star_rating": 3,
+    "latitude": 22.193631,
+    "longitude": 113.536183
   },
   {
     "countyCode": "MO",
@@ -1077,7 +1254,10 @@
     "Map": "22.1493|113.56812",
     "PhoneNumber": "853-8868-1234",
     "PinCode": "N A",
-    "HotelWebsiteUrl": "http://www.macau.grand.hyatt.com"
+    "HotelWebsiteUrl": "http://www.macau.grand.hyatt.com",
+    "star_rating": 5,
+    "latitude": 22.1493,
+    "longitude": 113.56812
   },
   {
     "countyCode": "MO",
@@ -1095,7 +1275,10 @@
     "Map": "22.152047|113.550888",
     "PhoneNumber": "853-8-8836888",
     "PinCode": "NULL",
-    "HotelWebsiteUrl": "http://www.banyantree.com/en/macau/"
+    "HotelWebsiteUrl": "http://www.banyantree.com/en/macau/",
+    "star_rating": 5,
+    "latitude": 22.152047,
+    "longitude": 113.550888
   },
   {
     "countyCode": "MO",
@@ -1113,7 +1296,10 @@
     "Map": "22.149009|113.551954",
     "PhoneNumber": "853-8-8838883",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.hotelokuramacau.com/#/about-okura/en"
+    "HotelWebsiteUrl": "http://www.hotelokuramacau.com/#/about-okura/en",
+    "star_rating": 5,
+    "latitude": 22.149009,
+    "longitude": 113.551954
   },
   {
     "countyCode": "MO",
@@ -1131,7 +1317,10 @@
     "Map": "22.190698|113.556471",
     "PhoneNumber": "853-87996688",
     "PinCode": "1",
-    "HotelWebsiteUrl": "http://www.harbourviewhotelmacau.com"
+    "HotelWebsiteUrl": "http://www.harbourviewhotelmacau.com",
+    "star_rating": 4,
+    "latitude": 22.190698,
+    "longitude": 113.556471
   },
   {
     "countyCode": "MO",
@@ -1149,7 +1338,10 @@
     "Map": "22.14945|113.55309",
     "PhoneNumber": "853-88866868",
     "PinCode": "00853",
-    "HotelWebsiteUrl": "http://www.ritzcarlton.com"
+    "HotelWebsiteUrl": "http://www.ritzcarlton.com",
+    "star_rating": 5,
+    "latitude": 22.14945,
+    "longitude": 113.55309
   },
   {
     "countyCode": "MO",
@@ -1167,7 +1359,10 @@
     "Map": "22.146706|113.55562",
     "PhoneNumber": "+85388866888",
     "PinCode": "000000",
-    "HotelWebsiteUrl": "http://www.marriott.com/hotels/travel/mfmjw-jw-marriott-hotel-macau/"
+    "HotelWebsiteUrl": "http://www.marriott.com/hotels/travel/mfmjw-jw-marriott-hotel-macau/",
+    "star_rating": 5,
+    "latitude": 22.146706,
+    "longitude": 113.55562
   },
   {
     "countyCode": "MO",
@@ -1185,7 +1380,10 @@
     "Map": "22.146675|113.551576",
     "PhoneNumber": "+853 8883 3338",
     "PinCode": "n a",
-    "HotelWebsiteUrl": "https://www.broadwaymacau.com.mo/en/macau-broadway-hotel"
+    "HotelWebsiteUrl": "https://www.broadwaymacau.com.mo/en/macau-broadway-hotel",
+    "star_rating": 4,
+    "latitude": 22.146675,
+    "longitude": 113.551576
   },
   {
     "countyCode": "MO",
@@ -1203,7 +1401,10 @@
     "Map": "22.141147|113.563307",
     "PhoneNumber": "853-88658888",
     "PinCode": "853",
-    "HotelWebsiteUrl": "http://www.studiocity-macau.com"
+    "HotelWebsiteUrl": "http://www.studiocity-macau.com",
+    "star_rating": 5,
+    "latitude": 22.141147,
+    "longitude": 113.563307
   },
   {
     "countyCode": "MO",
@@ -1221,7 +1422,10 @@
     "Map": "22.147524|113.565492",
     "PhoneNumber": "+85328828898",
     "PinCode": "853",
-    "HotelWebsiteUrl": "http://www.stregismacao.com"
+    "HotelWebsiteUrl": "http://www.stregismacao.com",
+    "star_rating": 5,
+    "latitude": 22.147524,
+    "longitude": 113.565492
   },
   {
     "countyCode": "MO",
@@ -1239,7 +1443,10 @@
     "Map": "22.186633|113.549447",
     "PhoneNumber": "853-2-8220688",
     "PinCode": "na",
-    "HotelWebsiteUrl": "https://www.the-ascott.com/en/china/macau/ascott-macau/location/index.html"
+    "HotelWebsiteUrl": "https://www.the-ascott.com/en/china/macau/ascott-macau/location/index.html",
+    "star_rating": 4,
+    "latitude": 22.186633,
+    "longitude": 113.549447
   },
   {
     "countyCode": "MO",
@@ -1257,7 +1464,10 @@
     "Map": "22.1497898|113.5678695",
     "PhoneNumber": "+85388686767",
     "PinCode": "",
-    "HotelWebsiteUrl": "http://www.thehouseofdancingwater.com/"
+    "HotelWebsiteUrl": "http://www.thehouseofdancingwater.com/",
+    "star_rating": 5,
+    "latitude": 22.1497898,
+    "longitude": 113.5678695
   },
   {
     "countyCode": "MO",
@@ -1275,7 +1485,10 @@
     "Map": "22.14109|113.56223",
     "PhoneNumber": "853-811-81061",
     "PinCode": "999078",
-    "HotelWebsiteUrl": "https://www.booking.com/hotel/mo/the-parisian-macao-macau5.html"
+    "HotelWebsiteUrl": "https://www.booking.com/hotel/mo/the-parisian-macao-macau5.html",
+    "star_rating": 5,
+    "latitude": 22.14109,
+    "longitude": 113.56223
   },
   {
     "countyCode": "MO",
@@ -1293,7 +1506,10 @@
     "Map": "22.14754|113.56935",
     "PhoneNumber": "853-88898889",
     "PinCode": "0",
-    "HotelWebsiteUrl": "https://www.wynnpalace.com"
+    "HotelWebsiteUrl": "https://www.wynnpalace.com",
+    "star_rating": 5,
+    "latitude": 22.14754,
+    "longitude": 113.56935
   },
   {
     "countyCode": "MO",
@@ -1311,7 +1527,10 @@
     "Map": "22.156532|113.543332",
     "PhoneNumber": "853-2-8820100",
     "PinCode": "853",
-    "HotelWebsiteUrl": "https://themacauroosevelt.com/#home1"
+    "HotelWebsiteUrl": "https://themacauroosevelt.com/#home1",
+    "star_rating": 4,
+    "latitude": 22.156532,
+    "longitude": 113.543332
   },
   {
     "countyCode": "MO",
@@ -1329,7 +1548,10 @@
     "Map": "22.196087|113.556171",
     "PhoneNumber": "853-88018801",
     "PinCode": "853",
-    "HotelWebsiteUrl": "http://www.legendpalace.com.mo/"
+    "HotelWebsiteUrl": "http://www.legendpalace.com.mo/",
+    "star_rating": 4,
+    "latitude": 22.196087,
+    "longitude": 113.556171
   },
   {
     "countyCode": "MO",
@@ -1347,7 +1569,10 @@
     "Map": "22.144925|113.56858",
     "PhoneNumber": "853-853-88068888",
     "PinCode": "0000",
-    "HotelWebsiteUrl": "https://www.mgm.mo/en/cotai/rooms"
+    "HotelWebsiteUrl": "https://www.mgm.mo/en/cotai/rooms",
+    "star_rating": 5,
+    "latitude": 22.144925,
+    "longitude": 113.56858
   },
   {
     "countyCode": "MO",
@@ -1365,7 +1590,10 @@
     "Map": "22.147875|113.565166",
     "PhoneNumber": "853-853-88688888",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "http://www.cityofdreamsmacau.com/en/hotels/detail/"
+    "HotelWebsiteUrl": "http://www.cityofdreamsmacau.com/en/hotels/detail/",
+    "star_rating": 4,
+    "latitude": 22.147875,
+    "longitude": 113.565166
   },
   {
     "countyCode": "MO",
@@ -1383,7 +1611,10 @@
     "Map": "22.19369|113.55026",
     "PhoneNumber": "+853 2826 1999",
     "PinCode": "00000",
-    "HotelWebsiteUrl": "https://www.royaldragon.com.mo"
+    "HotelWebsiteUrl": "https://www.royaldragon.com.mo",
+    "star_rating": 3,
+    "latitude": 22.19369,
+    "longitude": 113.55026
   },
   {
     "countyCode": "MO",
@@ -1401,7 +1632,10 @@
     "Map": "22.19344|113.5364",
     "PhoneNumber": "853-853-63878416",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.19344,
+    "longitude": 113.5364
   },
   {
     "countyCode": "MO",
@@ -1419,7 +1653,10 @@
     "Map": "22.19607|113.53777",
     "PhoneNumber": "853-853-63878416",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.19607,
+    "longitude": 113.53777
   },
   {
     "countyCode": "MO",
@@ -1437,7 +1674,10 @@
     "Map": "22.141141|113.561865",
     "PhoneNumber": "853-8865 8888",
     "PinCode": "",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 5,
+    "latitude": 22.141141,
+    "longitude": 113.561865
   },
   {
     "countyCode": "MO",
@@ -1455,7 +1695,10 @@
     "Map": "22.1945|113.538",
     "PhoneNumber": "",
     "PinCode": "00000",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 3,
+    "latitude": 22.1945,
+    "longitude": 113.538
   },
   {
     "countyCode": "MO",
@@ -1473,6 +1716,9 @@
     "Map": "22.129761|113.558196",
     "PhoneNumber": "853-88626888",
     "PinCode": "0",
-    "HotelWebsiteUrl": ""
+    "HotelWebsiteUrl": "",
+    "star_rating": 4,
+    "latitude": 22.129761,
+    "longitude": 113.558196
   }
 ]
