@@ -19,7 +19,6 @@ class ActivityCategory extends Model
     ];
 
     protected $casts = [
-        'name' => 'array',
         'type' => ActivityCategoryTypeEnum::class,
     ];
 

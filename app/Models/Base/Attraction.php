@@ -16,7 +16,7 @@ class Attraction extends Model
     use HasTranslations, CentralConnection, HasUuids;
 
     protected $table = 'attractions';
-    public $translatable = ['name', 'description'];
+    public $translatable = ['name', 'description', 'opening_hours', 'suggested_duration', 'suggested_season', 'ticket_info', 'tips'];
 
     protected $with = ['country.currency'];
 
@@ -30,23 +30,37 @@ class Attraction extends Model
         'latitude',
         'longitude',
         'country_id',
-        'province_id',
         'city_id',
         'district_id',
-        'rating',
         'external_id',
+        'link',
+        'opening_hours',
+        'image_url',
+        'rating',
+        'suggested_duration',
+        'suggested_season',
+        'ticket_info',
+        'tips',
+        'duration_hours',
+        'season_spring',
+        'season_summer',
+        'season_autumn',
+        'season_winter',
         'is_active',
     ];
 
     protected $casts = [
-        'name' => 'array',
-        'description' => 'array',
+        'duration_hours' => 'array', // {min: X, max: Y} - not translatable, just JSON object
         'type' => AttractionTypeEnum::class,
         'local_price' => 'decimal:2',
         'foreigner_price' => 'decimal:2',
         'latitude' => 'decimal:8',
         'longitude' => 'decimal:8',
         'rating' => 'decimal:2',
+        'season_spring' => 'boolean',
+        'season_summer' => 'boolean',
+        'season_autumn' => 'boolean',
+        'season_winter' => 'boolean',
         'is_active' => 'boolean',
     ];
 
@@ -56,14 +70,6 @@ class Attraction extends Model
     public function country(): BelongsTo
     {
         return $this->belongsTo(Country::class);
-    }
-
-    /**
-     * Get the province that owns the attraction.
-     */
-    public function province(): BelongsTo
-    {
-        return $this->belongsTo(Province::class);
     }
 
     /**

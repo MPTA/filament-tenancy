@@ -29,7 +29,6 @@ class City extends Model
     ];
 
     protected $casts = [
-        'name' => 'array',
         'has_code' => 'boolean',
         'latitude' => 'decimal:8',
         'longitude' => 'decimal:8',

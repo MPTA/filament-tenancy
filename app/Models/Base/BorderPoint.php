@@ -20,9 +20,7 @@ class BorderPoint extends Model
 
     public $translatable = ['name'];
 
-    protected $casts = [
-        'name' => 'array',
-    ];
+    protected $casts = [];
 
     /**
      * Get the city that owns the border point.

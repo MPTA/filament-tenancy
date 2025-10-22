@@ -14,13 +14,13 @@ return new class extends Migration
         // Change attractions table
         Schema::table('attractions', function (Blueprint $table) {
             $table->jsonb('name')->change();
-            $table->jsonb('description')->change();
+            $table->jsonb('description')->nullable()->change();
         });
 
         // Change sub_attractions table
         Schema::table('sub_attractions', function (Blueprint $table) {
             $table->jsonb('name')->change();
-            $table->jsonb('description')->change();
+            $table->jsonb('description')->nullable()->change();
         });
     }
 
@@ -32,13 +32,13 @@ return new class extends Migration
         // Revert attractions table
         Schema::table('attractions', function (Blueprint $table) {
             $table->json('name')->change();
-            $table->json('description')->change();
+            $table->json('description')->nullable()->change();
         });
 
         // Revert sub_attractions table
         Schema::table('sub_attractions', function (Blueprint $table) {
             $table->json('name')->change();
-            $table->json('description')->change();
+            $table->json('description')->nullable()->change();
         });
     }
 };

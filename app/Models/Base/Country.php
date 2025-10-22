@@ -39,8 +39,7 @@ class Country extends Model
     ];
 
     protected $casts = [
-        'name' => 'array',
-        'timezones' => 'array',
+        'timezones' => 'array', // Not translatable, just JSON array
         'population' => 'integer',
         'gdp' => 'decimal:2',
         'latitude' => 'decimal:8',

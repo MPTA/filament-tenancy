@@ -30,7 +30,6 @@ class Province extends Model
     ];
 
     protected $casts = [
-        'name' => 'array',
         'latitude' => 'decimal:8',
         'longitude' => 'decimal:8',
     ];

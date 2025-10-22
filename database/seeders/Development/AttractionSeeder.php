@@ -224,7 +224,6 @@ class AttractionSeeder extends Seeder
                 'local_price' => $localPrice,
                 'foreigner_price' => $foreignerPrice,
                 'country_id' => $city->province->country_id,
-                'province_id' => $city->province_id,
                 'city_id' => $city->id,
                 'rating' => $rating,
                 'is_active' => true,

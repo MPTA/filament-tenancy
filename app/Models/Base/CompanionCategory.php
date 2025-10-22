@@ -25,8 +25,6 @@ class CompanionCategory extends Model
     ];
 
     protected $casts = [
-        'name' => 'array',
-        'description' => 'array',
         'is_active' => 'boolean',
         'category_type' => CompanionCategoryEnum::class,
     ];

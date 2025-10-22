@@ -23,8 +23,6 @@ class VehicleCategory extends Model
     ];
 
     protected $casts = [
-        'name' => 'array',
-        'description' => 'array',
         'is_active' => 'boolean',
     ];
 

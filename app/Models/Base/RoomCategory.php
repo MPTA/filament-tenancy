@@ -27,8 +27,6 @@ class RoomCategory extends Model
     ];
 
     protected $casts = [
-        'name' => 'array',
-        'description' => 'array',
         'category' => RoomCategoryEnum::class,
         'capacity' => 'integer',
         'is_active' => 'boolean',

@@ -39,11 +39,6 @@ class Accommodation extends Model
     ];
 
     protected $casts = [
-        'name' => 'array',
-        'content' => 'array',
-        'attractions_data' => 'array',
-        'description' => 'array',
-        'facilities' => 'array',
         'latitude' => 'decimal:8',
         'longitude' => 'decimal:8',
         'star_rating' => 'integer',

@@ -28,8 +28,6 @@ class SubAttraction extends Model
     ];
 
     protected $casts = [
-        'name' => 'array',
-        'description' => 'array',
         'latitude' => 'decimal:8',
         'longitude' => 'decimal:8',
         'price' => 'decimal:2',
@@ -51,13 +49,5 @@ class SubAttraction extends Model
     public function tenantSubAttractions(): HasMany
     {
         return $this->hasMany(\App\Models\Tenants\TenantSubAttraction::class);
-    }
-
-    /**
-     * Get the tenant sub attraction prices for this sub attraction.
-     */
-    public function tenantPrices(): HasMany
-    {
-        return $this->hasMany(\App\Models\Tenants\TenantSubAttractionPrice::class);
     }
 }

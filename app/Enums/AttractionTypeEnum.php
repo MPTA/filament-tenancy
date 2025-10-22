@@ -8,12 +8,14 @@ enum AttractionTypeEnum: string
 {
     use TranslatableEnum;
 
+    case UNCATEGORIZED = 'uncategorized';
     case NATURAL = 'natural';
     case MAN_MADE = 'man_made';
     case CULTURAL = 'cultural';
     case SPORT = 'sport';
     case EVENTS = 'events';
     case LEISURE = 'leisure';
+
 
     /**
      * Get all enum values as array.
