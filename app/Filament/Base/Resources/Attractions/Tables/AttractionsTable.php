@@ -40,12 +40,11 @@ class AttractionsTable
                     ->getStateUsing(function ($record) {
                         $parts = array_filter([
                             $record->city?->name,
-                            $record->province?->name,
                             $record->country?->name,
                         ]);
                         return implode(', ', $parts);
                     })
-                    ->searchable(['city.name', 'province.name', 'country.name'])
+                    ->searchable(['city.name', 'country.name'])
                     ->sortable(false),
                 TextColumn::make('rating')
                     ->numeric()
@@ -53,11 +52,11 @@ class AttractionsTable
                     ->formatStateUsing(fn ($state) => $state ? number_format($state, 1) . '/5' : '-')
                     ->color(fn ($state) => $state >= 4 ? 'success' : ($state >= 3 ? 'warning' : 'gray')),
                 TextColumn::make('local_price')
-                    ->money('USD')
+                    ->money(fn ($record) => $record->country?->currency?->code ?? 'USD')
                     ->sortable()
                     ->toggleable(),
                 TextColumn::make('foreigner_price')
-                    ->money('USD')
+                    ->money(fn ($record) => $record->country?->currency?->code ?? 'USD')
                     ->sortable()
                     ->toggleable(),
                 IconColumn::make('is_active')
@@ -78,10 +77,6 @@ class AttractionsTable
                     ->multiple(),
                 SelectFilter::make('country_id')
                     ->relationship('country', 'name')
-                    ->searchable()
-                    ->preload(),
-                SelectFilter::make('province_id')
-                    ->relationship('province', 'name')
                     ->searchable()
                     ->preload(),
                 SelectFilter::make('city_id')

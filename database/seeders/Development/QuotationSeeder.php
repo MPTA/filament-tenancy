@@ -101,17 +101,17 @@ class QuotationSeeder extends Seeder
             return;
         }
 
-        // Get attractions
-        $forbiddenCity = Attraction::where('name->en', 'Forbidden City')->first();
-        $bund = Attraction::where('name->en', 'The Bund')->first();
-        $westLake = Attraction::where('name->en', 'West Lake')->first();
-        $windowOfWorld = Attraction::where('name->en', 'Window of the World')->first();
-        $splcMuseum = Attraction::where('name->en', 'SPLC Museum')->first();
+        // Get attractions from production data (random from each city)
+        $forbiddenCity = Attraction::where('city_id', $beijing->id)->inRandomOrder()->first();
+        $bund = Attraction::where('city_id', $shanghai->id)->inRandomOrder()->first();
+        $westLake = Attraction::where('city_id', $shanghai->id)->where('id', '!=', $bund?->id)->inRandomOrder()->first();
+        $windowOfWorld = Attraction::where('city_id', $shenzhen->id)->inRandomOrder()->first();
+        $splcMuseum = Attraction::where('city_id', $shenzhen->id)->where('id', '!=', $windowOfWorld?->id)->inRandomOrder()->first();
 
-        // Get sub-attractions
-        $hallOfSupremeHarmony = $forbiddenCity ? SubAttraction::where('attraction_id', $forbiddenCity->id)->where('name->en', 'Hall of Supreme Harmony')->first() : null;
-        $imperialGarden = $forbiddenCity ? SubAttraction::where('attraction_id', $forbiddenCity->id)->where('name->en', 'Imperial Garden')->first() : null;
-        $leisureLake = $windowOfWorld ? SubAttraction::where('attraction_id', $windowOfWorld->id)->where('name->en', 'Leisure Lake')->first() : null;
+        // Get sub-attractions (first available for each attraction)
+        $hallOfSupremeHarmony = $forbiddenCity ? SubAttraction::where('attraction_id', $forbiddenCity->id)->first() : null;
+        $imperialGarden = $forbiddenCity ? SubAttraction::where('attraction_id', $forbiddenCity->id)->skip(1)->first() : null;
+        $leisureLake = $windowOfWorld ? SubAttraction::where('attraction_id', $windowOfWorld->id)->first() : null;
 
         // Get experiences
         $beijingKungFu = Experience::where('tenant_id', $tenant->id)->where('city_id', $beijing->id)->where('name->en', 'like', '%Kung Fu%')->first();

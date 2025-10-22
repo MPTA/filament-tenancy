@@ -43,13 +43,6 @@ class AttractionForm
                             ->searchable()
                             ->preload()
                             ->reactive()
-                            ->afterStateUpdated(fn (callable $set) => $set('province_id', null)),
-                        Select::make('province_id')
-                            ->relationship('province', 'name')
-                            ->required()
-                            ->searchable()
-                            ->preload()
-                            ->reactive()
                             ->afterStateUpdated(fn (callable $set) => $set('city_id', null)),
                         Select::make('city_id')
                             ->relationship('city', 'name')

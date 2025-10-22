@@ -44,8 +44,6 @@ class AttractionInfolist
                     ->schema([
                         TextEntry::make('country.name')
                             ->label('Country'),
-                        TextEntry::make('province.name')
-                            ->label('Province'),
                         TextEntry::make('city.name')
                             ->label('City'),
                         TextEntry::make('district.name')
@@ -77,10 +75,10 @@ class AttractionInfolist
                 Section::make('Pricing Information')
                     ->schema([
                         TextEntry::make('local_price')
-                            ->money('USD')
+                            ->money(fn ($record) => $record->country?->currency?->code ?? 'USD')
                             ->placeholder('Free'),
                         TextEntry::make('foreigner_price')
-                            ->money('USD')
+                            ->money(fn ($record) => $record->country?->currency?->code ?? 'USD')
                             ->placeholder('Free'),
                     ])
                     ->columns(2),

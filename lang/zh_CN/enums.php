@@ -24,6 +24,8 @@ return [
     ],
 
     'attraction_type' => [
+        'uncategorized' => '未分类',
+        'uncategorized_description' => '景点类型尚未分类',
         'natural' => '自然',
         'natural_description' => '海滩、山脉、国家公园、森林、湖泊、瀑布、岛屿、野生动物保护区、峡谷、沙漠、河流、火山、洞穴',
         'man_made' => '人造',

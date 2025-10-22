@@ -24,6 +24,8 @@ return [
     ],
 
     'attraction_type' => [
+        'uncategorized' => 'Uncategorized',
+        'uncategorized_description' => 'Attraction type not yet categorized',
         'natural' => 'Natural',
         'natural_description' => 'Beaches, Mountains, National Parks, Forests, Lakes, Waterfalls, Islands, Wildlife Reserves, Canyons, Deserts, Rivers, Volcanoes, Caves',
         'man_made' => 'Man-made',
