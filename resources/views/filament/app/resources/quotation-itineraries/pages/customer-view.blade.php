@@ -1,4 +1,4 @@
-<x-filament-panels::page>
+<x-filament::page>
     <link rel="stylesheet" href="{{ asset('css/quotation-view.css') }}">
     
     <script>
@@ -658,4 +658,4 @@
             </div>
         </div>
     </div>
-</x-filament-panels::page>
+</x-filament::page>
