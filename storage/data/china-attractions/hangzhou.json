@@ -4,6 +4,7 @@
       "zh_CN": "西湖",
       "en": "West Lake"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi708952-xihu",
     "address": "地址:\n杭州市西湖风景名胜区\n\n\n电话:\n0571-87977767,0571-87179617",
     "description": {
@@ -74,6 +75,7 @@
       "zh_CN": "千岛湖景区",
       "en": "Thousand Island Lake"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi702129-qiandaohujingqu",
     "address": "地址:\n杭州市淳安县千岛湖镇梦姑路348号千岛湖中心湖区游船码头\n\n\n电话:\n400-8811-988\n\n\n官网:\nhttp://www.qiandaohu.cc/",
     "description": {
@@ -180,6 +182,7 @@
       "zh_CN": "杭州宋城",
       "en": "Hangzhou Songcheng Park"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi706138-hangzhousongcheng",
     "address": "地址:\n杭州市西湖区之江路148号\n\n\n电话:\n0571-87313101",
     "description": {
@@ -219,6 +222,7 @@
       "zh_CN": "灵隐寺",
       "en": "Lingyin Temple"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi710142-lingyinsi",
     "address": "地址:\n杭州市西湖区灵隐路法云弄1号\n\n\n电话:\n0571-87968665\n\n\n官网:\nhttp://www.lingyinsi.org/",
     "description": {
@@ -283,6 +287,7 @@
       "zh_CN": "西溪国家湿地公园",
       "en": "Xixi National Wetland Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi705578-xixiguojiashidigongyuan",
     "address": "地址:\n杭州市西湖区天目山路518号（周家村入口）或者杭州市余杭区五常街道五常大道（龙舌嘴主出入口）\n\n\n电话:\n0571-88106688,0571-88106696\n\n\n官网:\nhttp://www.xixiwetland.com.cn/",
     "description": {
@@ -335,6 +340,7 @@
       "zh_CN": "清河坊街",
       "en": "Qinghefang Street"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi714820-qinghefangjie",
     "address": null,
     "image_url": null,
@@ -348,6 +354,7 @@
       "zh_CN": "云栖竹径",
       "en": "Yunqi Bamboo Trail"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi720741-yunqizhujing",
     "address": "地址:\n杭州市五云山南麓的云栖坞里\n\n\n电话:\n0571-87977767",
     "description": {
@@ -391,6 +398,7 @@
       "zh_CN": "杭州樱花园",
       "en": "Hangzhou Cherry Blossom Garden"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi9721658-hangzhouyinghuayuan",
     "address": "地址:\n杭州市余杭区瓶窑镇塘埠村西坞路边仪门岭\n\n\n电话:\n0571-86238835,",
     "description": {
@@ -420,6 +428,7 @@
       "zh_CN": "南宋御街",
       "en": "Southern Song Imperial Street"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi3742045-nansongyujie",
     "address": "地址:\n杭州市上城区中山中路193号西湖大道与惠民路中间",
     "description": {
@@ -456,6 +465,7 @@
       "zh_CN": "雷峰塔",
       "en": "Leifeng Tower"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi708604-leifengta",
     "address": "地址:\n杭州市西湖区南山路15号\n\n\n电话:\n0571-87982111\n\n\n官网:\nhttp://jing.leifengta.com/",
     "description": {
@@ -540,6 +550,7 @@
       "zh_CN": "九溪烟树",
       "en": "Nine Creeks in the Misty Forest"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi720346-jiuxiyanshu",
     "address": "地址:\n杭州市西湖区龙井村南九溪十八涧尽头(近九溪路)\n\n\n电话:\n0571-87977767,0571-86591494",
     "description": {
@@ -598,6 +609,7 @@
       "zh_CN": "垂云通天河",
       "en": "Chuiyun Tongtian River"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi709472-chuiyuntongtianhe",
     "address": "地址:\n杭州市桐庐县瑶琳镇东琳村景区\n\n\n电话:\n0571-64371618\n\n\n官网:\nhttp://www.cytth.cn/",
     "description": {
@@ -670,6 +682,7 @@
       "zh_CN": "超山赏梅",
       "en": "Chao Mountain Plum Sightseeing"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi10000157-chaoshanshangmei",
     "address": "地址:\n杭州市余杭区塘栖镇超山村超山风景区内\n\n\n电话:\n0571-86311228",
     "description": {
@@ -699,6 +712,7 @@
       "zh_CN": "太子湾公园",
       "en": "Prince Bay Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7524538-taiziwangongyuan",
     "address": "地址:\n杭州市西湖区南山路5-1号\n\n\n电话:\n0571-87963701",
     "description": {
@@ -747,6 +761,7 @@
       "zh_CN": "杭州野生动物世界",
       "en": "Hangzhou Safari Park"
     },
+    "type": "leisure",
     "link": "http://travel.qunar.com/p-oi702046-hangzhouyeshengdongwu",
     "address": "地址:\n杭州市杭富路九龙大道1号\n\n\n电话:\n400-102-6688\n\n\n官网:\nhttp://www.hzsp.com/",
     "description": {
@@ -783,6 +798,7 @@
       "zh_CN": "三潭印月",
       "en": "Three Pools Mirroring the Moon"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi716866-santanyinyue",
     "address": "地址:\n杭州市西湖区西湖三潭印月\n\n\n电话:\n0571-87977767",
     "description": {
@@ -844,6 +860,7 @@
       "zh_CN": "富春江",
       "en": "Fuchun River"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi703065-fuchunjiang",
     "address": "地址:\n杭州市富阳市富阳镇\n\n\n电话:\n0571-69918266",
     "description": {
@@ -905,6 +922,7 @@
       "zh_CN": "塘栖古镇",
       "en": "Tangqi Ancient Town"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7468778-tangqiguzhen",
     "address": "地址:\n杭州市余杭区塘栖镇游客中心\n\n\n电话:\n0571-86375531\n\n\n官网:\nhttp://www.yunhetangqi.com",
     "description": {
@@ -965,6 +983,7 @@
       "zh_CN": "龙井村",
       "en": "Longjing Village"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi23341108-longjingcun",
     "address": "地址:\n翁家山97号\n\n\n电话:\n0571-87977767",
     "description": {
@@ -1033,6 +1052,7 @@
     "name": {
       "zh_CN": "梅峰揽胜"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi718887-meifenglansheng",
     "address": "地址:\n杭州市淳安县千岛湖镇千岛湖风景区千岛湖中心湖区梅峰内",
     "description": {
@@ -1100,6 +1120,7 @@
       "zh_CN": "龙门古镇",
       "en": "Longmen Ancient Town"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi702325-longmenguzhen",
     "address": "地址:\n杭州市富阳区龙门古镇\n\n\n电话:\n0571-63507877,0571-63507799,0571-63506192",
     "description": {
@@ -1152,6 +1173,7 @@
       "zh_CN": "青山湖",
       "en": "Qingshan Lake"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi10000167-qingshanhu",
     "address": "地址:\n杭州市西郊临安市青山湖景区\n\n\n电话:\n0571-63716181,0571-63733224",
     "description": {
@@ -1181,6 +1203,7 @@
       "zh_CN": "禅源寺",
       "en": "Chanyuan Temple"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi718627-shanyuansi",
     "address": "地址:\n杭州市临安市西天目乡天目山风景区内\n\n\n电话:\n0571-63857361",
     "description": {
@@ -1229,6 +1252,7 @@
       "zh_CN": "黄公望隐居地",
       "en": "Huang Gongwang's Reclusive Place"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi9476201-huanggongwangyinjudi",
     "address": "地址:\n杭州市富阳市东洲街道黄公望村\n\n\n电话:\n0571-63461908\n\n\n官网:\nhttp://www.hgwly.com/",
     "description": {
@@ -1265,6 +1289,7 @@
       "zh_CN": "曲院风荷",
       "en": "Quyuan Fenghe"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi718525-quyuanfenghe",
     "address": "地址:\n杭州市西湖区北山街89号\n\n\n电话:\n0571-87977767",
     "description": {
@@ -1332,6 +1357,7 @@
       "zh_CN": "小河直街历史文化街区",
       "en": "Xiaohe Zhijie Historical and Cultural District"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi9589233-xiaohezhijielishiwenhua",
     "address": "地址:\n杭州市拱墅区小河直街51号",
     "description": {
@@ -1368,6 +1394,7 @@
       "zh_CN": "九溪十八涧",
       "en": "Nine Creeks and Eighteen Gullies"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi35198152-jiuxishibajian",
     "address": "地址:\n浙江省杭州市西湖区龙井村\n\n\n电话:\n0571-87977767",
     "description": {
@@ -1394,6 +1421,7 @@
       "zh_CN": "苏堤",
       "en": "Sudi"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi719604-sudi",
     "address": "地址:\n杭州市西湖区龙井路1号杭州西湖风景名胜区内\n\n\n电话:\n0571-87977767\n\n\n官网:\nhttps://www.toxihu.com/webn/nIndex.htm",
     "description": {
@@ -1479,6 +1507,7 @@
       "zh_CN": "钱塘江",
       "en": "Qiantang River"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7588140-qiantangjiang",
     "address": "地址:\n杭州市滨江区\n\n\n电话:\n0571-82880583",
     "description": {
@@ -1508,6 +1537,7 @@
       "zh_CN": "桐庐天子地风景区",
       "en": "Tianzidi"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7468800-tonglutianzidifengjing",
     "address": "地址:\n杭州市桐庐县罗山村罗山村境内\n\n\n电话:\n0571-64352866,0571-64352828\n\n\n官网:\nhttp://tianzidi.net/",
     "description": {
@@ -1550,6 +1580,7 @@
       "zh_CN": "南山路",
       "en": "Nanshan Road"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5475382-nanshanlu",
     "address": "地址:\n杭州市上城区柳浪闻莺旁边",
     "description": {
@@ -1611,6 +1642,7 @@
       "zh_CN": "千岛湖天屿景区",
       "en": "Tianyu Mountain Observation Deck"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi27336824-qiandaohutianyujingqu",
     "address": null,
     "description": {
@@ -1674,6 +1706,7 @@
       "zh_CN": "断桥残雪",
       "en": "Lingering Snow on the Broken Bridge"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi717247-duanqiaocanxue",
     "address": null,
     "image_url": null,
@@ -1687,6 +1720,7 @@
       "zh_CN": "花港观鱼",
       "en": "Viewing Fish at Flower Harbor"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi718192-huagangguanyu",
     "address": "地址:\n杭州市西湖区西山路5-1号\n\n\n电话:\n0571-87977767,0571-87963033",
     "description": {
@@ -1742,6 +1776,7 @@
       "zh_CN": "平湖秋月",
       "en": "Autumn moon on the calm lake (Pinghu Qiuyue)"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi719673-pinghuqiuyue",
     "address": "地址:\n杭州市西湖区孤山后山路1号\n\n\n电话:\n0571-87977767",
     "description": {
@@ -1791,6 +1826,7 @@
       "zh_CN": "白堤",
       "en": "Bai Causeway"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5116379-baidi",
     "address": "地址:\n杭州市西湖区孤山后山路1号\n\n\n电话:\n0571-87977767",
     "description": {
@@ -1852,6 +1888,7 @@
       "zh_CN": "京杭大运河杭州景区",
       "en": "The Grand Canal Hangzhou"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi711621-jinghangdayunhehangzhou",
     "address": "地址:\n浙江省杭州市拱墅区环城北路208号\n\n\n电话:\n0571-85190851",
     "description": {
@@ -1888,6 +1925,7 @@
       "zh_CN": "郭庄",
       "en": "Guo's Villa"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7468912-guozhuang",
     "address": "地址:\n杭州市西湖区杨公堤28号\n\n\n电话:\n0571-87986026,0571-87969691",
     "description": {
@@ -1948,6 +1986,7 @@
       "zh_CN": "大奇山国家森林公园",
       "en": "Daqishan National Forest Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi714946-daqishanguojiasenlingong",
     "address": "地址:\n杭州市桐庐县大奇山国家森林公园（大奇山路进口处）\n\n\n电话:\n0571-64241035,0571-64659839",
     "description": {
@@ -2006,6 +2045,7 @@
       "zh_CN": "宋城千古情",
       "en": "The Romantic Show of Songcheng"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi10068648-songchengqianguqing",
     "address": "地址:\n杭州市西湖区之江路148号\n\n\n电话:\n0571-87313101,4008888518\n\n\n官网:\nhttps://www.songcn.com/SongScenic/qing/newindex.shtml",
     "description": {
@@ -2042,6 +2082,7 @@
       "zh_CN": "上天竺法喜讲寺",
       "en": "Shangtianzhu Temple"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi8458242-shangtianzhufaxijiang",
     "address": "地址:\n杭州市西湖区天竺路338号\n\n\n电话:\n0571-87994374,0571-87986176",
     "description": {
@@ -2115,6 +2156,7 @@
       "zh_CN": "富阳龙鳞坝景区",
       "en": "Fuyang Longlinba Sceneic Area"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi32788796-fuyanglonglinbajingqu",
     "address": "地址:\n浙江省杭州市富阳区环金线与小李线交叉路口西南150米",
     "description": {
@@ -2144,6 +2186,7 @@
       "zh_CN": "南屏晚钟",
       "en": "Nanping Wanzhong Scenic Resort"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7642230-nanpingwanzhong",
     "address": "地址:\n杭州市西湖区南山路55号(净慈寺内)\n\n\n电话:\n0571-87977767,0571-87962880",
     "description": {
@@ -2216,6 +2259,7 @@
       "zh_CN": "虎跑公园",
       "en": "Hupao Park"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi717234-hupaogongyuan",
     "address": "地址:\n杭州市西湖区虎跑路47号（近钱江一桥）\n\n\n电话:\n0571-87977767",
     "description": {
@@ -2265,6 +2309,7 @@
       "zh_CN": "杭州动物园",
       "en": "Hangzhou Zoo"
     },
+    "type": "leisure",
     "link": "http://travel.qunar.com/p-oi715521-hangzhoudongwuyuan",
     "address": "地址:\n杭州市虎跑路40号\n\n\n电话:\n400-0666007,0571-87970657\n\n\n官网:\nhttp://www.hzzoo.com/",
     "description": {
@@ -2319,6 +2364,7 @@
       "zh_CN": "光明寺水库",
       "en": "Reservoir of Guangming Temple"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi35911881-guangmingsishuiku",
     "address": null,
     "description": {
@@ -2342,6 +2388,7 @@
       "zh_CN": "良渚古城遗址公园",
       "en": "Liangzhugucheng Ruins Park"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi26586554-liangzhuguchengyizhigong",
     "address": "地址:\n杭州市余杭区凤都路与104国道交叉口西北200米\n\n\n电话:\n0571-85855300",
     "description": {
@@ -2384,6 +2431,7 @@
       "zh_CN": "杭州湘湖旅游度假区",
       "en": "Xiang Lake Tourist Resort Area of Hangzhou"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi24413073-hangzhouxianghulu:you",
     "address": "地址:\n浙江省杭州市萧山区湘湖路132号\n\n\n电话:\n0571-82360666\n\n\n官网:\nhttp://www.chinaxianghu.com",
     "description": {
@@ -2429,6 +2477,7 @@
       "zh_CN": "胡雪岩故居",
       "en": "Hu Xueyan's Former Residence"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi703817-huxueyanguju",
     "address": "地址:\n杭州市上城区元宝街18号\n\n\n电话:\n0571-87977767",
     "description": {
@@ -2513,6 +2562,7 @@
       "zh_CN": "杭州植物园",
       "en": "Hangzhou Botanical Garden"
     },
+    "type": "leisure",
     "link": "http://travel.qunar.com/p-oi708478-hangzhouzhiwuyuan",
     "address": "地址:\n杭州市西湖区桃源岭1号（电子票在植物园南门或北门进入）\n\n\n电话:\n0571-87961908\n\n\n官网:\nhttp://www.hzbg.cn/",
     "description": {
@@ -2592,6 +2642,7 @@
       "zh_CN": "吴山夜市",
       "en": "Wushan Night Market"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi18700176-wushanyeshi",
     "address": "地址:\n杭州市上城区惠兴路（近邮电路）",
     "description": {
@@ -2618,6 +2669,7 @@
       "zh_CN": "杨公堤",
       "en": "Yanggong Dike"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi8678998-yanggongdi",
     "address": "地址:\n杭州市西湖区西湖以西\n\n\n电话:\n0571-87179603",
     "description": {
@@ -2654,6 +2706,7 @@
       "zh_CN": "西湖音乐喷泉",
       "en": "West Lake Music Fountain"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7527128-xihuyinlepenquan",
     "address": "地址:\n杭州市上城区湖滨路附近三公园内\n\n\n电话:\n0571-87977767",
     "description": {
@@ -2690,6 +2743,7 @@
       "zh_CN": "瑶琳仙境",
       "en": "Yaolin Fairyland"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi711203-yaolinxianjing",
     "address": "地址:\n杭州市桐庐县瑶琳镇分水江畔至南乡洞前村的骆驼山北麓\n\n\n电话:\n0571-64361937,0571-64361118",
     "description": {
@@ -2739,6 +2793,7 @@
       "zh_CN": "梅家坞",
       "en": "Meijiawu"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi3742167-meijiawu",
     "address": "地址:\n杭州市西湖区云栖路7号\n\n\n电话:\n0571-87094625",
     "description": {
@@ -2799,6 +2854,7 @@
       "zh_CN": "桂花岛（猴岛）",
       "en": "Osmanthus Island"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi8597885-guihuadao",
     "address": "地址:\n杭州市淳安县千岛湖镇东南湖区\n\n\n电话:\n0571-64831113,4008811988,0571-65022530,0571-64819333",
     "description": {
@@ -2854,6 +2910,7 @@
       "zh_CN": "严子陵钓台",
       "en": "Yan Ziling Fishing Platform"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi708174-yanzilingdiaotai",
     "address": "地址:\n浙江省杭州市桐庐县富春江镇云源路2号\n\n\n电话:\n0571-69902318,0571-64651646",
     "description": {
@@ -2909,6 +2966,7 @@
       "zh_CN": "新安江风景名胜区",
       "en": "Xin'an River Scenic Area"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi702594-xinanjiangfengjingming",
     "address": "地址:\n杭州市建德市杭新景高速公路(千岛湖风景区内)",
     "description": {
@@ -2948,6 +3006,7 @@
       "zh_CN": "乌龟潭",
       "en": "Tortoise Pond"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7528871-wuguitan",
     "address": "地址:\n杭州市西湖区杨公堤谦祠景区对岸\n\n\n电话:\n0571-87969691,0571-85726550",
     "description": {
@@ -3002,6 +3061,7 @@
     "name": {
       "zh_CN": "满觉陇"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi37204375-manjuelong",
     "address": null,
     "description": {
@@ -3025,6 +3085,7 @@
       "zh_CN": "梅城古镇",
       "en": "Meicheng Ancient Town"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi24411711-meichengguzhen",
     "address": "地址:\n浙江省建德市梅城镇",
     "description": {
@@ -3051,6 +3112,7 @@
       "zh_CN": "西塘村",
       "en": "Xitangcun"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi18702498-xitangcun",
     "address": "地址:\n杭州市余杭区西塘村",
     "description": {
@@ -3080,6 +3142,7 @@
       "zh_CN": "胜利河美食街",
       "en": "ShengLiHe MeiShiJie"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi11736155-shenglihemeishijie",
     "address": "地址:\n霞湾路与上塘高架交汇西面(通信市场对面)\n\n\n电话:\n13575718154",
     "description": {
@@ -3109,6 +3172,7 @@
       "zh_CN": "芦茨村",
       "en": "Luci Village"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi10009272-lucicun",
     "address": "地址:\n杭州市桐庐县",
     "description": {
@@ -3166,6 +3230,7 @@
       "zh_CN": "良渚博物院",
       "en": "Liangzhu Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi9477218-liangzhubowuyuan",
     "address": "地址:\n杭州市余杭区良渚街道美丽洲路1号\n\n\n电话:\n0571-88778900,0571-88773875\n\n\n官网:\nhttp://www.lzmuseum.cn/",
     "description": {
@@ -3202,6 +3267,7 @@
       "zh_CN": "青芝坞",
       "en": "Qingzhiwu"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5789863-qingzhiwu",
     "address": "地址:\n杭州市西湖区玉古路与夕阳红路的交叉口",
     "description": {
@@ -3238,6 +3304,7 @@
       "zh_CN": "梅峰岛",
       "en": "Meifeng Island"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5942833-meifengdao",
     "address": "地址:\n杭州市淳安县千岛湖镇千岛湖风景区千岛湖中心湖区内\n\n\n电话:\n400-8811-988,0571-64831113,0571-65022530",
     "description": {
@@ -3287,6 +3354,7 @@
       "zh_CN": "湘湖",
       "en": "Xiang Lake"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi708654-xianghu",
     "address": "地址:\n杭州市萧山区风情大道2758号浙江湘湖旅游度假区\n\n\n电话:\n0571-82360666\n\n\n官网:\nhttp://www.chinaxianghu.com/",
     "description": {
@@ -3356,6 +3424,7 @@
       "zh_CN": "黄山尖",
       "en": "Huangshanjian"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi721714-huangshanjian",
     "address": "地址:\n杭州市淳安县千岛湖景区黄山尖\n\n\n电话:\n400-8811-988,0571-64881959",
     "description": {
@@ -3405,6 +3474,7 @@
       "zh_CN": "千岛湖森林氧吧",
       "en": "Thousand Island Lake Forest Oxygen Bar"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi718424-qiandaohusenlinyangba",
     "address": "地址:\n杭州市淳安县千岛湖镇淡竹王子山\n\n\n电话:\n0571-64877126,0571-64832828",
     "description": {
@@ -3448,6 +3518,7 @@
       "zh_CN": "浙西大峡谷",
       "en": "West Zhejiang Grand Canyon"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi715320-zhexidaxiagu",
     "address": "地址:\n杭州市临安区龙岗镇大峡谷村\n\n\n电话:\n0571-63631745",
     "description": {
@@ -3491,6 +3562,7 @@
       "zh_CN": "大明山景区",
       "en": "Damingshan Scenic Area"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi711677-damingshanjingqu",
     "address": "地址:\n杭州市临安区清凉峰镇白果村横溪桥158号\n\n\n电话:\n4000699188\n\n\n官网:\nhttp://www.zjdms.com/",
     "description": {
@@ -3561,6 +3633,7 @@
       "zh_CN": "超山风景区",
       "en": "Chao Mountain Scenic Area"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi702291-chaoshanfengjingqu",
     "address": "地址:\n杭州市余杭区临平超山风景区\n\n\n电话:\n0571-86311228,0571-86311198,0571-86311272",
     "description": {
@@ -3604,6 +3677,7 @@
       "zh_CN": "茅家埠",
       "en": "Maojiabu Village"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7528730-maojiabu",
     "address": "地址:\n杭州市西湖区杨公堤\n\n\n电话:\n0571-87179603",
     "description": {
@@ -3633,6 +3707,7 @@
       "zh_CN": "浴鹄湾",
       "en": "Yuhu Bay"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7560585-yuhuwan",
     "address": "地址:\n杭州市西湖区三台山路赤山埠29号\n\n\n电话:\n0571-87977767,0571-87620058",
     "description": {
@@ -3675,6 +3750,7 @@
       "zh_CN": "杭州博物馆",
       "en": "Hangzhou Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7528905-hangzhoubowuguan",
     "address": "地址:\n杭州市上城区粮道山18号\n\n\n电话:\n0571-87802660,0571-87831129\n\n\n官网:\nhttp://www.hzmuseum.com/",
     "description": {
@@ -3718,6 +3794,7 @@
       "zh_CN": "新叶古村",
       "en": "Xinye Ancient Village"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi703401-xinyegucun",
     "address": "地址:\n杭州市大慈岩镇新叶村\n\n\n电话:\n0571-64169668,0571-64169678",
     "description": {
@@ -3760,6 +3837,7 @@
       "zh_CN": "飞来峰",
       "en": "Linyin Scenic Spot"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi35215614-feilaifeng",
     "address": null,
     "description": {
@@ -3790,6 +3868,7 @@
       "zh_CN": "茆坪村",
       "en": "Maopingcun"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi23343245-maopingcun",
     "address": "地址:\n杭州市桐庐县\n\n\n电话:\n0571-64661181",
     "description": {
@@ -3826,6 +3905,7 @@
       "zh_CN": "石舍村",
       "en": "Shishecun"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi23060038-shishecun",
     "address": "地址:\n杭州市桐庐县二一零省道",
     "description": {
@@ -3862,6 +3942,7 @@
       "zh_CN": "三天竺",
       "en": "Three Tianzhu Temples"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi18715596-santianzhu",
     "address": "地址:\n杭州市西湖区灵隐内\n\n\n电话:\n0571-87979832",
     "description": {
@@ -3891,6 +3972,7 @@
       "zh_CN": "芦茨湾",
       "en": "Luci Bay"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi18714919-luciwan",
     "address": "地址:\n杭州市桐庐县富春江镇芦茨村\n\n\n电话:\n0571-64668188",
     "description": {
@@ -3927,6 +4009,7 @@
       "zh_CN": "十五奎巷",
       "en": "Shiwukui Alley"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi10018203-shiwukuixiang",
     "address": "地址:\n杭州上城区十五奎巷（近中山南路）",
     "description": {
@@ -3963,6 +4046,7 @@
       "zh_CN": "云松书舍",
       "en": "Yunsong Bookstore"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi10002240-yunsongshushe",
     "address": null,
     "image_url": null,
@@ -3976,6 +4060,7 @@
       "zh_CN": "千岛湖海洋馆",
       "en": "Qiandao Lake Aquarium"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi9494296-qiandaohuhaiyangguan",
     "address": "地址:\n杭州市淳安县千岛湖秀水街中心广场B6号\n\n\n电话:\n18258437117",
     "description": {
@@ -4018,6 +4103,7 @@
       "zh_CN": "千岛湖文渊狮城度假区",
       "en": "Wenyuan Lion City Resort"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi9220749-qiandaohuwenyuanshicheng",
     "address": "地址:\n杭州市淳安县千岛湖著名风情小镇姜家镇镇中心（千岛湖大桥往汾口方向）\n\n\n电话:\n0571-58708777",
     "description": {
@@ -4047,6 +4133,7 @@
       "zh_CN": "小河直街",
       "en": "XiaoHe ZhiJie"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi8681199-xiaohezhijie",
     "address": "地址:\n杭州市拱宸桥小河路138号",
     "description": {
@@ -4076,6 +4163,7 @@
       "zh_CN": "良渚文化村",
       "en": "Liangzhu Culture Village"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi8305472-liangzhuwenhuacun",
     "address": "地址:\n杭州市余杭区玉鸟路12号\n\n\n电话:\n18868814780",
     "description": {
@@ -4125,6 +4213,7 @@
       "zh_CN": "柳浪闻莺",
       "en": "Orioles Singing in the Willows"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi721164-liulangwenying",
     "address": "地址:\n杭州市上城区南山路87号\n\n\n电话:\n0571-87977767",
     "description": {
@@ -4180,6 +4269,7 @@
       "zh_CN": "岳王庙景区",
       "en": "Yuewang Temple Scenic Area"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi702346-yuewangmiaojingqu",
     "address": "地址:\n杭州市西湖区北山路80号\n\n\n电话:\n0571-87977767,0571-87179603",
     "description": {
@@ -4241,6 +4331,7 @@
       "zh_CN": "大明山飞来峰",
       "en": "Feilaifeng Peak"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi722721-damingshanfeilaifeng",
     "address": "地址:\n杭州市临安区昌化镇清凉峰镇白果村大明山风景区内\n\n\n电话:\n0571-63709588,0571-63627888",
     "description": {
@@ -4308,6 +4399,7 @@
       "zh_CN": "六和塔",
       "en": "Liuhe Pagoda"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi711021-liuheta",
     "address": "地址:\n杭州市西湖区之江路16号\n\n\n电话:\n0571-87977767",
     "description": {
@@ -4393,6 +4485,7 @@
       "zh_CN": "吴山天风",
       "en": "Wushan Tianfeng Scenic Area"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi719686-wushantianfeng",
     "address": "地址:\n杭州市上城区城隍山吴山路3号（延安路南端）\n\n\n电话:\n0571-87035091",
     "description": {
@@ -4498,6 +4591,7 @@
       "zh_CN": "浙江大学紫金港校区",
       "en": "Zhejiang University Zijingang Campus"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi714762-zhejiangdaxuezijingang",
     "address": "地址:\n杭州市西湖区余杭塘路866号\n\n\n电话:\n0571-87951111",
     "description": {
@@ -4537,6 +4631,7 @@
       "zh_CN": "城隍阁景区",
       "en": "Chenghuang Pavilion Scenic Area"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi710213-chenghuanggejingqu",
     "address": "地址:\n杭州市上城区吴山3号（吴山广场山顶）\n\n\n电话:\n0571-87033300,0571-87922788",
     "description": {
@@ -4579,6 +4674,7 @@
       "zh_CN": "胡庆余堂中药博物馆",
       "en": "Huqingyu Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi705402-huqingyutangzhongyaobo",
     "address": "地址:\n杭州市上城区大井巷95号\n\n\n电话:\n0571-87839108,0571-87027507",
     "description": {
@@ -4608,6 +4704,7 @@
       "zh_CN": "千岛湖中心湖区",
       "en": "Thousand Island Lake, Central Lake Area"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7527074-qiandaohuzhongxinhuqu",
     "address": "地址:\n淳安县千岛湖镇梦姑路千岛湖中心湖区游船码头\n\n\n电话:\n0571-64816244,4008811988\n\n\n官网:\nhttp://www.qiandaohu.cc/sy/",
     "description": {
@@ -4662,6 +4759,7 @@
       "zh_CN": "月光岛（五龙岛）",
       "en": "Moonlight Island"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5942836-yueguangdao",
     "address": "地址:\n杭州市淳安县千岛湖中心湖区\n\n\n电话:\n0571-64816244",
     "description": {
@@ -4729,6 +4827,7 @@
       "zh_CN": "中国茶叶博物馆",
       "en": "China National Tea Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi708110-zhongguochayebowuguan",
     "address": "地址:\n杭州市西湖区龙井路双峰村\n\n\n电话:\n0571-87964221\n\n\n官网:\nhttp://www.teamuseum.cn/",
     "description": {
@@ -4765,6 +4864,7 @@
       "zh_CN": "芹川村",
       "en": "Qinchuan Village"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi720863-qinchuancun",
     "address": "地址:\n浪川乡芹川村213号2楼东北方向170米\n\n\n电话:\n0571-64826010",
     "description": {

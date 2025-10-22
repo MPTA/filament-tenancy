@@ -4,6 +4,7 @@
       "zh_CN": "上海迪士尼度假区",
       "en": "Shanghai Disney Resort"
     },
+    "type": "leisure",
     "link": "http://travel.qunar.com/p-oi7564992-shanghaidishinidujiaqu",
     "address": "\n\n地址:\n上海市浦东新区川沙新镇黄赵路310号\n\n\n电话:\n4001800000\n\n\n官网:\nhttps://www.shanghaidisneyresort.com/\n\n",
     "description": {
@@ -86,6 +87,7 @@
       "zh_CN": "外滩",
       "en": "The Bund"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi712404-waitan",
     "address": "\n\n地址:\n上海市黄浦区中山东一路（临黄浦江）\n\n",
     "description": {
@@ -154,6 +156,7 @@
       "zh_CN": "武康路",
       "en": "Wukang Road"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5740224-wukanglu",
     "address": "\n\n地址:\n上海市徐汇区武康路与湖南路交叉口\n\n",
     "description": {
@@ -193,6 +196,7 @@
       "zh_CN": "上海海洋水族馆",
       "en": "Shanghai Ocean Aquarium"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi716538-shanghaihaiyangshuizu",
     "address": "\n\n地址:\n上海市浦东新区陆家嘴环路1388号\n\n\n电话:\n021-58779988\n\n\n官网:\nhttp://www.sh-soa.com/\n\n",
     "description": {
@@ -232,6 +236,7 @@
       "zh_CN": "朱家角古镇景区",
       "en": "Zhujiajiao Ancient Town Scenic Area"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi716344-zhujiajiaoguzhenjingqu",
     "address": "\n\n地址:\n上海市青浦区朱家角镇课植园路555号\n\n\n电话:\n021-59240077\n\n\n官网:\nhttp://www.zhujiajiao.com/\n\n",
     "description": {
@@ -271,6 +276,7 @@
       "zh_CN": "上海自然博物馆",
       "en": "Shanghai Natural History Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi702212-shanghaiziranbowuguan",
     "address": "\n\n地址:\n上海市静安区北京西路510号（静安雕塑公园内）\n\n\n电话:\n021-62620116\n\n\n官网:\nhttp://www.snhm.org.cn/\n\n",
     "description": {
@@ -310,6 +316,7 @@
       "zh_CN": "东方明珠",
       "en": "Oriental Pearl Radio & Television Tower"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi709275-dongfangmingzhu",
     "address": "\n\n地址:\n上海市浦东新区陆家嘴世纪大道1号\n\n\n电话:\n021-58792888\n\n\n官网:\nhttps://www.orientalpearltower.com/\n\n",
     "description": {
@@ -380,6 +387,7 @@
       "zh_CN": "田子坊",
       "en": "Tianzifang"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi722972-tianzifang",
     "address": "\n\n地址:\n上海市黄浦区泰康路210弄\n\n\n电话:\n021-54657531\n\n",
     "description": {
@@ -432,6 +440,7 @@
       "zh_CN": "上海海昌海洋公园",
       "en": "Shanghai Haichang Ocean Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi20030793-shanghaihaichanghaiyang",
     "address": "\n\n地址:\n上海市浦东新区南汇新城镇银飞路166号\n\n\n电话:\n021-50606666,4006016699\n\n\n官网:\nhttp://www.haichangoceanpark.com/shanghai/\n\n",
     "description": {
@@ -463,6 +472,7 @@
       "zh_CN": "上海科技馆",
       "en": "Shanghai Science and Technology Museum"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi702215-shanghaikejiguan",
     "address": "\n\n地址:\n上海市浦东新区世纪大道2000号\n\n\n电话:\n8621-68622000*6888\n\n\n官网:\nhttp://www.sstm.org.cn/\n\n",
     "description": {
@@ -502,6 +512,7 @@
       "zh_CN": "上海中心大厦",
       "en": "Shanghai Tower"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi9149096-shanghaizhongxindasha",
     "address": "\n\n地址:\n浦东新区陆家嘴银城中路501号\n\n\n电话:\n021-61999766\n\n\n官网:\nhttp://www.shanghaitower.com.cn/\n\n",
     "description": {
@@ -554,6 +565,7 @@
       "zh_CN": "上海博物馆",
       "en": "Shanghai Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi716265-shanghaibowuguan",
     "address": "\n\n地址:\n黄浦区人民大道201号\n\n\n电话:\n021-63723500\n\n\n官网:\nhttps://www.shanghaimuseum.net/\n\n",
     "description": {
@@ -618,6 +630,7 @@
       "zh_CN": "豫园",
       "en": "Yu Garden"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi711011-yuyuan",
     "address": "\n\n地址:\n上海市黄浦区福佑路168号\n\n\n电话:\n021-63260830\n\n\n官网:\nhttp://www.yugarden.com.cn/\n\n",
     "description": {
@@ -694,6 +707,7 @@
       "zh_CN": "上海野生动物园",
       "en": "Shanghai Wild Animal Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi716525-shanghaiyeshengdongwu",
     "address": "\n\n地址:\n上海市浦东新区南六公路178号\n\n\n电话:\n021-58036000\n\n\n官网:\nhttps://www.shwzoo.com/\n\n",
     "description": {
@@ -752,6 +766,7 @@
       "zh_CN": "顾村公园",
       "en": "Gucun Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7469066-gucungongyuan",
     "address": "\n\n地址:\n上海市宝山区顾村镇沪太路4788号环岛路1号(近沪太路)\n\n\n电话:\n021-56045199,021-36621019,021-56045098\n\n\n官网:\nhttp://www.gucunpark.net/\n\n",
     "description": {
@@ -791,6 +806,7 @@
       "zh_CN": "上海环球金融中心",
       "en": "Shanghai World Financial Center"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi710832-shanghaihuanqiujinrong",
     "address": "\n\n地址:\n上海市浦东新区陆家嘴世纪大道100号\n\n\n电话:\n4001-100555,021-38672008\n\n\n官网:\nhttp://www.swfc-shanghai.com/\n\n",
     "description": {
@@ -830,6 +846,7 @@
       "zh_CN": "上海城隍庙道观",
       "en": "City God Temple of Shanghai"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi708030-shanghaichenghuangmiao",
     "address": "\n\n地址:\n上海市黄浦区方浜中路249号\n\n\n电话:\n021-63284494\n\n",
     "description": {
@@ -869,6 +886,7 @@
       "zh_CN": "上海辰山植物园",
       "en": "Shanghai Chenshan Botanical Garden"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5475534-shanghaichenshanzhiwu",
     "address": "\n\n地址:\n上海市松江区辰花公路3888号\n\n\n电话:\n021-37792288-800\n\n\n官网:\nhttp://www.csnbgsh.cn\n\n",
     "description": {
@@ -906,6 +924,7 @@
       "zh_CN": "龙美术馆西岸馆",
       "en": "Long Museum (West Bund)"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7481874-longmeishuguanxianguan",
     "address": "\n\n地址:\n上海市徐汇区龙腾大道3398号（近瑞宁路）\n\n\n电话:\n021-64227636\n\n",
     "description": {
@@ -937,6 +956,7 @@
       "zh_CN": "横沙岛",
       "en": "Hengsha Island"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi708751-hengshadao",
     "address": "\n\n地址:\n上海市崇明区\n\n\n电话:\n021-56894877\n\n",
     "description": {
@@ -974,6 +994,7 @@
       "zh_CN": "南京路步行街",
       "en": "Nanjing Road Pedestrian Street"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi18700129-nanjinglubuxingjie",
     "address": "\n\n地址:\n上海市黄浦区河南中路\n\n\n电话:\n021-51099782\n\n",
     "description": {
@@ -1013,6 +1034,7 @@
       "zh_CN": "陕西南路",
       "en": "Shaanxi South Road"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi10011287-shanxinanlu",
     "address": "\n\n地址:\n上海市静安区陕西南路\n\n",
     "description": {
@@ -1044,6 +1066,7 @@
       "zh_CN": "静安寺",
       "en": "Jing'an Temple"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi703906-jingansi",
     "address": "\n\n地址:\n上海市静安区南京西路1686号\n\n\n电话:\n021-62566366\n\n\n官网:\nhttp://www.shjas.org/\n\n",
     "description": {
@@ -1083,6 +1106,7 @@
       "zh_CN": "1933老场坊1933",
       "en": "Old Millfun"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi3710932-1933laochangfang",
     "address": "\n\n地址:\n虹口区溧阳路611号\n\n\n电话:\n021-68881933,4008881933\n\n",
     "description": {
@@ -1122,6 +1146,7 @@
       "zh_CN": "泰晤士小镇",
       "en": "Thames Town"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi5475551-taiwushixiaozhen",
     "address": "\n\n地址:\n上海市松江区三新北路900弄230号\n\n\n电话:\n021-67734074,021-37786665,021-37721222\n\n",
     "description": {
@@ -1161,6 +1186,7 @@
       "zh_CN": "上海之巅观光厅",
       "en": "Top of Shanghai Observatory"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi10071115-shanghaizhidianguanguang",
     "address": "\n\n地址:\n上海市浦东新区银城中路501号近东泰路（上海中心大厦内）\n\n\n电话:\n021-61999766\n\n\n官网:\nhttp://www.shanghaitower.com.cn/\n\n",
     "description": {
@@ -1192,6 +1218,7 @@
       "zh_CN": "七宝老街",
       "en": "Qibao Old Street"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi9778756-qibaolaojie",
     "address": "\n\n地址:\n上海市闵行区南大街14号\n\n\n电话:\n021-34101300,021-64615308,021-64610016\n\n",
     "description": null,
@@ -1229,6 +1256,7 @@
       "zh_CN": "思南路",
       "en": "Sinan Road"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi5740222-sinanlu",
     "address": "\n\n地址:\n上海市黄浦区\n\n",
     "description": {
@@ -1268,6 +1296,7 @@
       "zh_CN": "陆家嘴",
       "en": "Lujiazui"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi7481664-lujiazui",
     "address": "\n\n地址:\n上海市浦东新区\n\n\n电话:\n021-64406138,021-58875487\n\n",
     "description": {
@@ -1307,6 +1336,7 @@
       "zh_CN": "枫泾古镇",
       "en": "Fengjing Ancient Town"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi705785-fengjingguzhen",
     "address": "\n\n地址:\n金山区枫泾镇亭枫公路8588弄28号\n\n\n电话:\n021-57355555\n\n\n官网:\nhttp://www.shfj.cn/html/\n\n",
     "description": {
@@ -1346,6 +1376,7 @@
       "zh_CN": "淀山湖大道风景区",
       "en": "Dianshanhu Dadao Sceneic Area"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi10077184-dianshanhudadaofengjing",
     "address": "\n\n地址:\n上海市青浦区淀山湖大道与珠湖路交叉口东100米\n\n",
     "description": {
@@ -1377,6 +1408,7 @@
       "zh_CN": "长兴岛",
       "en": "Changxing Island"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi710448-zhangxingdao",
     "address": "\n\n地址:\n上海市崇明区吴淞口外\n\n\n电话:\n021-62776262\n\n",
     "description": {
@@ -1414,6 +1446,7 @@
       "zh_CN": "老上海风情街",
       "en": "Laoshanghai 1930 Fengqing Street"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi10007865-laoshanghai1930fengqing",
     "address": "\n\n地址:\n上海市黄浦区人民大道100号城市规划展示馆B1楼（近西藏中路）\n\n\n电话:\n021-63725116\n\n",
     "description": {
@@ -1445,6 +1478,7 @@
       "zh_CN": "迪士尼小镇",
       "en": "Disneytown"
     },
+    "type": "leisure",
     "link": "http://travel.qunar.com/p-oi9209339-dishinixiaozhen",
     "address": "\n\n地址:\n上海市浦东新区川沙镇黄赵路310号上海迪士尼度假区\n\n\n电话:\n400-180-0000,021-20998001\n\n\n官网:\nhttps://www.shanghaidisneyresort.com/destinations/disneytown/\n\n",
     "description": {
@@ -1476,6 +1510,7 @@
       "zh_CN": "上海老街",
       "en": "Shanghai Old Street"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi702956-shanghailaojie",
     "address": "\n\n地址:\n上海市黄浦区方浜中路249号\n\n\n电话:\n021-53063059,021-63281796\n\n",
     "description": {
@@ -1515,6 +1550,7 @@
       "zh_CN": "广富林文化遗址",
       "en": "Guangfulin Relics Park"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi10012279-guangfulinwenhuayizhi",
     "address": "\n\n地址:\n上海市松江区广富林路3260弄\n\n\n电话:\n021-57800000\n\n\n官网:\nhttp://www.gflpark.com/\n\n",
     "description": {
@@ -1546,6 +1582,7 @@
       "zh_CN": "城隍庙旅游区",
       "en": "Shanghai City God Temple Tourist Area"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi10011925-chenghuangmiaolu:youqu",
     "address": "\n\n地址:\n上海市黄浦区方浜中路249号\n\n\n电话:\n021-63284494\n\n",
     "description": {
@@ -1577,6 +1614,7 @@
       "zh_CN": "吴江路",
       "en": "Wujiang Road"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi706526-wujianglu",
     "address": "\n\n地址:\n上海市静安区吴江路（靠近石门一路）\n\n",
     "description": {
@@ -1608,6 +1646,7 @@
       "zh_CN": "静安雕塑公园",
       "en": "Jing'an Sculpture Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi8457813-jingandiaosugongyuan",
     "address": "\n\n地址:\n上海市静安区石门二路128号(近北京西路)\n\n\n电话:\n021-52289562,(021)52289562\n\n",
     "description": {
@@ -1639,6 +1678,7 @@
       "zh_CN": "上海影视乐园",
       "en": "Shanghai Film Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi709914-shanghaiyingshileyuan",
     "address": "\n\n地址:\n上海市松江区车墩镇影佳路366号\n\n\n电话:\n021-57600061\n\n\n官网:\nhttp://www.shfilmpark.com/\n\n",
     "description": {
@@ -1676,6 +1716,7 @@
       "zh_CN": "黄浦江",
       "en": "Huangpu River"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi10066237-huangpujiang",
     "address": "\n\n地址:\n黄浦区\n\n\n电话:\n021-63500493\n\n",
     "description": {
@@ -1707,6 +1748,7 @@
       "zh_CN": "豫园星空梦幻馆",
       "en": "Yuyuan Fantasy Starry Pavilion"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi29461554-yuyuanxingkongmenghuan",
     "address": "\n\n地址:\n上海市黄浦区丽水路81号B1-2（近丽水路）\n\n\n电话:\n13122658850,17521115025\n\n",
     "description": {
@@ -1738,6 +1780,7 @@
       "zh_CN": "人民广场",
       "en": "People's Square"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi704158-renminguangchang",
     "address": "\n\n地址:\n黄浦区人民大道120号\n\n",
     "description": {
@@ -1777,6 +1820,7 @@
       "zh_CN": "大宁灵石公园",
       "en": "Daning Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7481870-daninglingshigongyuan",
     "address": "\n\n地址:\n上海市静安区广中西路288号\n\n\n电话:\n021-66521776,021-56653804\n\n",
     "description": null,
@@ -1812,6 +1856,7 @@
       "zh_CN": "广富林遗址文化公园",
       "en": "Guangfulin Heritage Cultural Park"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7475130-guangfulinyizhiwenhua",
     "address": "\n\n地址:\n上海市松江区方松街道广富林村村北\n\n",
     "description": {
@@ -1849,6 +1894,7 @@
       "zh_CN": "上海共青森林公园",
       "en": "Gongqing National Forest Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi705830-shanghaigongqingsenlin",
     "address": "\n\n地址:\n上海市杨浦区军工路2000号\n\n\n电话:\n021-65328194,021-65740586\n\n\n官网:\nhttp://www.shgqsl.com/\n\n",
     "description": {
@@ -1886,6 +1932,7 @@
       "zh_CN": "杨浦滨江",
       "en": "Yangpu Riverside District"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi27350201-yangpubinjiang",
     "address": null,
     "description": {
@@ -1913,6 +1960,7 @@
       "zh_CN": "新天地",
       "en": "Xintiandi"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi10011924-xintiandi",
     "address": "\n\n地址:\n上海市黄浦区马当路119号\n\n\n电话:\n021-63112288\n\n",
     "description": {
@@ -1952,6 +2000,7 @@
       "zh_CN": "奉贤渔人码头",
       "en": "Fisherman's Wharf"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi10011300-fengxianyurenmatou",
     "address": "\n\n地址:\n上海市奉贤区海湾镇海鸥路8号（近海湾路）\n\n\n电话:\n021-57121819\n\n",
     "description": {
@@ -1983,6 +2032,7 @@
       "zh_CN": "金茂大厦88层观光厅",
       "en": "Jinmao Tower Observation Deck"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi9789450-jinmaodasha88cengguan",
     "address": "\n\n地址:\n上海市浦东新区世纪大道88号金茂大厦88层\n\n\n电话:\n021-50475101,021-50475001\n\n",
     "description": {
@@ -2014,6 +2064,7 @@
       "zh_CN": "甜爱路",
       "en": "Tian'ai Road"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5475557-tianailu",
     "address": "\n\n地址:\n上海市虹口区甜爱路\n\n\n电话:\n021-62189993\n\n",
     "description": {
@@ -2053,6 +2104,7 @@
       "zh_CN": "上海动物园",
       "en": "Shanghai Zoo"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi704220-shanghaidongwuyuan",
     "address": "\n\n地址:\n上海市长宁区虹桥路2381号\n\n\n电话:\n021-62689733,021-62687775\n\n\n官网:\nhttp://www.shanghaizoo.cn/\n\n",
     "description": {
@@ -2092,6 +2144,7 @@
       "zh_CN": "复旦大学",
       "en": "Fudan University"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7481649-fudandaxue",
     "address": "\n\n地址:\n上海市杨浦区五角场街道邯郸路220号\n\n\n电话:\n021-65642222\n\n",
     "description": {
@@ -2131,6 +2184,7 @@
       "zh_CN": "南翔古镇",
       "en": "Nanxiang Ancient Town"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi704127-nanxiangguzhen",
     "address": "\n\n地址:\n上海市嘉定区南翔镇人民街48号\n\n\n电话:\n021-59125503,021-59121535\n\n",
     "description": {
@@ -2170,6 +2224,7 @@
       "zh_CN": "中华艺术宫",
       "en": "China Art Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7481732-zhonghuayishugong",
     "address": "\n\n地址:\n上海市浦东新区上南路205号近国展路\n\n\n电话:\n4009219021,021-20202010,021-20252018\n\n",
     "description": {
@@ -2209,6 +2264,7 @@
       "zh_CN": "东滩湿地公园",
       "en": "Dongtan Wetland Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi702646-dongtanshidigongyuan",
     "address": "\n\n地址:\n上海市崇明东滩东旺路（风车处）\n\n\n电话:\n021-39367000\n\n",
     "description": {
@@ -2248,6 +2304,7 @@
       "zh_CN": "上海汽车博物馆",
       "en": "Shanghai Automobile Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi712879-shanghaiqichebowuguan",
     "address": "\n\n地址:\n上海市嘉定区博园路7565号\n\n\n电话:\n021-69550055\n\n\n官网:\nhttp://www.shautomuseum.com/\n\n",
     "description": {
@@ -2279,6 +2336,7 @@
       "zh_CN": "滴水湖",
       "en": "Dishui Lake"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7587279-dishuihu",
     "address": null,
     "description": null,
@@ -2298,6 +2356,7 @@
       "zh_CN": "东平国家森林公园",
       "en": "Dongping National Forest Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi715570-dongpingguojiasenlingong",
     "address": "\n\n地址:\n崇明县北沿公路2188号\n\n\n电话:\n021-59338333,021-59338028\n\n",
     "description": {
@@ -2335,6 +2394,7 @@
       "zh_CN": "淀山湖风景区",
       "en": "Dianshan Lake Scenic Spot"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi707403-dianshanhufengjingqu",
     "address": "\n\n地址:\n上海市青浦区金商公路\n\n",
     "description": {
@@ -2366,6 +2426,7 @@
       "zh_CN": "步高里",
       "en": "Bugaoli Scenic Resort"
     },
+    "type": "leisure",
     "link": "http://travel.qunar.com/p-oi7628129-bugaoli",
     "address": "\n\n地址:\n上海市卢湾区陕西南路287弄\n\n\n电话:\n021-80187829\n\n",
     "description": {
@@ -2397,6 +2458,7 @@
       "zh_CN": "上海天文馆",
       "en": "Shanghai Planetarium"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi35198621-shanghaitianwenguan",
     "address": "\n\n地址:\n上海市浦东新区南汇新城镇临港大道380号\n\n\n电话:\n021-50908563\n\n",
     "description": {
@@ -2428,6 +2490,7 @@
       "zh_CN": "德莱蒙德住宅",
       "en": "Drummond Residence"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi32788081-delaimengdezhuzhai",
     "address": null,
     "description": null,
@@ -2449,6 +2512,7 @@
       "zh_CN": "中新泾公园",
       "en": "Zhongxinjing Park"
     },
+    "type": "leisure",
     "link": "http://travel.qunar.com/p-oi32345830-zhongxinjinggongyuan",
     "address": "\n\n地址:\n淞虹路与哈密路交汇口\n\n",
     "description": {
@@ -2480,6 +2544,7 @@
       "zh_CN": "青西郊野公园",
       "en": "Qingxi Country Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi9598891-qingxijiaoyegongyuan",
     "address": "\n\n地址:\n上海市青浦区金泽镇紫莲路500号\n\n\n电话:\n021-69835188\n\n",
     "description": {
@@ -2505,6 +2570,7 @@
       "zh_CN": "田子坊石库门",
       "en": "Shikumen"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi716890-tianzifangshikumen",
     "address": "\n\n地址:\n上海市黄浦区绍兴路96弄\n\n",
     "description": {
@@ -2544,6 +2610,7 @@
       "zh_CN": "世纪公园",
       "en": "Century Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi713908-shijigongyuan",
     "address": "\n\n地址:\n浦东新区锦绣路1001号\n\n\n电话:\n021-38760588,021-58333983\n\n",
     "description": {
@@ -2583,6 +2650,7 @@
       "zh_CN": "上海植物园",
       "en": "Shanghai Botanical Garden"
     },
+    "type": "leisure",
     "link": "http://travel.qunar.com/p-oi716105-shanghaizhiwuyuan",
     "address": "\n\n地址:\n上海市龙吴路1111号\n\n\n电话:\n021-54363369\n\n\n官网:\nhttp://www.shbg.org/\n\n",
     "description": {
@@ -2622,6 +2690,7 @@
       "zh_CN": "中国共产党第一次全国代表大会会址",
       "en": "The site of the first CPC National Congress"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi706091-zhongguogongchandangdi",
     "address": "\n\n地址:\n上海市黄浦区兴业路76号\n\n\n电话:\n021-53832171\n\n\n官网:\nhttp://www.zgyd1921.com/\n\n",
     "description": {
@@ -2661,6 +2730,7 @@
       "zh_CN": "上海马戏城",
       "en": "Shanghai Circus World"
     },
+    "type": "events",
     "link": "http://travel.qunar.com/p-oi713934-shanghaimaxicheng",
     "address": "\n\n地址:\n静安区共和新路2266号\n\n\n电话:\n400-011-2797,021-66527750\n\n\n官网:\nhttps://www.shanghaimaxicheng.com/\n\n",
     "description": {
@@ -2692,6 +2762,7 @@
       "zh_CN": "上海滨江森林公园",
       "en": "Binjiang Forest Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi704937-shanghaibinjiangsenlin",
     "address": "\n\n地址:\n上海市浦东新区最北端高桥镇三岔港\n\n\n电话:\n021-58644791\n\n\n官网:\nhttp://www.bjfp.sh.cn/\n\n",
     "description": {
@@ -2731,6 +2802,7 @@
       "zh_CN": "上海犹太难民纪念馆",
       "en": "Shanghai Jewish Refugees Museum"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7646865-shanghaiyoutainanminji",
     "address": "\n\n地址:\n上海市虹口区长阳路62号\n\n\n电话:\n021-55133186\n\n\n官网:\nhttp://www.shhkjrm.com/\n\n",
     "description": {
@@ -2764,6 +2836,7 @@
       "zh_CN": "东方绿舟景区",
       "en": "Oriental Land"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi711098-dongfanglu:zhoujingqu",
     "address": "\n\n地址:\n上海市青浦区沪青平公路6888号东方绿舟\n\n\n电话:\n021-59233000,021-59233222\n\n\n官网:\nhttp://www.ogb.com.cn/\n\n",
     "description": {
@@ -2801,6 +2874,7 @@
       "zh_CN": "太阳岛旅游度假区",
       "en": "Sun Island"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi703850-taiyangdaolu:youdujia",
     "address": "\n\n地址:\n上海市青浦区朱家角镇沈巷沈太路2588号\n\n\n电话:\n021-61869688,021-61869666\n\n",
     "description": {
@@ -2840,6 +2914,7 @@
       "zh_CN": "上海当代艺术博物馆",
       "en": "Power Station of Art"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7481788-shanghaidangdaiyishubo",
     "address": "\n\n地址:\n上海市黄浦区苗江路678号\n\n\n电话:\n021-31108550\n\n",
     "description": {
@@ -2871,6 +2946,7 @@
       "zh_CN": "海上花岛生态度假村",
       "en": "Qianwei Ecological Village"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi712749-haishanghuadaoshengtai",
     "address": "\n\n地址:\n竖新镇前卫村801号\n\n\n电话:\n021-59649261\n\n",
     "description": {
@@ -2908,6 +2984,7 @@
       "zh_CN": "上海星空艺术馆",
       "en": "Shanghaixingkong Art Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi29462583-shanghaixingkongyishu",
     "address": "\n\n地址:\n上海市黄浦区南京东路353号悦荟广场三楼\n\n",
     "description": {
@@ -2939,6 +3016,7 @@
       "zh_CN": "广富林郊野公园",
       "en": "Guangfulin Jiaoye Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi26577267-guangfulinjiaoyegongyuan",
     "address": "\n\n地址:\n上海市松江区辰塔路3488号\n\n\n电话:\n021-67890000\n\n",
     "description": {
@@ -2970,6 +3048,7 @@
       "zh_CN": "1192弄老上海风情街1192",
       "en": "Nong Laoshanghai Fengqing Street"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi23884270-1192nonglaoshanghaifeng",
     "address": "\n\n地址:\n上海市浦东新区世纪大道1192号世纪汇广场LG2\n\n\n电话:\n021-58202558,021-68598881,021-68598828\n\n",
     "description": {
@@ -3001,6 +3080,7 @@
       "zh_CN": "花开海上生态园",
       "en": "Huakai Haishang Ecological Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi18718663-huakaihaishangshengtai",
     "address": "\n\n地址:\n上海市金山区朱泾镇待泾村秀泾六组6060号\n\n\n电话:\n021-57320668\n\n",
     "description": {
@@ -3032,6 +3112,7 @@
       "zh_CN": "肇周路",
       "en": "Zhaozhou Road"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi18717072-zhaozhoulu",
     "address": null,
     "description": null,
@@ -3051,6 +3132,7 @@
       "zh_CN": "南翔老街",
       "en": "Nanxiang Old Street"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi10076617-nanxianglaojie",
     "address": "\n\n地址:\n南翔镇混堂弄5号檀园(南翔老街内)\n\n\n电话:\n021-59125503\n\n",
     "description": {
@@ -3082,6 +3164,7 @@
       "zh_CN": "上海薰衣草公园",
       "en": "Momchilovtsi Herb Garden"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi10069476-shanghaixunyicaogongyuan",
     "address": "\n\n地址:\n上海市浦东新区上海国际旅游度假区申迪东路399弄187号香草园\n\n\n电话:\n4001859911\n\n",
     "description": {
@@ -3113,6 +3196,7 @@
       "zh_CN": "乍浦路桥",
       "en": "Zhapulu Bridge"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi9479973-zhapuluqiao",
     "address": "\n\n地址:\n乍浦路(横跨苏州河)靠近圆明园步行街(南苏州路与北苏州路)\n\n",
     "description": {
@@ -3142,6 +3226,7 @@
       "zh_CN": "黄兴公园",
       "en": "Huangxing Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi9155308-huangxinggongyuan",
     "address": "\n\n地址:\n上海市杨浦区营口路639号\n\n\n电话:\n021-65383091,021-65512506\n\n",
     "description": {
@@ -3173,6 +3258,7 @@
       "zh_CN": "沙美大楼",
       "en": "Shamei Mansion"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi10077419-shameidalou",
     "address": null,
     "description": {
@@ -3202,6 +3288,7 @@
       "zh_CN": "闵行体育公园",
       "en": "Minhang Sports Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi8604558-minxingtiyugongyuan",
     "address": "\n\n地址:\n上海市闵行区新镇路456号\n\n\n电话:\n021-54823272,021-64612503\n\n",
     "description": {
@@ -3233,6 +3320,7 @@
       "zh_CN": "外白渡桥",
       "en": "Garden Bridge"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi5740177-waibaiduqiao",
     "address": "\n\n地址:\n上海市黄浦区北苏州路111\n\n",
     "description": {
@@ -3272,6 +3360,7 @@
       "zh_CN": "多伦路文化名人街",
       "en": "Duolun Road Cultural Street"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi710405-duolunluwenhuamingren",
     "address": "\n\n地址:\n上海市虹口区多伦路（东江湾路至四川北路）\n\n\n电话:\n021-56668801\n\n",
     "description": {
@@ -3311,6 +3400,7 @@
       "zh_CN": "七宝古镇",
       "en": "Qibao Ancient Town"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi706140-qibaoguzhen",
     "address": "\n\n地址:\n上海市闵行区青年路与横沥路路口\n\n\n电话:\n021-64610016,021-64615308\n\n",
     "description": {
@@ -3350,6 +3440,7 @@
       "zh_CN": "黄浦江观光区",
       "en": "Huangpu River"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi705184-huangpujiangguanguang",
     "address": "\n\n地址:\n中国上海黄浦区中山东二路153号，219-239号\n\n\n电话:\n021-63500493\n\n",
     "description": {
@@ -3389,6 +3480,7 @@
       "zh_CN": "马勒别墅",
       "en": "Hengshan Moller Villa Hotel"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi702096-malebieshu",
     "address": "\n\n地址:\n静安区陕西南路30号(近延安路高架)\n\n\n电话:\n021-62478881\n\n",
     "description": {
@@ -3428,6 +3520,7 @@
       "zh_CN": "上海展览中心",
       "en": "Shanghai Exhibition Center"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi704185-shanghaizhanlanzhongxin",
     "address": "\n\n地址:\n延安中路1000号(近铜仁路)\n\n\n电话:\n021-62475328\n\n\n官网:\nhttp://www.sheccs.com/\n\n",
     "description": {
@@ -3465,6 +3558,7 @@
       "zh_CN": "南浦大桥",
       "en": "Nanpu Bridge"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi715628-nanpudaqiao",
     "address": "\n\n地址:\n上海市黄浦区\n\n\n电话:\n021-33765779\n\n",
     "description": {
@@ -3496,6 +3590,7 @@
       "zh_CN": "圣母大堂",
       "en": "Notre Dame Church"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi706550-shengmudatang",
     "address": null,
     "description": null,
@@ -3515,6 +3610,7 @@
       "zh_CN": "中山公园",
       "en": "Zhongshan Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi715463-zhongshangongyuan",
     "address": "\n\n地址:\n上海市长宁区长宁路780号\n\n\n电话:\n021-62117994,021-62525225\n\n",
     "description": {
@@ -3546,6 +3642,7 @@
       "zh_CN": "周公馆",
       "en": "Former Residence of Zhou Enlai in Shanghai"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi706279-zhougongguan",
     "address": "\n\n地址:\n上海市黄浦区思南路73号\n\n\n电话:\n021-64730420\n\n",
     "description": {
@@ -3577,6 +3674,7 @@
       "zh_CN": "古猗园",
       "en": "Guyi Garden"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi704241-guyiyuan",
     "address": "\n\n地址:\n上海市沪宜公路218号\n\n\n电话:\n021-59124916,021-61371253\n\n\n官网:\nhttp://www.guyigarden.com/\n\n",
     "description": {
@@ -3616,6 +3714,7 @@
       "zh_CN": "上海长风海洋世界",
       "en": "Changfeng Ocean World"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi708035-shanghaizhangfenghaiyang",
     "address": "\n\n地址:\n普陀区大渡河路451号（长风公园4号门）\n\n\n电话:\n4000-988-966\n\n\n官网:\nhttps://www.oceanworld.com.cn/\n\n",
     "description": {
@@ -3647,6 +3746,7 @@
       "zh_CN": "上海市历史博物馆",
       "en": "Shanghai History Museum (People's Square)"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi716231-shanghaishilishibowuguan",
     "address": "\n\n地址:\n上海市黄浦区南京西路325号\n\n\n电话:\n021-23299999\n\n",
     "description": {

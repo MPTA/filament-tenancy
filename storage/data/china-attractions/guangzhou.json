@@ -4,6 +4,7 @@
       "zh_CN": "长隆野生动物世界",
       "en": "Chimelong Safari Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi715300-zhanglongyeshengdongwu",
     "address": "\n\n地址:\n广州市番禺区大石镇105国道大石段593号\n\n\n电话:\n400-883-0083\n\n\n官网:\nhttps://www.chimelong.com/gz/safaripark/\n\n",
     "description": {
@@ -62,6 +63,7 @@
       "zh_CN": "广州塔",
       "en": "Canton Tower"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi5740179-guangzhouta",
     "address": "\n\n地址:\n广州市海珠区阅江西路222号\n\n\n电话:\n020-89338222\n\n\n官网:\nhttp://www.cantontower.com/\n\n",
     "description": {
@@ -120,6 +122,7 @@
       "zh_CN": "沙面",
       "en": "Shamian Island"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi713565-shamian",
     "address": "\n\n地址:\n广州市荔湾区沙面\n\n\n电话:\n020-81217557\n\n",
     "description": {
@@ -170,6 +173,7 @@
       "zh_CN": "北京路步行街",
       "en": "Beijing Road Pedestrian Street"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi18700077-beijinglubuxingjie",
     "address": "\n\n地址:\n广州市越秀区北京路\n\n\n电话:\n020-83195442\n\n",
     "description": {
@@ -201,6 +205,7 @@
       "zh_CN": "千泷沟大瀑布",
       "en": "Qianlonggou Waterfall"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi8681453-qianlonggoudapubu",
     "address": "\n\n地址:\n广州市从化良口镇锦村毛坪队19号\n\n\n电话:\n020-87898999\n\n",
     "description": {
@@ -232,6 +237,7 @@
       "zh_CN": "陈家祠",
       "en": "Chen Clan Ancestral Hall"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi715026-chenjiaci",
     "address": "\n\n地址:\n广州市荔湾区中山七路恩龙里34号\n\n\n电话:\n020-81814559,020-81817371\n\n",
     "description": {
@@ -282,6 +288,7 @@
       "zh_CN": "长隆欢乐世界",
       "en": "Chimelong Paradise"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi714225-zhanglonghuanleshijie",
     "address": "\n\n地址:\n广州市番禺区汉溪大道东299号\n\n\n电话:\n4008-830083\n\n\n官网:\nhttps://www.chimelong.com/gz/chimelongparadise/?from=global\n\n",
     "description": {
@@ -340,6 +347,7 @@
       "zh_CN": "珠江新城",
       "en": "New Urban Zhujiang"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi10020366-zhujiangxincheng",
     "address": "\n\n地址:\n广州市天河区冼村路花城广场东侧约110米\n\n\n电话:\n020-88832314\n\n",
     "description": {
@@ -371,6 +379,7 @@
       "zh_CN": "宝墨园",
       "en": "Baomo Garden"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi704760-baomoyuan",
     "address": "\n\n地址:\n广州市番禺区沙湾镇紫坭村大川岗\n\n\n电话:\n020-84746666,020-84747238\n\n\n官网:\nhttp://www.baomogarden.net/\n\n",
     "description": {
@@ -402,6 +411,7 @@
       "zh_CN": "南沙天后宫",
       "en": "Nansha Tianhou Palace"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi707582-nanshatianhougong",
     "address": "\n\n地址:\n广州市南沙区大角山东南麓\n\n\n电话:\n020-84981223,020-39915555\n\n\n官网:\nhttp://www.gznsthg.com/\n\n",
     "description": {
@@ -433,6 +443,7 @@
       "zh_CN": "滨海公园",
       "en": "Binhai Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi23344115-binhaigongyuan",
     "address": null,
     "description": {
@@ -462,6 +473,7 @@
       "zh_CN": "洲头咀公园",
       "en": "Zhoutouju Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi9476246-zhoutoujugongyuan",
     "address": "\n\n地址:\n滨江西路\n\n",
     "description": {
@@ -493,6 +505,7 @@
       "zh_CN": "上下九步行街",
       "en": "Shangxiajiu Pedestrian Street"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi18700133-shangxiajiubuxingjie",
     "address": "\n\n地址:\n广州市荔湾区下九路6号\n\n\n电话:\n020-81711235\n\n",
     "description": {
@@ -524,6 +537,7 @@
       "zh_CN": "曼古园",
       "en": "Bangkok Garden"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi9203015-manguyuan",
     "address": "\n\n地址:\n广州市花都区平步大道西大观园路5号（花都珠宝小镇内）\n\n\n电话:\n020-28618688\n\n",
     "description": {
@@ -555,6 +569,7 @@
       "zh_CN": "海珠国家湿地公园",
       "en": "Haizhu Wetland"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi9015176-haizhuguojiashidigong",
     "address": "\n\n地址:\n广东省广州市海珠区新滘中路168号\n\n\n电话:\n020-89638189,020-89638182\n\n\n官网:\nhttp://www.ehaizhu.com/\n\n",
     "description": {
@@ -588,6 +603,7 @@
       "zh_CN": "广东省博物馆",
       "en": "Guangdong Provincial Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi715251-guangdongshengbowuguan",
     "address": "\n\n地址:\n广州市天河区珠江新城珠江东路2号\n\n\n电话:\n020-38046886\n\n\n官网:\nhttp://www.gdmuseum.com/\n\n",
     "description": {
@@ -640,6 +656,7 @@
       "zh_CN": "云台花园",
       "en": "Yuntai Garden"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi702289-yuntaihuayuan",
     "address": "\n\n地址:\n广州市白云区广园中路801号\n\n\n电话:\n020-37222222,020-66612888\n\n",
     "description": {
@@ -673,6 +690,7 @@
       "zh_CN": "长洲岛",
       "en": "Changzhou Island"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi9477089-zhangzhoudao",
     "address": null,
     "description": null,
@@ -692,6 +710,7 @@
       "zh_CN": "广州大佛寺",
       "en": "Guangzhou Big Buddha Temple"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi8684309-guangzhoudafosi",
     "address": "\n\n地址:\n广州市越秀区惠新中街21号\n\n\n电话:\n020-83335678,020-83393455,020-83397916\n\n",
     "description": {
@@ -725,6 +744,7 @@
       "zh_CN": "白水寨风景名胜区",
       "en": "Baishuizhai Scenic Area"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi704168-baishuizhaifengjingming",
     "address": "\n\n地址:\n广州市增城区派潭镇白水寨风景名胜区\n\n\n电话:\n020-82820098\n\n",
     "description": {
@@ -758,6 +778,7 @@
       "zh_CN": "大夫山森林公园",
       "en": "Dafu Mountain Forest Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi701761-dafushansenlingongyuan",
     "address": "\n\n地址:\n广州市番禺区禺山西路668号\n\n\n电话:\n020-84801183\n\n",
     "description": {
@@ -789,6 +810,7 @@
       "zh_CN": "海鸥岛",
       "en": "Gull Island"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi9476320-haioudao",
     "address": null,
     "description": null,
@@ -808,6 +830,7 @@
       "zh_CN": "白云山",
       "en": "Baiyun Mountain"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi715170-baiyunshan",
     "address": "\n\n地址:\n广州市白云区广园中路白云山景区\n\n\n电话:\n020-37222222\n\n\n官网:\nhttp://www.baiyunshan.com.cn/\n\n",
     "description": {
@@ -860,6 +883,7 @@
       "zh_CN": "中国科学院华南国家植物园",
       "en": "Chinese Academy of Sciences Huanan Botanical Garden"
     },
+    "type": "leisure",
     "link": "http://travel.qunar.com/p-oi715234-zhongguokexueyuanhuanan",
     "address": "\n\n地址:\n广州市天河区兴科路723号\n\n\n电话:\n020-37252711,020-85232037\n\n\n官网:\nhttp://www.scib.ac.cn/\n\n",
     "description": {
@@ -893,6 +917,7 @@
       "zh_CN": "广州有轨电车",
       "en": "Young Tram"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7639182-guangzhouyouguidianche",
     "address": "\n\n地址:\n起于万胜围站，止于广州塔站，线路全长约7.7公里，共设11座车站。\n\n",
     "description": {
@@ -924,6 +949,7 @@
       "zh_CN": "永庆坊",
       "en": "Yongqing Lane"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi10077386-yongqingfang",
     "address": "\n\n地址:\n恩宁路永庆坊(靠近粤剧艺术博物馆)\n\n\n电话:\n02987417799,02987457788\n\n",
     "description": {
@@ -955,6 +981,7 @@
       "zh_CN": "正佳极地海洋世界",
       "en": "Grandview Aquarium"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi9194207-zhengjiajidihaiyangshi",
     "address": "\n\n地址:\n广州市天河区天河路228号正佳购物广场西侧二、三层\n\n\n电话:\n020-38373008\n\n\n官网:\nhttp://www.grandviewaquarium.com/\n\n",
     "description": {
@@ -986,6 +1013,7 @@
       "zh_CN": "花城广场",
       "en": "Huacheng Square"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi7524540-huachengguangchang",
     "address": "\n\n地址:\n广州市天河区花城大道89号\n\n\n电话:\n020-85601882\n\n",
     "description": {
@@ -1019,6 +1047,7 @@
       "zh_CN": "岭南印象园",
       "en": "Lingnan Impression Park"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi701823-lingnanyinxiangyuan",
     "address": "\n\n地址:\n广州市番禺区大学城外环西路\n\n\n电话:\n020-84507996\n\n\n官网:\nhttp://www.lnyxy.com/\n\n",
     "description": {
@@ -1052,6 +1081,7 @@
       "zh_CN": "广州长隆度假区",
       "en": "Guangzhou Chimelong Tourist Resort"
     },
+    "type": "leisure",
     "link": "http://travel.qunar.com/p-oi9515389-guangzhouzhanglongdujia",
     "address": "\n\n地址:\n广东省广州市番禺区汉溪大道东299号\n\n\n电话:\n400-883-0083\n\n\n官网:\nhttps://www.chimelong.com/\n\n",
     "description": {
@@ -1085,6 +1115,7 @@
       "zh_CN": "世间香境·七溪地",
       "en": "The Fragrance Land of the World·Qixi Land"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi36257865-shijianxiangjingqixidi",
     "address": "\n\n地址:\n广州市花都区花东镇狮前村\n\n\n电话:\n020-62269032,13925183740\n\n",
     "description": {
@@ -1116,6 +1147,7 @@
       "zh_CN": "广州圆大厦",
       "en": "Guangzhouyuan Mansion"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi19591036-guangzhouyuandasha",
     "address": null,
     "description": {
@@ -1139,6 +1171,7 @@
       "zh_CN": "五指山",
       "en": "Wuzhi Mountain"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi10095497-wuzhishan",
     "address": "\n\n地址:\n广东省广州从化区良口镇五指山景区\n\n\n电话:\n020-87844691\n\n",
     "description": {
@@ -1172,6 +1205,7 @@
       "zh_CN": "沙湾古镇",
       "en": "Shawan Ancient Town"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7468761-shawanguzhen",
     "address": "\n\n地址:\n广州市番禺区沙湾镇北村\n\n\n电话:\n020-84730318\n\n\n官网:\nhttp://www.shawanguzhen.com/\n\n",
     "description": null,
@@ -1201,6 +1235,7 @@
       "zh_CN": "东山口",
       "en": "Dongshankou"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi23343980-dongshankou",
     "address": "\n\n地址:\n广州市越秀区中山一路附近\n\n",
     "description": {
@@ -1232,6 +1267,7 @@
       "zh_CN": "广州动物园",
       "en": "Guangzhou Zoo"
     },
+    "type": "leisure",
     "link": "http://travel.qunar.com/p-oi714247-guangzhoudongwuyuan",
     "address": "\n\n地址:\n广州市先烈中路120号\n\n\n电话:\n020-38377572\n\n\n官网:\nhttps://gzzoo.com/\n\n",
     "description": {
@@ -1265,6 +1301,7 @@
       "zh_CN": "石门国家森林公园",
       "en": "Shimen National Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi704313-shimenguojiasenlingong",
     "address": "\n\n地址:\n广州市从化区镇温泉桃莲村大岭山林场管理处\n\n\n电话:\n020-87850738\n\n",
     "description": {
@@ -1296,6 +1333,7 @@
       "zh_CN": "天适樱花悠乐园",
       "en": "Tianshi Cherry Blossom Park"
     },
+    "type": "leisure",
     "link": "http://travel.qunar.com/p-oi7642025-tianshiyinghuayouleyuan",
     "address": "\n\n地址:\n广州市从化区城郊街西和村壹队\n\n\n电话:\n020-37941188\n\n\n官网:\nhttp://www.tssakura.com/\n\n",
     "description": {
@@ -1327,6 +1365,7 @@
       "zh_CN": "华南农业大学",
       "en": "South China Agricultural University"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7524292-huanannongyedaxue",
     "address": "\n\n地址:\n广州市天河区五山华南农业大学\n\n\n电话:\n020-85283396,020-85280082\n\n",
     "description": {
@@ -1358,6 +1397,7 @@
       "zh_CN": "深井古村",
       "en": "Shenjing Ancient Village"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi8304797-shenjinggucun",
     "address": "\n\n地址:\n广州市黄埔区长洲街深井社区\n\n",
     "description": {
@@ -1389,6 +1429,7 @@
       "zh_CN": "光孝寺",
       "en": "Guangxiao Temple"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi708394-guangxiaosi",
     "address": null,
     "description": null,
@@ -1408,6 +1449,7 @@
       "zh_CN": "越秀公园",
       "en": "Yuexiu Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi702796-yuexiugongyuan",
     "address": "\n\n地址:\n广州市越秀区解放北路988号\n\n\n电话:\n020-86661950\n\n\n官网:\nhttp://www.yuexiupark-gz.com/\n\n",
     "description": {
@@ -1441,6 +1483,7 @@
       "zh_CN": "海心沙",
       "en": "Haixinsha Island"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5740218-haixinsha",
     "address": null,
     "description": null,
@@ -1460,6 +1503,7 @@
       "zh_CN": "中山纪念堂",
       "en": "Sun Yat-Sen Memorial"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi707235-zhongshanjiniantang",
     "address": "\n\n地址:\n广州市越秀区东风中路299号\n\n\n电话:\n020-83567966\n\n",
     "description": {
@@ -1493,6 +1537,7 @@
       "zh_CN": "珠江",
       "en": "Pearl River"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5740214-zhujiang",
     "address": "\n\n地址:\n广东省广州市海珠区\n\n\n官网:\nhttp://www.pearlwater.gov.cn\n\n",
     "description": {
@@ -1524,6 +1569,7 @@
       "zh_CN": "龙津西西关大屋区",
       "en": "Longjin Xixiguan Dawu District"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi712925-longjinxixiguandawuqu",
     "address": "\n\n地址:\n广州市荔湾区老城区多宝路、逢源路、龙津西路一带街边巷筒\n\n\n电话:\n020-81836907\n\n",
     "description": {
@@ -1555,6 +1601,7 @@
       "zh_CN": "太古仓",
       "en": "Butterfield & Swire's Godowns & Wharf"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi3735066-taigucang",
     "address": "\n\n地址:\n广州市海珠区革新路124号太古仓码头(近金碧湾)\n\n\n电话:\n020-34493517,020-84309788\n\n\n官网:\nhttp://www.tgc.gzpgroup.com/\n\n",
     "description": {
@@ -1586,6 +1633,7 @@
       "zh_CN": "流溪河国家森林公园",
       "en": "Liuxi River National Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi701608-liuxiheguojiasenlingong",
     "address": "\n\n地址:\n广州市从化区良口镇流溪河林场香雪大街48号\n\n\n电话:\n020-87843288,020-87843816\n\n\n官网:\nhttp://www.lxhpark.cn/\n\n",
     "description": {
@@ -1617,6 +1665,7 @@
       "zh_CN": "百万葵园",
       "en": "Million Sunflower Garden"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi702069-baiwankuiyuan",
     "address": "\n\n地址:\n广州市南沙区万顷沙镇新垦15涌\n\n\n电话:\n020-84956863,020-84956860\n\n\n官网:\nhttp://www.bwky.cn/\n\n",
     "description": {
@@ -1650,6 +1699,7 @@
       "zh_CN": "广州海洋馆",
       "en": "Guangzhou Ocean Aquarium"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi711295-guangzhouhaiyangguan",
     "address": "\n\n地址:\n广州市越秀区先烈中路120号广州动物园内\n\n\n电话:\n020-38377572\n\n",
     "description": {
@@ -1683,6 +1733,7 @@
       "zh_CN": "帽峰山景区",
       "en": "Maofeng Mountain"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi712056-maofengshanjingqu",
     "address": "\n\n地址:\n广州市白云区太和镇高屋村\n\n\n电话:\n020-87464696\n\n",
     "description": {
@@ -1714,6 +1765,7 @@
       "zh_CN": "天鹿湖森林公园",
       "en": "Tianlu Lake Forest Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7645494-tianluhusenlingongyuan",
     "address": "\n\n地址:\n广州市黄埔区天鹿北路天鹿湖畔\n\n\n电话:\n020-32033860,020-87265691\n\n",
     "description": {
@@ -1745,6 +1797,7 @@
       "zh_CN": "大丰门景区",
       "en": "Dafengmen Sceneic Area"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi715381-dafengmenjingqu",
     "address": null,
     "description": null,
@@ -1764,6 +1817,7 @@
       "zh_CN": "广州南粤苑",
       "en": "Guangzhou Nanyue Court"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7468767-guangzhounanyueyuan",
     "address": "\n\n地址:\n广州市番禺区沙湾镇紫坭村大川岗\n\n\n电话:\n020-84746666,020-84747238\n\n",
     "description": {
@@ -1795,6 +1849,7 @@
       "zh_CN": "广州8号艺术晒谷场",
       "en": "Guangzhou No. 8 Art Sun-drying Field"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi38912684-guangzhou8haoyishushai",
     "address": null,
     "description": null,
@@ -1814,6 +1869,7 @@
       "zh_CN": "小杉村",
       "en": "Xiaoshan Village"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi38678828-xiaoshancun",
     "address": null,
     "description": null,
@@ -1833,6 +1889,7 @@
       "zh_CN": "罗洞工匠小镇",
       "en": "Luodong Craftsman Town"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi37806053-luodonggongjiangxiaozhen",
     "address": null,
     "description": null,
@@ -1852,6 +1909,7 @@
       "zh_CN": "广州翼·空港文旅小镇",
       "en": "Guangzhou Wing · Airport Cultural Tourism Town"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi35822565-guangzhouyikonggangwen",
     "address": "\n\n地址:\n广州市白云区人和镇凤和社区聚成东街二巷3号\n\n\n电话:\n020-31525152,020-86453188\n\n",
     "description": {
@@ -1875,6 +1933,7 @@
       "zh_CN": "大佛古寺",
       "en": "Dafugu Temple"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi35213979-dafogusi",
     "address": null,
     "description": {
@@ -1904,6 +1963,7 @@
       "zh_CN": "",
       "en": "Honey CC 绵羊牧场 Honey CC Sheep Pasture"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi35140810-honey_cc_mianyangmuchang",
     "address": "\n\n地址:\n广州市番禺区金新大道华南新城·江山顾景小区门口旁\n\n",
     "description": {
@@ -1929,6 +1989,7 @@
       "zh_CN": "西关永庆坊旅游区",
       "en": "Lychee Bay Scenic Area"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi24412625-xiguanyongqingfanglu:",
     "address": "\n\n地址:\n广东省广州市荔湾区恩宁路99号\n\n",
     "description": {
@@ -1960,6 +2021,7 @@
       "zh_CN": "黄埔古村人文历史展览馆",
       "en": "Huangpu Ancient Village Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi10021222-huangpugucunrenwenlishi",
     "address": "\n\n地址:\n黄埔村埠康里6号(梁氏宗祠)\n\n\n电话:\n34046520\n\n",
     "description": {
@@ -1991,6 +2053,7 @@
       "zh_CN": "十八罗汉山森林公园",
       "en": "Eighteen Arhats Mountain Forest Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi10012820-shibaluohanshansenlin",
     "address": "\n\n地址:\n广州市番禺区大岗镇繁荣路\n\n\n电话:\n020-84997383\n\n",
     "description": {
@@ -2022,6 +2085,7 @@
       "zh_CN": "蒲州花园",
       "en": "Puzhou Garden"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi9639622-puzhouhuayuan",
     "address": null,
     "description": {
@@ -2045,6 +2109,7 @@
       "zh_CN": "熊猫馆",
       "en": "Panda House"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi9539508-xiongmaoguan",
     "address": "\n\n地址:\n广州市番禺区大石镇礼村一〇五国道长隆野生动物世界内\t\n\n\n电话:\n400-883-0083\n\n\n官网:\nhttp://www.chimelong.com/wildlife/rides/sjgbq.shtml\n\n",
     "description": {
@@ -2076,6 +2141,7 @@
       "zh_CN": "水博苑",
       "en": "Water Museum Garden"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi9477213-shuiboyuan",
     "address": "\n\n地址:\n科韵路30号\n\n\n电话:\n61877505\n\n",
     "description": {
@@ -2105,6 +2171,7 @@
       "zh_CN": "火炉山森林公园",
       "en": "Huolu Mountain Forest Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi9476238-huolushansenlingongyuan",
     "address": "\n\n地址:\n广州市天河区岑村长兴街道火炉山南路\n\n\n电话:\n020-87234116\n\n",
     "description": {
@@ -2136,6 +2203,7 @@
       "zh_CN": "珠江夜游天字码头",
       "en": "Zhujiang Night Tour Tianzi Wharf"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi9208867-zhujiangyeyoutianzima",
     "address": "\n\n地址:\n广州市越秀区北京南路与沿江路交汇处天字码头\n\n\n电话:\n020-83332222\n\n",
     "description": {
@@ -2167,6 +2235,7 @@
       "zh_CN": "正佳广场商贸旅游区",
       "en": "Grandview Mall"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi9192194-zhengjiaguangchangshang",
     "address": "\n\n地址:\n广州市天河路228号正佳购物广场\n\n\n电话:\n400-7066633,020-38331818\n\n\n官网:\nhttp://www.zhengjia.com.cn/\n\n",
     "description": {
@@ -2196,6 +2265,7 @@
       "zh_CN": "聚龙村",
       "en": "Julong Village"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi8669911-julongcun",
     "address": "\n\n地址:\n广州市荔湾区冲口街，聚兴大街附近\n\n\n电话:\n020-81802723\n\n",
     "description": {
@@ -2227,6 +2297,7 @@
       "zh_CN": "王子山森林公园",
       "en": "Wangzi Mountain Forest Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi8669777-wangzishansenlingongyuan",
     "address": "\n\n地址:\n广州市花都区梯面镇县道X404芙蓉旅游度假区\n\n\n电话:\n020-86781899\n\n",
     "description": {
@@ -2258,6 +2329,7 @@
       "zh_CN": "广州二龙山薰衣草森林世界",
       "en": "Guangzhou Erlongshan Lavender Forest World"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7647551-guangzhouerlongshanxun",
     "address": "\n\n地址:\n广东省广州市增城市小楼镇二龙邓山\n\n\n电话:\n020-32941388;020-66262780\n\n",
     "description": {
@@ -2283,6 +2355,7 @@
       "zh_CN": "石头记矿物园",
       "en": "Shitouji Minerals Park"
     },
+    "type": "leisure",
     "link": "http://travel.qunar.com/p-oi7468772-shitoujikuangwuyuan",
     "address": "\n\n地址:\n广州市花都区珠宝城大观园路1号\n\n\n电话:\n020-36865818\n\n",
     "description": {
@@ -2314,6 +2387,7 @@
       "zh_CN": "石室圣心大教堂",
       "en": "Sacred Heart Cathedral"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi709353-shishishengxindajiaotang",
     "address": "\n\n地址:\n广州市越秀区一德路56号\n\n\n电话:\n020-83336737,020-83392860,020-83399675\n\n",
     "description": {
@@ -2347,6 +2421,7 @@
       "zh_CN": "南越王博物院（王墓展区）",
       "en": "NANYUE KING MUSEUM"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi706055-nanyuewangbowuyuan",
     "address": "\n\n地址:\n解放北路867号\n\n\n电话:\n020-36182920,020-36182865\n\n\n官网:\nhttp://www.gznywmuseum.org/\n\n",
     "description": {
@@ -2380,6 +2455,7 @@
       "zh_CN": "余荫山房",
       "en": "Yuyin Hill House"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi714253-yuyinshanfang",
     "address": "\n\n地址:\n广州市番禺区南村镇北大街余荫山房\n\n\n电话:\n020-34822187,020-84769293\n\n\n官网:\nhttp://www.yuyinshanfang.com\n\n",
     "description": {
@@ -2411,6 +2487,7 @@
       "zh_CN": "黄埔军校旧址纪念馆",
       "en": "Whampoa Military Academy Memorial Site"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi712478-huangpujunxiaojiuzhiji",
     "address": "\n\n地址:\n广州市黄埔区长洲岛军校路170号\n\n\n电话:\n020-82201082,020-82201583\n\n",
     "description": {
@@ -2442,6 +2519,7 @@
       "zh_CN": "越秀区博物馆",
       "en": "Temple of the Five Immortals (Wuxian Guan)"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi712595-yuexiuqubowuguan",
     "address": null,
     "description": null,
@@ -2461,6 +2539,7 @@
       "zh_CN": "荔湾湖公园",
       "en": "Liwan Lake Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi708951-liwanhugongyuan",
     "address": "\n\n地址:\n广州市荔湾区龙津西路155号\n\n\n电话:\n020-81968601,020-81813626\n\n",
     "description": {
@@ -2494,6 +2573,7 @@
       "zh_CN": "",
       "en": "TIT创意园 TIT Creative Park"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7524277-titchuangyiyuan",
     "address": "\n\n地址:\n广州市海珠区新港中路397号\n\n\n电话:\n020-84221810\n\n",
     "description": {
@@ -2525,6 +2605,7 @@
       "zh_CN": "莲花山旅游区",
       "en": "Lianhua Mountain Scenic Area"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi712566-lianhuashanlu:youqu",
     "address": null,
     "description": null,
@@ -2544,6 +2625,7 @@
       "zh_CN": "小洲村",
       "en": "Xiaozhou Village"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7569105-xiaozhoucun",
     "address": "\n\n地址:\n广州市海珠区\n\n\n电话:\n020-34080662\n\n",
     "description": {
@@ -2577,6 +2659,7 @@
       "zh_CN": "六榕寺",
       "en": "Temple of the Six Banyan Trees"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi715186-liurongsi",
     "address": "\n\n地址:\n广州市越秀区六榕路87号\n\n\n电话:\n020-86392843\n\n",
     "description": {
@@ -2608,6 +2691,7 @@
       "zh_CN": "农民运动讲习所旧址",
       "en": "Peasant Movement Training Institute"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi704698-nongminyundongjiangxi",
     "address": "\n\n地址:\n广州市越秀区中山四路42号\n\n\n电话:\n020-83333936\n\n\n官网:\nhttps://www.gznjs.cn/\n\n",
     "description": {
@@ -2639,6 +2723,7 @@
       "zh_CN": "中山大学",
       "en": "Sun Yat-sen University"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi705527-zhongshandaxue",
     "address": "\n\n地址:\n广州市海珠区新港西路135号\n\n\n电话:\n020-84112828\n\n",
     "description": {
@@ -2672,6 +2757,7 @@
       "zh_CN": "广东美术馆",
       "en": "Guangdong Museum of Art"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi705436-guangdongmeishuguan",
     "address": "\n\n地址:\n广州市越秀区二沙岛烟雨路38号\n\n\n电话:\n020-87351468\n\n",
     "description": {
@@ -2705,6 +2791,7 @@
       "zh_CN": "沿江路酒吧街",
       "en": "Yanjiang Road Pub Street"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi8685480-yanjianglujiubajie",
     "address": "\n\n地址:\n广州市越秀区沿江路及附近街区\n\n",
     "description": {
@@ -2736,6 +2823,7 @@
       "zh_CN": "白鹅潭风情酒吧街",
       "en": "Bai'etan Fengqing Jiuba Street"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi8685554-baietanfengqingjiubajie",
     "address": "\n\n地址:\n广州市荔湾区芳村花地街长堤路\n\n\n电话:\n020-81595886\n\n",
     "description": {
@@ -2767,6 +2855,7 @@
       "zh_CN": "广州博物馆",
       "en": "Guangzhou Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi708949-guangzhoubowuguan",
     "address": "\n\n地址:\n越秀公园内镇海楼\n\n\n电话:\n020-83550627,020-83552355,020-83545253\n\n\n官网:\nhttp://www.guangzhoumuseum.cn/\n\n",
     "description": {
@@ -2800,6 +2889,7 @@
       "zh_CN": "二沙岛",
       "en": "Ersha Island"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi713479-ershadao",
     "address": null,
     "description": null,
@@ -2819,6 +2909,7 @@
       "zh_CN": "天河公园",
       "en": "Tianhe Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi704443-tianhegongyuan",
     "address": "\n\n地址:\n广州市天河区黄埔大道员村\n\n\n电话:\n020-85525020\n\n",
     "description": {
@@ -2850,6 +2941,7 @@
       "zh_CN": "流花湖公园",
       "en": "Liuhua Lake Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi704278-liuhuahugongyuan",
     "address": "\n\n地址:\n广州市越秀区流花路100号\n\n\n电话:\n020-86662196,020-86664095\n\n",
     "description": {
@@ -2881,6 +2973,7 @@
       "zh_CN": "广州起义烈士陵园",
       "en": "Guangzhou Uprising Martyrs Cemetery"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi710137-guangzhouqiyilieshiling",
     "address": "\n\n地址:\n广州市越秀区中山二路92号\n\n\n电话:\n020-83828521,020-83840943,020-83825037\n\n",
     "description": {
@@ -2912,6 +3005,7 @@
       "zh_CN": "中信广场",
       "en": "CITIC Plaza"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi5740215-zhongxinguangchang",
     "address": null,
     "description": {
@@ -2933,6 +3027,7 @@
       "zh_CN": "荔湾博物馆",
       "en": "Liwan Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi712350-liwanbowuguan",
     "address": "\n\n地址:\n广州市荔湾区龙津西路逢源北街84号\n\n\n电话:\n020-81939917\n\n",
     "description": {
@@ -2964,6 +3059,7 @@
       "zh_CN": "东站广场水景瀑布",
       "en": "Waterscape Falls In East Station Plaza"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5740217-dongzhanguangchangshui",
     "address": null,
     "description": null,
@@ -2983,6 +3079,7 @@
       "zh_CN": "南沙湿地",
       "en": "Nansha Wetland"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi701646-nanshashidi",
     "address": "\n\n地址:\n广州市南沙区万顷沙镇新港大道1号\n\n\n电话:\n020-84951083,020-39059001\n\n\n官网:\nhttp://www.nssd.com.cn/\n\n",
     "description": {
@@ -3016,6 +3113,7 @@
       "zh_CN": "虎门大桥",
       "en": "Humen Pearl River Bridge"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi705194-humendaqiao",
     "address": "\n\n地址:\n东莞市虎门镇\n\n",
     "description": {
@@ -3047,6 +3145,7 @@
       "zh_CN": "人民公园",
       "en": "Guangzhou City People's Park"
     },
+    "type": "leisure",
     "link": "http://travel.qunar.com/p-oi712930-renmingongyuan",
     "address": "\n\n地址:\n广州市越秀区府前路\n\n\n电话:\n020-83334842\n\n",
     "description": {
@@ -3078,6 +3177,7 @@
       "zh_CN": "九龙泉",
       "en": "Jiulong Fountain"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi713428-jiulongquan",
     "address": "\n\n地址:\n广州市白云区广园中路白云山景区内的摩星岭景区\n\n\n电话:\n020-37222222\n\n\n官网:\nhttp://www.baiyunshan.com.cn/\n\n",
     "description": {

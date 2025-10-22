@@ -4,6 +4,7 @@
       "en": "The Palace Museum",
       "zh_CN": "故宫博物院"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi710603-gugongbowuyuan",
     "address": "\n\n地址:\n北京市东城区景山前街4号\n\n\n电话:\n4009501925\n\n\n官网:\nhttp://www.dpm.org.cn/\n\n",
     "description": {
@@ -100,6 +101,7 @@
       "en": "Badaling Great Wall",
       "zh_CN": "八达岭长城"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi703478-badalingzhangcheng",
     "address": "\n\n地址:\n北京市延庆区G6京藏高速58号出口\n\n\n电话:\n010-61118002\n\n\n官网:\nhttp://www.badaling.cn/\n\n",
     "description": {
@@ -141,6 +143,7 @@
       "en": "Summer Palace",
       "zh_CN": "颐和园"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi710431-yiheyuan",
     "page": "1",
     "sub_attractions": [
@@ -187,6 +190,7 @@
       "en": "Gubei Water Town",
       "zh_CN": "古北水镇"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7469087-gubeishuizhen",
     "address": "\n\n地址:\n北京市密云区古北口镇司马台村古北水镇 （京承高速24号司马台长城出口）\n\n\n电话:\n010-81009999,010-81008009,010-81008010\n\n\n官网:\nhttp://www.wtown.com/\n\n",
     "description": {
@@ -225,6 +229,7 @@
       "en": "Changyu City Great Wall",
       "zh_CN": "长峪城长城"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi8439271-zhangyuchengzhangcheng",
     "address": "\n\n地址:\n北京市昌平区黄长路\n\n\n电话:\n010-80192955\n\n",
     "description": {
@@ -255,6 +260,7 @@
       "en": "Tiananmen Square",
       "zh_CN": "天安门广场"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi711995-tiananmenguangchang",
     "address": "\n\n地址:\n北京市东城区长安街（天安门和正阳门之间）\n\n\n电话:\n010-63095745\n\n",
     "description": {
@@ -339,6 +345,7 @@
       "en": "Qianmen Street",
       "zh_CN": "前门大街"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi713871-qianmendajie",
     "address": "\n\n地址:\n北京市东城区前门大街\n\n\n电话:\n010-67060009,(010)65253176\n\n",
     "description": {
@@ -380,6 +387,7 @@
       "en": "Sanlitun",
       "zh_CN": "三里屯"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi18700109-sanlitun",
     "address": "\n\n地址:\n北京市朝阳区三里屯北路东侧\n\n",
     "description": {
@@ -413,6 +421,7 @@
       "en": "National Museum of China",
       "zh_CN": "中国国家博物馆"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi710501-zhongguoguojiabowuguan",
     "address": "\n\n地址:\n北京市东城区东长安街16号天安门广场东侧\n\n\n电话:\n010-65116400\n\n\n官网:\nhttp://www.chnmuseum.cn/\n\n",
     "description": {
@@ -473,6 +482,7 @@
       "en": "Shichahai",
       "zh_CN": "什刹海"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi705983-shenchahai",
     "address": "\n\n地址:\n北京市西城区东起地安门外大街北侧、南至新街口北大街、西至新街口豁口、北至钟、鼓楼的区域\n\n\n电话:\n010-84038677\n\n",
     "description": {
@@ -551,6 +561,7 @@
       "en": "Temple of Heaven",
       "zh_CN": "天坛"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi708991-tiantan",
     "page": "2",
     "sub_attractions": []
@@ -560,6 +571,7 @@
       "en": "Old Summer Palace",
       "zh_CN": "圆明园"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi704630-yuanmingyuan",
     "address": "\n\n地址:\n北京市海淀区清华西路28号\n\n\n电话:\n010 6262 8501\n\n\n官网:\nhttp://www.yuanmingyuanpark.cn/\n\n",
     "description": {
@@ -632,6 +644,7 @@
       "en": "Wangfujing",
       "zh_CN": "王府井"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi10011947-wangfujing",
     "address": "\n\n地址:\n北京市东城区东长安街北侧\n\n",
     "description": {
@@ -666,6 +679,7 @@
       "en": "Prince Gong's Mansion",
       "zh_CN": "恭王府"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi715478-gongwangfu",
     "address": "\n\n地址:\n北京市西城区前海西街17号\n\n\n电话:\n010-83288149\n\n\n官网:\nhttp://www.pgm.org.cn/\n\n",
     "description": {
@@ -750,6 +764,7 @@
       "en": "Nanluoguxiang",
       "zh_CN": "南锣鼓巷"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi722949-nanluoguxiang",
     "address": "\n\n地址:\n北京市东城区南锣鼓巷胡同\n\n",
     "description": {
@@ -791,6 +806,7 @@
       "en": "Beijing Zoo",
       "zh_CN": "北京动物园"
     },
+    "type": "leisure",
     "link": "http://travel.qunar.com/p-oi710997-beijingdongwuyuan",
     "address": "\n\n地址:\n北京市西直门外大街137号\n\n\n电话:\n010-68390274,010-68314411\n\n\n官网:\nhttp://www.bjzoo.com/\n\n",
     "description": {
@@ -857,6 +873,7 @@
       "en": "Tsinghua University",
       "zh_CN": "清华大学"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi715110-qinghuadaxue",
     "address": "\n\n地址:\n北京市海淀区双清路30号\n\n\n电话:\n010-62793001,010-62785001\n\n\n官网:\nhttps://www.tsinghua.edu.cn/\n\n",
     "description": {
@@ -935,6 +952,7 @@
       "en": "Yuyuantan Park",
       "zh_CN": "玉渊潭公园"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi715516-yuyuantangongyuan",
     "address": "\n\n地址:\n北京市海淀区西三环中路10号\n\n\n电话:\n010-88653800,010-88653775,010-88653804\n\n",
     "description": {
@@ -976,6 +994,7 @@
       "en": "Beijing Wildlife Park",
       "zh_CN": "北京野生动物园"
     },
+    "type": "leisure",
     "link": "http://travel.qunar.com/p-oi714358-beijingyeshengdongwuyuan",
     "address": "\n\n地址:\n北京市大兴区榆垡镇永定河畔的万亩林\n\n\n电话:\n010-89216666,010-89216606\n\n",
     "description": {
@@ -1017,6 +1036,7 @@
       "en": "Beijing Museum of Natural History",
       "zh_CN": "北京自然博物馆"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi702401-beijingziranbowuguan",
     "address": "\n\n地址:\n东城区天桥南大街126号\n\n\n电话:\n010-67024431\n\n\n官网:\nhttp://www.bmnh.org.cn/\n\n",
     "description": {
@@ -1068,6 +1088,7 @@
       "en": "Beijing Aquarium",
       "zh_CN": "北京海洋馆"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi708824-beijinghaiyangguan",
     "address": "\n\n地址:\n北京市海淀区高粱桥斜街乙18号\n\n\n电话:\n010-62176655\n\n\n官网:\nhttp://www.bj-sea.com/\n\n",
     "description": {
@@ -1145,6 +1166,7 @@
       "en": "Back Garden (White Tiger Gully) Natural Scenic Area",
       "zh_CN": "北京后花园（白虎涧）风景区"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi713073-beijinghouhuayuanbaihu",
     "address": "\n\n地址:\n北京市昌平区阳坊镇太行山与燕山交汇处（人文大学西侧）\n\n\n电话:\n010-69768087,010-60707588,010-69768979\n\n",
     "description": {
@@ -1176,6 +1198,7 @@
       "en": "Beijing Planetarium",
       "zh_CN": "北京天文馆"
     },
+    "type": "events",
     "link": "http://travel.qunar.com/p-oi711144-beijingtianwenguan",
     "address": "\n\n地址:\n西城区西直门外大街138号（动物园对面）\n\n\n电话:\n010-68312517\n\n\n官网:\nhttp://www.bjp.org.cn/\n\n",
     "description": {
@@ -1207,6 +1230,7 @@
       "en": "Wudaoying Alley",
       "zh_CN": "五道营胡同"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi5475392-wudaoyinghutong",
     "address": "\n\n地址:\n北京市东城区安定门五道营胡同67号西门\n\n",
     "opening_hours": {
@@ -1241,6 +1265,7 @@
       "en": "Cuandixia",
       "zh_CN": "爨底下村"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi712359-cuandixiacun",
     "address": "\n\n地址:\n北京市门头沟区斋堂镇\n\n\n电话:\n010-69818988,010-69819036\n\n\n官网:\nhttp://www.cuandixia.com/\n\n",
     "description": {
@@ -1282,6 +1307,7 @@
       "en": "Changchen Park",
       "zh_CN": "长城公园"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi18718345-zhangchenggongyuan",
     "description": {
       "en": "The Great Wall Park is close to the Chengzi River. There are two beacon towers in the park, as well as buildings that resemble the Great Wall. It is a good place for walking and leisure.",
@@ -1308,6 +1334,7 @@
       "en": "Beihai Park",
       "zh_CN": "北海公园"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi704546-beihaigongyuan",
     "address": "\n\n地址:\n北京市西城区文津街1号\n\n\n电话:\n010-64031102,010-64033225\n\n\n官网:\nhttp://www.beihaipark.com.cn/\n\n",
     "description": {
@@ -1392,6 +1419,7 @@
       "en": "Huanghuacheng Underwater Great Wall",
       "zh_CN": "黄花城水长城"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi715692-huanghuachengshuizhang",
     "address": "\n\n地址:\n北京市怀柔区九渡河镇西水峪\n\n\n电话:\n010-61651111,010-61651818\n\n\n官网:\nhttp://www.huanghuacheng.com/\n\n",
     "description": {
@@ -1433,6 +1461,7 @@
       "en": "Yonghe Temple",
       "zh_CN": "雍和宫"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi706680-yonghegong",
     "page": "4",
     "sub_attractions": []
@@ -1442,6 +1471,7 @@
       "en": "Beijing Fun",
       "zh_CN": "北京坊"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi25398796-beijingfang",
     "address": "\n\n地址:\n北京市西城区前门煤市街廊房头条\n\n\n电话:\n010-63018199\n\n",
     "description": {
@@ -1472,6 +1502,7 @@
       "en": "Beijing Pinghu District Jinhai Lake",
       "zh_CN": "北京平谷金海湖"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi713180-beijingpinggujinhaihu",
     "address": "\n\n地址:\n北京市平谷区金海湖镇海子村北\n\n\n电话:\n010-69991356,010-69993943\n\n\n官网:\nhttp://www.jinhaihujingqu.com/\n\n",
     "description": {
@@ -1513,6 +1544,7 @@
       "en": "Fenghuangling Natural Scenic Area",
       "zh_CN": "北京凤凰岭景区"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi707219-beijingfenghuanglingjing",
     "address": "\n\n地址:\n北京市海淀区凤凰岭路19号\n\n\n电话:\n010-62459492,010-62455933\n\n\n官网:\nhttp://www.bjfhl.com/\n\n",
     "description": {
@@ -1551,6 +1583,7 @@
       "en": "ShilinGorge",
       "zh_CN": "石林峡"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi708106-shilinxia",
     "address": "\n\n地址:\n北京市平谷区黄松峪乡雕窝村73号\n\n\n电话:\n010-69989816\n\n\n官网:\nhttp://www.jdslx.com\n\n",
     "description": {
@@ -1592,6 +1625,7 @@
       "en": "Luo Hong Art Museum",
       "zh_CN": "罗红摄影艺术馆"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi18718693-luohongsheyingyishuguan",
     "page": "5",
     "sub_attractions": []
@@ -1601,6 +1635,7 @@
       "en": "Yanqi Lake",
       "zh_CN": "雁栖湖"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi722360-yanqihu",
     "address": "\n\n地址:\n怀柔区怀北镇雁水路3号\n\n\n电话:\n010-69661696,010-69661194\n\n\n官网:\nhttp://www.yanqihu.com/\n\n",
     "description": {
@@ -1642,6 +1677,7 @@
       "en": "Baipu Temple",
       "zh_CN": "白瀑寺"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi9475601-baipusi",
     "address": "\n\n地址:\n北京市门头沟区雁翅镇淤白村(近南雁路)\n\n\n电话:\n010-61837783\n\n",
     "description": {
@@ -1673,6 +1709,7 @@
       "en": "Ming Tombs",
       "zh_CN": "明十三陵"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi713994-mingshisanling",
     "address": "\n\n地址:\n北京市昌平区十三陵镇昌赤路\n\n\n电话:\n010-60761005\n\n\n官网:\nhttp://www.mingtombs.com/\n\n",
     "description": {
@@ -1740,6 +1777,7 @@
       "en": "Chinese People's Revolutionary Military Museum",
       "zh_CN": "中国人民革命军事博物馆"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi714736-zhongguorenmingemingjun",
     "address": "\n\n地址:\n北京市海淀区复兴路9号\n\n\n电话:\n010-66866186\n\n\n官网:\nhttp://www.junbo.mil.cn/\n\n",
     "description": {
@@ -1794,6 +1832,7 @@
       "en": "Chairman Mao Memorial Hall",
       "zh_CN": "毛主席纪念堂"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi709109-maozhuxijiniantang",
     "address": "\n\n地址:\n东城区前门东大街11号\n\n\n电话:\n010-65120909,010-55605013\n\n",
     "description": {
@@ -1835,6 +1874,7 @@
       "en": "Beijing Botanical Garden",
       "zh_CN": "国家植物园（原北京植物园）"
     },
+    "type": "leisure",
     "link": "http://travel.qunar.com/p-oi705488-guojiazhiwuyuan",
     "address": "\n\n地址:\n海淀区香山卧佛寺路北京植物园\n\n\n电话:\n010-82598771(北园),010-62836180(南园)\n\n\n官网:\nhttp://www.beijingbg.com/\n\n",
     "description": {
@@ -1876,6 +1916,7 @@
       "en": "Fragrant Hills Park",
       "zh_CN": "香山公园"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi706260-xiangshangongyuan",
     "address": "\n\n地址:\n海淀区买卖街40号 ‎\n\n\n电话:\n010-62599886,010-62591222\n\n",
     "description": {
@@ -1936,6 +1977,7 @@
       "en": "Shidu Scenic Area",
       "zh_CN": "十渡风景名胜区"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi701671-shidufengjingmingsheng",
     "page": "6",
     "sub_attractions": []
@@ -1945,6 +1987,7 @@
       "en": "Jiankou Great Wall",
       "zh_CN": "箭扣长城"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi715333-jiankouzhangcheng",
     "address": "\n\n地址:\n北京市怀柔区雁栖镇西栅子村\n\n\n电话:\n010-61611765\n\n",
     "description": {
@@ -1986,6 +2029,7 @@
       "en": "Zhongwu Park",
       "zh_CN": "中坞公园"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi31974030-zhongwugongyuan",
     "address": "\n\n地址:\n四季青地区北坞村路\n\n",
     "description": {
@@ -2012,6 +2056,7 @@
       "en": "National Library",
       "zh_CN": "国家图书馆"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi10006243-guojiatushuguan",
     "address": "\n\n地址:\n北京市海淀区中关村南大街33号\n\n\n电话:\n010-88545360,010-88545426\n\n",
     "description": {
@@ -2042,6 +2087,7 @@
       "en": "Guozijian",
       "zh_CN": "国子监"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi715226-guozijian",
     "address": "\n\n地址:\n北京市东城区国子监街15号\n\n\n电话:\n010-64075259,010-64042407\n\n",
     "description": {
@@ -2096,6 +2142,7 @@
       "en": "Zhongshan Park",
       "zh_CN": "中山公园"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi703209-zhongshangongyuan",
     "page": "6",
     "sub_attractions": []
@@ -2105,6 +2152,7 @@
       "en": "Dajue Temple",
       "zh_CN": "大觉寺"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi710316-dajuesi",
     "address": "\n\n地址:\n北京市海淀区大觉寺路9号\n\n\n电话:\n010-62456163,010-62456162\n\n",
     "description": {
@@ -2156,6 +2204,7 @@
       "en": "Hongluo Temple",
       "zh_CN": "红螺寺"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi705462-hongluosi",
     "address": "\n\n地址:\n北京市怀柔区怀柔镇卢庄村北红螺东路2号\n\n\n电话:\n010-60681175,010-60681639,010-60682649\n\n\n官网:\nhttp://www.hongluosi.com/\n\n",
     "description": {
@@ -2210,6 +2259,7 @@
       "en": "Shihua Cave",
       "zh_CN": "石花洞"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi704224-shihuadong",
     "address": "\n\n地址:\n房山区河北镇南车营村\n\n\n电话:\n010-60312243,010-60312170\n\n\n官网:\nhttp://www.shihuadongcave.com/\n\n",
     "description": {
@@ -2251,6 +2301,7 @@
       "en": "Beijing Automobile Museum",
       "zh_CN": "北京汽车博物馆"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7467925-beijingqichebowuguan",
     "address": "\n\n地址:\n北京市丰台区南四环西路126号\n\n\n电话:\n010-63756666\n\n\n官网:\nhttp://www.automuseum.org.cn\n\n",
     "description": {
@@ -2285,6 +2336,7 @@
       "en": "Dashilar",
       "zh_CN": "大栅栏"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi18700132-dazhalan",
     "address": "\n\n地址:\n西城区前门大街大栅栏街6号\n\n\n电话:\n010-63109680\n\n\n官网:\nhttp://www.dashilar.org.cn/\n\n",
     "description": {
@@ -2315,6 +2367,7 @@
       "en": "Guozijian Street",
       "zh_CN": "国子监街"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi10021151-guozijianjie",
     "address": "\n\n地址:\n北京市东城区，雍和宫大街与安定门内大街之间\n\n",
     "description": {
@@ -2341,6 +2394,7 @@
       "en": "Wudaokou",
       "zh_CN": "五道口"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi10011886-wudaokou",
     "page": "7",
     "sub_attractions": []
@@ -2350,6 +2404,7 @@
       "en": "Sanqing Theatre",
       "zh_CN": "三庆园"
     },
+    "type": "events",
     "link": "http://travel.qunar.com/p-oi9685821-sanqingyuan",
     "page": "7",
     "sub_attractions": []
@@ -2359,6 +2414,7 @@
       "en": "Baili Landscape Gallery Scenic Spot",
       "zh_CN": "百里山水画廊"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7473474-bailishanshuihualang",
     "address": "\n\n地址:\n北京市延庆区千家店镇内\n\n\n电话:\n010-60188022\n\n",
     "description": {
@@ -2396,6 +2452,7 @@
       "en": "The Antiquarium of The Palace Museum",
       "zh_CN": "故宫珍宝馆"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi8666242-gugongzhenbaoguan",
     "address": "\n\n地址:\n故宫博物院宁寿宫内\n\n\n电话:\n010-85007938,010-85007421\n\n",
     "description": {
@@ -2434,6 +2491,7 @@
       "en": "China Ethnic Culture Park",
       "zh_CN": "中华民族博物院"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi713340-zhonghuaminzubowuyuan",
     "address": "\n\n地址:\n北京市朝阳区民族园路1号（健翔桥东路口）\n\n\n电话:\n010-62063647,010-62063646\n\n\n官网:\nhttp://www.emuseum.org.cn/\n\n",
     "description": {
@@ -2478,6 +2536,7 @@
       "en": "Scenic Spots of Longmenjian",
       "zh_CN": "龙门涧风景区"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi712837-longmenjianfengjingqu",
     "address": "\n\n地址:\n北京市门头沟区清水镇燕家台村\n\n\n电话:\n010-61828185\n\n",
     "description": {
@@ -2509,6 +2568,7 @@
       "en": "Confucius Temple and The Imperial College Museum",
       "zh_CN": "孔庙和国子监博物馆"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi10021319-kongmiaoheguozijianbo",
     "address": "\n\n地址:\n北京市东城区安定门内国子监街15号\n\n\n电话:\n010-64075259\n\n\n官网:\nhttp://www.kmgzj.com/\n\n",
     "description": {
@@ -2565,6 +2625,7 @@
       "en": "Water Cube (National Aquatics Center)",
       "zh_CN": "水立方（国家游泳中心）"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi706725-shuilifang",
     "address": "\n\n地址:\n北京市朝阳区天辰东路11号\n\n\n电话:\n010-84370112,010-84370116\n\n\n官网:\nhttp://www.water-cube.com\n\n",
     "description": {
@@ -2619,6 +2680,7 @@
       "en": "China Film Museum",
       "zh_CN": "中国电影博物馆"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi707946-zhongguodianyingbowuguan",
     "address": "\n\n地址:\n草场地南影路9号\n\n\n电话:\n010-84355959,010-84355875,010-84355876\n\n",
     "description": {
@@ -2656,6 +2718,7 @@
       "en": "Simatai Great Wall",
       "zh_CN": "司马台长城"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi705231-simataizhangcheng",
     "address": "\n\n地址:\n北京市密云区古北口镇司马台村北\n\n\n电话:\n010-81009999,010-81008010,010-81008009,010-69031057\n\n\n官网:\nhttp://www.smtgreatwall.com/\n\n",
     "description": {
@@ -2697,6 +2760,7 @@
       "zh_CN": "帽儿胡同",
       "en": "Mao’er Hutong"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi5852834-maoerhutong",
     "address": "\n\n地址:\n北京市东城区西北部交道口街道\n\n",
     "description": {
@@ -2738,6 +2802,7 @@
       "en": "China Aviation Museum",
       "zh_CN": "中国航空博物馆"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi715767-zhongguohangkongbowuguan",
     "address": "\n\n地址:\n北京市昌平区小汤山镇顺沙路\n\n\n电话:\n010-66916919,010-61784882\n\n",
     "description": {
@@ -2788,6 +2853,7 @@
       "en": "Beijing International Flower Port",
       "zh_CN": "北京国际鲜花港"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi7468638-beijingguojixianhuagang",
     "address": "\n\n地址:\n北京市顺义区杨镇红寺村北\n\n\n电话:\n010-61417123\n\n\n官网:\nhttp://www.bjifp.com/\n\n",
     "description": {
@@ -2819,6 +2885,7 @@
       "en": "The Paleozoological Museum of China",
       "zh_CN": "中国古动物馆"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi707071-zhongguogudongwuguan",
     "address": "\n\n地址:\n北京市西城区中国古动物馆\n\n\n电话:\n010-88369280,010-88369210,010-88369390\n\n\n官网:\nhttp://www.paleozoo.cn/\n\n",
     "description": {
@@ -2849,6 +2916,7 @@
     "name": {
       "zh_CN": "北京温榆河公园"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi36212707-beijingwenyuhegongyuan",
     "address": "\n\n地址:\n北京市朝阳区来广营北路与滨河路交叉路口南侧\n\n\n电话:\n010-21737733,010-21726633\n\n",
     "description": {
@@ -2875,6 +2943,7 @@
       "en": "Beijing Huangsi Temple",
       "zh_CN": "西黄寺"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi10019575-xihuangsi",
     "page": "8",
     "sub_attractions": []
@@ -2884,6 +2953,7 @@
       "en": "Beijing Garden Expo Park",
       "zh_CN": "北京园博园"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi9680114-beijingyuanboyuan",
     "address": "\n\n地址:\n北京市丰台区射击场路15号\n\n\n电话:\n010-63915561\n\n\n官网:\nhttp://www.gardenexpo-park.com/\n\n",
     "description": {
@@ -2928,6 +2998,7 @@
       "en": "Beijing Pear Orchard",
       "zh_CN": "京城梨园"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi9199333-jingchengliyuan",
     "address": "\n\n地址:\n平房地区姚家园路与东五环路交汇处东南角\n\n\n电话:\n01085574859\n\n",
     "description": {
@@ -2958,6 +3029,7 @@
       "en": "Red Brick Art Museum",
       "zh_CN": "红砖美术馆"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi9195606-hongzhuanmeishuguan",
     "address": "\n\n地址:\n北京市朝阳区顺白路马泉营西路路口西100米路北\n\n\n电话:\n010-84576669\n\n\n官网:\nhttp://www.redbrickartmuseum.org/\n\n",
     "description": {
@@ -2992,6 +3064,7 @@
       "en": "Capital Museum",
       "zh_CN": "首都博物馆"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi708889-shoudoubowuguan",
     "address": "\n\n地址:\n北京市西城区复兴门外大街16号\n\n\n电话:\n010-63370491,010-63370492,010-63393339\n\n\n官网:\nhttp://www.capitalmuseum.org.cn/\n\n",
     "description": {
@@ -3033,6 +3106,7 @@
       "en": "Beijing Wild Duck Lake National Wetland Park",
       "zh_CN": "野鸭湖国家湿地公园"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi709419-yeyahuguojiashidigong",
     "address": "\n\n地址:\n北京市延庆区康庄镇刘浩营村西\n\n\n电话:\n010-69131458,010-69131226\n\n\n官网:\nhttp://www.yeyahu.com/\n\n",
     "description": {
@@ -3067,6 +3141,7 @@
       "en": "Nangong Wuzhou Botanical Amusement Park",
       "zh_CN": "南宫五洲植物乐园"
     },
+    "type": "leisure",
     "link": "http://travel.qunar.com/p-oi9475016-nangongwuzhouzhiwuleyuan",
     "address": "\n\n地址:\n北京市丰台区王佐镇南宫南路1号南宫旅游景区内\n\n\n电话:\n010-83316030,010-83318032,010-83318649\n\n",
     "description": {
@@ -3098,6 +3173,7 @@
       "en": "Jiuyanlou Mountain",
       "zh_CN": "九眼楼"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi8680740-jiuyanlou",
     "address": "\n\n地址:\n北京市延庆区四海镇东南公里的火焰山主峰\n\n\n电话:\n010-60187376\n\n",
     "description": {
@@ -3129,6 +3205,7 @@
       "en": "Houhai Park",
       "zh_CN": "后海公园"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi3721859-houhaigongyuan",
     "address": "\n\n地址:\n北京市西城区后海北沿50号(近鼓楼西大街)\n\n",
     "description": {
@@ -3167,6 +3244,7 @@
       "en": "Aolinpike Forest Park",
       "zh_CN": "奥林匹克森林公园"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi704330-aolinpikesenlingongyuan",
     "page": "9",
     "sub_attractions": []
@@ -3176,6 +3254,7 @@
       "en": "Badaling Wildlife World",
       "zh_CN": "八达岭野生动物世界"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi705344-badalingyeshengdongwu",
     "address": "\n\n地址:\n北京市延庆区八达岭镇八达岭旅游区\n\n\n电话:\n010-69122591,010-66002236\n\n\n官网:\nhttp://www.bdlsw.com.cn/\n\n",
     "description": {
@@ -3217,6 +3296,7 @@
       "en": "Marco Polo Bridge",
       "zh_CN": "卢沟桥"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi714268-lugouqiao",
     "page": "9",
     "sub_attractions": []
@@ -3226,6 +3306,7 @@
       "en": "Purple Bamboo Park",
       "zh_CN": "紫竹院公园"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi715931-zizhuyuangongyuan",
     "address": "\n\n地址:\n北京市海淀区中关村南大街35号\n\n\n电话:\n010-88412894,010-88412801,010-68425851\n\n\n官网:\nhttp://www.zizhuyuangongyuan.com/\n\n",
     "description": {
@@ -3257,6 +3338,7 @@
       "en": "Miaoying Temple (Baita Temple)",
       "zh_CN": "白塔寺"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi706584-baitasi",
     "address": "\n\n地址:\n北京市西城区阜成门内大街171号\n\n\n电话:\n010-66166099,010-66160211,010-66035870\n\n",
     "description": {
@@ -3288,6 +3370,7 @@
       "en": "Shuanglong Gorge",
       "zh_CN": "双龙峡"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi708913-shuanglongxia",
     "address": "\n\n地址:\n北京市门头沟区斋堂镇火村双龙峡景区\n\n\n电话:\n010-69819310,010-69819988\n\n\n官网:\nhttp://www.slongxia.com/\n\n",
     "description": {
@@ -3329,6 +3412,7 @@
       "en": "Beijing Zhuanta Lane",
       "zh_CN": "砖塔胡同"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi702415-zhuantahutong",
     "address": "\n\n地址:\n北京市西城区西四\n\n",
     "description": {
@@ -3359,6 +3443,7 @@
       "en": "Labagoumen National Forest Park",
       "zh_CN": "北京喇叭沟原始森林公园"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi712028-beijinglabagouyuanshi",
     "address": "\n\n地址:\n北京市怀柔区喇叭沟门满族乡孙栅子村西300号\n\n\n电话:\n010-60620188,010-60627640\n\n\n官网:\nhttp://www.lbgysl.com/\n\n",
     "description": {
@@ -3400,6 +3485,7 @@
       "en": "Jingdong Grand Canyon",
       "zh_CN": "京东大峡谷"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi707711-jingdongdaxiagu",
     "address": "\n\n地址:\n北京市平谷区山东庄鱼子山村\n\n\n电话:\n010-60968317,010-60968260\n\n\n官网:\nhttp://jddxg.china.b2b.cn/\n\n",
     "description": {
@@ -3438,6 +3524,7 @@
       "en": "Lingshui Village",
       "zh_CN": "灵水村"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi704421-lingshuicun",
     "address": "\n\n地址:\n北京市门头沟区斋堂镇灵水村\n\n\n电话:\n010-69812890\n\n",
     "description": {
@@ -3476,6 +3563,7 @@
       "en": "Poly Art Museum",
       "zh_CN": "保利艺术博物馆"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7468741-baoliyishubowuguan",
     "address": "\n\n地址:\n京市东城区朝阳门北大街1号新保利大厦9层、10层\n\n\n电话:\n010 6500 8117\n\n\n官网:\nhttp://www.polyartmuseum.com/\n\n",
     "description": {
@@ -3507,6 +3595,7 @@
       "en": "Yinshan Pagoda Forest",
       "zh_CN": "银山塔林"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi705493-yinshantalin",
     "address": "\n\n地址:\n北京市昌平区兴寿镇西湖村\n\n\n电话:\n010-89726425\n\n",
     "description": {
@@ -3538,6 +3627,7 @@
       "en": "Temple of the Sleeping Buddha (Wofosi)",
       "zh_CN": "卧佛寺"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi707865-wofosi",
     "address": "\n\n地址:\n北京市海淀区卧佛寺路北京植物园内\n\n\n电话:\n010-82598771(北园),010-62836180(南园)\n\n",
     "description": {

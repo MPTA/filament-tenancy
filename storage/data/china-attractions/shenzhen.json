@@ -4,6 +4,7 @@
       "zh_CN": "杨梅坑",
       "en": "Yangmeikeng"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7639153-yangmeikeng",
     "address": "地址:\n深圳市龙岗区东山社区\n\n\n电话:\n0755-84423986",
     "description": {
@@ -43,6 +44,7 @@
       "zh_CN": "玫瑰海岸",
       "en": "Rose Coast"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7568880-meiguihaian",
     "address": "地址:\n深圳市龙岗区深葵公路\n\n\n电话:\n0755-84234888,0755-84235656",
     "description": {
@@ -82,6 +84,7 @@
       "zh_CN": "桔钓沙",
       "en": "Judiaosha"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi6805392-jiediaosha",
     "address": "地址:\n深圳市龙岗区X260(新东路)\n\n\n电话:\n0755-28329790",
     "description": {
@@ -118,6 +121,7 @@
       "zh_CN": "大鹏所城",
       "en": "Dapeng Ancient City"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi714533-dapengsuocheng",
     "address": "地址:\n深圳市龙岗区南门东路\n\n\n电话:\n0755-84319488",
     "description": {
@@ -156,6 +160,7 @@
     "name": {
       "zh_CN": "背仔角"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi8666444-beizijiao",
     "address": "地址:\n深圳市盐田区背仔角",
     "description": {
@@ -185,6 +190,7 @@
       "zh_CN": "南头古城",
       "en": "Nantou Ancient Town"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi710524-nantougucheng",
     "address": "地址:\n深圳市南山区南头天桥北8米处(深南大道旁)\n\n\n电话:\n0755-26669990",
     "description": {
@@ -220,6 +226,7 @@
     "name": {
       "zh_CN": "水头沙"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi8666466-shuitousha",
     "address": "地址:\n深圳市龙岗区水头沙",
     "description": {
@@ -249,6 +256,7 @@
       "zh_CN": "凤凰古村",
       "en": "Fenghuang Ancient Village"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi10023045-fenghuanggucun",
     "address": "地址:\n深圳市宝安区沙井镇福永街道凤凰社区凤凰村\n\n\n电话:\n0755-85264050",
     "description": {
@@ -284,6 +292,7 @@
     "name": {
       "zh_CN": "大鹿湾"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi8666360-daluwan",
     "address": "地址:\n深圳市龙岗区大鹿湾",
     "description": {
@@ -313,6 +322,7 @@
       "zh_CN": "甘坑古镇",
       "en": "Gankeng Hakka Town"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi9555041-gankengguzhen",
     "address": "地址:\n深圳市龙岗区布吉吉华街道甘李路18号\n\n\n电话:\n0755-89328887",
     "description": {
@@ -349,6 +359,7 @@
       "zh_CN": "梧桐山国家森林公园",
       "en": "Wutong Mountain"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi701594-wutongshanguojiasenlin",
     "address": "地址:\n深圳市罗湖区莲塘街道罗沙路2076号\n\n\n电话:\n0755-25355818,0755-25152005",
     "description": {
@@ -401,6 +412,7 @@
       "zh_CN": "较场尾",
       "en": "Jiaochangwei"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7643561-jiaochangwei",
     "address": "地址:\n深圳市大鹏新区\n\n\n电话:\n0756-6995012,0756-2233126",
     "description": {
@@ -437,6 +449,7 @@
       "zh_CN": "沙鱼涌",
       "en": "Shayu Chongkou"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi8666228-shayuyong",
     "address": "地址:\n深圳市龙岗区官湖路沙鱼涌",
     "description": {
@@ -473,6 +486,7 @@
       "zh_CN": "小梅沙",
       "en": "Xiaomeisha"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5852825-xiaomeisha",
     "address": "地址:\n深圳市盐田区大鹏湾畔小梅沙\n\n\n电话:\n0755-22720053,0755-25035968\n\n\n官网:\nhttp://www.szxms.com.cn/",
     "description": {
@@ -509,6 +523,7 @@
       "zh_CN": "荷兰花卉小镇",
       "en": "Dutch Flower Town"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7524544-helanhuahuixiaozhen",
     "address": "地址:\n深圳市南山区月亮湾大道3008号\n\n\n电话:\n0755-86034022",
     "description": {
@@ -551,6 +566,7 @@
       "zh_CN": "大鹏半岛",
       "en": "Dapeng Peninsula"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi707019-dapengbandao",
     "address": "地址:\n深圳市龙岗区\n\n\n电话:\n0755-84425119",
     "description": {
@@ -590,6 +606,7 @@
       "zh_CN": "西涌",
       "en": "Xichong"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7646922-xiyong",
     "address": "地址:\n深圳市龙岗区南澳镇\n\n\n电话:\n0755-82203430,0755-89871422",
     "description": {
@@ -625,6 +642,7 @@
     "name": {
       "zh_CN": "金龟村"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi38045070-jinguicun",
     "address": null,
     "description": {
@@ -658,6 +676,7 @@
       "zh_CN": "大梅沙海滩",
       "en": "Dameisha Beach"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi35214212-dameishahaitan",
     "address": null,
     "description": {
@@ -684,6 +703,7 @@
       "zh_CN": "官湖村",
       "en": "Guan Hu Village"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi10023059-guanhucun",
     "address": "地址:\n深圳市大鹏新区湖龙北路与官湖东路交叉口东北120米",
     "description": {
@@ -713,6 +733,7 @@
       "zh_CN": "大鹿港",
       "en": "Dalu Port"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi10022968-dalugang",
     "address": "地址:\n深圳市龙岗区南澳镇西贡村西面",
     "description": {
@@ -758,6 +779,7 @@
       "zh_CN": "盐田海滨栈道",
       "en": "Yantian Waterfront Boardwalk"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi8678552-yantianhaibinzhandao",
     "address": "地址:\n深圳市盐田区港西面滨海栈道\n\n\n电话:\n0755-25061070",
     "description": {
@@ -800,6 +822,7 @@
       "zh_CN": "小梅沙海洋世界",
       "en": "Xiaomeisha Sea World"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi714240-xiaomeishahaiyangshijie",
     "address": "地址:\n深圳市盐田区小梅沙海滨旅游区\n\n\n电话:\n0755-25035555,0755-25035556,0755-25035552",
     "description": {
@@ -882,6 +905,7 @@
       "zh_CN": "仙湖植物园",
       "en": "Fairylake Botanical Garden"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi714815-xianhuzhiwuyuan",
     "address": "地址:\n深圳市罗湖区仙湖路160号仙湖植物园\n\n\n电话:\n0755-25738430,0755-25722184",
     "description": {
@@ -963,6 +987,7 @@
       "zh_CN": "海上世界",
       "en": "Sea World"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7587761-haishangshijie",
     "address": "地址:\n深圳市南山区招商街道蛇口望海路1128号\n\n\n电话:\n0755-26890000",
     "description": {
@@ -1015,6 +1040,7 @@
       "zh_CN": "深圳大学",
       "en": "Shenzhen University"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi8666439-shenzhendaxue",
     "address": "地址:\n深圳市南山区南海大道3688号\n\n\n电话:\n0755-26536114",
     "description": {
@@ -1088,6 +1114,7 @@
       "zh_CN": "光明农场大观园",
       "en": "Guangming Tour Farm"
     },
+    "type": "leisure",
     "link": "http://travel.qunar.com/p-oi706395-guangmingnongchangdaguan",
     "address": "地址:\n深圳市宝安区光明新区碧水路农场大观园\n\n\n电话:\n0755-29930022,0755-27400899,0755-27404159\n\n\n官网:\nhttp://www.gmncly.com/",
     "description": {
@@ -1135,6 +1162,7 @@
     "name": {
       "zh_CN": "南澳柚柑湾沙滩"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi38145222-nanaoyouganwanshatan",
     "address": null,
     "description": {
@@ -1161,6 +1189,7 @@
       "zh_CN": "深圳国际园林花卉博览园",
       "en": "-综合馆Shenzhen International Garden and Flower Expo Park Comprehensive Hall"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi35198082-shenzhenguojiyuanlinhua",
     "address": null,
     "image_url": "https://tr-osdcp.qunarzz.com/tr-osd-vs-dapp-ugc/img/08301565678e42f3a3bb6d2e37db185c.jpeg_480x360x95_e9bdbacf.jpeg",
@@ -1181,6 +1210,7 @@
       "zh_CN": "玫瑰小镇",
       "en": "Rose Village"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi10068806-meiguixiaozhen",
     "address": "地址:\n深圳市龙岗区大鹏新村\n\n\n电话:\n0755-84303888\n\n\n官网:\nhttp://szrosetown.com/",
     "description": {
@@ -1210,6 +1240,7 @@
       "zh_CN": "茶溪谷茵特拉根小镇",
       "en": "Tea Valley Interlaken Town"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi9497422-chaxiguyintelagenxiao",
     "address": "地址:\n深圳市盐田区大梅沙东部华侨城茶溪谷景区内\n\n\n电话:\n0755-88889888",
     "description": {
@@ -1246,6 +1277,7 @@
       "zh_CN": "东冲",
       "en": "Dongchong"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi9480608-dongchong",
     "address": "地址:\n深圳市龙岗区东涌旅游区内\n\n\n电话:\n0755-88845622",
     "description": {
@@ -1275,6 +1307,7 @@
       "zh_CN": "东冲海柴角",
       "en": "Dongchonghai Chaijiao Scenic Resort"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi8666454-dongchonghaichaijiao",
     "address": "地址:\n深圳市龙岗区南澳街道海柴角",
     "description": {
@@ -1311,6 +1344,7 @@
       "zh_CN": "大梅沙海滨公园",
       "en": "Dameisha Waterfront Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi705809-dameishahaibingongyuan",
     "address": "地址:\n深圳市盐田区盐葵路大梅沙段148号\n\n\n电话:\n0755-25209678",
     "description": {
@@ -1356,6 +1390,7 @@
     "name": {
       "zh_CN": "东冲西冲海岸线"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi714790-dongchongxichonghaian",
     "address": "地址:\n深圳市龙岗区大鹏半岛南端",
     "description": {
@@ -1395,6 +1430,7 @@
       "zh_CN": "华侨城创意文化园",
       "en": "Overseas Chinese Town (OCT) Loft"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi7628130-huaqiaochengchuangyiwen",
     "address": "地址:\n深圳市南山区锦绣北街2号\n\n\n电话:\n0755-26936340,0755-26935044\n\n\n官网:\nhttp://www.octloft.cn/",
     "description": {
@@ -1424,6 +1460,7 @@
       "zh_CN": "红树林",
       "en": "Shenzhen Mangrove Nature Reserve"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi704878-hongshulin",
     "address": "地址:\n深圳市福田区滨河大道\n\n\n电话:\n0755-83708803",
     "description": {
@@ -1463,6 +1500,7 @@
       "zh_CN": "深圳野生动物园",
       "en": "Shenzhen Safari Park"
     },
+    "type": "leisure",
     "link": "http://travel.qunar.com/p-oi709981-shenzhenyeshengdongwu",
     "address": "地址:\n深圳市南山区西丽湖路4086号（西丽湖东侧）\n\n\n电话:\n0755-26622888,0755-26628068\n\n\n官网:\nhttp://www.szzoo.net/",
     "description": {
@@ -1538,6 +1576,7 @@
     "name": {
       "zh_CN": "地王大厦"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi711955-diwangdasha",
     "address": "地址:\n深圳市罗湖区深南东路5002号信兴广场商业中心地王大厦\n\n\n电话:\n0755-82463789、0755-82462232\n\n\n官网:\nhttp://www.szmvc.com.cn/",
     "description": {
@@ -1577,6 +1616,7 @@
       "zh_CN": "中英街",
       "en": "Chung Ying Street"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi709186-zhongyingjie",
     "address": "地址:\n深圳市盐田区沙头角镇\n\n\n电话:\n0755-25354657,0755-25258941",
     "description": {
@@ -1616,6 +1656,7 @@
       "zh_CN": "莲花山公园",
       "en": "Lianhuashan Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi705061-lianhuashangongyuan",
     "address": "地址:\n深圳市福田区红荔路6030号\n\n\n电话:\n0755-83067950,0755-83915939",
     "description": {
@@ -1677,6 +1718,7 @@
       "zh_CN": "深圳博物馆",
       "en": "Shenzhen Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi5852832-shenzhenbowuguan",
     "address": "地址:\n深圳市福田区福中路市民中心A区东门\n\n\n电话:\n0755-88125550,0755-25100385,0755-82738315,0755-83254753,0755-82105900\n\n\n官网:\nhttps://www.shenzhenmuseum.com/",
     "description": {
@@ -1738,6 +1780,7 @@
       "zh_CN": "深南大道",
       "en": "Shennan Avenue"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi5740323-shennandadao",
     "address": "地址:\n深圳市，经过福田区和南山区。",
     "description": {
@@ -1786,6 +1829,7 @@
       "zh_CN": "赤湾天后庙",
       "en": "Chiwan Tianhou Temple"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi712912-chiwantianhoumiao",
     "address": "地址:\n深圳市南山区赤湾六路\n\n\n电话:\n0755-26851350",
     "description": {
@@ -1828,6 +1872,7 @@
       "zh_CN": "深圳湾公园",
       "en": "Shenzhen Bay Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7524527-shenzhenwangongyuan",
     "address": "地址:\n深圳市南山区滨海侨城东立交桥\n\n\n电话:\n0755-83706489",
     "description": {
@@ -1864,6 +1909,7 @@
       "zh_CN": "宋少帝陵",
       "en": "King Zhaobing's Mausoleum of Song Dynasty"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi715608-songshaodiling",
     "address": "地址:\n南山区招商街道赤湾村少帝路\n\n\n电话:\n26672436",
     "description": {
@@ -1900,6 +1946,7 @@
       "zh_CN": "大芬油画村",
       "en": "Dafen Oil Painting Village"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7587129-dafenyouhuacun",
     "address": "地址:\n深圳市龙岗区布吉街道大芬村\n\n\n电话:\n0755-84732622",
     "description": {
@@ -1932,6 +1979,7 @@
       "zh_CN": "深圳欢乐海岸",
       "en": "OCT Harbour"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5852826-shenzhenhuanlehaian",
     "address": "地址:\n深圳市南山区白石路东8号欢乐海岸\n\n\n电话:\n0755-86122311\n\n\n官网:\nhttp://www.octharbour.com",
     "description": {
@@ -1969,6 +2017,7 @@
       "zh_CN": "",
       "en": "The Colour LabThe Colour Lab"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi8681291-the_colour_lab",
     "address": "地址:\n深圳市南山区华侨城创意园恩平街美林大厦303C（创意园星巴克）",
     "description": {
@@ -1997,6 +2046,7 @@
     "name": {
       "zh_CN": "明思克航母世界"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi716332-mingsikehangmushijie",
     "address": "地址:\n深圳市盐田区沙头角海景路（海山路南行尽头）\n\n\n电话:\n0755-25355333",
     "description": {
@@ -2033,6 +2083,7 @@
       "zh_CN": "园博园",
       "en": "Shenzhen International Garden and Flower Expo Park"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi714439-yuanboyuan",
     "address": "地址:\n深圳市福田区深南大道8002号\n\n\n电话:\n0755-82829036",
     "description": {
@@ -2097,6 +2148,7 @@
       "zh_CN": "东部华侨城茶溪谷",
       "en": "Eastern Huaqiao Cheng Tea Valley"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi5852831-dongbuhuaqiaochengcha",
     "address": "地址:\n深圳市盐田区大梅沙东部华侨城\n\n\n电话:\n0755-25031868,0755-88889888\n\n\n官网:\nhttp://www.octeast.com/introduction/yin-te-la-gen.html",
     "description": {
@@ -2158,6 +2210,7 @@
       "zh_CN": "罗湖口岸",
       "en": "Lo Wu Control Point"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7528448-luohukouan",
     "address": "地址:\n深圳市罗湖区人民南路\n\n\n电话:\n0755-82323921",
     "description": {
@@ -2200,6 +2253,7 @@
       "zh_CN": "水头海鲜街",
       "en": "Shuitouhaixian Street"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5851291-shuitouhaixianjie",
     "address": "地址:\n深圳市龙岗区大鹏街道水头海鲜街（龙葵南路与水头商业街交叉口东100米）\n\n\n电话:\n0755-84314801",
     "description": {
@@ -2229,6 +2283,7 @@
       "zh_CN": "沙头角公园",
       "en": "Sha Tau Kok"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi702687-shatoujiaogongyuan",
     "address": "地址:\n梧桐路与井头西街交叉口西北150米",
     "description": {
@@ -2284,6 +2339,7 @@
       "zh_CN": "七娘山",
       "en": "Qiniang Mountain"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi715714-qiniangshan",
     "address": "地址:\n深圳市龙岗区地质公园路1号附近\n\n\n电话:\n0755-23409495",
     "description": {
@@ -2326,6 +2382,7 @@
       "zh_CN": "中山公园",
       "en": "Zhongshan Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi714379-zhongshangongyuan",
     "address": "地址:\n深圳市南山区南山大道3109号(近汇泉广场)\n\n\n电话:\n0755-26612335",
     "description": {
@@ -2381,6 +2438,7 @@
       "zh_CN": "凤凰山",
       "en": "Phoenix Mountain"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi713355-fenghuangshan",
     "address": "地址:\n深圳市宝安区福永街道凤凰村\n\n\n电话:\n0755-27391268",
     "description": {
@@ -2417,6 +2475,7 @@
       "zh_CN": "东湖公园",
       "en": "East Lake Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi704901-donghugongyuan",
     "address": "地址:\n深圳市罗湖区爱国路4006号\n\n\n电话:\n0755-25429205,0755-25410719",
     "description": {
@@ -2478,6 +2537,7 @@
       "zh_CN": "荔枝公园",
       "en": "Lychee Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7524536-lizhigongyuan",
     "address": null,
     "image_url": null,
@@ -2491,6 +2551,7 @@
       "zh_CN": "龙园",
       "en": "Longyuan Park"
     },
+    "type": "leisure",
     "link": "http://travel.qunar.com/p-oi711214-longyuan",
     "address": "地址:\n深圳市龙岗区龙园路416号\n\n\n电话:\n0755-28838044,0755-28832571,0755-28834950",
     "description": {
@@ -2534,6 +2595,7 @@
       "zh_CN": "情人岛",
       "en": "Lover Island"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7647015-qingrendao",
     "address": "地址:\n深圳市龙岗区南澳镇西冲沙滩的一个小岛\n\n\n电话:\n0755-22197676",
     "description": {
@@ -2559,6 +2621,7 @@
     "name": {
       "zh_CN": "南澳旅游海滨中心"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi707436-nanaolu:youhaibinzhong",
     "address": "地址:\n广东-深圳\n\n\n电话:\n0755-84401666",
     "opening_hours": {
@@ -2584,6 +2647,7 @@
     "name": {
       "zh_CN": "空中乐园"
     },
+    "type": "leisure",
     "link": "http://travel.qunar.com/p-oi707052-kongzhongleyuan",
     "address": null,
     "description": {
@@ -2600,6 +2664,7 @@
       "zh_CN": "海上田园",
       "en": "Waterland Resort"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi706998-haishangtianyuan",
     "address": "地址:\n深圳市宝安区沙井街道民主社区民主大道\n\n\n电话:\n0755-27259888\n\n\n官网:\nhttp://www.szwaterlands.com/",
     "description": {
@@ -2642,6 +2707,7 @@
       "zh_CN": "欢乐海岸海洋奇梦馆",
       "en": "Dream Aquarium"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7469418-huanlehaianhaiyangqimeng",
     "address": "地址:\n深圳市南山区白石路东8号欢乐海岸购物中心二楼东端\n\n\n电话:\n0755-86526713",
     "description": {
@@ -2670,6 +2736,7 @@
     "name": {
       "zh_CN": "未来时代"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi707870-weilaishidai",
     "address": null,
     "description": {
@@ -2699,6 +2766,7 @@
       "zh_CN": "关山月美术馆",
       "en": "Guanshanyue Art Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi5740330-guanshanyuemeishuguan",
     "address": "地址:\n深圳市福田区红荔路6026号\n\n\n电话:\n0755-83063086",
     "description": {
@@ -2741,6 +2809,7 @@
       "zh_CN": "信国公文氏祠",
       "en": "Xinguogong Wen Tianxiang Ancestral Hall"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi710840-xinguogongwenshici",
     "address": "地址:\n中山东街26号\n\n\n电话:\n13543313415",
     "description": {
@@ -2769,6 +2838,7 @@
     "name": {
       "zh_CN": "仙湖化石森林"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi715344-xianhuhuashisenlin",
     "address": null,
     "description": {
@@ -2792,6 +2862,7 @@
       "zh_CN": "塘朗山",
       "en": "Tanglangshan"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7524514-tanglangshan",
     "address": "地址:\n广东省深圳市南山区塘朗山\n\n\n电话:\n0755-26798753,0755-26789739",
     "description": {
@@ -2840,6 +2911,7 @@
       "zh_CN": "内伶仃岛",
       "en": "Neilingding Island"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi710958-neilingdingdao",
     "address": "地址:\n深圳市南山区蛇口街道内伶仃岛\n\n\n电话:\n0755-83701816",
     "description": {
@@ -2876,6 +2948,7 @@
       "zh_CN": "大万世居",
       "en": "Pingshan Hakka Village"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi706327-dawanshiju",
     "address": null,
     "description": {
@@ -2909,6 +2982,7 @@
       "zh_CN": "海菲德小镇",
       "en": "Seafield Village"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7524523-haifeidexiaozhen",
     "address": "地址:\n深圳市盐田区大梅沙东部华侨城大侠谷内\n\n\n电话:\n0755-88889888,0755-25032247",
     "description": {
@@ -2945,6 +3019,7 @@
       "zh_CN": "何香凝美术馆",
       "en": "He Xiangning Art Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7569197-hexiangningmeishuguan",
     "address": "地址:\n深圳市南山区深南大道9103号\n\n\n电话:\n0755-26604540,0755-26918118",
     "description": {
@@ -2986,6 +3061,7 @@
     "name": {
       "zh_CN": "保利国际影城"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi3753218-baoliguojiyingcheng",
     "address": null,
     "image_url": null,
@@ -3001,6 +3077,7 @@
     "name": {
       "zh_CN": "航佳绿色生态家园度假山庄"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi713466-hangjialu:seshengtaijia",
     "address": null,
     "description": {
@@ -3024,6 +3101,7 @@
       "zh_CN": "华·美术馆",
       "en": "Hua Art Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7587793-huameishuguan",
     "address": "地址:\n深圳市南山区华侨城深南大道9009号\n\n\n电话:\n0755-33993111,0755-33993222",
     "description": {
@@ -3066,6 +3144,7 @@
     "name": {
       "zh_CN": "赤湾胜概"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi702902-chiwanshenggai",
     "address": null,
     "description": {
@@ -3107,6 +3186,7 @@
       "zh_CN": "深圳科学馆",
       "en": "Shenzhen Science Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7587773-shenzhenkexueguan",
     "address": "地址:\n上步中路1003号\n\n\n电话:\n0755-83268442,0755-83268445,0755-83257210,0755-83351952",
     "description": {
@@ -3150,6 +3230,7 @@
       "zh_CN": "文博宫",
       "en": "Wenbo Palace"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi3663433-wenbogong",
     "address": "地址:\n深圳市龙岗区布吉西环路88号\n\n\n电话:\n0755-89798888\n\n\n官网:\nhttp://www.wenbogong.com/",
     "description": {
@@ -3176,6 +3257,7 @@
       "zh_CN": "宝安科技馆",
       "en": "Bao'an Science & Technology Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi5286160-baoankejiguan",
     "address": "地址:\n深圳市宝安区宝城4区龙井二路95号(近新安影剧院)\n\n\n电话:\n0755-27880172,0755-27880242",
     "description": {
@@ -3205,6 +3287,7 @@
       "zh_CN": "观澜山水田园文化园",
       "en": "Mission Pastoral Tourism and Culture Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7587301-guanlanshanshuitianyuan",
     "address": "地址:\n深圳市龙华区观澜镇君子布环观南路山水田园文化园\n\n\n电话:\n0755-29679888,0755-29679183",
     "description": {
@@ -3236,6 +3319,7 @@
     "name": {
       "zh_CN": "深圳世界金融中心"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi7568995-shenzhenshijiejinrong",
     "address": null,
     "description": {
@@ -3265,6 +3349,7 @@
       "zh_CN": "香蜜湖",
       "en": "Xiangmihu"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7588706-xiangmihu",
     "address": "地址:\n深圳市福田区深南大道6068号香蜜湖度假村\n\n\n电话:\n0755-83708988",
     "description": {
@@ -3301,6 +3386,7 @@
       "zh_CN": "邓小平画像",
       "en": "Deng Xiaoping Portrait"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi7588855-dengxiaopinghuaxiang",
     "address": "地址:\n深圳市福田区红岭大厦1栋28",
     "description": {
@@ -3336,6 +3422,7 @@
     "name": {
       "zh_CN": "正坑水碧道"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi40005948-zhengkengshuibidao",
     "address": null,
     "description": {
@@ -3354,6 +3441,7 @@
     "name": {
       "zh_CN": "茅洲河碧道"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi40004576-maozhouhebidao",
     "address": null,
     "description": {
@@ -3370,6 +3458,7 @@
       "zh_CN": "",
       "en": "SGP卡丁车俱乐部"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi40003403-sgpkadingchejulebu",
     "address": null,
     "description": {
@@ -3385,6 +3474,7 @@
     "name": {
       "zh_CN": "聚龙山生态公园"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi40003401-julongshanshengtaigong",
     "address": null,
     "description": {
@@ -3403,6 +3493,7 @@
     "name": {
       "zh_CN": "红花岭公园"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi39995287-honghualinggongyuan",
     "address": null,
     "description": {
@@ -3434,6 +3525,7 @@
     "name": {
       "zh_CN": "天空美术馆"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi39948337-tiankongmeishuguan",
     "address": null,
     "description": {
@@ -3452,6 +3544,7 @@
     "name": {
       "zh_CN": "醉樱亭"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi39937996-zuiyingting",
     "address": null,
     "description": {
@@ -3467,6 +3560,7 @@
     "name": {
       "zh_CN": "漾日湖"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi39936032-yangrihu",
     "address": null,
     "image_url": null,
@@ -3482,6 +3576,7 @@
     "name": {
       "zh_CN": "犁壁山"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi39887577-libishan",
     "address": null,
     "image_url": null,
@@ -3494,6 +3589,7 @@
     "name": {
       "zh_CN": "华英路景观公园"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi39874694-huayinglujingguangong",
     "address": null,
     "image_url": null,
@@ -3506,6 +3602,7 @@
     "name": {
       "zh_CN": "西乡夜市街"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi39874536-xixiangyeshijie",
     "address": null,
     "image_url": null,
@@ -3518,6 +3615,7 @@
     "name": {
       "zh_CN": "立新湖畔半岛花海"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi39867942-lixinhupanbandaohuahai",
     "address": null,
     "image_url": null,
@@ -3530,6 +3628,7 @@
     "name": {
       "zh_CN": "深圳节日大道"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi39773493-shenzhenjieridadao",
     "address": null,
     "image_url": null,
@@ -3542,6 +3641,7 @@
     "name": {
       "zh_CN": "《魔幻森林奇遇记》生命教育体验式互动剧场"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi39772048-mohuansenlinqiyujisheng",
     "address": null,
     "description": {

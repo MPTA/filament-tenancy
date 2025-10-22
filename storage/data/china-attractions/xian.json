@@ -4,6 +4,7 @@
       "zh_CN": "华山",
       "en": "Mount Hua"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi715456-huashan",
     "address": "\n\n地址:\n陕西省渭南市华阴市华山镇集灵路与华山路交叉口东南1000米\n\n\n电话:\n400-0913-777\n\n\n官网:\nhttp://www.chinahuashan.com/\n\n",
     "description": {
@@ -37,6 +38,7 @@
       "zh_CN": "大唐不夜城",
       "en": "Grand Tang Dynasty Ever-bright City"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi7482144-datangbuyecheng",
     "address": "\n\n地址:\n西安市雁塔区慈恩路46号\n\n\n电话:\n029-85228412\n\n",
     "description": null,
@@ -66,6 +68,7 @@
       "zh_CN": "华清宫",
       "en": "Huaqing Pool"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi709386-huaqinggong",
     "address": "\n\n地址:\n西安市临潼区骊山北华清路38号\n\n\n电话:\n4000299989\n\n\n官网:\nhttp://www.hqc.cn/\n\n",
     "description": {
@@ -118,6 +121,7 @@
       "zh_CN": "大唐芙蓉园",
       "en": "Tang Dynasty Furong Garden"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi711861-datangfurongyuan",
     "address": "\n\n地址:\n西安市曲江新区芙蓉西路99号\n\n\n电话:\n029-85511888\n\n\n官网:\nhttp://www.tangparadise.cn/\n\n",
     "description": {
@@ -176,6 +180,7 @@
       "zh_CN": "陕西历史博物馆",
       "en": "Shaanxi History Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi720443-shanxilishibowuguan",
     "address": "\n\n地址:\n西安市雁塔区小寨东路91号（大雁塔西北侧）\n\n\n电话:\n400-0293806\n\n\n官网:\nhttp://www.sxhm.com/\n\n",
     "description": {
@@ -228,6 +233,7 @@
       "zh_CN": "西安钟楼",
       "en": "Bell Tower of Xi'an"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi10003490-xianzhonglou",
     "address": "\n\n地址:\n西安市碑林区东西南北四条大街交汇处\n\n\n电话:\n029-87276420\n\n",
     "description": {
@@ -259,6 +265,7 @@
       "zh_CN": "秦始皇帝陵博物院(兵马俑)",
       "en": "Emperor Qinshihuang's Mausoleum Site Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi712263-qinshihuangdilingbowu",
     "address": "\n\n地址:\n陕西省西安市临潼区秦陵北路与秦俑馆公路交叉口\n\n\n电话:\n029-81399127,029-81399001\n\n\n官网:\nhttp://www.bmy.com.cn/\n\n",
     "description": {
@@ -317,6 +324,7 @@
       "zh_CN": "永兴坊",
       "en": "Yongxing Lane"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi20961667-yongxingfang",
     "address": "\n\n地址:\n西安市新城区中山门（小东门）内\n\n\n电话:\n029-87457788\n\n\n官网:\nhttp://www.yongxingfang.com.cn/\n\n",
     "description": {
@@ -346,6 +354,7 @@
       "zh_CN": "西安城墙",
       "en": "Fortifications of Xi'an"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi719870-xianchengqiang",
     "address": "\n\n地址:\n西安市碑林区南大街2号（此为永宁门地址，西安城墙位于西安市中心，有城门多座，地址不同）\n\n\n电话:\n029-87272792,029-87283602,029-87286373\n\n\n官网:\nhttp://www.chinaxiancitywall.com/\n\n",
     "description": {
@@ -404,6 +413,7 @@
       "zh_CN": "大雁塔",
       "en": "Giant Wild Goose Pagoda"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi705404-dayanta",
     "address": "\n\n地址:\n西安市雁塔区雁塔路\n\n\n电话:\n029-85518039,029-85535014\n\n",
     "description": {
@@ -457,6 +467,7 @@
       "zh_CN": "回民街",
       "en": "Muslim Quarter"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi722963-huiminjie",
     "address": "\n\n地址:\n西安市莲湖区西大街1号回民街街口\n\n",
     "description": {
@@ -490,6 +501,7 @@
       "zh_CN": "西安碑林博物馆",
       "en": "Xi'an Beilin Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi717090-xianbeilinbowuguan",
     "address": "\n\n地址:\n西安市文昌门内三学街15号\n\n\n电话:\n029-87210764,029-87253331\n\n\n官网:\nhttp://www.beilin-museum.com/\n\n",
     "description": {
@@ -523,6 +535,7 @@
       "zh_CN": "大皮院",
       "en": "Dapiyuan"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi10011860-dapiyuan",
     "address": "\n\n地址:\n西安市莲湖区\n\n",
     "description": {
@@ -552,6 +565,7 @@
       "zh_CN": "骊山",
       "en": "Lishan"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi711526-lishan",
     "address": "\n\n地址:\n西安市临潼区环城东路3号\n\n\n电话:\n029-83812003,029-83820601\n\n",
     "description": {
@@ -583,6 +597,7 @@
       "zh_CN": "高家大院",
       "en": "Gaojia Courtyard"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi714308-gaojiadayuan",
     "address": null,
     "description": null,
@@ -602,6 +617,7 @@
       "zh_CN": "昆明池·七夕公园",
       "en": "Kunming Pool"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi10095082-kunmingchiqixigongyuan",
     "address": "\n\n地址:\n西安市长安区沣东新城斗门新型工业园区汇新路北段\n\n\n电话:\n029-89500981\n\n",
     "description": {
@@ -631,6 +647,7 @@
       "zh_CN": "小雁塔(荐福寺)",
       "en": "Little Wild Goose Pagoda (Jianfu Temple)"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi5475538-xiaoyanta",
     "address": "\n\n地址:\n西安市碑林区友谊西路72号\n\n\n电话:\n029-87803591\n\n",
     "description": {
@@ -662,6 +679,7 @@
       "zh_CN": "西安鼓楼",
       "en": "Drum Tower of Xi'an"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi719773-xiangulou",
     "address": "\n\n地址:\n西安市莲湖区北院门74号\n\n\n电话:\n029-87278797\n\n",
     "description": {
@@ -695,6 +713,7 @@
       "zh_CN": "永宁门",
       "en": "Yongning Gate"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi7482211-yongningmen",
     "address": "\n\n地址:\n西安市碑林区南大街2号\n\n\n电话:\n029-87272792\n\n",
     "description": {
@@ -726,6 +745,7 @@
       "zh_CN": "终南山",
       "en": "Zhongnan Mountain"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi703679-zhongnanshan",
     "address": "\n\n地址:\n西安市长安区城南15公里处\n\n\n电话:\n029-85892176,029-84266238\n\n\n官网:\nhttp://www.qlzns.com/\n\n",
     "description": {
@@ -757,6 +777,7 @@
       "zh_CN": "朱雀国家森林公园",
       "en": "Suzaku National Forest Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi707639-zhuqueguojiasenlingong",
     "address": "\n\n地址:\n西安市户县涝峪八里坪\n\n\n电话:\n029-84970888\n\n\n官网:\nhttp://www.zhuquepark.com/\n\n",
     "description": {
@@ -788,6 +809,7 @@
       "zh_CN": "西安美术馆",
       "en": "Xi'an Art Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7568593-xianmeishuguan",
     "address": "\n\n地址:\n西安市雁塔区雁南一路大唐不夜城\n\n\n电话:\n029-85352880\n\n",
     "description": {
@@ -819,6 +841,7 @@
       "zh_CN": "小寨公园",
       "en": "Xiaozhai Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi38337038-xiaozhaigongyuan",
     "address": null,
     "description": null,
@@ -840,6 +863,7 @@
       "zh_CN": "青龙寺",
       "en": "Qinglong Temple"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi707443-qinglongsi",
     "address": "\n\n地址:\n西安市雁塔区西影路铁炉庙村北1号(乐游原景区)\n\n\n电话:\n029-85531096,029-85521498\n\n",
     "description": {
@@ -871,6 +895,7 @@
       "zh_CN": "大明宫国家遗址公园",
       "en": "Daming Palace National Heritage Park"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi711087-daminggongguojiayizhi",
     "address": "\n\n地址:\n西安市未央区太华南路\n\n\n电话:\n4000096635\n\n\n官网:\nhttp://www.dmgpark.com/\n\n",
     "description": {
@@ -923,6 +948,7 @@
       "zh_CN": "白鹿原·白鹿仓",
       "en": "Bailuyuan·Bailucang"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi702204-bailuyuanbailucang",
     "address": "\n\n地址:\n西安市灞桥区狄寨北路往蓝天方向101县道北100米\n\n\n电话:\n029-83559999\n\n\n官网:\nhttp://www.blyblc.com/\n\n",
     "description": {
@@ -954,6 +980,7 @@
       "zh_CN": "大雁塔北广场",
       "en": "Big Wild Goose Pagoda North Square"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi7482184-dayantabeiguangchang",
     "address": "\n\n地址:\n西安市雁塔区芙蓉东路3号\n\n\n电话:\n029-85551600\n\n",
     "description": {
@@ -985,6 +1012,7 @@
       "zh_CN": "唐大慈恩寺遗址公园",
       "en": "Tangda Ci'ensi Relic Site Park (South Gate)"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi712066-tangdaciensiyizhigong",
     "address": "\n\n地址:\n西安市雁塔区太平堡新1排1号\n\n\n电话:\n029-85519932\n\n",
     "description": {
@@ -1016,6 +1044,7 @@
       "zh_CN": "德福巷",
       "en": "Defu Lane"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi5251363-defuxiang",
     "address": "\n\n地址:\n西安市碑林区\n\n",
     "description": {
@@ -1047,6 +1076,7 @@
       "zh_CN": "翠华山·秦岭终南山世界地质公园",
       "en": "Cuihua Mountain"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi711194-cuihuashanqinlingzhong",
     "address": "\n\n地址:\n西安市长安区太乙宫镇翠华山\n\n\n电话:\n029-85892176,029-87805625\n\n\n官网:\nhttp://www.cuihuashan.com/\n\n",
     "description": {
@@ -1078,6 +1108,7 @@
       "zh_CN": "西安交通大学",
       "en": "Xi'an Jiaotong University"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7482249-xianjiaotongdaxue",
     "address": "\n\n地址:\n西安市碑林区咸宁西路28号\n\n\n电话:\n029-82668221\n\n",
     "description": {
@@ -1109,6 +1140,7 @@
       "zh_CN": "太平国家森林公园",
       "en": "Taiping National Forest Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi716165-taipingguojiasenlingong",
     "address": "\n\n地址:\n西安市鄠邑区太平峪内（太平国家森林公园）\n\n\n电话:\n029-81545776\n\n\n官网:\nhttp://www.tppark.com\n\n",
     "description": {
@@ -1140,6 +1172,7 @@
       "zh_CN": "终南山·南五台景区",
       "en": "South Wutai"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi711870-zhongnanshannanwutaijing",
     "address": "\n\n地址:\n陕西省西安市长安区城南25公里的秦岭北麓(近秦岭山麓)\n\n\n电话:\n029-85949234\n\n",
     "description": {
@@ -1173,6 +1206,7 @@
       "zh_CN": "粉巷",
       "en": "Fenxiang Alley"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7644782-fenxiang",
     "address": "\n\n地址:\n西安市碑林区粉巷，南大街与南院门之间\n\n",
     "description": {
@@ -1204,6 +1238,7 @@
       "zh_CN": "长安十二时辰主题街区",
       "en": "Chang'an Twelve Hours Theme Street"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi38908528-zhanganshiershichenzhu",
     "address": null,
     "description": {
@@ -1225,6 +1260,7 @@
       "zh_CN": "长安唐村·南堡古寨",
       "en": "Chang'an Tang Village · China Agricultural Park"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi35693261-zhangantangcunnanbaogu",
     "address": null,
     "description": {
@@ -1252,6 +1288,7 @@
       "zh_CN": "锦业美术馆",
       "en": "Xi'an Jinye Meishu Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi34272426-jinyemeishuguan",
     "address": "\n\n地址:\n高新区锦业路76号\n\n",
     "description": null,
@@ -1275,6 +1312,7 @@
       "zh_CN": "西安电影制片厂·西影电影博物馆",
       "en": "Xi'an Film Studio·Xiying Film Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi28692219-xiandianyingzhipianchang",
     "address": "\n\n地址:\n西安市雁塔区西影路西部电影集团西影圈子园区内\n\n\n电话:\n029-85536822\n\n",
     "description": {
@@ -1306,6 +1344,7 @@
       "zh_CN": "顺城巷",
       "en": "Shuncheng Alley"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi23344045-shunchengxiang",
     "address": null,
     "description": {
@@ -1335,6 +1374,7 @@
       "zh_CN": "王家大院",
       "en": "Courtyard of Family Wang"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi20034223-wangjiadayuan",
     "address": null,
     "description": {
@@ -1364,6 +1404,7 @@
       "zh_CN": "西羊市",
       "en": "Xiyangshi Street"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi10042676-xiyangshi",
     "address": "\n\n地址:\n西安市莲湖区北广济街附近\n\n",
     "description": {
@@ -1393,6 +1434,7 @@
       "zh_CN": "朱雀门",
       "en": "Zhuquemen"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi9553884-zhuquemen",
     "address": "\n\n地址:\n西安市碑林区南广济街南口\n\n\n电话:\n029-87272792\n\n",
     "description": {
@@ -1422,6 +1464,7 @@
       "zh_CN": "书院门文化街",
       "en": "Shuyuan Gate Culture Street"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi8686836-shuyuanmenwenhuajie",
     "address": "\n\n地址:\n西安市碑林区书院门24号\n\n\n电话:\n029-88418127\n\n",
     "description": {
@@ -1455,6 +1498,7 @@
       "zh_CN": "中国唐苑",
       "en": "China Tangyuan"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi8680682-zhongguotangyuan",
     "address": "\n\n地址:\n西安市雁塔区杜陵邑南路6号\n\n\n电话:\n029-63361380,029-63361300\n\n",
     "description": {
@@ -1486,6 +1530,7 @@
       "zh_CN": "秦始皇帝陵博物院",
       "en": "-丽山园 Mausoleum of the First Qin Emperor"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi722610-qinshihuangdilingbowu",
     "address": "\n\n地址:\n西安市临潼区秦陵北路\n\n\n电话:\n029-81399174,029-81399170\n\n",
     "description": {
@@ -1519,6 +1564,7 @@
       "zh_CN": "秦岭野生动物园",
       "en": "Qinling Wildlife Park"
     },
+    "type": "leisure",
     "link": "http://travel.qunar.com/p-oi706021-qinlingyeshengdongwuyuan",
     "address": "\n\n地址:\n陕西省西安市长安区107省道南500米\n\n\n电话:\n029-85670000\n\n\n官网:\nhttp://www.xianzoo.com/\n\n",
     "description": {
@@ -1550,6 +1596,7 @@
       "zh_CN": "西安半坡博物馆",
       "en": "Banpo Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi719303-xianbanpobowuguan",
     "address": "\n\n地址:\n陕西省西安市灞桥区半坡路155号\n\n\n电话:\n029-62815385(周一至周五),029- 62815430(周末、节假日)\n\n\n官网:\nhttp://www.bpmuseum.com/\n\n",
     "description": {
@@ -1581,6 +1628,7 @@
       "zh_CN": "曲江池遗址公园",
       "en": "Qujiangchi Site Park"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi705736-qujiangchiyizhigongyuan",
     "address": "\n\n地址:\n西安市雁塔区曲江池西路与曲江池北路交叉口东南角\n\n\n电话:\n029-85562540,029-85563398\n\n",
     "description": {
@@ -1612,6 +1660,7 @@
       "zh_CN": "关中书院",
       "en": "Guanzhong Academy"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi710704-guanzhongshuyuan",
     "address": null,
     "description": null,
@@ -1631,6 +1680,7 @@
       "zh_CN": "化觉巷清真大寺",
       "en": "Huajue Lane, the Great Mosque"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi716283-huajuexiangqingzhenda",
     "address": null,
     "description": null,
@@ -1650,6 +1700,7 @@
       "zh_CN": "大兴善寺",
       "en": "Daxingshan Temple"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi715002-daxingshansi",
     "address": "\n\n地址:\n西安市雁塔区兴善寺西街55号\n\n\n电话:\n029-85227071,029-85216034\n\n",
     "description": {
@@ -1681,6 +1732,7 @@
       "zh_CN": "西安事变纪念馆",
       "en": "Xi'an Incident Memorial Hall"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi713722-xianshibianjinianguan",
     "address": "\n\n地址:\n张学良将军公馆:西安市碑林区建国路69号 杨虎城将军止园别墅:西安市莲湖区青年路117号\n\n\n电话:\n029-87418247\n\n\n官网:\nhttp://www.xasb.net/\n\n",
     "description": {
@@ -1712,6 +1764,7 @@
       "zh_CN": "都城隍庙",
       "en": "Xi'an Town's God Temple"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi716545-douchenghuangmiao",
     "address": "\n\n地址:\n西安市西大街129号，大学习巷东侧\n\n\n电话:\n029-87278333\n\n",
     "description": {
@@ -1743,6 +1796,7 @@
       "zh_CN": "世界八大奇迹馆",
       "en": "The Eight Wonders Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi704825-shijiebadaqijiguan",
     "address": null,
     "description": null,
@@ -1762,6 +1816,7 @@
       "zh_CN": "阿房宫遗址",
       "en": "Site of the Efang Palace"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi704303-afanggongyizhi",
     "address": "\n\n地址:\n西安市西郊红光路西段阿房宫遗址\n\n",
     "description": {
@@ -1787,6 +1842,7 @@
       "zh_CN": "兵谏亭",
       "en": "Bingjian Pavilion"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi720009-bingjianting",
     "address": "\n\n地址:\n西安市临潼区牡丹路骊山国家森林公园内\n\n\n电话:\n029-83812004\n\n",
     "description": {
@@ -1818,6 +1874,7 @@
       "zh_CN": "兴庆宫公园",
       "en": "Xingqing Palace Park"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi710491-xingqinggonggongyuan",
     "address": "\n\n地址:\n西安市碑林区咸宁西路55号\n\n\n电话:\n029-82495193\n\n",
     "description": {
@@ -1849,6 +1906,7 @@
       "zh_CN": "五星街教堂",
       "en": "The Catholic Church at Wuxing Street"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi5475541-wuxingjiejiaotang",
     "address": "\n\n地址:\n西安市莲湖区五星街17号\n\n\n电话:\n029-7625144\n\n",
     "description": {
@@ -1880,6 +1938,7 @@
       "zh_CN": "秦陵地宫展览馆‎",
       "en": "Mausoleum of the First Qin Emperor"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi705442-qinlingdigongzhanlanguan",
     "address": null,
     "description": null,
@@ -1899,6 +1958,7 @@
       "zh_CN": "临潼博物馆",
       "en": "Lintong Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi710891-lintongbowuguan",
     "address": "\n\n地址:\n西安市临潼区环城东路1号\n\n\n电话:\n029-83812071\n\n",
     "description": {
@@ -1930,6 +1990,7 @@
       "zh_CN": "大雁塔北广场音乐喷泉",
       "en": "Big Wild Goose Pagoda North Square Music Fountain"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7569017-dayantabeiguangchangyin",
     "address": "\n\n地址:\n西安市雁塔区大雁塔内\n\n\n电话:\n029-85551600\n\n",
     "description": {
@@ -1961,6 +2022,7 @@
       "zh_CN": "莲湖公园",
       "en": "Lianhu Lake Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi716556-lianhugongyuan",
     "address": "\n\n地址:\n莲湖路58号(近莲花池街)\n\n\n电话:\n029-87256341,029-87278371\n\n",
     "description": {
@@ -1992,6 +2054,7 @@
       "zh_CN": "烽火台",
       "en": "Beacon Tower"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi721764-fenghuotai",
     "address": "\n\n地址:\n西安市临潼区华清路（昭阳门）骊山森林公园西绣岭第一峰上\n\n\n电话:\n029-83812004\n\n",
     "description": {
@@ -2023,6 +2086,7 @@
       "zh_CN": "寒窑妖马洞",
       "en": "Hanyao Demon Horse Cave"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi712013-hanyaoyaomadong",
     "address": "\n\n地址:\n陕西西安\n\n",
     "description": {
@@ -2048,6 +2112,7 @@
       "zh_CN": "霓裳羽衣舞",
       "en": "Dance of colorful feathers"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7642528-nishangyuyiwu",
     "address": "\n\n地址:\n陕西省西安市碑林区长安北路75号（草场坡与长安北路十字东南角）\n\n\n电话:\n029-87822222\n\n\n官网:\nhttp://www.xiantangdynasty.com\n\n",
     "description": {
@@ -2075,6 +2140,7 @@
       "zh_CN": "钟鼓楼广场",
       "en": "Bell Tower and Drum Tower Square"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi7482300-zhonggulouguangchang",
     "address": "\n\n地址:\n西安市莲湖区北院门街道西大街1号\n\n",
     "description": {
@@ -2106,6 +2172,7 @@
       "zh_CN": "唐代艺术博物馆",
       "en": "Tan Dynasty Art Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi713812-tangdaiyishubowuguan",
     "address": "\n\n地址:\n西安市雁塔区芙蓉西路99号大唐芙蓉园内\n\n\n电话:\n029-85511888\n\n",
     "description": {
@@ -2137,6 +2204,7 @@
       "zh_CN": "革命公园",
       "en": "Revolution Park"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi716245-geminggongyuan",
     "address": "\n\n地址:\n西安市新城区西五路53号\n\n\n电话:\n029-87429497,029-87444591\n\n",
     "description": {
@@ -2168,6 +2236,7 @@
       "zh_CN": "鸿门宴遗址",
       "en": "Hongmen Banquet Ruins"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi705592-hongmenyanyizhi",
     "address": "\n\n地址:\n西安市临潼区新丰街道办事处鸿门堡2号\n\n\n电话:\n029-83979818\n\n",
     "description": {
@@ -2199,6 +2268,7 @@
       "zh_CN": "护国兴教寺",
       "en": "Huguo Xingjiao Temple"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi716213-huguoxingjiaosi",
     "address": "\n\n地址:\n西安市长安区杜曲街道少陵原畔\n\n\n电话:\n029-85937335\n\n",
     "description": {
@@ -2230,6 +2300,7 @@
       "zh_CN": "曲江寒窑遗址公园",
       "en": "Qujiang Cold Kiln Ruins Park"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7564231-qujianghanyaoyizhigong",
     "address": "\n\n地址:\n西安市曲江新区寒窑路18号\n\n\n电话:\n029-81543705,029-85565555\n\n",
     "description": {
@@ -2261,6 +2332,7 @@
       "zh_CN": "张学良将军公馆",
       "en": "General Zhang Xueliang Residence"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi5475540-zhangxueliangjiangjun",
     "address": "\n\n地址:\n西安市碑林区建国路69号\n\n\n电话:\n029-87418265,029-87418247\n\n",
     "description": {
@@ -2292,6 +2364,7 @@
       "zh_CN": "晚照亭",
       "en": "Wanzhao Pavilion"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi719971-wanzhaoting",
     "address": "\n\n地址:\n西安市临潼区华清路（昭阳门）骊山森林公园内\n\n",
     "description": {
@@ -2323,6 +2396,7 @@
       "zh_CN": "万寿八仙宫",
       "en": "Wanshoubaxian Palace"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi708162-wanshoubaxiangong",
     "address": "\n\n地址:\n西安市碑林区长乐坊北火巷12号(景龙池)\n\n\n电话:\n029-82488214\n\n",
     "description": {
@@ -2354,6 +2428,7 @@
       "zh_CN": "西安博物院",
       "en": "Xi’ an City Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7482259-xianbowuyuan",
     "address": "\n\n地址:\n西安市碑林区友谊西路72号\n\n\n电话:\n029-87803591,029-85238032\n\n\n官网:\nhttp://www.xabwy.com/\n\n",
     "description": {
@@ -2383,6 +2458,7 @@
       "zh_CN": "香积寺",
       "en": "Xiangji Temple"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi703116-xiangjisi",
     "address": "\n\n地址:\n西安市长安区郭杜镇郭杜乡香积寺村\n\n\n电话:\n029-85973209\n\n",
     "description": {
@@ -2414,6 +2490,7 @@
       "zh_CN": "秦汉文化艺术厅",
       "en": "Qinhan Culture and Art Hall"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi715944-qinhanwenhuayishuting",
     "address": null,
     "description": {
@@ -2435,6 +2512,7 @@
       "zh_CN": "曲江旅游度假区",
       "en": "Qujiang Tourist Resort"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi710567-qujianglu:youdujiaqu",
     "address": "\n\n地址:\n西安市雁南一路\n\n",
     "description": {
@@ -2458,6 +2536,7 @@
       "zh_CN": "秦二世胡亥墓",
       "en": "Tomb of Qin Er Shi"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi712982-qinershihuhaimu",
     "address": "\n\n地址:\n西安市雁塔区曲江街道西曲村南缘台地上\n\n\n电话:\n029-85428866\n\n",
     "description": {
@@ -2489,6 +2568,7 @@
       "zh_CN": "白鹿原民俗文化村",
       "en": "Bailuyuan Folk Culture Village"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi9539822-bailuyuanminsuwenhuacun",
     "address": "\n\n地址:\n西安市蓝田县安村镇\n\n\n电话:\n029-62591666\n\n",
     "description": {
@@ -2520,6 +2600,7 @@
       "zh_CN": "嘉午台",
       "en": "Jiawutai Scenic Spot"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi713805-jiawutai",
     "address": "\n\n地址:\n西安市长安区引镇小峪和大峪之间\n\n",
     "description": {
@@ -2551,6 +2632,7 @@
       "zh_CN": "楼观台国家森林公园",
       "en": "Louguantai National Forest Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi707995-louguantaiguojiasenlin",
     "address": "\n\n地址:\n西安市周至县宗圣宫向南1公里\n\n\n电话:\n029 8518 0545\n\n",
     "description": {
@@ -2582,6 +2664,7 @@
       "zh_CN": "汉长安城未央宫国家考古遗址公园",
       "en": "Han Dynasty Chang'an City Weiyang Palace National Archaeological Site Park"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi709800-hanzhanganchengweiyang",
     "address": "\n\n地址:\n西安市未央区邓六路\n\n\n电话:\n029-86380088\n\n",
     "description": null,
@@ -2611,6 +2694,7 @@
       "zh_CN": "高冠瀑布",
       "en": "Gaoguan Waterfall"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi716154-gaoguanpubu",
     "address": "\n\n地址:\n西安市长安区东大街高冠峪风景区\n\n\n电话:\n029-85865130,029-85865131,029-85865310\n\n",
     "description": {
@@ -2642,6 +2726,7 @@
       "zh_CN": "含光门遗址博物馆",
       "en": "Hanguang Gate Relic Site Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi3761188-hanguangmenyizhibowuguan",
     "address": "\n\n地址:\n西安市莲湖区环城南路西段136号\n\n\n电话:\n029-87272792,029-87638254\n\n",
     "description": {
@@ -2673,6 +2758,7 @@
       "zh_CN": "草堂寺",
       "en": "Caotang Temple"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi703389-caotangsi",
     "address": "\n\n地址:\n西安市鄠邑区草堂村圭峰山北麓\n\n\n电话:\n029-84953437\n\n",
     "description": {
@@ -2704,6 +2790,7 @@
       "zh_CN": "五间厅",
       "en": "Five-Hall Scenic Spot"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7523636-wujianting",
     "address": "\n\n地址:\n西安市临潼区华清路038号华清池景区内\n\n\n电话:\n029-83812003,029-83818888\n\n",
     "description": {
@@ -2735,6 +2822,7 @@
       "zh_CN": "荐福寺",
       "en": "Jianfu Temple"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi5475539-jianfusi",
     "address": "\n\n地址:\n友谊西路72号西安博物院内(近小雁塔)\n\n\n电话:\n029-87803591\n\n",
     "description": {
@@ -2764,6 +2852,7 @@
       "zh_CN": "西安浐灞国家湿地公园",
       "en": "Xi'an Chanba National Wetland Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7468883-xianchanbaguojiashidi",
     "address": null,
     "description": null,
@@ -2783,6 +2872,7 @@
       "zh_CN": "华严寺",
       "en": "Huanyan Temple of Xi'an"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi705585-huayansi",
     "address": "\n\n地址:\n西安市长安区杜曲镇杜曲镇韦曲街道东南少陵原半坡上\n\n\n电话:\n029-85990014\n\n",
     "description": {
@@ -2814,6 +2904,7 @@
       "zh_CN": "湘子庙",
       "en": "Xiangzi Temple"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7482217-xiangzimiao",
     "address": null,
     "description": null,
@@ -2833,6 +2924,7 @@
       "zh_CN": "杨虎城将军陵园",
       "en": "General Yang Hucheng Mausoleum"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi704499-yanghuchengjiangjunling",
     "address": "\n\n地址:\n西安市长安区樊川路双竹村甲字1号\n\n\n电话:\n029-85623067\n\n",
     "description": {
@@ -2864,6 +2956,7 @@
       "zh_CN": "学习巷仿古商业街",
       "en": "Xuexixiang Fanggu Commercial Street"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi7564239-xuexixiangfanggushang",
     "address": "\n\n地址:\n西大街学习巷(近钟鼓楼)\n\n",
     "description": {
@@ -2895,6 +2988,7 @@
       "zh_CN": "辋川溶洞",
       "en": "Wangchuan Karst Cave"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi712518-wangchuanrongdong",
     "address": "\n\n地址:\n西安市蓝田县辋川镇锡水村北\n\n\n电话:\n029-82822222\n\n",
     "description": {
@@ -2926,6 +3020,7 @@
       "zh_CN": "西安世博园",
       "en": "Xi’ an International Horticultural Expo Garden"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7482067-xianshiboyuan",
     "address": "\n\n地址:\n西安市浐灞生态区世博大道西安世博园\n\n\n电话:\n4009699358,029-83596909\n\n\n官网:\nhttp://www.expo2011.cn/\n\n",
     "description": {
@@ -2959,6 +3054,7 @@
       "zh_CN": "祥峪森林公园",
       "en": "Xiangyu Forest Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi706816-xiangyusenlingongyuan",
     "address": null,
     "description": null,
@@ -2978,6 +3074,7 @@
       "zh_CN": "长安大学",
       "en": "Chang’ an University"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi7645322-zhangandaxue",
     "address": "\n\n地址:\n西安市雁塔区长安中路161号\n\n\n电话:\n029-61105089\n\n",
     "description": {
@@ -3009,6 +3106,7 @@
       "zh_CN": "兵谏园",
       "en": "Bingjian Garden"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi716880-bingjianyuan",
     "address": null,
     "description": null,
@@ -3028,6 +3126,7 @@
       "zh_CN": "达摩洞",
       "en": "Bodhidharma Cave"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi717477-damodong",
     "address": null,
     "description": {
@@ -3049,6 +3148,7 @@
       "zh_CN": "长安夜宴",
       "en": "Chang'an Night Banquet"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi710739-zhanganyeyan",
     "address": "\n\n地址:\n陕西西安东二环金花南路长乐剧院\n\n",
     "description": {

@@ -4,6 +4,7 @@
       "zh_CN": "昆明瀑布公园",
       "en": "The Waterfall Park of Kunming"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi10071099-kunmingpubugongyuan",
     "address": "地址:\n昆明市盘龙区盘江西路与Z107交汇处",
     "description": {
@@ -33,6 +34,7 @@
       "zh_CN": "昆明老街",
       "en": "Kunminglao Street"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi23060016-kunminglaojie",
     "address": "地址:\n云南省昆明市五华区文庙直街钱王街3号\n\n\n电话:\n0871-68378663,0871-68378557",
     "opening_hours": {
@@ -59,6 +61,7 @@
       "zh_CN": "滇池",
       "en": "Dian Lake"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi711461-dianchi",
     "address": "地址:\n昆明市西山区滇池路1318号\n\n\n电话:\n0871-64311056,0871-66316995",
     "description": {
@@ -132,6 +135,7 @@
       "zh_CN": "翠湖公园",
       "en": "Green Lake Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi712356-cuihugongyuan",
     "address": "地址:\n昆明市五华区翠湖南路67号\n\n\n电话:\n0871-65318808",
     "description": {
@@ -214,6 +218,7 @@
       "zh_CN": "官渡古镇",
       "en": "Guandu Ancient Town"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi708166-guanduguzhen",
     "address": null,
     "image_url": null,
@@ -227,6 +232,7 @@
       "zh_CN": "云南大学",
       "en": "Yunnan University"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi4071055-yunnandaxue",
     "address": "地址:\n昆明市五华区翠湖北路2号\n\n\n电话:\n0871-65033820,0871-65034114,0871-65033819",
     "description": {
@@ -291,6 +297,7 @@
       "zh_CN": "南屏步行街",
       "en": "Nanping Pedestrian Street"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi712560-nanpingbuxingjie",
     "address": "地址:\n昆明市五华区端仕街国资银佳大厦西侧约110米",
     "description": {
@@ -334,6 +341,7 @@
       "zh_CN": "云南民族村",
       "en": "Yunnan Ethnic Village"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi707102-yunnanminzucun",
     "address": "地址:\n昆明市西山区滇池路1310号\n\n\n电话:\n0871-64311255,0871-68279294\n\n\n官网:\nhttp://www.ynmzc.cc",
     "description": {
@@ -397,6 +405,7 @@
     "name": {
       "zh_CN": "海洪湿地"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi36406143-haihongshidi",
     "address": null,
     "description": {
@@ -423,6 +432,7 @@
       "zh_CN": "晋城古镇",
       "en": "Jincheng Ancient Town"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi10021386-jinchengguzhen",
     "address": null,
     "image_url": null,
@@ -436,6 +446,7 @@
       "zh_CN": "海埂大坝",
       "en": "Haigeng Dam"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi8686361-haigengdaba",
     "address": "地址:\n云南省昆明市西山区观景路滇池东侧",
     "description": {
@@ -482,6 +493,7 @@
       "zh_CN": "圆通山",
       "en": "Yuantong Mountain"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi27339052-yuantongshan",
     "address": "地址:\n云南省昆明市五华区青年路92号\n\n\n电话:\n0871-65154546",
     "description": {
@@ -511,6 +523,7 @@
       "zh_CN": "公园",
       "en": "Park 1903"
     },
+    "type": "leisure",
     "link": "http://travel.qunar.com/p-oi10094824-gongyuan1903",
     "address": "地址:\n昆明西山区前卫西路19号附近\n\n\n电话:\n0871-63851903",
     "description": {
@@ -540,6 +553,7 @@
       "zh_CN": "金马碧鸡坊",
       "en": "Jinma Bijifang"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi703284-jinmabijifang",
     "address": "地址:\n昆明市西山区金马巷10号\n\n\n电话:\n0871-63619908",
     "description": {
@@ -579,6 +593,7 @@
       "zh_CN": "文化巷",
       "en": "Wenhua Alley"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi5740290-wenhuaxiang",
     "address": "地址:\n昆明市五华区",
     "description": {
@@ -615,6 +630,7 @@
       "zh_CN": "云南野生动物园",
       "en": "Yunnan Zoo"
     },
+    "type": "leisure",
     "link": "http://travel.qunar.com/p-oi7587414-yunnanyeshengdongwuyuan",
     "address": "地址:\n昆明市盘龙区云南野生动物园\n\n\n电话:\n0871-65018888,0871-65017777\n\n\n官网:\nhttp://www.ynzoo.cn/",
     "description": {
@@ -693,6 +709,7 @@
       "zh_CN": "云南民族大观园",
       "en": "Yunnan Grand View Garden"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi7468986-yunnanminzudaguanyuan",
     "address": "地址:\n昆明市呈贡区安石公路12公里处水海子村旁\n\n\n电话:\n0871-67426809",
     "description": {
@@ -738,6 +755,7 @@
       "zh_CN": "东川红土地",
       "en": "Dongchuan Red Land"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi715932-dongchuanhongtudi",
     "address": "地址:\n昆明市东川区新田乡\n\n\n电话:\n0871-63998000",
     "description": {
@@ -780,6 +798,7 @@
       "zh_CN": "大德寺双塔",
       "en": "Double Towers of Dade Temple"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi708812-dadesishuangta",
     "address": "地址:\n华山东路43号",
     "description": {
@@ -858,6 +877,7 @@
       "zh_CN": "阳宗海旅游度假区",
       "en": "Yangzonghai Tourist Resort"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi703731-yangzonghailu:youdujia",
     "address": "地址:\n昆明市东南部，昆明至石林高等级公路35公里处，宜良县、呈贡县和澄江县之间\n\n\n电话:\n0871-67517417",
     "description": {
@@ -886,6 +906,7 @@
     "name": {
       "zh_CN": "牧野拾趣阳宗海自然教育基地"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi39571829-muyeshiquyangzonghaizi",
     "address": null,
     "description": {
@@ -938,6 +959,7 @@
     "name": {
       "zh_CN": "教场中路"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi35795298-jiaochangzhonglu",
     "address": null,
     "image_url": "https://flight-feed.qunarzz.com/as3/309/image/2021/5/af74444a-2d95-4d57-9eed-2eb50653dce9.jpeg_480x360_b7eae658.jpeg",
@@ -951,6 +973,7 @@
       "zh_CN": "马蹄河",
       "en": "Mati River"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi10021724-matihe",
     "address": "地址:\n昆明市宜良县",
     "description": {
@@ -993,6 +1016,7 @@
       "zh_CN": "圭山国家森林公园",
       "en": "Gui Mountain National Forest Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi10021604-guishanguojiasenlingong",
     "address": "地址:\n明市石林彝族自治县圭山寺公路\n\n\n电话:\n0871-67796853",
     "description": {
@@ -1062,6 +1086,7 @@
       "zh_CN": "七彩云南古滇名城",
       "en": "Colorful Yunnan Ancient City"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi9721927-qicaiyunnangudianming",
     "address": "地址:\n昆明市晋宁区环湖南路\n\n\n电话:\n0871-67836111",
     "description": {
@@ -1104,6 +1129,7 @@
       "zh_CN": "石林冰雪海洋世界",
       "en": "Shilin Ice and Snow Ocean World"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi9503574-shilinbingxuehaiyangshi",
     "address": "地址:\n昆明市石林县石林大道988号\n\n\n电话:\n0871-66208888\n\n\n官网:\nhttp://www.bxhysj.com/",
     "description": {
@@ -1145,6 +1171,7 @@
     "name": {
       "zh_CN": "云大会泽院仰止楼"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi707790-yundahuizeyuanyangzhi",
     "address": "地址:\n云南昆明\n\n\n官网:\nhttp://www.ynu.edu.cn",
     "description": {
@@ -1187,6 +1214,7 @@
       "zh_CN": "石林风景区",
       "en": "Stone Forest"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi711230-shilinfengjingqu",
     "address": "地址:\n云南省昆明市石林彝族自治县石林镇石林大道东侧\n\n\n电话:\n0871-67711439,0871-67719006,0871-67711278",
     "description": {
@@ -1263,6 +1291,7 @@
       "zh_CN": "龙门",
       "en": "Longmen"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7524578-longmen",
     "address": "地址:\n昆明市西山区西山公路西山国家风景名胜区龙门景区内\n\n\n电话:\n0871-68426668",
     "description": {
@@ -1311,6 +1340,7 @@
       "zh_CN": "云南陆军讲武堂旧址",
       "en": "Yunnan Military Lecture Room for Ground Force"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi708086-yunnanlujunjiangwutang",
     "address": "地址:\n昆明市五华区翠湖西路22号\n\n\n电话:\n0871-65395952,0871-65341134",
     "description": {
@@ -1363,6 +1393,7 @@
       "zh_CN": "大观楼",
       "en": "Daguan Pavilion"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi704260-daguanlou",
     "address": "地址:\n昆明市西山区大观路284号\n\n\n电话:\n0871-68242448",
     "description": {
@@ -1396,6 +1427,7 @@
       "zh_CN": "钱王街",
       "en": "Qianwang Street"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi5740293-qianwangjie",
     "address": "地址:\n昆明市五华区钱王街",
     "description": {
@@ -1425,6 +1457,7 @@
       "zh_CN": "昆明动物园",
       "en": "Kunming Zoo"
     },
+    "type": "leisure",
     "link": "http://travel.qunar.com/p-oi712984-kunmingdongwuyuan",
     "address": "地址:\n昆明市五华区青年路92号\n\n\n电话:\n0871-65154546,0871-65197445",
     "description": {
@@ -1468,6 +1501,7 @@
       "zh_CN": "金殿公园",
       "en": "Jindian Park"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi712773-jindiangongyuan",
     "address": "地址:\n昆明市盘龙区穿金路\n\n\n电话:\n0871-65014511",
     "description": {
@@ -1511,6 +1545,7 @@
       "zh_CN": "云南省博物馆",
       "en": "Yunnan Provincial Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi9140640-yunnanshengbowuguan",
     "address": null,
     "image_url": null,
@@ -1524,6 +1559,7 @@
       "zh_CN": "轿子雪山",
       "en": "Jiaozi Snow Mountain"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi702305-jiaozixueshan",
     "address": "地址:\n昆明市禄劝彝族苗族自治县乌蒙乡轿子雪山内\n\n\n电话:\n0871-68947299\n\n\n官网:\nhttp://www.kmjzs.com/",
     "description": {
@@ -1576,6 +1612,7 @@
       "zh_CN": "昆明植物园",
       "en": "Kunming Botanical Garden"
     },
+    "type": "leisure",
     "link": "http://travel.qunar.com/p-oi713680-kunmingzhiwuyuan",
     "address": "地址:\n昆明市盘龙区龙泉路610号(近疗养院)\n\n\n电话:\n0871-65223628\n\n\n官网:\nhttp://kbg.kib.cas.cn/",
     "description": {
@@ -1624,6 +1661,7 @@
       "zh_CN": "黑龙潭公园",
       "en": "Black Dragon Pond Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7469029-heilongtangongyuan",
     "address": "地址:\n昆明市盘龙区茨坝镇蓝桉路1号\n\n\n电话:\n0871-65886882,0871-65150395",
     "description": {
@@ -1667,6 +1705,7 @@
       "zh_CN": "九乡",
       "en": "Jiuxiang"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi702518-jiuxiang",
     "address": "地址:\n昆明市宜良县九乡彝族回族乡境内\n\n\n电话:\n0871-67511998,0871-67511966",
     "description": {
@@ -1719,6 +1758,7 @@
       "zh_CN": "世界园艺博览园",
       "en": "World Horti-Expo Garden"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi708748-shijieyuanyibolanyuan",
     "address": "地址:\n昆明市盘龙区白龙路439号\n\n\n电话:\n0871-65012367,0871-65012284,0871-65014606",
     "description": {
@@ -1816,6 +1856,7 @@
       "zh_CN": "云南民族博物馆",
       "en": "Yunnan Nationalities Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi716253-yunnanminzubowuguan",
     "address": "地址:\n云南省昆明市西山区滇池路1503号\n\n\n电话:\n0871-64311219,0871-64311385,0871-64312091\n\n\n官网:\nhttp://www.ynnmuseum.com/",
     "description": {
@@ -1845,6 +1886,7 @@
       "zh_CN": "昆明市博物馆",
       "en": "Kunming City Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7524541-kunmingshibowuguan",
     "address": "地址:\n云南省昆明市拓东路93号\n\n\n电话:\n0871-63306314,0871-63153256,0871-63153359\n\n\n官网:\nhttp://www.kmmuseum.com/",
     "description": {
@@ -1905,6 +1947,7 @@
       "zh_CN": "昙华寺",
       "en": "Tanhuasi Park"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi711137-tanhuasi",
     "address": null,
     "image_url": null,
@@ -1918,6 +1961,7 @@
       "zh_CN": "筇竹寺",
       "en": "Bamboo Temple (Qiongzhu Si)"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi713598-qiongzhusi",
     "address": "地址:\n云南省昆明市西山区黑筇公路筇竹寺(郊野公园附近)\n\n\n电话:\n0871-68181881",
     "description": {
@@ -1960,6 +2004,7 @@
       "zh_CN": "太华寺",
       "en": "Taihua Temple"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi705513-taihuasi",
     "address": null,
     "image_url": null,
@@ -1972,6 +2017,7 @@
     "name": {
       "zh_CN": "昆明走廊"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi7588319-kunmingzoulang",
     "address": "地址:\n昆明市五华区",
     "description": {
@@ -2001,6 +2047,7 @@
       "zh_CN": "海埂公园",
       "en": "Haigeng Bank"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5740291-haigenggongyuan",
     "address": "地址:\n昆明市西山区滇池路1318号\n\n\n电话:\n0871-64311627,0871-64311056",
     "description": {
@@ -2053,6 +2100,7 @@
       "zh_CN": "圆通寺",
       "en": "Yuantong Temple"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi715238-yuantongsi",
     "address": "地址:\n昆明市五华区圆通街30号\n\n\n电话:\n0871-65193762,0871-65127433",
     "description": {
@@ -2095,6 +2143,7 @@
     "name": {
       "zh_CN": "云南省博物馆旧馆"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi713707-yunnanshengbowuguanjiu",
     "address": "地址:\n云南省昆明市五一路118号\n\n\n电话:\n0871-66179656\n\n\n官网:\nhttp://www.ynbwg.cn",
     "description": {
@@ -2138,6 +2187,7 @@
       "zh_CN": "云南师范大学",
       "en": "Yunnan Normal University"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi5740301-yunnanshifandaxue",
     "address": "地址:\n昆明市五华区一二一大街298号\n\n\n电话:\n0871-65516256",
     "description": {
@@ -2173,6 +2223,7 @@
     "name": {
       "zh_CN": "西南联大纪念碑"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi711536-xinanliandajinianbei",
     "address": "地址:\n云南-昆明云南师范大学校园内",
     "description": {
@@ -2202,6 +2253,7 @@
       "zh_CN": "聂耳故居昆明",
       "en": "Nie Er Former Residence"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi5812432-nieerguju",
     "address": "地址:\n云南省昆明市五华区 甬道街72号 -74号\n\n\n电话:\n0871-63630423",
     "description": {
@@ -2238,6 +2290,7 @@
       "zh_CN": "青龙峡",
       "en": "Qinglongxia"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7468895-qinglongxia",
     "address": "地址:\n昆明市安宁市青龙街\n\n\n电话:\n0871-68720884",
     "description": {
@@ -2266,6 +2319,7 @@
     "name": {
       "zh_CN": "莲花池公园"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi9140852-lianhuachigongyuan",
     "address": null,
     "description": {
@@ -2292,6 +2346,7 @@
       "zh_CN": "西华湿地公园",
       "en": "Xihua Wetland Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi9140808-xihuashidigongyuan",
     "address": "地址:\n昆明市西山区西华收费站东侧",
     "description": {
@@ -2347,6 +2402,7 @@
       "zh_CN": "官渡金刚塔",
       "en": "Jingang Pagoda"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi714383-guandujingangta",
     "address": null,
     "image_url": null,
@@ -2360,6 +2416,7 @@
       "zh_CN": "近日楼",
       "en": "Jinri Building"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi708123-jinrilou",
     "address": "地址:\n昆明市西山区敬德巷6号",
     "description": {
@@ -2408,6 +2465,7 @@
       "zh_CN": "西华园",
       "en": "Xihua Garden"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi705353-xihuayuan",
     "address": "地址:\n昆明市西山区西坝路40号\n\n\n电话:\n0871-64142644,0871-64142639",
     "description": {
@@ -2437,6 +2495,7 @@
       "zh_CN": "滇池西山索道",
       "en": "Dianchi Xishan Cableway"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7587823-dianchixishansuodao",
     "address": "地址:\n昆明市西山区滇池国家旅游度假区观景路19号\n\n\n电话:\n0871-64310175,0871-64311056",
     "description": {
@@ -2486,6 +2545,7 @@
       "zh_CN": "秘境",
       "en": "m60"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi9141623-mijingm60",
     "address": "地址:\n云南省昆明市五华区普吉路47号\n\n\n电话:\n0871-63374567",
     "description": {
@@ -2515,6 +2575,7 @@
       "zh_CN": "聂耳墓",
       "en": "Nie'er Tomb"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi714289-nieermu",
     "address": "地址:\n西山区西山太华寺与三清阁之间\n\n\n电话:\n15887176115",
     "description": {
@@ -2544,6 +2605,7 @@
       "zh_CN": "法华寺石窟",
       "en": "Fahua Temple Grottoes"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi706217-fahuasishiku",
     "address": "地址:\n昆明市安宁市城东五公里洛阳山麓\n\n\n电话:\n0871-68686668",
     "description": {
@@ -2579,6 +2641,7 @@
     "name": {
       "zh_CN": "卢汉公馆"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi5740302-luhangongguan",
     "address": "地址:\n翠湖南路4",
     "description": {
@@ -2608,6 +2671,7 @@
       "zh_CN": "五华山",
       "en": "Wuhua Mountain"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi714734-wuhuashan",
     "address": "地址:\n昆明市五华区华山街道华山东路十号",
     "description": {
@@ -2650,6 +2714,7 @@
       "zh_CN": "大观公园",
       "en": "Daguan Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7588343-daguangongyuan",
     "address": "地址:\n昆明市西山区大观路284号\n\n\n电话:\n0871-68240124",
     "description": {
@@ -2686,6 +2751,7 @@
       "zh_CN": "云南铁路博物馆",
       "en": "Yunnan Railway Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7569179-yunnantielubowuguan",
     "address": "地址:\n昆明省盘龙区北京路913号(火车北站)\n\n\n电话:\n0871-66138610",
     "description": {
@@ -2727,6 +2793,7 @@
     "name": {
       "zh_CN": "创库"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5740285-chuangku",
     "address": null,
     "description": {
@@ -2743,6 +2810,7 @@
       "zh_CN": "官渡森林公园",
       "en": "Guandu Forest Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi707943-guandusenlingongyuan",
     "address": "地址:\n昆明市官渡区日新路\n\n\n电话:\n0871-67173018",
     "description": {
@@ -2790,6 +2858,7 @@
     "name": {
       "zh_CN": "云南民族大学"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7524528-yunnanminzudaxue",
     "address": "地址:\n云南省昆明市一二一大街134号\n\n\n电话:\n0871-5172133\n\n\n官网:\nhttp://www.ynni.edu.cn/",
     "description": {
@@ -2818,6 +2887,7 @@
     "name": {
       "zh_CN": "白沙河休闲公园"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi702032-baishahexiuxiangongyuan",
     "address": "地址:\n昆明市东郊白沙河休闲公园\n\n\n电话:\n0871-3821269",
     "description": {
@@ -2837,6 +2907,7 @@
       "zh_CN": "宝海公园",
       "en": "Baohai Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi703316-baohaigongyuan",
     "address": "地址:\n昆明市宝海路121号\n\n\n电话:\n0871-63512927,",
     "description": {
@@ -2866,6 +2937,7 @@
       "zh_CN": "三清阁",
       "en": "Sanqing Pavilion"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi713395-sanqingge",
     "address": "地址:\n昆明市西山区西山公路西山国家风景名胜区龙门景区内\n\n\n电话:\n0871-68426668",
     "description": {
@@ -2908,6 +2980,7 @@
       "zh_CN": "凤凰山科普生态公园",
       "en": "Fenghuangshan Kepu Ecology Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi709102-fenghuangshankepusheng",
     "address": "地址:\n天文台路",
     "description": {
@@ -2936,6 +3009,7 @@
     "name": {
       "zh_CN": "云南师范大学呈贡校区"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7587399-yunnanshifandaxuecheng",
     "address": "地址:\n昆明市呈贡区雨花片区1号\n\n\n电话:\n0871-65910379",
     "description": {
@@ -2997,6 +3071,7 @@
       "zh_CN": "西游洞",
       "en": "Xiyou Cave"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi3740445-xiyoudong",
     "address": "地址:\n昆明市五华区昆禄公路天生桥\n\n\n电话:\n0871-68400888,0871-65895552\n\n\n官网:\nhttp://www.xiyoudong.cn/",
     "description": {
@@ -3035,6 +3110,7 @@
     "name": {
       "zh_CN": "钟灵山国家森林公园"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi714469-zhonglingshanguojiasen",
     "address": "地址:\n云南昆明西山区",
     "description": {
@@ -3075,6 +3151,7 @@
     "name": {
       "zh_CN": "准提寺"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi715046-zhuntisi",
     "address": "地址:\n昆明市大树后营王大桥西",
     "description": {
@@ -3103,6 +3180,7 @@
     "name": {
       "zh_CN": "地藏寺"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi707833-dizangsi",
     "address": "地址:\n云南昆明太华山上",
     "description": {
@@ -3170,6 +3248,7 @@
     "name": {
       "zh_CN": "团结乡白族休闲园"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi713761-tuanjiexiangbaizuxiuxian",
     "address": null,
     "description": {
@@ -3211,6 +3290,7 @@
       "zh_CN": "南洋华侨机工抗日纪念碑",
       "en": "Southeast Asia Mechanic Anti-Japanese Monument"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi710157-nanyanghuaqiaojigongkang",
     "address": "地址:\n昆明市西山区西山公路西山国家风景名胜区昆明西山森林公园内\n\n\n电话:\n0871-68426668",
     "description": {
@@ -3240,6 +3320,7 @@
       "zh_CN": "岩泉风景区",
       "en": "Yanquan Scenic Area (Northeast Gate)"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi708983-yanquanfengjingqu",
     "address": "地址:\n昆明市宜良县金星办事处附近",
     "description": {
@@ -3276,6 +3357,7 @@
       "zh_CN": "金色螳螂川风景区",
       "en": "The Golden Tanglang River Scenic Zone"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7524564-jinsetanglangchuanfeng",
     "address": "地址:\n昆明市安宁市温泉镇金色螳螂川风景区",
     "description": {
@@ -3317,6 +3399,7 @@
     "name": {
       "zh_CN": "“一二一”四烈士墓"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi712748-yieryisilieshimu",
     "address": "地址:\n云南师范大学（原昆明师范学院）校园东北隅",
     "description": {
@@ -3339,6 +3422,7 @@
       "zh_CN": "郊野公园",
       "en": "Kunming Country Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi709092-jiaoyegongyuan",
     "address": "地址:\n昆明市五华区黑林铺镇\n\n\n电话:\n0871-68181472",
     "description": {
@@ -3374,6 +3458,7 @@
     "name": {
       "zh_CN": "小江泥石流沟"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi709632-xiaojiangnishiliugou",
     "address": null,
     "image_url": null,
@@ -3386,6 +3471,7 @@
     "name": {
       "zh_CN": "咸阳王瞻思丁墓"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7524594-xianyangwangzhansiding",
     "address": "地址:\n昆明市龙泉段附近",
     "description": {
@@ -3415,6 +3501,7 @@
       "zh_CN": "盘龙寺",
       "en": "Panlong Temple"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi709971-panlongsi",
     "address": "地址:\n昆明市晋宁县晋城镇东5公里的盘龙山上\n\n\n电话:\n0871-67811064",
     "description": {
@@ -3535,6 +3622,7 @@
       "zh_CN": "光华街老街区",
       "en": "Guanghua Street"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7524533-guanghuajielaojiequ",
     "address": "地址:\n昆明市五华区",
     "description": {
@@ -3588,6 +3676,7 @@
     "name": {
       "zh_CN": "普渡河自然保护区"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi714478-puduheziranbaohuqu",
     "address": "地址:\n禄劝县境内",
     "description": {
@@ -3617,6 +3706,7 @@
       "zh_CN": "梅树村自然保护区",
       "en": "Meishu Village Nature Reserve"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi707551-meishucunziranbaohuqu",
     "address": "地址:\n昆明市晋宁区古城镇梅树村",
     "opening_hours": {
@@ -3636,6 +3726,7 @@
       "zh_CN": "圆西路",
       "en": "Yuanxi Road"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7569235-yuanxilu",
     "address": "地址:\n昆明市五华区圆西路",
     "description": {
@@ -3665,6 +3756,7 @@
       "zh_CN": "石寨山古墓群",
       "en": "Ancient Tombs on Shizhai Mountain"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi701998-shizhaishangumuqun",
     "address": "地址:\n昆明市晋宁区环湖南路与牛广线交叉路口往东南约240米",
     "description": {
@@ -3694,6 +3786,7 @@
       "zh_CN": "小白龙森林公园",
       "en": "Xiaobailong Forest Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi712968-xiaobailongsenlingong",
     "address": "地址:\n城以西10公里处",
     "description": {
@@ -3736,6 +3829,7 @@
       "zh_CN": "曹溪寺",
       "en": "Caoxi Temple"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi715490-caoxisi",
     "address": "地址:\n龙溪路曹溪寺\n\n\n电话:\n68631013",
     "description": {
@@ -3778,6 +3872,7 @@
       "zh_CN": "王仁求碑",
       "en": "Wang Renqiubei"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi713656-wangrenqiubei",
     "address": "地址:\n云南省昆明市安宁市王仁求碑(安八线北150米)",
     "description": {
@@ -3820,6 +3915,7 @@
       "zh_CN": "松花坝自然保护区",
       "en": "Songhuaba Nature Reserve"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi716161-songhuabaziranbaohuqu",
     "address": "地址:\n化龙村",
     "description": {
@@ -3849,6 +3945,7 @@
       "zh_CN": "昆明国际会展中心",
       "en": "Kunming EXPO Center"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi7645693-kunmingguojihuizhanzhong",
     "address": "地址:\n云南省昆明市官渡区春城路289号会展中心8号门2楼\n\n\n电话:\n0871-63555417",
     "description": {
@@ -3870,6 +3967,7 @@
     "name": {
       "zh_CN": "吴井"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi39888060-wujing",
     "address": null,
     "image_url": null,
@@ -3882,6 +3980,7 @@
     "name": {
       "zh_CN": "寻甸花石头山"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi39874421-xundianhuashitoushan",
     "address": null,
     "image_url": null,
@@ -3894,6 +3993,7 @@
     "name": {
       "zh_CN": "金海岸温泉"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi39721896-jinhaianwenquan",
     "address": null,
     "description": {

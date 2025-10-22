@@ -4,6 +4,7 @@
       "zh_CN": "骑楼老街",
       "en": "Qilou Old Street"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi5740424-qiloulaojie",
     "address": "地址:\n海口市龙华区骑楼老街\n\n\n电话:\n0898-66200273\n\n\n官网:\nhttp://www.qiloulaojie.com/",
     "description": {
@@ -40,6 +41,7 @@
       "zh_CN": "海南热带野生动植物园",
       "en": "Hainan Tropical Wildlife Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi713810-hainanredaiyeshengdong",
     "address": "地址:\n海口市秀英区东山镇（海榆中线27公里处）\n\n\n电话:\n0898-68526666,0898-68529999,0898-65569366\n\n\n官网:\nhttp://www.hntwzoo.com/",
     "description": {
@@ -83,6 +85,7 @@
       "zh_CN": "观澜湖华谊冯小刚电影公社",
       "en": "Mission Hills H?Brothers Feng Xiaogang Film Commune"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7469832-guanlanhuhuayifengxiao",
     "address": "地址:\n海口市龙华区羊山大道19号电影公社（西线高速往观澜湖温泉1.8公里处）\n\n\n电话:\n0898-36688000\n\n\n官网:\nhttp://www.movietownhaikou.com/",
     "description": {
@@ -118,6 +121,7 @@
     "name": {
       "zh_CN": "云洞图书馆"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi37805765-yundongtushuguan",
     "address": null,
     "description": {
@@ -144,6 +148,7 @@
       "zh_CN": "假日海滩",
       "en": "Holiday beach"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi710309-jiarihaitan",
     "address": "地址:\n海口市秀英区滨海大道\n\n\n电话:\n0898-68719988\n\n\n官网:\nhttp://www.hkholidaybeach.com/",
     "description": {
@@ -187,6 +192,7 @@
       "zh_CN": "五公祠",
       "en": "Five Officials Temple"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi709229-wugongci",
     "address": "地址:\n海口市琼山区海府路169号\n\n\n电话:\n0898-65855653,0898-65353047",
     "description": {
@@ -230,6 +236,7 @@
       "zh_CN": "东寨港红树林",
       "en": "Dongzhaigang mangroves"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi715998-dongzhaiganghongshulin",
     "address": "地址:\n海口市美兰区明北环线\n\n\n电话:\n0898-65743011",
     "description": {
@@ -268,6 +275,7 @@
     "name": {
       "zh_CN": "碧海银滩公园"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi36409542-bihaiyintangongyuan",
     "address": "地址:\n新埠街道新埠岛埠北环路北",
     "description": {
@@ -296,6 +304,7 @@
     "name": {
       "zh_CN": "金沙湾滨海公园"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi36197469-jinshawanbinhaigongyuan",
     "address": "地址:\n西秀镇金山路",
     "description": {
@@ -332,6 +341,7 @@
       "zh_CN": "万绿园",
       "en": "Wanlv Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi713326-wanlu:yuan",
     "address": "地址:\n海口市龙华区滨海大道38号\n\n\n电话:\n0898-68511069",
     "description": {
@@ -375,6 +385,7 @@
       "zh_CN": "雷琼海口火山群世界地质公园",
       "en": "Leiqiong UNESCO Global Geopark"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi710011-leiqionghaikouhuoshan",
     "address": "地址:\n海口市秀英区石山镇火山群世界地质公园\n\n\n电话:\n0898-65469668,0898-65468989,0898-65469666\n\n\n官网:\nhttp://www.hkhsq.com/",
     "description": {
@@ -448,6 +459,7 @@
       "zh_CN": "海口世纪大桥",
       "en": "Haikou Century Bridge"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi5940939-haikoushijidaqiao",
     "address": "地址:\n海口市龙华区连接龙昆北路和海甸岛\n\n\n电话:\n0898-68520076",
     "description": {
@@ -497,6 +509,7 @@
       "zh_CN": "海口钟楼",
       "en": "Haikou Bell Tower"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi5740979-haikouzhonglou",
     "address": "地址:\n海口市龙华区长堤路20号(人民桥附近)\n\n\n电话:\n0898-66797846",
     "description": {
@@ -540,6 +553,7 @@
       "zh_CN": "白沙门公园",
       "en": "Baishamen Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi3751093-baishamengongyuan",
     "address": "地址:\n海口市美兰区海甸六东路与人民大道交汇处\n\n\n电话:\n0898-66161089",
     "description": {
@@ -582,6 +596,7 @@
       "zh_CN": "海南省博物馆",
       "en": "Hainan Provincial Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi5740991-hainanshengbowuguan",
     "address": "地址:\n海南省海口市琼山区国兴大道68号\n\n\n电话:\n0898-65238880,0898-65238891\n\n\n官网:\nhttp://www.hainanmuseum.org/",
     "description": {
@@ -625,6 +640,7 @@
       "zh_CN": "金牛岭公园",
       "en": "Jinniuling Park"
     },
+    "type": "leisure",
     "link": "http://travel.qunar.com/p-oi711698-jinniulinggongyuan",
     "address": "地址:\n海口市龙华区海秀中路102号\n\n\n电话:\n0898-68924957,0898-68913605,0898-68913335",
     "description": {
@@ -704,6 +720,7 @@
       "zh_CN": "西秀海滩",
       "en": "Xixiu Beach"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5740425-xixiuhaitan",
     "address": "地址:\n海口市秀英区滨海大道163号中国石油公司海南分公司西侧280米左右\n\n\n电话:\n0898-68654616",
     "description": {
@@ -740,6 +757,7 @@
       "zh_CN": "海口人民公园",
       "en": "Haikou People's Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi711027-haikourenmingongyuan",
     "address": "地址:\n海口市龙华区公园路3号\n\n\n电话:\n0898-66774725",
     "description": {
@@ -795,6 +813,7 @@
       "zh_CN": "海瑞故居",
       "en": "Hairui Former Residence"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7565527-hairuiguju",
     "address": "地址:\n海口市琼山区红城湖路67号\n\n\n电话:\n0898-65816199",
     "description": {
@@ -827,6 +846,7 @@
       "zh_CN": "琼台书院",
       "en": "Qiongtai Academy"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi702820-qiongtaishuyuan",
     "address": "地址:\n海口市琼山区府城中山路8号\n\n\n电话:\n0898-65872309",
     "description": {
@@ -876,6 +896,7 @@
       "zh_CN": "西海岸带状公园",
       "en": "Haikou West Coast Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7469803-xihaiandaizhuanggongyuan",
     "address": "地址:\n海口市秀英区滨海大道\n\n\n电话:\n0898-68666056",
     "description": {
@@ -905,6 +926,7 @@
       "zh_CN": "海瑞墓",
       "en": "Hairui's Tomb"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi703013-hairuimu",
     "address": "地址:\n海口市龙华区丘海大道39号\n\n\n电话:\n0898-68916604,0898-68922060",
     "description": {
@@ -953,6 +975,7 @@
     "name": {
       "zh_CN": "白沙门公园游乐场"
     },
+    "type": "leisure",
     "link": "http://travel.qunar.com/p-oi711205-baishamengongyuanyoule",
     "address": null,
     "image_url": null,
@@ -966,6 +989,7 @@
       "zh_CN": "海口市博物馆",
       "en": "Haikou Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi703377-haikoushibowuguan",
     "address": "地址:\n海口市琼山区海府大道169号五公祠游览区内(近流芳路)\n\n\n电话:\n0898-65353047",
     "description": {
@@ -1018,6 +1042,7 @@
       "zh_CN": "龙华区中山路",
       "en": "Haikou Zhongshan Road"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5740995-longhuaquzhongshanlu",
     "address": "地址:\n海口市龙华区中山路",
     "description": {
@@ -1061,6 +1086,7 @@
       "zh_CN": "西天庙",
       "en": "Xitian Temple"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi703551-xitianmiao",
     "address": "地址:\n海口市龙华区义兴街75号",
     "description": {
@@ -1097,6 +1123,7 @@
       "zh_CN": "李硕勋烈士纪念亭",
       "en": "Haikou Li Shuoxun Martyrs Memorial Pavilion"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi710930-lishuoxunlieshijinian",
     "address": "地址:\n海口市琼山区勋亭路39号\n\n\n电话:\n(0898)65349382",
     "description": {
@@ -1132,6 +1159,7 @@
     "name": {
       "zh_CN": "金牛岭"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi707767-jinniuling",
     "address": "地址:\n海南琼海市万泉河出海口博鳌风景区内\n\n\n电话:\n0898-68924957",
     "opening_hours": {
@@ -1157,6 +1185,7 @@
     "name": {
       "zh_CN": "得胜沙路"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5740994-deshengshalu",
     "address": "地址:\n海南省海口市龙华区",
     "description": {
@@ -1186,6 +1215,7 @@
       "zh_CN": "琼崖一大旧址",
       "en": "Qiongyayida Site"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi713779-qiongyayidajiuzhi",
     "address": "地址:\n海口市琼山区解放西路竹林里131号",
     "description": {
@@ -1222,6 +1252,7 @@
       "zh_CN": "桂林洋海滨旅游区",
       "en": "Guilin Ocean Seaside Tourist Area"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5740427-guilinyanghaibinlu:you",
     "address": "地址:\n海口市琼山区距府城镇19公里",
     "description": {
@@ -1271,6 +1302,7 @@
       "zh_CN": "海底村庄",
       "en": "The Submarine Villages"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5740426-haidicunzhuang",
     "address": "地址:\n海口市美兰区禄尾村",
     "description": {
@@ -1314,6 +1346,7 @@
       "zh_CN": "东寨港",
       "en": "Dongzhai Port"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi704944-dongzhaigang",
     "address": "地址:\n岛琼山县\n\n\n电话:\n0898-65380886",
     "opening_hours": {
@@ -1346,6 +1379,7 @@
     "name": {
       "zh_CN": "秀英炮台"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi711023-xiuyingpaotai",
     "address": "地址:\n海南省海口市龙华区世贸南路5号",
     "description": {
@@ -1382,6 +1416,7 @@
       "zh_CN": "苏公祠",
       "en": "Sugong Shrine"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi702958-sugongci",
     "address": null,
     "image_url": null,
@@ -1394,6 +1429,7 @@
     "name": {
       "zh_CN": "博爱路"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi5740996-boailu",
     "address": null,
     "image_url": "https://img1.qunarzz.com/travel/d7/1608/15/9a36efedaaa42db5.jpg_480x360x95_180abead.jpg",
@@ -1407,6 +1443,7 @@
       "zh_CN": "海南大学",
       "en": "Hainan Univeristy"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7560672-hainandaxue",
     "address": "地址:\n海口市美兰区人民大道58号\n\n\n电话:\n0898-66266469",
     "description": {
@@ -1435,6 +1472,7 @@
     "name": {
       "zh_CN": "新华南路"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi5740423-xinhuananlu",
     "address": null,
     "image_url": "https://img1.qunarzz.com/travel/d4/1608/5d/3fca60683f7d21b5.jpg_480x360x95_89dac5a9.jpg",
@@ -1447,6 +1485,7 @@
     "name": {
       "zh_CN": "万达国际影城"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi3750791-wandaguojiyingcheng",
     "address": null,
     "image_url": null,
@@ -1460,6 +1499,7 @@
       "zh_CN": "仙洋水庄",
       "en": "Xianyang Water Village"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi707211-xianyangshuizhuang",
     "address": "地址:\n琼山区桂林洋开发区",
     "opening_hours": {
@@ -1478,6 +1518,7 @@
     "name": {
       "zh_CN": "澄迈济公山"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7565524-chengmaijigongshan",
     "address": "地址:\n海口市澄迈县东南部距红岗农场场部约1．5公里(属红岗农场管辖)\n\n\n电话:\n0898-66717179       \n\n\n官网:\nhttp://www.tt1890.com/xinyang/3586.htm",
     "opening_hours": {
@@ -1513,6 +1554,7 @@
     "name": {
       "zh_CN": "新旧沟湿地公园"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi40015270-xinjiugoushidigongyuan",
     "address": null,
     "description": {
@@ -1528,6 +1570,7 @@
     "name": {
       "zh_CN": "天空之山驿站"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi40012348-tiankongzhishanyizhan",
     "address": null,
     "description": {
@@ -1543,6 +1586,7 @@
     "name": {
       "zh_CN": "拾贝公园"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi39891231-shibeigongyuan",
     "address": null,
     "image_url": null,
@@ -1555,6 +1599,7 @@
     "name": {
       "zh_CN": "森江沅旧船厂"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi39718518-senjiangyuanjiuchuanchang",
     "address": null,
     "image_url": null,
@@ -1567,6 +1612,7 @@
     "name": {
       "zh_CN": "丘浚文化公园"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi39707647-qiujunwenhuagongyuan",
     "address": null,
     "image_url": null,
@@ -1579,6 +1625,7 @@
     "name": {
       "zh_CN": "海瑞文化公园"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi39631930-hairuiwenhuagongyuan",
     "address": null,
     "image_url": null,
@@ -1591,6 +1638,7 @@
     "name": {
       "zh_CN": "西秀公园"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi39602289-xixiugongyuan",
     "address": null,
     "image_url": null,
@@ -1603,6 +1651,7 @@
     "name": {
       "zh_CN": "迈雅河滨海湿地公园"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi39598999-maiyahebinhaishidigong",
     "address": null,
     "image_url": null,
@@ -1615,6 +1664,7 @@
     "name": {
       "zh_CN": "新潭村"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi39440690-xintancun",
     "address": null,
     "image_url": null,
@@ -1627,6 +1677,7 @@
     "name": {
       "zh_CN": "泄湖木栈道"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi39439907-xiehumuzhandao",
     "address": null,
     "image_url": null,
@@ -1639,6 +1690,7 @@
     "name": {
       "zh_CN": "铭投五源河潮玩市集"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi39412063-mingtouwuyuanhechaowan",
     "address": null,
     "description": {
@@ -1664,6 +1716,7 @@
     "name": {
       "zh_CN": "江东滨海公园"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi39366419-jiangdongbinhaigongyuan",
     "address": null,
     "image_url": null,
@@ -1676,6 +1729,7 @@
     "name": {
       "zh_CN": "芙蓉河湿地公园"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi39166955-furongheshidigongyuan",
     "address": null,
     "image_url": null,
@@ -1688,6 +1742,7 @@
     "name": {
       "zh_CN": "十里金滩魅力江东"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi39134115-shilijintanmeilijiang",
     "address": null,
     "image_url": null,
@@ -1700,6 +1755,7 @@
     "name": {
       "zh_CN": "龙塘大坝"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi39091243-longtangdaba",
     "address": null,
     "image_url": null,
@@ -1712,6 +1768,7 @@
     "name": {
       "zh_CN": "达士巷"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi39057301-dashixiang",
     "address": null,
     "image_url": null,
@@ -1724,6 +1781,7 @@
     "name": {
       "zh_CN": "海口飞向太空航空展"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi38951029-haikoufeixiangtaikong",
     "address": null,
     "description": {
@@ -1739,6 +1797,7 @@
     "name": {
       "zh_CN": "北港岛"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi38944893-beigangdao",
     "address": null,
     "description": {
@@ -1773,6 +1832,7 @@
     "name": {
       "zh_CN": "桫椤湾娱乐艺术风情街"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi38941911-suoluowanyuleyishufeng",
     "address": null,
     "image_url": null,
@@ -1785,6 +1845,7 @@
     "name": {
       "zh_CN": "那央村"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi38940188-neiyangcun",
     "address": null,
     "image_url": null,
@@ -1797,6 +1858,7 @@
     "name": {
       "zh_CN": "一字岭"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi38912726-yiziling",
     "address": null,
     "image_url": null,
@@ -1809,6 +1871,7 @@
     "name": {
       "zh_CN": "言·艺术馆"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi38867168-yanyishuguan",
     "address": null,
     "image_url": null,
@@ -1824,6 +1887,7 @@
     "name": {
       "zh_CN": "海口非遗文化展示馆"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi38845077-haikoufeiyiwenhuazhan",
     "address": null,
     "image_url": null,
@@ -1836,6 +1900,7 @@
     "name": {
       "zh_CN": "森江沅船业旧船厂"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi38841429-senjiangyuanchuanyejiu",
     "address": null,
     "image_url": null,
@@ -1848,6 +1913,7 @@
     "name": {
       "zh_CN": "海口会展工场"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi38807078-haikouhuizhangongchang",
     "address": null,
     "description": {
@@ -1870,6 +1936,7 @@
     "name": {
       "zh_CN": "沙坡水库"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi38806371-shaposhuiku",
     "address": null,
     "image_url": null,
@@ -1885,6 +1952,7 @@
     "name": {
       "zh_CN": "华彩杰鹏游艇会"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi38797976-huacaijiepengyoutinghui",
     "address": null,
     "image_url": null,
@@ -1900,6 +1968,7 @@
     "name": {
       "zh_CN": "海南陈氏大宗祠"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi38672880-hainanchenshidazongci",
     "address": null,
     "description": {
@@ -1944,6 +2013,7 @@
     "name": {
       "zh_CN": "海口市龙华区文化馆"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi38340813-haikoushilonghuaquwen",
     "address": null,
     "image_url": null,
@@ -1959,6 +2029,7 @@
     "name": {
       "zh_CN": "泰华庵"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi38340552-taihuaan",
     "address": null,
     "image_url": null,
@@ -1974,6 +2045,7 @@
     "name": {
       "zh_CN": "龙昆上村武圣庙"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi38340550-longkunshangcunwusheng",
     "address": null,
     "image_url": null,
@@ -1989,6 +2061,7 @@
     "name": {
       "zh_CN": "芳园国际艺术村"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi38336747-fangyuanguojiyishucun",
     "address": null,
     "image_url": null,
@@ -2004,6 +2077,7 @@
     "name": {
       "zh_CN": "东湖景区"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi38336368-donghujingqu",
     "address": null,
     "image_url": null,
@@ -2019,6 +2093,7 @@
     "name": {
       "zh_CN": "海湾探索水上巴士万绿园站基地"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi38336246-haiwantansuo",
     "address": null,
     "image_url": null,
@@ -2034,6 +2109,7 @@
     "name": {
       "zh_CN": "海口西海岸挺秀公园"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi38335011-haikouxihaiantingxiugong",
     "address": null,
     "image_url": null,
@@ -2049,6 +2125,7 @@
     "name": {
       "zh_CN": "昌学村"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi38157044-changxuecun",
     "address": null,
     "description": {
@@ -2081,6 +2158,7 @@
     "name": {
       "zh_CN": "蛇桥风景区"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi38156123-sheqiaofengjingqu",
     "address": null,
     "image_url": null,
@@ -2096,6 +2174,7 @@
     "name": {
       "zh_CN": "白沙门沙滩"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi38135639-baishamenshatan",
     "address": null,
     "description": {
@@ -2121,6 +2200,7 @@
     "name": {
       "zh_CN": "肆意·空间"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi38135307-siyikongjian",
     "address": "地址:\n海口市龙华区金龙路1-4号椰岛大厦一层",
     "opening_hours": {
@@ -2139,6 +2219,7 @@
     "name": {
       "zh_CN": "西站夜市广场"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi37806909-xizhanyeshiguangchang",
     "address": null,
     "description": {
@@ -2164,6 +2245,7 @@
     "name": {
       "zh_CN": "东坡书院"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi37201366-dongposhuyuan",
     "address": "地址:\n海府路169号五公祠游览区内",
     "description": {
@@ -2192,6 +2274,7 @@
     "name": {
       "zh_CN": "金金龙小吃街"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi37198583-jinjinlongxiaochijie",
     "address": null,
     "image_url": null,
@@ -2207,6 +2290,7 @@
     "name": {
       "zh_CN": "万宁街"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi37198049-wanningjie",
     "address": null,
     "image_url": null,
@@ -2222,6 +2306,7 @@
     "name": {
       "zh_CN": "侨中里文化街"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi37197924-qiaozhongliwenhuajie",
     "address": null,
     "image_url": null,
@@ -2237,6 +2322,7 @@
     "name": {
       "zh_CN": "海口热带农业科技博览园"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi37192921-haikouredainongyekeji",
     "address": "地址:\n苍峄路4号",
     "opening_hours": {
@@ -2252,6 +2338,7 @@
     "name": {
       "zh_CN": "巴厘岛艺术馆"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi37190659-balidaoyishuguan",
     "address": "地址:\n龙桥镇惠农路55号\n\n\n电话:\n13976305266",
     "opening_hours": {
@@ -2270,6 +2357,7 @@
     "name": {
       "zh_CN": "绿地缤纷广场"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi37189781-lu:dibinfenguangchang",
     "address": "地址:\n滨海大道与长滨北五路交叉口东南150米(北区)",
     "opening_hours": {
@@ -2288,6 +2376,7 @@
     "name": {
       "zh_CN": "三角池广场"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi37183731-sanjiaochiguangchang",
     "address": null,
     "image_url": null,
@@ -2300,6 +2389,7 @@
     "name": {
       "zh_CN": "明昌塔"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi37182794-mingchangta",
     "address": null,
     "image_url": null,
@@ -2315,6 +2405,7 @@
     "name": {
       "zh_CN": "海岸路商业街"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi37182591-haianlushangyejie",
     "address": null,
     "image_url": null,
@@ -2330,6 +2421,7 @@
     "name": {
       "zh_CN": "禄尾村"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi36412217-luweicun",
     "address": null,
     "image_url": null,
@@ -2342,6 +2434,7 @@
     "name": {
       "zh_CN": "美丽沙岛"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi36411761-meilishadao",
     "address": null,
     "description": {
@@ -2367,6 +2460,7 @@
     "name": {
       "zh_CN": "鸭尾溪湿地公园"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi36410935-yaweixishidigongyuan",
     "address": "地址:\n人民大道与海甸五中路交汇处东南侧",
     "description": {
@@ -2392,6 +2486,7 @@
     "name": {
       "zh_CN": "书香公园"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi36410485-shuxianggongyuan",
     "address": null,
     "image_url": null,
@@ -2404,6 +2499,7 @@
     "name": {
       "zh_CN": "美舍河群上湿地公园"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi36410147-meishehequnshangshidi",
     "address": null,
     "image_url": null,
@@ -2419,6 +2515,7 @@
     "name": {
       "zh_CN": "南渡江公园"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi36410052-nandujianggongyuan",
     "address": null,
     "description": {
@@ -2444,6 +2541,7 @@
     "name": {
       "zh_CN": "海口人民公园湖心岛"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi36409379-haikourenmingongyuanhu",
     "address": null,
     "image_url": null,
@@ -2456,6 +2554,7 @@
     "name": {
       "zh_CN": "海口喜来登温泉泳池"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi36408144-haikouxilaidengwenquan",
     "address": "地址:\n滨海大道136号",
     "opening_hours": {
@@ -2471,6 +2570,7 @@
     "name": {
       "zh_CN": "侯家大宅"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi36408087-houjiadazhai",
     "address": null,
     "image_url": null,

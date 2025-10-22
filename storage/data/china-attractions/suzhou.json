@@ -4,6 +4,7 @@
       "zh_CN": "拙政园",
       "en": "Humble Administrator's Garden"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi707228-zhuozhengyuan",
     "address": "地址:\n苏州市姑苏区东北街178号\n\n\n电话:\n0512-962015",
     "description": {
@@ -104,6 +105,7 @@
       "zh_CN": "山塘街",
       "en": "Shantang Street"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi704582-shantangjie",
     "address": "地址:\n苏州市姑苏区古城西北\n\n\n电话:\n0512-65314467\n\n\n官网:\nhttp://www.shantangjie.com.cn/",
     "description": {
@@ -168,6 +170,7 @@
       "zh_CN": "周庄",
       "en": "Zhouzhuang"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi706611-zhouzhuang",
     "address": "地址:\n苏州市昆山市周庄镇全福路43号\n\n\n电话:\n400-8282900\n\n\n官网:\nhttp://www.zhouzhuang.net/",
     "description": {
@@ -220,6 +223,7 @@
       "zh_CN": "同里古镇",
       "en": "Tongli Ancient Town"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi714632-tongliguzhen",
     "address": "地址:\n苏州市吴江区中川南路1号\n\n\n电话:\n0512-63311140\n\n\n官网:\nhttp://www.tongli.net/",
     "description": {
@@ -272,6 +276,7 @@
       "zh_CN": "平江路历史街区",
       "en": "Pingjiang Road"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5740205-pingjianglulishijiequ",
     "address": "地址:\n苏州市平江区平江路\n\n\n电话:\n0512-69163907,0512-66090240,0512-67200129\n\n\n官网:\nhttp://www.pj-road.com",
     "description": {
@@ -330,6 +335,7 @@
       "zh_CN": "苏州博物馆",
       "en": "Suzhou Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi703504-suzhoubowuguan",
     "address": "地址:\n苏州市东北街204号\n\n\n电话:\n0512-67575666\n\n\n官网:\nhttp://www.szmuseum.com/",
     "description": {
@@ -382,6 +388,7 @@
       "zh_CN": "同里国家湿地公园",
       "en": "Tongli Wetland Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7646854-tongliguojiashidigong",
     "address": "地址:\n苏州市吴江区同里镇屯村社区东北部\n\n\n电话:\n0512-63191210",
     "description": {
@@ -418,6 +425,7 @@
       "zh_CN": "寒山寺",
       "en": "Hanshan Temple"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi714460-hanshansi",
     "address": "地址:\n苏州市姑苏区寒山寺弄24号\n\n\n电话:\n0512-67236213\n\n\n官网:\nhttp://www.hanshansi.org/",
     "description": {
@@ -470,6 +478,7 @@
       "zh_CN": "观前街",
       "en": "Guanqian Street"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi5740206-guanqianjie",
     "address": "地址:\n苏州市姑苏区",
     "description": {
@@ -524,6 +533,7 @@
       "zh_CN": "狮子林",
       "en": "Lion Forest Garden"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi706251-shizilin",
     "address": null,
     "image_url": null,
@@ -537,6 +547,7 @@
       "zh_CN": "虎丘山风景名胜区",
       "en": "Tiger Hill"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi702178-huqiushanfengjingming",
     "address": "地址:\n苏州市姑苏区虎丘山门內8号\n\n\n电话:\n0512-65323488\n\n\n官网:\nhttps://www.tigerhill.com/",
     "description": {
@@ -667,6 +678,7 @@
       "zh_CN": "苏州上方山国家森林公园",
       "en": "Shangfangshan Hill National Forest Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi9174321-suzhoushangfangshanguo",
     "address": "地址:\n苏州市虎丘区吴越路47号\n\n\n电话:\n0512-68230800\n\n\n官网:\nhttp://www.szszwy.com/",
     "description": {
@@ -734,6 +746,7 @@
       "zh_CN": "金鸡湖",
       "en": "Jinji Lake"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5852824-jinjihu",
     "address": "地址:\n江苏省苏州市苏州工业园区金鸡湖大道北侧\n\n\n电话:\n4007558558\n\n\n官网:\nhttp://jinjilake.sipac.gov.cn/",
     "description": {
@@ -798,6 +811,7 @@
       "zh_CN": "太湖",
       "en": "Taihu Lake"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi8596067-taihu",
     "address": "地址:\n苏州市吴中区\n\n\n电话:\n0512-82288288",
     "description": {
@@ -847,6 +861,7 @@
       "zh_CN": "留园",
       "en": "Lingering Garden"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi710051-liuyuan",
     "address": "地址:\n苏州市姑苏区阊门外留园路338号\n\n\n电话:\n0512-65579466,0512-65337903\n\n\n官网:\nhttps://www.gardenly.com/",
     "description": {
@@ -977,6 +992,7 @@
       "zh_CN": "西山",
       "en": "Xishan Island"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi707608-xishan",
     "address": "地址:\n苏州市吴中区金庭镇大桥路23号\n\n\n电话:\n0512-66310058",
     "description": {
@@ -1052,6 +1068,7 @@
       "zh_CN": "锦溪古镇",
       "en": "Jinxi Ancient Town"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi705495-jinxiguzhen",
     "address": "地址:\n苏州市昆山市锦溪镇邵甸港路18号\n\n\n电话:\n400-621-2855\n\n\n官网:\nhttp://www.chinajinxi.com.cn/",
     "description": {
@@ -1116,6 +1133,7 @@
       "zh_CN": "苏州大学",
       "en": "Suzhou University"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7523990-suzhoudaxue",
     "address": "地址:\n苏州市姑苏区十梓街1号\n\n\n电话:\n0512-65112250,0512-65113180",
     "description": {
@@ -1200,6 +1218,7 @@
       "zh_CN": "甪直古镇",
       "en": "Luzhi Ancient Town"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi703954-luzhiguzhen",
     "address": "地址:\n苏州市吴中区甪直镇晓市路21号\n\n\n电话:\n0512-66191668\n\n\n官网:\nhttp://www.luzhitour.net/",
     "description": {
@@ -1264,6 +1283,7 @@
       "zh_CN": "诚品书店",
       "en": "Eslite Bookstore"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi5325341-chengpinshudian",
     "address": null,
     "image_url": null,
@@ -1277,6 +1297,7 @@
       "zh_CN": "木渎古镇",
       "en": "Mudu Ancient Town"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi10002538-muduguzhen",
     "address": "地址:\n苏州市吴中区木渎镇山塘街188号\n\n\n电话:\n0512-66561218\n\n\n官网:\nhttp://www.mudu.com.cn/",
     "description": {
@@ -1364,6 +1385,7 @@
       "zh_CN": "十全街",
       "en": "Shiquan Street"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi5740207-shiquanjie",
     "address": null,
     "image_url": null,
@@ -1377,6 +1399,7 @@
       "zh_CN": "沙家浜风景区",
       "en": "Shajiabang Scenic Area"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi710663-shajiabangfengjingqu",
     "address": "地址:\n苏州市常熟市沙家浜镇芦苇荡路188号\n\n\n电话:\n0512-52500000\n\n\n官网:\nhttp://www.shajiabang.com/",
     "description": {
@@ -1498,6 +1521,7 @@
       "zh_CN": "天平山",
       "en": "Tianpingshan"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi715167-tianpingshan",
     "address": "地址:\n苏州市吴中区灵天路\n\n\n电话:\n0512-66261382,0512-66387422\n\n\n官网:\nhttp://www.sz-tps.cn/",
     "description": {
@@ -1580,6 +1604,7 @@
       "zh_CN": "三山岛",
       "en": "Sanshan Island"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi704957-sanshandao",
     "address": null,
     "image_url": null,
@@ -1592,6 +1617,7 @@
     "name": {
       "zh_CN": "沈园"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi717666-shenyuan",
     "address": "地址:\n江苏省昆山市周庄镇南市街96号\n\n\n电话:\n0512-57211848\n\n\n官网:\nhttp://www.zhouzhuang.net/",
     "opening_hours": {
@@ -1625,6 +1651,7 @@
       "zh_CN": "耦园",
       "en": "Ouyuan Garden"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi5740271-ouyuan",
     "address": "地址:\n苏州市姑苏区仓街小新桥巷6号(近平江路)\n\n\n电话:\n0512-67272717,0512-67779261\n\n\n官网:\nhttp://www.szouyuan.com",
     "description": {
@@ -1745,6 +1772,7 @@
       "zh_CN": "黎里古镇",
       "en": "Lili Ancient Town"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi9510684-liliguzhen",
     "address": null,
     "image_url": null,
@@ -1758,6 +1786,7 @@
       "zh_CN": "沙溪古镇",
       "en": "Shaxi Town"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi704311-shaxiguzhen",
     "address": "地址:\n苏州市太仓中市街与长寿南路交叉口东北50米\n\n\n电话:\n0512-53221815",
     "description": {
@@ -1806,6 +1835,7 @@
       "zh_CN": "虞山景区",
       "en": "Yushan Scenic Spot"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi703270-yushanjingqu",
     "address": null,
     "image_url": null,
@@ -1819,6 +1849,7 @@
       "zh_CN": "月光码头",
       "en": "Moon Harbour"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7524240-yueguangmatou",
     "address": "地址:\n苏州市工业园区观枫街1号科文中心东（近现代大道）\n\n\n电话:\n0512-62580088",
     "description": {
@@ -1855,6 +1886,7 @@
       "zh_CN": "枫桥景区",
       "en": "Fengqiao Scenic Area"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi10002505-fengqiaojingqu",
     "address": null,
     "description": {
@@ -1972,6 +2004,7 @@
       "zh_CN": "仙樱湖公园",
       "en": "Xianyinghu Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi35198814-xianyinghugongyuan",
     "address": null,
     "description": {
@@ -1991,6 +2024,7 @@
       "zh_CN": "沧浪亭",
       "en": "Canglang Pavillion"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi708090-canglangting",
     "address": "地址:\n苏州市姑苏区人民路沧浪亭街3号\n\n\n电话:\n0512-67970005,0512-68123123\n\n\n官网:\nhttp://www.szclp.com/",
     "description": {
@@ -2121,6 +2155,7 @@
       "zh_CN": "网师园",
       "en": "Master of the Nets Garden"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi716485-wangshiyuan",
     "address": "地址:\n苏州市姑苏区带城桥路阔家头巷11号\n\n\n电话:\n0512-65293190\n\n\n官网:\nhttp://www.szwsy.com/",
     "description": {
@@ -2248,6 +2283,7 @@
       "zh_CN": "百间楼",
       "en": "Baijianlou"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi716404-baijianlou",
     "address": "地址:\n湖州市南浔区南浔古镇东百间楼河两岸\n\n\n电话:\n0572-3016999",
     "description": {
@@ -2294,6 +2330,7 @@
       "zh_CN": "千灯古镇",
       "en": "Qiandeng Ancient Town"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi707034-qiandengguzhen",
     "address": "地址:\n苏州市昆山市千灯古镇尚书路1号\n\n\n电话:\n0512-57478178\n\n\n官网:\nhttp://www.chinaqiandeng.com/",
     "description": {
@@ -2349,6 +2386,7 @@
       "zh_CN": "香雪海",
       "en": "Xiangxuehai"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi712021-xiangxuehai",
     "address": "地址:\n苏州市吴中区光福镇倪巷村福湖路\n\n\n电话:\n0512-66959008,0512-66959608",
     "description": {
@@ -2398,6 +2436,7 @@
       "zh_CN": "阳澄湖半岛旅游度假区",
       "en": "Yangcheng Lake Peninsula Tourist Resort"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi9202095-yangchenghubandaolu:you",
     "address": "地址:\n苏州市工业园区阳澄环路999号\n\n\n电话:\n4008-288-000\n\n\n官网:\nhttp://www.sip-ych.com/",
     "description": {
@@ -2458,6 +2497,7 @@
       "zh_CN": "盘门",
       "en": "Pan Gate"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi710822-panmen",
     "address": "地址:\n苏州市东大街1号\n\n\n电话:\n0512-65260004\n\n\n官网:\nhttp://www.panmen.com.cn/",
     "description": {
@@ -2546,6 +2586,7 @@
       "zh_CN": "洞庭东山",
       "en": "Dongting Dongshan"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi713172-dongtingdongshan",
     "address": "地址:\n苏州市吴中区盛境地旁\n\n\n电话:\n0512-66396193",
     "description": {
@@ -2663,6 +2704,7 @@
       "zh_CN": "尚湖风景区",
       "en": "Shanghu Lake Scenic Area"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi710205-shanghufengjingqu",
     "address": null,
     "image_url": null,
@@ -2676,6 +2718,7 @@
       "zh_CN": "苏州园林博物馆",
       "en": "Suzhou Garden Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7523953-suzhouyuanlinbowuguan",
     "address": "地址:\n苏州市姑苏区东北街202号\n\n\n电话:\n0512-962015,0512-67575666\n\n\n官网:\nhttp://ylbwg.szzzy.cn/",
     "description": {
@@ -2715,6 +2758,7 @@
       "zh_CN": "葑门横街",
       "en": "FengMen HengJie"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi24436060-fengmenhengjie",
     "address": null,
     "description": {
@@ -2741,6 +2785,7 @@
       "zh_CN": "南湖湿地公园",
       "en": "Nanhu Wetland Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi10094774-nanhushidigongyuan",
     "address": "地址:\n苏州市常熟市苏虞张公路与沈张路的路口向北",
     "description": {
@@ -2770,6 +2815,7 @@
       "zh_CN": "苏州御窑金砖博物馆",
       "en": "Suzhou Yu Kiln Jinzhuan Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi10077243-suzhouyuyaojinzhuanbo",
     "address": "地址:\n苏州市相城区阳澄湖西路95号\n\n\n电话:\n0512-66182178\n\n\n官网:\nhttp://www.szyyjzbwg.com/",
     "description": {
@@ -2809,6 +2855,7 @@
       "zh_CN": "阴山岛路",
       "en": "Yinshan Island"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi10066434-yinshandaolu",
     "address": null,
     "description": {
@@ -2835,6 +2882,7 @@
       "zh_CN": "大如意圣境",
       "en": "Great Ruyi Sacred Place"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi9561302-daruyishengjing",
     "address": "地址:\n苏州市金庭镇（太湖西山岛）绮里坞\n\n\n电话:\n0512-66277698\n\n\n官网:\nhttp://www.szgyy.com/",
     "description": {
@@ -2877,6 +2925,7 @@
       "zh_CN": "苏州太湖湖滨国家湿地公园",
       "en": "Suzhou Taihu Hubin National Wetland Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi9485397-suzhoutaihuhubinguojia",
     "address": "地址:\n苏州市吴中区胥香路和环太湖大道交汇处\n\n\n电话:\n0512-66311098",
     "description": {
@@ -2931,6 +2980,7 @@
       "zh_CN": "西园寺",
       "en": "Xiyuan Temple"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi713218-xiyuansi",
     "address": null,
     "image_url": null,
@@ -2943,6 +2993,7 @@
     "name": {
       "zh_CN": "沈厅"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7475347-shenting",
     "address": "地址:\n江苏省苏州市昆山市周庄古镇南市街96号\n\n\n电话:\n4008282900",
     "description": {
@@ -3001,6 +3052,7 @@
       "zh_CN": "张厅",
       "en": "Zhang Hall"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi718032-zhangting",
     "address": "地址:\n苏州市昆山市周庄镇全福路\n\n\n电话:\n400-8282-900,0512-57211699,0512-57217217,0512-57215330",
     "description": {
@@ -3050,6 +3102,7 @@
       "zh_CN": "怡园",
       "en": "Yiyuan Garden"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi708291-yiyuan",
     "address": "地址:\n苏州市姑苏区人民路1265号\n\n\n电话:\n0512-65249317",
     "description": {
@@ -3128,6 +3181,7 @@
       "zh_CN": "林屋洞",
       "en": "Linwu Cave"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi711326-linwudong",
     "address": "地址:\n苏州市吴中区金庭镇下村林屋洞景区\n\n\n电话:\n0512-66379880,13771843441",
     "description": {
@@ -3232,6 +3286,7 @@
     "name": {
       "zh_CN": "江南采珠游"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5942108-jiangnancaizhuyou",
     "address": "地址:\n苏州市相城区渭塘镇珍珠湖路88号",
     "opening_hours": {
@@ -3261,6 +3316,7 @@
       "zh_CN": "苏州海洋馆",
       "en": "Suzhou Aquarium"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7647562-suzhouhaiyangguan",
     "address": "地址:\n江苏省苏州市太湖国家旅游度假区环太湖大道28号\n\n\n电话:\n0512-69381000",
     "description": {
@@ -3297,6 +3353,7 @@
       "zh_CN": "独墅湖教堂",
       "en": "Dushuhu Church"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5184528-dushuhujiaotang",
     "address": "地址:\n江苏省苏州市吴中区翠薇路99号\n\n\n电话:\n0512-69566001",
     "description": {
@@ -3362,6 +3419,7 @@
     "name": {
       "zh_CN": "沙洲优黄文化园"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi38964417-shazhouyouhuangwenhua",
     "address": null,
     "image_url": null,
@@ -3374,6 +3432,7 @@
     "name": {
       "zh_CN": "夜昆山·美食不夜城"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi36404191-yekunshanmeishibuyecheng",
     "address": null,
     "image_url": null,
@@ -3394,6 +3453,7 @@
       "zh_CN": "太湖西山国家森林公园缥缈峰景区",
       "en": "West Mountain"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi35213783-taihuxishanguojiasenlin",
     "address": "地址:\n苏州市吴中区金庭镇缥缈路\n\n\n电话:\n0512-66317668",
     "description": {
@@ -3472,6 +3532,7 @@
       "zh_CN": "淀山湖",
       "en": "Dianshanhu"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi35213069-dianshanhu",
     "address": null,
     "description": {
@@ -3504,6 +3565,7 @@
     "name": {
       "zh_CN": "东山景区"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi27587958-dongshanjingqu",
     "address": null,
     "image_url": null,
@@ -3517,6 +3579,7 @@
       "zh_CN": "漫山岛",
       "en": "Manshan Island"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi23168830-manshandao",
     "address": "地址:\n苏州市吴中区太湖东南水域",
     "description": {
@@ -3592,6 +3655,7 @@
       "zh_CN": "白塘生态植物园",
       "en": "Baitang Ecology Botanical Garden"
     },
+    "type": "leisure",
     "link": "http://travel.qunar.com/p-oi10012489-baitangshengtaizhiwuyuan",
     "address": "地址:\n苏州市工业园区现代大道（南施街口）\n\n\n电话:\n0512-62583666",
     "description": {
@@ -3664,6 +3728,7 @@
       "zh_CN": "缥缈峰塔",
       "en": "Misty Peak Tower"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi10011250-piaomiaofengta",
     "address": "地址:\n苏州市吴中区金庭镇西部环岛旅游公路缥缈峰上",
     "description": {
@@ -3712,6 +3777,7 @@
       "zh_CN": "古里红豆山庄",
       "en": "Hongdoushanzhuang Ruins"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi10004710-gulihongdoushanzhuang",
     "address": "地址:\n常熟市古里镇红杨路和金桂路交汇处往西200米\n\n\n电话:\n0512-52568888",
     "description": {
@@ -3745,6 +3811,7 @@
       "zh_CN": "苏州本色美术馆",
       "en": "True Color Musuem"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi9502152-suzhoubensemeishuguan",
     "address": "地址:\n通达路219号(近九盛港路)\n\n\n电话:\n0512-65968890,0512-65030975",
     "description": {
@@ -3774,6 +3841,7 @@
       "zh_CN": "张家港梦幻海洋王国",
       "en": "Zhangjiagang Dream Ocean Kingdom"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi9191949-zhangjiagangmenghuanhai",
     "address": "地址:\n苏州市张家港市吾悦广场负一层\n\n\n电话:\n0512-58289999",
     "description": {
@@ -3816,6 +3884,7 @@
       "zh_CN": "兴福寺",
       "en": "Xingfu Temple"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi9015260-xingfusi",
     "address": "地址:\n苏州市常熟市寺路街148号\n\n\n电话:\n0512-52844489",
     "description": {
@@ -3876,6 +3945,7 @@
     "name": {
       "zh_CN": "静山夕阳观景处"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi38021215-jingshanxiyangguanjing",
     "address": null,
     "image_url": null,
@@ -3892,6 +3962,7 @@
       "zh_CN": "薰衣草庄园",
       "en": "Xunyicao Manor"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi35832089-xunyicaozhuangyuan",
     "address": null,
     "image_url": null,
@@ -3908,6 +3979,7 @@
       "zh_CN": "北塔报恩寺",
       "en": "North Temple Tower"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi703036-beitabaoensi",
     "address": "地址:\n苏州市姑苏区人民路1918号\n\n\n电话:\n0512-67534589",
     "description": {
@@ -4023,6 +4095,7 @@
       "zh_CN": "艺圃",
       "en": "Garden of Cultivation"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi715871-yipu",
     "address": "地址:\n苏州市姑苏区文衙弄5号\n\n\n电话:\n0512-67271614",
     "description": {
@@ -4096,6 +4169,7 @@
       "zh_CN": "全福讲寺",
       "en": "Quanfu Temple"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi720273-quanfujiangsi",
     "address": "地址:\n苏州市昆山市周庄古镇最南端的南湖岸边\n\n\n电话:\n0512-57211784",
     "description": {
@@ -4160,6 +4234,7 @@
       "zh_CN": "周庄博物馆",
       "en": "Zhouzhuang Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi716619-zhouzhuangbowuguan",
     "address": "地址:\n苏州市昆山市周庄镇后港街38号（周庄古镇景区内）\n\n\n电话:\n0512 5721 2886",
     "description": {
@@ -4189,6 +4264,7 @@
       "zh_CN": "沈万三故居",
       "en": "Shenwansan Former Residence"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi8596200-shenwansanguju",
     "address": "地址:\n苏州市昆山市周庄风景区周庄欢乐世界园内\n\n\n电话:\n400-828-2900",
     "description": {
@@ -4224,6 +4300,7 @@
     "name": {
       "zh_CN": "周庄全福塔"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi8680824-zhouzhuangquanfuta",
     "address": "地址:\n周庄镇周庄古镇内（近周庄魔城）",
     "description": {
@@ -4259,6 +4336,7 @@
       "zh_CN": "灵岩山",
       "en": "Lingyan Mountain"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi715435-lingyanshan",
     "address": "地址:\n苏州市吴中区木渎古镇山塘街市梢(近灵山路)\n\n\n电话:\n0512-66261310",
     "description": {
@@ -4367,6 +4445,7 @@
       "zh_CN": "阳澄湖",
       "en": "Yangcheng Lake"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi710903-yangchenghu",
     "address": "地址:\n苏州市苏州工业园区阳澄湖度假区\n\n\n电话:\n0512-57652220",
     "description": {
@@ -4454,6 +4533,7 @@
       "zh_CN": "穹窿山",
       "en": "Qionglong Mountain"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi715210-qionglongshan",
     "address": "地址:\n苏州市吴中区藏书镇中心西南一公里穹窿山景区\n\n\n电话:\n0512-66245716\n\n\n官网:\nhttp://www.szqls.com/",
     "description": {
@@ -4577,6 +4657,7 @@
       "zh_CN": "中国昆曲博物馆",
       "en": "China Kunqu Opera Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7482345-zhongguokunqubowuguan",
     "address": "地址:\n苏州市姑苏区中张家巷14号\n\n\n电话:\n0512-67273334,0512-67271685",
     "description": {
@@ -4606,6 +4687,7 @@
       "zh_CN": "苏州太湖国家湿地公园",
       "en": "Suzhou Taihu National Wetland Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7523961-suzhoutaihuguojiashidi",
     "address": "地址:\n苏州市高新区镇湖绣品街1号\n\n\n电话:\n0512-66918088\n\n\n官网:\nhttp://www.taihusd.com/",
     "description": {
@@ -4655,6 +4737,7 @@
       "zh_CN": "光福景区",
       "en": "Guangfu Scenic Area"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi710460-guangfujingqu",
     "address": "地址:\n苏州市吴中区邓尉山路\n\n\n电话:\n0512-66959608,0512-66959008\n\n\n官网:\nhttp://www.szgfly.com/",
     "description": {
@@ -4728,6 +4811,7 @@
       "zh_CN": "苏州定慧寺",
       "en": "Suzhou Dinghui Temple"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi713094-suzhoudinghuisi",
     "address": "地址:\n苏州凤凰街定慧寺巷34号",
     "description": {
@@ -4776,6 +4860,7 @@
       "zh_CN": "方塔园",
       "en": "Fang Tower Park"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi711759-fangtayuan",
     "address": "地址:\n苏州市常熟市环城东路方塔园景区\n\n\n电话:\n0512-52700212,0512-52779669,0512-52788363\n\n\n官网:\nhttp://www.cs-fangta.cn/",
     "description": {
@@ -4867,6 +4952,7 @@
       "zh_CN": "凤凰山景区恬庄古街",
       "en": "Tianzhuang Ancient Street"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7468813-fenghuangshanjingqutian",
     "address": "地址:\n苏州市张家港市凤凰镇恬庄古街\n\n\n电话:\n0512-58429926",
     "description": {
@@ -4903,6 +4989,7 @@
       "zh_CN": "大阳山国家森林公园",
       "en": "Dayangshan National Forest Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7468815-dayangshanguojiasenlin",
     "address": "地址:\n苏州市虎丘区浒墅关经济开发区阳山南路8号\n\n\n电话:\n400-8282-667,0512-66163111\n\n\n官网:\nhttp://www.jsdys.cn",
     "description": {
@@ -4963,6 +5050,7 @@
     "name": {
       "zh_CN": "张家港湾"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi38936419-zhangjiagangwan",
     "address": null,
     "image_url": null,
@@ -4975,6 +5063,7 @@
     "name": {
       "zh_CN": "潭东村"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi38860094-tandongcun",
     "address": null,
     "description": {
@@ -5000,6 +5089,7 @@
     "name": {
       "zh_CN": "张家港图书馆"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi38671949-zhangjiagangtushuguan",
     "address": null,
     "image_url": null,
@@ -5012,6 +5102,7 @@
     "name": {
       "zh_CN": "张家港美术馆"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi38157092-zhangjiagangmeishuguan",
     "address": null,
     "image_url": null,
@@ -5027,6 +5118,7 @@
     "name": {
       "zh_CN": "苏州站北广场"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi38034480-suzhouzhan_beiguangchang",
     "address": null,
     "image_url": null,
@@ -5042,6 +5134,7 @@
     "name": {
       "zh_CN": "海虞园"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi36409957-haiyuyuan",
     "address": null,
     "image_url": null,
@@ -5058,6 +5151,7 @@
       "zh_CN": "大伯墩生态湿地公园",
       "en": "Dabodun Ecological Wetland Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi35913029-dabodunshengtaishidigong",
     "address": null,
     "image_url": null,
@@ -5074,6 +5168,7 @@
       "zh_CN": "昆山国泰郁金香荷兰风情园",
       "en": "Guotai Tulip Holland Style Garden, Kunshan"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi35006035-kunshanguotaiyujinxiang",
     "address": "地址:\n苏州市昆山市国泰郁金香荷兰风情园(002乡道北)\n\n\n电话:\n0512-62982956",
     "description": {
@@ -5103,6 +5198,7 @@
       "zh_CN": "十里斜塘",
       "en": "Xietang River"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi29541207-shilixietang",
     "address": null,
     "description": {
@@ -5122,6 +5218,7 @@
       "zh_CN": "周庄万三酒庄",
       "en": "Zhouzhuang Wansan Winery"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi29461424-zhouzhuangwansanjiuzhuang",
     "address": null,
     "image_url": null,
@@ -5135,6 +5232,7 @@
       "zh_CN": "冯梦龙村",
       "en": "Fengmenglong Lianzheng Jiaoyu Base"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi28710302-fengmenglongcun",
     "address": null,
     "description": {
@@ -5195,6 +5293,7 @@
       "zh_CN": "沙洲路步行街",
       "en": "ShaZhou Lu BuXingJie (ChangAn NanLu)"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi24441044-shazhoulubuxingjie",
     "address": null,
     "description": {
@@ -5221,6 +5320,7 @@
       "zh_CN": "苏州伦敦桥",
       "en": "Suzhou Tower Bridge"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi23344106-suzhoulundunqiao",
     "address": null,
     "description": {

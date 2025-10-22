@@ -4,6 +4,7 @@
       "zh_CN": "龙脊梯田",
       "en": "Longji Rice Terrace"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi715419-longjititian",
     "address": "地址:\n桂林市龙胜各族自治县和平乡平安村\n\n\n电话:\n0773-7583188,0773-7583088\n\n\n官网:\nhttp://longjitour.com/",
     "description": {
@@ -56,6 +57,7 @@
       "zh_CN": "漓江风景名胜区",
       "en": "Li River"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi706160-lijiangfengjingmingsheng",
     "address": null,
     "image_url": null,
@@ -69,6 +71,7 @@
       "zh_CN": "遇龙河",
       "en": "Yulong River"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi710581-yulonghe",
     "address": "地址:\n桂林市阳朔县白沙镇遇龙村\n\n\n电话:\n0773-8883118\n\n\n官网:\nhttp://www.ylhdjq.com/",
     "description": {
@@ -124,6 +127,7 @@
       "zh_CN": "十里画廊",
       "en": "Shili Gallery"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi5157832-shilihualang",
     "address": null,
     "image_url": null,
@@ -137,6 +141,7 @@
       "zh_CN": "遇龙河漂流",
       "en": "Yulong River Rafting"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi10014657-yulonghepiaoliu",
     "address": "地址:\n桂林市阳朔县遇龙河景区\n\n\n电话:\n15807836201",
     "description": {
@@ -183,6 +188,7 @@
       "zh_CN": "西街",
       "en": "West Street"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi711204-xijie",
     "address": "地址:\n桂林市阳朔县\n\n\n电话:\n0773-8810682,0773-8822392\n\n\n官网:\nhttp://www.ysxijie.com/",
     "description": {
@@ -229,6 +235,7 @@
       "zh_CN": "象鼻山景区",
       "en": "Xiangshan Scenic Area"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi711159-xiangbishanjingqu",
     "address": "地址:\n桂林市象山区滨江路1号\n\n\n电话:\n0773-2582112,0773-2235151\n\n\n官网:\nhttp://www.glxbs.com/",
     "description": {
@@ -293,6 +300,7 @@
       "zh_CN": "相公山",
       "en": "Xianggong Mountain"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7587639-xianggongshan",
     "address": "地址:\n桂林市阳朔县葡萄镇",
     "description": {
@@ -331,6 +339,7 @@
     "name": {
       "zh_CN": "阳朔"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-jq5942247-yangshuo",
     "address": null,
     "image_url": "https://img1.qunarzz.com/travel/poi/201407/01/51af13c3e27b8355ddb12cfb.jpg_r_720x400x95_13ea9068.jpg",
@@ -344,6 +353,7 @@
       "zh_CN": "两江四湖",
       "en": "Two Rivers and Four Lakes"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi716544-liangjiangsihu",
     "address": "地址:\n桂林市象山区两江四湖景区文昌桥码头、象山渔人码头、日月湾码头、知音台码头\n\n\n电话:\n0773-8980066\n\n\n官网:\nhttp://www.glljsh.com/",
     "description": {
@@ -432,6 +442,7 @@
       "zh_CN": "银子岩",
       "en": "Silver Cave"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi711176-yinziyan",
     "address": "地址:\n桂林市荔浦县马岭镇马岭镇沿321国道向北10公里(十里画廊景区)银子岩景区\n\n\n电话:\n0773-2387668,0773-7133582\n\n\n官网:\nhttp://www.yinziyan.com/",
     "description": {
@@ -478,6 +489,7 @@
       "zh_CN": "兴坪古镇",
       "en": "Xingping Ancient Town"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi712703-xingpingguzhen",
     "address": "地址:\n桂林市阳朔县兴坪镇榕潭街23号",
     "description": {
@@ -517,6 +529,7 @@
       "zh_CN": "东西巷",
       "en": "Dongxi Lane"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi9497200-dongxixiang",
     "address": "地址:\n桂林市秀峰区东西巷，包括西华里、正阳街东巷、江南巷、兰井巷等街道\n\n\n电话:\n0773-2886666,0773-2887777\n\n\n官网:\nhttp://www.dongxixiang.com.cn/",
     "description": {
@@ -556,6 +569,7 @@
       "zh_CN": "富里桥",
       "en": "Fuli Bridge"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi8597927-fuliqiao",
     "address": "地址:\n桂林市阳朔县白沙镇遇龙桥码头\n\n\n电话:\n0773-8883118,0773-8883299",
     "description": {
@@ -599,6 +613,7 @@
       "zh_CN": "大榕树",
       "en": "Large banyan"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi704157-darongshu",
     "address": "地址:\n桂林市阳朔县十里画廊工农桥旁南高田乡金宝河畔(近321国道)\n\n\n电话:\n0773-8822125",
     "description": {
@@ -638,6 +653,7 @@
       "zh_CN": "七星景区",
       "en": "Seven Star Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi710885-qixingjingqu",
     "address": "地址:\n桂林市七星区七星路1号\n\n\n电话:\n0773-5815050,0773-5814342\n\n\n官网:\nhttp://www.glqxjq.cn/",
     "description": {
@@ -684,6 +700,7 @@
       "zh_CN": "独秀峰王城景区",
       "en": "Duxiu Peak Palace Destination"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi708335-duxiufengwangchengjing",
     "address": "地址:\n桂林市秀峰区王城路一号\n\n\n电话:\n0773-2200077\n\n\n官网:\nhttp://www.glwangcheng.com/",
     "description": {
@@ -784,6 +801,7 @@
       "zh_CN": "灵渠",
       "en": "Lingqu"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi704507-lingqu",
     "address": "地址:\n桂林市兴安县双灵路\n\n\n电话:\n0773-7976018\n\n\n官网:\nhttp://www.lingqu8.com/",
     "description": {
@@ -827,6 +845,7 @@
       "zh_CN": "日月双塔",
       "en": "Sun and Moon Pagodas"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7587403-riyueshuangta",
     "address": "地址:\n广西省桂林市象山区文明路10号\n\n\n电话:\n0773-2582888",
     "description": {
@@ -892,6 +911,7 @@
     "name": {
       "zh_CN": "老人山"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi38674578-laorenshan",
     "address": null,
     "image_url": null,
@@ -907,6 +927,7 @@
     "name": {
       "zh_CN": "恭城红岩村"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi23112700-gongchenghongyancun",
     "address": "地址:\n广西壮族自治区桂林市瑶族自治县红岩村",
     "description": {
@@ -939,6 +960,7 @@
       "zh_CN": "尚水街",
       "en": "Shangshui Street"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi10034865-shangshuijie",
     "address": "地址:\n桂林市秀峰区正阳街6号\n\n\n电话:\n15078328798",
     "description": {
@@ -975,6 +997,7 @@
       "zh_CN": "龙颈河漂流",
       "en": "Longjing River Rafting"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi707284-longjinghepiaoliu",
     "address": "地址:\n桂林市阳朔县大源林场\n\n\n电话:\n0773-8704888,0773-8704999\n\n\n官网:\nhttp://www.ysljhpl.com/",
     "description": {
@@ -1014,6 +1037,7 @@
       "zh_CN": "冠岩",
       "en": "Crown Rock"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi703119-guanyan",
     "address": "地址:\n桂林市雁山区草坪回族自治乡桂林漓江冠岩景区\n\n\n电话:\n0773-3848899\n\n\n官网:\nhttp://www.liriver.org/",
     "description": {
@@ -1060,6 +1084,7 @@
       "zh_CN": "芦笛岩",
       "en": "Ludi Cave (Reed Flute Cave)"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi707807-ludiyan",
     "address": "地址:\n桂林市芦笛路1号\n\n\n电话:\n0773-2210889,0773-2695075\n\n\n官网:\nhttp://www.glludiyan.com/",
     "description": {
@@ -1130,6 +1155,7 @@
       "zh_CN": "月亮山",
       "en": "Moon Hill"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi709764-yueliangshan",
     "address": "地址:\n桂林市阳朔县十里画廊末端，距阳朔8千米处\n\n\n电话:\n0773-8822481",
     "description": {
@@ -1169,6 +1195,7 @@
       "zh_CN": "漓江古东景区",
       "en": "Minjiang River Gudong Scenic Area"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi722219-lijianggudongjingqu",
     "address": "地址:\n桂林市灵川县大圩镇漓江古东景区\n\n\n电话:\n0773-6353088,0773-5849898\n\n\n官网:\nhttp://www.glgdst.com/",
     "description": {
@@ -1215,6 +1242,7 @@
       "zh_CN": "图腾古道",
       "en": "Totem Ancient Trail"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi715863-tutenggudao",
     "address": "地址:\n桂林市阳朔县阳朔镇十里画廊凤鸣三队图腾古道景区\n\n\n电话:\n0773-8811009,0773-8829000\n\n\n官网:\nhttp://ysttgd.vpiao.cn/",
     "description": {
@@ -1254,6 +1282,7 @@
       "zh_CN": "叠彩山",
       "en": "Folded Brocade Hill"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi701959-diecaishan",
     "address": "地址:\n桂林市龙珠路2号\n\n\n电话:\n0773-2100680,0773-2800318",
     "description": {
@@ -1336,6 +1365,7 @@
       "zh_CN": "伏波山",
       "en": "Fubo Mountain"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi711025-fuboshan",
     "address": null,
     "image_url": null,
@@ -1349,6 +1379,7 @@
       "zh_CN": "大圩古镇",
       "en": "Dawei Ancient Town"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi706949-daweiguzhen",
     "address": null,
     "image_url": null,
@@ -1362,6 +1393,7 @@
       "zh_CN": "尧山",
       "en": "Yao Mountain"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi708609-yaoshan",
     "address": "地址:\n桂林市七星区靖江路\n\n\n电话:\n0773-5864592\n\n\n官网:\nhttp://www.glyaoshan.com/",
     "description": {
@@ -1398,6 +1430,7 @@
       "zh_CN": "老寨山",
       "en": "Laozhaishan"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7335811-laozhaishan",
     "address": "地址:\n桂林市阳朔县兴坪古镇兴坪码头旁(近兴坪码头)",
     "description": {
@@ -1456,6 +1489,7 @@
       "zh_CN": "桂林猫儿山",
       "en": "Guilin Maoer Mountain"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi714804-guilinmaoershan",
     "address": "地址:\n桂林市的北部于兴安县西北部\n\n\n电话:\n07736098601\n\n\n官网:\nhttp://www.gl-mes.com/",
     "description": {
@@ -1532,6 +1566,7 @@
       "zh_CN": "桂林丹霞八角寨景区",
       "en": "Ghuilin Danxia Bajiaozhai Scenic Area"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7469088-guilindanxiabajiaozhai",
     "address": "地址:\n桂林市资源县梅溪乡大坨村\n\n\n电话:\n17377372569,13935436843",
     "description": {
@@ -1574,6 +1609,7 @@
       "zh_CN": "世外桃源",
       "en": "Shiwai Taoyuan"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi707913-shiwaitaoyuan",
     "address": "地址:\n桂林市阳朔县白沙镇五里店桂阳公路世外桃源景区\n\n\n电话:\n0773-2851088,0773-2851066\n\n\n官网:\nhttps://www.niceview.cn/",
     "description": {
@@ -1626,6 +1662,7 @@
       "zh_CN": "龙胜森林公园",
       "en": "Guangxi Guilin Forest Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5943016-longshengsenlingongyuan",
     "address": "地址:\n龙胜各族自治县\n\n\n电话:\n0773-7482319",
     "description": {
@@ -1681,6 +1718,7 @@
       "zh_CN": "金水岩",
       "en": "Gold Water Cave"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7469160-jinshuiyan",
     "address": "地址:\n桂林市阳朔县十里画廊\n\n\n电话:\n0773-8776999\n\n\n官网:\nhttp://www.ysjsyjq.cn/",
     "description": {
@@ -1729,6 +1767,7 @@
       "zh_CN": "聚龙潭",
       "en": "Julongtan"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi705959-julongtan",
     "address": "地址:\n桂林市阳朔县观莲路\n\n\n电话:\n0773-8822949",
     "description": {
@@ -1799,6 +1838,7 @@
       "zh_CN": "独秀峰",
       "en": "Duxiu Peak"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi713601-duxiufeng",
     "address": "地址:\n桂林市秀峰区王城1号\n\n\n电话:\n0773-2851941",
     "description": {
@@ -1857,6 +1897,7 @@
       "zh_CN": "九马画山‎",
       "en": "Nine horses mountain scenic spot"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7335808-jiumahuashan",
     "address": "地址:\n桂林市阳朔县兴坪镇漓江边\n\n\n电话:\n0773-2825502",
     "description": {
@@ -1915,6 +1956,7 @@
       "zh_CN": "榕杉湖景区",
       "en": "Rongshanhu Tourism Resort"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi703107-rongshanhujingqu",
     "address": "地址:\n桂林市秀峰区榕湖南路（阳桥的两侧）\n\n\n电话:\n0773-2858822",
     "description": {
@@ -1993,6 +2035,7 @@
       "zh_CN": "旧县村",
       "en": "Jiuxian Ancient Village"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7335809-jiuxiancun",
     "address": "地址:\n桂林市阳朔县白沙镇旧县村\n\n\n电话:\n0773-8815956;0773-6910808",
     "description": {
@@ -2022,6 +2065,7 @@
       "zh_CN": "工农桥",
       "en": "Gongnong Bridge"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi7336310-gongnongqiao",
     "address": "地址:\n桂林市阳朔县十里画廊景区内",
     "description": {
@@ -2065,6 +2109,7 @@
       "zh_CN": "阳朔公园",
       "en": "Yangshuo Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi708095-yangshuogongyuan",
     "address": "地址:\n桂林市阳朔县阳朔镇宝泉路21号\n\n\n电话:\n0773-8822481",
     "description": {
@@ -2140,6 +2185,7 @@
     "name": {
       "zh_CN": "兴坪渔村"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi706801-xingpingyucun",
     "address": "地址:\n广西桂林阳朔县兴坪码头沿着漓江2 公里处",
     "opening_hours": {
@@ -2173,6 +2219,7 @@
       "zh_CN": "徐悲鸿故居",
       "en": "Xu Beihong Former Residence Exhibition Hall"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi713868-xubeihongguju",
     "address": "地址:\n桂林市阳朔县县前街17号\n\n\n电话:\n0773-8827922",
     "description": {
@@ -2209,6 +2256,7 @@
       "zh_CN": "木龙湖景区",
       "en": "Guilin Mulong Lake"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi716024-mulonghujingqu",
     "address": "地址:\n桂林市区中山北路木龙湖景区\n\n\n电话:\n0773-2899393",
     "description": {
@@ -2270,6 +2318,7 @@
       "zh_CN": "大界千层天梯观景点",
       "en": "Thousand-Step High Ladder Scenic Spot"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi5143976-dajieqiancengtiantiguan",
     "address": "地址:\n广西桂林市龙胜县和平乡龙脊梯田景区金坑大寨观景区田头寨（金坑红瑶观景区内）",
     "description": {
@@ -2309,6 +2358,7 @@
       "zh_CN": "矮山村",
       "en": "Aishancun"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5740191-aishancun",
     "address": null,
     "image_url": null,
@@ -2322,6 +2372,7 @@
       "zh_CN": "山水园",
       "en": "Shanshui Gardens"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi702380-shanshuiyuan",
     "address": "地址:\n桂林市阳朔县城滨江路2号\n\n\n电话:\n0773-2851066,0773-2851088",
     "description": {
@@ -2388,6 +2439,7 @@
     "name": {
       "zh_CN": "解放桥"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi7524575-jiefangqiao",
     "address": "地址:\n桂林市七星区",
     "description": {
@@ -2417,6 +2469,7 @@
       "zh_CN": "平安壮族梯田",
       "en": "Ping'an Zhuang Terraces"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5740196-pinganzhuangzutitian",
     "address": "地址:\n桂林市龙胜各族自治县和平乡平安村龙脊梯田平安壮族梯田观景区\n\n\n电话:\n0773-7583188",
     "description": {
@@ -2463,6 +2516,7 @@
       "zh_CN": "田头寨",
       "en": "Tiantouzhai"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5740199-tiantouzhai",
     "address": "地址:\n龙胜大寨村右边山坡上",
     "description": {
@@ -2502,6 +2556,7 @@
       "zh_CN": "遇龙桥",
       "en": "Yulong Bridge"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi7524588-yulongqiao",
     "address": "地址:\n桂林市阳朔县白沙镇遇龙村",
     "description": {
@@ -2531,6 +2586,7 @@
       "zh_CN": "刘三姐大观园",
       "en": "Liu Sanjie Grand View Garden"
     },
+    "type": "events",
     "link": "http://travel.qunar.com/p-oi711959-liusanjiedaguanyuan",
     "address": "地址:\n桂林市秀峰区桃花江路1号\n\n\n电话:\n0773-2891758,0773-2891738\n\n\n官网:\nhttp://www.sanjieliu.cn/",
     "description": {
@@ -2577,6 +2633,7 @@
       "zh_CN": "穿山景区",
       "en": "Guilin Chuanshan Scenic Resort"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi711891-chuanshanjingqu",
     "address": "地址:\n桂林市七星区穿山小街55号\n\n\n电话:\n0773-5866878,0773-5875813,0773-5875823\n\n\n官网:\nhttp://www.gleyes.com/",
     "description": {
@@ -2625,6 +2682,7 @@
       "zh_CN": "金佛顶观景点",
       "en": "Jinfoding Viewpoint"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi3743709-jinfodingguanjingdian",
     "address": "地址:\n广西龙胜各族自治县龙脊景区（金坑红瑶梯田观景区内）\n\n\n电话:\n0773-7583188",
     "description": {
@@ -2663,6 +2721,7 @@
     "name": {
       "zh_CN": "燕村"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5740189-yancun",
     "address": "地址:\n广西壮族自治区桂林市阳朔县燕村",
     "description": {
@@ -2699,6 +2758,7 @@
       "zh_CN": "桂湖桂林",
       "en": "Guihu Lake (Guilin)"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi713396-guihu",
     "address": "地址:\n解放东路东809米\n\n\n电话:\n0773-2822666",
     "description": {
@@ -2742,6 +2802,7 @@
       "zh_CN": "桂林栖霞寺",
       "en": "Qixia Temple of Guilin"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi712947-guilinqixiasi",
     "address": null,
     "description": {
@@ -2765,6 +2826,7 @@
       "zh_CN": "田家河",
       "en": "Tianjia River"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5740190-tianjiahe",
     "address": "地址:\n阳朔县田家河",
     "description": {
@@ -2798,6 +2860,7 @@
       "zh_CN": "秦城水街",
       "en": "Qinchengshui Street"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi722711-qinchengshuijie",
     "address": "地址:\n桂林兴安古镇\n\n\n电话:\n0773-6212713",
     "description": {
@@ -2834,6 +2897,7 @@
       "zh_CN": "浪石村",
       "en": "Langshicun"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi5740192-langshicun",
     "address": null,
     "image_url": null,
@@ -2847,6 +2911,7 @@
       "zh_CN": "桃花江",
       "en": "Peach Blossom River"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi708063-taohuajiang",
     "address": "地址:\n桂林市秀峰区境内，源于恩磨山及维罗岭。\n\n\n电话:\n0773-2888802,0773-2580710",
     "description": {
@@ -2883,6 +2948,7 @@
       "zh_CN": "书童山",
       "en": "Shutongshan"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi712622-shutongshan",
     "address": "地址:\n桂林市阳朔县城东南田家河与漓江交汇处，距县城约2公里",
     "description": {
@@ -2931,6 +2997,7 @@
       "zh_CN": "黄洛瑶寨",
       "en": "Huangluo Yao Village"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi706757-huangluoyaozhai",
     "address": "地址:\n桂林市龙胜各族自治县和平乡平安村龙脊梯田景区内\n\n\n电话:\n0773-7583188,0773-7583088",
     "description": {
@@ -2970,6 +3037,7 @@
       "zh_CN": "南溪山景区",
       "en": "Nanxi Mountain Scenic Area"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi704399-nanxishanjingqu",
     "address": "地址:\n桂林市象山区中山南路2号\n\n\n电话:\n0773-3813399,0773-3838989",
     "description": {
@@ -3024,6 +3092,7 @@
       "zh_CN": "冷水村",
       "en": "Lengshui Village"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5740193-lengshuicun",
     "address": "地址:\n桂林市阳朔县兴坪镇",
     "description": {
@@ -3053,6 +3122,7 @@
       "zh_CN": "虞山公园",
       "en": "Yushan Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi721915-yushangongyuan",
     "address": "地址:\n桂林市叠彩区中山北路70号\n\n\n电话:\n0773-2626645,0773-2605569",
     "description": {
@@ -3106,6 +3176,7 @@
     "name": {
       "zh_CN": "崇善路清真寺"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi3743702-chongshanluqingzhensi",
     "address": null,
     "image_url": null,
@@ -3119,6 +3190,7 @@
       "zh_CN": "乳洞岩",
       "en": "Rudong Rock"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi713388-rudongyan",
     "address": "地址:\n城南六公里外的龙蟠山下",
     "description": {
@@ -3148,6 +3220,7 @@
       "zh_CN": "义江缘",
       "en": "Yijiangyuan Scenic Area"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7469111-yijiangyuan",
     "address": "地址:\n桂林市临桂区五通镇321国道旁\n\n\n电话:\n0773-5424999",
     "description": {
@@ -3183,6 +3256,7 @@
     "name": {
       "zh_CN": "鲤鱼挂壁"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7525682-liyuguabi",
     "address": "地址:\n广西省桂林市阳朔县漓江漂流沿岸",
     "description": {
@@ -3211,6 +3285,7 @@
     "name": {
       "zh_CN": "半边渡"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7525608-banbiandu",
     "address": "地址:\n广西省桂林市桂林至杨堤沿江往北三公里处",
     "description": {
@@ -3239,6 +3314,7 @@
     "name": {
       "zh_CN": "乡吧岛"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7524604-xiangbadao",
     "address": "地址:\n桂林市雁山区草坪回族自治乡漓江景区漓江冠岩景区内",
     "description": {
@@ -3267,6 +3343,7 @@
     "name": {
       "zh_CN": "神笔峰"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7525699-shenbifeng",
     "address": null,
     "image_url": null,
@@ -3279,6 +3356,7 @@
     "name": {
       "zh_CN": "鸡笼山"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7525671-jilongshan",
     "address": "地址:\n广西省桂林市阳朔县",
     "description": {
@@ -3307,6 +3385,7 @@
     "name": {
       "zh_CN": "朝板山"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7525650-chaobanshan",
     "address": "地址:\n广西省桂林市阳朔县漓江东岸兴坪镇西北",
     "description": {
@@ -3342,6 +3421,7 @@
     "name": {
       "zh_CN": "月光岛"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7525644-yueguangdao",
     "address": "",
     "description": {
@@ -3377,6 +3457,7 @@
     "name": {
       "zh_CN": "仙人推磨"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7524595-xianrentuimo",
     "address": "地址:\n桂林市阳朔县漓江景区内",
     "description": {
@@ -3412,6 +3493,7 @@
     "name": {
       "zh_CN": "乌龟爬山"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7524567-wuguipashan",
     "address": null,
     "image_url": null,
@@ -3424,6 +3506,7 @@
     "name": {
       "zh_CN": "泗水乡"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi5740195-sishuixiang",
     "address": "地址:\n广西桂林龙胜县",
     "description": {
@@ -3459,6 +3542,7 @@
     "name": {
       "zh_CN": "螺蛳山"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi713016-luosishan",
     "address": "地址:\n广西省桂林市阳朔县东北部",
     "description": {
@@ -3488,6 +3572,7 @@
       "zh_CN": "靖江王陵",
       "en": "Mausoleums of Jingjiang Princes"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi714610-jingjiangwangling",
     "address": "地址:\n桂林市尧山路\n\n\n电话:\n0773-5893200,0773-5893921",
     "description": {
@@ -3530,6 +3615,7 @@
       "zh_CN": "曹邺读书岩",
       "en": "caoyedushuyan"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi712381-caoyedushuyan",
     "address": null,
     "description": {
@@ -3578,6 +3664,7 @@
       "zh_CN": "五排河漂流",
       "en": "Wupaihe Drifting"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi710168-wupaihepiaoliu",
     "address": "地址:\n桂林市资源县猫儿山脚下\n\n\n电话:\n0773-4315335",
     "description": {
@@ -3614,6 +3701,7 @@
       "zh_CN": "桂林荔浦荔江湾",
       "en": "Guilin Lipu Lijiang Bay"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi709566-guilinlipulijiangwan",
     "address": "地址:\n桂林市荔浦县青山镇大石古桥头\n\n\n电话:\n0773-7126388",
     "description": {
@@ -3657,6 +3745,7 @@
       "zh_CN": "双滩",
       "en": "Shuangtan"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7648294-shuangtan",
     "address": "地址:\n桂林市阳朔县",
     "description": {
@@ -3685,6 +3774,7 @@
     "name": {
       "zh_CN": "马象奇石"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi715999-maxiangqishi",
     "address": null,
     "image_url": null,

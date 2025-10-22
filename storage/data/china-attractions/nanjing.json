@@ -4,6 +4,7 @@
       "zh_CN": "牛首山文化旅游区",
       "en": "Niushou Mountain Cultural Tourism Zone"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5475531-niushoushanwenhualu:you",
     "address": "地址:\n南京市江宁区宁丹大道18号\n\n\n电话:\n400-165-6363\n\n\n官网:\nhttps://www.niushoushan.net",
     "description": {
@@ -80,6 +81,7 @@
       "zh_CN": "南京博物院",
       "en": "Nanjing Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi5851531-nanjingbowuyuan",
     "address": "地址:\n南京市玄武区中山东路321号\n\n\n电话:\n025-84807923\n\n\n官网:\nhttp://www.njmuseum.com/",
     "description": {
@@ -204,6 +206,7 @@
       "zh_CN": "鸡鸣寺",
       "en": "Jiming Temple"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi707188-jimingsi",
     "address": "地址:\n南京市玄武区鸡鸣寺路1号\n\n\n电话:\n025-83361123,025-57715595",
     "description": {
@@ -334,6 +337,7 @@
       "zh_CN": "夫子庙",
       "en": "Confucius Temple"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi720296-fuzimiao",
     "address": "地址:\n南京市秦淮区秦淮河风景区\n\n\n电话:\n025-52209788,025-52855667\n\n\n官网:\nhttp://www.njfzm.net/index.php",
     "description": {
@@ -410,6 +414,7 @@
       "zh_CN": "南京总统府",
       "en": "Presidential Palace of Nanjing"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi707373-nanjingzongtongfu",
     "address": "地址:\n南京市玄武区长江路292号\n\n\n电话:\n025-84578888,025-84578700\n\n\n官网:\nhttp://www.njztf.cn/",
     "description": {
@@ -491,6 +496,7 @@
       "zh_CN": "秦淮河",
       "en": "Qinhuai River"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi706824-qinhuaihe",
     "address": null,
     "image_url": null,
@@ -504,6 +510,7 @@
       "zh_CN": "石臼湖",
       "en": "Shijiu Lake"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi711340-shijiuhu",
     "address": "地址:\n南京市溧水区",
     "description": {
@@ -546,6 +553,7 @@
       "zh_CN": "老门东历史街区",
       "en": "Laomendong Historic District"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7524319-laomendonglishijiequ",
     "address": "地址:\n南京市秦淮区夫子庙街道剪子巷63-2号\n\n\n电话:\n025-58776868",
     "description": {
@@ -585,6 +593,7 @@
       "zh_CN": "中山陵景区",
       "en": "Sun Yatsen Mausoleum"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi702846-zhongshanlingjingqu",
     "address": null,
     "image_url": null,
@@ -598,6 +607,7 @@
       "zh_CN": "侵华日军南京大屠杀遇难同胞纪念馆",
       "en": "The Memorial Hall of the Victims in Nanjing Massacre by Japanese Invaders"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi703792-qinhuarijunnanjingdatu",
     "address": "地址:\n南京市建邺区水西门大街418号\n\n\n电话:\n025-86612230\n\n\n官网:\nhttp://www.19371213.com.cn/",
     "description": {
@@ -630,6 +640,7 @@
       "zh_CN": "明孝陵",
       "en": "Ming Xiaoling Mausoleum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi703241-mingxiaoling",
     "address": "地址:\n南京市玄武区石象路7号\n\n\n电话:\n025-84433582\n\n\n官网:\nhttp://www.zschina.org.cn/",
     "description": {
@@ -688,6 +699,7 @@
       "zh_CN": "玄武湖景区",
       "en": "Xuanwu Lake"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi715942-xuanwuhujingqu",
     "address": "地址:\n南京市玄武巷1号\n\n\n电话:\n025-58869797,025-83614286\n\n\n官网:\nhttp://www.xuanwuhu.net/",
     "description": {
@@ -788,6 +800,7 @@
       "zh_CN": "新街口",
       "en": "Xinjiekou"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi18700103-xinjiekou",
     "address": "地址:\n南京市秦淮区中山南路79号中央商场新街口商业步行区\n\n\n电话:\n025-86713675",
     "description": {
@@ -817,6 +830,7 @@
       "zh_CN": "达摩古洞",
       "en": "Damo Ancient Cave"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi9478887-damogudong",
     "address": "地址:\n南京市幕燕滨江风貌区五马渡广场以东",
     "description": {
@@ -853,6 +867,7 @@
       "zh_CN": "栖霞山",
       "en": "Qixia Mountain"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi705714-qixiashan",
     "address": "地址:\n南京市栖霞区栖霞街88号\n\n\n电话:\n025-85766979,025-85761831\n\n\n官网:\nhttp://www.njqixiashan.com/",
     "description": {
@@ -935,6 +950,7 @@
       "zh_CN": "南京长城",
       "en": "Nanjing Great Wall"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi23341569-nanjingzhangcheng",
     "address": "地址:\n南京市浦口区珍珠街182号珍珠泉旅游度假区内\n\n\n电话:\n025-58601545",
     "description": {
@@ -964,6 +980,7 @@
       "zh_CN": "钟山风景名胜区",
       "en": "Zhongshan Mountain National Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi716158-zhongshanfengjingming",
     "address": "地址:\n南京市玄武区石象路7号\n\n\n电话:\n025-84433582\n\n\n官网:\nhttp://www.zschina.org.cn/",
     "description": {
@@ -1028,6 +1045,7 @@
       "zh_CN": "南京街",
       "en": "Nanjing 1912 Pub Street"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi7524235-nanjing1912jie",
     "address": "地址:\n南京市玄武区长江后街8号\n\n\n电话:\n025-84517710",
     "description": {
@@ -1067,6 +1085,7 @@
       "zh_CN": "红山森林动物园",
       "en": "Hongshan Forest Zoo"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7524258-hongshansenlindongwuyuan",
     "address": "地址:\n江苏省南京市玄武区和燕路168号\n\n\n电话:\n025-85620178\n\n\n官网:\nhttp://www.njhszoo.com",
     "description": {
@@ -1143,6 +1162,7 @@
       "zh_CN": "美龄宫",
       "en": "Meiling Palace"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7469770-meilinggong",
     "address": "地址:\n南京市玄武区石象路7号\n\n\n电话:\n025-84433582\n\n\n官网:\nhttp://www.zschina.org.cn/mlg/",
     "description": {
@@ -1185,6 +1205,7 @@
       "zh_CN": "朝天宫",
       "en": "Chaotian Palace"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi702933-chaotiangong",
     "address": "地址:\n南京市秦淮区王府大街朝天宫4号\n\n\n电话:\n025-84466460,025-84200177,025-84465317\n\n\n官网:\nhttp://www.njmm.cn/",
     "description": {
@@ -1260,6 +1281,7 @@
       "zh_CN": "南京海底世界",
       "en": "Nanjing Underwater World"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi702391-nanjinghaidishijie",
     "address": "地址:\n南京市玄武区四方城8号\n\n\n电话:\n025-84441119\n\n\n官网:\nhttp://www.nuww.com.cn/",
     "description": {
@@ -1299,6 +1321,7 @@
       "zh_CN": "雨花台",
       "en": "Yuhuatai"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi705581-yuhuatai",
     "address": "地址:\n南京市雨花台区雨花路215号\n\n\n电话:\n025-68783067,025-52411523-810\n\n\n官网:\nhttp://www.travel-yuhuatai.com/",
     "description": {
@@ -1344,6 +1367,7 @@
       "zh_CN": "汤山风景区",
       "en": "Tangshan Scenic Area"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi10006634-tangshanfengjingqu",
     "address": "地址:\n南京市江宁区汤山街道古泉村\n\n\n电话:\n025-81032796",
     "description": {
@@ -1373,6 +1397,7 @@
       "zh_CN": "南京城墙",
       "en": "Nanjing City Wall"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi7524008-nanjingchengqiang",
     "address": "地址:\n江苏省南京市玄武区九华山公园东门旁\n\n\n电话:\n025-86625435,025-83608359\n\n\n官网:\nhttps://www.njcitywall.com/",
     "description": {
@@ -1405,6 +1430,7 @@
       "zh_CN": "明城墙公园",
       "en": "The Ming Dynasty Wall Park"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi23342369-mingchengqianggongyuan",
     "address": null,
     "description": {
@@ -1431,6 +1457,7 @@
       "zh_CN": "瞻园",
       "en": "Zhan Garden"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi718444-zhanyuan",
     "address": "地址:\n南京市秦淮区瞻园路128号\n\n\n电话:\n025-52201849,025-86623024,025-52238687",
     "description": {
@@ -1531,6 +1558,7 @@
       "zh_CN": "大报恩寺遗址景区",
       "en": "Grand Baoen Temple Heritage and Scenic Area"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi10065920-dabaoensiyizhijingqu",
     "address": null,
     "image_url": null,
@@ -1544,6 +1572,7 @@
       "zh_CN": "江苏园博园",
       "en": "Jiangsu Garden Expo Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi36455397-jiangsuyuanboyuan",
     "address": "地址:\n江苏省南京市江宁区汤山街道圣湖路8号\n\n\n电话:\n4008116363",
     "description": {
@@ -1664,6 +1693,7 @@
       "zh_CN": "梅花山",
       "en": "Meihuashan"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi703789-meihuashan",
     "address": "地址:\n南京市玄武区石象路7号\n\n\n电话:\n025-84433582,400-9288-312",
     "description": {
@@ -1719,6 +1749,7 @@
       "zh_CN": "灵谷寺",
       "en": "Linggu Si"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi24402758-linggusi",
     "address": "地址:\n江苏省南京市中山陵以东\n\n\n电话:\n025-85769157,400-9288-312",
     "description": {
@@ -1748,6 +1779,7 @@
       "zh_CN": "乌衣巷",
       "en": "Wuyi Lane"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi714329-wuyixiang",
     "address": "地址:\n南京市秦淮区贡院街152号南京夫子庙内\n\n\n电话:\n025-52209788",
     "description": {
@@ -1784,6 +1816,7 @@
       "zh_CN": "浦口火车站旧址",
       "en": "Pukou Railway Station"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7566386-pukouhuochezhanjiuzhi",
     "address": "地址:\n南京市浦口区津浦路3号附近\n\n\n电话:\n025-58850742",
     "description": {
@@ -1820,6 +1853,7 @@
       "zh_CN": "南京大学",
       "en": "Nanjing University"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi716159-nanjingdaxue",
     "address": "地址:\n南京市鼓楼区汉口路22号\n\n\n电话:\n025-83593186",
     "description": {
@@ -1896,6 +1930,7 @@
       "zh_CN": "金牛湖野生动物王国",
       "en": "Jinniu Lake Safari Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi29462666-jinniuhuyeshengdongwu",
     "address": "地址:\n南京市六合区99乡道东50米\n\n\n电话:\n025-57567888",
     "description": {
@@ -1956,6 +1991,7 @@
       "zh_CN": "夫子庙秦淮风光带",
       "en": "Confucius Temple Qinhuai River Scenery Belt"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi9478307-fuzimiaoqinhuaifengguang",
     "address": "地址:\n江苏省南京市秦淮区贡院西街53号\n\n\n电话:\n025-52209788\n\n\n官网:\nhttp://www.njfzm.net/",
     "description": {
@@ -2049,6 +2085,7 @@
       "zh_CN": "石塘竹海",
       "en": "Shitang Bamboo Sea"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi8688457-shitangzhuhai",
     "address": "地址:\n南京市江宁区X412(江横线)\n\n\n电话:\n025-52736886",
     "description": {
@@ -2085,6 +2122,7 @@
       "zh_CN": "南京长江大桥",
       "en": "Nanjing Yangtze River Bridge"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi708494-nanjingzhangjiangdaqiao",
     "address": "地址:\n南京市西北，横跨于下关区与浦口区间的长江之上\n\n\n电话:\n025-85822475,025-85821918",
     "description": {
@@ -2153,6 +2191,7 @@
     "name": {
       "zh_CN": "德云社"
     },
+    "type": "events",
     "link": "http://travel.qunar.com/p-oi7565617-deyunshe",
     "address": "地址:\n南京市老门东步行街箍桶巷128号\n\n\n电话:\n025-58776788\n\n\n官网:\nhttp://njhaiwai.com/newspage/6406/",
     "description": {
@@ -2175,6 +2214,7 @@
       "zh_CN": "中国科举博物馆江南贡院",
       "en": "China Imperial Examination Museum (Jiangnan Gongyuan)"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi720665-zhongguokejubowuguan",
     "address": "地址:\n南京市秦淮区夫子庙金陵路1号\n\n\n电话:\n025-52236971\n\n\n官网:\nhttp://www.njiemuseum.com/",
     "description": {
@@ -2214,6 +2254,7 @@
       "zh_CN": "紫金山天文台",
       "en": "Purple Mountain Observatory"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi701724-zijinshantianwentai",
     "address": "地址:\n钟山风景名胜区内钟山第二峰\n\n\n电话:\n025-84347503",
     "description": {
@@ -2277,6 +2318,7 @@
       "zh_CN": "江宁爱情隧道",
       "en": "Jiangning Love Tunnel"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi7566385-jiangningaiqingsuidao",
     "address": "地址:\n南京市江宁区X003（正方中路）",
     "description": {
@@ -2313,6 +2355,7 @@
       "zh_CN": "颐和路公馆区",
       "en": "Yihe Road Residence Area"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7566407-yihelugongguanqu",
     "address": "地址:\n南京市鼓楼区江苏路5-1号",
     "description": {
@@ -2341,6 +2384,7 @@
     "name": {
       "zh_CN": "十里长山凹"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi36447264-shilizhangshanao",
     "address": null,
     "description": {
@@ -2364,6 +2408,7 @@
       "zh_CN": "南京市博物馆",
       "en": "Nanjing Municipal Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi27571352-nanjingshibowuguan",
     "address": "地址:\n江苏省南京市白下区朝天宫4号\n\n\n电话:\n025-84217123\n\n\n官网:\nhttp://www.njmuseumadmin.com/",
     "description": {
@@ -2393,6 +2438,7 @@
       "zh_CN": "中华门瓮城",
       "en": "Zhonghua Gate"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi713065-zhonghuamenwengcheng",
     "address": "地址:\n江苏省南京市秦淮区中华门城堡内\n\n\n电话:\n025-86625435",
     "description": {
@@ -2425,6 +2471,7 @@
       "zh_CN": "梅园新村纪念馆",
       "en": "Meiyuan Xincun Memorial Hall"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi706521-meiyuanxincunjinianguan",
     "address": "地址:\n南京市玄武区城东梅园新村\n\n\n电话:\n025-84540739,025-4542362\n\n\n官网:\nhttp://www.myxc.com.cn",
     "description": {
@@ -2473,6 +2520,7 @@
       "zh_CN": "栖霞寺",
       "en": "Qixia Temple"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi5475528-qixiasi",
     "address": "地址:\n南京市栖霞区栖霞街84号\n\n\n电话:\n025-85761831,025-85766979",
     "description": {
@@ -2578,6 +2626,7 @@
       "zh_CN": "傅家边科技园区",
       "en": "Fujiabian Science and Technology Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi715388-fujiabiankejiyuanqu",
     "address": "地址:\n南京市溧水县洪蓝镇傅家边村\n\n\n电话:\n025-68811728,025-57431049",
     "description": {
@@ -2644,6 +2693,7 @@
       "zh_CN": "南京林业大学",
       "en": "Nanjing Forestry University"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi10066347-nanjinglinyedaxue",
     "address": "地址:\n南京市龙蟠路159号\n\n\n电话:\n025-85427110",
     "description": {
@@ -2670,6 +2720,7 @@
       "zh_CN": "高淳老街",
       "en": "Gaochun Old Street"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi709621-gaochunlaojie",
     "address": "地址:\n南京市高淳区高淳老街\n\n\n电话:\n025-57325558,025-57330757",
     "description": {
@@ -2718,6 +2769,7 @@
       "zh_CN": "莫愁湖景区",
       "en": "Mochou Lake Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi709195-mochouhujingqu",
     "address": "地址:\n南京市建邺区水西门大街132号\n\n\n电话:\n025-86661790,025-86613562",
     "description": {
@@ -2806,6 +2858,7 @@
       "zh_CN": "灵谷景区",
       "en": "Linggu Scenic Area"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi713081-linggujingqu",
     "address": null,
     "image_url": null,
@@ -2819,6 +2872,7 @@
       "zh_CN": "南京图书馆",
       "en": "Nanjing Library"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7524241-nanjingtushuguan",
     "address": "地址:\n南京市玄武区中山东路189号\n\n\n电话:\n025-84356000",
     "description": {
@@ -2858,6 +2912,7 @@
       "zh_CN": "六朝博物馆",
       "en": "The Oriental Metropolitan Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7565581-liuchaobowuguan",
     "address": "地址:\n南京市玄武区长江路302号\n\n\n电话:\n025-52326032",
     "description": {
@@ -2915,6 +2970,7 @@
       "zh_CN": "紫峰大厦观光层",
       "en": "Zifeng Tower"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi10034405-zifengdashaguanguangceng",
     "address": "地址:\n南京市鼓楼区中央路1号紫峰大厦72楼(近中山北路)\n\n\n电话:\n025-83518664",
     "description": {
@@ -2963,6 +3019,7 @@
       "zh_CN": "杨柳村古建筑群",
       "en": "Ancient Buildings of Yangliu Village"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi9494614-yangliucungujianzhuqun",
     "address": "地址:\n南京市江宁区湖熟镇杨柳村\n\n\n电话:\n025-52695500",
     "description": {
@@ -3017,6 +3074,7 @@
       "zh_CN": "鼓楼",
       "en": "Drum Tower"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi708700-gulou",
     "address": "地址:\n南京市鼓楼区北京西路1-2号\n\n\n电话:\n025-86635513,025-8663466",
     "description": {
@@ -3053,6 +3111,7 @@
       "zh_CN": "南京眼步行桥",
       "en": "Nanjing Eye Pedestrian Bridge"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi8685638-nanjingyanbuxingqiao",
     "address": "地址:\n南京市建邺区江堤路",
     "description": {
@@ -3081,6 +3140,7 @@
     "name": {
       "zh_CN": "中山陵音乐台"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi708257-zhongshanlingyinletai",
     "address": "地址:\n南京市中山陵风景区内\n\n\n电话:\n(025)84446111",
     "description": {
@@ -3117,6 +3177,7 @@
       "zh_CN": "南京中山植物园",
       "en": "Nanjing Zhongshan Botanical Garden"
     },
+    "type": "leisure",
     "link": "http://travel.qunar.com/p-oi712390-nanjingzhongshanzhiwu",
     "address": "地址:\n南京市玄武区中山门外前湖后村1号\n\n\n电话:\n025-84347036,025-84347188\n\n\n官网:\nhttp://www.cnbg.net/",
     "description": {
@@ -3247,6 +3308,7 @@
       "zh_CN": "南京云锦博物馆",
       "en": "Nanjing Yunjin Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi5850245-nanjingyunjinbowuguan",
     "address": "地址:\n南京市建邺区茶亭东街240号\n\n\n电话:\n025-86611377,025-86518580",
     "description": {
@@ -3276,6 +3338,7 @@
       "zh_CN": "中山码头",
       "en": "Zhongshan Ferry Terminal"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5784867-zhongshanmatou",
     "address": "地址:\n南京市鼓楼区中山北路643号\n\n\n电话:\n025-58806455,025-58869440",
     "description": {
@@ -3312,6 +3375,7 @@
       "zh_CN": "毗卢寺",
       "en": "Pilu Temple"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7524600-pilusi",
     "address": "地址:\n南京市玄武区汉府街4号(近长江路)\n\n\n电话:\n025 8440 5431",
     "description": {
@@ -3341,6 +3405,7 @@
       "zh_CN": "江宁织造博物馆",
       "en": "Jiangning Imperial Silk Manufacturing Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7524611-jiangningzhizaobowuguan",
     "address": "地址:\n南京市玄武区长江路123号（总统府对面）\n\n\n电话:\n02583410337",
     "description": {
@@ -3370,6 +3435,7 @@
       "zh_CN": "东南大学",
       "en": "Southeast University"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi7523986-dongnandaxue",
     "address": "地址:\n南京市玄武区四牌楼2号（在此特指四牌楼校区）\n\n\n电话:\n025-83793110",
     "description": {
@@ -3414,6 +3480,7 @@
     "name": {
       "zh_CN": "金陵小城·燕集里"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi37155569-jinlingxiaochengyanji",
     "address": "地址:\n南京市江宁区牛首大道199-1号\n\n\n电话:\n4001659090",
     "description": {
@@ -3440,6 +3507,7 @@
       "zh_CN": "徐家院",
       "en": "Courtyard of Family Xu"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi25212731-xujiayuan",
     "address": "地址:\n江宁区徐家院村",
     "description": {
@@ -3469,6 +3537,7 @@
       "zh_CN": "汤山矿坑公园",
       "en": "Tangshankuangkeng Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi23055034-tangshankuangkenggong",
     "address": "地址:\n南京市江宁区汤山街道美泉路与泉都大街交界处往西200米\n\n\n电话:\n025-84101696",
     "description": {
@@ -3511,6 +3580,7 @@
       "zh_CN": "漆桥古村落",
       "en": "Qiqiao Ancient Village"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi9532483-qiqiaogucunluo",
     "address": null,
     "image_url": null,
@@ -3524,6 +3594,7 @@
       "zh_CN": "红叶谷",
       "en": "Red Leaves Valley"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi9478428-hongyegu",
     "address": "地址:\n南京市栖霞区栖霞街88号栖霞山风景区\n\n\n电话:\n025-85766979",
     "description": {
@@ -3572,6 +3643,7 @@
       "zh_CN": "南京科技馆",
       "en": "Nanjing Science and Technology Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7647486-nanjingkejiguan",
     "address": "地址:\n南京市雨花台区紫荆花路9号\n\n\n电话:\n025-58076111,025-58076158\n\n\n官网:\nhttp://www.njstm.org.cn/",
     "description": {
@@ -3617,6 +3689,7 @@
       "zh_CN": "南京将军山旅游风景区",
       "en": "Nanjing Jiangjun Mountain Tourism Scenic Area"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi706676-nanjingjiangjunshanlu:",
     "address": "地址:\n南京市铁心桥宁丹路与佛城西路交汇处东北侧\n\n\n电话:\n025-52894496",
     "description": {
@@ -3672,6 +3745,7 @@
       "zh_CN": "桃花岛风景区",
       "en": "Taohua Island Scenic Area(Peach Blossom Island)"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi8595562-taohuadaofengjingqu",
     "address": null,
     "image_url": null,
@@ -3685,6 +3759,7 @@
       "zh_CN": "阅江楼",
       "en": "Yuejiang Tower"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi701544-yuejianglou",
     "address": "地址:\n南京市下关区建宁路202号\n\n\n电话:\n025-58590298,025-58590297,025-58815369\n\n\n官网:\nhttp://www.yuejianglou.com/",
     "description": {
@@ -3749,6 +3824,7 @@
       "zh_CN": "清凉山公园",
       "en": "Qingliangshan Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi704199-qingliangshangongyuan",
     "address": "地址:\n南京市鼓楼区清凉山路83号(近广州路)\n\n\n电话:\n025-83728013,025-83736861",
     "description": {
@@ -3815,6 +3891,7 @@
       "zh_CN": "南京明故宫遗址公园",
       "en": "Ruins of the Ming Palace"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7524565-nanjingminggugongyizhi",
     "address": "地址:\n南京市玄武区中山东路311号\n\n\n电话:\n025-84807135",
     "description": {
@@ -3857,6 +3934,7 @@
       "zh_CN": "四方当代美术馆",
       "en": "Sifang Contemporary Art Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7565600-sifangdangdaimeishuguan",
     "address": "地址:\n南京市浦口区珍七路9号四方当代艺术湖区\n\n\n电话:\n025-58656360",
     "description": {
@@ -3895,6 +3973,7 @@
     "name": {
       "zh_CN": "汤山翠谷现代农业示范园"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5337051-tangshancuiguxiandainong",
     "address": "地址:\n 南京市江宁区汤山街道上峰镇翠峰路1号(农业科技园内)\n\n\n电话:\n025-52795029",
     "description": {
@@ -3949,6 +4028,7 @@
     "name": {
       "zh_CN": "梅岗"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi39872207-meigang",
     "address": null,
     "image_url": null,
@@ -3964,6 +4044,7 @@
     "name": {
       "zh_CN": "金陵图书馆"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi38591081-jinlingtushuguan",
     "address": null,
     "image_url": null,
@@ -3980,6 +4061,7 @@
       "zh_CN": "芥子园",
       "en": "Jiezi Garden"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi35913422-jieziyuan",
     "address": "地址:\n三条营32号",
     "description": {
@@ -4009,6 +4091,7 @@
       "zh_CN": "河岸花海’",
       "en": "He’an Flower Sea"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi35846136-heanhuahai",
     "address": null,
     "description": {
@@ -4035,6 +4118,7 @@
       "zh_CN": "江南贡院",
       "en": "Jiangnan Gongyuan"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi35217165-jiangnangongyuan",
     "address": "地址:\n南京市秦淮区贡院街95号(近夫子庙邮局)\n\n\n电话:\n025 5223 6971",
     "description": {
@@ -4070,6 +4154,7 @@
     "name": {
       "zh_CN": "乡伴苏家文创小镇"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi27390761-xiangbansujiawenchuang",
     "address": null,
     "description": {
@@ -4093,6 +4178,7 @@
       "zh_CN": "观音阁",
       "en": "Guanyin Pavilion"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi26577278-guanyinge",
     "address": "地址:\n南京市栖霞区燕子矶永济大道9号长江观音景区内",
     "description": {
@@ -4138,6 +4224,7 @@
       "zh_CN": "山阴路",
       "en": "Shanyin Road"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi23059760-shanyinlu",
     "address": null,
     "image_url": "https://tr-osdcp.qunarzz.com/tr-osd-tr-space/img/4e7402daeaf80a831cebe9277358efc0.jpg_480x360x95_dff0331a.jpg",
@@ -4154,6 +4241,7 @@
       "zh_CN": "金乌温泉公园",
       "en": "Jinwuwenquan Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi23045522-jinwuwenquangongyuan",
     "address": "地址:\n江苏省南京市江宁区美泉路与延祥路交汇处西南角",
     "description": {
@@ -4187,6 +4275,7 @@
       "zh_CN": "翠洲芳谷亲子文化园",
       "en": "Cuizhou Fanggu Family Cultural Park"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi10094778-cuizhoufangguqinziwen",
     "address": "地址:\n南京市江宁区淳化街道桂园东路与吴家墩路交汇处西南侧\n\n\n电话:\n15056286956",
     "description": {
@@ -4216,6 +4305,7 @@
       "zh_CN": "熙南里",
       "en": "Xi Nanli Parking Lot"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi10073563-xinanli",
     "address": null,
     "image_url": null,
@@ -4229,6 +4319,7 @@
       "zh_CN": "樱洲",
       "en": "Yingzhou"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi10034406-yingzhou",
     "address": "地址:\n南京市玄武区玄武湖\n\n\n电话:\n025-83614286",
     "description": {
@@ -4255,6 +4346,7 @@
       "zh_CN": "雨花台烈士陵园’",
       "en": "The Yuhua Terrace Martyr’s Cemetery"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi10020049-yuhuatailieshilingyuan",
     "address": "地址:\n南京市雨花台区雨花西路215号（雨花台景区内）\n\n\n电话:\n025-68783096(北门),025-68783033(南门)\n\n\n官网:\nhttp://www.travel-yuhuatai.com/",
     "description": {
@@ -4288,6 +4380,7 @@
       "zh_CN": "狮子桥美食街",
       "en": "Lion Bridge Food Street"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi10006418-shiziqiaomeishijie",
     "address": "地址:\n南京市鼓楼区湖南路狮子桥美食步行街北门",
     "description": {
@@ -4330,6 +4423,7 @@
       "zh_CN": "玄武门",
       "en": "Xuanwu Gate"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi9784650-xuanwumen",
     "address": "地址:\n南京市玄武区玄武巷1号玄武湖公园\n\n\n电话:\n025-83614286,(025)83614286",
     "description": {
@@ -4383,6 +4477,7 @@
     "name": {
       "zh_CN": "神山湖风景区"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi9478415-shenshanhufengjingqu",
     "address": null,
     "image_url": null,
@@ -4396,6 +4491,7 @@
       "zh_CN": "国立美术馆旧址",
       "en": "National Museum of Art Former Site"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi9478399-guolimeishuguanjiuzhi",
     "address": null,
     "image_url": null,
@@ -4409,6 +4505,7 @@
       "zh_CN": "紫金山山顶公园",
       "en": "Shanding Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi9478175-zijinshanshandinggong",
     "address": "地址:\n南京市玄武区中山门外石象路7号钟山风景名胜区头陀岭景区内\n\n\n电话:\n025-85412727",
     "description": {
@@ -4469,6 +4566,7 @@
       "zh_CN": "南京古生物博物馆",
       "en": "Nanjing Paleontology Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7646589-nanjinggushengwubowuguan",
     "address": "地址:\n南京市玄武区北京东路39号\n\n\n电话:\n025-83282255",
     "description": {
@@ -4497,6 +4595,7 @@
     "name": {
       "zh_CN": "鱼嘴湿地公园"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7642274-yuzuishidigongyuan",
     "address": "地址:\n南京市建邺区扬子江大道",
     "opening_hours": {
@@ -4530,6 +4629,7 @@
       "zh_CN": "金牛湖风景区",
       "en": "Jinniu Lake"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi709440-jinniuhufengjingqu",
     "address": "地址:\n南京市六合区八百桥镇金牛湖旅游度假村58号\n\n\n电话:\n025-57552888,025-57566968\n\n\n官网:\nhttp://www.jinniuhu.cn/",
     "description": {

@@ -4,6 +4,7 @@
       "zh_CN": "西岛",
       "en": "West Island"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi707376-xidao",
     "address": "地址:\n三亚天涯区肖旗港西岛海洋文化旅游区\n\n\n电话:\n0898-88910888\n\n\n官网:\nhttp://www.syxidao.com/",
     "description": {
@@ -56,6 +57,7 @@
       "zh_CN": "大东海",
       "en": "Dadonghai"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi706172-dadonghai",
     "address": "地址:\n三亚市田独镇大东海旅游区\n\n\n电话:\n0898-88212189,0898-88212680\n\n\n官网:\nhttp://www.sydadonghai.com/",
     "description": {
@@ -94,6 +96,7 @@
     "name": {
       "zh_CN": "三亚游艇出海"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi35445341-sanyayoutingchuhai",
     "address": null,
     "description": {
@@ -110,6 +113,7 @@
       "zh_CN": "蜈支洲岛",
       "en": "Wuzhizhou Island"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi702619-wuzhizhoudao",
     "address": "地址:\n三亚市海棠区海棠湾镇蜈支洲岛\n\n\n电话:\n0898-88751258,0898-88751256,400-114-6666\n\n\n官网:\nhttp://www.wuzhizhou.com/",
     "description": {
@@ -180,6 +184,7 @@
       "zh_CN": "皇后湾",
       "en": "Queen Bay"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi712295-huanghouwan",
     "address": "地址:\n三亚市海棠区海棠湾镇海棠湾南端\n\n\n电话:\n0898-31800565",
     "description": {
@@ -216,6 +221,7 @@
       "zh_CN": "亚龙湾热带天堂森林公园",
       "en": "Yalong Bay Tropical Paradise Forest Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi708195-yalongwanredaitiantang",
     "address": "地址:\n三亚市亚龙湾区湾路665号亚龙湾国家旅游度假区\n\n\n电话:\n0898-38219999,0898-38238888\n\n\n官网:\nhttp://park.ylwpark.com/",
     "description": {
@@ -310,6 +316,7 @@
       "zh_CN": "椰梦长廊",
       "en": "Coconut Dream Corridor"
     },
+    "type": "leisure",
     "link": "http://travel.qunar.com/p-oi706505-yemengzhanglang",
     "address": "地址:\n三亚市三亚湾滨海路\n\n\n电话:\n0898-66662433",
     "description": {
@@ -349,6 +356,7 @@
       "zh_CN": "三亚亚特兰蒂斯失落的空间水族馆",
       "en": "The Lost Chambers Aquarium (Sanya)"
     },
+    "type": "leisure",
     "link": "http://travel.qunar.com/p-oi20958960-sanyayatelandisishiluo",
     "address": "地址:\n三亚市海棠湾海棠北路三亚·亚特兰蒂斯\n\n\n电话:\n0898-88986666\n\n\n官网:\nhttps://www.atlantissanya.cn/zh",
     "description": {
@@ -398,6 +406,7 @@
       "zh_CN": "亚龙湾",
       "en": "Yalong Bay"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi707472-yalongwan",
     "address": "地址:\n三亚市亚龙湾国家旅游度假区\n\n\n电话:\n0898-88568899\n\n\n官网:\nhttp://www.ylb.com/",
     "description": {
@@ -437,6 +446,7 @@
       "zh_CN": "后海村",
       "en": "Houhai Village"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi10018281-houhaicun",
     "address": "地址:\n三亚市海棠区后海村\n\n\n电话:\n18650425596,18650427213",
     "description": {
@@ -480,6 +490,7 @@
       "zh_CN": "海棠湾",
       "en": "Haitang Bay"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5440085-haitangwan",
     "address": "地址:\n三亚市海棠区\n\n\n电话:\n18650425596,18650427213",
     "description": {
@@ -526,6 +537,7 @@
       "zh_CN": "亚龙湾国际玫瑰谷",
       "en": "Yalong Bay Rose Valley"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5335171-yalongwanguojimeiguigu",
     "address": "地址:\n三亚市吉阳区吉阳镇博后北路9号\n\n\n电话:\n0898-88567881,400-996-8001\n\n\n官网:\nhttp://www.sanyarose.com/",
     "description": {
@@ -565,6 +577,7 @@
       "zh_CN": "天涯海角",
       "en": "Tianya Haijiao"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi709967-tianyahaijiao",
     "address": "地址:\n三亚市沿海滨西行26公里马岭山下天涯海角景区\n\n\n电话:\n0898-88910131,0898-88592908\n\n\n官网:\nhttp://www.aitianya.cn/",
     "description": {
@@ -604,6 +617,7 @@
       "zh_CN": "凤凰岛",
       "en": "Fenghuang Island"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5808373-fenghuangdao",
     "address": "地址:\n三亚市三亚湾度假区内\n\n\n电话:\n0898-32997777,0898-88691111,0898-88671111",
     "description": {
@@ -650,6 +664,7 @@
       "zh_CN": "三亚千古情",
       "en": "Sanya Romance Park"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi9494467-sanyaqianguqing",
     "address": null,
     "image_url": null,
@@ -663,6 +678,7 @@
       "zh_CN": "蝴蝶谷",
       "en": "Butterfly Valley"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi707919-hudiegu",
     "address": "地址:\n亚龙湾龙塘路(仙人掌酒店对面)\n\n\n电话:\n0898-88568720",
     "description": {
@@ -702,6 +718,7 @@
       "zh_CN": "小东海",
       "en": "Xiaodonghai"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi710072-xiaodonghai",
     "address": "地址:\n三亚市吉阳区\n\n\n电话:\n13697559721",
     "description": {
@@ -738,6 +755,7 @@
       "zh_CN": "第一市场",
       "en": "First market"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi20976802-diyishichang",
     "address": "地址:\n三亚市解放路、跃进街、河西路\n\n\n电话:\n18889252252;18889848509",
     "description": {
@@ -767,6 +785,7 @@
       "zh_CN": "情人岛",
       "en": "Lover Island"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi10018284-qingrendao",
     "address": "地址:\n三亚市海棠湾镇蜈支洲岛三亚蜈支洲岛度假中心内\n\n\n电话:\n400-114-6666,0898-88751258,0898-88751256",
     "description": {
@@ -803,6 +822,7 @@
       "zh_CN": "三亚湾",
       "en": "Sanya Bay"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi722961-sanyawan",
     "address": "地址:\n三亚市天涯区\n\n\n电话:\n18876725597",
     "description": {
@@ -842,6 +862,7 @@
       "zh_CN": "南山文化旅游区",
       "en": "Nanshan Cultural Tourism Zone"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi701568-nanshanwenhualu:youqu",
     "address": null,
     "image_url": null,
@@ -855,6 +876,7 @@
       "zh_CN": "亚龙湾中心广场",
       "en": "Yalong Bay Central Square"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi5808377-yalongwanzhongxinguang",
     "address": "地址:\n三亚市亚龙湾国家旅游度假区\n\n\n电话:\n0898-88568899",
     "description": {
@@ -891,6 +913,7 @@
       "zh_CN": "亚龙湾贝壳馆",
       "en": "Yalong Bay Shell Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi5808378-yalongwanbeiqiaoguan",
     "address": "地址:\n三亚市吉阳区亚龙湾中心广场的底层\n\n\n电话:\n0898-88568212",
     "description": {
@@ -927,6 +950,7 @@
       "zh_CN": "凤凰岭海誓山盟景区",
       "en": "Sanya Phoenix Hill Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5808371-fenghuanglinghaishishan",
     "address": "地址:\n三亚市吉阳区龙岭路临春社区三亚凤凰岭海誓山盟景区\n\n\n电话:\n0898-88665778",
     "description": {
@@ -970,6 +994,7 @@
       "zh_CN": "椰子洲岛",
       "en": "Coconut Chau"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi32839511-yezizhoudao",
     "address": null,
     "description": {
@@ -993,6 +1018,7 @@
       "zh_CN": "太阳湾路",
       "en": "Sun Bay Road"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi32733580-taiyangwanlu",
     "address": "地址:\n海南省三亚市吉阳区\n\n\n电话:\n0898-88568899",
     "description": {
@@ -1029,6 +1055,7 @@
       "zh_CN": "天涯镇蓝白小镇",
       "en": "Tianyazhen"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi23342415-tianyazhen",
     "address": "地址:\n海南省三亚市天涯镇",
     "description": {
@@ -1058,6 +1085,7 @@
       "zh_CN": "崖州古城",
       "en": "Yazhou Ancient City"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi10000069-yazhougucheng",
     "address": "地址:\n三亚市崖州区崖城镇崖城村崖保路(G225)\n\n\n电话:\n0898-65308072",
     "description": {
@@ -1101,6 +1129,7 @@
       "zh_CN": "五指山",
       "en": "Wuzhishan"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi9627443-wuzhishan",
     "address": "地址:\n海南省五指山市水满乡\n\n\n电话:\n0898-86559288",
     "description": {
@@ -1146,6 +1175,7 @@
     "name": {
       "zh_CN": "天涯镇"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi9537887-tianyazhen",
     "address": "地址:\n三亚市三一四省道旁",
     "description": {
@@ -1188,6 +1218,7 @@
       "zh_CN": "亚龙湾滨海世界",
       "en": "Yalong Bay Ailifang Marina Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi9174989-yalongwanbinhaishijie",
     "address": "地址:\n三亚市吉阳区亚龙湾国家旅游度假区\n\n\n电话:\n19943235698,13379997545,18289961533",
     "description": {
@@ -1249,6 +1280,7 @@
       "zh_CN": "南山寺",
       "en": "Nanshan Temple"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi722976-nanshansi",
     "address": null,
     "image_url": null,
@@ -1262,6 +1294,7 @@
       "zh_CN": "鹿回头风景区",
       "en": "Luhuitou Scenic Area"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi713627-luhuitoufengjingqu",
     "address": "地址:\n三亚市大东海鹿岭路鹿回头公园\n\n\n电话:\n0898-88213740,0898-88210808,0898-88211339\n\n\n官网:\nhttp://www.syluhuitou.com/",
     "description": {
@@ -1362,6 +1395,7 @@
       "zh_CN": "大小洞天",
       "en": "Daxiaodongtian Area"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi704527-daxiaodongtian",
     "address": "地址:\n三亚市崖州区崖城南山大小洞天旅游区\n\n\n电话:\n0898-88830188,0898-88830335\n\n\n官网:\nhttp://www.sanyapark.com/",
     "description": {
@@ -1411,6 +1445,7 @@
       "zh_CN": "海月广场",
       "en": "Haiyue Square"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi709205-haiyueguangchang",
     "address": "地址:\n三亚市天涯区三亚旅游区三亚湾路155号(迎宾路口)\n\n\n电话:\n0898-88230738",
     "description": {
@@ -1450,6 +1485,7 @@
       "zh_CN": "情人湾",
       "en": "Lover Bay"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi708401-qingrenwan",
     "address": "地址:\n三亚市爱情山至鹿回头山脚下",
     "description": {
@@ -1493,6 +1529,7 @@
       "zh_CN": "美丽之冠文化会展中心",
       "en": "Beautiful Crown Culture Exhibition Center"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi701656-meilizhiguanwenhuahui",
     "address": "地址:\n三亚市二环路新风街299号(近三亚市中医院)\n\n\n电话:\n0898-88666119",
     "description": {
@@ -1529,6 +1566,7 @@
       "zh_CN": "黎村苗寨",
       "en": "Li Village Miao Village"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi713044-licunmiaozhai",
     "address": "地址:\n黎村苗寨百越民族文化村",
     "description": {
@@ -1565,6 +1603,7 @@
       "zh_CN": "三亚热带雨林广场",
       "en": "Sanya Tropical Rainforest Square"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi707653-sanyaredaiyulinguangchang",
     "address": "地址:\n三亚市吉阳区海韵路23正东方向110米\n\n\n电话:\n0898-88212189",
     "description": {
@@ -1601,6 +1640,7 @@
       "zh_CN": "长寿谷",
       "en": "Longevity Valley"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi706840-zhangshougu",
     "address": "地址:\n三亚市崖州区南山文化旅游区内\n\n\n电话:\n0898-88837888,0898-88837867",
     "description": {
@@ -1655,6 +1695,7 @@
     "name": {
       "zh_CN": "南山不老松"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi721775-nanshanbulaosong",
     "address": "地址:\n海南省三亚市崖城南山大小洞天旅游区",
     "description": {
@@ -1698,6 +1739,7 @@
       "zh_CN": "小月湾",
       "en": "Little Moon Bay"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi718788-xiaoyuewan",
     "address": "地址:\n三亚市崖城区南山大小洞天旅游区\n\n\n电话:\n0898-88830188,0898-88830029",
     "description": {
@@ -1727,6 +1769,7 @@
       "zh_CN": "观日岩",
       "en": "Sunrising Rock"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5808368-guanriyan",
     "address": "地址:\n三亚市海棠区海棠湾镇蜈支洲岛三亚蜈支洲岛度假中心内\n\n\n电话:\n0898-88751258,0898-88751256",
     "description": {
@@ -1773,6 +1816,7 @@
       "zh_CN": "小洞天",
       "en": "Xiaodongtian House"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi720920-xiaodongtian",
     "address": "地址:\n三亚市崖州区以西四十公里(南山村)\n\n\n电话:\n0898-88830188,0898-88830029",
     "description": {
@@ -1809,6 +1853,7 @@
       "zh_CN": "三亚河",
       "en": "Sanya River"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi3705675-sanyahe",
     "address": "地址:\n三亚市内三亚河（涵盖天涯区、吉阳区等行政区域）",
     "description": {
@@ -1838,6 +1883,7 @@
       "zh_CN": "锦母角",
       "en": "Jinmujiao Cape"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi704131-jinmujiao",
     "address": "地址:\n距三亚市20多公里处\n\n\n电话:\n0898-88121980",
     "description": {
@@ -1874,6 +1920,7 @@
       "zh_CN": "情人桥",
       "en": "Lover's Bridge"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi7588130-qingrenqiao",
     "address": "地址:\n三亚市海棠湾区蜈支洲岛（靠近蜈支洲岛夏季码头）\n\n\n电话:\n400-114-6666,0898-88751258,0898-88751256",
     "description": {
@@ -1909,6 +1956,7 @@
     "name": {
       "zh_CN": "延寿桥"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi718651-yanshouqiao",
     "address": null,
     "description": {
@@ -1932,6 +1980,7 @@
       "zh_CN": "十一届亚运会南端点火台",
       "en": "Southern Tip Fire Station of the Asian Games"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi707038-shiyijieyayunhuinanduan",
     "address": "地址:\n三亚市天涯区海榆(西)线",
     "description": {
@@ -1961,6 +2010,7 @@
       "zh_CN": "南海龙王别院",
       "en": "House of Dragon King of the South Sea"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi719059-nanhailongwangbieyuan",
     "address": "地址:\n三亚市崖城镇大小洞天景区（三亚市以西40公里处）内\n\n\n电话:\n0898-88830188",
     "description": {
@@ -1996,6 +2046,7 @@
     "name": {
       "zh_CN": "众妙之门"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi720448-zhongmiaozhimen",
     "address": null,
     "description": {
@@ -2012,6 +2063,7 @@
       "zh_CN": "三亚牛车湾",
       "en": "Niuche Bay"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5808384-sanyaniuchewan",
     "address": "地址:\n海棠镇后海码头\n\n\n电话:\n0898-88259015",
     "description": {
@@ -2040,6 +2092,7 @@
     "name": {
       "zh_CN": "南极广场"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi718393-nanjiguangchang",
     "address": null,
     "description": {
@@ -2055,6 +2108,7 @@
     "name": {
       "zh_CN": "凤凰之星号夜游三亚湾"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7647300-fenghuangzhixinghaoye",
     "address": "地址:\n三亚市河东区鹿回头广场游艇公共码头",
     "description": {
@@ -2081,6 +2135,7 @@
       "zh_CN": "南山海上观音",
       "en": "Guanyin Goddess at Nanshan"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7647751-nanshanhaishangguanyin",
     "address": "地址:\n三亚市崖州区崖城镇南山文化旅游区内\n\n\n电话:\n0898-88837888\n\n\n官网:\nhttp://www.nanshan.org.cn/",
     "description": {
@@ -2139,6 +2194,7 @@
       "zh_CN": "落笔洞",
       "en": "Luobi (Hanging Paint Brushes) Cave"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi712501-luobidong",
     "address": "地址:\n三亚市田独镇荔枝沟乡印岭\n\n\n电话:\n0898-88272439",
     "description": {
@@ -2188,6 +2244,7 @@
       "zh_CN": "白鹭公园",
       "en": "Egret Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7482059-bailugongyuan",
     "address": "地址:\n三亚市吉阳区凤凰路88号(三亚世纪山水酒店附近)",
     "description": {
@@ -2224,6 +2281,7 @@
       "zh_CN": "海角一号",
       "en": "Cape No.1"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7482048-haijiaoyihao",
     "address": "地址:\n凤凰镇海角一号基地\n\n\n电话:\n18889982846",
     "description": {
@@ -2259,6 +2317,7 @@
     "name": {
       "zh_CN": "万达文化中心"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi7528666-wandawenhuazhongxin",
     "address": "地址:\n三亚市市辖区海棠路海棠湾镇凤塘村民委员会附近(近希尔顿逸林度假酒店)\n\n\n电话:\n0898-88638888",
     "description": {
@@ -2294,6 +2353,7 @@
     "name": {
       "zh_CN": "天涯海角财富石"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7528753-tianyahaijiao_caifushi",
     "address": "地址:\n海南省三亚市天涯镇马岭山\n\n\n电话:\n0898-88592908",
     "description": {
@@ -2336,6 +2396,7 @@
     "name": {
       "zh_CN": "西岛肖旗港码头"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7482073-xidaoxiaoqigangmatou",
     "address": "",
     "description": {
@@ -2358,6 +2419,7 @@
       "zh_CN": "珍珠文化馆",
       "en": "gN Pearl Cultural Center"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi3526126-zhenzhuwenhuaguan",
     "address": "地址:\n吉阳大道150号\n\n\n电话:\n88710761",
     "description": {
@@ -2393,6 +2455,7 @@
     "name": {
       "zh_CN": "天涯海角平安石"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7528729-tianyahaijiao_pinganshi",
     "address": "地址:\n海南省三亚市天涯镇马岭山\n\n\n电话:\n0898-88592908",
     "description": {
@@ -2431,6 +2494,7 @@
     "name": {
       "zh_CN": "时代海岸酒吧街"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7644556-shidaihaianjiubajie",
     "address": null,
     "image_url": null,
@@ -2444,6 +2508,7 @@
       "zh_CN": "鹿回头广场",
       "en": "Luhuitou Square"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi7528847-luhuitouguangchang",
     "address": "地址:\n三亚市吉阳区鹿回头广场公共游艇码头（三亚老免税店斜对面）\n\n\n电话:\n0898-88214716",
     "description": {
@@ -2483,6 +2548,7 @@
       "zh_CN": "东瑁洲岛",
       "en": "Dongmaozhou Island"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7468788-dongmaozhoudao",
     "address": "地址:\n三亚市三亚湾南部海域，距陆地5.5公里",
     "description": {
@@ -2519,6 +2585,7 @@
       "zh_CN": "千里伞",
       "en": "Qianli Umbrella Scenic Spot"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7644469-qianlisan",
     "address": "地址:\n亚龙湾森林公园\n\n\n电话:\n0898-38219999",
     "description": {
@@ -2554,6 +2621,7 @@
     "name": {
       "zh_CN": "河西红树林公园"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7560006-hexihongshulingongyuan",
     "address": "地址:\n三亚市河西区春园社区居民委员会旁",
     "description": {
@@ -2597,6 +2665,7 @@
       "zh_CN": "蚩尤部落",
       "en": "Chi You Tribe"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7470861-chiyoubuluo",
     "address": null,
     "description": {
@@ -2620,6 +2689,7 @@
       "zh_CN": "南极冰上乐园",
       "en": "Antarctic Ice Park"
     },
+    "type": "leisure",
     "link": "http://travel.qunar.com/p-oi7471000-nanjibingshangleyuan",
     "address": "地址:\n三亚市吉阳镇龙坡村内进100米",
     "description": {
@@ -2680,6 +2750,7 @@
       "zh_CN": "海棠广场",
       "en": "Haitang Square"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7644282-haitangguangchang",
     "address": "地址:\n三亚市海棠区海棠南路1号\n\n\n电话:\n18650427213,18650425596",
     "description": {
@@ -2720,6 +2791,7 @@
       "zh_CN": "百福湾",
       "en": "Baifu Bay"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi39869111-baifuwan",
     "address": null,
     "image_url": null,
@@ -2733,6 +2805,7 @@
       "zh_CN": "梹榔谷",
       "en": "Bing Lang Gu"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi39844567-binglanggu",
     "address": null,
     "image_url": null,
@@ -2746,6 +2819,7 @@
       "zh_CN": "三亚珠江南田温泉",
       "en": "Sanya Zhujiang Nantian Spa"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi39843184-sanyazhujiangnantianwen",
     "address": null,
     "image_url": null,
@@ -2759,6 +2833,7 @@
       "zh_CN": "神泉谷温泉公园",
       "en": "Shenquangu Hot Spring Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi39835471-shenquanguwenquangong",
     "address": null,
     "image_url": null,
@@ -2772,6 +2847,7 @@
       "zh_CN": "南山佛教文化园",
       "en": "Nanshan Buddhism Cultural Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi39828232-nanshanfojiaowenhuayuan",
     "address": null,
     "image_url": null,
@@ -2785,6 +2861,7 @@
       "zh_CN": "爱心大世界",
       "en": "Love World"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi39824533-aixindashijie",
     "address": null,
     "image_url": null,
@@ -2798,6 +2875,7 @@
       "zh_CN": "一品椰椰子文化展示中心",
       "en": "YiPin YeYeZi WenHua ZhanShi ZhongXin"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi39824235-yipinyeyeziwenhuazhan",
     "address": null,
     "image_url": null,
@@ -2811,6 +2889,7 @@
       "zh_CN": "神州第一泉",
       "en": "Shenzhou First Spring"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi39819561-shenzhoudiyiquan",
     "address": null,
     "image_url": null,
@@ -2823,6 +2902,7 @@
     "name": {
       "zh_CN": "三亚崖州湾海洋休闲运动公园"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi39633223-sanyayazhouwanhaiyang",
     "address": null,
     "description": {
@@ -2848,6 +2928,7 @@
     "name": {
       "zh_CN": "梅联"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi39602297-meilian",
     "address": null,
     "image_url": null,
@@ -2860,6 +2941,7 @@
     "name": {
       "zh_CN": "凤凰镇"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi39601717-fenghuangzhen",
     "address": null,
     "image_url": null,
@@ -2872,6 +2954,7 @@
     "name": {
       "zh_CN": "三亚恐龙馆"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi39597136-sanyakonglongguan",
     "address": null,
     "description": {
@@ -2900,6 +2983,7 @@
     "name": {
       "zh_CN": "三亚洋海之光游艇直升机观光旅游区"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi39564332-sanyayanghaizhiguangyou",
     "address": null,
     "image_url": null,
@@ -2912,6 +2996,7 @@
     "name": {
       "zh_CN": "东海角"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi38944331-donghaijiao",
     "address": null,
     "image_url": null,
@@ -2924,6 +3009,7 @@
     "name": {
       "zh_CN": "龙坡村"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi38925246-longpocun",
     "address": null,
     "image_url": null,
@@ -2936,6 +3022,7 @@
     "name": {
       "zh_CN": "龙海风情小镇"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi38917535-longhaifengqingxiaozhen",
     "address": null,
     "description": {
@@ -2951,6 +3038,7 @@
     "name": {
       "zh_CN": "三亚蓝峰游艇海钓俱乐部"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi38858468-sanyalanfengyoutinghai",
     "address": null,
     "image_url": null,
@@ -2966,6 +3054,7 @@
     "name": {
       "zh_CN": "吉阳区湿地公园"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi38857645-jiyangqushidigongyuan",
     "address": null,
     "image_url": null,
@@ -2981,6 +3070,7 @@
     "name": {
       "zh_CN": "三亚乐海游艇俱乐部"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi38798053-sanyalehaiyoutingjule",
     "address": null,
     "image_url": null,
@@ -2996,6 +3086,7 @@
     "name": {
       "zh_CN": "旮旯夜市"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi38678596-galayeshi",
     "address": null,
     "image_url": null,
@@ -3012,6 +3103,7 @@
       "zh_CN": "海虹广场",
       "en": "Haihong Square"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi38674647-haihongguangchang",
     "address": null,
     "image_url": null,
@@ -3028,6 +3120,7 @@
       "zh_CN": "海格冲浪俱乐部后海店",
       "en": "HAIGE SURF海格冲浪俱乐部(后海店)"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi38674538-haige_surfhaigechonglang",
     "address": null,
     "image_url": null,
@@ -3041,6 +3134,7 @@
       "zh_CN": "太阳湾潜水俱乐部",
       "en": "PADI潜水俱乐部"
     },
+    "type": "sport",
     "link": "http://travel.qunar.com/p-oi38606112-taiyangwanpadiqianshui",
     "address": null,
     "image_url": null,
@@ -3056,6 +3150,7 @@
     "name": {
       "zh_CN": "寰球拓海帆船国际俱乐部"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi38340407-huanqiutuohaifanchuan",
     "address": null,
     "image_url": null,
@@ -3071,6 +3166,7 @@
     "name": {
       "zh_CN": "三亚大桥"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi38340398-sanyadaqiao",
     "address": null,
     "image_url": null,
@@ -3083,6 +3179,7 @@
     "name": {
       "zh_CN": "月影艺术馆"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi38336921-yueyingyishuguan",
     "address": null,
     "image_url": null,
@@ -3095,6 +3192,7 @@
     "name": {
       "zh_CN": "追光旋转教堂"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi38336908-zhuiguangxuanzhuanjiao",
     "address": null,
     "description": {
@@ -3121,6 +3219,7 @@
       "zh_CN": "三亚妈祖庙",
       "en": "Mazu Temple of Sanya"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi38163908-sanyamazumiao",
     "address": null,
     "description": {
@@ -3146,6 +3245,7 @@
     "name": {
       "zh_CN": "探秘恐龙谷"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi38048879-tanmikonglonggu",
     "address": "地址:\n海南省三亚市海棠区海棠湾红树林酒店3层\n\n\n电话:\n18064410751",
     "description": {

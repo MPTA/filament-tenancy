@@ -4,6 +4,7 @@
       "zh_CN": "成都大熊猫繁育研究基地",
       "en": "Chengdu Research Base of Giant Panda Breeding"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi711578-chengdudaxiongmaofanyu",
     "address": "地址:\n成都市成华区外北熊猫大道1375号\n\n\n电话:\n028-83510033\n\n\n官网:\nhttp://www.panda.org.cn/",
     "description": {
@@ -68,6 +69,7 @@
       "zh_CN": "青城山",
       "en": "Qingcheng Mountain"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi704547-qingchengshan",
     "address": "地址:\n都江堰市西南部青城山风景区\n\n\n电话:\n028-87111907,028-87288159\n\n\n官网:\nhttp://jingqu.situcms.com/",
     "description": {
@@ -156,6 +158,7 @@
       "zh_CN": "宽窄巷子",
       "en": "Kuanzhai Alley"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi701768-kuanzhaixiangzi",
     "address": "地址:\n成都市青羊区金河路口宽窄巷子\n\n\n电话:\n028-86259233,028-66355355\n\n\n官网:\nhttp://www.kzxz.com.cn/",
     "description": {
@@ -195,6 +198,7 @@
       "zh_CN": "都江堰景区",
       "en": "Dujiangyan Irrigation System"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi704544-dujiangyanjingqu",
     "address": "地址:\n成都市都江堰市公园路\n\n\n电话:\n028-96526\n\n\n官网:\nhttp://www.djy517.com/",
     "description": {
@@ -271,6 +275,7 @@
       "zh_CN": "漫花庄园",
       "en": "Manhua Manor"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi10024335-manhuazhuangyuan",
     "address": "地址:\n成都市新都区蜀龙大道南段银杏园路口\n\n\n电话:\n028-83933394\n\n\n官网:\nhttp://www.manhuazhuangyuan.com/",
     "description": {
@@ -325,6 +330,7 @@
       "zh_CN": "春熙路",
       "en": "Chunxi Road"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi18700089-chunxilu",
     "address": "地址:\n成都市锦江区\n\n\n电话:\n028-87706026",
     "description": {
@@ -368,6 +374,7 @@
       "zh_CN": "俄尔则俄",
       "en": "Eerzeer Scenic Area"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi18702245-eerzee",
     "address": null,
     "description": {
@@ -387,6 +394,7 @@
       "zh_CN": "文殊院",
       "en": "Wenshuyuan"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi702435-wenshuyuan",
     "address": "地址:\n成都市青羊区文殊院街66号\n\n\n电话:\n028-86930623,028-86662375",
     "description": {
@@ -457,6 +465,7 @@
       "zh_CN": "武侯祠",
       "en": "Wuhou Shrine"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi713347-wuhouci",
     "address": "地址:\n成都市武侯区武侯祠大街231号\n\n\n电话:\n028-81290168\n\n\n官网:\nhttp://www.wuhouci.net.cn/",
     "description": {
@@ -521,6 +530,7 @@
       "zh_CN": "西岭雪山",
       "en": "Xiling Snow Mountain"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi711537-xilingxueshan",
     "address": "地址:\n成都市大邑县西岭镇西岭雪山风景区\n\n\n电话:\n028-88309080\n\n\n官网:\nhttp://www.xiling.cn/",
     "description": {
@@ -597,6 +607,7 @@
       "zh_CN": "锦里古街",
       "en": "Jinli Ancient Street"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi711873-jinligujie",
     "address": "地址:\n成都市武侯区武侯祠大街231号\n\n\n电话:\n028-85538914,028-66311313\n\n\n官网:\nhttp://www.cdjinli.com/",
     "description": {
@@ -636,6 +647,7 @@
       "zh_CN": "杜甫草堂",
       "en": "Du Fu's Thatched Cottage"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi709760-dufucaotang",
     "address": "地址:\n成都市青羊区青华路37号\n\n\n电话:\n028-87319258\n\n\n官网:\nhttp://www.cddfct.com/",
     "description": {
@@ -688,6 +700,7 @@
       "zh_CN": "夹关古镇",
       "en": "Jiaguan Town"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi32618697-jiaguanguzhen",
     "address": "地址:\n麻柳树客栈西",
     "description": {
@@ -714,6 +727,7 @@
       "zh_CN": "洛带古镇",
       "en": "Luodai Ancient Town"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi712260-luodaiguzhen",
     "address": "地址:\n成都市龙泉驿区洛带镇\n\n\n电话:\n028-84893693,028-84892584,028-84893729\n\n\n官网:\nhttp://scenery.cultural-china.com/en/130Scenery6434.html",
     "description": {
@@ -775,6 +789,7 @@
       "zh_CN": "九眼桥",
       "en": "Jiuyan Bridge"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi7568544-jiuyanqiao",
     "address": "地址:\n成都市武侯区望江路上\n\n\n电话:\n028-67866633",
     "description": {
@@ -814,6 +829,7 @@
       "zh_CN": "赵公山",
       "en": "Zhaogong Mountain"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi9476166-zhaogongshan",
     "address": "地址:\n都江堰市西南、成都平原西北部\n\n\n电话:\n028-87211179\n\n\n官网:\nhttp://www.chinazgs.com",
     "description": {
@@ -877,6 +893,7 @@
       "zh_CN": "桃花故里",
       "en": "Taohua Scenic Resort"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7476942-taohuaguli",
     "address": "地址:\n成都市龙泉驿区山泉镇桃源村\n\n\n电话:\n028-84820966",
     "description": {
@@ -944,6 +961,7 @@
       "zh_CN": "熊猫谷",
       "en": "Panda Valley"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi9190653-xiongmaogu",
     "address": "地址:\n成都市都江堰市玉堂镇熊猫谷附近\n\n\n电话:\n028-87296600",
     "description": {
@@ -973,6 +991,7 @@
       "zh_CN": "金沙遗址博物馆",
       "en": "Jinsha Site Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi720358-jinshayizhibowuguan",
     "address": "地址:\n成都市青羊区金沙遗址路2号成都金沙遗址博物馆\n\n\n电话:\n028-87303555\n\n\n官网:\nhttp://www.jinshasitemuseum.com/",
     "description": {
@@ -1031,6 +1050,7 @@
       "zh_CN": "成都天台山",
       "en": "Tiantai Mountain"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi713643-chengdutiantaishan",
     "address": "地址:\n成都市邛崃市天台山镇马坪村\n\n\n电话:\n028-89235003,028-89235009",
     "description": {
@@ -1089,6 +1109,7 @@
       "zh_CN": "五星村",
       "en": "Wuxing Village"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi33221893-wuxingcun",
     "address": "地址:\n隆兴镇五星村",
     "description": {
@@ -1118,6 +1139,7 @@
       "zh_CN": "龙泉仰天窝",
       "en": "Yangtianwo Scenic Spot, Longquan Mountain"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi35214020-longquanyangtianwo",
     "address": null,
     "image_url": null,
@@ -1131,6 +1153,7 @@
       "zh_CN": "玉石湿地公园",
       "en": "Chengduyushi Wetland Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi35017628-yushishidigongyuan",
     "address": "地址:\n大面街道贾家桥村（四环路西侧200米）",
     "description": {
@@ -1173,6 +1196,7 @@
       "zh_CN": "街子古镇",
       "en": "Jiezi Ancient Town"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi709770-jieziguzhen",
     "address": "地址:\n成都市崇州市惠丰路1号\n\n\n电话:\n028-82289555,028-82289556,028-82289559",
     "description": {
@@ -1228,6 +1252,7 @@
       "zh_CN": "天府广场",
       "en": "Tianfu Square"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi10012116-tianfuguangchang",
     "address": "地址:\n成都市青羊区人民南路一段86号\n\n\n电话:\n028-85568847,028-87706026",
     "description": {
@@ -1277,6 +1302,7 @@
       "zh_CN": "锦绣安仁奇境花园",
       "en": "Jinxiu'anren Huahui Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi22979705-jinxiuanrenqijinghuayuan",
     "address": "地址:\n成都市大邑县安仁镇锦安道168号\n\n\n电话:\n028-88335533,028-88360011",
     "description": {
@@ -1313,6 +1339,7 @@
       "zh_CN": "川西竹海景区",
       "en": "Bamboo Canyon Scenic Area (Jinji Valley)"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi9476114-chuanxizhuhaijingqu",
     "address": "地址:\n成都市邛崃市川西竹海\n\n\n电话:\n028-88781110\n\n\n官网:\nhttp://www.cxzhxg.com/",
     "description": {
@@ -1342,6 +1369,7 @@
       "zh_CN": "奎星楼街",
       "en": "Kuixinglou Street"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi8676366-kuixingloujie",
     "address": null,
     "image_url": null,
@@ -1355,6 +1383,7 @@
       "zh_CN": "东郊记忆",
       "en": "Eastern Suburb Memory"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi7523899-dongjiaojiyi",
     "address": "地址:\n四川省成都市成华区建设南支路4号东郊记忆\n\n\n电话:\n028-84383110,028-84266726\n\n\n官网:\nhttp://www.eastcd.com/",
     "description": {
@@ -1394,6 +1423,7 @@
       "zh_CN": "成都动物园",
       "en": "Chengdu Zoo"
     },
+    "type": "leisure",
     "link": "http://travel.qunar.com/p-oi710800-chengdudongwuyuan",
     "address": "地址:\n成都市成华区昭觉寺南路234号(动物园地铁站A口步行260米)\n\n\n电话:\n028-83516953,028-83519606,028-83516651,028-25479611,028-83516953,028-83572831\n\n\n官网:\nhttp://www.cdzoo.com.cn/",
     "description": {
@@ -1445,6 +1475,7 @@
       "zh_CN": "安仁古镇",
       "en": "Anren Ancient Town"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7468896-anrenguzhen",
     "address": "地址:\n成都市大邑县迎宾路\n\n\n电话:\n028-88319116,028-88319000",
     "description": {
@@ -1484,6 +1515,7 @@
       "zh_CN": "圆明宫",
       "en": "Yuanming Palace"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi719606-yuanminggong",
     "address": "地址:\n成都市都江堰市青城山景区内\n\n\n电话:\n028-87288159",
     "description": {
@@ -1520,6 +1552,7 @@
       "zh_CN": "灌县古城",
       "en": "Guanxian Ancient City"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7587164-guanxiangucheng",
     "address": "地址:\n成都市都江堰市灌县古城\n\n\n电话:\n028-87111399",
     "description": {
@@ -1604,6 +1637,7 @@
       "zh_CN": "元通古镇",
       "en": "Yuantong Ancient Town"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7476928-yuantongguzhen",
     "address": "地址:\n成都市崇州市元通镇\n\n\n电话:\n028-82263656,028-82263651,028-82263653",
     "description": {
@@ -1664,6 +1698,7 @@
     "name": {
       "zh_CN": "远拓新津白鹤滩国家湿地公园营地"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi36634715-yuantuoxinjinbaihetan",
     "address": "地址:\n花桥街道黄津路白鹤滩国家湿地公园次入口\n\n\n电话:\n13072882527",
     "description": {
@@ -1693,6 +1728,7 @@
       "zh_CN": "道明竹艺村",
       "en": "Daoming Bamboo Art Village"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi35913974-daomingzhuyicun",
     "address": null,
     "description": {
@@ -1719,6 +1755,7 @@
       "zh_CN": "问花村",
       "en": "Wenhua Village"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi35912501-wenhuacun",
     "address": "地址:\n成都市都江堰市青城山镇川环路大通社区\n\n\n电话:\n400-128-8898",
     "description": {
@@ -1767,6 +1804,7 @@
       "zh_CN": "都江堰·玫瑰花溪谷",
       "en": "Dujiangyan· Rose Valley"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi20965806-dujiangyanmeiguihuaxi",
     "address": "地址:\n成都市都江堰市天马镇禹王村\n\n\n电话:\n028-63271999",
     "description": {
@@ -1796,6 +1834,7 @@
       "zh_CN": "鹤鸣山",
       "en": "Heming Mountain"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi8598431-hemingshan",
     "address": "地址:\n成都市大邑县鹤鸣镇三丰村\n\n\n电话:\n028-88363356",
     "description": {
@@ -1878,6 +1917,7 @@
       "zh_CN": "平乐古镇",
       "en": "Pingle Ancient Town"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi712191-pingleguzhen",
     "address": "地址:\n成都市邛崃市禹王街70号\n\n\n电话:\n028-88781094,028-88781080",
     "description": {
@@ -1914,6 +1954,7 @@
       "zh_CN": "青城后山",
       "en": "Qingcheng Houshan"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi715147-qingchenghoushan",
     "address": "地址:\n成都市都江堰市驿道街66号\n\n\n电话:\n028-87239460,028-87112055,028-87288186",
     "description": {
@@ -1957,6 +1998,7 @@
       "zh_CN": "青羊宫",
       "en": "Qingyang Palace"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi709450-qingyanggong",
     "address": "地址:\n成都市青羊区一环路西二段九号\n\n\n电话:\n028-87766584",
     "description": {
@@ -2027,6 +2069,7 @@
       "zh_CN": "黄龙溪",
       "en": "Huang Longxi"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi701741-huanglongxi",
     "address": "地址:\n成都市双流区黄龙溪镇镇龙街\n\n\n电话:\n028-62157666,028-85696011",
     "description": {
@@ -2097,6 +2140,7 @@
       "zh_CN": "泰安古镇",
       "en": "Tai'an Ancient Town"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi708078-taianguzhen",
     "address": "地址:\n成都市都江堰市青城后山泰安古镇中段驿道街232号",
     "description": {
@@ -2140,6 +2184,7 @@
       "zh_CN": "大慈寺",
       "en": "Daci Temple"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi715161-dacisi",
     "address": null,
     "image_url": null,
@@ -2153,6 +2198,7 @@
       "zh_CN": "都江堰中华大熊猫苑（原熊猫乐园）",
       "en": "Dujiangyan China Giant Panda Garden (formerly known as Panda Paradise)"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7646705-dujiangyanzhonghuadaxiong",
     "address": "地址:\n成都市都江堰市怀中路青城山镇石桥村789组\n\n\n电话:\n19136072640",
     "description": {
@@ -2213,6 +2259,7 @@
       "zh_CN": "四川建川博物馆聚落",
       "en": "Jianchuan Museum Cluster"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi715375-sichuanjianchuanbowuguan",
     "address": "地址:\n成都市大邑县安仁镇迎宾路二段550建川博物馆\n\n\n电话:\n028-88318000,028-88319000\n\n\n官网:\nhttp://www.jc-museum.cn/",
     "description": {
@@ -2251,6 +2298,7 @@
     "name": {
       "zh_CN": "龙泉"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi710351-longquan",
     "address": null,
     "image_url": null,
@@ -2264,6 +2312,7 @@
       "zh_CN": "合江亭",
       "en": "Hejiang Pavilion"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7568827-hejiangting",
     "address": "地址:\n成都市锦江区府南河畔",
     "description": {
@@ -2296,6 +2345,7 @@
       "zh_CN": "花水湾第一村温泉",
       "en": "Huashuiwan First Village Hot Spring Hotel"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7477207-huashuiwandiyicunwenquan",
     "address": "地址:\n成都市大邑县花水湾镇温泉南街138号（进景区的右侧）\n\n\n电话:\n028-88391001,028-68380008,028-88390066",
     "description": {
@@ -2331,6 +2381,7 @@
     "name": {
       "zh_CN": "云顶水乡旅游度假区"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi38939323-yundingshuixianglu:you",
     "address": null,
     "description": {
@@ -2390,6 +2441,7 @@
     "name": {
       "zh_CN": "中坝保护站"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi38925294-zhongbabaohuzhan",
     "address": null,
     "image_url": null,
@@ -2403,6 +2455,7 @@
       "zh_CN": "龙泉驿欢乐田园",
       "en": "Longquanyi Happy Countryside"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi38803723-longquanyihuanletianyuan",
     "address": null,
     "description": {
@@ -2433,6 +2486,7 @@
       "zh_CN": "杜甫草堂博物馆",
       "en": "Du Fu Thatched Cottage Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi35198132-dufucaotangbowuguan",
     "address": "地址:\n四川省成都市青华路37号\n\n\n电话:\n028-87077705,028-87319258",
     "description": {
@@ -2459,6 +2513,7 @@
       "zh_CN": "都江堰西街",
       "en": "West Street"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi34276176-dujiangyanxijie",
     "address": "地址:\n都江堰宝瓶口以南",
     "description": {
@@ -2488,6 +2543,7 @@
       "zh_CN": "楠木溪",
       "en": "Nanmu Brook"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi23344515-nanmuxi",
     "address": "地址:\n邛崃市高何镇高兴村楠木溪\n\n\n电话:\n028-88772588",
     "description": {
@@ -2524,6 +2580,7 @@
       "zh_CN": "千佛和平塔",
       "en": "Qianfo Heping Pagoda"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi23344288-qianfohepingta",
     "address": null,
     "image_url": null,
@@ -2540,6 +2597,7 @@
       "zh_CN": "鸳鸯楼",
       "en": "Apartment for the Newly-Weds"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi23344095-yuanyanglou",
     "address": "地址:\n成都市武侯区红瓦寺街18号",
     "description": {
@@ -2576,6 +2634,7 @@
       "zh_CN": "蟠龙谷景区",
       "en": "Panlonggu Sceneic Area"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi23343185-panlonggujingqu",
     "address": "地址:\n成都市彭州市小鱼洞镇杨坪村",
     "description": {
@@ -2605,6 +2664,7 @@
       "zh_CN": "王建墓",
       "en": "Tomb of Wang Jian"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi23342516-wangjianmu",
     "address": null,
     "description": {
@@ -2631,6 +2691,7 @@
       "zh_CN": "空港花田",
       "en": "Airport Flower Field"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi20733991-kongganghuatian",
     "address": null,
     "image_url": null,
@@ -2644,6 +2705,7 @@
       "zh_CN": "紫霞山",
       "en": "Zixia Mountain"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi10076363-zixiashan",
     "address": "地址:\n同安街道御领大道",
     "description": {
@@ -2672,6 +2734,7 @@
     "name": {
       "zh_CN": "鹤鸣茶社"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi9770338-hemingchashe",
     "address": "地址:\n成都市区青羊区祠堂街少城路12号人民公园内\n\n\n电话:\n028-86132021\n\n\n官网:\nhttp://www.cdpeoplespark.com/html/jdjj.asp?ID=631",
     "description": {
@@ -2727,6 +2790,7 @@
       "zh_CN": "金沙庵",
       "en": "Jinsha Nunnery"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi9497212-jinshaan",
     "address": "地址:\n灶王庙街56号\n\n\n电话:\n86914995",
     "description": {
@@ -2762,6 +2826,7 @@
     "name": {
       "zh_CN": "成都爱道堂"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi9495434-chengduaidaotang",
     "address": "地址:\n成都市通顺桥34号",
     "description": {
@@ -2815,6 +2880,7 @@
     "name": {
       "zh_CN": "大溪谷旅游景区"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi9479108-daxigulu:youjingqu",
     "address": null,
     "description": {
@@ -2859,6 +2925,7 @@
       "zh_CN": "花楸村",
       "en": "Huaqiu Village"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi9282363-huaqiucun",
     "address": "地址:\n成都市邛崃市平乐镇",
     "description": {
@@ -2887,6 +2954,7 @@
     "name": {
       "zh_CN": "白鹿中法传统风情小镇"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi9193018-bailuzhongfachuantong",
     "address": "地址:\n四川省成都市彭州市白鹿镇\n\n\n电话:\n028-83770151",
     "description": {
@@ -2923,6 +2991,7 @@
       "zh_CN": "平安桥天主教堂",
       "en": "Ping'anqiao Catholic Church"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi9172138-pinganqiaotianzhujiao",
     "address": "地址:\n成都市青羊区西华门街25号\n\n\n电话:\n028-86634192",
     "description": {
@@ -2965,6 +3034,7 @@
       "zh_CN": "成都市文化公园",
       "en": "Chengdu Culture Park"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7528111-chengdushiwenhuagongyuan",
     "address": "地址:\n成都市青羊区一环路西二段7号\n\n\n电话:\n028-87769637",
     "description": {
@@ -3008,6 +3078,7 @@
       "zh_CN": "永康森林公园",
       "en": "Yongkang Forest Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7476946-yongkangsenlingongyuan",
     "address": "地址:\n成都市武侯区永康大道金花镇永康村\n\n\n电话:\n028-85364267",
     "description": {
@@ -3044,6 +3115,7 @@
       "zh_CN": "浣花溪公园",
       "en": "Huanhuaxi Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi7477008-huanhuaxigongyuan",
     "address": "地址:\n成都市青羊区青华路9号(近杜甫草堂)\n\n\n电话:\n028-87384099,",
     "description": {
@@ -3102,6 +3174,7 @@
       "zh_CN": "人民公园",
       "en": "People's Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5475393-renmingongyuan",
     "address": "地址:\n成都市青羊区少城路12号\n\n\n电话:\n028-86132021",
     "description": {
@@ -3172,6 +3245,7 @@
       "zh_CN": "四川大学博物馆",
       "en": "Sichuan University Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi704211-sichuandaxuebowuguan",
     "address": "地址:\n成都市武侯区望江路19号\n\n\n电话:\n010-85412451,010-85412449",
     "description": {
@@ -3208,6 +3282,7 @@
       "zh_CN": "望江楼公园",
       "en": "Wangjiang Pavilion Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi704132-wangjianglougongyuan",
     "address": "地址:\n成都市武侯区望江路300号九眼桥锦江南岸\n\n\n电话:\n028-85582907\n\n\n官网:\nhttp://www.wangjianglou.com/",
     "description": {
@@ -3284,6 +3359,7 @@
       "zh_CN": "百花潭公园",
       "en": "Baihuatan Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi702448-baihuatangongyuan",
     "address": "地址:\n成都市青羊区一环路西二段175号（芳邻路）\n\n\n电话:\n028-87014534,028-87035890",
     "description": {
@@ -3357,6 +3433,7 @@
       "zh_CN": "四川大学",
       "en": "Sichuan University"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi5475445-sichuandaxue",
     "address": null,
     "image_url": null,
@@ -3370,6 +3447,7 @@
       "zh_CN": "小通巷",
       "en": "Xiaotong Alley"
     },
+    "type": "uncategorized",
     "link": "http://travel.qunar.com/p-oi7523958-xiaotongxiang",
     "address": "地址:\n成都市青羊区小通巷",
     "description": {
@@ -3399,6 +3477,7 @@
       "zh_CN": "四川科技馆",
       "en": "Sichuan Science and Technology Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7523924-sichuankejiguan",
     "address": "地址:\n成都市青羊区人民中路一段16号省展览馆内(天府广场北侧)\n\n\n电话:\n028-86609999\n\n\n官网:\nhttp://www.scstm.com/",
     "description": {
@@ -3432,6 +3511,7 @@
       "zh_CN": "四川博物院",
       "en": "Sichuan Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi712528-sichuanbowuyuan",
     "address": "地址:\n成都市浣花南路251号\n\n\n电话:\n028-65521888,028-65521569,028-65521555\n\n\n官网:\nhttp://www.scmuseum.cn/",
     "description": {
@@ -3502,6 +3582,7 @@
       "zh_CN": "文殊坊",
       "en": "Wuzhufang"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi5475471-wenshufang",
     "address": "地址:\n成都市青羊区文殊院街66号\n\n\n电话:\n028-86958803,028-86932375",
     "description": {
@@ -3538,6 +3619,7 @@
       "zh_CN": "中国泰迪熊博物馆",
       "en": "China Teddy Bear Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi7467896-zhongguotaidixiongbowu",
     "address": "地址:\n成都市温江区金马国际体育城\n\n\n电话:\n028-69086886",
     "description": {
@@ -3590,6 +3672,7 @@
       "zh_CN": "宝瓶口",
       "en": "Baopingkou"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi719914-baopingkou",
     "address": "地址:\n成都市都江堰市都江堰风景区内\n\n\n电话:\n028-87293800,028-87283890",
     "description": {
@@ -3629,6 +3712,7 @@
       "zh_CN": "成都永陵博物馆",
       "en": "Chengdu Yongling"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi707421-chengduyonglingbowuguan",
     "address": "地址:\n成都市金牛区永陵路10号\n\n\n电话:\n028-87789003\n\n\n官网:\nhttp://www.cdylbwg.org/newshow.aspx?mid=412&id=109691",
     "description": {
@@ -3681,6 +3765,7 @@
       "zh_CN": "都江堰鱼嘴分水堤",
       "en": "Dujiangyan Fish-mouth Water-dividing Dike"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi717590-dujiangyanyuzuifenshui",
     "address": "地址:\n成都市都江堰市都江堰景区内\n\n\n电话:\n028-87283890",
     "description": {
@@ -3720,6 +3805,7 @@
       "zh_CN": "上清宫",
       "en": "Shangqing Palace"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi718408-shangqinggong",
     "address": "地址:\n成都市都江堰市青城山景区内\n\n\n电话:\n028-87293800,028-87288104",
     "description": {
@@ -3808,6 +3894,7 @@
       "zh_CN": "二王庙",
       "en": "Erwang Temple"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi718083-erwangmiao",
     "address": "地址:\n成都市都江堰市都江堰景区内，岷江东岸\n\n\n电话:\n028-87283890,028-87293800",
     "description": {
@@ -3854,6 +3941,7 @@
       "zh_CN": "伏龙观",
       "en": "Fulong Temple"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi717250-fulongguan",
     "address": "地址:\n成都市都江堰市都江堰景区内\n\n\n电话:\n028-87293800,028-87283890,028-96526",
     "description": {
@@ -3909,6 +3997,7 @@
       "zh_CN": "离堆公园",
       "en": "Lidui Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi714729-liduigongyuan",
     "address": "地址:\n成都市都江堰市公园路青城山，都江堰风景名胜区内\n\n\n电话:\n028-87293800,028-87283890",
     "description": {
@@ -3973,6 +4062,7 @@
       "zh_CN": "琴台故径",
       "en": "Qintai Trail"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi5186623-qintaigujing",
     "address": "地址:\n成都市青羊区琴台路",
     "description": {
@@ -3999,6 +4089,7 @@
       "zh_CN": "安澜索桥",
       "en": "Anlan Cable Bridge"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi720538-anlansuoqiao",
     "address": "地址:\n成都市都江堰市都江堰景区内\n\n\n电话:\n028-87283890,028-87293800,028-87136609",
     "description": {
@@ -4038,6 +4129,7 @@
       "zh_CN": "玉垒山公园",
       "en": "Yuleishan Park"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi715437-yuleishangongyuan",
     "address": null,
     "image_url": null,
@@ -4051,6 +4143,7 @@
       "zh_CN": "飞沙堰",
       "en": "Feisha Dam"
     },
+    "type": "man_made",
     "link": "http://travel.qunar.com/p-oi721276-feishayan",
     "address": "地址:\n成都市都江堰市公园路青城山·都江堰风景名胜区内\n\n\n电话:\n028-96526",
     "description": {
@@ -4087,6 +4180,7 @@
       "zh_CN": "刘氏庄园博物馆",
       "en": "Liu's Manor Museum"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi705269-liushizhuangyuanbowuguan",
     "address": "地址:\n成都市大邑县安仁镇金桂街15号\n\n\n电话:\n028-88319959,028-88315113,028-8315113",
     "description": {
@@ -4163,6 +4257,7 @@
       "zh_CN": "府南河活水公园",
       "en": "Live-water Park, Chengdu"
     },
+    "type": "leisure",
     "link": "http://travel.qunar.com/p-oi712338-funanhehuoshuigongyuan",
     "address": "地址:\n成都市锦江区华星路猛追湾对面\n\n\n电话:\n028-86924981",
     "description": {
@@ -4224,6 +4319,7 @@
       "zh_CN": "天师洞",
       "en": "Tianshi Cave"
     },
+    "type": "natural",
     "link": "http://travel.qunar.com/p-oi716751-tianshidong",
     "address": "地址:\n成都市都江堰市青城山景区内\n\n\n电话:\n028-96526",
     "description": {
@@ -4267,6 +4363,7 @@
       "zh_CN": "皇城清真寺",
       "en": "Huangcheng Mosque"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi706141-huangchengqingzhensi",
     "address": "地址:\n成都市青羊区小河街2号",
     "description": {
@@ -4321,6 +4418,7 @@
       "zh_CN": "郫县古城遗址",
       "en": "Ancient City Site of Pi County"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi708122-pixianguchengyizhi",
     "address": "地址:\n成都市郫都区三道堰镇古城村蜀汉西街邻城家园北侧\n\n\n电话:\n028-69506639",
     "description": {
@@ -4350,6 +4448,7 @@
       "zh_CN": "昭觉寺",
       "en": "Zhaojue Temple"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi715451-zhaojuesi",
     "address": "地址:\n成都市成华区昭青路333号\n\n\n电话:\n028-83529523,028-83501419",
     "description": {
@@ -4438,6 +4537,7 @@
       "zh_CN": "成都南郊公园",
       "en": "Chengdu Southern Suburb Park"
     },
+    "type": "cultural",
     "link": "http://travel.qunar.com/p-oi707412-chengdunanjiaogongyuan",
     "address": "地址:\n四川省成都武侯区武侯祠大街235号\n\n\n电话:\n028-85552397,028-85535951",
     "description": {
