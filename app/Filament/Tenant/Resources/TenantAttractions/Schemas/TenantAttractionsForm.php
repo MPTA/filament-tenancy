@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\TenantAttractions\Schemas;
+namespace App\Filament\Tenant\Resources\TenantAttractions\Schemas;
 
 use Filament\Schemas\Schema;
 

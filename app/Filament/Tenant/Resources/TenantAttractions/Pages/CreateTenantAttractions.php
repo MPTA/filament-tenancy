@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Filament\Resources\TenantAttractions\Pages;
+namespace App\Filament\Tenant\Resources\TenantAttractions\Pages;
 
-use App\Filament\Resources\TenantAttractions\TenantAttractionsResource;
+use App\Filament\Tenant\Resources\TenantAttractions\TenantAttractionsResource;
 use Filament\Resources\Pages\CreateRecord;
 
 class CreateTenantAttractions extends CreateRecord
