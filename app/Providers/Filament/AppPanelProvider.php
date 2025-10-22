@@ -28,7 +28,7 @@ class AppPanelProvider extends PanelProvider
         return $panel
             ->id('app')
             ->path('app')
-            ->brandName('App')
+            ->brandName(fn () => app()->getLocale() === 'zh_CN' ? '应用面板' : 'App')
             ->colors([
                 'primary' => Color::Pink,
             ])

@@ -27,7 +27,7 @@ class TenantAdminPanelProvider extends PanelProvider
         return $panel
             ->id('tenant-admin')
             ->path('admin')
-            ->brandName('Tenant Admin')
+            ->brandName(fn () => app()->getLocale() === 'zh_CN' ? '管理面板' : 'Admin')
             ->login()
             ->colors([
                 'primary' => Color::Blue,

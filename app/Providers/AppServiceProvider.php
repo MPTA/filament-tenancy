@@ -71,7 +71,14 @@ class AppServiceProvider extends ServiceProvider
                 $panels = ['app', 'tenant-admin'];
             }
             
-            $panelSwitch->panels($panels);
+            $panelSwitch
+                ->panels($panels)
+                ->labels([
+                    'tenant-admin' => app()->getLocale() === 'zh_CN' ? '管理面板' : 'Admin',
+                    'app' => app()->getLocale() === 'zh_CN' ? '应用面板' : 'App',
+                    'base' => 'Base',
+                    'admin' => 'Admin',
+                ]);
         });
     }
 }
