@@ -44,7 +44,6 @@ class AttractionsTable
                         ]);
                         return implode(', ', $parts);
                     })
-                    ->searchable(['city.name', 'country.name'])
                     ->sortable(false),
                 TextColumn::make('rating')
                     ->numeric()
