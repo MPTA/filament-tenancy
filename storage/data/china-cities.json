@@ -26530,7 +26530,7 @@
     },
     {
         "id": 149267,
-        "name": "SuZhou",
+        "name": "Suzhou",
         "state_id": 2250,
         "state_code": "JS",
         "state_name": "Jiangsu",
@@ -26542,28 +26542,28 @@
         "native": "苏州",
         "timezone": "Asia\/Shanghai",
         "translations": {
-            "br": "SuZhou",
+            "br": "Suzhou",
             "ko": "쑤저우",
-            "pt_BR": "SuZhou",
-            "pt": "SuZhou",
-            "nl": "SuZhou",
-            "hr": "SuZhou",
+            "pt_BR": "Suzhou",
+            "pt": "Suzhou",
+            "nl": "Suzhou",
+            "hr": "Suzhou",
             "fa": "سوژو",
-            "de": "SuZhou",
-            "es": "SuZhou",
+            "de": "Suzhou",
+            "es": "Suzhou",
             "fr": "Suzhou",
             "ja": "蘇州",
-            "it": "SuZhou",
+            "it": "Suzhou",
             "zh_CN": "苏州",
-            "tr": "SuZhou",
+            "tr": "Suzhou",
             "ru": "Сучжоу",
             "uk": "Сучжоу",
-            "pl": "SuZhou",
+            "pl": "Suzhou",
             "hi": "सूज़ौ",
             "ar": "سوتشو"
         },
         "wikiDataId": "Q42622",
-        "code": "SuZhou"
+        "code": "SZV"
     },
     {
         "id": 149274,
@@ -39406,7 +39406,7 @@
     },
     {
         "id": 20150,
-        "name": "Suzhou",
+        "name": "Suzhou Taiwan",
         "state_id": 2255,
         "state_code": "TW",
         "state_name": "Taiwan",
@@ -39439,7 +39439,7 @@
             "ar": "سوتشو"
         },
         "wikiDataId": "Q42622",
-        "code": "SZV"
+        "code": "Suzhou"
     },
     {
         "id": 20161,
