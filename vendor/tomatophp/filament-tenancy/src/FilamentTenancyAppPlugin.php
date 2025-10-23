@@ -29,26 +29,51 @@ class FilamentTenancyAppPlugin implements Plugin
         }
 
         if($this->isActive) {
-            $panel
-                ->login(TenantLogin::class)
-                ->middleware([
+            $identificationMethod = config('filament-tenancy.identification_method', 'subdomain');
+            
+            // For path-based, don't use PreventAccessFromCentralDomains
+            // because we WANT to access from central domain
+            $middlewares = $identificationMethod === 'path' 
+                ? [
+                    \TomatoPHP\FilamentTenancy\Middleware\AddTenantToUrlGeneration::class,
+                    RedirectIfInertiaMiddleware::class,
+                ]
+                : [
                     PreventAccessFromCentralDomains::class,
                     RedirectIfInertiaMiddleware::class,
-                ])
-                ->middleware([
+                ];
+            
+            $persistentMiddlewares = $identificationMethod === 'path'
+                ? [
                     'universal',
-                    FilamentTenancyServiceProvider::TENANCY_IDENTIFICATION,
+                    FilamentTenancyServiceProvider::getTenancyIdentificationMiddleware(),
+                    \TomatoPHP\FilamentTenancy\Middleware\AddTenantToUrlGeneration::class,
+                ]
+                : [
+                    'universal',
+                    FilamentTenancyServiceProvider::getTenancyIdentificationMiddleware(),
                     PreventAccessFromCentralDomains::class,
-                ], isPersistent: true);
+                ];
+            
+            $panel
+                ->login(TenantLogin::class)
+                ->middleware($middlewares)
+                ->middleware($persistentMiddlewares, isPersistent: true);
 
-            $domains = tenant()?->domains()->pluck('domain') ?? [];
-            $panel->domains($domains);
+            // For path-based identification, allow any domain
+            // For domain/subdomain, set specific domains
+            if ($identificationMethod === 'path') {
+                $panel->domain(null);
+            } else {
+                $domains = tenant()?->domains()->pluck('domain') ?? [];
+                $panel->domains($domains);
+            }
         }
     }
 
     public function boot(Panel $panel): void
     {
-        //
+        // Panel path override is handled in AppServiceProvider via Filament::serving()
     }
 
     public static function make(): static
