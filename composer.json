@@ -25,7 +25,7 @@
         "livewire/volt": "^1.7.0",
         "spatie/laravel-data": "^4.17",
         "stancl/tenancy": "^3.8",
-        "tomatophp/filament-tenancy": "dev-path-based-tenancy",
+        "tomatophp/filament-tenancy": "dev-master",
         "tomatophp/filament-translations": "^4.0"
     },
     "require-dev": {
