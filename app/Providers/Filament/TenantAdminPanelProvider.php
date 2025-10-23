@@ -26,7 +26,7 @@ class TenantAdminPanelProvider extends PanelProvider
     {
         return $panel
             ->id('tenant-admin')
-            ->path('admin')
+            ->path(config('filament-tenancy.identification_method') === 'path' ? 'tenants/{tenant}/admin' : 'admin')
             ->brandName(fn () => app()->getLocale() === 'zh_CN' ? '管理面板' : 'Admin')
             ->login()
             ->colors([

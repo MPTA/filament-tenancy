@@ -61,6 +61,26 @@ class AppServiceProvider extends ServiceProvider
                 ]);
         });
 
+        // Override panel paths for path-based tenancy before PanelSwitch renders
+        \Filament\Facades\Filament::serving(function () {
+            if (config('filament-tenancy.identification_method') === 'path' && tenancy()->initialized) {
+                $tenantName = tenant('name');
+                
+                foreach (\Filament\Facades\Filament::getPanels() as $panel) {
+                    $originalPath = $panel->getPath();
+                    if (str_contains($originalPath, '{tenant}')) {
+                        $newPath = str_replace('{tenant}', $tenantName, $originalPath);
+                        
+                        // Use reflection to update path
+                        $reflection = new \ReflectionClass($panel);
+                        $property = $reflection->getProperty('path');
+                        $property->setAccessible(true);
+                        $property->setValue($panel, $newPath);
+                    }
+                }
+            }
+        });
+        
         PanelSwitch::configureUsing(function (PanelSwitch $panelSwitch) {
             // اگر در tenant context نیستیم (central domain)
             if (!tenant()) {

@@ -1,0 +1,5 @@
+integrations:
+  forge:
+    tripmaker.cn:
+      server-id: 975863
+      site-id: 2898499
