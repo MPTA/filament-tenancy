@@ -90,13 +90,16 @@ class ChinaAccommodationSeeder extends Seeder
                     $facilities = ['en' => $facilitiesArray];
                 }
 
-                // Prepare hotel name - handle both array and string formats
+                // Prepare hotel name - handle both array and string formats (fallback to zh_CN if en is missing)
                 $name = [];
                 if (isset($hotel['HotelName'])) {
                     if (is_array($hotel['HotelName'])) {
                         // HotelName is an object with en and zh_CN
                         if (!empty($hotel['HotelName']['en'])) {
                             $name['en'] = $hotel['HotelName']['en'];
+                        } elseif (!empty($hotel['HotelName']['zh_CN'])) {
+                            // If no English name, use Chinese name as fallback
+                            $name['en'] = $hotel['HotelName']['zh_CN'];
                         }
                         if (!empty($hotel['HotelName']['zh_CN'])) {
                             $name['zh_CN'] = $hotel['HotelName']['zh_CN'];

@@ -92,10 +92,13 @@ class ChinaAttractionSeeder extends Seeder
                     );
                 }
 
-                // Prepare name (only include languages that exist)
+                // Prepare name (fallback to zh_CN if en is missing)
                 $name = [];
                 if (!empty($attraction['name']['en'])) {
                     $name['en'] = $attraction['name']['en'];
+                } elseif (!empty($attraction['name']['zh_CN'])) {
+                    // If no English name, use Chinese name as fallback
+                    $name['en'] = $attraction['name']['zh_CN'];
                 }
                 if (!empty($attraction['name']['zh_CN'])) {
                     $name['zh_CN'] = $attraction['name']['zh_CN'];
@@ -244,10 +247,13 @@ class ChinaAttractionSeeder extends Seeder
                             continue; // Skip if no name
                         }
 
-                        // Prepare sub-attraction name
+                        // Prepare sub-attraction name (fallback to zh_CN if en is missing)
                         $subName = [];
                         if (!empty($subAttractionData['name']['en'])) {
                             $subName['en'] = $subAttractionData['name']['en'];
+                        } elseif (!empty($subAttractionData['name']['zh_CN'])) {
+                            // If no English name, use Chinese name as fallback
+                            $subName['en'] = $subAttractionData['name']['zh_CN'];
                         }
                         if (!empty($subAttractionData['name']['zh_CN'])) {
                             $subName['zh_CN'] = $subAttractionData['name']['zh_CN'];
