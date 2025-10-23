@@ -7,6 +7,7 @@ use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 
 class EditTenant extends EditRecord
@@ -25,32 +26,33 @@ class EditTenant extends EditRecord
                 ->icon('heroicon-s-trash')
                 ->label(trans('filament-tenancy::messages.actions.delete'))
                 ->before(function ($record) {
-                    // Force close all connections to the tenant database
-                    $dbName = config('tenancy.database.prefix') . Str::slug($record->name, '_') . config('tenancy.database.suffix');
-                    
+                    // For multi-schema, manually delete schema before tenant deletion
                     try {
-                        // Close all connections
-                        DB::purge('dynamic');
-                        DB::purge('pgsql');
+                        $schemaName = $record->database()->getName();
                         
-                        // Force terminate all connections to the database with retry
-                        for ($i = 0; $i < 5; $i++) {
-                            DB::connection('pgsql')->statement("SELECT pg_terminate_backend(pid, true) FROM pg_stat_activity WHERE datname = '{$dbName}' AND pid <> pg_backend_pid()");
-                            sleep(2); // Wait 2 seconds between attempts
+                        // Check if schema exists
+                        $schemaExists = DB::connection('pgsql')->select("SELECT schema_name FROM information_schema.schemata WHERE schema_name = '{$schemaName}'");
+                        
+                        if (count($schemaExists) > 0) {
+                            // Schema exists, delete it manually
+                            DB::connection('pgsql')->statement("DROP SCHEMA \"{$schemaName}\" CASCADE");
+                            Log::info("Schema {$schemaName} deleted manually");
+                        } else {
+                            Log::info("Schema {$schemaName} does not exist, skipping deletion");
                         }
-                        
-                        // Additional wait to ensure connections are closed
-                        sleep(2);
-                        
-                        // Check if database exists before triggering deletion
-                        config(['database.connections.dynamic.database' => $dbName]);
-                        DB::connection('dynamic')->getPdo();
-                        
-                        // Database exists, trigger deletion event
-                        event(new \Stancl\Tenancy\Events\TenantDeleted($record));
                     } catch (\Exception $e) {
-                        // Database doesn't exist or connection failed, skip deletion event
-                        Log::info("Database {$dbName} does not exist or connection failed, skipping deletion event: " . $e->getMessage());
+                        Log::info("Failed to delete schema manually: " . $e->getMessage());
+                    }
+                })
+                ->after(function ($record) {
+                    // Prevent TenantDeleted event from being triggered
+                    // by manually handling the deletion process
+                    try {
+                        // Clear any cached data related to this tenant
+                        Cache::forget("tenant_{$record->id}");
+                        Log::info("Tenant {$record->name} deleted successfully without triggering TenantDeleted event");
+                    } catch (\Exception $e) {
+                        Log::info("Failed to clear cache for tenant {$record->id}: " . $e->getMessage());
                     }
                 }),
         ];
@@ -70,15 +72,10 @@ class EditTenant extends EditRecord
         }
 
         try {
-            if (!config('filament-tenancy.single_database')) {
-                $dbName = config('tenancy.database.prefix') . Str::slug($record->name, '_') . config('tenancy.database.suffix');
-                config(['database.connections.dynamic.database' => $dbName]);
-            }
-            DB::purge('dynamic');
-
+            // For multi-schema, use dynamic connection which automatically switches to tenant schema
             DB::connection('dynamic')->getPdo();
         } catch (\Exception $e) {
-            throw new \Exception("Failed to connect to tenant database: {$dbName}");
+            throw new \Exception("Failed to connect to tenant schema");
         }
 
         $user = DB::connection('dynamic')
@@ -101,3 +98,4 @@ class EditTenant extends EditRecord
         return $data;
     }
 }
+

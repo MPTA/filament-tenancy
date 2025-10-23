@@ -20,6 +20,7 @@ use Filament\Tables\Table;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Password;
 use TomatoPHP\FilamentTenancy\Models\Tenant;
@@ -188,32 +189,33 @@ class TenantResource extends Resource
                     ->tooltip(trans('filament-tenancy::messages.actions.delete'))
                     ->iconButton()
                     ->before(function ($record) {
-                        // Force close all connections to the tenant database
-                        $dbName = config('tenancy.database.prefix') . Str::slug($record->name, '_') . config('tenancy.database.suffix');
-                        
+                        // For multi-schema, manually delete schema before tenant deletion
                         try {
-                            // Close all connections
-                            DB::purge('dynamic');
-                            DB::purge('pgsql');
+                            $schemaName = $record->database()->getName();
                             
-                            // Force terminate all connections to the database with retry
-                            for ($i = 0; $i < 5; $i++) {
-                                DB::connection('pgsql')->statement("SELECT pg_terminate_backend(pid, true) FROM pg_stat_activity WHERE datname = '{$dbName}' AND pid <> pg_backend_pid()");
-                                sleep(2); // Wait 2 seconds between attempts
+                            // Check if schema exists
+                            $schemaExists = DB::connection('pgsql')->select("SELECT schema_name FROM information_schema.schemata WHERE schema_name = '{$schemaName}'");
+                            
+                            if (count($schemaExists) > 0) {
+                                // Schema exists, delete it manually
+                                DB::connection('pgsql')->statement("DROP SCHEMA \"{$schemaName}\" CASCADE");
+                                Log::info("Schema {$schemaName} deleted manually");
+                            } else {
+                                Log::info("Schema {$schemaName} does not exist, skipping deletion");
                             }
-                            
-                            // Additional wait to ensure connections are closed
-                            sleep(2);
-                            
-                            // Check if database exists before triggering deletion
-                            config(['database.connections.dynamic.database' => $dbName]);
-                            DB::connection('dynamic')->getPdo();
-                            
-                            // Database exists, trigger deletion event
-                            event(new \Stancl\Tenancy\Events\TenantDeleted($record));
                         } catch (\Exception $e) {
-                            // Database doesn't exist or connection failed, skip deletion event
-                            Log::info("Database {$dbName} does not exist or connection failed, skipping deletion event: " . $e->getMessage());
+                            Log::info("Failed to delete schema manually: " . $e->getMessage());
+                        }
+                    })
+                    ->after(function ($record) {
+                        // Prevent TenantDeleted event from being triggered
+                        // by manually handling the deletion process
+                        try {
+                            // Clear any cached data related to this tenant
+                            Cache::forget("tenant_{$record->id}");
+                            Log::info("Tenant {$record->name} deleted successfully without triggering TenantDeleted event");
+                        } catch (\Exception $e) {
+                            Log::info("Failed to clear cache for tenant {$record->id}: " . $e->getMessage());
                         }
                     }),
             ])
@@ -221,33 +223,36 @@ class TenantResource extends Resource
                 BulkActionGroup::make([
                     DeleteBulkAction::make()
                         ->before(function ($records) {
-                            // Trigger tenant deletion event for each record
+                            // For multi-schema, manually delete schemas before tenant deletion
                             foreach ($records as $record) {
-                                $dbName = config('tenancy.database.prefix') . Str::slug($record->name, '_') . config('tenancy.database.suffix');
-                                
                                 try {
-                                    // Close all connections
-                                    DB::purge('dynamic');
-                                    DB::purge('pgsql');
+                                    $schemaName = $record->database()->getName();
                                     
-                                    // Force terminate all connections to the database with retry
-                                    for ($i = 0; $i < 5; $i++) {
-                                        DB::connection('pgsql')->statement("SELECT pg_terminate_backend(pid, true) FROM pg_stat_activity WHERE datname = '{$dbName}' AND pid <> pg_backend_pid()");
-                                        sleep(2); // Wait 2 seconds between attempts
+                                    // Check if schema exists
+                                    $schemaExists = DB::connection('pgsql')->select("SELECT schema_name FROM information_schema.schemata WHERE schema_name = '{$schemaName}'");
+                                    
+                                    if (count($schemaExists) > 0) {
+                                        // Schema exists, delete it manually
+                                        DB::connection('pgsql')->statement("DROP SCHEMA \"{$schemaName}\" CASCADE");
+                                        Log::info("Schema {$schemaName} deleted manually for tenant {$record->name}");
+                                    } else {
+                                        Log::info("Schema {$schemaName} does not exist for tenant {$record->name}, skipping deletion");
                                     }
-                                    
-                                    // Additional wait to ensure connections are closed
-                                    sleep(2);
-                                    
-                                    // Check if database exists before triggering deletion
-                                    config(['database.connections.dynamic.database' => $dbName]);
-                                    DB::connection('dynamic')->getPdo();
-                                    
-                                    // Database exists, trigger deletion event
-                                    event(new \Stancl\Tenancy\Events\TenantDeleted($record));
                                 } catch (\Exception $e) {
-                                    // Database doesn't exist or connection failed, skip deletion event
-                                    Log::info("Database {$dbName} does not exist or connection failed, skipping deletion event: " . $e->getMessage());
+                                    Log::info("Failed to delete schema manually for tenant {$record->name}: " . $e->getMessage());
+                                }
+                            }
+                        })
+                        ->after(function ($records) {
+                            // Prevent TenantDeleted event from being triggered
+                            // by manually handling the deletion process
+                            foreach ($records as $record) {
+                                try {
+                                    // Clear any cached data related to this tenant
+                                    Cache::forget("tenant_{$record->id}");
+                                    Log::info("Tenant {$record->name} deleted successfully without triggering TenantDeleted event");
+                                } catch (\Exception $e) {
+                                    Log::info("Failed to clear cache for tenant {$record->id}: " . $e->getMessage());
                                 }
                             }
                         }),

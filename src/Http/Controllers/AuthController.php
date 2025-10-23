@@ -7,6 +7,7 @@ use Filament\Notifications\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Laravel\Socialite\Facades\Socialite;
 use TomatoPHP\FilamentTenancy\Models\Tenant;
@@ -34,7 +35,7 @@ class AuthController extends Controller
         try {
             $providerHasToken = config('services.'.$provider.'.client_token');
             if($providerHasToken){
-                $socialUser = Socialite::driver($provider)->userFromToken($providerHasToken);
+                $socialUser = Socialite::driver($provider)->user();
             }
             else {
                 $socialUser = Socialite::driver($provider)->user();
@@ -79,13 +80,18 @@ class AuthController extends Controller
                     $record->save();
 
 
-                    config(['database.connections.dynamic.database' => config('tenancy.database.prefix').Str::slug($record->name, '_'). config('tenancy.database.suffix')]);
-                    DB::connection('dynamic')
-                        ->table('users')
-                        ->where('email', $record->email)
-                        ->update([
-                            "packages" => json_encode($sessionData->packages),
-                        ]);
+                    // For multi-schema, use dynamic connection which automatically switches to tenant schema
+                    try {
+                        DB::connection('dynamic')
+                            ->table('users')
+                            ->where('email', $record->email)
+                            ->update([
+                                "packages" => json_encode($sessionData->packages),
+                            ]);
+                    } catch (\Exception $e) {
+                        // Log the error but don't fail the authentication
+                        Log::info("Failed to update user packages for tenant {$record->id}: " . $e->getMessage());
+                    }
                 }
             }
 

@@ -23,6 +23,21 @@ class FilamentTenancyServiceProvider extends ServiceProvider
     // By default, no namespace is used to support the callable array syntax.
     public static string $controllerNamespace = '';
     const TENANCY_IDENTIFICATION = Middleware\InitializeTenancyByDomain::class;
+    
+    /**
+     * Get the appropriate tenant identification middleware based on config
+     */
+    public static function getTenancyIdentificationMiddleware(): string
+    {
+        $method = config('filament-tenancy.identification_method', 'subdomain');
+        
+        return match($method) {
+            'domain' => Middleware\InitializeTenancyByDomain::class,
+            'subdomain' => Middleware\InitializeTenancyBySubdomain::class,
+            'path' => \TomatoPHP\FilamentTenancy\Middleware\InitializeTenancyByPath::class,
+            default => Middleware\InitializeTenancyBySubdomain::class,
+        };
+    }
 
     /**
      * @return array
@@ -128,12 +143,26 @@ class FilamentTenancyServiceProvider extends ServiceProvider
         $this->modifyStaticConfigs();
         $this->prepareLivewireForTenancy();
         $this->configureDatabaseNaming();
+        $this->setupPathBasedUrlDefaults();
 
         FrameworkColumns::registerMacros();
 
         $this->loadViewComponentsAs('tomato', [
             ApplicationLogo::class
         ]);
+    }
+    
+    /**
+     * Setup URL defaults for path-based tenant identification
+     */
+    protected function setupPathBasedUrlDefaults(): void
+    {
+        if (config('filament-tenancy.identification_method') === 'path') {
+            // Listen to tenancy initialized event to set URL defaults
+            Event::listen(\Stancl\Tenancy\Events\TenancyInitialized::class, function ($event) {
+                \Illuminate\Support\Facades\URL::defaults(['tenant' => tenant('name')]);
+            });
+        }
     }
 
     protected function bootEvents()
@@ -142,6 +171,8 @@ class FilamentTenancyServiceProvider extends ServiceProvider
             ? array_merge($this->databaseEvents(), $this->defaultEvents())
             : $this->defaultEvents();
 
+        // Remove TenantDeleted event to prevent duplicate schema deletion
+        unset($events[Events\TenantDeleted::class]);
 
         foreach ($events as $event => $listeners) {
             foreach ($listeners as $listener) {
@@ -158,6 +189,8 @@ class FilamentTenancyServiceProvider extends ServiceProvider
     {
         $this->app->booted(function () {
             if (file_exists(base_path('routes/tenant.php'))) {
+                // Routes are already registered with proper prefix in routes/tenant.php
+                // based on identification_method config
                 Route::namespace(static::$controllerNamespace)
                     ->group(base_path('routes/tenant.php'));
             }

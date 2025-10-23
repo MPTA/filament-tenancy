@@ -7,6 +7,8 @@ use Filament\Resources\Pages\CreateRecord;
 use Filament\Support\Facades\FilamentView;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Str;
 use TomatoPHP\FilamentTenancy\Models\Tenant;
 use Throwable;
@@ -68,23 +70,19 @@ class CreateTenant extends CreateRecord
         sleep(2);
         
         try {
-            if (!config('filament-tenancy.single_database')) {
-                $dbName = config('tenancy.database.prefix') . Str::slug($record->name, '_') . config('tenancy.database.suffix');
-                config(['database.connections.dynamic.database' => $dbName]);
-            }
-            DB::purge('dynamic');
-
+            // For multi-schema, use dynamic connection which automatically switches to tenant schema
             DB::connection('dynamic')->getPdo();
         } catch (\Exception $e) {
             // If database connection fails, try to run migrations and seeders manually
             try {
-                \Artisan::call('tenants:migrate', ['--tenants' => $record->id]);
-                \Artisan::call('tenants:seed', ['--tenants' => $record->id]);
+                Artisan::call('tenants:migrate', ['--tenants' => $record->id]);
+                Artisan::call('tenants:seed', ['--tenants' => $record->id]);
                 
                 // Try connection again
                 DB::connection('dynamic')->getPdo();
             } catch (\Exception $e2) {
-                throw new \Exception("Failed to connect to tenant database: {$dbName}. Error: " . $e2->getMessage());
+                // Log the error but don't fail the creation
+                Log::info("Failed to connect to tenant schema for {$record->id}: " . $e2->getMessage());
             }
         }
 
@@ -96,23 +94,35 @@ class CreateTenant extends CreateRecord
             'updated_at' => date('Y-m-d H:i:s')
         ];
 
-        $user = DB::connection('dynamic')
-            ->table('users')
-            ->where('email', $record->email);
-
-
         if (config('filament-tenancy.single_database')) {
-            $user = $user->where('tenant_id', $record->id);
-
             $data['tenant_id'] = $record->id;
-        }
+            
+            // Use Eloquent model for UUID support
+            $userModelClass = config('filament-tenancy.tenant_user_model', \App\Models\User::class);
+            
+            // Initialize tenant context for proper tenant_id assignment
+            tenancy()->initialize($record);
+            
+            $userModelClass::updateOrCreate(
+                [
+                    'email' => $data['email'],
+                    'tenant_id' => $record->id,
+                ],
+                $data
+            );
+        } else {
+            // Use DB query builder for multi-database mode
+            $user = DB::connection('dynamic')
+                ->table('users')
+                ->where('email', $record->email);
 
-        $user->updateOrInsert(
-            [
-                'email' => $data['email'],
-            ],
-            $data,
-        );
+            $user->updateOrInsert(
+                [
+                    'email' => $data['email'],
+                ],
+                $data,
+            );
+        }
 
         $this->redirect($redirectUrl, navigate: FilamentView::hasSpaMode() && is_app_url($redirectUrl));
     }
@@ -123,10 +133,10 @@ class CreateTenant extends CreateRecord
      */
     private function createTenantRecord(array $data)
     {
-        \Log::info("Saving Tenant");
+        Log::info("Saving Tenant");
         $record = new Tenant(collect($data)->except('domain')->toArray());
         $record->saveOrFail();
-        \Log::info("Saving Domains");
+        Log::info("Saving Domains");
         $record = $record::find($record->id);
         $record->domains()->create(['domain' => collect($data)->get('domain')]);
         return $record;
