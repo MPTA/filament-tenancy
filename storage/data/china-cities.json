@@ -26419,7 +26419,7 @@
     },
     {
         "id": 149263,
-        "name": "NanJing",
+        "name": "Nanjing",
         "state_id": 2250,
         "state_code": "JS",
         "state_name": "Jiangsu",
@@ -26431,20 +26431,20 @@
         "native": "南京",
         "timezone": "Asia\/Shanghai",
         "translations": {
-            "br": "NanJing",
+            "br": "Nanjing",
             "ko": "난징",
             "pt_BR": "Nanquim",
             "pt": "Nanquim",
-            "nl": "NanJing",
+            "nl": "Nanjing",
             "hr": "Nanjing",
             "fa": "نانجینگ",
-            "de": "NanJing",
+            "de": "Nanjing",
             "es": "Nanjing",
             "fr": "Nanjing",
             "ja": "南京",
             "it": "Nanchino",
             "zh_CN": "南京",
-            "tr": "NanJing",
+            "tr": "Nanjing",
             "ru": "Нанкин",
             "uk": "Нанкін",
             "pl": "Nankin",
@@ -26452,7 +26452,7 @@
             "ar": "نانجينغ"
         },
         "wikiDataId": "Q16666",
-        "code": "NanJing"
+        "code": "NKG"
     },
     {
         "id": 149268,
@@ -39110,7 +39110,7 @@
     },
     {
         "id": 19941,
-        "name": "Nanjing",
+        "name": "Nanjing Taiwan",
         "state_id": 2255,
         "state_code": "TW",
         "state_name": "Taiwan",
@@ -39143,7 +39143,7 @@
             "ar": "نانجينغ"
         },
         "wikiDataId": "Q16666",
-        "code": "NKG"
+        "code": "Nanjing"
     },
     {
         "id": 19949,
@@ -44694,43 +44694,6 @@
         },
         "wikiDataId": "Q1016730",
         "code": "Gejiu"
-    },
-    {
-        "id": 19585,
-        "name": "Haikou",
-        "state_id": 2260,
-        "state_code": "YN",
-        "state_name": "Yunnan",
-        "country_id": 45,
-        "country_code": "CN",
-        "country_name": "China",
-        "latitude": "24.77985000",
-        "longitude": "102.57548000",
-        "native": "海口",
-        "timezone": "Asia\/Shanghai",
-        "translations": {
-            "br": "Haikou",
-            "ko": "하이커우",
-            "pt_BR": "Haikou",
-            "pt": "Haikou",
-            "nl": "Haikou",
-            "hr": "Haikou",
-            "fa": "هایکو",
-            "de": "Haikou",
-            "es": "Haikou",
-            "fr": "Haikou",
-            "ja": "海口",
-            "it": "Haikou",
-            "zh_CN": "海口",
-            "tr": "Haikou",
-            "ru": "Хайкоу",
-            "uk": "Хайкоу",
-            "pl": "Haikou",
-            "hi": "हाइको",
-            "ar": "هايكو"
-        },
-        "wikiDataId": "Q189823",
-        "code": "HAK"
     },
     {
         "id": 19625,
