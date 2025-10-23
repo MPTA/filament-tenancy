@@ -14,6 +14,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->group('universal', [
+            \TomatoPHP\FilamentTenancy\Middleware\InitializeTenancyByPath::class,
             InitializeTenancyByDomain::class,
             InitializeTenancyBySubdomain::class,
         ]);

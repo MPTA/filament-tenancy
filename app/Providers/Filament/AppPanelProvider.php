@@ -27,7 +27,7 @@ class AppPanelProvider extends PanelProvider
     {
         return $panel
             ->id('app')
-            ->path('app')
+            ->path(config('filament-tenancy.identification_method') === 'path' ? 'tenants/{tenant}/app' : 'app')
             ->brandName(fn () => app()->getLocale() === 'zh_CN' ? '应用面板' : 'App')
             ->colors([
                 'primary' => Color::Pink,

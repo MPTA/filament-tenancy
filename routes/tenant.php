@@ -15,9 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware([
+// Check if path-based identification is enabled
+$prefix = config('filament-tenancy.identification_method') === 'path' ? '/tenants/{tenant}' : '';
+
+Route::prefix($prefix)->middleware([
     'web',
-    \TomatoPHP\FilamentTenancy\FilamentTenancyServiceProvider::TENANCY_IDENTIFICATION,
+    \TomatoPHP\FilamentTenancy\FilamentTenancyServiceProvider::getTenancyIdentificationMiddleware(),
 ])->group(function () {
     if(config('filament-tenancy.features.impersonation')) {
         Route::get('/login/url', [\TomatoPHP\FilamentTenancy\Http\Controllers\LoginUrl::class, 'index']);
