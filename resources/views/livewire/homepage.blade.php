@@ -6,7 +6,7 @@
                 <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path>
                 </svg>
-                <span class="self-center text-2xl font-bold whitespace-nowrap dark:text-white">TripMaker</span>
+                <span class="self-center text-2xl font-bold whitespace-nowrap dark:text-white">MPTA</span>
             </a>
             <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                 <!-- Dark Mode Toggle -->
@@ -449,7 +449,7 @@
                         <svg class="w-8 h-8 text-blue-600 me-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path>
                         </svg>
-                        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">TripMaker</span>
+                        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">MPTA</span>
                     </a>
                     <p class="mt-4 text-sm text-gray-500 dark:text-gray-400 max-w-xs">Professional quotation and itinerary system designed specifically for DMC agencies worldwide.</p>
                 </div>
@@ -481,7 +481,7 @@
             </div>
             <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
             <div class="sm:flex sm:items-center sm:justify-between">
-                <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© {{ date('Y') }} <a href="/" class="hover:underline">TripMaker™</a>. All Rights Reserved.</span>
+                <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© {{ date('Y') }} <a href="/" class="hover:underline">MPTA</a>. All Rights Reserved.</span>
                 <div class="flex mt-4 sm:justify-center sm:mt-0">
                     <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
                         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
